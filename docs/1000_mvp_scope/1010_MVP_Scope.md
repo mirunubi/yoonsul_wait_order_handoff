@@ -2,6 +2,22 @@
 
 ## Included
 
+## MVP Mode Principle
+
+The MVP is not one universal mode for every store.
+
+The MVP must support at least:
+
+- Mini Kiosk Only.
+- Waiting + Mini Kiosk.
+- Waiting + Staff/Admin handoff.
+
+Store Agent / Printer is an optional extension.
+
+POS API integration is later or store-specific.
+
+Our payment-performing mode is not the early default.
+
 ### Customer Entry
 
 - QR, NFC, or direct URL entry into a store context

@@ -39,6 +39,7 @@ These governance files live under `docs/`. They are not project-root files.
 | --- | --- | --- |
 | `docs/1000_mvp_scope/1000_MVP_Scope_Readme.md` | MVP scope folder scope. | initial |
 | `docs/1000_mvp_scope/1010_MVP_Scope.md` | MVP included, deferred, role, and status scope. | moved |
+| `docs/1000_mvp_scope/1020_Store_Type_And_Product_Package_Strategy.md` | Store type classification, BM 3-A/3-B adoption strategy, payment separation, and product package strategy. | active |
 
 ## 5 docs/2000_saas_runtime
 
@@ -65,12 +66,14 @@ These governance files live under `docs/`. They are not project-root files.
 | --- | --- | --- |
 | `docs/5000_data_model_state_machine/5000_Data_Model_State_Machine_Readme.md` | Conceptual data model and state machine folder scope. | initial |
 | `docs/5000_data_model_state_machine/5010_Data_Model_Draft.md` | Conceptual entity and table draft. | moved |
+| `docs/5000_data_model_state_machine/5020_Handoff_State_Machine.md` | Conceptual customer, waiting, handoff, Mini Kiosk, and store runtime visibility state machine. | active |
 
 ## 9 docs/6000_integration_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/6000_integration_boundary/6000_Integration_Boundary_Readme.md` | POS, KDS, payment, printer, tablet order, and external boundary. | initial |
+| `docs/6000_integration_boundary/6010_POS_Payment_Printer_Integration_Boundary.md` | High-level POS API, payment, printer, Store Agent, and Full OS adoption boundary. | active |
 
 ## 10 docs/7000_app_api_projection
 

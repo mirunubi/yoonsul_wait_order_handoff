@@ -4,13 +4,182 @@
 
 Core domains:
 
+- Tenant
 - Store
+- Store Runtime
+- Customer Session
 - Store Access Context
 - Waiting Session
+- Handoff Session
+- Mini Kiosk Session
 - Menu
 - Cart
-- Order Candidate
+- Menu Snapshot
+- Order Intent
 - Staff Handoff
+- Staff Action
+- Handoff Event
+- Audit Event
+
+## Conceptual Entity Layer
+
+This section is conceptual only.
+It does not define SQL, migrations, final schema, or implementation fields.
+
+### tenant
+
+Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.
+
+Conceptual attributes:
+
+- tenant identity
+- tenant display name
+- tenant status
+- tenant-level policy boundary
+
+### store
+
+Represents one store runtime location within a tenant or standalone MVP context.
+
+Conceptual attributes:
+
+- store identity
+- store display name
+- store access context
+- supported service modes
+- supported languages
+
+### store_runtime
+
+Represents current store operation visibility for customer and staff handoff.
+
+Conceptual attributes:
+
+- runtime visibility state
+- staff availability signal
+- waiting pressure signal
+- delay or degraded operation signal
+- manual recovery signal
+
+### customer_session
+
+Represents the customer-facing session created from QR, NFC, link, or Mini Kiosk entry.
+
+Conceptual attributes:
+
+- customer session identity
+- selected language
+- current mode
+- linked waiting session
+- linked handoff session
+- expiration boundary
+
+### waiting_session
+
+Represents the customer's waiting lifecycle before handoff.
+
+Conceptual attributes:
+
+- waiting identity
+- customer session relationship
+- store relationship
+- waiting status
+- party or visit context
+- called, arrived, no-show, cancellation, and handoff markers
+
+### handoff_session
+
+Represents the operational bridge between customer order intent and store confirmation.
+
+Conceptual attributes:
+
+- handoff identity
+- customer session relationship
+- waiting session relationship when available
+- order intent relationship
+- table or pickup context
+- store review status
+- confirmation or recovery status
+
+### mini_kiosk_session
+
+Represents a lightweight ordering session that does not require waiting management.
+
+Conceptual attributes:
+
+- Mini Kiosk session identity
+- selected language
+- menu browsing status
+- order intent relationship
+- staff help request status
+- expiration boundary
+
+### menu_snapshot
+
+Represents the menu state shown to the customer when order intent is captured.
+
+Conceptual attributes:
+
+- menu snapshot identity
+- store relationship
+- language display version
+- item availability view
+- option availability view
+- price display view
+
+### order_intent
+
+Represents the customer's pre-confirmation order candidate.
+
+Conceptual attributes:
+
+- order intent identity
+- customer session relationship
+- handoff session relationship
+- menu snapshot relationship
+- selected items and options
+- estimated total
+- customer note
+- store review status
+
+### staff_action
+
+Represents a staff action that changes waiting, handoff, confirmation, cancellation, or recovery state.
+
+Conceptual attributes:
+
+- staff action identity
+- staff actor context
+- action type
+- target session
+- reason or note
+- visible result
+
+### handoff_event
+
+Represents a customer or staff event that changes the handoff timeline.
+
+Conceptual attributes:
+
+- event identity
+- event type
+- event source
+- related customer session
+- related waiting or handoff session
+- event time
+
+### audit_event
+
+Represents an audit-visible record for important state changes and recovery decisions.
+
+Conceptual attributes:
+
+- audit identity
+- actor context
+- action summary
+- before and after state reference
+- reason
+- audit time
 
 ## Entity Draft
 

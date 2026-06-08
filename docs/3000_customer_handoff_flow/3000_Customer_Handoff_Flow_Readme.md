@@ -11,11 +11,16 @@ This folder defines customer-facing waiting, preorder, arrival, seat/table, Mini
 - Mini Kiosk flow.
 - Customer and staff handoff moments.
 
-## 3 Out Of Scope
+## 3 Document List
+
+| document | description |
+| --- | --- |
+| `3010_User_Flow.md` | Defines customer-facing handoff modes, stages, staff confirmation, preparation visibility, notification, failure, and recovery flow. |
+
+## 4 Out Of Scope
 
 - App implementation, UI code, API code, payment, and POS automation.
 
-## 4 Current Status
+## 5 Current Status
 
 Status: initial customer handoff namespace. No app implementation.
-

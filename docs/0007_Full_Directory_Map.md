@@ -40,6 +40,7 @@ docs/
   1000_mvp_scope/
     1000_MVP_Scope_Readme.md
     1010_MVP_Scope.md
+    1020_Store_Type_And_Product_Package_Strategy.md
   2000_saas_runtime/
     2000_SaaS_Runtime_Readme.md
   3000_customer_handoff_flow/
@@ -50,8 +51,10 @@ docs/
   5000_data_model_state_machine/
     5000_Data_Model_State_Machine_Readme.md
     5010_Data_Model_Draft.md
+    5020_Handoff_State_Machine.md
   6000_integration_boundary/
     6000_Integration_Boundary_Readme.md
+    6010_POS_Payment_Printer_Integration_Boundary.md
   7000_app_api_projection/
     7000_App_Api_Projection_Readme.md
   8000_validation_security_audit/
