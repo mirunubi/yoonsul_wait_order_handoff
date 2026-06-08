@@ -63,7 +63,13 @@ Additional hard stops:
 - integration level is assumed without validation record.
 - export or support access lacks audit envelope definition.
 
-## 5 Non-Implementation Boundary
+## 5 Security Governance Consolidation Cross-Reference
+
+Implementation readiness must review `docs/20000_validation_security_audit/20080_Access_Context_And_Data_Visibility_Governance.md` through `docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md` before implementation approval.
+
+Security/audit/privacy governance does not create implementation, but it is a hard gate.
+
+## 6 Non-Implementation Boundary
 
 - no schema.
 - no migration.
@@ -75,20 +81,20 @@ Additional hard stops:
 Passing readiness gates enables a future implementation planning wave only.
 It does not create implementation artifacts.
 
-## 6 Cross-References
+## 7 Cross-References
 
 - `docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md`
 - `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`
 - `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`
 - `docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md`
 
-## 7 Open Decisions
+## 8 Open Decisions
 
 - who approves readiness.
 - whether approval is by document sign-off or commit tag.
 - whether implementation starts as prototype or production path.
 - whether schema design gets separate wave.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active implementation readiness gate. Not implementation approval.

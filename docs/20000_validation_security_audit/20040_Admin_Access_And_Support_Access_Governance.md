@@ -75,6 +75,13 @@ Conceptual sensitivity classes:
 - tenant visibility does not imply cross-tenant visibility.
 - report visibility does not imply downloadable export authority.
 
+## 6.1 Security Governance Consolidation Cross-Reference
+
+- Access context/data visibility governance is refined in `docs/20000_validation_security_audit/20080_Access_Context_And_Data_Visibility_Governance.md`.
+- Support access/masking/scoped session governance is refined in `docs/20000_validation_security_audit/20090_Support_Access_Masking_And_Scoped_Session_Governance.md`.
+- Support access does not equal approval.
+- Support visibility does not equal mutation authority.
+
 ## 7 Open Decisions
 
 - support access approval depth.

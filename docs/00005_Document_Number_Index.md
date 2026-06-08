@@ -145,6 +145,11 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/20000_validation_security_audit/20050_Data_Export_And_Report_Approval_Governance.md | 20050 Data Export And Report Approval Governance. | active |
 | docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md | 20060 Anonymization And Pseudonymization Standard. | active |
 | docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md | 20070 Audit Evidence And Compliance Record Model. | active |
+| docs/20000_validation_security_audit/20080_Access_Context_And_Data_Visibility_Governance.md | 20080 Access Context And Data Visibility Governance. | active |
+| docs/20000_validation_security_audit/20090_Support_Access_Masking_And_Scoped_Session_Governance.md | 20090 Support Access Masking And Scoped Session Governance. | active |
+| docs/20000_validation_security_audit/20100_Export_Report_And_Benchmark_Governance.md | 20100 Export Report And Benchmark Governance. | active |
+| docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md | 20110 Retention Deletion Anonymization Consolidation. | active |
+| docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md | 20120 Audit Evidence Packet And Compliance Readiness. | active |
 
 ## 12 docs/15000_membership_loyalty
 

@@ -80,6 +80,12 @@ Analytics exports must follow `20050` approval and audit rules.
 
 Analytics visibility does not equal export authority.
 
+## 7.1 Security Governance Consolidation Cross-Reference
+
+- Export/report/benchmark governance is consolidated in `docs/20000_validation_security_audit/20100_Export_Report_And_Benchmark_Governance.md`.
+- Cross-tenant benchmark is prohibited by default.
+- Export remains higher risk than view.
+
 ## 8 Open Decisions
 
 - supported formats.

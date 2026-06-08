@@ -60,6 +60,12 @@ Schema readiness must review `docs/09000_data_model_state_machine/09070_Context_
 
 Conceptual entity/state refinement does not equal schema approval.
 
+## 5.1 Security Governance Consolidation Cross-Reference
+
+Schema readiness must review `docs/20000_validation_security_audit/20080_Access_Context_And_Data_Visibility_Governance.md` access context, `docs/20000_validation_security_audit/20090_Support_Access_Masking_And_Scoped_Session_Governance.md` support/masking, `docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md` retention/anonymization, and `docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md` audit evidence readiness.
+
+Physical schema must not be designed before these boundaries are reviewed.
+
 ## 6 Cross-References
 
 - `docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md`

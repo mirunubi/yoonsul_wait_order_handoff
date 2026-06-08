@@ -137,6 +137,11 @@ docs/
     20050_Data_Export_And_Report_Approval_Governance.md
     20060_Anonymization_And_Pseudonymization_Standard.md
     20070_Audit_Evidence_And_Compliance_Record_Model.md
+    20080_Access_Context_And_Data_Visibility_Governance.md
+    20090_Support_Access_Masking_And_Scoped_Session_Governance.md
+    20100_Export_Report_And_Benchmark_Governance.md
+    20110_Retention_Deletion_Anonymization_Consolidation.md
+    20120_Audit_Evidence_Packet_And_Compliance_Readiness.md
   22000_implementation_planning/
     22000_Implementation_Planning_Readme.md
     22010_Implementation_Readiness_Gate.md
@@ -186,7 +191,7 @@ docs/
 | docs/13000_app_api_projection | Surface-to-authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP boundaries. Not endpoint implementation. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI surface-to-authority composition, integration wording, button/badge governance, customer/Mini Kiosk wording, admin/support recovery UI, future non-MVP surfaces, and wireframe boundary. Not UI implementation. |
-| docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
+| docs/20000_validation_security_audit | Access visibility, support masking/session, export/report/benchmark, retention/deletion/anonymization, and audit evidence compliance governance. Not security runtime. |
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |
 | docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |

@@ -80,6 +80,12 @@ Runtime support and incident operation evidence must follow `docs/24000_deployme
 
 Runbook-driven actions must still generate audit evidence per this document.
 
+## 6.1 Security Governance Consolidation Cross-Reference
+
+- Audit evidence packet/compliance readiness is refined in `docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md`.
+- Evidence does not equal approval.
+- Integration attempts, support actions, runtime changes, exports, and incidents require traceable evidence principles.
+
 ## 7 Open Decisions
 
 - audit retention period.
