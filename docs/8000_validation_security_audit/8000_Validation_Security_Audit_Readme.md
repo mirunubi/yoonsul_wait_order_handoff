@@ -11,6 +11,8 @@ This folder defines validation, audit, security, privacy, and operational safety
 - Privacy and operational safety boundaries.
 - SaaS runtime data capture governance.
 - Cross-entity data sharing and privacy boundary.
+- Retention, deletion, archival, and tenant offboarding governance.
+- Admin access, support access, export approval, anonymization, pseudonymization, and audit evidence governance.
 
 ## 3 Document List
 
@@ -18,6 +20,11 @@ This folder defines validation, audit, security, privacy, and operational safety
 | --- | --- |
 | `8010_SaaS_Data_Capture_And_Governance_Principle.md` | Defines SaaS runtime data capture categories, distinction rules, governance requirements, and non-MVP data use boundaries. |
 | `8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md` | Defines entity boundaries, data movement classes, default privacy safety rules, and future Franchise OS sharing limits. |
+| `8030_Data_Retention_And_Deletion_Policy.md` | Defines conceptual retention classes, deletion/archival rules, tenant offboarding flow, and production-readiness retention boundaries. |
+| `8040_Admin_Access_And_Support_Access_Governance.md` | Defines admin access contexts, scoped support sessions, sensitive data visibility, and forbidden access assumptions. |
+| `8050_Data_Export_And_Report_Approval_Governance.md` | Defines export/report categories, approval principles, risk levels, lifecycle, and forbidden export assumptions. |
+| `8060_Anonymization_And_Pseudonymization_Standard.md` | Defines conceptual anonymization, pseudonymization, aggregation, transformation principles, and re-identification guardrails. |
+| `8070_Audit_Evidence_And_Compliance_Record_Model.md` | Defines audit evidence categories, conceptual evidence fields, evidence principles, and compliance record uses. |
 
 ## 4 Out Of Scope
 

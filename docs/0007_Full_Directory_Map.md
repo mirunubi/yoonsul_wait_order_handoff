@@ -69,6 +69,11 @@ docs/
     8000_Validation_Security_Audit_Readme.md
     8010_SaaS_Data_Capture_And_Governance_Principle.md
     8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md
+    8030_Data_Retention_And_Deletion_Policy.md
+    8040_Admin_Access_And_Support_Access_Governance.md
+    8050_Data_Export_And_Report_Approval_Governance.md
+    8060_Anonymization_And_Pseudonymization_Standard.md
+    8070_Audit_Evidence_And_Compliance_Record_Model.md
   9000_future_expansion/
     9000_Future_Expansion_Readme.md
     9020_Membership_Loyalty_Point_Future_Model.md

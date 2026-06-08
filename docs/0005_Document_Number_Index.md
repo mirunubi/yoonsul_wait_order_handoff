@@ -96,6 +96,11 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/8000_validation_security_audit/8000_Validation_Security_Audit_Readme.md` | Validation, audit, security, privacy, and operational safety principles. | initial |
 | `docs/8000_validation_security_audit/8010_SaaS_Data_Capture_And_Governance_Principle.md` | SaaS runtime data capture categories, distinction rules, governance requirements, and non-MVP secondary use boundaries. | active |
 | `docs/8000_validation_security_audit/8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md` | Cross-entity data movement, privacy, export, support access, and future Franchise OS sharing boundary. | active |
+| `docs/8000_validation_security_audit/8030_Data_Retention_And_Deletion_Policy.md` | Conceptual data retention, deletion, archival, and tenant offboarding governance. | active |
+| `docs/8000_validation_security_audit/8040_Admin_Access_And_Support_Access_Governance.md` | Admin access, scoped support session, sensitive data visibility, and access boundary governance. | active |
+| `docs/8000_validation_security_audit/8050_Data_Export_And_Report_Approval_Governance.md` | Data export/report approval, risk level, lifecycle, and audit governance. | active |
+| `docs/8000_validation_security_audit/8060_Anonymization_And_Pseudonymization_Standard.md` | Conceptual anonymization, pseudonymization, aggregation, and re-identification risk standard. | active |
+| `docs/8000_validation_security_audit/8070_Audit_Evidence_And_Compliance_Record_Model.md` | Audit evidence and compliance record model for access, export, retention, recovery, and future handoff review. | active |
 
 ## 12 docs/9000_future_expansion
 

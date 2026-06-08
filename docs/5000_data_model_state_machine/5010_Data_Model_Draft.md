@@ -84,6 +84,23 @@ It does not define SQL or physical columns.
 - `recommendation_review`: conceptual review and approval record for future recommendations.
 - `recommendation_application_event`: audit-visible event for controlled application of an approved recommendation.
 
+## Security And Audit Governance Conceptual Entities
+
+This section is conceptual only.
+It does not define SQL or physical columns.
+
+- `data_retention_policy`: conceptual policy that maps data category and sensitivity to retention, archival, and deletion direction.
+- `data_deletion_request`: conceptual request to delete, mask, or minimize eligible data while preserving required audit integrity.
+- `tenant_offboarding_export`: conceptual export package and workflow for tenant offboarding.
+- `support_access_session`: scoped, time-bounded support access context for support_operator actions.
+- `access_review_event`: audit-visible event for reviewing admin, support, export, or sensitive data access.
+- `data_export_request`: conceptual request to generate or deliver a report, export, dataset, or future intelligence package.
+- `data_export_package`: conceptual package produced from an approved export request.
+- `anonymization_rule`: conceptual rule for removing identifiers and reducing re-identification risk.
+- `pseudonymization_rule`: conceptual rule for replacing identifiers while preserving controlled linkage.
+- `audit_evidence_record`: conceptual evidence record for high-risk access, change, export, retention, deletion, recovery, and support actions.
+- `compliance_review_record`: conceptual record for legal, policy, support, tenant dispute, or future Franchise OS handoff review.
+
 ### tenant
 
 Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.
