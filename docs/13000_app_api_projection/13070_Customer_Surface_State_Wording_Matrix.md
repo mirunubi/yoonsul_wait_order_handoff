@@ -69,7 +69,16 @@ Recovery wording must not hide uncertainty as completed order.
 - staff-assisted mode may display "Please show this screen to staff."
 - menu translation should not change order/payment authority meaning.
 
-## 7 Open Decisions
+## 7 Membership / Loyalty Wording Cross-Reference
+
+Customer-facing benefit/coupon/point wording must follow `docs/15000_membership_loyalty/` boundaries.
+
+- benefit preview does not equal redemption.
+- point placeholder does not equal point balance.
+
+See also `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md` and `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md`.
+
+## 8 Open Decisions
 
 - Korean/English/Japanese/Chinese initial wording set.
 - whether icons can replace text.
@@ -77,7 +86,7 @@ Recovery wording must not hide uncertainty as completed order.
 - customer notification templates.
 - no-show wording.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active customer wording projection. No implementation approval.
 

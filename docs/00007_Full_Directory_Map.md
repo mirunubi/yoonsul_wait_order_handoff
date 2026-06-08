@@ -79,6 +79,11 @@ docs/
     13080_Store_Admin_Support_Action_Authority_Matrix.md
   15000_membership_loyalty/
     15000_Membership_Loyalty_Readme.md
+    15010_Membership_Loyalty_Product_Boundary.md
+    15020_Lightweight_Coupon_And_Stamp_Future_Model.md
+    15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md
+    15040_External_Membership_Bridge_Future_Boundary.md
+    15050_Membership_Admin_And_UI_Reserved_Surface.md
   17000_ui_screen_composition/
     17000_Ui_Screen_Composition_Readme.md
     17010_Customer_Webapp_UI_Composition.md
@@ -128,7 +133,7 @@ docs/
 | docs/09000_data_model_state_machine | Conceptual data model and state machine only. |
 | docs/11000_integration_boundary | POS, KDS, payment, printer, tablet order, and external system boundary. |
 | docs/13000_app_api_projection | Future customer web, store console, admin console, and API contract projection. |
-| docs/15000_membership_loyalty | Reserved membership, loyalty, coupon, stamp, and point documentation band. |
+| docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
 | docs/22000_implementation_planning | Reserved implementation planning, build sequence, and QA planning band. |
@@ -139,7 +144,7 @@ docs/
 
 ## 5 Reserved Band Notes
 
-`15000~16999` is a reserved landing band. Membership and point future references currently remain in `docs/28000_future_expansion/`.
+`15000~16999` is the active membership/loyalty boundary documentation band. Historical future references also remain in `docs/28000_future_expansion/` until a separate migration is approved.
 
 `17000~19999` holds the initial UI screen composition detail wave. This band is documentation projection only, not UI implementation.
 

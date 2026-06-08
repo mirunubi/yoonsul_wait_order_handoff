@@ -122,6 +122,11 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs/15000_membership_loyalty/15000_Membership_Loyalty_Readme.md | 15000 Membership Loyalty Readme. | initial |
+| docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md | 15010 Membership Loyalty Product Boundary. | active |
+| docs/15000_membership_loyalty/15020_Lightweight_Coupon_And_Stamp_Future_Model.md | 15020 Lightweight Coupon And Stamp Future Model. | future-reserved |
+| docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md | 15030 Point Ledger And Wallet Non Implementation Boundary. | active |
+| docs/15000_membership_loyalty/15040_External_Membership_Bridge_Future_Boundary.md | 15040 External Membership Bridge Future Boundary. | future-reserved |
+| docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md | 15050 Membership Admin And Ui Reserved Surface. | future-reserved |
 
 ## 13 docs/17000_ui_screen_composition
 

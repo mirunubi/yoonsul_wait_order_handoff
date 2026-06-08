@@ -75,7 +75,14 @@ Conceptual navigation groups:
 
 ## 5 Future Membership / Point Placeholder
 
-Membership/point is future-reserved under 9000.
+Membership/point navigation must remain future-reserved unless `docs/15000_membership_loyalty/` docs approve active runtime.
+
+Primary boundary references:
+
+- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
+- `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md`
+
+Admin screen placeholders must not imply active point ledger, wallet, or bridge.
 
 Admin Console may show placeholder/reserved navigation only.
 

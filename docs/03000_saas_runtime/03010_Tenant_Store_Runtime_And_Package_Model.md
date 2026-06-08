@@ -425,7 +425,19 @@ A store without POS API or platform payment must not display "order completed" b
 
 ## 12 Membership / Point Future Reservation
 
-Membership/point is deferred to `docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md` and `docs/28000_future_expansion/28030_Point_Bridge_And_Exchange_Future_Boundary.md`.
+Membership/loyalty optional SaaS boundary is defined in `docs/15000_membership_loyalty/`.
+
+Primary governance:
+
+- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
+- `docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md`
+- `docs/15000_membership_loyalty/15040_External_Membership_Bridge_Future_Boundary.md`
+
+Historical/future context also remains in `docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md` and `docs/28000_future_expansion/28030_Point_Bridge_And_Exchange_Future_Boundary.md` until a separate migration is approved.
+
+Active package flags must not enable point ledger, wallet, or external membership bridge by default.
+
+Any future loyalty feature flag must follow `15030` and `15040` boundaries.
 
 Current package plan must not silently enable:
 

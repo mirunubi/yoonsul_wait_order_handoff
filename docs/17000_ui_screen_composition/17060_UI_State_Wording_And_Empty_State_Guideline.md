@@ -70,15 +70,25 @@ Additional forbidden wording:
 - do not say table assigned unless store confirmed.
 - do not imply payment settlement, membership benefit, or kitchen execution without real authority.
 
-## 6 Cross-References
+## 6 Membership / Loyalty UI Wording Cross-Reference
+
+Future membership/coupon/point UI wording must follow `docs/15000_membership_loyalty/`.
+
+- do not show active point balance, wallet, or redemption UI in MVP.
+- coupon/benefit wording must avoid implying POS discount or settlement.
+
+See `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md`.
+
+## 7 Cross-References
 
 - `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
+- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
 - `docs/09000_data_model_state_machine/09020_Handoff_State_Machine.md`
 - `docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md`
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md`
 
-## 7 Open Decisions
+## 8 Open Decisions
 
 - Korean/English/Japanese/Chinese wording set.
 - icon usage.
@@ -86,6 +96,6 @@ Additional forbidden wording:
 - legal review of customer wording.
 - brand tone vs operational precision.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active shared UI state wording guideline. No implementation approval.
