@@ -213,3 +213,13 @@ Audit does not imply final database schema in this document.
 - Whether customer notification state belongs inside handoff session or separate notification history.
 - Whether Mini Kiosk confirmation can be customer-only in later phases or always staff-confirmed.
 - Whether store runtime visibility is staff-set, system-derived, or hybrid.
+
+## 12 Consolidation Cross-References
+
+Entity definitions are consolidated in `docs/5000_data_model_state_machine/5030_Conceptual_Entity_Master.md`.
+
+State/event ownership is defined in `docs/5000_data_model_state_machine/5040_State_And_Event_Ownership_Model.md`.
+
+Audit/recovery lineage is defined in `docs/5000_data_model_state_machine/5050_Audit_Recovery_Event_Lineage_Model.md`.
+
+Implementation is deferred by `docs/5000_data_model_state_machine/5060_Implementation_Deferred_Data_Model_Boundary.md`.

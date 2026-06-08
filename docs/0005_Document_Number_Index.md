@@ -75,6 +75,10 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/5000_data_model_state_machine/5000_Data_Model_State_Machine_Readme.md` | Conceptual data model and state machine folder scope. | initial |
 | `docs/5000_data_model_state_machine/5010_Data_Model_Draft.md` | Conceptual entity and table draft. | moved |
 | `docs/5000_data_model_state_machine/5020_Handoff_State_Machine.md` | Conceptual customer, waiting, handoff, Mini Kiosk, and store runtime visibility state machine. | active |
+| `docs/5000_data_model_state_machine/5030_Conceptual_Entity_Master.md` | Conceptual entity master consolidating SaaS, runtime, session, order intent, operation, admin, recovery, audit, compliance, and future intelligence entities. | active |
+| `docs/5000_data_model_state_machine/5040_State_And_Event_Ownership_Model.md` | State/event ownership, truth family, event authority, and forbidden ownership collapse model. | active |
+| `docs/5000_data_model_state_machine/5050_Audit_Recovery_Event_Lineage_Model.md` | Append-only audit and recovery event lineage model with evidence and recovery rules. | active |
+| `docs/5000_data_model_state_machine/5060_Implementation_Deferred_Data_Model_Boundary.md` | Boundary preventing conceptual 5000 docs from becoming premature schema, SQL, RPC, RLS, API, UI, payment, POS, printer, loyalty, Franchise OS, AI/CRM/ad implementation. | active |
 
 ## 9 docs/6000_integration_boundary
 

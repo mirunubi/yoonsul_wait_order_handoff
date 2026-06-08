@@ -60,6 +60,10 @@ docs/
     5000_Data_Model_State_Machine_Readme.md
     5010_Data_Model_Draft.md
     5020_Handoff_State_Machine.md
+    5030_Conceptual_Entity_Master.md
+    5040_State_And_Event_Ownership_Model.md
+    5050_Audit_Recovery_Event_Lineage_Model.md
+    5060_Implementation_Deferred_Data_Model_Boundary.md
   6000_integration_boundary/
     6000_Integration_Boundary_Readme.md
     6010_POS_Payment_Printer_Integration_Boundary.md

@@ -26,6 +26,20 @@ Core domains:
 This section is conceptual only.
 It does not define SQL, migrations, final schema, or implementation fields.
 
+## Consolidation Note
+
+`5010` is now a draft/candidate collection.
+
+`5030_Conceptual_Entity_Master.md` is the conceptual entity master.
+
+`5040_State_And_Event_Ownership_Model.md` is the state/event ownership model.
+
+`5050_Audit_Recovery_Event_Lineage_Model.md` is audit/recovery lineage.
+
+`5060_Implementation_Deferred_Data_Model_Boundary.md` is the implementation-deferred boundary.
+
+Future entity additions should be reflected in `5030` when stabilized.
+
 ## SaaS Runtime Conceptual Entities
 
 This section is conceptual only.
