@@ -65,6 +65,11 @@ docs/
     6010_POS_Payment_Printer_Integration_Boundary.md
   7000_app_api_projection/
     7000_App_Api_Projection_Readme.md
+    7010_App_Surface_And_Channel_Projection.md
+    7020_Customer_Webapp_Projection.md
+    7030_Store_Console_Projection.md
+    7040_Admin_Console_Projection.md
+    7050_Api_Contract_Projection_Boundary.md
   8000_validation_security_audit/
     8000_Validation_Security_Audit_Readme.md
     8010_SaaS_Data_Capture_And_Governance_Principle.md

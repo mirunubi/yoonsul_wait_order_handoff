@@ -88,6 +88,11 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/7000_app_api_projection/7000_App_Api_Projection_Readme.md` | Future app and API projection boundary. | initial |
+| `docs/7000_app_api_projection/7010_App_Surface_And_Channel_Projection.md` | Conceptual app surfaces, channel entry points, ownership boundaries, and non-implementation limits. | active |
+| `docs/7000_app_api_projection/7020_Customer_Webapp_Projection.md` | Customer-facing webapp modes, screens, wording rules, and privacy projection. | active |
+| `docs/7000_app_api_projection/7030_Store_Console_Projection.md` | Store console screens, staff actions, role access, and POS/payment claim boundaries. | active |
+| `docs/7000_app_api_projection/7040_Admin_Console_Projection.md` | Admin Console screen group, action, and authority projection based on 4000 governance. | active |
+| `docs/7000_app_api_projection/7050_Api_Contract_Projection_Boundary.md` | Conceptual API contract groups, authority principles, audit boundaries, and forbidden implementation. | active |
 
 ## 11 docs/8000_validation_security_audit
 

@@ -101,6 +101,23 @@ It does not define SQL or physical columns.
 - `audit_evidence_record`: conceptual evidence record for high-risk access, change, export, retention, deletion, recovery, and support actions.
 - `compliance_review_record`: conceptual record for legal, policy, support, tenant dispute, or future Franchise OS handoff review.
 
+## App And API Projection Conceptual Entities
+
+This section is conceptual only.
+It does not define SQL or physical columns.
+
+- `app_surface`: conceptual customer, Mini Kiosk, store, admin, support, owner, or analytics surface.
+- `channel_entry`: conceptual QR, NFC, tablet, shared link, waiting link, login, or support access entry route.
+- `customer_webapp_session`: conceptual customer-facing webapp session for waiting, browsing, cart, order candidate, and handoff.
+- `mini_kiosk_webapp_session`: conceptual customer-facing but store-assisted Mini Kiosk session.
+- `store_console_session`: conceptual staff or store manager operational console session.
+- `admin_console_session`: conceptual admin configuration, governance, approval, audit, and report session.
+- `support_console_session`: conceptual scoped and audited support console session.
+- `api_contract_group`: conceptual grouping of future API contracts by domain and authority boundary.
+- `api_action_authority`: conceptual authority rule for who may call or request an API action under role/context scope.
+- `api_audit_envelope`: conceptual audit wrapper for high-risk mutations, exports, support actions, and integration attempts.
+- `api_idempotency_key`: conceptual idempotency marker for future duplicate prevention on high-risk actions.
+
 ### tenant
 
 Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.
