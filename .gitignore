@@ -77,3 +77,12 @@ sop/
 scratch/
 _local/
 "@ | Set-Content .gitignore -Encoding utf8
+
+# Temporary search results
+_tmp_search_results/
+
+# Local directory snapshots
+directory_tree.txt
+tree_directory_view.txt
+docs/directory_tree.txt
+docs/tree_directory_view.txt
