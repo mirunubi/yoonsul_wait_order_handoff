@@ -154,6 +154,10 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/20000_validation_security_audit/20160_Suspicious_Activity_Review_And_Escalation_Governance.md | 20160 Suspicious Activity Review And Escalation Governance. | active |
 | docs/20000_validation_security_audit/20170_Cross_Tenant_Isolation_And_Data_Leakage_Prevention_Governance.md | 20170 Cross Tenant Isolation And Data Leakage Prevention Governance. | active |
 | docs/20000_validation_security_audit/20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md | 20180 Audit Evidence Packet And Runtime Forensics Governance. | active |
+| docs/20000_validation_security_audit/20190_Customer_Privacy_And_Consent_Governance.md | 20190 Customer Privacy And Consent Governance. | active |
+| docs/20000_validation_security_audit/20200_Staff_Privacy_And_Operational_Monitoring_Governance.md | 20200 Staff Privacy And Operational Monitoring Governance. | active |
+| docs/20000_validation_security_audit/20210_Payment_Boundary_And_Financial_Authority_Governance.md | 20210 Payment Boundary And Financial Authority Governance. | active |
+| docs/20000_validation_security_audit/20220_Admin_Console_Action_Safety_Governance.md | 20220 Admin Console Action Safety Governance. | active |
 
 ## 12 docs/15000_membership_loyalty
 

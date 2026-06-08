@@ -22,6 +22,10 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 - Suspicious activity review and escalation.
 - Cross-tenant isolation and data leakage prevention.
 - Runtime forensics and evidence packet governance.
+- Customer privacy and consent governance.
+- Staff privacy and operational monitoring governance.
+- Payment boundary and financial authority governance.
+- Admin console action safety governance.
 - Admin access, support access, export approval, and audit evidence governance.
 
 ## 3 Document List
@@ -44,12 +48,18 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 | `20160_Suspicious_Activity_Review_And_Escalation_Governance.md` | Suspicious activity review and escalation. |
 | `20170_Cross_Tenant_Isolation_And_Data_Leakage_Prevention_Governance.md` | Cross-tenant isolation and data leakage prevention. |
 | `20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md` | Runtime forensics and evidence packet governance. |
+| `20190_Customer_Privacy_And_Consent_Governance.md` | Customer privacy and consent governance. |
+| `20200_Staff_Privacy_And_Operational_Monitoring_Governance.md` | Staff privacy and operational monitoring governance. |
+| `20210_Payment_Boundary_And_Financial_Authority_Governance.md` | Payment boundary and financial authority governance. |
+| `20220_Admin_Console_Action_Safety_Governance.md` | Admin console action safety governance. |
 
 `20010`~`20070` are existing security/audit/privacy foundations.
 
 `20080`~`20120` consolidate access visibility, support masking/session governance, export/report/benchmark governance, retention/deletion/anonymization, and audit evidence readiness.
 
 `20150`~`20180` define runtime misuse prevention, suspicious activity review, cross-tenant isolation, and runtime forensics governance.
+
+`20190`~`20220` define customer privacy, staff monitoring, payment authority boundary, and admin console action safety governance.
 
 This domain remains governance-only and does not implement security runtime.
 

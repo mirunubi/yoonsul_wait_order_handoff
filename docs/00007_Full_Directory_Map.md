@@ -146,6 +146,10 @@ docs/
     20160_Suspicious_Activity_Review_And_Escalation_Governance.md
     20170_Cross_Tenant_Isolation_And_Data_Leakage_Prevention_Governance.md
     20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md
+    20190_Customer_Privacy_And_Consent_Governance.md
+    20200_Staff_Privacy_And_Operational_Monitoring_Governance.md
+    20210_Payment_Boundary_And_Financial_Authority_Governance.md
+    20220_Admin_Console_Action_Safety_Governance.md
   22000_implementation_planning/
     22000_Implementation_Planning_Readme.md
     22010_Implementation_Readiness_Gate.md
@@ -195,7 +199,7 @@ docs/
 | docs/13000_app_api_projection | Surface-to-authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP boundaries. Not endpoint implementation. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI surface-to-authority composition, integration wording, button/badge governance, customer/Mini Kiosk wording, admin/support recovery UI, future non-MVP surfaces, and wireframe boundary. Not UI implementation. |
-| docs/20000_validation_security_audit | Access visibility, support masking/session, export/report/benchmark, retention/deletion/anonymization, audit evidence compliance, runtime misuse prevention, suspicious activity review, cross-tenant isolation, and runtime forensics governance. Not security runtime. |
+| docs/20000_validation_security_audit | Access visibility, support masking/session, export/report/benchmark, retention/deletion/anonymization, audit evidence compliance, runtime misuse prevention, suspicious activity review, cross-tenant isolation, runtime forensics, customer privacy, staff monitoring, payment authority, and admin action safety governance. Not security runtime. |
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |
 | docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |
