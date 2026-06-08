@@ -41,6 +41,7 @@ docs/
     1000_MVP_Scope_Readme.md
     1010_MVP_Scope.md
     1020_Store_Type_And_Product_Package_Strategy.md
+    1030_Competitive_Positioning_And_Market_Context.md
   2000_saas_runtime/
     2000_SaaS_Runtime_Readme.md
     2010_Tenant_Store_Runtime_And_Package_Model.md
@@ -70,6 +71,7 @@ docs/
     9000_Future_Expansion_Readme.md
     9020_Membership_Loyalty_Point_Future_Model.md
     9030_Point_Bridge_And_Exchange_Future_Boundary.md
+    9040_Data_Ad_CRM_AI_Future_Expansion_Model.md
 ```
 
 `directory_tree.txt` and `tree_directory_view.txt` are temporary local snapshots. They are not governance documents.

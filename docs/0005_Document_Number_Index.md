@@ -40,6 +40,7 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/1000_mvp_scope/1000_MVP_Scope_Readme.md` | MVP scope folder scope. | initial |
 | `docs/1000_mvp_scope/1010_MVP_Scope.md` | MVP included, deferred, role, and status scope. | moved |
 | `docs/1000_mvp_scope/1020_Store_Type_And_Product_Package_Strategy.md` | Store type classification, BM 3-A/3-B adoption strategy, payment separation, and product package strategy. | active |
+| `docs/1000_mvp_scope/1030_Competitive_Positioning_And_Market_Context.md` | Market problem, competitive context, differentiation, messaging rules, and early MVP wedge. | active |
 
 ## 5 docs/2000_saas_runtime
 
@@ -101,6 +102,7 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/9000_future_expansion/9000_Future_Expansion_Readme.md` | Future franchise_os, Agent, Logical AI, Physical AI, analytics, and expansion references. | initial |
 | `docs/9000_future_expansion/9020_Membership_Loyalty_Point_Future_Model.md` | Future-reserved membership, loyalty, coupon, stamp, and point model boundary. | future-reserved |
 | `docs/9000_future_expansion/9030_Point_Bridge_And_Exchange_Future_Boundary.md` | Future-reserved point bridge and exchange boundary. | future-reserved |
+| `docs/9000_future_expansion/9040_Data_Ad_CRM_AI_Future_Expansion_Model.md` | Future-reserved data, advertising, CRM, analytics, and AI expansion boundary. | future-reserved |
 
 ## 13 External Boundary Reference
 
