@@ -93,6 +93,9 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/7000_app_api_projection/7030_Store_Console_Projection.md` | Store console screens, staff actions, role access, and POS/payment claim boundaries. | active |
 | `docs/7000_app_api_projection/7040_Admin_Console_Projection.md` | Admin Console screen group, action, and authority projection based on 4000 governance. | active |
 | `docs/7000_app_api_projection/7050_Api_Contract_Projection_Boundary.md` | Conceptual API contract groups, authority principles, audit boundaries, and forbidden implementation. | active |
+| `docs/7000_app_api_projection/7060_Surface_State_Visibility_And_Authority_Matrix.md` | Surface state visibility, requestable action, mutation authority, approval, audit, and forbidden action matrix. | active |
+| `docs/7000_app_api_projection/7070_Customer_Surface_State_Wording_Matrix.md` | Customer-facing wording by state, integration level, recovery/delay condition, and multilingual/Mini Kiosk boundary. | active |
+| `docs/7000_app_api_projection/7080_Store_Admin_Support_Action_Authority_Matrix.md` | Store, admin, support, legal, platform, and auditor action authority matrix. | active |
 
 ## 11 docs/8000_validation_security_audit
 

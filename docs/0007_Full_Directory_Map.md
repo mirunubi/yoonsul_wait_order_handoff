@@ -70,6 +70,9 @@ docs/
     7030_Store_Console_Projection.md
     7040_Admin_Console_Projection.md
     7050_Api_Contract_Projection_Boundary.md
+    7060_Surface_State_Visibility_And_Authority_Matrix.md
+    7070_Customer_Surface_State_Wording_Matrix.md
+    7080_Store_Admin_Support_Action_Authority_Matrix.md
   8000_validation_security_audit/
     8000_Validation_Security_Audit_Readme.md
     8010_SaaS_Data_Capture_And_Governance_Principle.md

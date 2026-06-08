@@ -117,6 +117,13 @@ It does not define SQL or physical columns.
 - `api_action_authority`: conceptual authority rule for who may call or request an API action under role/context scope.
 - `api_audit_envelope`: conceptual audit wrapper for high-risk mutations, exports, support actions, and integration attempts.
 - `api_idempotency_key`: conceptual idempotency marker for future duplicate prevention on high-risk actions.
+- `surface_visibility_rule`: conceptual rule describing which surface may view a state family under context scope.
+- `state_visibility_matrix`: conceptual mapping of surface, visible state, requestable action, approval, audit, and forbidden action.
+- `customer_wording_rule`: conceptual rule for customer-facing wording by state and confirmation authority.
+- `integration_wording_policy`: conceptual wording policy by integration level such as staff screen, Store Agent, printer, POS API, or Full OS.
+- `action_authority_rule`: conceptual rule defining which roles can request, perform, approve, or only view an action.
+- `action_escalation_rule`: conceptual escalation rule for unresolved recovery, printer, POS API, payment, export, or support cases.
+- `authority_approval_requirement`: conceptual approval requirement attached to high-risk actions and authority changes.
 
 ### tenant
 

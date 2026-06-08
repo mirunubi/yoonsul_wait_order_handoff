@@ -89,7 +89,14 @@ It must not expose active point balance, point redemption, wallet, or point ledg
 - report/export scope.
 - mobile admin vs desktop admin split.
 
-## 7 Current Status
+## 7 App/API Projection Cross-Reference
+
+Surface state visibility is defined in `docs/7000_app_api_projection/7060_Surface_State_Visibility_And_Authority_Matrix.md`.
+
+Customer wording matrix is defined in `docs/7000_app_api_projection/7070_Customer_Surface_State_Wording_Matrix.md`.
+
+Store/admin/support action authority is defined in `docs/7000_app_api_projection/7080_Store_Admin_Support_Action_Authority_Matrix.md`.
+
+## 8 Current Status
 
 Status: active admin console governance design.
-
