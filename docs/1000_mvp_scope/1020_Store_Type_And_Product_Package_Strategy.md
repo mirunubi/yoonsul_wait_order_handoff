@@ -249,3 +249,10 @@ Status: active MVP product package strategy.
 
 This document is development design only. It does not create SQL, migrations, app code, payment code, POS integration, printer protocol, or Store Agent implementation.
 
+## 12 Runtime Model Cross-Reference
+
+Package names must align with `docs/2000_saas_runtime/2010_Tenant_Store_Runtime_And_Package_Model.md`.
+
+Store type classification in this document is business-facing.
+
+Package plan and feature flags are SaaS runtime-facing.

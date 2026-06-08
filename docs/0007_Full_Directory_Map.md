@@ -43,6 +43,7 @@ docs/
     1020_Store_Type_And_Product_Package_Strategy.md
   2000_saas_runtime/
     2000_SaaS_Runtime_Readme.md
+    2010_Tenant_Store_Runtime_And_Package_Model.md
   3000_customer_handoff_flow/
     3000_Customer_Handoff_Flow_Readme.md
     3010_User_Flow.md

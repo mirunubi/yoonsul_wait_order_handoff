@@ -26,6 +26,24 @@ Core domains:
 This section is conceptual only.
 It does not define SQL, migrations, final schema, or implementation fields.
 
+## SaaS Runtime Conceptual Entities
+
+This section is conceptual only.
+It does not define SQL or physical columns.
+
+- `tenant`: SaaS customer boundary.
+- `tenant_account`: tenant-level account or contract context.
+- `tenant_user`: person or admin identity operating within a tenant.
+- `store`: operational unit under a tenant or standalone MVP context.
+- `store_runtime`: active operating mode for a store.
+- `store_package_plan`: package selected for a store.
+- `store_feature_flags`: explicit feature switches for store behavior.
+- `store_integration_profile`: integration level for POS, staff screen, Store Agent, printer, or Full OS.
+- `store_payment_profile`: payment authority mode for store POS, future platform payment, or Full OS payment control.
+- `store_language_profile`: languages exposed to customer-facing surfaces.
+- `store_menu_profile`: menu display and menu content readiness context.
+- `store_agent_profile`: Store Agent or local support capability context.
+
 ### tenant
 
 Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.

@@ -46,6 +46,7 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/2000_saas_runtime/2000_SaaS_Runtime_Readme.md` | Future SaaS tenant, account, billing, and store runtime boundary. | initial |
+| `docs/2000_saas_runtime/2010_Tenant_Store_Runtime_And_Package_Model.md` | SaaS tenant/store runtime, package plan, feature flag, integration profile, and payment profile model. | active |
 
 ## 6 docs/3000_customer_handoff_flow
 

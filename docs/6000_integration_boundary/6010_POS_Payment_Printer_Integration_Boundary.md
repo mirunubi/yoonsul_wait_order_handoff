@@ -110,3 +110,12 @@ Status: active integration boundary design.
 
 This document keeps integration high-level until store-specific technical capability is approved.
 
+## 9 Runtime Model Cross-Reference
+
+Integration levels must align with `docs/2000_saas_runtime/2010_Tenant_Store_Runtime_And_Package_Model.md`.
+
+Payment profile is independent from integration profile.
+
+POS API enabled does not automatically mean platform payment enabled.
+
+Store Agent/printer enabled does not automatically mean POS sales sync.
