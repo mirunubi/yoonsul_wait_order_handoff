@@ -44,6 +44,30 @@ It does not define SQL or physical columns.
 - `store_menu_profile`: menu display and menu content readiness context.
 - `store_agent_profile`: Store Agent or local support capability context.
 
+## Admin Console Conceptual Entities
+
+This section is conceptual only.
+It does not define SQL or physical columns.
+
+- `admin_user`: admin-side user identity for platform, tenant, company, legal, operating group, store, support, or audit context.
+- `admin_role_assignment`: conceptual assignment of an admin role to a context.
+- `admin_context_scope`: conceptual scope boundary such as tenant, company, legal entity, operating group, or store.
+- `admin_change_request`: requested package, feature, integration, payment profile, or runtime configuration change.
+- `admin_approval`: approval record for configuration or recovery actions requiring authority.
+- `runtime_config_change`: conceptual record of store runtime setting change.
+- `manual_recovery_item`: operational item requiring human recovery action.
+- `support_action`: support operator action or assistance record.
+- `audit_event`: audit-visible record for admin changes, recovery actions, support actions, and corrections.
+- `admin_screen_access_policy`: conceptual policy controlling screen visibility by role and context.
+- `admin_approval_workflow`: conceptual approval workflow for high-risk runtime changes.
+- `admin_config_version`: conceptual version marker for runtime configuration traceability.
+- `admin_audit_event`: audit-visible admin event for changes, approvals, exports, and recovery.
+- `recovery_queue`: conceptual queue grouping operational recovery items.
+- `recovery_queue_item`: individual recovery item requiring review or action.
+- `recovery_action`: append-only recovery action record.
+- `support_access_session`: scoped support access session for support_operator actions.
+- `export_audit_event`: audit-visible export/report action record.
+
 ### tenant
 
 Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.

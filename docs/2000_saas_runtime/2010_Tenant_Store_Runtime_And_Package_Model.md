@@ -460,3 +460,17 @@ Early MVP focuses on:
 ## 14 Current Status
 
 Status: active SaaS runtime design.
+
+## 15 Admin Console Cross-Reference
+
+Admin Console role/context handling is defined in `docs/4000_admin_console/4010_Admin_Console_Context_And_Role_Model.md`.
+
+Store runtime configuration handling is defined in `docs/4000_admin_console/4020_Admin_Store_Runtime_Configuration_Model.md`.
+
+Operational monitoring/recovery visibility is defined in `docs/4000_admin_console/4030_Admin_Operational_Monitoring_And_Recovery_Model.md`.
+
+Admin screen inventory is defined in `docs/4000_admin_console/4040_Admin_Screen_Inventory_And_Navigation_Model.md`.
+
+Admin approval workflow is defined in `docs/4000_admin_console/4050_Admin_Approval_Workflow_Model.md`.
+
+Admin audit/recovery queue governance is defined in `docs/4000_admin_console/4060_Admin_Audit_And_Recovery_Queue_Governance.md`.

@@ -60,6 +60,12 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/4000_admin_console/4000_Admin_Console_Readme.md` | Admin console role and scope boundary. | initial |
+| `docs/4000_admin_console/4010_Admin_Console_Context_And_Role_Model.md` | Admin Console context axes, role model, authority principles, and role boundaries. | active |
+| `docs/4000_admin_console/4020_Admin_Store_Runtime_Configuration_Model.md` | Admin Console package, feature flag, integration profile, payment profile, and change control model. | active |
+| `docs/4000_admin_console/4030_Admin_Operational_Monitoring_And_Recovery_Model.md` | Admin Console operational monitoring, manual recovery, Store Agent/printer visibility, and audit model. | active |
+| `docs/4000_admin_console/4040_Admin_Screen_Inventory_And_Navigation_Model.md` | Admin Console screen inventory, navigation groups, role-based access, and future placeholder boundaries. | active |
+| `docs/4000_admin_console/4050_Admin_Approval_Workflow_Model.md` | Admin Console approval workflow, high-risk change rules, emergency disable, and rollback principles. | active |
+| `docs/4000_admin_console/4060_Admin_Audit_And_Recovery_Queue_Governance.md` | Admin audit event categories, recovery queue lifecycle, recovery action rules, and export/report governance. | active |
 
 ## 8 docs/5000_data_model_state_machine
 

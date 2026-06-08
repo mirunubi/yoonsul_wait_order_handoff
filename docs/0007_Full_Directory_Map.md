@@ -49,6 +49,12 @@ docs/
     3010_User_Flow.md
   4000_admin_console/
     4000_Admin_Console_Readme.md
+    4010_Admin_Console_Context_And_Role_Model.md
+    4020_Admin_Store_Runtime_Configuration_Model.md
+    4030_Admin_Operational_Monitoring_And_Recovery_Model.md
+    4040_Admin_Screen_Inventory_And_Navigation_Model.md
+    4050_Admin_Approval_Workflow_Model.md
+    4060_Admin_Audit_And_Recovery_Queue_Governance.md
   5000_data_model_state_machine/
     5000_Data_Model_State_Machine_Readme.md
     5010_Data_Model_Draft.md
