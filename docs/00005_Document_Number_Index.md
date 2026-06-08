@@ -146,6 +146,12 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs/22000_implementation_planning/22000_Implementation_Planning_Readme.md | 22000 Implementation Planning Readme. | initial |
+| docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md | 22010 Implementation Readiness Gate. | active |
+| docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md | 22020 Build Sequence And Phase Boundary. | active |
+| docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md | 22030 Schema Design Readiness Checklist. | active |
+| docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md | 22040 Api App Implementation Readiness Checklist. | active |
+| docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md | 22050 Qa Smoke Test And Rollback Planning Boundary. | active |
+| docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md | 22060 Mvp Implementation Non Goals. | active |
 
 ## 15 docs/24000_deployment_operations
 

@@ -58,7 +58,15 @@ Conceptual API groups:
 - do not create POS integration now.
 - do not create printer driver now.
 
-## 5 Open Decisions
+## 5 Implementation Planning Cross-Reference
+
+API/app implementation readiness is defined in `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`.
+
+API projection does not create endpoints.
+
+Implementation planning must pass `22040` before endpoint or app implementation artifacts are created.
+
+## 6 Open Decisions
 
 - REST vs RPC vs GraphQL.
 - Supabase RPC boundary.
@@ -69,7 +77,7 @@ Conceptual API groups:
 - rate limiting.
 - audit event envelope.
 
-## 6 Current Status
+## 7 Current Status
 
 Status: active API contract projection boundary. No implementation approval.
 

@@ -64,7 +64,15 @@ This task does not migrate numbering.
 
 Any future numbering migration must be handled as a dedicated governance wave.
 
-## 6 Open Decisions
+## 6 Implementation Planning Cross-Reference
+
+Implementation readiness gates are defined in `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`.
+
+Schema readiness is defined in `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`.
+
+This document remains the conceptual data model non-implementation boundary.
+
+## 7 Open Decisions
 
 - when to move from conceptual docs to schema design.
 - whether to expand to five-digit numbering.
@@ -72,7 +80,7 @@ Any future numbering migration must be handled as a dedicated governance wave.
 - schema namespace naming.
 - implementation sequence.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active implementation-deferred data model boundary.
 

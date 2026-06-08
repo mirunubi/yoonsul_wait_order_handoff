@@ -47,9 +47,19 @@ Additional rules:
 - prototype must not introduce membership/point, platform payment, or POS success states not supported by governance.
 - prototype review is not implementation approval.
 
-## 5 Cross-References
+## 5 Implementation Planning Cross-Reference
+
+UI implementation readiness is governed by `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`.
+
+QA/smoke/rollback planning is governed by `docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md`.
+
+Prototype does not equal implementation approval.
+
+## 6 Cross-References
 
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
+- `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`
+- `docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md`
 - `docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md`
@@ -57,7 +67,7 @@ Additional rules:
 - `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
 - `docs/00001_Md_Rules.md`
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - whether assets live under `docs/17000_ui_screen_composition/assets`.
 - whether Figma exports are stored.
@@ -65,6 +75,6 @@ Additional rules:
 - wireframe naming rule.
 - prototype review workflow.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active wireframe and prototype boundary. No assets created in this wave.

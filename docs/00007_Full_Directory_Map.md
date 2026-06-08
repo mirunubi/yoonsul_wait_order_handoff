@@ -104,6 +104,12 @@ docs/
     20070_Audit_Evidence_And_Compliance_Record_Model.md
   22000_implementation_planning/
     22000_Implementation_Planning_Readme.md
+    22010_Implementation_Readiness_Gate.md
+    22020_Build_Sequence_And_Phase_Boundary.md
+    22030_Schema_Design_Readiness_Checklist.md
+    22040_Api_App_Implementation_Readiness_Checklist.md
+    22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md
+    22060_Mvp_Implementation_Non_Goals.md
   24000_deployment_operations/
     24000_Deployment_Operations_Readme.md
   26000_analytics_reporting_bi/
@@ -136,7 +142,7 @@ docs/
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
-| docs/22000_implementation_planning | Reserved implementation planning, build sequence, and QA planning band. |
+| docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Reserved deployment, operations, and support planning band. |
 | docs/26000_analytics_reporting_bi | Reserved analytics, reporting, and BI documentation band. |
 | docs/28000_future_expansion | Future franchise_os, Agent, Logical AI, Physical AI, analytics, multi-brand, and SaaS expansion references. |
@@ -148,7 +154,9 @@ docs/
 
 `17000~19999` holds the initial UI screen composition detail wave. This band is documentation projection only, not UI implementation.
 
-`22000~23999`, `24000~25999`, `26000~27999`, and `30000~99999` are reserved landing bands with readme landing documents only.
+`22000~23999` holds the initial implementation planning boundary detail wave. This band is planning boundary only, not implementation approval.
+
+`24000~25999`, `26000~27999`, and `30000~99999` are reserved landing bands with readme landing documents only.
 
 `28000~29999` is the active future expansion band. `docs/28000_future_expansion/` holds the current future expansion reference documents.
 

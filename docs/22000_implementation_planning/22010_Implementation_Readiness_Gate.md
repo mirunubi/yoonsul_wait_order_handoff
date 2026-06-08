@@ -1,0 +1,94 @@
+# 22010 Implementation Readiness Gate
+
+## 1 Purpose
+
+Implementation must not begin just because conceptual docs exist.
+
+Implementation requires explicit readiness gates.
+
+This document defines gates only and does not approve implementation.
+
+This document is planning boundary only.
+It does not define schema, migrations, app code, API endpoints, RLS policies, or Supabase functions.
+
+## 2 Readiness Gate Categories
+
+| gate category | primary inputs |
+| --- | --- |
+| MVP scope approval | `docs/01000_mvp_scope/01010_MVP_Scope.md`, `docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md` |
+| entity master review | `docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md` |
+| state/event ownership review | `docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md` |
+| audit/recovery lineage review | `docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md` |
+| integration boundary review | `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md` |
+| security/access/privacy review | `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`, `docs/20000_validation_security_audit/20020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md` |
+| API projection review | `docs/13000_app_api_projection/13050_Api_Contract_Projection_Boundary.md`, `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md` |
+| UI wording/surface review | `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`, `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md` |
+| legal/payment/loyalty exclusion review | `docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md`, `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md` |
+| rollback/test planning review | `docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md` |
+
+Each gate category must produce an explicit pass/fail outcome before implementation planning advances to physical design.
+
+## 3 Required Gate Outcomes
+
+Before any implementation work begins, the following outcomes must be recorded:
+
+- approved scope.
+- approved non-MVP exclusions.
+- approved entity/state ownership.
+- approved audit envelope.
+- approved integration assumptions.
+- approved access boundaries.
+- approved test/smoke plan.
+- approved rollback plan.
+
+Gate outcomes are documentation approvals only.
+They do not authorize code, schema, or deployment.
+
+## 4 Hard Stop Conditions
+
+Implementation planning must stop if any of the following remain unresolved:
+
+- unclear POS/payment authority.
+- unclear order candidate vs confirmed order boundary.
+- unclear printer/POS API truth.
+- unclear support/admin authority.
+- unclear data retention/export boundary.
+- unresolved point ledger/wallet scope.
+- missing rollback plan.
+- missing audit coverage.
+
+Additional hard stops:
+
+- customer wording does not match confirmation authority.
+- integration level is assumed without validation record.
+- export or support access lacks audit envelope definition.
+
+## 5 Non-Implementation Boundary
+
+- no schema.
+- no migration.
+- no app code.
+- no API.
+- no RLS.
+- no Supabase function.
+
+Passing readiness gates enables a future implementation planning wave only.
+It does not create implementation artifacts.
+
+## 6 Cross-References
+
+- `docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md`
+- `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`
+- `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`
+- `docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md`
+
+## 7 Open Decisions
+
+- who approves readiness.
+- whether approval is by document sign-off or commit tag.
+- whether implementation starts as prototype or production path.
+- whether schema design gets separate wave.
+
+## 8 Current Status
+
+Status: active implementation readiness gate. Not implementation approval.
