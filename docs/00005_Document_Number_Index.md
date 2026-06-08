@@ -150,6 +150,10 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/20000_validation_security_audit/20100_Export_Report_And_Benchmark_Governance.md | 20100 Export Report And Benchmark Governance. | active |
 | docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md | 20110 Retention Deletion Anonymization Consolidation. | active |
 | docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md | 20120 Audit Evidence Packet And Compliance Readiness. | active |
+| docs/20000_validation_security_audit/20150_Runtime_Misuse_And_Abuse_Prevention_Governance.md | 20150 Runtime Misuse And Abuse Prevention Governance. | active |
+| docs/20000_validation_security_audit/20160_Suspicious_Activity_Review_And_Escalation_Governance.md | 20160 Suspicious Activity Review And Escalation Governance. | active |
+| docs/20000_validation_security_audit/20170_Cross_Tenant_Isolation_And_Data_Leakage_Prevention_Governance.md | 20170 Cross Tenant Isolation And Data Leakage Prevention Governance. | active |
+| docs/20000_validation_security_audit/20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md | 20180 Audit Evidence Packet And Runtime Forensics Governance. | active |
 
 ## 12 docs/15000_membership_loyalty
 

@@ -18,6 +18,10 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 - Export, report, and benchmark governance.
 - Retention, deletion, anonymization, and pseudonymization consolidation.
 - Audit evidence packet and compliance readiness.
+- Runtime misuse and abuse prevention.
+- Suspicious activity review and escalation.
+- Cross-tenant isolation and data leakage prevention.
+- Runtime forensics and evidence packet governance.
 - Admin access, support access, export approval, and audit evidence governance.
 
 ## 3 Document List
@@ -36,10 +40,16 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 | `20100_Export_Report_And_Benchmark_Governance.md` | Export/report families; cross-tenant benchmark prohibited by default. |
 | `20110_Retention_Deletion_Anonymization_Consolidation.md` | Data lifecycle, retention, deletion, anonymization, and pseudonymization consolidation. |
 | `20120_Audit_Evidence_Packet_And_Compliance_Readiness.md` | Evidence packet families, evidence principles, and compliance readiness checks. |
+| `20150_Runtime_Misuse_And_Abuse_Prevention_Governance.md` | Runtime misuse and abuse prevention. |
+| `20160_Suspicious_Activity_Review_And_Escalation_Governance.md` | Suspicious activity review and escalation. |
+| `20170_Cross_Tenant_Isolation_And_Data_Leakage_Prevention_Governance.md` | Cross-tenant isolation and data leakage prevention. |
+| `20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md` | Runtime forensics and evidence packet governance. |
 
 `20010`~`20070` are existing security/audit/privacy foundations.
 
 `20080`~`20120` consolidate access visibility, support masking/session governance, export/report/benchmark governance, retention/deletion/anonymization, and audit evidence readiness.
+
+`20150`~`20180` define runtime misuse prevention, suspicious activity review, cross-tenant isolation, and runtime forensics governance.
 
 This domain remains governance-only and does not implement security runtime.
 
