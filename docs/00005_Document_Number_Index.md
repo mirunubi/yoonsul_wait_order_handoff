@@ -127,6 +127,11 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md | 13060 Surface State Visibility And Authority Matrix. | active |
 | docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md | 13070 Customer Surface State Wording Matrix. | active |
 | docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md | 13080 Store Admin Support Action Authority Matrix. | active |
+| docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md | 13090 Surface To Authority Projection Model. | active |
+| docs/13000_app_api_projection/13100_Customer_Store_Admin_Api_Group_Boundary.md | 13100 Customer Store Admin Api Group Boundary. | active |
+| docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md | 13110 Idempotency Recovery And Audit Envelope Projection. | active |
+| docs/13000_app_api_projection/13120_Integration_Status_Projection_Boundary.md | 13120 Integration Status Projection Boundary. | active |
+| docs/13000_app_api_projection/13130_Future_Surface_And_Api_Non_MVP_Boundary.md | 13130 Future Surface And Api Non MVP Boundary. | active |
 
 ## 11 docs/20000_validation_security_audit
 

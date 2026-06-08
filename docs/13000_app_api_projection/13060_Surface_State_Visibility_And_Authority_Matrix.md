@@ -74,7 +74,14 @@ State families covered by this projection:
 | `support_console` | Scoped support session data, operational status needed for support, recovery status, relevant audit trail. | Assist recovery, request escalation, document support action, recommend next action. | Limited support actions only when scoped. | Approval required for sensitive actions; support operator cannot approve own support action. | Required for all support access and support actions. | Cannot silently mutate order state, approve own support action, export raw customer data, or change payment/package without authority. |
 | `future_analytics_dashboard` | Aggregate/anonymized/pseudonymized analytics, approved metrics, governed future intelligence material. | Request governed report or analysis where policy allows. | No runtime mutation. | Required for restricted export, cross-entity sharing, or future intelligence handoff. | Required for exports and restricted dataset access. | Cannot show raw customer/session data by default, mutate runtime state, target ads, or imply Franchise OS authority. |
 
-## 7 Non-Implementation Boundary
+## 7 App/API Projection Consolidation Cross-Reference
+
+- Surface-to-authority projection is refined in `docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md`.
+- Integration status projection is refined in `docs/13000_app_api_projection/13120_Integration_Status_Projection_Boundary.md`.
+- Future surface/API non-MVP boundary is refined in `docs/13000_app_api_projection/13130_Future_Surface_And_Api_Non_MVP_Boundary.md`.
+- Surface visibility must still not imply mutation authority.
+
+## 8 Non-Implementation Boundary
 
 This document does not include:
 
@@ -83,7 +90,7 @@ This document does not include:
 - RLS policy implementation.
 - physical permission schema.
 
-## 8 Open Decisions
+## 9 Open Decisions
 
 - whether support_console is separate app or admin mode.
 - customer session identity depth.
@@ -91,7 +98,7 @@ This document does not include:
 - analytics visibility granularity.
 - export approval UI location.
 
-## 9 Current Status
+## 10 Current Status
 
 Status: active surface visibility and authority projection. No implementation approval.
 

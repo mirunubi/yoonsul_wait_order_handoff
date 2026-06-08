@@ -64,6 +64,14 @@ Integration APIs must follow `docs/11000_integration_boundary/11020_POS_API_Inte
 
 API projection does not implement POS API, printer, payment, reconciliation, or retry/recovery runtime.
 
+## 5.1 App/API Projection Consolidation Cross-Reference
+
+- Conceptual API group boundaries are refined in `docs/13000_app_api_projection/13100_Customer_Store_Admin_Api_Group_Boundary.md`.
+- Idempotency/recovery/audit envelope projection is refined in `docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`.
+- Integration status projection is refined in `docs/13000_app_api_projection/13120_Integration_Status_Projection_Boundary.md`.
+- Future non-MVP API/surface boundary is refined in `docs/13000_app_api_projection/13130_Future_Surface_And_Api_Non_MVP_Boundary.md`.
+- No endpoint implementation is approved by these docs.
+
 ## 6 Implementation Planning Cross-Reference
 
 API/app implementation readiness is defined in `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`.

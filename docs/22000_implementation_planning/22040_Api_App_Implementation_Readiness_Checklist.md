@@ -57,13 +57,19 @@ Unresolved checks are hard stops per `22010`.
 
 Wireframes and prototypes per `17070` do not satisfy this checklist.
 
-## 5 Cross-References
+## 5 App/API Projection Consolidation Cross-Reference
+
+API/app implementation readiness must review `docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md` through `docs/13000_app_api_projection/13130_Future_Surface_And_Api_Non_MVP_Boundary.md` before implementation planning.
+
+Projection docs do not create endpoints or app code.
+
+## 6 Cross-References
 
 - `docs/17000_ui_screen_composition/17070_Wireframe_Prototype_Boundary.md`
 - `docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md`
 - `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - REST vs RPC vs Edge Functions.
 - webapp shell split.
@@ -73,6 +79,6 @@ Wireframes and prototypes per `17070` do not satisfy this checklist.
 - API versioning.
 - rate limiting.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active API/app implementation readiness checklist. Not implementation approval.

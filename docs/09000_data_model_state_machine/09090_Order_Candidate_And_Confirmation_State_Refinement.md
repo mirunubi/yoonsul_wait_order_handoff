@@ -58,6 +58,11 @@ It does not define state machine code, enums, or integration runtime.
 - Manual POS input/reconciliation boundary is defined in `docs/11000_integration_boundary/11050_Manual_POS_Input_And_Reconciliation_Boundary.md`.
 - Failure/retry/recovery boundary is defined in `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`.
 
+## 4.2 App/API Projection Cross-Reference
+
+- App/API projection of order confirmation, integration status, recovery, and future states is further refined in `docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md` through `docs/13000_app_api_projection/13130_Future_Surface_And_Api_Non_MVP_Boundary.md`.
+- Projection does not approve implementation.
+
 ## 5 Non-Implementation Boundary
 
 - no state machine code.

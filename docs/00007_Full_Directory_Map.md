@@ -101,6 +101,11 @@ docs/
     13060_Surface_State_Visibility_And_Authority_Matrix.md
     13070_Customer_Surface_State_Wording_Matrix.md
     13080_Store_Admin_Support_Action_Authority_Matrix.md
+    13090_Surface_To_Authority_Projection_Model.md
+    13100_Customer_Store_Admin_Api_Group_Boundary.md
+    13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
+    13120_Integration_Status_Projection_Boundary.md
+    13130_Future_Surface_And_Api_Non_MVP_Boundary.md
   15000_membership_loyalty/
     15000_Membership_Loyalty_Readme.md
     15010_Membership_Loyalty_Product_Boundary.md
@@ -172,7 +177,7 @@ docs/
 | docs/07000_admin_console | Admin context navigation, runtime profile configuration, feature flag approval, audit review, support/break-glass boundary, and operational monitoring governance. |
 | docs/09000_data_model_state_machine | Conceptual entities, state ownership, audit/recovery lineage, context alignment, runtime profile entities, order confirmation refinement, and future state boundaries. Not physical schema. |
 | docs/11000_integration_boundary | POS API, printer, Store Agent, payment/financial truth, manual POS/reconciliation, and failure/retry/recovery boundaries. Not integration implementation. |
-| docs/13000_app_api_projection | Future customer web, store console, admin console, and API contract projection. |
+| docs/13000_app_api_projection | Surface-to-authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP boundaries. Not endpoint implementation. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
