@@ -174,6 +174,13 @@ Admin visibility does not equal activation authority.
 
 Feature flag change does not equal approval.
 
+## 7.1 Admin Console Consolidation Cross-Reference
+
+- Runtime profile configuration governance is defined in `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md`.
+- Feature flag approval/emergency disable is defined in `docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`.
+- Runtime profile change/audit must align with `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
+- Admin visibility does not equal activation authority.
+
 ## 8 Open Decisions
 
 - feature flag UI granularity.

@@ -65,6 +65,11 @@ docs/
     07040_Admin_Screen_Inventory_And_Navigation_Model.md
     07050_Admin_Approval_Workflow_Model.md
     07060_Admin_Audit_And_Recovery_Queue_Governance.md
+    07070_Admin_Context_Navigation_And_Scope_Model.md
+    07080_Admin_Runtime_Profile_Configuration_Governance.md
+    07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md
+    07100_Admin_Audit_Review_And_Change_History_Model.md
+    07110_Admin_Support_And_BreakGlass_Boundary.md
   09000_data_model_state_machine/
     09000_Data_Model_State_Machine_Readme.md
     09010_Data_Model_Draft.md
@@ -154,7 +159,7 @@ docs/
 | docs/01000_mvp_scope | MVP definition, active/optional/future/non-goal matrix, package/feature flag boundary, store-type adoption sequence, and market-facing scope. |
 | docs/03000_saas_runtime | SaaS context axes, store runtime profiles, package/feature flag governance, change/audit governance, and non-MVP future profile boundaries. |
 | docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
-| docs/07000_admin_console | Admin console scope for SaaS operator, store owner, store manager, and HQ/operator roles. |
+| docs/07000_admin_console | Admin context navigation, runtime profile configuration, feature flag approval, audit review, support/break-glass boundary, and operational monitoring governance. |
 | docs/09000_data_model_state_machine | Conceptual data model and state machine only. |
 | docs/11000_integration_boundary | POS, KDS, payment, printer, tablet order, and external system boundary. |
 | docs/13000_app_api_projection | Future customer web, store console, admin console, and API contract projection. |

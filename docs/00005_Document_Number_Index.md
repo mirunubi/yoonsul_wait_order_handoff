@@ -79,6 +79,11 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md | 07040 Admin Screen Inventory And Navigation Model. | active |
 | docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md | 07050 Admin Approval Workflow Model. | active |
 | docs/07000_admin_console/07060_Admin_Audit_And_Recovery_Queue_Governance.md | 07060 Admin Audit And Recovery Queue Governance. | active |
+| docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md | 07070 Admin Context Navigation And Scope Model. | active |
+| docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md | 07080 Admin Runtime Profile Configuration Governance. | active |
+| docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md | 07090 Admin Feature Flag Approval And Emergency Disable Model. | active |
+| docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md | 07100 Admin Audit Review And Change History Model. | active |
+| docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md | 07110 Admin Support And Break Glass Boundary. | active |
 
 ## 8 docs/09000_data_model_state_machine
 

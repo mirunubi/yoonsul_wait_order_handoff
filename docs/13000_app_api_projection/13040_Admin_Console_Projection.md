@@ -54,7 +54,11 @@ These actions are projections of governance needs, not implementation tasks.
 - support action does not equal approval.
 - emergency disable must be audited.
 
-## 5 Open Decisions
+## 5 Admin Console Governance Cross-Reference
+
+Admin Console projection must follow `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md` for context navigation, runtime profile configuration, approval/disable, audit review, and support boundary.
+
+## 6 Open Decisions
 
 - admin layout.
 - approval inbox design.
@@ -63,7 +67,7 @@ These actions are projections of governance needs, not implementation tasks.
 - audit event detail view.
 - platform vs tenant admin separation.
 
-## 6 Current Status
+## 7 Current Status
 
 Status: active admin console projection only. No implementation approval.
 
