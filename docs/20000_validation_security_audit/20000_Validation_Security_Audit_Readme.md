@@ -26,6 +26,10 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 - Staff privacy and operational monitoring governance.
 - Payment boundary and financial authority governance.
 - Admin console action safety governance.
+- Policy and configuration change audit governance.
+- Role, permission, and access review governance.
+- Security incident and breach response governance.
+- External integration and webhook audit governance.
 - Admin access, support access, export approval, and audit evidence governance.
 
 ## 3 Document List
@@ -52,6 +56,10 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 | `20200_Staff_Privacy_And_Operational_Monitoring_Governance.md` | Staff privacy and operational monitoring governance. |
 | `20210_Payment_Boundary_And_Financial_Authority_Governance.md` | Payment boundary and financial authority governance. |
 | `20220_Admin_Console_Action_Safety_Governance.md` | Admin console action safety governance. |
+| `20230_Policy_Change_And_Configuration_Audit_Governance.md` | Policy and configuration change audit governance. |
+| `20240_Role_Permission_Change_And_Access_Review_Governance.md` | Role, permission, and access review governance. |
+| `20250_Security_Incident_And_Breach_Response_Governance.md` | Security incident and breach response governance. |
+| `20260_External_Integration_And_Webhook_Audit_Governance.md` | External integration and webhook audit governance. |
 
 `20010`~`20070` are existing security/audit/privacy foundations.
 
@@ -60,6 +68,8 @@ This wave consolidates security/audit/privacy governance after the App/API Proje
 `20150`~`20180` define runtime misuse prevention, suspicious activity review, cross-tenant isolation, and runtime forensics governance.
 
 `20190`~`20220` define customer privacy, staff monitoring, payment authority boundary, and admin console action safety governance.
+
+`20230`~`20260` complete the validation/security/audit reinforcement wave for policy change audit, role/access review, security incident response, and external integration audit.
 
 This domain remains governance-only and does not implement security runtime.
 
@@ -70,4 +80,4 @@ This domain remains governance-only and does not implement security runtime.
 
 ## 5 Current Status
 
-Status: security/audit/privacy consolidation wave complete. Governance only. Not implementation approval.
+Status: validation/security/audit reinforcement wave complete through `20260`. Governance only. Not implementation approval.

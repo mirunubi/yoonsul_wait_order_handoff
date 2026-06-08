@@ -158,6 +158,10 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/20000_validation_security_audit/20200_Staff_Privacy_And_Operational_Monitoring_Governance.md | 20200 Staff Privacy And Operational Monitoring Governance. | active |
 | docs/20000_validation_security_audit/20210_Payment_Boundary_And_Financial_Authority_Governance.md | 20210 Payment Boundary And Financial Authority Governance. | active |
 | docs/20000_validation_security_audit/20220_Admin_Console_Action_Safety_Governance.md | 20220 Admin Console Action Safety Governance. | active |
+| docs/20000_validation_security_audit/20230_Policy_Change_And_Configuration_Audit_Governance.md | 20230 Policy Change And Configuration Audit Governance. | active |
+| docs/20000_validation_security_audit/20240_Role_Permission_Change_And_Access_Review_Governance.md | 20240 Role Permission Change And Access Review Governance. | active |
+| docs/20000_validation_security_audit/20250_Security_Incident_And_Breach_Response_Governance.md | 20250 Security Incident And Breach Response Governance. | active |
+| docs/20000_validation_security_audit/20260_External_Integration_And_Webhook_Audit_Governance.md | 20260 External Integration And Webhook Audit Governance. | active |
 
 ## 12 docs/15000_membership_loyalty
 
