@@ -68,6 +68,22 @@ It does not define SQL or physical columns.
 - `support_access_session`: scoped support access session for support_operator actions.
 - `export_audit_event`: audit-visible export/report action record.
 
+## Future Data Governance Conceptual Entities
+
+This section is conceptual only.
+It does not define SQL or physical columns.
+
+- `data_capture_category`: conceptual category describing why and how a runtime signal is captured.
+- `data_classification`: conceptual classification for operational, customer-identifiable, sensitive, aggregate, anonymized, or pseudonymized data.
+- `data_export_event`: audit-visible event for report, export, support, or future intelligence data movement.
+- `data_sharing_policy`: conceptual policy boundary for tenant, store, legal entity, support, third-party, and future Franchise OS sharing.
+- `data_sanitization_job`: conceptual process that prepares aggregate, anonymized, or pseudonymized datasets.
+- `analytics_dataset`: conceptual dataset prepared for approved analytics or reporting.
+- `franchise_intelligence_export`: conceptual future export of permitted intelligence material to a Franchise OS context.
+- `franchise_recommendation`: conceptual future recommendation created from approved intelligence material.
+- `recommendation_review`: conceptual review and approval record for future recommendations.
+- `recommendation_application_event`: audit-visible event for controlled application of an approved recommendation.
+
 ### tenant
 
 Represents the SaaS tenant boundary that may own one or more stores in a future SaaS model.

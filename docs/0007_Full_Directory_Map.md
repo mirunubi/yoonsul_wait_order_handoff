@@ -67,11 +67,15 @@ docs/
     7000_App_Api_Projection_Readme.md
   8000_validation_security_audit/
     8000_Validation_Security_Audit_Readme.md
+    8010_SaaS_Data_Capture_And_Governance_Principle.md
+    8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md
   9000_future_expansion/
     9000_Future_Expansion_Readme.md
     9020_Membership_Loyalty_Point_Future_Model.md
     9030_Point_Bridge_And_Exchange_Future_Boundary.md
     9040_Data_Ad_CRM_AI_Future_Expansion_Model.md
+    9050_Franchise_OS_Data_Handoff_Future_Boundary.md
+    9060_Franchise_Intelligence_Feedback_Loop_Model.md
 ```
 
 `directory_tree.txt` and `tree_directory_view.txt` are temporary local snapshots. They are not governance documents.

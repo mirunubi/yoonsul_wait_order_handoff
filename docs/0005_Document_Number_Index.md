@@ -94,6 +94,8 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/8000_validation_security_audit/8000_Validation_Security_Audit_Readme.md` | Validation, audit, security, privacy, and operational safety principles. | initial |
+| `docs/8000_validation_security_audit/8010_SaaS_Data_Capture_And_Governance_Principle.md` | SaaS runtime data capture categories, distinction rules, governance requirements, and non-MVP secondary use boundaries. | active |
+| `docs/8000_validation_security_audit/8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md` | Cross-entity data movement, privacy, export, support access, and future Franchise OS sharing boundary. | active |
 
 ## 12 docs/9000_future_expansion
 
@@ -103,6 +105,8 @@ These governance files live under `docs/`. They are not project-root files.
 | `docs/9000_future_expansion/9020_Membership_Loyalty_Point_Future_Model.md` | Future-reserved membership, loyalty, coupon, stamp, and point model boundary. | future-reserved |
 | `docs/9000_future_expansion/9030_Point_Bridge_And_Exchange_Future_Boundary.md` | Future-reserved point bridge and exchange boundary. | future-reserved |
 | `docs/9000_future_expansion/9040_Data_Ad_CRM_AI_Future_Expansion_Model.md` | Future-reserved data, advertising, CRM, analytics, and AI expansion boundary. | future-reserved |
+| `docs/9000_future_expansion/9050_Franchise_OS_Data_Handoff_Future_Boundary.md` | Future-reserved Franchise OS data handoff boundary and authority limits. | future-reserved |
+| `docs/9000_future_expansion/9060_Franchise_Intelligence_Feedback_Loop_Model.md` | Future-reserved franchise intelligence feedback loop and recommendation authority boundary. | future-reserved |
 
 ## 13 External Boundary Reference
 

@@ -117,7 +117,19 @@ Active MVP focuses on:
 
 Future data/ad/CRM/AI expansion must not change MVP wording from order candidate/preorder request into guaranteed order, payment, membership, or AI-personalized service.
 
-## 9 Open Decisions
+## 9 Governance Cross-References
+
+SaaS data capture governance is defined in `docs/8000_validation_security_audit/8010_SaaS_Data_Capture_And_Governance_Principle.md`.
+
+Cross-entity privacy and data-sharing boundary is defined in `docs/8000_validation_security_audit/8020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md`.
+
+Franchise OS data handoff future boundary is defined in `docs/9000_future_expansion/9050_Franchise_OS_Data_Handoff_Future_Boundary.md`.
+
+Franchise intelligence feedback loop is defined in `docs/9000_future_expansion/9060_Franchise_Intelligence_Feedback_Loop_Model.md`.
+
+This `9040` document remains future-reserved and must not imply active MVP ad, CRM, analytics automation, AI recommendation, or Franchise OS runtime.
+
+## 10 Open Decisions
 
 - whether analytics should enter before CRM.
 - whether ad/promotion surfaces are store-local only or platform-wide.
@@ -126,7 +138,6 @@ Future data/ad/CRM/AI expansion must not change MVP wording from order candidate
 - whether menu performance analytics can be aggregated across tenants.
 - whether ad/CRM features require separate package plan.
 
-## 10 Current Status
+## 11 Current Status
 
 Status: future-reserved.
-
