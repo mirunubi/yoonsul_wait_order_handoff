@@ -54,13 +54,19 @@ Unresolved checks are hard stops per `22010`.
 
 Physical schema artifacts require a separate approved implementation wave after this checklist passes.
 
-## 5 Cross-References
+## 5 Conceptual Model Consolidation Cross-Reference
+
+Schema readiness must review `docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md` through `docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md` before any physical schema planning.
+
+Conceptual entity/state refinement does not equal schema approval.
+
+## 6 Cross-References
 
 - `docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md`
 - `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`
 - `docs/20000_validation_security_audit/20030_Data_Retention_And_Deletion_Policy.md`
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - schema namespaces.
 - table naming convention.
@@ -71,6 +77,6 @@ Physical schema artifacts require a separate approved implementation wave after 
 - migration wave split.
 - seed/smoke strategy.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active schema design readiness checklist. Not implementation approval.

@@ -92,7 +92,13 @@ support access requested
 - support evidence must record time window and reason.
 - correction evidence must reference original event and correction reason.
 
-## 7 Open Decisions
+## 7 Conceptual Model Consolidation Cross-Reference
+
+- Admin/support/audit lineage is further refined in `docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md`.
+- Runtime profile change events are defined in `docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md`.
+- Recovery must still not overwrite original events.
+
+## 8 Open Decisions
 
 - immutable audit storage strategy.
 - evidence packet shape.
@@ -101,7 +107,7 @@ support access requested
 - customer notification after recovery.
 - duplicate prevention strategy.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active audit and recovery lineage model.
 

@@ -116,6 +116,14 @@ SaaS context axes and runtime profiles are governed by `docs/03000_saas_runtime/
 
 Physical schema must not be inferred directly from `03000` docs.
 
+## 11.1 Conceptual Model Consolidation Cross-Reference
+
+- Context entity alignment is defined in `docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md`.
+- Runtime profile/change request conceptual entities are defined in `docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md`.
+- Admin/support/audit lineage is defined in `docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md`.
+- Future profile/analytics state boundaries are defined in `docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md`.
+- Physical schema must not be inferred directly.
+
 ## 12 Open Decisions
 
 - whether customer identity is anonymous, phone-based, or member-linked in early MVP.

@@ -75,7 +75,14 @@ It does not define SQL, migrations, app code, Supabase functions, RLS, RPC, API 
 - support action must not be treated as approval.
 - analytics recommendation must not be treated as runtime mutation.
 
-## 7 Open Decisions
+## 7 Conceptual Model Consolidation Cross-Reference
+
+- Order candidate/confirmation refinement is defined in `docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md`.
+- Runtime profile/change state ownership is defined in `docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md`.
+- Admin/support/audit lineage is defined in `docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md`.
+- Future profile/analytics state boundary is defined in `docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md`.
+
+## 8 Open Decisions
 
 - manual POS input proof.
 - POS API idempotency ownership.
@@ -84,7 +91,7 @@ It does not define SQL, migrations, app code, Supabase functions, RLS, RPC, API 
 - emergency disable ownership.
 - future recommendation approval authority.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active state and event ownership model.
 

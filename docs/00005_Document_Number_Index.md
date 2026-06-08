@@ -96,6 +96,11 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md | 09040 State And Event Ownership Model. | active |
 | docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md | 09050 Audit Recovery Event Lineage Model. | active |
 | docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md | 09060 Implementation Deferred Data Model Boundary. | active |
+| docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md | 09070 Context Entity Alignment Model. | active |
+| docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md | 09080 Runtime Profile And Change Request Entity Model. | active |
+| docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md | 09090 Order Candidate And Confirmation State Refinement. | active |
+| docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md | 09100 Admin Support Audit Entity Lineage Model. | active |
+| docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md | 09110 Future Profile And Analytics State Boundary. | active |
 
 ## 9 docs/11000_integration_boundary
 

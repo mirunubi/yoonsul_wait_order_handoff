@@ -78,6 +78,11 @@ docs/
     09040_State_And_Event_Ownership_Model.md
     09050_Audit_Recovery_Event_Lineage_Model.md
     09060_Implementation_Deferred_Data_Model_Boundary.md
+    09070_Context_Entity_Alignment_Model.md
+    09080_Runtime_Profile_And_Change_Request_Entity_Model.md
+    09090_Order_Candidate_And_Confirmation_State_Refinement.md
+    09100_Admin_Support_Audit_Entity_Lineage_Model.md
+    09110_Future_Profile_And_Analytics_State_Boundary.md
   11000_integration_boundary/
     11000_Integration_Boundary_Readme.md
     11010_POS_Payment_Printer_Integration_Boundary.md
@@ -160,7 +165,7 @@ docs/
 | docs/03000_saas_runtime | SaaS context axes, store runtime profiles, package/feature flag governance, change/audit governance, and non-MVP future profile boundaries. |
 | docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
 | docs/07000_admin_console | Admin context navigation, runtime profile configuration, feature flag approval, audit review, support/break-glass boundary, and operational monitoring governance. |
-| docs/09000_data_model_state_machine | Conceptual data model and state machine only. |
+| docs/09000_data_model_state_machine | Conceptual entities, state ownership, audit/recovery lineage, context alignment, runtime profile entities, order confirmation refinement, and future state boundaries. Not physical schema. |
 | docs/11000_integration_boundary | POS, KDS, payment, printer, tablet order, and external system boundary. |
 | docs/13000_app_api_projection | Future customer web, store console, admin console, and API contract projection. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |

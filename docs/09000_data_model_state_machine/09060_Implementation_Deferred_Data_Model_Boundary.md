@@ -72,6 +72,12 @@ Schema readiness is defined in `docs/22000_implementation_planning/22030_Schema_
 
 This document remains the conceptual data model non-implementation boundary.
 
+## 6.1 Conceptual Model Consolidation Cross-Reference
+
+- `09070`~`09110` are conceptual refinements only.
+- They do not approve physical schema, SQL, migrations, RLS, RPC, or Edge Functions.
+- Schema readiness remains governed by `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`.
+
 ## 7 Open Decisions
 
 - when to move from conceptual docs to schema design.
