@@ -1,4 +1,4 @@
-# 0040 Non-Implementation Boundary
+# 0130 Non-Implementation Boundary
 
 ## Purpose
 
@@ -66,4 +66,3 @@ Simple `store_id` scoping is enough for the first MVP.
 - Manual menu availability toggles
 - Manual POS entry after confirmation
 - Basic responsive web UI before native apps
-

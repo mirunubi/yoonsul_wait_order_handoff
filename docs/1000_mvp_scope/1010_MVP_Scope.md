@@ -1,4 +1,4 @@
-# 0010 MVP Scope
+# 1010 MVP Scope
 
 ## Included
 
@@ -91,4 +91,3 @@ Order candidate:
 - `under_review`
 - `confirmed`
 - `cancelled`
-

@@ -1,62 +1,47 @@
 # 0000 Project Overview
 
-## Project Identity
+## 1 Project Identity
 
-This is a focused MVP/PoC project for wait-order handoff. It validates a business method where a waiting customer can browse menu information, compose a cart, submit an order candidate, and hand that candidate to store staff at seating time.
+- Project name: `yoonsul_wait_order_handoff`
+- Project root: `D:\workspace\yoonsul_wait_order_handoff`
+- GitHub repository: `mirunubi/yoonsul_wait_order_handoff`
+- Supabase project URL: `https://upzthfwhtvazfftxnyfu.supabase.co`
 
-The MVP is intentionally separate from the full `yoonsul_os` main system.
+This document applies only to `yoonsul_wait_order_handoff`.
 
-## Problem
+## 2 Project Nature
 
-In many stores, customers wait before being seated and only begin ordering after they sit down. This creates an avoidable lead time:
+`yoonsul_wait_order_handoff` is an independent SaaS-oriented waiting-to-order handoff system.
 
-1. Customer waits.
-2. Customer is seated.
-3. Customer receives or opens menu.
-4. Customer discusses choices.
-5. Staff takes order.
-6. Staff enters order into POS.
+It is separate from `yoonsul_os`.
+It is separate from `yoonsul_franchise_os`.
+It is a BM patent candidate.
 
-The MVP shifts steps 3 and 4 into the waiting period.
+## 3 Core Concept
 
-## Target Outcome
+The project reduces waiting-to-order lead time by allowing customers to browse the menu, prepare a cart, and create an order candidate before seating or staff confirmation.
 
-When the customer is seated, staff can immediately review a prepared order candidate and confirm it.
+The system also supports Mini Kiosk, non-face-to-face, and multilingual ordering modes.
 
-Expected benefits:
+The preferred direction is software-based handoff instead of depending on hardware-heavy table order systems.
 
-- Reduced seating-to-order time
-- Faster table turnover in busy periods
-- Better customer experience while waiting
-- Lower staff explanation burden for menus and options
-- Optional use as a lightweight Mini Kiosk
+## 4 Current Phase
 
-## Concept Summary
+Current phase:
 
-The core concept is a handoff state transition:
+- documentation spine setup.
+- MVP boundary confirmation.
+- no implementation until docs spine and MVP boundary are approved.
 
-```text
-Waiting customer
-  -> menu browsing
-  -> cart
-  -> order candidate
-  -> seated table assignment
-  -> staff review
-  -> staff confirmation
-```
+## 5 External Separation
 
-## MVP Success Criteria
+`yoonsul_os` may be referenced only as external context.
+`yoonsul_franchise_os` may be referenced only as a long-term future expansion context.
 
-- A customer can enter a store context through QR, NFC, or URL.
-- A customer can create or join a waiting session.
-- A customer can browse menu items with photos, descriptions, prices, options, and language display.
-- A customer can create a cart and submit it as an order candidate.
-- Staff can see waiting sessions and order candidates.
-- Staff can assign a table number to a waiting session.
-- Staff can review and confirm the candidate order.
-- The confirmed order remains suitable for manual POS entry.
+Neither external project is part of this project's document index or directory map.
 
-## Explicit System Limit
+## 6 Current Status
 
-This MVP is not a POS, KDS, payment system, loyalty system, payroll system, franchise operating system, or AI automation platform.
+Status: governance spine initialized.
 
+This document is a root governance overview. Detailed project identity, MVP scope, flow, data model, and BM boundary documents live under `docs/`.

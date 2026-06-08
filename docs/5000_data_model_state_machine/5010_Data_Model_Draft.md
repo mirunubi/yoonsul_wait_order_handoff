@@ -1,4 +1,4 @@
-# 0030 Data Model Draft
+# 5010 Data Model Draft
 
 ## Domain Model
 
@@ -255,4 +255,3 @@ Roles:
 - The first MVP can store `*_i18n` fields as JSON objects keyed by language code.
 - The first MVP should prefer simple store scoping over complex tenant architecture.
 - Manual POS entry is supported by the confirmed order candidate summary.
-

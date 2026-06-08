@@ -45,11 +45,18 @@ Do not implement these in the first MVP:
 ## Document Index
 
 - [Project Overview](docs/0000_Project_Overview.md)
-- [MVP Scope](docs/0010_MVP_Scope.md)
-- [User Flow](docs/0020_User_Flow.md)
-- [Data Model Draft](docs/0030_Data_Model_Draft.md)
-- [Non-Implementation Boundary](docs/0040_Non_Implementation_Boundary.md)
-- [BM Patent Linkage](docs/0050_BM_Patent_Linkage.md)
+- [Markdown Rules](docs/0001_Md_Rules.md)
+- [Naming Rules](docs/0002_Naming_Rules.md)
+- [Project Context](docs/0003_Project_Context.md)
+- [Document Number Index](docs/0005_Document_Number_Index.md)
+- [Full Directory Map](docs/0007_Full_Directory_Map.md)
+- [Docs Governance Checklist](docs/0099_Docs_Governance_Checklist.md)
+- [Project Identity And Overview](docs/0100_project_foundation/0110_Project_Identity_And_Overview.md)
+- [MVP Scope](docs/1000_mvp_scope/1010_MVP_Scope.md)
+- [User Flow](docs/3000_customer_handoff_flow/3010_User_Flow.md)
+- [Data Model Draft](docs/5000_data_model_state_machine/5010_Data_Model_Draft.md)
+- [Non-Implementation Boundary](docs/0100_project_foundation/0130_Non_Implementation_Boundary.md)
+- [BM Patent Linkage](docs/0100_project_foundation/0120_BM_Patent_Linkage.md)
 
 ## Proposed Directory Structure
 
@@ -58,11 +65,22 @@ yoonsul_wait_order_handoff/
   README.md
   docs/
     0000_Project_Overview.md
-    0010_MVP_Scope.md
-    0020_User_Flow.md
-    0030_Data_Model_Draft.md
-    0040_Non_Implementation_Boundary.md
-    0050_BM_Patent_Linkage.md
+    0001_Md_Rules.md
+    0002_Naming_Rules.md
+    0003_Project_Context.md
+    0005_Document_Number_Index.md
+    0007_Full_Directory_Map.md
+    0099_Docs_Governance_Checklist.md
+    0100_project_foundation/
+    1000_mvp_scope/
+    2000_saas_runtime/
+    3000_customer_handoff_flow/
+    4000_admin_console/
+    5000_data_model_state_machine/
+    6000_integration_boundary/
+    7000_app_api_projection/
+    8000_validation_security_audit/
+    9000_future_expansion/
   apps/
     customer-web/
     staff-web/
@@ -73,4 +91,3 @@ yoonsul_wait_order_handoff/
     seed/
   tests/
 ```
-

@@ -1,0 +1,79 @@
+@"
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+coverage/
+.cache/
+.tmp/
+temp/
+tmp/
+
+# Flutter / Dart, if used later
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+coverage/
+*.lock
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+supabase/config.toml.bak
+
+# Generated / local data
+data/local/
+data/tmp/
+data/exports/
+data/backups/
+*.sqlite
+*.sqlite3
+*.db
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Archive / large local files
+_archive/
+*.zip
+*.7z
+*.rar
+
+# Do not commit local scratch
+sop/
+scratch/
+_local/
+"@ | Set-Content .gitignore -Encoding utf8
