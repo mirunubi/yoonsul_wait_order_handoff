@@ -46,10 +46,19 @@ Do not implement these in the first MVP:
 
 `docs/17000_ui_screen_composition/` contains UI screen composition guidance only. It translates projection and governance into conceptual screen inventories, wording rules, and wireframe boundaries. It is not UI implementation, routing, API design, or production design assets.
 
+## Korean Documentation Safety
+
+Korean documentation and encoding safety rules are defined in [docs/00010_Korean_Document_And_Encoding_Safety_Rules.md](docs/00010_Korean_Document_And_Encoding_Safety_Rules.md).
+
+Cursor must not edit Korean body text.
+
+All tasks must preserve UTF-8.
+
 ## Document Index
 
 - [Project Overview](docs/00000_Project_Overview.md)
 - [Markdown Rules](docs/00001_Md_Rules.md)
+- [Korean Document And Encoding Safety Rules](docs/00010_Korean_Document_And_Encoding_Safety_Rules.md)
 - [Naming Rules](docs/00002_Naming_Rules.md)
 - [Project Context](docs/00003_Project_Context.md)
 - [Document Number Index](docs/00005_Document_Number_Index.md)

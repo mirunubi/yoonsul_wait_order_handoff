@@ -33,6 +33,7 @@ Root governance files:
 - `00003_Project_Context.md`
 - `00005_Document_Number_Index.md`
 - `00007_Full_Directory_Map.md`
+- `00010_Korean_Document_And_Encoding_Safety_Rules.md`
 - `00099_Docs_Governance_Checklist.md`
 
 ## 4 Docs Domain Bands
@@ -78,6 +79,12 @@ Examples:
 - `01000_MVP_Scope_Readme.md`
 - `05000_Customer_Handoff_Flow_Readme.md`
 - `03000_SaaS_Runtime_Readme.md`
+
+## 5.1 Filename Casing Note
+
+- Filename casing may use readable Title Case for acronyms such as Ui, Api, Pos, Scm unless a domain later standardizes otherwise.
+- Filename casing must remain consistent with actual paths in `00005` and `00007`.
+- Case-only renames should be handled manually and carefully because Git/Windows may not detect them reliably.
 
 ## 6 Internal Title Rule
 

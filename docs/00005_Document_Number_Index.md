@@ -23,6 +23,7 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/00001_Md_Rules.md | 00001 Markdown Rules. | active |
 | docs/00002_Naming_Rules.md | 00002 Naming Rules. | active |
 | docs/00003_Project_Context.md | 00003 Project Context. | active |
+| docs/00010_Korean_Document_And_Encoding_Safety_Rules.md | 00010 Korean Document And Encoding Safety Rules. | active |
 | docs/00005_Document_Number_Index.md | 00005 Document Number Index. | active |
 | docs/00007_Full_Directory_Map.md | 00007 Full Directory Map. | active |
 | docs/00099_Docs_Governance_Checklist.md | 00099 Docs Governance Checklist. | active |

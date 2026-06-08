@@ -21,6 +21,15 @@ This document applies only to `yoonsul_wait_order_handoff`.
 - no external project files are indexed as internal files.
 - no `yoonsul_os` or `yoonsul_franchise_os` files indexed as internal files.
 - temporary tree snapshots excluded or clearly marked.
+- Korean/encoding safety block included in task prompt.
+- UTF-8 preserved.
+- No PowerShell Set-Content used.
+- No formatter run.
+- No encoding normalization.
+- Cursor did not edit Korean body text.
+- No unexpected Korean prose rewrite.
+- No brand/IP wording rewrite.
+- No mojibake introduced.
 
 ## 2 Checklist Before Creating Implementation
 

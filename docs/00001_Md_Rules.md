@@ -9,6 +9,14 @@ This document applies only to `yoonsul_wait_order_handoff`.
 - All Markdown documents must be UTF-8.
 - Korean text must be preserved without encoding corruption.
 - Special characters must not be rewritten through unsafe encodings.
+- All documentation tasks must preserve UTF-8.
+- All tasks must include the Korean/encoding safety block defined in `docs/00010_Korean_Document_And_Encoding_Safety_Rules.md`.
+- Cursor must not edit Korean body text.
+- Do not use PowerShell Set-Content.
+- Do not normalize encoding.
+- Do not run formatters.
+
+See `docs/00010_Korean_Document_And_Encoding_Safety_Rules.md` for mandatory Korean documentation and encoding safety rules.
 
 ## 2 Heading Rule
 
