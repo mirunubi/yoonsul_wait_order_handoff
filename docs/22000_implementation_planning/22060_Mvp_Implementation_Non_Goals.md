@@ -46,14 +46,25 @@ MVP implementation planning may focus on:
 Allowed focus is handoff and operational visibility.
 It is not payment settlement, loyalty ledger, or full OS replacement.
 
-## 4 Cross-References
+## 4 Analytics Cross-Reference
+
+Analytics/reporting/BI runtime is not MVP by default.
+
+Future analytics boundaries are defined in `docs/26000_analytics_reporting_bi/`.
+
+Analytics insight must not become runtime mutation.
+
+See `docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md`.
+
+## 5 Cross-References
 
 - `docs/01000_mvp_scope/01010_MVP_Scope.md`
+- `docs/26000_analytics_reporting_bi/26010_Analytics_Product_Boundary.md`
 - `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
 - `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`
 - `docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md`
 
-## 5 Open Decisions
+## 6 Open Decisions
 
 - whether Mini Kiosk ships in MVP.
 - whether Store Agent is MVP or optional later.
@@ -61,6 +72,6 @@ It is not payment settlement, loyalty ledger, or full OS replacement.
 - whether admin console is internal-only first.
 - whether anonymous customer session is allowed.
 
-## 6 Current Status
+## 7 Current Status
 
 Status: active MVP implementation non-goals. Not implementation approval.

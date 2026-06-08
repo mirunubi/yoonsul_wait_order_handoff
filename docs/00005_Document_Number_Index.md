@@ -164,6 +164,11 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs/26000_analytics_reporting_bi/26000_Analytics_Reporting_Bi_Readme.md | 26000 Analytics Reporting Bi Readme. | initial |
+| docs/26000_analytics_reporting_bi/26010_Analytics_Product_Boundary.md | 26010 Analytics Product Boundary. | active |
+| docs/26000_analytics_reporting_bi/26020_Operational_Metrics_Catalog.md | 26020 Operational Metrics Catalog. | active |
+| docs/26000_analytics_reporting_bi/26030_Report_And_Dashboard_Boundary.md | 26030 Report And Dashboard Boundary. | active |
+| docs/26000_analytics_reporting_bi/26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md | 26040 Cross Tenant Benchmark And Data Sharing Boundary. | future-reserved |
+| docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md | 26050 Analytics To Action Governance. | active |
 
 ## 17 docs/28000_future_expansion
 
@@ -186,7 +191,11 @@ These governance files live under `docs/`. They are not project-root files.
 
 `docs/15000_membership_loyalty/` and `docs/17000_ui_screen_composition/` are reserved landing folders. Membership and point future references currently remain in `docs/28000_future_expansion/` until a dedicated documentation wave splits or moves them.
 
-`docs/22000_implementation_planning/`, `docs/24000_deployment_operations/`, `docs/26000_analytics_reporting_bi/`, and `docs/30000_future_saas_modules/` are reserved landing folders with no active runtime documents yet.
+`docs/22000_implementation_planning/` holds the initial implementation planning boundary detail wave.
+
+`docs/24000_deployment_operations/` and `docs/30000_future_saas_modules/` are reserved landing folders with no active runtime documents yet.
+
+`docs/26000_analytics_reporting_bi/` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 
 `docs/28000_future_expansion/` is the active future expansion reference folder.
 

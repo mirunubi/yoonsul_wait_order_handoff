@@ -70,7 +70,17 @@ Conceptual lifecycle:
 - CSV availability does not equal policy approval.
 - tenant offboarding export must not include another tenant's data.
 
-## 7 Open Decisions
+## 7 Analytics Export Cross-Reference
+
+Report/export boundaries for analytics are defined in `docs/26000_analytics_reporting_bi/26030_Report_And_Dashboard_Boundary.md`.
+
+Cross-tenant benchmark/data sharing is defined in `docs/26000_analytics_reporting_bi/26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md`.
+
+Analytics exports must follow `20050` approval and audit rules.
+
+Analytics visibility does not equal export authority.
+
+## 8 Open Decisions
 
 - supported formats.
 - export expiration.
@@ -79,7 +89,7 @@ Conceptual lifecycle:
 - recipient verification.
 - offboarding export package structure.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active export and report approval governance draft.
 

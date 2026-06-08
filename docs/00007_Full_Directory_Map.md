@@ -114,6 +114,11 @@ docs/
     24000_Deployment_Operations_Readme.md
   26000_analytics_reporting_bi/
     26000_Analytics_Reporting_Bi_Readme.md
+    26010_Analytics_Product_Boundary.md
+    26020_Operational_Metrics_Catalog.md
+    26030_Report_And_Dashboard_Boundary.md
+    26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md
+    26050_Analytics_To_Action_Governance.md
   28000_future_expansion/
     28000_Future_Expansion_Readme.md
     28020_Membership_Loyalty_Point_Future_Model.md
@@ -144,7 +149,7 @@ docs/
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Reserved deployment, operations, and support planning band. |
-| docs/26000_analytics_reporting_bi | Reserved analytics, reporting, and BI documentation band. |
+| docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |
 | docs/28000_future_expansion | Future franchise_os, Agent, Logical AI, Physical AI, analytics, multi-brand, and SaaS expansion references. |
 | docs/30000_future_saas_modules | Long-term reserved future SaaS module documentation band. |
 
@@ -156,7 +161,9 @@ docs/
 
 `22000~23999` holds the initial implementation planning boundary detail wave. This band is planning boundary only, not implementation approval.
 
-`24000~25999`, `26000~27999`, and `30000~99999` are reserved landing bands with readme landing documents only.
+`24000~25999` and `30000~99999` are reserved landing bands with readme landing documents only.
+
+`26000~27999` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 
 `28000~29999` is the active future expansion band. `docs/28000_future_expansion/` holds the current future expansion reference documents.
 
