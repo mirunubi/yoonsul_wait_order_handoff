@@ -63,6 +63,12 @@ API/app implementation readiness must review `docs/13000_app_api_projection/1309
 
 Projection docs do not create endpoints or app code.
 
+## 5.1 UI Composition Consolidation Cross-Reference
+
+UI/app implementation readiness must review `docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md` through `docs/17000_ui_screen_composition/17130_Future_UI_Surface_Non_MVP_Boundary.md` before implementation planning.
+
+UI composition docs do not create UI code or app routes.
+
 ## 6 Cross-References
 
 - `docs/17000_ui_screen_composition/17070_Wireframe_Prototype_Boundary.md`

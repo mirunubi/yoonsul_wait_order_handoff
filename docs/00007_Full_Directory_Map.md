@@ -122,6 +122,12 @@ docs/
     17050_Support_Console_UI_Composition.md
     17060_UI_State_Wording_And_Empty_State_Guideline.md
     17070_Wireframe_Prototype_Boundary.md
+    17080_UI_Surface_To_Authority_Composition_Model.md
+    17090_Integration_Status_UI_Wording_Model.md
+    17100_Action_Button_And_Status_Badge_Governance.md
+    17110_Customer_MiniKiosk_State_Wording_Consolidation.md
+    17120_Admin_Support_UI_Authority_And_Recovery_Model.md
+    17130_Future_UI_Surface_Non_MVP_Boundary.md
   20000_validation_security_audit/
     20000_Validation_Security_Audit_Readme.md
     20010_SaaS_Data_Capture_And_Governance_Principle.md
@@ -179,7 +185,7 @@ docs/
 | docs/11000_integration_boundary | POS API, printer, Store Agent, payment/financial truth, manual POS/reconciliation, and failure/retry/recovery boundaries. Not integration implementation. |
 | docs/13000_app_api_projection | Surface-to-authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP boundaries. Not endpoint implementation. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
-| docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |
+| docs/17000_ui_screen_composition | UI surface-to-authority composition, integration wording, button/badge governance, customer/Mini Kiosk wording, admin/support recovery UI, future non-MVP surfaces, and wireframe boundary. Not UI implementation. |
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |

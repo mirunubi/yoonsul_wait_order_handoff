@@ -4,13 +4,19 @@
 
 This folder holds UI screen composition, wording, wireframe boundary, and design documentation under the `17000~19999` band.
 
-This wave translates app/API projection, state machine, wording, authority, and recovery rules into future UI screen composition guidance.
+This wave consolidates UI composition after the App/API Projection consolidation wave.
 
 This is not implementation.
 
 ## 2 In Scope
 
 - Customer webapp, Mini Kiosk, store console, admin console, and support console screen composition.
+- UI surface-to-authority composition model.
+- Integration status UI wording.
+- Action button and status badge governance.
+- Customer/Mini Kiosk state wording consolidation.
+- Admin/support UI authority and recovery model.
+- Future/non-MVP UI surface boundaries.
 - Shared UI state wording, empty state, error state, and recovery state guidance.
 - Wireframe and prototype boundary before asset creation.
 
@@ -25,6 +31,18 @@ This is not implementation.
 | `17050_Support_Console_UI_Composition.md` | Conceptual scoped support console screens; support action does not equal approval. |
 | `17060_UI_State_Wording_And_Empty_State_Guideline.md` | Shared loading, empty, error, delay, and recovery wording across all surfaces. |
 | `17070_Wireframe_Prototype_Boundary.md` | Boundary for future wireframes and prototypes; no image assets in this wave. |
+| `17080_UI_Surface_To_Authority_Composition_Model.md` | Maps UI controls to visibility, request, mutation, approval, and audit authority types. |
+| `17090_Integration_Status_UI_Wording_Model.md` | Integration status wording per surface without overstating truth. |
+| `17100_Action_Button_And_Status_Badge_Governance.md` | Button and status badge governance; visibility does not equal authority. |
+| `17110_Customer_MiniKiosk_State_Wording_Consolidation.md` | Customer and Mini Kiosk state wording consolidated from 17010, 17020, 13070, 09090, 11000. |
+| `17120_Admin_Support_UI_Authority_And_Recovery_Model.md` | Admin/support authority, recovery, audit, and support scope UI rules. |
+| `17130_Future_UI_Surface_Non_MVP_Boundary.md` | Future membership, analytics, payment, Franchise OS, and benchmark UI boundaries. |
+
+`17010`~`17070` are existing UI composition foundations.
+
+`17080`~`17130` consolidate authority, integration wording, button/status governance, customer/Mini Kiosk wording, admin/support recovery UI, and future non-MVP UI surfaces.
+
+This domain remains UI composition only and does not create UI implementation.
 
 ## 4 Out Of Scope
 
@@ -34,4 +52,4 @@ This is not implementation.
 
 ## 5 Current Status
 
-Status: initial UI screen composition detail wave. Documentation projection only. No implementation approval.
+Status: UI composition consolidation wave complete. Documentation projection only. Not implementation approval.

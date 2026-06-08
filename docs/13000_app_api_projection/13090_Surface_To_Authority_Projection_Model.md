@@ -47,14 +47,20 @@ It does not approve app implementation, auth middleware, or permission schema.
 - customer-facing state must match real confirmation authority.
 - integration attempt must not be projected as integration success.
 
-## 5 Cross-References
+## 5 UI Composition Cross-Reference
+
+- UI surface-to-authority composition is refined in `docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md`.
+- UI button/status governance is defined in `docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md`.
+- Surface projection does not create UI implementation.
+
+## 6 Cross-References
 
 - `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
 - `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
 - `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md`
 - `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - whether authority is surfaced in UI labels.
 - whether customer sees staff-confirmed state.
@@ -62,6 +68,6 @@ It does not approve app implementation, auth middleware, or permission schema.
 - whether export request is visible to tenant admin.
 - whether future analytics dashboard has separate roles.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active surface-to-authority projection model. Not implementation approval.

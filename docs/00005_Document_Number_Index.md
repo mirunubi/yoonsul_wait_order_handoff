@@ -169,6 +169,12 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md | 17050 Support Console Ui Composition. | active |
 | docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md | 17060 Ui State Wording And Empty State Guideline. | active |
 | docs/17000_ui_screen_composition/17070_Wireframe_Prototype_Boundary.md | 17070 Wireframe Prototype Boundary. | active |
+| docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md | 17080 UI Surface To Authority Composition Model. | active |
+| docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md | 17090 Integration Status UI Wording Model. | active |
+| docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md | 17100 Action Button And Status Badge Governance. | active |
+| docs/17000_ui_screen_composition/17110_Customer_MiniKiosk_State_Wording_Consolidation.md | 17110 Customer MiniKiosk State Wording Consolidation. | active |
+| docs/17000_ui_screen_composition/17120_Admin_Support_UI_Authority_And_Recovery_Model.md | 17120 Admin Support UI Authority And Recovery Model. | active |
+| docs/17000_ui_screen_composition/17130_Future_UI_Surface_Non_MVP_Boundary.md | 17130 Future UI Surface Non MVP Boundary. | active |
 
 ## 14 docs/22000_implementation_planning
 

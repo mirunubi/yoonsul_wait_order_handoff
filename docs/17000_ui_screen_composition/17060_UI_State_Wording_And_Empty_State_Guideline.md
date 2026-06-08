@@ -87,6 +87,14 @@ Integration-related UI wording must follow `docs/11000_integration_boundary/1102
 - do not show paid unless payment authority exists.
 - retry/recovery UI must not imply success before confirmation.
 
+## 7.1 UI Composition Consolidation Cross-Reference
+
+- Integration wording is refined in `docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md`.
+- Button/status badge governance is defined in `docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md`.
+- Customer/Mini Kiosk wording is consolidated in `docs/17000_ui_screen_composition/17110_Customer_MiniKiosk_State_Wording_Consolidation.md`.
+- Admin/support recovery wording is consolidated in `docs/17000_ui_screen_composition/17120_Admin_Support_UI_Authority_And_Recovery_Model.md`.
+- Future UI non-MVP boundary is defined in `docs/17000_ui_screen_composition/17130_Future_UI_Surface_Non_MVP_Boundary.md`.
+
 ## 8 Cross-References
 
 - `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md`
