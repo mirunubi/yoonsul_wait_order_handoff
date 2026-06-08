@@ -108,6 +108,11 @@ These governance files live under `docs/`. They are not project-root files.
 | --- | --- | --- |
 | docs/11000_integration_boundary/11000_Integration_Boundary_Readme.md | 11000 Integration Boundary Readme. | initial |
 | docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md | 11010 POS Payment Printer Integration Boundary. | active |
+| docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md | 11020 POS API Integration Truth Boundary. | active |
+| docs/11000_integration_boundary/11030_Printer_And_Store_Agent_Boundary.md | 11030 Printer And Store Agent Boundary. | active |
+| docs/11000_integration_boundary/11040_Payment_And_Financial_Truth_Boundary.md | 11040 Payment And Financial Truth Boundary. | active |
+| docs/11000_integration_boundary/11050_Manual_POS_Input_And_Reconciliation_Boundary.md | 11050 Manual POS Input And Reconciliation Boundary. | active |
+| docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md | 11060 Integration Failure Retry And Recovery Boundary. | active |
 
 ## 10 docs/13000_app_api_projection
 

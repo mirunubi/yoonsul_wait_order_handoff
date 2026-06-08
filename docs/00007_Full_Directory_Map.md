@@ -86,6 +86,11 @@ docs/
   11000_integration_boundary/
     11000_Integration_Boundary_Readme.md
     11010_POS_Payment_Printer_Integration_Boundary.md
+    11020_POS_API_Integration_Truth_Boundary.md
+    11030_Printer_And_Store_Agent_Boundary.md
+    11040_Payment_And_Financial_Truth_Boundary.md
+    11050_Manual_POS_Input_And_Reconciliation_Boundary.md
+    11060_Integration_Failure_Retry_And_Recovery_Boundary.md
   13000_app_api_projection/
     13000_App_Api_Projection_Readme.md
     13010_App_Surface_And_Channel_Projection.md
@@ -166,7 +171,7 @@ docs/
 | docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
 | docs/07000_admin_console | Admin context navigation, runtime profile configuration, feature flag approval, audit review, support/break-glass boundary, and operational monitoring governance. |
 | docs/09000_data_model_state_machine | Conceptual entities, state ownership, audit/recovery lineage, context alignment, runtime profile entities, order confirmation refinement, and future state boundaries. Not physical schema. |
-| docs/11000_integration_boundary | POS, KDS, payment, printer, tablet order, and external system boundary. |
+| docs/11000_integration_boundary | POS API, printer, Store Agent, payment/financial truth, manual POS/reconciliation, and failure/retry/recovery boundaries. Not integration implementation. |
 | docs/13000_app_api_projection | Future customer web, store console, admin console, and API contract projection. |
 | docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
 | docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |

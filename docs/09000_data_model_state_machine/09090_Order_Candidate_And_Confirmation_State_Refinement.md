@@ -50,6 +50,14 @@ It does not define state machine code, enums, or integration runtime.
 - Operational monitoring and audit must follow `docs/07000_admin_console/07030_Admin_Operational_Monitoring_And_Recovery_Model.md` and `docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md`.
 - Integration truth separation must follow `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md`.
 
+## 4.1 Integration Boundary Cross-Reference
+
+- POS API truth boundary is defined in `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md`.
+- Printer/Store Agent boundary is defined in `docs/11000_integration_boundary/11030_Printer_And_Store_Agent_Boundary.md`.
+- Payment/financial truth boundary is defined in `docs/11000_integration_boundary/11040_Payment_And_Financial_Truth_Boundary.md`.
+- Manual POS input/reconciliation boundary is defined in `docs/11000_integration_boundary/11050_Manual_POS_Input_And_Reconciliation_Boundary.md`.
+- Failure/retry/recovery boundary is defined in `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`.
+
 ## 5 Non-Implementation Boundary
 
 - no state machine code.

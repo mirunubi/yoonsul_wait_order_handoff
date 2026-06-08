@@ -58,7 +58,13 @@ Conceptual API groups:
 - do not create POS integration now.
 - do not create printer driver now.
 
-## 5 Implementation Planning Cross-Reference
+## 5 Integration Boundary Cross-Reference
+
+Integration APIs must follow `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md` through `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`.
+
+API projection does not implement POS API, printer, payment, reconciliation, or retry/recovery runtime.
+
+## 6 Implementation Planning Cross-Reference
 
 API/app implementation readiness is defined in `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`.
 
@@ -66,7 +72,7 @@ API projection does not create endpoints.
 
 Implementation planning must pass `22040` before endpoint or app implementation artifacts are created.
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - REST vs RPC vs GraphQL.
 - Supabase RPC boundary.
@@ -77,7 +83,7 @@ Implementation planning must pass `22040` before endpoint or app implementation 
 - rate limiting.
 - audit event envelope.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active API contract projection boundary. No implementation approval.
 

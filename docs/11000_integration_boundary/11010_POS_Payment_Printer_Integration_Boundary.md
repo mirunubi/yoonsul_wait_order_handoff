@@ -130,4 +130,12 @@ Payment integration does not imply point integration.
 
 POS API integration does not imply membership integration.
 
+## 11 Integration Boundary Consolidation Cross-Reference
+
+- POS API truth boundary is refined in `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md`.
+- Printer/Store Agent boundary is refined in `docs/11000_integration_boundary/11030_Printer_And_Store_Agent_Boundary.md`.
+- Payment/financial truth boundary is refined in `docs/11000_integration_boundary/11040_Payment_And_Financial_Truth_Boundary.md`.
+- Manual POS input/reconciliation boundary is refined in `docs/11000_integration_boundary/11050_Manual_POS_Input_And_Reconciliation_Boundary.md`.
+- Failure/retry/recovery boundary is refined in `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`.
+
 

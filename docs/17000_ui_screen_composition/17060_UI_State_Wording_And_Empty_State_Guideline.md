@@ -79,8 +79,17 @@ Future membership/coupon/point UI wording must follow `docs/15000_membership_loy
 
 See `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md`.
 
-## 7 Cross-References
+## 7 Integration Boundary Wording Cross-Reference
 
+Integration-related UI wording must follow `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md` through `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`.
+
+- do not show POS confirmed when only printer output exists.
+- do not show paid unless payment authority exists.
+- retry/recovery UI must not imply success before confirmation.
+
+## 8 Cross-References
+
+- `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md`
 - `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
 - `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
 - `docs/09000_data_model_state_machine/09020_Handoff_State_Machine.md`
@@ -88,7 +97,7 @@ See `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surfac
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md`
 
-## 8 Open Decisions
+## 9 Open Decisions
 
 - Korean/English/Japanese/Chinese wording set.
 - icon usage.
@@ -96,6 +105,6 @@ See `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surfac
 - legal review of customer wording.
 - brand tone vs operational precision.
 
-## 9 Current Status
+## 10 Current Status
 
 Status: active shared UI state wording guideline. No implementation approval.
