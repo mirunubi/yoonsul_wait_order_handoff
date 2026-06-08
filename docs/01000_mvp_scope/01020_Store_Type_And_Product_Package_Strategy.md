@@ -251,7 +251,7 @@ This document is development design only. It does not create SQL, migrations, ap
 
 ## 12 Runtime Model Cross-Reference
 
-Package names must align with `docs/02000_saas_runtime/02010_Tenant_Store_Runtime_And_Package_Model.md`.
+Package names must align with `docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md`.
 
 Store type classification in this document is business-facing.
 

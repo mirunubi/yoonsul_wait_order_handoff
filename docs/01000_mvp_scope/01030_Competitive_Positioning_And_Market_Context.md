@@ -155,7 +155,7 @@ Future expansion may include:
 
 These are not active MVP claims.
 
-Future data, ad, CRM, and AI expansion is reserved in `docs/09000_future_expansion/09040_Data_Ad_CRM_AI_Future_Expansion_Model.md`.
+Future data, ad, CRM, and AI expansion is reserved in `docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md`.
 
 ## 9 Open Decisions
 

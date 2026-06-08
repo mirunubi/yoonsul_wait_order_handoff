@@ -33,7 +33,7 @@ Current phase:
 - MVP boundary confirmation.
 - no implementation until docs spine and MVP boundary are approved.
 
-Documentation numbering now uses five-digit prefixes because `yoonsul_wait_order_handoff` is SaaS-oriented and may grow beyond the former `0000~9999` structure.
+Documentation numbering now uses five-digit prefixes and approximately 2,000-slot domain bands because `yoonsul_wait_order_handoff` is SaaS-oriented and may grow beyond the former `0000~9999` structure.
 
 ## 5 External Separation
 

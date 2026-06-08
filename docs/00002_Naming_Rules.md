@@ -7,6 +7,7 @@ This document applies only to `yoonsul_wait_order_handoff`.
 ## 1 File Number Prefix Rule
 
 - This project uses five-digit document numbering because it is SaaS-oriented and may outgrow the former `0000~9999` numbering space.
+- The project uses approximately **2,000-slot domain bands** so major SaaS domains have wider spacing and future documents are less likely to crowd a narrow band.
 - Markdown governance and design files use a five-digit numeric prefix.
 - The prefix should reflect the document band and read order.
 - Do not reuse a file number for a different purpose inside the same folder.
@@ -36,26 +37,35 @@ Root governance files:
 
 ## 4 Docs Domain Bands
 
-- `00000~00099`: docs governance spine
-- `00100~00999`: project foundation / BM / patent boundary
-- `01000~01999`: MVP scope / market / package strategy
-- `02000~02999`: SaaS runtime / tenant / store runtime
-- `03000~03999`: customer handoff flow
-- `04000~04999`: admin console
-- `05000~05999`: data model / state machine
-- `06000~06999`: integration boundary
-- `07000~07999`: app/API projection
-- `08000~08999`: validation / security / audit
-- `09000~09999`: future expansion
-- `10000~10999`: UI screen composition
-- `11000~11999`: wireframe / prototype / design system
-- `12000~12999`: implementation planning boundary
-- `13000~13999`: testing / smoke / QA planning
-- `14000~14999`: deployment / operations planning
-- `15000~19999`: reserved product expansion
-- `20000~99999`: future SaaS modules / reserved
+The **2,000-slot band model** was adopted because this is a SaaS-oriented project and 999-slot domains were too narrow.
 
-`10000~10999` is reserved for UI/screen composition, but the folder must not be created until a dedicated documentation wave approves it.
+- `00000~00999`: governance / project foundation
+- `01000~02999`: MVP scope / market / package strategy
+- `03000~04999`: SaaS runtime / tenant / store runtime
+- `05000~06999`: customer handoff flow
+- `07000~08999`: admin console
+- `09000~10999`: data model / state machine
+- `11000~12999`: integration boundary
+- `13000~14999`: app/API projection
+- `15000~16999`: membership / loyalty / coupon / point
+- `17000~19999`: UI screen composition / wording / wireframe / design
+- `20000~21999`: validation / security / audit / privacy / export
+- `22000~23999`: implementation planning / build sequence / QA
+- `24000~25999`: deployment / operations / support planning
+- `26000~27999`: analytics / report / BI
+- `28000~29999`: future expansion / long-term reserved
+- `30000~99999`: future SaaS modules / reserved
+
+Reserved but not yet created in this task:
+
+- `docs/15000_membership_loyalty/` — membership / loyalty / coupon / point band reserved.
+- `docs/17000_ui_screen_composition/` — UI screen composition / wording / wireframe / design band reserved.
+
+Active future expansion folder:
+
+- `docs/28000_future_expansion/`
+
+New docs must use the final 2,000-slot band model.
 
 ## 5 Readme Naming Rule
 
@@ -65,7 +75,8 @@ Examples:
 
 - `00100_Project_Foundation_Readme.md`
 - `01000_MVP_Scope_Readme.md`
-- `03000_Customer_Handoff_Flow_Readme.md`
+- `05000_Customer_Handoff_Flow_Readme.md`
+- `03000_SaaS_Runtime_Readme.md`
 
 ## 6 Internal Title Rule
 
@@ -90,4 +101,3 @@ Preferred terms:
 ## 8 Current Status
 
 Status: active root governance rule.
-

@@ -53,8 +53,8 @@ Do not implement these in the first MVP:
 - [Docs Governance Checklist](docs/00099_Docs_Governance_Checklist.md)
 - [Project Identity And Overview](docs/00100_project_foundation/00110_Project_Identity_And_Overview.md)
 - [MVP Scope](docs/01000_mvp_scope/01010_MVP_Scope.md)
-- [User Flow](docs/03000_customer_handoff_flow/03010_User_Flow.md)
-- [Data Model Draft](docs/05000_data_model_state_machine/05010_Data_Model_Draft.md)
+- [User Flow](docs/05000_customer_handoff_flow/05010_User_Flow.md)
+- [Data Model Draft](docs/09000_data_model_state_machine/09010_Data_Model_Draft.md)
 - [Non-Implementation Boundary](docs/00100_project_foundation/00130_Non_Implementation_Boundary.md)
 - [BM Patent Linkage](docs/00100_project_foundation/00120_BM_Patent_Linkage.md)
 
@@ -73,14 +73,14 @@ yoonsul_wait_order_handoff/
     00099_Docs_Governance_Checklist.md
     00100_project_foundation/
     01000_mvp_scope/
-    02000_saas_runtime/
-    03000_customer_handoff_flow/
-    04000_admin_console/
-    05000_data_model_state_machine/
-    06000_integration_boundary/
-    07000_app_api_projection/
-    08000_validation_security_audit/
-    09000_future_expansion/
+    03000_saas_runtime/
+    05000_customer_handoff_flow/
+    07000_admin_console/
+    09000_data_model_state_machine/
+    11000_integration_boundary/
+    13000_app_api_projection/
+    20000_validation_security_audit/
+    28000_future_expansion/
   apps/
     customer-web/
     staff-web/
