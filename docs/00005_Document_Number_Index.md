@@ -177,14 +177,16 @@ These governance files live under `docs/`. They are not project-root files.
 
 ## 17 docs/28000_future_expansion
 
+Long-term future/reference only. Not active MVP runtime. Not Franchise OS implementation. Active boundaries: `15000` membership/loyalty, `26000` analytics, `20000` security/privacy/export, `22000` implementation readiness, `24000` operations planning.
+
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs/28000_future_expansion/28000_Future_Expansion_Readme.md | 28000 Future Expansion Readme. | initial |
-| docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md | 28020 Membership Loyalty Point Future Model. | future-reserved |
-| docs/28000_future_expansion/28030_Point_Bridge_And_Exchange_Future_Boundary.md | 28030 Point Bridge And Exchange Future Boundary. | future-reserved |
-| docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md | 28040 Data Ad CRM AI Future Expansion Model. | future-reserved |
-| docs/28000_future_expansion/28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. | future-reserved |
-| docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. | future-reserved |
+| docs/28000_future_expansion/28000_Future_Expansion_Readme.md | 28000 Future Expansion Readme. | active |
+| docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md | 28020 Membership Loyalty Point Future Model. Historical/future membership/point context; active boundaries in `15000`. | future-reserved |
+| docs/28000_future_expansion/28030_Point_Bridge_And_Exchange_Future_Boundary.md | 28030 Point Bridge And Exchange Future Boundary. Historical/future point bridge context; active boundaries in `15000` and `20000`. | future-reserved |
+| docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md | 28040 Data Ad CRM AI Future Expansion Model. Long-term data/ad/CRM/AI reference; analytics boundary in `26000`. | future-reserved |
+| docs/28000_future_expansion/28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. Future Franchise OS handoff concept only; not Franchise OS runtime. | future-reserved |
+| docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. Future intelligence feedback concept only; not AI or Franchise OS runtime. | future-reserved |
 
 ## 18 docs/30000_future_saas_modules
 
@@ -194,7 +196,7 @@ These governance files live under `docs/`. They are not project-root files.
 
 ## 19 Reserved Band Notes
 
-`docs/15000_membership_loyalty/` and `docs/17000_ui_screen_composition/` are reserved landing folders. Membership and point future references currently remain in `docs/28000_future_expansion/` until a dedicated documentation wave splits or moves them.
+`docs/15000_membership_loyalty/` is the active membership/loyalty boundary documentation band. `28020`/`28030` remain historical/future context in `docs/28000_future_expansion/` until a separate migration is approved.
 
 `docs/22000_implementation_planning/` holds the initial implementation planning boundary detail wave.
 
@@ -204,7 +206,7 @@ These governance files live under `docs/`. They are not project-root files.
 
 `docs/26000_analytics_reporting_bi/` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 
-`docs/28000_future_expansion/` is the active future expansion reference folder.
+`docs/28000_future_expansion/` is long-term future/reference only. Not active MVP runtime. Not Franchise OS implementation.
 
 ## 20 External Boundary Reference
 

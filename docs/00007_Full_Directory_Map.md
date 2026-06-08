@@ -155,7 +155,7 @@ docs/
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
 | docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |
 | docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |
-| docs/28000_future_expansion | Future franchise_os, Agent, Logical AI, Physical AI, analytics, multi-brand, and SaaS expansion references. |
+| docs/28000_future_expansion | Long-term future/reference only. Not active MVP runtime. Not Franchise OS implementation. Related active domains: `15000`, `26000`, `20000`, `22000`, `24000`. |
 | docs/30000_future_saas_modules | Long-term reserved future SaaS module documentation band. |
 
 ## 5 Reserved Band Notes
@@ -172,7 +172,7 @@ docs/
 
 `26000~27999` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 
-`28000~29999` is the active future expansion band. `docs/28000_future_expansion/` holds the current future expansion reference documents.
+`28000~29999` is long-term future/reference only. `docs/28000_future_expansion/` holds historical/future expansion reference documents. Not active MVP runtime. Not Franchise OS implementation. Related active domains: `15000`, `26000`, `20000`, `22000`, `24000`.
 
 ## 6 Current Status
 

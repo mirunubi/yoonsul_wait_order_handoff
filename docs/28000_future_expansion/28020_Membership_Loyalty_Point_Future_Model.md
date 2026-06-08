@@ -79,7 +79,14 @@ Future reward examples:
 - No Yoonsul group point integration in MVP.
 - No automatic coupon/point application in MVP.
 
-## 7 Future Approval Requirements
+## 7 Relationship To 15000
+
+- `docs/15000_membership_loyalty/` is now the active boundary domain for membership/loyalty/coupon/point.
+- This `28020` document remains historical/future context only.
+- No point ledger, wallet, coupon runtime, stamp runtime, or external bridge is active here.
+- Any future activation must follow `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`, `docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md`, `docs/15000_membership_loyalty/15040_External_Membership_Bridge_Future_Boundary.md`, and `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md` readiness gates.
+
+## 8 Future Approval Requirements
 
 Future activation requires:
 
@@ -91,8 +98,8 @@ Future activation requires:
 - admin approval model.
 - audit/reconciliation model.
 
-## 8 Current Status
+## 9 Current Status
 
-Status: future-reserved.
+Status: future-reserved historical/future context. Active boundaries are in `15000`.
 
 

@@ -46,7 +46,15 @@ MVP implementation planning may focus on:
 Allowed focus is handoff and operational visibility.
 It is not payment settlement, loyalty ledger, or full OS replacement.
 
-## 4 Analytics Cross-Reference
+## 4 Future Expansion Cross-Reference
+
+`docs/28000_future_expansion/` documents do not override MVP non-goals.
+
+Data/Ad/CRM/AI, Franchise OS handoff, point bridge, and intelligence feedback loop remain non-MVP unless separately approved.
+
+See `docs/28000_future_expansion/28000_Future_Expansion_Readme.md`.
+
+## 5 Analytics Cross-Reference
 
 Analytics/reporting/BI runtime is not MVP by default.
 
@@ -56,15 +64,17 @@ Analytics insight must not become runtime mutation.
 
 See `docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md`.
 
-## 5 Cross-References
+## 6 Cross-References
 
 - `docs/01000_mvp_scope/01010_MVP_Scope.md`
+- `docs/28000_future_expansion/28000_Future_Expansion_Readme.md`
+- `docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md`
 - `docs/26000_analytics_reporting_bi/26010_Analytics_Product_Boundary.md`
 - `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
 - `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`
 - `docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md`
 
-## 6 Open Decisions
+## 7 Open Decisions
 
 - whether Mini Kiosk ships in MVP.
 - whether Store Agent is MVP or optional later.
@@ -72,6 +82,6 @@ See `docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md`.
 - whether admin console is internal-only first.
 - whether anonymous customer session is allowed.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active MVP implementation non-goals. Not implementation approval.

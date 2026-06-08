@@ -117,7 +117,17 @@ Active MVP focuses on:
 
 Future data/ad/CRM/AI expansion must not change MVP wording from order candidate/preorder request into guaranteed order, payment, membership, or AI-personalized service.
 
-## 9 Governance Cross-References
+## 9 Relationship To 26000 and MVP Non-Goals
+
+- `docs/26000_analytics_reporting_bi/` controls analytics/reporting/BI boundary.
+- `docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md` controls analytics-to-action governance.
+- `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md` keeps AI recommendation, CRM automation, and ad targeting out of MVP.
+- This `28040` document remains long-term market/future reference only.
+- Data/Ad/CRM/AI must not become active runtime from this document.
+
+This project may observe broader F&B SaaS/AI platform trends, but it does not implement group-level Franchise OS, ERP, manufacturing/logistics, or AI platform capabilities here.
+
+## 10 Governance Cross-References
 
 SaaS data capture governance is defined in `docs/20000_validation_security_audit/20010_SaaS_Data_Capture_And_Governance_Principle.md`.
 
@@ -129,7 +139,7 @@ Franchise intelligence feedback loop is defined in `docs/28000_future_expansion/
 
 This `9040` document remains future-reserved and must not imply active MVP ad, CRM, analytics automation, AI recommendation, or Franchise OS runtime.
 
-## 10 Open Decisions
+## 11 Open Decisions
 
 - whether analytics should enter before CRM.
 - whether ad/promotion surfaces are store-local only or platform-wide.
@@ -138,8 +148,8 @@ This `9040` document remains future-reserved and must not imply active MVP ad, C
 - whether menu performance analytics can be aggregated across tenants.
 - whether ad/CRM features require separate package plan.
 
-## 11 Current Status
+## 12 Current Status
 
-Status: future-reserved.
+Status: future-reserved long-term market/future reference. Active analytics boundary is in `26000`.
 
 

@@ -69,14 +69,22 @@ It does not authorize automatic execution.
 
 Future insight products require separate approval after `26010`, `26030`, `26040`, and `20050` boundaries are satisfied.
 
-## 6 Cross-References
+## 6 Future Expansion Cross-Reference
+
+`docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md` is long-term reference only.
+
+Analytics-to-action governance must remain approval-based.
+
+Recommendation does not equal runtime mutation.
+
+## 7 Cross-References
 
 - `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md`
 - `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
 - `docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md`
 - `docs/26000_analytics_reporting_bi/26010_Analytics_Product_Boundary.md`
 
-## 7 Open Decisions
+## 8 Open Decisions
 
 - insight owner.
 - recommendation review role.
@@ -85,6 +93,6 @@ Future insight products require separate approval after `26010`, `26030`, `26040
 - alert severity.
 - feedback loop with 28000 future expansion.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active analytics-to-action governance boundary. Not implementation approval.

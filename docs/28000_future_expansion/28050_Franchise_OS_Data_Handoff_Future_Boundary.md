@@ -61,7 +61,15 @@ Conceptual future flow:
 9. controlled runtime application is audited if approved.
 10. outcome measurement is captured for future feedback.
 
-## 6 Open Decisions
+## 6 Not Franchise OS Runtime
+
+- `yoonsul_wait_order_handoff` is not `yoonsul_franchise_os`.
+- This document is a future handoff boundary only.
+- It must not create Franchise OS ingestion, sync, CRM, ERP, AI, or operational command runtime.
+- Any future data handoff requires privacy/export/legal review and separate approval.
+- Franchise OS recommendation does not equal wait_order_handoff runtime mutation.
+
+## 7 Open Decisions
 
 - future Franchise OS data contract format.
 - minimum aggregation threshold.
@@ -70,7 +78,7 @@ Conceptual future flow:
 - recommendation rollback model.
 - retention policy for intelligence exports.
 
-## 7 Current Status
+## 8 Current Status
 
-Status: future-reserved boundary.
+Status: future-reserved handoff boundary only. Not Franchise OS runtime.
 
