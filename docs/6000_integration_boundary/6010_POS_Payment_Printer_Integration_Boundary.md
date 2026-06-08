@@ -119,3 +119,13 @@ Payment profile is independent from integration profile.
 POS API enabled does not automatically mean platform payment enabled.
 
 Store Agent/printer enabled does not automatically mean POS sales sync.
+
+## 10 Membership / Point Future Boundary
+
+Membership/point bridge is not part of the `6010` active integration boundary.
+
+Future point bridge is reserved under `docs/9000_future_expansion/`.
+
+Payment integration does not imply point integration.
+
+POS API integration does not imply membership integration.

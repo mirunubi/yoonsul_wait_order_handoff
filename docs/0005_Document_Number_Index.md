@@ -93,6 +93,8 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | `docs/9000_future_expansion/9000_Future_Expansion_Readme.md` | Future franchise_os, Agent, Logical AI, Physical AI, analytics, and expansion references. | initial |
+| `docs/9000_future_expansion/9020_Membership_Loyalty_Point_Future_Model.md` | Future-reserved membership, loyalty, coupon, stamp, and point model boundary. | future-reserved |
+| `docs/9000_future_expansion/9030_Point_Bridge_And_Exchange_Future_Boundary.md` | Future-reserved point bridge and exchange boundary. | future-reserved |
 
 ## 13 External Boundary Reference
 

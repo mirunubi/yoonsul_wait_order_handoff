@@ -94,7 +94,7 @@ Disabled features:
 - waiting management.
 - POS API order creation.
 - platform payment.
-- membership, coupon, and points.
+- membership, coupon, and points; future-reserved only.
 
 Integration assumptions:
 
@@ -139,7 +139,7 @@ Disabled features:
 
 - POS API order creation unless separately enabled.
 - platform payment.
-- membership, coupon, and points.
+- membership, coupon, and points; future-reserved only.
 
 Integration assumptions:
 
@@ -224,7 +224,7 @@ Enabled features:
 Disabled features:
 
 - platform payment unless separately enabled.
-- membership, coupon, and points unless separately approved.
+- membership, coupon, and points; future-reserved only.
 
 Integration assumptions:
 
@@ -258,7 +258,7 @@ Enabled features:
 - Mini Kiosk.
 - POS/KDS coordination.
 - payment where approved.
-- membership where approved.
+- membership only when a future-reserved loyalty model is separately approved.
 - CMS.
 - Agent.
 - audit.
@@ -304,9 +304,9 @@ Conceptual feature flags:
 - `pos_api_enabled`
 - `payment_by_platform_enabled`
 - `payment_by_store_pos_required`
-- `membership_enabled`
-- `coupon_enabled`
-- `points_enabled`
+- `membership_enabled` future-reserved only.
+- `coupon_enabled` future-reserved only.
+- `points_enabled` future-reserved only.
 - `audit_required`
 - `manual_recovery_enabled`
 
@@ -315,6 +315,8 @@ Feature flags must be explicit.
 No package should silently imply high-risk features such as platform payment or POS auto-sync.
 
 Payment and POS authority must be separately enabled.
+
+Membership, coupon, and points flags are future-reserved and must not be treated as active MVP runtime flags.
 
 ## 8 Store Integration Profile
 
@@ -421,7 +423,29 @@ A store without POS API or platform payment must not display "order completed" b
 - Enabling multilingual menu requires menu content review.
 - Store runtime changes must be audited.
 
-## 12 Open Decisions
+## 12 Membership / Point Future Reservation
+
+Membership/point is deferred to `docs/9000_future_expansion/9020_Membership_Loyalty_Point_Future_Model.md` and `docs/9000_future_expansion/9030_Point_Bridge_And_Exchange_Future_Boundary.md`.
+
+Current package plan must not silently enable:
+
+- membership.
+- points.
+- coupon redemption.
+- wallet.
+- point exchange.
+
+Early MVP focuses on:
+
+- waiting.
+- Mini Kiosk.
+- order candidate.
+- staff confirmation.
+- Store Agent/printer.
+- POS API boundary.
+- store POS payment.
+
+## 13 Open Decisions
 
 - Tenant billing unit.
 - store-level subscription pricing.
@@ -433,7 +457,6 @@ A store without POS API or platform payment must not display "order completed" b
 - package downgrade behavior.
 - data retention per tenant/store.
 
-## 13 Current Status
+## 14 Current Status
 
 Status: active SaaS runtime design.
-

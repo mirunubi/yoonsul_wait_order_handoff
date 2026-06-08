@@ -62,6 +62,8 @@ docs/
     8000_Validation_Security_Audit_Readme.md
   9000_future_expansion/
     9000_Future_Expansion_Readme.md
+    9020_Membership_Loyalty_Point_Future_Model.md
+    9030_Point_Bridge_And_Exchange_Future_Boundary.md
 ```
 
 `directory_tree.txt` and `tree_directory_view.txt` are temporary local snapshots. They are not governance documents.

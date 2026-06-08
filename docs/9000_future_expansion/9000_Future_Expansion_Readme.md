@@ -9,12 +9,20 @@ This folder holds future expansion references for franchise_os, Agent, Logical A
 - Future franchise_os linkage references.
 - Agent and AI boundary references.
 - Analytics, multi-brand, and expanded SaaS direction.
+- Future membership, loyalty, coupon, stamp, point, and point bridge boundaries.
 
-## 3 Out Of Scope
+## 3 Document List
+
+| document | description |
+| --- | --- |
+| `9020_Membership_Loyalty_Point_Future_Model.md` | Reserves membership, loyalty, coupon, stamp, and point design as future expansion outside active MVP runtime. |
+| `9030_Point_Bridge_And_Exchange_Future_Boundary.md` | Reserves future point bridge and exchange boundaries among SaaS points, white-label points, Yoonsul group points, and external membership systems. |
+
+## 4 Out Of Scope
 
 - Agent implementation, AI engine implementation, device protocol, franchise OS implementation, and patent-attorney-facing claims.
+- Active MVP point ledger, point balance, wallet, prepaid, external membership integration, and point exchange.
 
-## 4 Current Status
+## 5 Current Status
 
 Status: initial future expansion namespace. References only.
-
