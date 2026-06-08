@@ -55,6 +55,11 @@ These governance files live under `docs/`. They are not project-root files.
 | --- | --- | --- |
 | docs/03000_saas_runtime/03000_SaaS_Runtime_Readme.md | 03000 SaaS Runtime Readme. | initial |
 | docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md | 03010 Tenant Store Runtime And Package Model. | active |
+| docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md | 03020 Tenant Company Legal Operating Group Context Model. | active |
+| docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md | 03030 Store Runtime Profile Model. | active |
+| docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md | 03040 Package Plan And Feature Flag Runtime Governance. | active |
+| docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md | 03050 Runtime Profile Change And Audit Governance. | active |
+| docs/03000_saas_runtime/03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md | 03060 Runtime Profile Non Mvp And Future Flag Boundary. | active |
 
 ## 6 docs/05000_customer_handoff_flow
 

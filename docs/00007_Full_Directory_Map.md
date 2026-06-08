@@ -49,6 +49,11 @@ docs/
   03000_saas_runtime/
     03000_SaaS_Runtime_Readme.md
     03010_Tenant_Store_Runtime_And_Package_Model.md
+    03020_Tenant_Company_Legal_Operating_Group_Context_Model.md
+    03030_Store_Runtime_Profile_Model.md
+    03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md
+    03050_Runtime_Profile_Change_And_Audit_Governance.md
+    03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md
   05000_customer_handoff_flow/
     05000_Customer_Handoff_Flow_Readme.md
     05010_User_Flow.md
@@ -147,7 +152,7 @@ docs/
 | --- | --- |
 | docs/00100_project_foundation | Project identity, BM boundary, patent linkage, and non-implementation boundary. |
 | docs/01000_mvp_scope | MVP definition, active/optional/future/non-goal matrix, package/feature flag boundary, store-type adoption sequence, and market-facing scope. |
-| docs/03000_saas_runtime | Future SaaS tenant, account, billing, multi-store runtime, and store runtime boundary. |
+| docs/03000_saas_runtime | SaaS context axes, store runtime profiles, package/feature flag governance, change/audit governance, and non-MVP future profile boundaries. |
 | docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
 | docs/07000_admin_console | Admin console scope for SaaS operator, store owner, store manager, and HQ/operator roles. |
 | docs/09000_data_model_state_machine | Conceptual data model and state machine only. |

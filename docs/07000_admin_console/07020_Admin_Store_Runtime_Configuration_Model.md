@@ -166,7 +166,15 @@ Payment profile must be independent from POS API profile.
 - audit event required: every runtime setting change must append audit evidence.
 - rollback / disable rule: high-risk flags must have a disable path and rollback record.
 
-## 7 Open Decisions
+## 7 SaaS Runtime Cross-Reference
+
+Admin store runtime configuration must follow `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`, `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`, and `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
+
+Admin visibility does not equal activation authority.
+
+Feature flag change does not equal approval.
+
+## 8 Open Decisions
 
 - feature flag UI granularity.
 - package downgrade behavior.
@@ -174,7 +182,7 @@ Payment profile must be independent from POS API profile.
 - batch changes across stores.
 - default settings per package.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active admin console governance design.
 

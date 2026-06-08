@@ -110,7 +110,13 @@ This document is documentation-only and does not approve database, API, UI, Supa
 - recommendation is not execution.
 - evidence is not approval.
 
-## 11 Open Decisions
+## 11 SaaS Runtime Cross-Reference
+
+SaaS context axes and runtime profiles are governed by `docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md` and `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`.
+
+Physical schema must not be inferred directly from `03000` docs.
+
+## 12 Open Decisions
 
 - whether customer identity is anonymous, phone-based, or member-linked in early MVP.
 - whether company/legal_entity are required for all tenant types in MVP.
@@ -118,7 +124,7 @@ This document is documentation-only and does not approve database, API, UI, Supa
 - whether menu_snapshot is managed internally or imported.
 - whether support_access_session requires dual approval.
 
-## 12 Current Status
+## 13 Current Status
 
 Status: active conceptual entity master. No physical schema.
 

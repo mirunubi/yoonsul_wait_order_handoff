@@ -493,4 +493,11 @@ Admin approval workflow is defined in `docs/07000_admin_console/07050_Admin_Appr
 
 Admin audit/recovery queue governance is defined in `docs/07000_admin_console/07060_Admin_Audit_And_Recovery_Queue_Governance.md`.
 
+## 16 SaaS Runtime Consolidation Cross-Reference
+
+- Context axes are expanded in `docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md`.
+- Store runtime profiles are defined in `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`.
+- Package/feature flag runtime governance is defined in `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`.
+- Runtime profile change/audit governance is defined in `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
+- Non-MVP future runtime profiles are defined in `docs/03000_saas_runtime/03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md`.
 
