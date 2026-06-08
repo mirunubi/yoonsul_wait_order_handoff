@@ -42,6 +42,10 @@ Do not implement these in the first MVP:
 7. Staff reviews the order candidate.
 8. Staff confirms it and manually enters it into the existing POS if needed.
 
+## Documentation Bands
+
+`docs/17000_ui_screen_composition/` contains UI screen composition guidance only. It translates projection and governance into conceptual screen inventories, wording rules, and wireframe boundaries. It is not UI implementation, routing, API design, or production design assets.
+
 ## Document Index
 
 - [Project Overview](docs/00000_Project_Overview.md)
@@ -79,6 +83,7 @@ yoonsul_wait_order_handoff/
     09000_data_model_state_machine/
     11000_integration_boundary/
     13000_app_api_projection/
+    17000_ui_screen_composition/
     20000_validation_security_audit/
     28000_future_expansion/
   apps/

@@ -56,14 +56,15 @@ The **2,000-slot band model** was adopted because this is a SaaS-oriented projec
 - `28000~29999`: future expansion / long-term reserved
 - `30000~99999`: future SaaS modules / reserved
 
-Reserved but not yet created in this task:
+Reserved band landing folders:
 
 - `docs/15000_membership_loyalty/` — membership / loyalty / coupon / point band reserved.
 - `docs/17000_ui_screen_composition/` — UI screen composition / wording / wireframe / design band reserved.
-
-Active future expansion folder:
-
-- `docs/28000_future_expansion/`
+- `docs/22000_implementation_planning/` — implementation planning / build sequence / QA band reserved.
+- `docs/24000_deployment_operations/` — deployment / operations / support planning band reserved.
+- `docs/26000_analytics_reporting_bi/` — analytics / report / BI band reserved.
+- `docs/28000_future_expansion/` — active future expansion reference folder.
+- `docs/30000_future_saas_modules/` — future SaaS modules / long-term reserved band.
 
 New docs must use the final 2,000-slot band model.
 

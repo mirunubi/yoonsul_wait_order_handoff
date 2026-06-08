@@ -117,7 +117,44 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md | 20060 Anonymization And Pseudonymization Standard. | active |
 | docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md | 20070 Audit Evidence And Compliance Record Model. | active |
 
-## 12 docs/28000_future_expansion
+## 12 docs/15000_membership_loyalty
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/15000_membership_loyalty/15000_Membership_Loyalty_Readme.md | 15000 Membership Loyalty Readme. | initial |
+
+## 13 docs/17000_ui_screen_composition
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md | 17000 Ui Screen Composition Readme. | initial |
+| docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md | 17010 Customer Webapp Ui Composition. | active |
+| docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md | 17020 Mini Kiosk Ui Composition. | active |
+| docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md | 17030 Store Console Ui Composition. | active |
+| docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md | 17040 Admin Console Ui Composition. | active |
+| docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md | 17050 Support Console Ui Composition. | active |
+| docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md | 17060 Ui State Wording And Empty State Guideline. | active |
+| docs/17000_ui_screen_composition/17070_Wireframe_Prototype_Boundary.md | 17070 Wireframe Prototype Boundary. | active |
+
+## 14 docs/22000_implementation_planning
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/22000_implementation_planning/22000_Implementation_Planning_Readme.md | 22000 Implementation Planning Readme. | initial |
+
+## 15 docs/24000_deployment_operations
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/24000_deployment_operations/24000_Deployment_Operations_Readme.md | 24000 Deployment Operations Readme. | initial |
+
+## 16 docs/26000_analytics_reporting_bi
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/26000_analytics_reporting_bi/26000_Analytics_Reporting_Bi_Readme.md | 26000 Analytics Reporting Bi Readme. | initial |
+
+## 17 docs/28000_future_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -128,15 +165,21 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/28000_future_expansion/28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. | future-reserved |
 | docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. | future-reserved |
 
-## 13 Reserved Bands
+## 18 docs/30000_future_saas_modules
 
-`docs/15000_membership_loyalty/` is reserved for membership / loyalty / coupon / point documentation but is not yet created.
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/30000_future_saas_modules/30000_Future_Saas_Modules_Readme.md | 30000 Future Saas Modules Readme. | initial |
 
-`docs/17000_ui_screen_composition/` is reserved for UI screen composition / wording / wireframe / design documentation but is not yet created.
+## 19 Reserved Band Notes
 
-`docs/28000_future_expansion/` is the active future expansion folder.
+`docs/15000_membership_loyalty/` and `docs/17000_ui_screen_composition/` are reserved landing folders. Membership and point future references currently remain in `docs/28000_future_expansion/` until a dedicated documentation wave splits or moves them.
 
-## 14 External Boundary Reference
+`docs/22000_implementation_planning/`, `docs/24000_deployment_operations/`, `docs/26000_analytics_reporting_bi/`, and `docs/30000_future_saas_modules/` are reserved landing folders with no active runtime documents yet.
+
+`docs/28000_future_expansion/` is the active future expansion reference folder.
+
+## 20 External Boundary Reference
 
 `yoonsul_os` is an external project separation reference only.
 It is not part of the `yoonsul_wait_order_handoff` document index.
