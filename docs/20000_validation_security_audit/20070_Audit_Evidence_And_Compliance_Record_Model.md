@@ -74,7 +74,13 @@ Compliance records may support:
 - legal/policy review.
 - future Franchise OS data handoff review.
 
-## 6 Open Decisions
+## 6 Operations Evidence Cross-Reference
+
+Runtime support and incident operation evidence must follow `docs/24000_deployment_operations/24020_Runtime_Operations_And_Support_Boundary.md` and `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`.
+
+Runbook-driven actions must still generate audit evidence per this document.
+
+## 7 Open Decisions
 
 - audit retention period.
 - tamper resistance.
@@ -83,7 +89,7 @@ Compliance records may support:
 - access to audit records.
 - audit export authority.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: active audit evidence and compliance record draft.
 

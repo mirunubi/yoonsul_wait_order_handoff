@@ -112,6 +112,11 @@ docs/
     22060_Mvp_Implementation_Non_Goals.md
   24000_deployment_operations/
     24000_Deployment_Operations_Readme.md
+    24010_Deployment_Readiness_And_Release_Governance.md
+    24020_Runtime_Operations_And_Support_Boundary.md
+    24030_Incident_Response_And_Degraded_Operation_Boundary.md
+    24040_Operational_Runbook_Boundary.md
+    24050_Environment_And_Config_Non_Implementation_Boundary.md
   26000_analytics_reporting_bi/
     26000_Analytics_Reporting_Bi_Readme.md
     26010_Analytics_Product_Boundary.md
@@ -148,7 +153,7 @@ docs/
 | docs/17000_ui_screen_composition | UI screen composition for customer webapp, Mini Kiosk, store console, admin console, support console, shared wording, and wireframe boundary. Documentation only; not implementation. |
 | docs/20000_validation_security_audit | Validation, audit, security, privacy, and operational safety principles. |
 | docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
-| docs/24000_deployment_operations | Reserved deployment, operations, and support planning band. |
+| docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |
 | docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |
 | docs/28000_future_expansion | Future franchise_os, Agent, Logical AI, Physical AI, analytics, multi-brand, and SaaS expansion references. |
 | docs/30000_future_saas_modules | Long-term reserved future SaaS module documentation band. |
@@ -161,7 +166,9 @@ docs/
 
 `22000~23999` holds the initial implementation planning boundary detail wave. This band is planning boundary only, not implementation approval.
 
-`24000~25999` and `30000~99999` are reserved landing bands with readme landing documents only.
+`24000~25999` holds the initial deployment/operations/support planning boundary detail wave. This band is planning boundary only, not deployment approval.
+
+`30000~99999` is a reserved landing band with readme landing document only.
 
 `26000~27999` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 

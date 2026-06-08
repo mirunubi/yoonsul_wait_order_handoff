@@ -64,14 +64,25 @@ Additional principles:
 
 Test artifacts require a separate approved implementation wave after this planning boundary is satisfied.
 
-## 6 Cross-References
+## 6 Deployment Operations Cross-Reference
+
+Deployment readiness and release governance are defined in `docs/24000_deployment_operations/24010_Deployment_Readiness_And_Release_Governance.md`.
+
+Incident/degraded operation boundary is defined in `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`.
+
+Rollback planning must align with `docs/24000_deployment_operations/24040_Operational_Runbook_Boundary.md`.
+
+## 7 Cross-References
 
 - `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`
+- `docs/24000_deployment_operations/24010_Deployment_Readiness_And_Release_Governance.md`
+- `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`
+- `docs/24000_deployment_operations/24040_Operational_Runbook_Boundary.md`
 - `docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md`
 - `docs/20000_validation_security_audit/20050_Data_Export_And_Report_Approval_Governance.md`
 - `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
 
-## 7 Open Decisions
+## 8 Open Decisions
 
 - test tenant strategy.
 - seed data strategy.
@@ -80,6 +91,6 @@ Test artifacts require a separate approved implementation wave after this planni
 - production readiness sign-off.
 - incident drill cadence.
 
-## 8 Current Status
+## 9 Current Status
 
 Status: active QA/smoke/rollback planning boundary. Not implementation approval.

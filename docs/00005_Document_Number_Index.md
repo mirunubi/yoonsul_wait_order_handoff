@@ -158,6 +158,11 @@ These governance files live under `docs/`. They are not project-root files.
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs/24000_deployment_operations/24000_Deployment_Operations_Readme.md | 24000 Deployment Operations Readme. | initial |
+| docs/24000_deployment_operations/24010_Deployment_Readiness_And_Release_Governance.md | 24010 Deployment Readiness And Release Governance. | active |
+| docs/24000_deployment_operations/24020_Runtime_Operations_And_Support_Boundary.md | 24020 Runtime Operations And Support Boundary. | active |
+| docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md | 24030 Incident Response And Degraded Operation Boundary. | active |
+| docs/24000_deployment_operations/24040_Operational_Runbook_Boundary.md | 24040 Operational Runbook Boundary. | active |
+| docs/24000_deployment_operations/24050_Environment_And_Config_Non_Implementation_Boundary.md | 24050 Environment And Config Non Implementation Boundary. | active |
 
 ## 16 docs/26000_analytics_reporting_bi
 
@@ -193,7 +198,9 @@ These governance files live under `docs/`. They are not project-root files.
 
 `docs/22000_implementation_planning/` holds the initial implementation planning boundary detail wave.
 
-`docs/24000_deployment_operations/` and `docs/30000_future_saas_modules/` are reserved landing folders with no active runtime documents yet.
+`docs/24000_deployment_operations/` holds the initial deployment/operations/support planning boundary detail wave. This band is planning boundary only, not deployment approval.
+
+`docs/30000_future_saas_modules/` is a reserved landing folder with no active runtime documents yet.
 
 `docs/26000_analytics_reporting_bi/` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
 
