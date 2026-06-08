@@ -423,6 +423,12 @@ A store without POS API or platform payment must not display "order completed" b
 - Enabling multilingual menu requires menu content review.
 - Store runtime changes must be audited.
 
+MVP scope cross-reference:
+
+- MVP package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
+- Store-type adoption sequence is defined in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
+- Feature flags do not equal implementation approval.
+
 ## 12 Membership / Point Future Reservation
 
 Membership/loyalty optional SaaS boundary is defined in `docs/15000_membership_loyalty/`.

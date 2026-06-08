@@ -46,6 +46,13 @@ MVP implementation planning may focus on:
 Allowed focus is handoff and operational visibility.
 It is not payment settlement, loyalty ledger, or full OS replacement.
 
+MVP scope consolidation cross-reference:
+
+- `docs/01000_mvp_scope/01040_MVP_Active_Optional_Future_NonGoal_Matrix.md` is the source MVP active/optional/future/non-goal matrix.
+- `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md` governs feature flag boundary.
+- `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md` governs store-type adoption sequence.
+- `22060` remains implementation non-goal enforcement.
+
 ## 4 Future Expansion Cross-Reference
 
 `docs/28000_future_expansion/` documents do not override MVP non-goals.

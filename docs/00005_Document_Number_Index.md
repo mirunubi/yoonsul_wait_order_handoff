@@ -45,6 +45,9 @@ These governance files live under `docs/`. They are not project-root files.
 | docs/01000_mvp_scope/01010_MVP_Scope.md | 01010 MVP Scope. | active |
 | docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md | 01020 Store Type And Product Package Strategy. | active |
 | docs/01000_mvp_scope/01030_Competitive_Positioning_And_Market_Context.md | 01030 Competitive Positioning And Market Context. | active |
+| docs/01000_mvp_scope/01040_MVP_Active_Optional_Future_NonGoal_Matrix.md | 01040 Mvp Active Optional Future Non Goal Matrix. | active |
+| docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md | 01050 Mvp Package And Feature Flag Boundary. | active |
+| docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md | 01060 Mvp Store Type Adoption Sequence. | active |
 
 ## 5 docs/03000_saas_runtime
 

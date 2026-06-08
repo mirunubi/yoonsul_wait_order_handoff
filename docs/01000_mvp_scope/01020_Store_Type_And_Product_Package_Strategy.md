@@ -249,7 +249,13 @@ Status: active MVP product package strategy.
 
 This document is development design only. It does not create SQL, migrations, app code, payment code, POS integration, printer protocol, or Store Agent implementation.
 
-## 12 Runtime Model Cross-Reference
+## 12 MVP Consolidation Cross-Reference
+
+- Store-type adoption sequence is consolidated in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
+- Package/feature flag boundary is consolidated in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
+- Full OS and platform payment remain non-default MVP paths.
+
+## 13 Runtime Model Cross-Reference
 
 Package names must align with `docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md`.
 

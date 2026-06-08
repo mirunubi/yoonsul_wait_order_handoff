@@ -43,6 +43,9 @@ docs/
     01010_MVP_Scope.md
     01020_Store_Type_And_Product_Package_Strategy.md
     01030_Competitive_Positioning_And_Market_Context.md
+    01040_MVP_Active_Optional_Future_NonGoal_Matrix.md
+    01050_MVP_Package_And_Feature_Flag_Boundary.md
+    01060_MVP_Store_Type_Adoption_Sequence.md
   03000_saas_runtime/
     03000_SaaS_Runtime_Readme.md
     03010_Tenant_Store_Runtime_And_Package_Model.md
@@ -143,7 +146,7 @@ docs/
 | folder | purpose |
 | --- | --- |
 | docs/00100_project_foundation | Project identity, BM boundary, patent linkage, and non-implementation boundary. |
-| docs/01000_mvp_scope | MVP definition, service scenario, market-facing scope, and package strategy. |
+| docs/01000_mvp_scope | MVP definition, active/optional/future/non-goal matrix, package/feature flag boundary, store-type adoption sequence, and market-facing scope. |
 | docs/03000_saas_runtime | Future SaaS tenant, account, billing, multi-store runtime, and store runtime boundary. |
 | docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
 | docs/07000_admin_console | Admin console scope for SaaS operator, store owner, store manager, and HQ/operator roles. |
