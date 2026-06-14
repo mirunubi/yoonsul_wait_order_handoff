@@ -221,215 +221,197 @@ docs/
     09090_Order_Candidate_And_Confirmation_State_Refinement.md
     09100_Admin_Support_Audit_Entity_Lineage_Model.md
     09110_Future_Profile_And_Analytics_State_Boundary.md
-  10000_static_catalog_runtime_planning/
-    09660_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming_Policy.md
-    09670_Catch_Menu_Customer_Surface_Projection_And_i18n_Naming_Policy.md
-    09680_Provider_Evidence_Collection_Template_And_Capability_Review_Policy.md
-    09690_Security_Monitoring_Foundation_README_Insert_And_Index_Patch_Policy.md
-    09700_Controlled_Non-Runtime_Catalog_Schema_Planning_Policy.md
-    09710_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package_Policy.md
-    09720_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet_Policy.md
-    09730_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix_Policy.md
-    09740_i18n_Message_Key_Registry_And_Customer_Visible_Text_Review_Policy.md
-    09750_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping_Policy.md
-    09760_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping_Policy.md
-    09770_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping_Policy.md
-    09780_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary_Policy.md
-    09790_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control_Policy.md
-    09800_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet_Policy.md
-    09810_Value_Recovery_Reconciliation_And_Partial_Execution_Closure_Policy.md
-    09820_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice_Policy.md
-    09830_Non-Reversible_Value_Action_And_Preventive_Control_Escalation_Policy.md
-    09840_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary_Policy.md
-    09850_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control_Policy.md
-    09860_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention_Policy.md
-    09870_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff_Policy.md
-    09880_Incident_Learning_Boundary_Test_Matrix_Update_And_Policy_Patch_Handoff.md
-    09890_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate_Policy.md
-    09900_Controlled_Implementation_Candidate_Template_And_First_Package_Selection_Policy.md
-    09910_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft_Policy.md
-    09920_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping_Policy.md
-    09930_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability_Policy.md
-    09940_i18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review_Policy.md
-    09950_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface_Policy.md
-    09960_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State_Policy.md
-    09970_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface_Policy.md
-    09980_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping_Policy.md
-    09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md
-    10000_Static_Catalog_Runtime_Planning_Readme.md
-  10000_foundation_static_catalog_package/
-    10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy.md
-    10000_10712_Root_File_Rename_And_Move_Plan.md
-    10000_Foundation_Static_Catalog_Package_Readme.md
-    10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md
-    10020_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle_Policy.md
-    10030_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture_Policy.md
-    10040_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly_Policy.md
-    10041_Windows_Installer_Option_Package_And_Local_Runtime_Configuration_Policy.md
-    10042_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode_Policy.md
-    10043_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path_Policy.md
-    10044_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion_Policy.md
-    10045_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly_Policy.md
-    10046_Surface_Evolution_Roadmap_And_Product_Line_Continuity_Policy.md
-    10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy.md
-    10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy.md
-    10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy.md
-    10050_Product_Line_Static_Registry_Closure_And_Coding_Deferral_Policy.md
-    10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy.md
-    10052_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff_Policy.md
-    10053_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet_Policy.md
-    10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy.md
-    10055_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft_Policy.md
-    10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy.md
-    10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy.md
-  10100_four_side_platform_skeleton/
-    10100_Four-Side_Platform_Skeleton_And_Cross-Axis_Construction_Policy.md
-    10100_Four_Side_Platform_Skeleton_Readme.md
-    10110_Store_Runtime_POS_KDS_Kitchen_Execution_Skeleton_Policy.md
-    10120_Payment_Settlement_Refund_Wallet_Financial_Trust_Skeleton_Policy.md
-    10130_CMS_i18n_AI_pgvector_Data_Governance_Skeleton_Policy.md
-    10140_Cross-Axis_Authority_Evidence_Audit_And_Fallback_Beam_Policy.md
-    10150_Four-Side_Skeleton_Closure_And_Runtime_Deferral_Policy.md
-  10400_financial_trust_room/
-    10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index.md
-    10400_Financial_Trust_Room_Readme.md
-    10410_Payment_Intent_And_Authorization_Boundary_Policy.md
-    10420_Payment_Confirmation_And_Provider_Callback_Boundary_Policy.md
-    10430_Refund_Cancellation_And_Void_Boundary_Policy.md
-    10440_Coupon_Point_Wallet_And_Stored_Value_Boundary_Policy.md
-    10450_Settlement_Allocation_And_Reconciliation_Boundary_Policy.md
-    10460_Compensation_And_Customer_Recovery_Value_Boundary_Policy.md
-    10470_Financial_Evidence_Audit_And_Export_Boundary_Policy.md
-    10480_Financial_Trust_Closure_And_Data_Governance_Handoff_Policy.md
-  10500_data_governance_room/
-    10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index.md
-    10500_Data_Governance_Room_Readme.md
-    10510_CMS_Content_Publication_And_Targeting_Boundary_Policy.md
-    10520_i18n_Message_Key_And_Human_Visible_Text_Boundary_Policy.md
-    10530_Safe_Projection_Masking_And_Audience_Visibility_Boundary_Policy.md
-    10540_AI_Advisory_Runtime_And_Non-Authority_Boundary_Policy.md
-    10550_pgvector_Context_Retrieval_And_Similarity_Boundary_Policy.md
-    10551_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary_Policy.md
-    10552_Layered_Immune_Security_Agent_Architecture_And_Cross-Check_Boundary_Policy.md
-    10553_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary_Policy.md
-    10554_Four-Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation_Policy.md
-    10560_Analytics_Read_Model_And_Benchmark_Boundary_Policy.md
-    10570_Retention_Export_And_Compliance_Data_Boundary_Policy.md
-    10580_Data_Governance_Closure_And_Cross-Room_Handoff_Policy.md
-  10600_cross_room_plumbing_wiring_insulation/
-    10600_Cross-Room_Plumbing_Wiring_Insulation_Planning_Index.md
-    10600_Cross_Room_Plumbing_Wiring_Insulation_Readme.md
-    10601_Financial-Grade_Ledger_Reconciliation_And_Four-Source_Closing_Audit_Policy.md
-    10602_Financial_Reconciliation_Blind_Spot_Control_Time_State_Offline_Log_And_Auditor_Security_Policy.md
-    10603_Reconciliation_DLQ_Device_Non-Repudiation_And_Cold_Storage_Lifecycle_Policy.md
-    10604_SaaS_Scale_Constraint_Multi-Tenancy_Hardware_Regulation_Noise_And_Distributed_Batch_Policy.md
-    10605_SaaS_Field_Resilience_Network_Provider_SLA_And_Policy-Based_Customization_Constraint_Policy.md
-    10606_Extreme_Edge_Case_Power_Cut_Twenty-Four-Hour_Store_Hardware_Peripheral_And_Human_CS_Operations_Policy.md
-    10607_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case_Policy.md
-    10608_Pseudonymized_AI_Analysis_Noisy_Neighbor_Control_Nonce_Idempotency_And_Final_SaaS_Edge_Guard_Policy.md
-    10610_Cross-Room_Event_Bus_And_Evidence_Packet_Routing_Policy.md
-    10620_Command_Query_Projection_Separation_Policy.md
-    10630_Authority_Capability_Gate_Policy.md
-    10640_Tenant_Scope_Envelope_Policy.md
-    10641_Web_App_RPC_Session_Redirect_URL_And_Parameter_Exposure_Security_Policy.md
-    10642_Web_RPC_Redirect_Session_Infrastructure_Mobile_And_Deep_Security_Implementation_Guide_Policy.md
-    10643_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion_Policy.md
-    10650_Failure_Containment_Circuit_Breaker_Policy.md
-    10660_Idempotency_Retry_Replay_Reconciliation_Policy.md
-    10670_Safe_Projection_i18n_Routing_Policy.md
-    10680_Audit_Correlation_Nightly_Batch_Policy.md
-    10690_Cross-Room_Plumbing_Closure_Policy.md
-    10609_financial_regulation_risk_expansion/
-      10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md
-      10609_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary_Policy.md
-      10609_03_Double-Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel_Policy.md
-      10609_04_Acquiring_State_Fixed-Point_Arithmetic_Append-Only_Ledger_Continuity_And_Financial_Kernel_Map_Policy.md
-      10609_05_Chargeback_Dispute_Social_Engineering_Multi-Party_Approval_And_Manual_Adjustment_Governance_Policy.md
-      10609_06_Fixed-Point_Batch_Snapshot_Fan-Out_And_Hash-Chain_Monitoring_Action_Policy.md
-      10609_07_External_Financial_Network_Circuit_Breaker_Saga_Fallback_KYC_And_Account_Ownership_Verification_Policy.md
-      10609_08_Fast_Payout_Virtual_Close_Offsetting_Auto-Billing_And_Operational_Asset_Optimization_Governance_Policy.md
-      10609_09_Disaster_PITR_RPO_Policy_Engine_Regulatory_Change_And_Long-Term_Financial_Heritage_Preservation_Policy.md
-      10609_10_Multi-Tenant_Sharding_Take-Rate_Optimization_Split_Payout_And_Franchise_Finance_SaaS_Architecture_Policy.md
-      10609_11_Remote_Wait_Preorder_Queue_Authorization_Capture_NFC_Handshake_And_Peak_Traffic_Control_Policy.md
-      10609_12_No-Show_Deposit_Penalty_Abuse_Scoring_Booking_Circuit_Breaker_And_Reservation_Financial_Control_Policy.md
-      10609_13_Realtime_Sync_AI_Turnover_Prediction_Local_Mesh_Dynamic_Pricing_SoftPOS_And_Field_Control_Expansion_Policy.md
-      10609_14_Kitchen_IoT_UWB_Spatial_Matching_Auto-SCM_And_Physical_Automation_Expansion_Policy.md
-      10609_15_Vision_AI_Acoustic_Intelligence_Cloud-Native_vPOS_And_Spatial_Autonomous_Store_Infrastructure_Policy.md
-      10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md
-      10609_Financial_Regulation_Risk_Expansion_Readme.md
-  10700_security_trust_and_smart_order_control/
-  10720_legal_notice_sop_and_regulatory_control/
-    10720_Legal_Notice_SOP_And_Regulatory_Control_Readme.md
-    10721_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP_Policy.md
-    10722_Refund_Cancellation_No-Show_Notice_And_Dispute_Evidence_SOP_Policy.md
-    10723_Legal_Notice_i18n_Review_And_Controlled_Translation_Policy.md
-    10724_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock_Policy.md
-    10725_Legal_Notice_Static_Seed_Review_And_Approval_Workflow_Policy.md
-    10726_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet_Policy.md
-    10727_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control_Policy.md
-    10728_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response_Policy.md
-    10729_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral_Policy.md
-    10730_Legal_Notice_Evidence_Packet_Static_Field_Map_Policy.md
-    10731_Customer_Notice_Center_UX_Static_Surface_Index_Policy.md
-    10732_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue_Policy.md
-    10733_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review_Policy.md
-    10734_Legal_Notice_Support_Playbook_And_Case_Reason_Code_Policy.md
-    10735_Legal_Notice_Static_Registry_Readiness_Check_Policy.md
-    10736_Legal_Notice_Implementation_Authorization_Draft_Policy.md
-  10800_store_onboarding_and_sales_setup_axis/
-    10800_Store_Onboarding_And_Sales_Setup_Axis_Readme.md
-    10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md
-    10801_Store_Sales_Intake_And_Tenant_Store_Profile_Setup_Policy.md
-    10802_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export_Policy.md
-    10803_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow_Policy.md
-    10804_Menu_Category_Option_Set_Combo_Course_Review_Policy.md
-    10805_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff_Policy.md
-    10805_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry_Policy.md
-    10806_Store_Service_Mode_Selection_And_Feature_Readiness_Policy.md
-    10807_POS_Payment_KDS_Integration_Readiness_Intake_Policy.md
-    10700_Security_And_Trust_Foundation_Index.md
-    10700_Security_Trust_And_Smart_Order_Control_Readme.md
-    10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md
-    10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy.md
-  40000_menu_taxonomy_and_ai_classification/
-    10703_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary_Policy.md
-    10704_AI_Menu_Category_Context_Two-Level_Taxonomy_And_Classification_Policy.md
-    10705_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10706_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10707_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10708_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10709_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10710_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10711_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10712_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10713_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10714_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
-    10715_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance_Policy.md
-    10716_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance_Policy.md
-    10717_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance_Policy.md
-    10718_Legal_Notice_Master_Data_Table_Static_Specification_Policy.md
-    10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy.md
-    10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy.md
-    40000_Menu_Taxonomy_And_AI_Classification_Readme.md
-  10000_store_runtime_room_framing/
-    10141_SaaS_Tenant_Isolation_And_Cross-Tenant_Data_Containment_Beam_Policy.md
-    10200_Store_Room_Framing_And_Runtime_Domain_Boundary_Index.md
-    10210_Order_Intake_Room_Boundary_Policy.md
-    10220_Order_Validation_Room_Boundary_Policy.md
-    10230_POS_Handoff_Room_Boundary_Policy.md
-    10240_KDS_Ticket_Room_Boundary_Policy.md
-    10250_Kitchen_Execution_Room_Boundary_Policy.md
-    10260_Staff_Assist_Room_Boundary_Policy.md
-    10270_Device_Runtime_Room_Boundary_Policy.md
-    10280_Printer_Peripheral_Room_Boundary_Policy.md
-    10290_Degraded_Operation_Room_Boundary_Policy.md
-    10300_Manual_Fallback_Room_Boundary_Policy.md
-    10310_Store_Incident_Room_Boundary_Policy.md
-    10320_Operational_Evidence_Room_Boundary_Policy.md
-    10330_Fulfillment_Visibility_Room_Boundary_Policy.md
-    10340_Store_Recovery_Route_Room_Boundary_Policy.md
-    10350_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff_Policy.md
-    README.md
+  10000_runtime_foundation_and_cross_room_architecture/
+    10000_Runtime_Foundation_And_Cross_Room_Architecture_Readme.md
+    10000_Runtime_Foundation_Wave_3A_Preapply_Verification_Report.md
+    10000_foundation_static_catalog_package/
+      10000_10712_Root_File_Rename_And_Move_Plan.md
+      10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy.md
+      10000_Foundation_Static_Catalog_Package_Readme.md
+      10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md
+      10020_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle_Policy.md
+      10030_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture_Policy.md
+      10040_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly_Policy.md
+      10041_Windows_Installer_Option_Package_And_Local_Runtime_Configuration_Policy.md
+      10042_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode_Policy.md
+      10043_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path_Policy.md
+      10044_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion_Policy.md
+      10045_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly_Policy.md
+      10046_Surface_Evolution_Roadmap_And_Product_Line_Continuity_Policy.md
+      10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy.md
+      10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy.md
+      10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy.md
+      10050_Product_Line_Static_Registry_Closure_And_Coding_Deferral_Policy.md
+      10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy.md
+      10052_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff_Policy.md
+      10053_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet_Policy.md
+      10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy.md
+      10055_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft_Policy.md
+      10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy.md
+      10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy.md
+    10000_static_catalog_runtime_planning/
+      09660_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming_Policy.md
+      09670_Catch_Menu_Customer_Surface_Projection_And_i18n_Naming_Policy.md
+      09680_Provider_Evidence_Collection_Template_And_Capability_Review_Policy.md
+      09690_Security_Monitoring_Foundation_README_Insert_And_Index_Patch_Policy.md
+      09700_Controlled_Non-Runtime_Catalog_Schema_Planning_Policy.md
+      09710_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package_Policy.md
+      09720_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet_Policy.md
+      09730_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix_Policy.md
+      09740_i18n_Message_Key_Registry_And_Customer_Visible_Text_Review_Policy.md
+      09750_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping_Policy.md
+      09760_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping_Policy.md
+      09770_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping_Policy.md
+      09780_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary_Policy.md
+      09790_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control_Policy.md
+      09800_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet_Policy.md
+      09810_Value_Recovery_Reconciliation_And_Partial_Execution_Closure_Policy.md
+      09820_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice_Policy.md
+      09830_Non-Reversible_Value_Action_And_Preventive_Control_Escalation_Policy.md
+      09840_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary_Policy.md
+      09850_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control_Policy.md
+      09860_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention_Policy.md
+      09870_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff_Policy.md
+      09880_Incident_Learning_Boundary_Test_Matrix_Update_And_Policy_Patch_Handoff.md
+      09890_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate_Policy.md
+      09900_Controlled_Implementation_Candidate_Template_And_First_Package_Selection_Policy.md
+      09910_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft_Policy.md
+      09920_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping_Policy.md
+      09930_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability_Policy.md
+      09940_i18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review_Policy.md
+      09950_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface_Policy.md
+      09960_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State_Policy.md
+      09970_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface_Policy.md
+      09980_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping_Policy.md
+      09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md
+      10000_Static_Catalog_Runtime_Planning_Readme.md
+    10000_store_runtime_room_framing/
+      10000_Store_Runtime_Room_Framing_Readme.md
+      10141_SaaS_Tenant_Isolation_And_Cross-Tenant_Data_Containment_Beam_Policy.md
+      10200_Store_Room_Framing_And_Runtime_Domain_Boundary_Index.md
+      10210_Order_Intake_Room_Boundary_Policy.md
+      10220_Order_Validation_Room_Boundary_Policy.md
+      10230_POS_Handoff_Room_Boundary_Policy.md
+      10240_KDS_Ticket_Room_Boundary_Policy.md
+      10250_Kitchen_Execution_Room_Boundary_Policy.md
+      10260_Staff_Assist_Room_Boundary_Policy.md
+      10270_Device_Runtime_Room_Boundary_Policy.md
+      10280_Printer_Peripheral_Room_Boundary_Policy.md
+      10290_Degraded_Operation_Room_Boundary_Policy.md
+      10300_Manual_Fallback_Room_Boundary_Policy.md
+      10310_Store_Incident_Room_Boundary_Policy.md
+      10320_Operational_Evidence_Room_Boundary_Policy.md
+      10330_Fulfillment_Visibility_Room_Boundary_Policy.md
+      10340_Store_Recovery_Route_Room_Boundary_Policy.md
+      10350_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff_Policy.md
+    10100_four_side_platform_skeleton/
+      10100_Four-Side_Platform_Skeleton_And_Cross-Axis_Construction_Policy.md
+      10100_Four_Side_Platform_Skeleton_Readme.md
+      10110_Store_Runtime_POS_KDS_Kitchen_Execution_Skeleton_Policy.md
+      10120_Payment_Settlement_Refund_Wallet_Financial_Trust_Skeleton_Policy.md
+      10130_CMS_i18n_AI_pgvector_Data_Governance_Skeleton_Policy.md
+      10140_Cross-Axis_Authority_Evidence_Audit_And_Fallback_Beam_Policy.md
+      10150_Four-Side_Skeleton_Closure_And_Runtime_Deferral_Policy.md
+    10400_financial_trust_room/
+      10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index.md
+      10400_Financial_Trust_Room_Readme.md
+      10410_Payment_Intent_And_Authorization_Boundary_Policy.md
+      10420_Payment_Confirmation_And_Provider_Callback_Boundary_Policy.md
+      10430_Refund_Cancellation_And_Void_Boundary_Policy.md
+      10440_Coupon_Point_Wallet_And_Stored_Value_Boundary_Policy.md
+      10450_Settlement_Allocation_And_Reconciliation_Boundary_Policy.md
+      10460_Compensation_And_Customer_Recovery_Value_Boundary_Policy.md
+      10470_Financial_Evidence_Audit_And_Export_Boundary_Policy.md
+      10480_Financial_Trust_Closure_And_Data_Governance_Handoff_Policy.md
+    10500_data_governance_room/
+      10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index.md
+      10500_Data_Governance_Room_Readme.md
+      10510_CMS_Content_Publication_And_Targeting_Boundary_Policy.md
+      10520_i18n_Message_Key_And_Human_Visible_Text_Boundary_Policy.md
+      10530_Safe_Projection_Masking_And_Audience_Visibility_Boundary_Policy.md
+      10540_AI_Advisory_Runtime_And_Non-Authority_Boundary_Policy.md
+      10550_pgvector_Context_Retrieval_And_Similarity_Boundary_Policy.md
+      10551_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary_Policy.md
+      10552_Layered_Immune_Security_Agent_Architecture_And_Cross-Check_Boundary_Policy.md
+      10553_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary_Policy.md
+      10554_Four-Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation_Policy.md
+      10560_Analytics_Read_Model_And_Benchmark_Boundary_Policy.md
+      10570_Retention_Export_And_Compliance_Data_Boundary_Policy.md
+      10580_Data_Governance_Closure_And_Cross-Room_Handoff_Policy.md
+    10600_cross_room_plumbing_wiring_insulation/
+      10600_Cross-Room_Plumbing_Wiring_Insulation_Planning_Index.md
+      10600_Cross_Room_Plumbing_Wiring_Insulation_Readme.md
+      10601_Financial-Grade_Ledger_Reconciliation_And_Four-Source_Closing_Audit_Policy.md
+      10602_Financial_Reconciliation_Blind_Spot_Control_Time_State_Offline_Log_And_Auditor_Security_Policy.md
+      10603_Reconciliation_DLQ_Device_Non-Repudiation_And_Cold_Storage_Lifecycle_Policy.md
+      10604_SaaS_Scale_Constraint_Multi-Tenancy_Hardware_Regulation_Noise_And_Distributed_Batch_Policy.md
+      10605_SaaS_Field_Resilience_Network_Provider_SLA_And_Policy-Based_Customization_Constraint_Policy.md
+      10606_Extreme_Edge_Case_Power_Cut_Twenty-Four-Hour_Store_Hardware_Peripheral_And_Human_CS_Operations_Policy.md
+      10607_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case_Policy.md
+      10608_Pseudonymized_AI_Analysis_Noisy_Neighbor_Control_Nonce_Idempotency_And_Final_SaaS_Edge_Guard_Policy.md
+        10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md
+        10609_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary_Policy.md
+        10609_03_Double-Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel_Policy.md
+        10609_04_Acquiring_State_Fixed-Point_Arithmetic_Append-Only_Ledger_Continuity_And_Financial_Kernel_Map_Policy.md
+        10609_05_Chargeback_Dispute_Social_Engineering_Multi-Party_Approval_And_Manual_Adjustment_Governance_Policy.md
+        10609_06_Fixed-Point_Batch_Snapshot_Fan-Out_And_Hash-Chain_Monitoring_Action_Policy.md
+        10609_07_External_Financial_Network_Circuit_Breaker_Saga_Fallback_KYC_And_Account_Ownership_Verification_Policy.md
+        10609_08_Fast_Payout_Virtual_Close_Offsetting_Auto-Billing_And_Operational_Asset_Optimization_Governance_Policy.md
+        10609_09_Disaster_PITR_RPO_Policy_Engine_Regulatory_Change_And_Long-Term_Financial_Heritage_Preservation_Policy.md
+        10609_10_Multi-Tenant_Sharding_Take-Rate_Optimization_Split_Payout_And_Franchise_Finance_SaaS_Architecture_Policy.md
+        10609_11_Remote_Wait_Preorder_Queue_Authorization_Capture_NFC_Handshake_And_Peak_Traffic_Control_Policy.md
+        10609_12_No-Show_Deposit_Penalty_Abuse_Scoring_Booking_Circuit_Breaker_And_Reservation_Financial_Control_Policy.md
+        10609_13_Realtime_Sync_AI_Turnover_Prediction_Local_Mesh_Dynamic_Pricing_SoftPOS_And_Field_Control_Expansion_Policy.md
+        10609_14_Kitchen_IoT_UWB_Spatial_Matching_Auto-SCM_And_Physical_Automation_Expansion_Policy.md
+        10609_15_Vision_AI_Acoustic_Intelligence_Cloud-Native_vPOS_And_Spatial_Autonomous_Store_Infrastructure_Policy.md
+        10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md
+        10609_Financial_Regulation_Risk_Expansion_Readme.md
+      10610_Cross-Room_Event_Bus_And_Evidence_Packet_Routing_Policy.md
+      10620_Command_Query_Projection_Separation_Policy.md
+      10630_Authority_Capability_Gate_Policy.md
+      10640_Tenant_Scope_Envelope_Policy.md
+      10641_Web_App_RPC_Session_Redirect_URL_And_Parameter_Exposure_Security_Policy.md
+      10642_Web_RPC_Redirect_Session_Infrastructure_Mobile_And_Deep_Security_Implementation_Guide_Policy.md
+      10643_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion_Policy.md
+      10650_Failure_Containment_Circuit_Breaker_Policy.md
+      10660_Idempotency_Retry_Replay_Reconciliation_Policy.md
+      10670_Safe_Projection_i18n_Routing_Policy.md
+      10680_Audit_Correlation_Nightly_Batch_Policy.md
+      10690_Cross-Room_Plumbing_Closure_Policy.md
+    10700_security_trust_and_smart_order_control/
+      10700_Security_And_Trust_Foundation_Index.md
+      10700_Security_Trust_And_Smart_Order_Control_Readme.md
+      10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md
+      10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy.md
+    10720_legal_notice_sop_and_regulatory_control/
+      10720_Legal_Notice_SOP_And_Regulatory_Control_Readme.md
+      10721_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP_Policy.md
+      10722_Refund_Cancellation_No-Show_Notice_And_Dispute_Evidence_SOP_Policy.md
+      10723_Legal_Notice_i18n_Review_And_Controlled_Translation_Policy.md
+      10724_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock_Policy.md
+      10725_Legal_Notice_Static_Seed_Review_And_Approval_Workflow_Policy.md
+      10726_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet_Policy.md
+      10727_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control_Policy.md
+      10728_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response_Policy.md
+      10729_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral_Policy.md
+      10730_Legal_Notice_Evidence_Packet_Static_Field_Map_Policy.md
+      10731_Customer_Notice_Center_UX_Static_Surface_Index_Policy.md
+      10732_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue_Policy.md
+      10733_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review_Policy.md
+      10734_Legal_Notice_Support_Playbook_And_Case_Reason_Code_Policy.md
+      10735_Legal_Notice_Static_Registry_Readiness_Check_Policy.md
+      10736_Legal_Notice_Implementation_Authorization_Draft_Policy.md
+    10800_store_onboarding_and_sales_setup_axis/
+      10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md
+      10800_Store_Onboarding_And_Sales_Setup_Axis_Readme.md
+      10801_Store_Sales_Intake_And_Tenant_Store_Profile_Setup_Policy.md
+      10802_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export_Policy.md
+      10803_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow_Policy.md
+      10804_Menu_Category_Option_Set_Combo_Course_Review_Policy.md
+      10805_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry_Policy.md
+      10805_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff_Policy.md
+      10806_Store_Service_Mode_Selection_And_Feature_Readiness_Policy.md
+      10807_POS_Payment_KDS_Integration_Readiness_Intake_Policy.md
   11000_integration_boundary/
     04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
     04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
@@ -759,24 +741,25 @@ docs/
 ## 4 Directory Notes
 
 - `docs/04000_store_runtime_pos_kds_operations/` Store runtime POS/KDS operations band (`04000`~`04300` subpackages).
+- `docs/10000_runtime_foundation_and_cross_room_architecture/` Runtime foundation and cross-room architecture band (`10000`~`10800` subpackages).
 - `docs/05000_customer_handoff_and_implementation_readiness/` Customer handoff and implementation readiness band (`05000`~`05200` subpackages).
 - `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
 - `docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
-- `docs/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
-- `docs/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
 - `docs/00100_project_foundation/00450_documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
 - `docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
-- `docs/10000_foundation_static_catalog_package/` Foundation static catalog, product line, and Mini Kiosk package.
-- `docs/10100_four_side_platform_skeleton/` Four-side platform skeleton package.
-- `docs/10400_financial_trust_room/` Financial trust room package.
-- `docs/10500_data_governance_room/` Data governance room package.
-- `docs/10600_cross_room_plumbing_wiring_insulation/` Cross-room plumbing, wiring, and insulation package.
-- `docs/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/` 10609 financial regulation risk expansion subpackage.
-- `docs/10700_security_trust_and_smart_order_control/` Security trust and smart order control package (`10700`~`10702`).
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/` Foundation static catalog, product line, and Mini Kiosk package.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/` Four-side platform skeleton package.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/` Financial trust room package.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/` Data governance room package.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/` Cross-room plumbing, wiring, and insulation package.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/` 10609 financial regulation risk expansion subpackage.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/` Security trust and smart order control package (`10700`~`10702`).
 - `docs/40000_menu_taxonomy_and_ai_classification/` Menu taxonomy and AI classification package; legacy `10703`~`10720` numbers preserved in this wave.
-- `docs/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
-- `docs/10000_store_runtime_room_framing/` Store Runtime Room framing and boundary package for tenant isolation beam, order intake, validation, POS/KDS/kitchen/staff/device/peripheral runtime, degraded/manual fallback, incident, evidence, visibility, recovery route, and closure.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` Store Runtime Room framing and boundary package for tenant isolation beam, order intake, validation, POS/KDS/kitchen/staff/device/peripheral runtime, degraded/manual fallback, incident, evidence, visibility, recovery route, and closure.
 - `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.
 - `docs/20000_validation_security_audit/foundation_security/` System-wide Foundation Security 001-009 constitution and financial-grade readiness baseline inherited by runtime, integration, monitoring, and provider documents.
 - `docs/21000_financial_security_monitoring_catalog/` Financial-grade security monitoring, bulkhead, alert/event catalogs, retention/archive, legal hold, pgvector traceability, AI daemon monitoring, readiness, and closure.

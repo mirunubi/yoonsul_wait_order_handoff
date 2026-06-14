@@ -1,8 +1,9 @@
 # 00000_Top_Level_Folder_Consolidation_Plan
 
-<< docs-only 路 folder architecture plan 路 Wave 1 applied 路 Wave 2 applied >>
+<< docs-only 路 folder architecture plan 路 Wave 1 applied 路 Wave 2 applied 路 Wave 3-B applied >>
 > **Wave 1 applied:** `04000_store_runtime_pos_kds_operations` parent created; four subfolders moved (2026-06-09).
 > **Wave 2 applied:** `05000_customer_handoff_and_implementation_readiness` parent created; three subfolders moved (2026-06-09).
+> **Wave 3-B applied:** `10000_runtime_foundation_and_cross_room_architecture` parent created; ten subfolders moved; `README.md` renamed in `10000_store_runtime_room_framing` (2026-06-09).
 
 
 
@@ -32,7 +33,7 @@ The `docs/` tree has accumulated **adjacent numbered top-level folders** created
 | D | `docs/13000_pos_provider_integration_strategy/` | 3 (needs_review for app projection) |
 | E | `docs/40000_menu_taxonomy_and_ai_classification/` | leave as-is |
 
-**Consolidation candidates:** 21 folder moves / reviews across bands A?揇
+**Consolidation candidates:** 21 folder moves / reviews across bands A?锟紻
 
 ## 2 Current Top-Level Folder Inventory
 
@@ -51,16 +52,16 @@ The `docs/` tree has accumulated **adjacent numbered top-level folders** created
 | `docs/07000_admin_console/` | 12 | 0 | 12 | 07000 | Admin console | flat |
 | `docs/08000_ai_customer_center/` | 10 | 0 | 10 | 08000 | AI customer center | flat |
 | `docs/09000_data_model_state_machine/` | 12 | 0 | 12 | 09000 | Data model / state machine | flat |
-| `docs/10000_foundation_static_catalog_package/` | 24 | 0 | 24 | 10000 | Runtime foundation / static catalog | flat |
-| `docs/10000_static_catalog_runtime_planning/` | 35 | 0 | 35 | 10000 | Runtime foundation / static catalog | flat |
-| `docs/10000_store_runtime_room_framing/` | 18 | 0 | 18 | 10000 | Runtime foundation / static catalog | flat |
-| `docs/10100_four_side_platform_skeleton/` | 7 | 0 | 7 | 10100 | Four-side platform skeleton | flat |
-| `docs/10400_financial_trust_room/` | 10 | 0 | 10 | 10400 | Financial trust room | flat |
-| `docs/10500_data_governance_room/` | 14 | 0 | 14 | 10500 | Data governance room | flat |
-| `docs/10600_cross_room_plumbing_wiring_insulation/` | 22 | 1 | 39 | 10600 | Cross-room plumbing / wiring / insulation | 10609_financial_regulation_risk_expansion |
-| `docs/10700_security_trust_and_smart_order_control/` | 4 | 0 | 4 | 10700 | Security trust / smart order control | flat |
-| `docs/10720_legal_notice_sop_and_regulatory_control/` | 17 | 0 | 17 | 10720 | Legal notice SOP / regulatory control | flat |
-| `docs/10800_store_onboarding_and_sales_setup_axis/` | 10 | 0 | 10 | 10800 | Store onboarding / sales setup | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/` | 24 | 0 | 24 | 10000 | Runtime foundation / static catalog | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` | 35 | 0 | 35 | 10000 | Runtime foundation / static catalog | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` | 18 | 0 | 18 | 10000 | Runtime foundation / static catalog | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/` | 7 | 0 | 7 | 10100 | Four-side platform skeleton | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/` | 10 | 0 | 10 | 10400 | Financial trust room | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/` | 14 | 0 | 14 | 10500 | Data governance room | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/` | 22 | 1 | 39 | 10600 | Cross-room plumbing / wiring / insulation | 10609_financial_regulation_risk_expansion |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/` | 4 | 0 | 4 | 10700 | Security trust / smart order control | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` | 17 | 0 | 17 | 10720 | Legal notice SOP / regulatory control | flat |
+| `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` | 10 | 0 | 10 | 10800 | Store onboarding / sales setup | flat |
 | `docs/11000_integration_boundary/` | 32 | 0 | 32 | 11000 | Integration boundary | flat |
 | `docs/12000_implementation_mapping/` | 14 | 0 | 14 | 12000 | Implementation mapping | flat |
 | `docs/13000_app_api_projection/` | 14 | 0 | 14 | 13000 | App API projection / security test catalog (split) | flat |
@@ -264,7 +265,7 @@ docs/
 
 ### README path updates
 
-- 4 new band READMEs (A?揇) to create.
+- 4 new band READMEs (A?锟紻) to create.
 - Existing package READMEs: update Relationship Notes paths only (content wave optional).
 - `10000_store_runtime_room_framing/README.md` ??rename to canonical numbered readme in apply wave.
 
@@ -305,7 +306,7 @@ docs/
 - Document number renumbering (`10703`??40003`, etc.)
 - Deleting duplicate markdown copies
 - Moving `05200` files into `14000`
-- Top-level folders outside bands A?揈 (e.g. `07000`, `11000`, `20000`) ??stable, not over-fragmented
+- Top-level folders outside bands A?锟紼 (e.g. `07000`, `11000`, `20000`) ??stable, not over-fragmented
 
 ## 11 Validation Record
 
