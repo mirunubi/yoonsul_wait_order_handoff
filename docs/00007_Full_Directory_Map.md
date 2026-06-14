@@ -528,6 +528,27 @@ docs/
       05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
       05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
       05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+  40000_menu_taxonomy_and_ai_classification/
+    40000_Menu_Taxonomy_And_AI_Classification_Readme.md
+    40000_Menu_Taxonomy_Wave_5_Review_Report.md
+    10703_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary_Policy.md
+    10704_AI_Menu_Category_Context_Two-Level_Taxonomy_And_Classification_Policy.md
+    10705_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10706_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10707_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10708_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10709_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10710_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10711_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10712_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10713_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10714_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md
+    10715_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance_Policy.md
+    10716_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance_Policy.md
+    10717_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance_Policy.md
+    10718_Legal_Notice_Master_Data_Table_Static_Specification_Policy.md
+    10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy.md
+    10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy.md
   15000_membership_loyalty/
     15000_Membership_Loyalty_Readme.md
     15010_Membership_Loyalty_Product_Boundary.md
@@ -764,7 +785,7 @@ docs/
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/` Cross-room plumbing, wiring, and insulation package.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/` 10609 financial regulation risk expansion subpackage.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/` Security trust and smart order control package (`10700`~`10702`).
-- `docs/40000_menu_taxonomy_and_ai_classification/` Menu taxonomy and AI classification package; legacy `10703`~`10720` numbers preserved in this wave.
+- `docs/40000_menu_taxonomy_and_ai_classification/` Menu taxonomy and AI classification package; legacy `10703`~`10720` document numbers preserved (future `400xx` renumbering deferred). `10720` has a cross-package document-number collision with `10000/10720_legal_notice_sop_and_regulatory_control/` and requires a later decision before renumbering.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` Store Runtime Room framing and boundary package for tenant isolation beam, order intake, validation, POS/KDS/kitchen/staff/device/peripheral runtime, degraded/manual fallback, incident, evidence, visibility, recovery route, and closure.
 - `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.

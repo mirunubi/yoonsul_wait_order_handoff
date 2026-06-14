@@ -887,6 +887,8 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
+| docs\40000_menu_taxonomy_and_ai_classification\40000_Menu_Taxonomy_And_AI_Classification_Readme.md | 40000_Menu_Taxonomy_And_AI_Classification_Readme. | initial |
+| docs\40000_menu_taxonomy_and_ai_classification\40000_Menu_Taxonomy_Wave_5_Review_Report.md | 40000 Menu Taxonomy Wave 5 Review Report. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10703_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary_Policy.md | 10703_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10704_AI_Menu_Category_Context_Two-Level_Taxonomy_And_Classification_Policy.md | 10704_AI_Menu_Category_Context_Two-Level_Taxonomy_And_Classification_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10705_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy.md | 10705_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary_Policy. | active |
@@ -905,4 +907,3 @@ Status values:
 | docs\40000_menu_taxonomy_and_ai_classification\10718_Legal_Notice_Master_Data_Table_Static_Specification_Policy.md | 10718_Legal_Notice_Master_Data_Table_Static_Specification_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy.md | 10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy.md | 10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy. | active |
-| docs\40000_menu_taxonomy_and_ai_classification\40000_Menu_Taxonomy_And_AI_Classification_Readme.md | 40000_Menu_Taxonomy_And_AI_Classification_Readme. | initial |
