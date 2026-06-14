@@ -153,6 +153,11 @@ docs/
     04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
     04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
   05000_customer_handoff_flow/
+  05100_implementation_readiness_and_provider_verification/
+    05100_Implementation_Readiness_And_Provider_Verification_Readme.md
+    05100_10807_Root_File_Rename_And_Move_Plan.md
+  05200_pos_payment_provider_and_kiosk_reuse/
+    05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md
     05000_Customer_Handoff_Flow_Readme.md
     05010_User_Flow.md
     05020_Stage_0_Readme.md
@@ -234,6 +239,7 @@ docs/
     10000_Static_Catalog_Runtime_Planning_Readme.md
   10000_foundation_static_catalog_package/
     10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy.md
+    10000_10712_Root_File_Rename_And_Move_Plan.md
     10000_Foundation_Static_Catalog_Package_Readme.md
     10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md
     10020_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle_Policy.md
@@ -332,6 +338,35 @@ docs/
       10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md
       10609_Financial_Regulation_Risk_Expansion_Readme.md
   10700_security_trust_and_smart_order_control/
+  10720_legal_notice_sop_and_regulatory_control/
+    10720_Legal_Notice_SOP_And_Regulatory_Control_Readme.md
+    10721_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP_Policy.md
+    10722_Refund_Cancellation_No-Show_Notice_And_Dispute_Evidence_SOP_Policy.md
+    10723_Legal_Notice_i18n_Review_And_Controlled_Translation_Policy.md
+    10724_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock_Policy.md
+    10725_Legal_Notice_Static_Seed_Review_And_Approval_Workflow_Policy.md
+    10726_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet_Policy.md
+    10727_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control_Policy.md
+    10728_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response_Policy.md
+    10729_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral_Policy.md
+    10730_Legal_Notice_Evidence_Packet_Static_Field_Map_Policy.md
+    10731_Customer_Notice_Center_UX_Static_Surface_Index_Policy.md
+    10732_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue_Policy.md
+    10733_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review_Policy.md
+    10734_Legal_Notice_Support_Playbook_And_Case_Reason_Code_Policy.md
+    10735_Legal_Notice_Static_Registry_Readiness_Check_Policy.md
+    10736_Legal_Notice_Implementation_Authorization_Draft_Policy.md
+  10800_store_onboarding_and_sales_setup_axis/
+    10800_Store_Onboarding_And_Sales_Setup_Axis_Readme.md
+    10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md
+    10801_Store_Sales_Intake_And_Tenant_Store_Profile_Setup_Policy.md
+    10802_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export_Policy.md
+    10803_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow_Policy.md
+    10804_Menu_Category_Option_Set_Combo_Course_Review_Policy.md
+    10805_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff_Policy.md
+    10805_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry_Policy.md
+    10806_Store_Service_Mode_Selection_And_Feature_Readiness_Policy.md
+    10807_POS_Payment_KDS_Integration_Readiness_Intake_Policy.md
     10700_Security_And_Trust_Foundation_Index.md
     10700_Security_Trust_And_Smart_Order_Control_Readme.md
     10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md
@@ -703,6 +738,10 @@ docs/
 
 ## 4 Directory Notes
 
+- `docs/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
+- `docs/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
+- `docs/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
+- `docs/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
 - `docs/00100_project_foundation/00450_documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
 - `docs/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
@@ -722,3 +761,4 @@ docs/
 - `docs/22000_implementation_planning/` Controlled implementation planning, foundation-first coding entry, package selection, readiness checks, blocker review, and handoff policies.
 
 Root-level `10000`~`10720` runtime foundation documents were organized into package folders in the 10000-series apply wave.
+Root-level `05100`~`05250`, `10721`~`10736`, and `10800`~`10807` documents were organized into package folders in the 05100-10807 apply wave.

@@ -386,6 +386,8 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
+| docs\05100_implementation_readiness_and_provider_verification\05100_Implementation_Readiness_And_Provider_Verification_Readme.md | 05100_Implementation_Readiness_And_Provider_Verification_Readme. | initial |
+| docs\05100_implementation_readiness_and_provider_verification\05100_10807_Root_File_Rename_And_Move_Plan.md | 05100_10807_Root_File_Rename_And_Move_Plan. | active |
 | docs\13000_security_runtime_test_catalog\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md | 04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy. | active |
 | docs\13000_security_runtime_test_catalog\04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md | 04980 Tenant Store RLS Access Control Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy. | active |
@@ -400,28 +402,29 @@ Status values:
 | docs\13000_security_runtime_test_catalog\05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md | 05080 Vendor Partner Access External Integration Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md | 05090 Secure Deployment Release Gate Rollback Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05095 Toss POS Integration Implementation Approach And Test Mapping Policy. | active |
-| docs\13000_security_runtime_test_catalog\05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md | 05100 Test Catalog Lane Index Readiness Check And Evidence Handoff Policy. | active |
-| docs\13000_security_runtime_test_catalog\05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 05110 Implementation Readiness Backlog And Test Execution Planning Policy. | active |
-| docs\13000_security_runtime_test_catalog\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md | 05120 Runtime Owner Registry And Implementation Responsibility Matrix Policy. | active |
-| docs\13000_security_runtime_test_catalog\05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 05130 Evidence Packet Template And Test Result Recording Policy. | active |
-| docs\13000_security_runtime_test_catalog\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md | 05100 Test Catalog Lane Index Readiness Check And Evidence Handoff Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 05110 Implementation Readiness Backlog And Test Execution Planning Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md | 05120 Runtime Owner Registry And Implementation Responsibility Matrix Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 05130 Evidence Packet Template And Test Result Recording Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
 | docs\13000_security_runtime_test_catalog\13000_Security_Runtime_Test_Catalog_Readme.md | 13000 Security Runtime Test Catalog Readme. | initial |
 
 ## 20 docs/14000_pos_provider_integration_strategy
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\14000_pos_provider_integration_strategy\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md | 05150 Toss POS Official Verification Checklist And Integration Evidence Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md | 05160 Controlled Implementation Entry Gate And Build Authorization Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md | 05170 PAYCO POS Integration Implementation Approach And Official Verification Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md | 05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md | 05190 MVP Provider Cutline And Phase 2 POS Expansion Deferral Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md | 05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md | 05210 Mini Kiosk And Kiosk Provider Integration Module Boundary Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md | 05220 Mini Kiosk Payment Flow State And Recovery Boundary Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md | 05230 Mini Kiosk Session Identity Device Trust And Customer Context Boundary Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md | 05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy. | active |
-| docs\14000_pos_provider_integration_strategy\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05250 OKPOS OKDC Integration Implementation Approach And Test Mapping Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md | 05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme. | initial |
+| docs\05100_implementation_readiness_and_provider_verification\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md | 05150 Toss POS Official Verification Checklist And Integration Evidence Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md | 05160 Controlled Implementation Entry Gate And Build Authorization Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md | 05170 PAYCO POS Integration Implementation Approach And Official Verification Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md | 05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy. | active |
+| docs\05100_implementation_readiness_and_provider_verification\05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md | 05190 MVP Provider Cutline And Phase 2 POS Expansion Deferral Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md | 05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md | 05210 Mini Kiosk And Kiosk Provider Integration Module Boundary Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md | 05220 Mini Kiosk Payment Flow State And Recovery Boundary Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md | 05230 Mini Kiosk Session Identity Device Trust And Customer Context Boundary Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md | 05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy. | active |
+| docs\05200_pos_payment_provider_and_kiosk_reuse\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05250 OKPOS OKDC Integration Implementation Approach And Test Mapping Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md | 05255 Store POS Adoption Strategy OKPOS Ledger And Toss Kiosk Combination Assessment. | active |
 | docs\14000_pos_provider_integration_strategy\05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md | 05260 Toss Base Strategy And OKPOS Compatibility Interface Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md | 05270 Table Order POS Ecosystem Phase 2 And Phase 3 Expansion Roadmap Policy. | active |
@@ -683,6 +686,7 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
+| docs\10000_foundation_static_catalog_package\10000_10712_Root_File_Rename_And_Move_Plan.md | 10000_10712_Root_File_Rename_And_Move_Plan. | active |
 | docs\10000_foundation_static_catalog_package\10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy.md | 10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy. | active |
 | docs\10000_foundation_static_catalog_package\10000_Foundation_Static_Catalog_Package_Readme.md | 10000_Foundation_Static_Catalog_Package_Readme. | initial |
 | docs\10000_foundation_static_catalog_package\10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md | 10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy. | active |
@@ -834,3 +838,40 @@ Status values:
 | docs\40000_menu_taxonomy_and_ai_classification\10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy.md | 10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy.md | 10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\40000_Menu_Taxonomy_And_AI_Classification_Readme.md | 40000_Menu_Taxonomy_And_AI_Classification_Readme. | initial |
+## 39 docs\10720_legal_notice_sop_and_regulatory_control
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\10720_legal_notice_sop_and_regulatory_control\10720_Legal_Notice_SOP_And_Regulatory_Control_Readme.md | 10720_Legal_Notice_SOP_And_Regulatory_Control_Readme. | initial |
+| docs\10720_legal_notice_sop_and_regulatory_control\10721_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP_Policy.md | 10721_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10722_Refund_Cancellation_No-Show_Notice_And_Dispute_Evidence_SOP_Policy.md | 10722_Refund_Cancellation_No-Show_Notice_And_Dispute_Evidence_SOP_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10723_Legal_Notice_i18n_Review_And_Controlled_Translation_Policy.md | 10723_Legal_Notice_i18n_Review_And_Controlled_Translation_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10724_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock_Policy.md | 10724_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10725_Legal_Notice_Static_Seed_Review_And_Approval_Workflow_Policy.md | 10725_Legal_Notice_Static_Seed_Review_And_Approval_Workflow_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10726_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet_Policy.md | 10726_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10727_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control_Policy.md | 10727_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10728_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response_Policy.md | 10728_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10729_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral_Policy.md | 10729_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10730_Legal_Notice_Evidence_Packet_Static_Field_Map_Policy.md | 10730_Legal_Notice_Evidence_Packet_Static_Field_Map_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10731_Customer_Notice_Center_UX_Static_Surface_Index_Policy.md | 10731_Customer_Notice_Center_UX_Static_Surface_Index_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10732_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue_Policy.md | 10732_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10733_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review_Policy.md | 10733_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10734_Legal_Notice_Support_Playbook_And_Case_Reason_Code_Policy.md | 10734_Legal_Notice_Support_Playbook_And_Case_Reason_Code_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10735_Legal_Notice_Static_Registry_Readiness_Check_Policy.md | 10735_Legal_Notice_Static_Registry_Readiness_Check_Policy. | active |
+| docs\10720_legal_notice_sop_and_regulatory_control\10736_Legal_Notice_Implementation_Authorization_Draft_Policy.md | 10736_Legal_Notice_Implementation_Authorization_Draft_Policy. | active |
+
+
+## 40 docs\10800_store_onboarding_and_sales_setup_axis
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\10800_store_onboarding_and_sales_setup_axis\10800_Store_Onboarding_And_Sales_Setup_Axis_Readme.md | 10800_Store_Onboarding_And_Sales_Setup_Axis_Readme. | initial |
+| docs\10800_store_onboarding_and_sales_setup_axis\10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md | 10800_Store_Onboarding_And_Sales_Setup_Axis_Index. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10801_Store_Sales_Intake_And_Tenant_Store_Profile_Setup_Policy.md | 10801_Store_Sales_Intake_And_Tenant_Store_Profile_Setup_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10802_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export_Policy.md | 10802_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10803_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow_Policy.md | 10803_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10804_Menu_Category_Option_Set_Combo_Course_Review_Policy.md | 10804_Menu_Category_Option_Set_Combo_Course_Review_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10805_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff_Policy.md | 10805_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10805_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry_Policy.md | 10805_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10806_Store_Service_Mode_Selection_And_Feature_Readiness_Policy.md | 10806_Store_Service_Mode_Selection_And_Feature_Readiness_Policy. | active |
+| docs\10800_store_onboarding_and_sales_setup_axis\10807_POS_Payment_KDS_Integration_Readiness_Intake_Policy.md | 10807_POS_Payment_KDS_Integration_Readiness_Intake_Policy. | active |
