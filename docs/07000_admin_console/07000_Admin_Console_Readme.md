@@ -1,13 +1,23 @@
-# 07000 Admin Console Readme
+# 07000_Admin_Console_Readme
 
 ## 1 Purpose
 
-This folder defines admin console scope for SaaS operator, store owner, store manager, and HQ/operator roles.
+This folder defines the `07000` Admin Console package for SaaS operator, store owner, store manager, HQ/operator, support, and audit roles.
 
 This wave consolidates Admin Console governance after the `03000` SaaS runtime consolidation.
 
 ## 2 In Scope
 
+- Admin console surfaces.
+- Support console surfaces.
+- HQ/store operator surfaces.
+- Review dashboards.
+- Evidence review.
+- Recovery review.
+- Compensation review.
+- Provider evidence review.
+- Role-based entry.
+- Operator-safe visible message surfaces.
 - Role and authority boundaries.
 - Context navigation and scope model.
 - Store runtime profile configuration governance.
@@ -16,7 +26,17 @@ This wave consolidates Admin Console governance after the `03000` SaaS runtime c
 - Support and break-glass boundary.
 - Operational monitoring and recovery visibility.
 
-## 3 Document List
+## 3 Relationship Notes
+
+- `07000` owns admin/operator/support-facing UI and control surfaces.
+- `03000` owns SaaS runtime/session authority.
+- `05000` owns customer handoff flow.
+- `06000`, if present later, owns common web app auth and UI shell.
+- `08000` owns AI customer center.
+- `07000` must inherit Foundation Security, especially access control, audit/evidence, sensitive identity masking, credential non-reveal, export control, incident response, and retention rules.
+- Support/admin screens must not mutate payment truth, KDS release truth, or reconciliation conclusion unless explicitly authorized by lower runtime authority policies.
+
+## 4 Document List
 
 | document | description |
 | --- | --- |
@@ -36,17 +56,17 @@ This wave consolidates Admin Console governance after the `03000` SaaS runtime c
 
 `07070`~`07110` consolidate runtime context navigation, runtime profile configuration, feature flag approval, audit review, and support/break-glass boundaries.
 
-## 4 Folder Structure Rule
+## 5 Folder Structure Rule
 
 The `07000_admin_console` namespace currently stays flat with no subfolders.
 
 Subfolders should be introduced only when the number of docs grows or separate admin domains become large.
 
-## 5 Out Of Scope
+## 6 Out Of Scope
 
 - UI implementation, Flutter, web app code, RPC, auth/RLS, and final permission schema.
 - Active membership/point ledger operations, analytics runtime, and support tooling implementation.
 
-## 6 Current Status
+## 7 Current Status
 
 Status: Admin Console consolidation wave complete. Governance only. Not implementation approval.

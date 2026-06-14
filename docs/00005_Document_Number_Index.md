@@ -199,18 +199,18 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\07000_admin_console\07000_Admin_Console_Readme.md | 07000 Admin Console Readme. | initial |
-| docs\07000_admin_console\07010_Admin_Console_Context_And_Role_Model.md | 07010 Admin Console Context And Role Model. | active |
-| docs\07000_admin_console\07020_Admin_Store_Runtime_Configuration_Model.md | 07020 Admin Store Runtime Configuration Model. | active |
-| docs\07000_admin_console\07030_Admin_Operational_Monitoring_And_Recovery_Model.md | 07030 Admin Operational Monitoring And Recovery Model. | active |
-| docs\07000_admin_console\07040_Admin_Screen_Inventory_And_Navigation_Model.md | 07040 Admin Screen Inventory And Navigation Model. | active |
-| docs\07000_admin_console\07050_Admin_Approval_Workflow_Model.md | 07050 Admin Approval Workflow Model. | active |
-| docs\07000_admin_console\07060_Admin_Audit_And_Recovery_Queue_Governance.md | 07060 Admin Audit And Recovery Queue Governance. | active |
-| docs\07000_admin_console\07070_Admin_Context_Navigation_And_Scope_Model.md | 07070 Admin Context Navigation And Scope Model. | active |
-| docs\07000_admin_console\07080_Admin_Runtime_Profile_Configuration_Governance.md | 07080 Admin Runtime Profile Configuration Governance. | active |
-| docs\07000_admin_console\07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md | 07090 Admin Feature Flag Approval And Emergency Disable Model. | active |
-| docs\07000_admin_console\07100_Admin_Audit_Review_And_Change_History_Model.md | 07100 Admin Audit Review And Change History Model. | active |
-| docs\07000_admin_console\07110_Admin_Support_And_BreakGlass_Boundary.md | 07110 Admin Support And Break Glass Boundary. | active |
+| docs\07000_admin_console\07000_Admin_Console_Readme.md | 07000_Admin_Console_Readme. | initial |
+| docs\07000_admin_console\07010_Admin_Console_Context_And_Role_Model.md | 07010_Admin_Console_Context_And_Role_Model. | active |
+| docs\07000_admin_console\07020_Admin_Store_Runtime_Configuration_Model.md | 07020_Admin_Store_Runtime_Configuration_Model. | active |
+| docs\07000_admin_console\07030_Admin_Operational_Monitoring_And_Recovery_Model.md | 07030_Admin_Operational_Monitoring_And_Recovery_Model. | active |
+| docs\07000_admin_console\07040_Admin_Screen_Inventory_And_Navigation_Model.md | 07040_Admin_Screen_Inventory_And_Navigation_Model. | active |
+| docs\07000_admin_console\07050_Admin_Approval_Workflow_Model.md | 07050_Admin_Approval_Workflow_Model. | active |
+| docs\07000_admin_console\07060_Admin_Audit_And_Recovery_Queue_Governance.md | 07060_Admin_Audit_And_Recovery_Queue_Governance. | active |
+| docs\07000_admin_console\07070_Admin_Context_Navigation_And_Scope_Model.md | 07070_Admin_Context_Navigation_And_Scope_Model. | active |
+| docs\07000_admin_console\07080_Admin_Runtime_Profile_Configuration_Governance.md | 07080_Admin_Runtime_Profile_Configuration_Governance. | active |
+| docs\07000_admin_console\07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md | 07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model. | active |
+| docs\07000_admin_console\07100_Admin_Audit_Review_And_Change_History_Model.md | 07100_Admin_Audit_Review_And_Change_History_Model. | active |
+| docs\07000_admin_console\07110_Admin_Support_And_BreakGlass_Boundary.md | 07110_Admin_Support_And_BreakGlass_Boundary. | active |
 
 ## 12 docs/08000_ai_customer_center
 

@@ -1,4 +1,4 @@
-# 07020 Admin Store Runtime Configuration Model
+# 07020_Admin_Store_Runtime_Configuration_Model
 
 ## 1 Purpose
 
