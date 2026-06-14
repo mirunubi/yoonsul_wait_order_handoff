@@ -1,0 +1,50 @@
+# 10000_Foundation_Static_Catalog_Package_Readme
+
+## 1 Purpose
+
+This folder defines the `10000` foundation static catalog, product line, and Mini Kiosk package boundaries.
+
+## 2 In Scope
+
+- Static catalog coding authorization.
+- Modular SaaS core and kiosk reuse.
+- Domain object and capability control plane.
+- Product line capability matrix and packaging.
+- Catch Menu Mini Kiosk foundation static specification.
+
+## 3 Relationship Notes
+
+- `10000_static_catalog_runtime_planning/` owns adjacent runtime planning handoff artifacts.
+- `01000` owns MVP scope boundaries.
+- `03000` owns SaaS runtime authority.
+
+## 4 Document List
+
+| document | description |
+| --- | --- |
+| `10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy.md` | 10000_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral_Policy. |
+| `10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md` | 10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy. |
+| `10020_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle_Policy.md` | 10020_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle_Policy. |
+| `10030_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture_Policy.md` | 10030_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture_Policy. |
+| `10040_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly_Policy.md` | 10040_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly_Policy. |
+| `10041_Windows_Installer_Option_Package_And_Local_Runtime_Configuration_Policy.md` | 10041_Windows_Installer_Option_Package_And_Local_Runtime_Configuration_Policy. |
+| `10042_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode_Policy.md` | 10042_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode_Policy. |
+| `10043_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path_Policy.md` | 10043_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path_Policy. |
+| `10044_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion_Policy.md` | 10044_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion_Policy. |
+| `10045_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly_Policy.md` | 10045_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly_Policy. |
+| `10046_Surface_Evolution_Roadmap_And_Product_Line_Continuity_Policy.md` | 10046_Surface_Evolution_Roadmap_And_Product_Line_Continuity_Policy. |
+| `10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy.md` | 10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy. |
+| `10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy.md` | 10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy. |
+| `10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy.md` | 10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy. |
+| `10050_Product_Line_Static_Registry_Closure_And_Coding_Deferral_Policy.md` | 10050_Product_Line_Static_Registry_Closure_And_Coding_Deferral_Policy. |
+| `10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy.md` | 10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy. |
+| `10052_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff_Policy.md` | 10052_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff_Policy. |
+| `10053_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet_Policy.md` | 10053_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet_Policy. |
+| `10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy.md` | 10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy. |
+| `10055_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft_Policy.md` | 10055_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft_Policy. |
+| `10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy.md` | 10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy. |
+| `10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy.md` | 10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy. |
+
+## 5 Current Status
+
+Status: package organized by root markdown rename/move apply wave. Governance only.
