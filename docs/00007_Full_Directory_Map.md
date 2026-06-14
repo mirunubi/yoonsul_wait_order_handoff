@@ -108,7 +108,7 @@ docs/
     03190_Entry_Media_Production_Batch_Stock_And_Inventory_Control_Policy.md
     03199_Entry_Media_Inventory_Index_And_MVP_Cutline.md
   04000_kds_integration_kitchen_continuity/
-    04000_KDS_Integration_And_Kitchen_Continuity_Readme.md
+    04000_KDS_Integration_Kitchen_Continuity_Readme.md
     04010_KDS_Handoff_Candidate_And_Kitchen_Ticket_Policy.md
     04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md
     04030_KDS_Retry_Remake_Delay_And_Fulfillment_Status_Policy.md

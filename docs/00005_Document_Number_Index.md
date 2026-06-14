@@ -127,7 +127,7 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\04000_kds_integration_kitchen_continuity\04000_KDS_Integration_And_Kitchen_Continuity_Readme.md | 04000 KDS Integration And Kitchen Continuity Readme. | initial |
+| docs\04000_kds_integration_kitchen_continuity\04000_KDS_Integration_Kitchen_Continuity_Readme.md | 04000 KDS Integration Kitchen Continuity Readme. | initial |
 | docs\04000_kds_integration_kitchen_continuity\04010_KDS_Handoff_Candidate_And_Kitchen_Ticket_Policy.md | 04010 KDS Handoff Candidate And Kitchen Ticket Policy. | active |
 | docs\04000_kds_integration_kitchen_continuity\04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md | 04020 POS Accepted Order To KDS Ticket Boundary Policy. | active |
 | docs\04000_kds_integration_kitchen_continuity\04030_KDS_Retry_Remake_Delay_And_Fulfillment_Status_Policy.md | 04030 KDS Retry Remake Delay And Fulfillment Status Policy. | active |
