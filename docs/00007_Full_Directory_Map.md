@@ -462,6 +462,28 @@ docs/
     04940_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping_Policy.md
     04950_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping_Policy.md
     04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md
+  04900_security_runtime_test_catalog/
+    04900_Security_Runtime_Test_Catalog_Readme.md
+    04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md
+    04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md
+    04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md
+    05000_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog_Policy.md
+    05010_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog_Policy.md
+    05020_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog_Policy.md
+    05030_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog_Policy.md
+    05040_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog_Policy.md
+    05050_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog_Policy.md
+    05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md
+    05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md
+    05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md
+    05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md
+    05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+    04999_archive_duplicate_review/
+      05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
+      05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
+      05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
+      05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
+      05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
   13000_app_api_projection/
     13000_App_Api_Projection_Readme.md
     13010_App_Surface_And_Channel_Projection.md
@@ -477,28 +499,6 @@ docs/
     13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
     13120_Integration_Status_Projection_Boundary.md
     13130_Future_Surface_And_Api_Non_MVP_Boundary.md
-  13000_security_runtime_test_catalog/
-    04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md
-    04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md
-    04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md
-    05000_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog_Policy.md
-    05010_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog_Policy.md
-    05020_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog_Policy.md
-    05030_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog_Policy.md
-    05040_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog_Policy.md
-    05050_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog_Policy.md
-    05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md
-    05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md
-    05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md
-    05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md
-    05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
-    13000_Security_Runtime_Test_Catalog_Readme.md
-    archive_duplicate_review/
-      05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
-      05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
-      05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
-      05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
-      05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
   14000_pos_provider_integration_strategy/
     14000_POS_Provider_Integration_Strategy_Readme.md
     14000_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report.md
@@ -774,7 +774,7 @@ docs/
 - `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
 - `docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
 - `docs/13000_app_api_projection/` App/API projection architecture package (`13010`~`13130`); separate from POS provider strategy.
-- `docs/13000_security_runtime_test_catalog/` Security/runtime test catalog package (`04970`~`05095`); stale `05100`~`05140` duplicates archived under `archive_duplicate_review/`.
+- `docs/04900_security_runtime_test_catalog/` Security/runtime test catalog package (`04970`~`05095`); stale `05100`~`05140` duplicates archived under `04999_archive_duplicate_review/`.
 - `docs/14000_pos_provider_integration_strategy/` Canonical long-term POS provider integration strategy package (`05255`~`05410`); stale `05150`~`05250` duplicates archived under `archive_duplicate_review/`.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).

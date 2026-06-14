@@ -6,6 +6,8 @@
 **Audit date:** 2026-06-09
 **Consolidation waves audited:** Wave 1 (04000) · Wave 2 (05000) · Wave 3 (10000) · Wave 4 (13000/14000 dedupe) · Wave 5 (40000 hygiene)
 
+> **Path correction (2026-06-09):** `13000_security_runtime_test_catalog` was later moved to `04900_security_runtime_test_catalog`; archive subfolder renamed to `04999_archive_duplicate_review`. Historical tables below retain pre-move paths.
+
 ---
 
 ## 1 Executive Summary

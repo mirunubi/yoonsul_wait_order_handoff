@@ -5,6 +5,7 @@
 > **Wave 2 applied:** `05000_customer_handoff_and_implementation_readiness` parent created; three subfolders moved (2026-06-09).
 > **Wave 3-B applied:** `10000_runtime_foundation_and_cross_room_architecture` parent created; ten subfolders moved; `README.md` renamed in `10000_store_runtime_room_framing` (2026-06-09).
 > **Wave 4-B applied:** sixteen stale duplicate files archived under `13000_security_runtime_test_catalog/archive_duplicate_review` (5) and `14000_pos_provider_integration_strategy/archive_duplicate_review` (11); `14000` numbered README added; `00007` synced (2026-06-09).
+> **04900 band correction applied:** `13000_security_runtime_test_catalog` moved to `04900_security_runtime_test_catalog`; archive subfolder renamed to `04999_archive_duplicate_review`; README renamed to `04900_Security_Runtime_Test_Catalog_Readme.md` (2026-06-09).
 
 
 

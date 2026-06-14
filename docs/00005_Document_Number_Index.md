@@ -604,25 +604,25 @@ Status values:
 | docs\13000_app_api_projection\13120_Integration_Status_Projection_Boundary.md | 13120 Integration Status Projection Boundary. | active |
 | docs\13000_app_api_projection\13130_Future_Surface_And_Api_Non_MVP_Boundary.md | 13130 Future Surface And Api Non MVP Boundary. | active |
 
-## 33 docs/13000_security_runtime_test_catalog
+## 33 docs/04900_security_runtime_test_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\13000_security_runtime_test_catalog\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md | 04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy. | active |
-| docs\13000_security_runtime_test_catalog\04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md | 04980 Tenant Store RLS Access Control Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05000_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog_Policy.md | 05000 POS KDS RPC Bridge Idempotency Replay Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05010_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog_Policy.md | 05010 Payment Webhook Refund Settlement Reconciliation Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05020_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog_Policy.md | 05020 CI DI Identity Callback Masking Leakage Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05030_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog_Policy.md | 05030 Support Access Masking Break Glass Scoped Session Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05040_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog_Policy.md | 05040 Device Trust Session Revocation Lost Device Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05050_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog_Policy.md | 05050 Local Agent Degraded Recovery Sync Conflict Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md | 05060 Export Report Benchmark External Sharing Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md | 05070 AI Analytics Dataset Minimization Recommendation Boundary Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md | 05080 Vendor Partner Access External Integration Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md | 05090 Secure Deployment Release Gate Rollback Test Catalog Policy. | active |
-| docs\13000_security_runtime_test_catalog\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05095 Toss POS Integration Implementation Approach And Test Mapping Policy. | active |
-| docs\13000_security_runtime_test_catalog\13000_Security_Runtime_Test_Catalog_Readme.md | 13000 Security Runtime Test Catalog Readme. | initial |
+| docs\04900_security_runtime_test_catalog\04900_Security_Runtime_Test_Catalog_Readme.md | 04900 Security Runtime Test Catalog Readme. | initial |
+| docs\04900_security_runtime_test_catalog\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md | 04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy. | active |
+| docs\04900_security_runtime_test_catalog\04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md | 04980 Tenant Store RLS Access Control Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05000_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog_Policy.md | 05000 POS KDS RPC Bridge Idempotency Replay Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05010_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog_Policy.md | 05010 Payment Webhook Refund Settlement Reconciliation Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05020_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog_Policy.md | 05020 CI DI Identity Callback Masking Leakage Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05030_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog_Policy.md | 05030 Support Access Masking Break Glass Scoped Session Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05040_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog_Policy.md | 05040 Device Trust Session Revocation Lost Device Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05050_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog_Policy.md | 05050 Local Agent Degraded Recovery Sync Conflict Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md | 05060 Export Report Benchmark External Sharing Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md | 05070 AI Analytics Dataset Minimization Recommendation Boundary Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md | 05080 Vendor Partner Access External Integration Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md | 05090 Secure Deployment Release Gate Rollback Test Catalog Policy. | active |
+| docs\04900_security_runtime_test_catalog\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05095 Toss POS Integration Implementation Approach And Test Mapping Policy. | active |
 
 ## 34 docs/14000_pos_provider_integration_strategy
 

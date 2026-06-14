@@ -20,7 +20,7 @@ This package is the canonical long-term POS provider integration strategy home.
 - `05200` under `05000` owns POS payment provider and kiosk reuse readiness through `05250`.
 - `14000` owns longer-term POS provider integration strategy from `05255` onward and adjacent strategy documents.
 - `13000_app_api_projection` remains separate as app/API/projection architecture.
-- `13000_security_runtime_test_catalog` remains separate as security/runtime test catalog.
+- `04900_security_runtime_test_catalog` remains separate as security/runtime test catalog (`04970`~`05095`).
 - Foundation Security governs secret management, access, audit/evidence, vulnerability response, incident response, and retention/export rules.
 - `04000` Store Runtime POS/KDS Operations consumes approved adapter/provider operational boundaries.
 

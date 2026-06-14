@@ -7,6 +7,8 @@
 **Source plan:** `docs/00000_Top_Level_Folder_Consolidation_Plan.md` (Band D / Wave 4)
 **Git status at verification:** `## main...origin/main [ahead 17]` (clean working tree)
 
+> **Path correction (2026-06-09):** `13000_security_runtime_test_catalog` was later moved to `04900_security_runtime_test_catalog`; archive subfolder renamed to `04999_archive_duplicate_review`. Historical tables below retain pre-move paths.
+
 ---
 
 ## 1 Executive Summary
