@@ -1,9 +1,10 @@
 # 00000_Top_Level_Folder_Consolidation_Plan
 
-<< docs-only · folder architecture plan · Wave 1 applied · Wave 2 applied · Wave 3-B applied >>
+<< docs-only · folder architecture plan · Wave 1 applied · Wave 2 applied · Wave 3-B applied · Wave 4-B applied >>
 > **Wave 1 applied:** `04000_store_runtime_pos_kds_operations` parent created; four subfolders moved (2026-06-09).
 > **Wave 2 applied:** `05000_customer_handoff_and_implementation_readiness` parent created; three subfolders moved (2026-06-09).
 > **Wave 3-B applied:** `10000_runtime_foundation_and_cross_room_architecture` parent created; ten subfolders moved; `README.md` renamed in `10000_store_runtime_room_framing` (2026-06-09).
+> **Wave 4-B applied:** sixteen stale duplicate files archived under `13000_security_runtime_test_catalog/archive_duplicate_review` (5) and `14000_pos_provider_integration_strategy/archive_duplicate_review` (11); `14000` numbered README added; `00007` synced (2026-06-09).
 
 
 
@@ -18,7 +19,7 @@ The `docs/` tree has accumulated **adjacent numbered top-level folders** created
 - **04000 band:** `04000`, `04100`, `04200`, `04300` (4 top-level folders)
 - **05000 band:** `05000`, `05100`, `05200` (3 top-level folders)
 - **10000 band:** `10000_foundation_static_catalog_package`, `10000_static_catalog_runtime_planning`, `10000_store_runtime_room_framing`, `10100`, `10400`, `10500`, `10600`, `10700`, `10720`, `10800` (**11 top-level folders**)
-- **13000 band:** `13000_app_api_projection`, `13000_security_runtime_test_catalog` (**2 folders**; overlaps with `14000` and duplicate `05100`~`05250` copies)
+- **13000 band:** `13000_app_api_projection`, `13000_security_runtime_test_catalog` (**2 folders**; `14000` duplicate overlap resolved in Wave 4-B)
 - **40000 band:** already consolidated (`10703`~`10720` legacy numbers preserved)
 
 **Top-level folders inspected:** 38
@@ -144,32 +145,32 @@ The `docs/` tree has accumulated **adjacent numbered top-level folders** created
 
 ### 13000 / 14000 duplicate file overlap
 
-The following basenames exist in **more than one folder** (canonical index points to newer packages; older copies remain on disk):
+The following basenames existed in **more than one folder**; Wave 4-B archived stale copies to `archive_duplicate_review/` (canonical index points to `05000` band packages):
 
 | filename | locations | apply note |
 | --- | --- | --- |
-| `05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
-| `05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy` | **needs_review** ??dedupe or mark `moved` in index; do not delete in folder wave |
+| `05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `13000_security_runtime_test_catalog/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md` | `05100_implementation_readiness_and_provider_verification`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05100` |
+| `05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
+| `05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
+| `05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
+| `05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
+| `05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
+| `05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md` | `05200_pos_payment_provider_and_kiosk_reuse`, `14000_pos_provider_integration_strategy/archive_duplicate_review` | **archived Wave 4-B** — canonical under `05000/05200` |
 
 ### 13000 band recommendation
 
 1. Create top-level `docs/13000_pos_provider_integration_strategy/` with band README.
 2. Move `14000_pos_provider_integration_strategy/` as subfolder (keep name initially to avoid file path churn).
-3. Move `13000_security_runtime_test_catalog/` as subfolder (`04970`~`05140` test lane).
+3. Move `13000_security_runtime_test_catalog/` as subfolder (`04970`~`05095` test lane; `05100`~`05140` duplicates archived Wave 4-B).
 4. **`13000_app_api_projection` ??needs_review:** not POS strategy; options:
    - (a) subfolder under same 13000 band as `app_api_projection` sibling, or
    - (b) separate top-level `13100_app_api_projection` band, or
@@ -197,7 +198,7 @@ The following basenames exist in **more than one folder** (canonical index point
 | `05100_implementation_readiness_and_provider_verification` | No | Subfolder ??readiness gates extend handoff-to-build |
 | `05200_pos_payment_provider_and_kiosk_reuse` | No | Subfolder ??kiosk/provider boundaries support handoff surfaces |
 
-**05200 vs 14000:** `05200` holds `05200`~`05250` kiosk/provider boundary docs. `14000` holds overlapping `05150`~`05250` **duplicate copies** plus `05255`~`05410` strategy extensions. **Recommendation:** keep `05200` under Band B; reference `14000` (future `13000/14000_pos_provider_integration_strategy`) for extended strategy; resolve duplicates in a dedicated dedupe wave.
+**05200 vs 14000:** `05200` holds canonical `05200`~`05250` kiosk/provider boundary docs under the `05000` band. `14000` holds `05255`~`05410` long-term strategy extensions; stale `05150`~`05250` duplicates were archived to `archive_duplicate_review/` in Wave 4-B.
 
 ### 10000 / 10100 / 10400 / 10500 / 10600 / 10700 / 10720 / 10800
 

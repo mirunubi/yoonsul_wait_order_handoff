@@ -490,24 +490,15 @@ docs/
     05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md
     05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md
     05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
-    05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
-    05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
-    05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
-    05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
-    05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
     13000_Security_Runtime_Test_Catalog_Readme.md
+    archive_duplicate_review/
+      05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
+      05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
+      05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
+      05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
+      05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
   14000_pos_provider_integration_strategy/
-    05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md
-    05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md
-    05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md
-    05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md
-    05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md
-    05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md
-    05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md
-    05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md
-    05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
-    05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
-    05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+    14000_POS_Provider_Integration_Strategy_Readme.md
     05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md
     05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md
     05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md
@@ -524,6 +515,18 @@ docs/
     05390_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control_Policy.md
     05400_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md
     05410_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md
+    archive_duplicate_review/
+      05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md
+      05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md
+      05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md
+      05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md
+      05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md
+      05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md
+      05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md
+      05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md
+      05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
+      05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
+      05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
   15000_membership_loyalty/
     15000_Membership_Loyalty_Readme.md
     15010_Membership_Loyalty_Product_Boundary.md
@@ -745,6 +748,9 @@ docs/
 - `docs/05000_customer_handoff_and_implementation_readiness/` Customer handoff and implementation readiness band (`05000`~`05200` subpackages).
 - `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
 - `docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
+- `docs/13000_app_api_projection/` App/API projection architecture package (`13010`~`13130`); separate from POS provider strategy.
+- `docs/13000_security_runtime_test_catalog/` Security/runtime test catalog package (`04970`~`05095`); stale `05100`~`05140` duplicates archived under `archive_duplicate_review/`.
+- `docs/14000_pos_provider_integration_strategy/` Canonical long-term POS provider integration strategy package (`05255`~`05410`); stale `05150`~`05250` duplicates archived under `archive_duplicate_review/`.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
