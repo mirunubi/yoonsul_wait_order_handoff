@@ -1,4 +1,4 @@
-08000 AI Customer Center Readme
+# 08000_AI_Customer_Center_Readme
 
 1\. Purpose
 
@@ -9,6 +9,29 @@ The AI Customer Center may become a separate project.
 This folder does not implement the AI Customer Center.
 
 This folder defines what CatchMenu must provide so that a future AI Customer Center can safely retrieve knowledge, receive support signals, review evidence, and assist support work.
+
+## 2 In Scope
+
+- AI customer support.
+- SOP retrieval.
+- pgvector RAG.
+- Answer control.
+- Support evidence.
+- Customer-safe response.
+- AI gateway boundary.
+- Escalation to human support.
+- FAQ/documentation feedback loop.
+- Non-authoritative AI response limits.
+
+## 3 Relationship Notes
+
+- `08000` owns AI customer center and AI support gateway behavior.
+- `03000` owns SaaS runtime/session authority.
+- `05000` owns customer handoff flow.
+- `07000` owns support/admin console operator surfaces.
+- Foundation Security governs identity minimization, sensitive data masking, secret non-exposure, logging/audit/evidence, retention, incident response, and AI/Agent data limits.
+- AI customer center must not mutate payment truth, KDS release truth, refund authority, reconciliation conclusion, credential state, or identity reveal state.
+- AI may recommend or draft; approved runtime or authorized human role must execute authority-sensitive actions.
 
 2\. Core Boundary
 
@@ -346,12 +369,12 @@ Final authority stays with authorized humans or authorized runtime functions.
 
 | document | description |
 | --- | --- |
-| `08001_AI_Customer_Center_Foundation.md` | 08001 AI Customer Center Foundation. |
-| `08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy.md` | 08100 CatchMenu Support Signal And Case Handoff Policy. |
-| `08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy.md` | 08200 CatchMenu Knowledge Retrieval pgvector Gateway Policy. |
-| `08300_AI_Response_Boundary.md` | 08300 AI Response Boundary. |
-| `08400_CatchMenu_Troubleshooting_Foundation.md` | 08400 CatchMenu Troubleshooting Foundation. |
-| `08500_Evidence_Packet_Foundation.md` | 08500 Evidence Packet Foundation. |
-| `08600_Support_Server_Strategy.md` | 08600 Support Server Strategy. |
-| `08700_Scale_Out_Strategy.md` | 08700 Scale Out Strategy. |
-| `08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md` | 08800 CatchMenu AI Gateway Runtime Query And Cross Project Access Policy. |
+| `08001_AI_Customer_Center_Foundation.md` | 08001_AI_Customer_Center_Foundation. |
+| `08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy.md` | 08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy. |
+| `08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy.md` | 08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy. |
+| `08300_AI_Response_Boundary.md` | 08300_AI_Response_Boundary. |
+| `08400_CatchMenu_Troubleshooting_Foundation.md` | 08400_CatchMenu_Troubleshooting_Foundation. |
+| `08500_Evidence_Packet_Foundation.md` | 08500_Evidence_Packet_Foundation. |
+| `08600_Support_Server_Strategy.md` | 08600_Support_Server_Strategy. |
+| `08700_Scale_Out_Strategy.md` | 08700_Scale_Out_Strategy. |
+| `08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md` | 08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy. |

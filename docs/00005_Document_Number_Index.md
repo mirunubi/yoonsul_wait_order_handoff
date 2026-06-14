@@ -216,16 +216,16 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\08000_ai_customer_center\08000_AI_Customer_Center_Readme.md | 08000 AI Customer Center Readme. | initial |
-| docs\08000_ai_customer_center\08001_AI_Customer_Center_Foundation.md | 08001 AI Customer Center Foundation. | active |
-| docs\08000_ai_customer_center\08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy.md | 08100 CatchMenu Support Signal And Case Handoff Policy. | active |
-| docs\08000_ai_customer_center\08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy.md | 08200 CatchMenu Knowledge Retrieval pgvector Gateway Policy. | active |
-| docs\08000_ai_customer_center\08300_AI_Response_Boundary.md | 08300 AI Response Boundary. | active |
-| docs\08000_ai_customer_center\08400_CatchMenu_Troubleshooting_Foundation.md | 08400 CatchMenu Troubleshooting Foundation. | active |
-| docs\08000_ai_customer_center\08500_Evidence_Packet_Foundation.md | 08500 Evidence Packet Foundation. | active |
-| docs\08000_ai_customer_center\08600_Support_Server_Strategy.md | 08600 Support Server Strategy. | active |
-| docs\08000_ai_customer_center\08700_Scale_Out_Strategy.md | 08700 Scale Out Strategy. | active |
-| docs\08000_ai_customer_center\08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md | 08800 CatchMenu AI Gateway Runtime Query And Cross Project Access Policy. | active |
+| docs\08000_ai_customer_center\08000_AI_Customer_Center_Readme.md | 08000_AI_Customer_Center_Readme. | initial |
+| docs\08000_ai_customer_center\08001_AI_Customer_Center_Foundation.md | 08001_AI_Customer_Center_Foundation. | active |
+| docs\08000_ai_customer_center\08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy.md | 08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy. | active |
+| docs\08000_ai_customer_center\08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy.md | 08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy. | active |
+| docs\08000_ai_customer_center\08300_AI_Response_Boundary.md | 08300_AI_Response_Boundary. | active |
+| docs\08000_ai_customer_center\08400_CatchMenu_Troubleshooting_Foundation.md | 08400_CatchMenu_Troubleshooting_Foundation. | active |
+| docs\08000_ai_customer_center\08500_Evidence_Packet_Foundation.md | 08500_Evidence_Packet_Foundation. | active |
+| docs\08000_ai_customer_center\08600_Support_Server_Strategy.md | 08600_Support_Server_Strategy. | active |
+| docs\08000_ai_customer_center\08700_Scale_Out_Strategy.md | 08700_Scale_Out_Strategy. | active |
+| docs\08000_ai_customer_center\08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md | 08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy. | active |
 
 ## 13 docs/09000_data_model_state_machine
 
