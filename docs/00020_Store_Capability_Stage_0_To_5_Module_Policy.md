@@ -1,4 +1,4 @@
-00020 Store Capability Stage 0 To 5 Module Policy
+# 00020_Store_Capability_Stage_0_To_5_Module_Policy
 
 1\. Purpose
 

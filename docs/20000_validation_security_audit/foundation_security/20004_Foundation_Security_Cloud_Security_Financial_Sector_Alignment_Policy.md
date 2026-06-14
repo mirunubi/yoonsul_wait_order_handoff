@@ -1,4 +1,4 @@
-# Foundation Security 004 Cloud Security Financial Sector Alignment Policy
+# 20004_Foundation_Security_Cloud_Security_Financial_Sector_Alignment_Policy
 
 ## 1. Purpose
 

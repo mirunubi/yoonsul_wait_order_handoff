@@ -1,4 +1,4 @@
-# Foundation Security 006 Logging Audit Evidence And Tamper Resistance Policy
+# 20006_Foundation_Security_Logging_Audit_Evidence_And_Tamper_Resistance_Policy
 
 ## 1. Purpose
 

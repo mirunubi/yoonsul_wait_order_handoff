@@ -20,18 +20,19 @@ Status values:
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\00000_Project_Overview.md | 00000 Project Overview. | active |
+| docs\00000_Final_Documentation_Structure_Integrity_Audit_Report.md | 00000 Final Documentation Structure Integrity Audit Report. | active |
 | docs\00001_Md_Rules.md | 00001 Markdown Rules. | active |
 | docs\00002_Naming_Rules.md | 00002 Naming Rules. | active |
 | docs\00003_Project_Context.md | 00003 Project Context. | active |
 | docs\00005_Document_Number_Index.md | 00005 Document Number Index. | active |
 | docs\00007_Full_Directory_Map.md | 00007 Full Directory Map. | active |
-| docs\00010 Wait Order Project Overview.md | 00010 Wait Order Project Overview. | active |
+| docs\00010_Wait_Order_Project_Overview.md | 00010 Wait Order Project Overview. | active |
 | docs\00015_Korean_Document_And_Encoding_Safety_Rules.md | 00015 Korean Document And Encoding Safety Rules. | active |
-| docs\00020 Store Capability Stage 0 To 5 Module Policy.md | 00020 Store Capability Stage 0 To 5 Module Policy. | active |
-| docs\00030 Runtime Boundary.md | 00030 Runtime Boundary. | active |
-| docs\00040 Operation Patterns For KDS And Mini Runtime.md | 00040 Operation Patterns For KDS And Mini Runtime. | active |
-| docs\00050 Deployment Mode Model.md | 00050 Deployment Mode Model. | active |
-| docs\00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy.md | 00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy. | active |
+| docs\00020_Store_Capability_Stage_0_To_5_Module_Policy.md | 00020 Store Capability Stage 0 To 5 Module Policy. | active |
+| docs\00030_Runtime_Boundary.md | 00030 Runtime Boundary. | active |
+| docs\00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md | 00040 Operation Patterns For KDS And Mini Runtime. | active |
+| docs\00050_Deployment_Mode_Model.md | 00050 Deployment Mode Model. | active |
+| docs\00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md | 00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy. | active |
 | docs\00099_Docs_Governance_Checklist.md | 00099 Docs Governance Checklist. | active |
 
 ## 3 docs/00100_project_foundation
@@ -459,6 +460,8 @@ Status values:
 
 ## 26 docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion
 
+**Maintenance note:** 10609 long-path validation false positives were verified on disk.
+
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\10000_runtime_foundation_and_cross_room_architecture\10600_cross_room_plumbing_wiring_insulation\10609_financial_regulation_risk_expansion\10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md | 10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy. | active |
@@ -566,6 +569,7 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
+| docs\12000_implementation_mapping\12000_Implementation_Mapping_Readme.md | 12000 Implementation Mapping Readme. | initial |
 | docs\12000_implementation_mapping\04830_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy.md | 04830 Implementation Mapping Lane Start And Policy To Code Constraint Handoff Policy. | active |
 | docs\12000_implementation_mapping\04840_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping_Policy.md | 04840 Tenant Store Context RLS And Access Control Implementation Mapping Policy. | active |
 | docs\12000_implementation_mapping\04850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md | 04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy. | active |
@@ -737,16 +741,16 @@ Status values:
 | docs\20000_validation_security_audit\20340_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md | 04460 POS Webhook Signature Secret Rotation And Credential Isolation Policy. | active |
 | docs\20000_validation_security_audit\20350_Log_Masking_Error_Disclosure_And_Diagnostic_Data_Policy.md | 04580 Log Masking Error Disclosure And Diagnostic Data Policy. | active |
 | docs\20000_validation_security_audit\20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md | 04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 001 Customer Identifier CI DI And Sensitive Identity Protection Policy.md | Foundation Security 001 Customer Identifier CI DI And Sensitive Identity Protection Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 002 Secure Coding And DevSecOps Gate Policy.md | Foundation Security 002 Secure Coding And DevSecOps Gate Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 003 Secret Management Credential Vault And Key Rotation Policy.md | Foundation Security 003 Secret Management Credential Vault And Key Rotation Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 004 Cloud Security Financial Sector Alignment Policy.md | Foundation Security 004 Cloud Security Financial Sector Alignment Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 005 Access Control RBAC ABAC And Least Privilege Policy.md | Foundation Security 005 Access Control RBAC ABAC And Least Privilege Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 006 Logging Audit Evidence And Tamper Resistance Policy.md | Foundation Security 006 Logging Audit Evidence And Tamper Resistance Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 007 Vulnerability Patch Dependency And Incident Response Policy.md | Foundation Security 007 Vulnerability Patch Dependency And Incident Response Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 008 Data Retention Deletion Export And Privacy Response Policy.md | Foundation Security 008 Data Retention Deletion Export And Privacy Response Policy. | active |
-| docs\20000_validation_security_audit\foundation_security\Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md | Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check. | active |
-| docs\20000_validation_security_audit\foundation_security\README.md | Foundation Security Governance. | initial |
+| docs\20000_validation_security_audit\foundation_security\20000_Foundation_Security_Readme.md | 20000 Foundation Security Readme. | initial |
+| docs\20000_validation_security_audit\foundation_security\20001_Foundation_Security_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection_Policy.md | 20001 Foundation Security Customer Identifier CI DI And Sensitive Identity Protection Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20002_Foundation_Security_Secure_Coding_And_DevSecOps_Gate_Policy.md | 20002 Foundation Security Secure Coding And DevSecOps Gate Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20003_Foundation_Security_Secret_Management_Credential_Vault_And_Key_Rotation_Policy.md | 20003 Foundation Security Secret Management Credential Vault And Key Rotation Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20004_Foundation_Security_Cloud_Security_Financial_Sector_Alignment_Policy.md | 20004 Foundation Security Cloud Security Financial Sector Alignment Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20005_Foundation_Security_Access_Control_RBAC_ABAC_And_Least_Privilege_Policy.md | 20005 Foundation Security Access Control RBAC ABAC And Least Privilege Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20006_Foundation_Security_Logging_Audit_Evidence_And_Tamper_Resistance_Policy.md | 20006 Foundation Security Logging Audit Evidence And Tamper Resistance Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20007_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response_Policy.md | 20007 Foundation Security Vulnerability Patch Dependency And Incident Response Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20008_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response_Policy.md | 20008 Foundation Security Data Retention Deletion Export And Privacy Response Policy. | active |
+| docs\20000_validation_security_audit\foundation_security\20009_Foundation_Security_Governance_Index_And_Financial-Grade_Readiness_Check.md | 20009 Foundation Security Governance Index And Financial-Grade Readiness Check. | active |
 
 ## 38 docs/21000_financial_security_monitoring_catalog
 

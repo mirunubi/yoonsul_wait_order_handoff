@@ -349,6 +349,7 @@ docs/
       10606_Extreme_Edge_Case_Power_Cut_Twenty-Four-Hour_Store_Hardware_Peripheral_And_Human_CS_Operations_Policy.md
       10607_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case_Policy.md
       10608_Pseudonymized_AI_Analysis_Noisy_Neighbor_Control_Nonce_Idempotency_And_Final_SaaS_Edge_Guard_Policy.md
+      10609_financial_regulation_risk_expansion/
         10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md
         10609_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary_Policy.md
         10609_03_Double-Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel_Policy.md
@@ -446,6 +447,7 @@ docs/
     11260_POS_Provider_Adapter_Contract_And_Capability_Declaration_Policy.md
     11270_POS_Menu_Table_Order_Mapping_And_Idempotency_Policy.md
   12000_implementation_mapping/
+    12000_Implementation_Mapping_Readme.md
     04830_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy.md
     04840_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping_Policy.md
     04850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md
@@ -573,16 +575,16 @@ docs/
     17130_Future_UI_Surface_Non_MVP_Boundary.md
   20000_validation_security_audit/
     foundation_security/
-      Foundation Security 001 Customer Identifier CI DI And Sensitive Identity Protection Policy.md
-      Foundation Security 002 Secure Coding And DevSecOps Gate Policy.md
-      Foundation Security 003 Secret Management Credential Vault And Key Rotation Policy.md
-      Foundation Security 004 Cloud Security Financial Sector Alignment Policy.md
-      Foundation Security 005 Access Control RBAC ABAC And Least Privilege Policy.md
-      Foundation Security 006 Logging Audit Evidence And Tamper Resistance Policy.md
-      Foundation Security 007 Vulnerability Patch Dependency And Incident Response Policy.md
-      Foundation Security 008 Data Retention Deletion Export And Privacy Response Policy.md
-      Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md
-      README.md
+      20000_Foundation_Security_Readme.md
+      20001_Foundation_Security_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection_Policy.md
+      20002_Foundation_Security_Secure_Coding_And_DevSecOps_Gate_Policy.md
+      20003_Foundation_Security_Secret_Management_Credential_Vault_And_Key_Rotation_Policy.md
+      20004_Foundation_Security_Cloud_Security_Financial_Sector_Alignment_Policy.md
+      20005_Foundation_Security_Access_Control_RBAC_ABAC_And_Least_Privilege_Policy.md
+      20006_Foundation_Security_Logging_Audit_Evidence_And_Tamper_Resistance_Policy.md
+      20007_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response_Policy.md
+      20008_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response_Policy.md
+      20009_Foundation_Security_Governance_Index_And_Financial-Grade_Readiness_Check.md
     04440_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection_Policy.md
     04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
     04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
@@ -748,18 +750,19 @@ docs/
     30080_Native_All_In_One_Service_Runtime_Readme.md
     30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
   00000_Project_Overview.md
+  00000_Final_Documentation_Structure_Integrity_Audit_Report.md
   00001_Md_Rules.md
   00002_Naming_Rules.md
   00003_Project_Context.md
   00005_Document_Number_Index.md
   00007_Full_Directory_Map.md
-  00010 Wait Order Project Overview.md
+  00010_Wait_Order_Project_Overview.md
   00015_Korean_Document_And_Encoding_Safety_Rules.md
-  00020 Store Capability Stage 0 To 5 Module Policy.md
-  00030 Runtime Boundary.md
-  00040 Operation Patterns For KDS And Mini Runtime.md
-  00050 Deployment Mode Model.md
-  00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy.md
+  00020_Store_Capability_Stage_0_To_5_Module_Policy.md
+  00030_Runtime_Boundary.md
+  00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md
+  00050_Deployment_Mode_Model.md
+  00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
   00099_Docs_Governance_Checklist.md
 ```
 
@@ -789,7 +792,7 @@ docs/
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
 - `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` Store Runtime Room framing and boundary package for tenant isolation beam, order intake, validation, POS/KDS/kitchen/staff/device/peripheral runtime, degraded/manual fallback, incident, evidence, visibility, recovery route, and closure.
 - `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.
-- `docs/20000_validation_security_audit/foundation_security/` System-wide Foundation Security 001-009 constitution and financial-grade readiness baseline inherited by runtime, integration, monitoring, and provider documents.
+- `docs/20000_validation_security_audit/foundation_security/` System-wide Foundation Security 20001-20009 constitution and financial-grade readiness baseline inherited by runtime, integration, monitoring, and provider documents.
 - `docs/21000_financial_security_monitoring_catalog/` Financial-grade security monitoring, bulkhead, alert/event catalogs, retention/archive, legal hold, pgvector traceability, AI daemon monitoring, readiness, and closure.
 - `docs/22000_implementation_planning/` Controlled implementation planning, foundation-first coding entry, package selection, readiness checks, blocker review, and handoff policies.
 

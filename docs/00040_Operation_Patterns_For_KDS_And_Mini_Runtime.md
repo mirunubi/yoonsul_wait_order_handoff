@@ -1,4 +1,4 @@
-00040 Operation Patterns For KDS And Mini Runtime
+# 00040_Operation_Patterns_For_KDS_And_Mini_Runtime
 
 1\. Purpose
 
