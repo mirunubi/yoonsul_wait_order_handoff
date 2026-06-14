@@ -29,7 +29,7 @@ docs/
     root_conflict_review/
       03540_POS_Callback_Replay_Manual_Fallback_And_Evidence_Policy.md
       03910_First_7_Days_Activation_Check_Policy.md
-  00000_foundation/
+  00100_project_foundation/
     documentation_governance/
       04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md
       04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md
@@ -42,7 +42,7 @@ docs/
       04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md
       04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md
       04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md
-  00100_project_foundation/
+      README.md
     00100_Project_Foundation_Readme.md
     00110_Project_Identity_And_Overview.md
     00120_BM_Patent_Linkage.md
@@ -569,7 +569,7 @@ docs/
 ## 4 Directory Notes
 
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
-- `docs/00000_foundation/documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
+- `docs/00100_project_foundation/documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
 - `docs/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
 - `docs/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
 - `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.

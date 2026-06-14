@@ -34,23 +34,7 @@ Status values:
 | docs\00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy.md | 00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy. | active |
 | docs\00099_Docs_Governance_Checklist.md | 00099 Docs Governance Checklist. | active |
 
-## 3 docs/00000_foundation
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\00000_foundation\documentation_governance\04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md | 04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy. | active |
-| docs\00000_foundation\documentation_governance\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md | 04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy. | active |
-| docs\00000_foundation\documentation_governance\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md | 04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy. | active |
-| docs\00000_foundation\documentation_governance\04750_Documentation_File_Naming_Folder_Path_And_Import_Normalization_Policy.md | 04750 Documentation File Naming Folder Path And Import Normalization Policy. | active |
-| docs\00000_foundation\documentation_governance\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md | 04760 Documentation Index Directory Map And Cross Reference Synchronization Policy. | active |
-| docs\00000_foundation\documentation_governance\04770_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage_Policy.md | 04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy. | active |
-| docs\00000_foundation\documentation_governance\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md | 04780 Documentation Batch Import Review Report And Commit Discipline Policy. | active |
-| docs\00000_foundation\documentation_governance\04790_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety_Policy.md | 04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy. | active |
-| docs\00000_foundation\documentation_governance\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md | 04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy. | active |
-| docs\00000_foundation\documentation_governance\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md | 04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy. | active |
-| docs\00000_foundation\documentation_governance\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md | 04820 Documentation Governance Final Index And PC Import Preparation Checklist. | active |
-
-## 4 docs/00100_project_foundation
+## 3 docs/00100_project_foundation
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -66,8 +50,20 @@ Status values:
 | docs\00100_project_foundation\00190_Cross_Business_Franchise_OS_And_CatchMenu_Boundary_Policy.md | 00550 Cross Business Franchise OS And CatchMenu Boundary Policy. | active |
 | docs\00100_project_foundation\00200_Organization_Core_MVP_Cutline.md | 00590 Organization Core MVP Cutline. | active |
 | docs\00100_project_foundation\00210_Organization_Core_Index_And_Readiness_Check.md | 00599 Organization Core Index And Readiness Check. | active |
+| docs\00100_project_foundation\documentation_governance\README.md | Documentation Governance. | initial |
+| docs\00100_project_foundation\documentation_governance\04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md | 04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md | 04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md | 04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04750_Documentation_File_Naming_Folder_Path_And_Import_Normalization_Policy.md | 04750 Documentation File Naming Folder Path And Import Normalization Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md | 04760 Documentation Index Directory Map And Cross Reference Synchronization Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04770_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage_Policy.md | 04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md | 04780 Documentation Batch Import Review Report And Commit Discipline Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04790_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety_Policy.md | 04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md | 04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md | 04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy. | active |
+| docs\00100_project_foundation\documentation_governance\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md | 04820 Documentation Governance Final Index And PC Import Preparation Checklist. | active |
 
-## 5 docs/01000_mvp_scope
+## 4 docs/01000_mvp_scope
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -105,7 +101,7 @@ Status values:
 | docs\01000_mvp_scope\01290_Stage_0_MVP_Implementation_Cutline.md | 01290 Stage 0 MVP Implementation Cutline. | active |
 | docs\01000_mvp_scope\01299_Stage_0_Index_And_Readiness_Check.md | 01299 Stage 0 Index And Readiness Check. | active |
 
-## 6 docs/03000_saas_runtime
+## 5 docs/03000_saas_runtime
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -127,7 +123,7 @@ Status values:
 | docs\03000_saas_runtime\03190_Entry_Media_Production_Batch_Stock_And_Inventory_Control_Policy.md | 00390 Entry Media Production Batch Stock And Inventory Control Policy. | active |
 | docs\03000_saas_runtime\03199_Entry_Media_Inventory_Index_And_MVP_Cutline.md | 00399 Entry Media Inventory Index And MVP Cutline. | active |
 
-## 7 docs/04000_kds_integration_kitchen_continuity
+## 6 docs/04000_kds_integration_kitchen_continuity
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -139,7 +135,7 @@ Status values:
 | docs\04000_kds_integration_kitchen_continuity\04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md | 04090 KDS Integration Kitchen Continuity MVP Cutline. | active |
 | docs\04000_kds_integration_kitchen_continuity\04099_KDS_Integration_Kitchen_Continuity_Index_And_Readiness_Check.md | 04099 KDS Integration Kitchen Continuity Index And Readiness Check. | active |
 
-## 8 docs/04100_menu_availability_soldout_runtime
+## 7 docs/04100_menu_availability_soldout_runtime
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -150,7 +146,7 @@ Status values:
 | docs\04100_menu_availability_soldout_runtime\04190_Menu_Availability_Soldout_MVP_Cutline.md | 04190 Menu Availability Soldout MVP Cutline. | active |
 | docs\04100_menu_availability_soldout_runtime\04199_Menu_Availability_Soldout_Index_And_Readiness_Check.md | 04199 Menu Availability Soldout Index And Readiness Check. | active |
 
-## 9 docs/04200_kds_operation_payment_recovery_boundary
+## 8 docs/04200_kds_operation_payment_recovery_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -164,7 +160,7 @@ Status values:
 | docs\04200_kds_operation_payment_recovery_boundary\04280_Customer_Display_Dynamic_QR_And_Payment_Status_UX_Policy.md | 04280 Customer Display Dynamic QR And Payment Status UX Policy. | active |
 | docs\04200_kds_operation_payment_recovery_boundary\04290_Store_Payment_Device_And_Counter_Bottleneck_Reduction_Policy.md | 04290 Store Payment Device And Counter Bottleneck Reduction Policy. | active |
 
-## 10 docs/04300_pos_provider_adapter_governance
+## 9 docs/04300_pos_provider_adapter_governance
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -186,7 +182,7 @@ Status values:
 | docs\04300_pos_provider_adapter_governance\04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md | 04450 POS RPC Communication Security And Provider Trust Boundary Policy. | active |
 | docs\04300_pos_provider_adapter_governance\04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md | 04460 POS Webhook Signature Secret Rotation And Credential Isolation Policy. | active |
 
-## 11 docs/05000_customer_handoff_flow
+## 10 docs/05000_customer_handoff_flow
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -197,7 +193,7 @@ Status values:
 | docs\05000_customer_handoff_flow\05040_Stage_0B_Send_To_Store_Request_Flow.md | 01120 Stage 0B Send To Store Request Flow. | active |
 | docs\05000_customer_handoff_flow\05050_Reservation_Preorder_Governance_Readme.md | 03100 Reservation Preorder Governance Readme. | initial |
 
-## 12 docs/07000_admin_console
+## 11 docs/07000_admin_console
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -214,7 +210,7 @@ Status values:
 | docs\07000_admin_console\07100_Admin_Audit_Review_And_Change_History_Model.md | 07100 Admin Audit Review And Change History Model. | active |
 | docs\07000_admin_console\07110_Admin_Support_And_BreakGlass_Boundary.md | 07110 Admin Support And Break Glass Boundary. | active |
 
-## 13 docs/08000_ai_customer_center
+## 12 docs/08000_ai_customer_center
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -229,7 +225,7 @@ Status values:
 | docs\08000_ai_customer_center\08700_Scale_Out_Strategy.md | 08700 Scale Out Strategy. | active |
 | docs\08000_ai_customer_center\08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md | 08800 CatchMenu AI Gateway Runtime Query And Cross Project Access Policy. | active |
 
-## 14 docs/09000_data_model_state_machine
+## 13 docs/09000_data_model_state_machine
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -246,7 +242,7 @@ Status values:
 | docs\09000_data_model_state_machine\09100_Admin_Support_Audit_Entity_Lineage_Model.md | 09100 Admin Support Audit Entity Lineage Model. | active |
 | docs\09000_data_model_state_machine\09110_Future_Profile_And_Analytics_State_Boundary.md | 09110 Future Profile And Analytics State Boundary. | active |
 
-## 15 docs/10000_static_catalog_runtime_planning
+## 14 docs/10000_static_catalog_runtime_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -286,7 +282,7 @@ Status values:
 | docs\10000_static_catalog_runtime_planning\09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md | 09990 AI pgvector Governance Catalog Static Package Handoff And Non Authority Boundary Policy. | active |
 | docs\10000_static_catalog_runtime_planning\10000_Static_Catalog_Runtime_Planning_Readme.md | 10000 Static Catalog Runtime Planning Readme. | initial |
 
-## 16 docs/11000_integration_boundary
+## 15 docs/11000_integration_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -323,7 +319,7 @@ Status values:
 | docs\11000_integration_boundary\11260_POS_Provider_Adapter_Contract_And_Capability_Declaration_Policy.md | 03520 POS Provider Adapter Contract And Capability Declaration Policy. | active |
 | docs\11000_integration_boundary\11270_POS_Menu_Table_Order_Mapping_And_Idempotency_Policy.md | 03530 POS Menu Table Order Mapping And Idempotency Policy. | active |
 
-## 17 docs/12000_implementation_mapping
+## 16 docs/12000_implementation_mapping
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -342,7 +338,7 @@ Status values:
 | docs\12000_implementation_mapping\04950_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping_Policy.md | 04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy. | active |
 | docs\12000_implementation_mapping\04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md | 04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy. | active |
 
-## 18 docs/13000_app_api_projection
+## 17 docs/13000_app_api_projection
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -361,7 +357,7 @@ Status values:
 | docs\13000_app_api_projection\13120_Integration_Status_Projection_Boundary.md | 13120 Integration Status Projection Boundary. | active |
 | docs\13000_app_api_projection\13130_Future_Surface_And_Api_Non_MVP_Boundary.md | 13130 Future Surface And Api Non MVP Boundary. | active |
 
-## 19 docs/13000_security_runtime_test_catalog
+## 18 docs/13000_security_runtime_test_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -386,7 +382,7 @@ Status values:
 | docs\13000_security_runtime_test_catalog\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
 | docs\13000_security_runtime_test_catalog\13000_Security_Runtime_Test_Catalog_Readme.md | 13000 Security Runtime Test Catalog Readme. | initial |
 
-## 20 docs/14000_pos_provider_integration_strategy
+## 19 docs/14000_pos_provider_integration_strategy
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -418,7 +414,7 @@ Status values:
 | docs\14000_pos_provider_integration_strategy\05400_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md | 05400 Pilot Evidence Packet Template And Store Test Result Recording Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05410_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md | 05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy. | active |
 
-## 21 docs/15000_membership_loyalty
+## 20 docs/15000_membership_loyalty
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -429,7 +425,7 @@ Status values:
 | docs\15000_membership_loyalty\15040_External_Membership_Bridge_Future_Boundary.md | 15040 External Membership Bridge Future Boundary. | active |
 | docs\15000_membership_loyalty\15050_Membership_Admin_And_UI_Reserved_Surface.md | 15050 Membership Admin And Ui Reserved Surface. | active |
 
-## 22 docs/17000_ui_screen_composition
+## 21 docs/17000_ui_screen_composition
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -448,7 +444,7 @@ Status values:
 | docs\17000_ui_screen_composition\17120_Admin_Support_UI_Authority_And_Recovery_Model.md | 17120 Admin Support UI Authority And Recovery Model. | active |
 | docs\17000_ui_screen_composition\17130_Future_UI_Surface_Non_MVP_Boundary.md | 17130 Future UI Surface Non MVP Boundary. | active |
 
-## 23 docs/20000_validation_security_audit
+## 22 docs/20000_validation_security_audit
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -523,7 +519,7 @@ Status values:
 | docs\20000_validation_security_audit\foundation_security\Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md | Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check. | active |
 | docs\20000_validation_security_audit\foundation_security\README.md | Foundation Security Governance. | initial |
 
-## 24 docs/21000_financial_security_monitoring_catalog
+## 23 docs/21000_financial_security_monitoring_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -560,7 +556,7 @@ Status values:
 | docs\21000_financial_security_monitoring_catalog\09650_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization_Policy.md | 09650 Controlled Implementation Candidate Selection And Package Prioritization Policy. | active |
 | docs\21000_financial_security_monitoring_catalog\21000_Financial_Security_Monitoring_Catalog_Readme.md | 21000 Financial Security Monitoring Catalog Readme. | initial |
 
-## 25 docs/22000_implementation_planning
+## 24 docs/22000_implementation_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -589,7 +585,7 @@ Status values:
 | docs\22000_implementation_planning\22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md | 22050 Qa Smoke Test And Rollback Planning Boundary. | active |
 | docs\22000_implementation_planning\22060_Mvp_Implementation_Non_Goals.md | 22060 Mvp Implementation Non Goals. | active |
 
-## 26 docs/24000_deployment_operations
+## 25 docs/24000_deployment_operations
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -614,7 +610,7 @@ Status values:
 | docs\24000_deployment_operations\24180_Request_Board_Staff_Adoption_And_Operation_Check_Policy.md | 03940 Request Board Staff Adoption And Operation Check Policy. | active |
 | docs\24000_deployment_operations\24190_POS_Manual_Fallback_Training_And_Store_Usage_Policy.md | 03950 POS Manual Fallback Training And Store Usage Policy. | active |
 
-## 27 docs/26000_analytics_reporting_bi
+## 26 docs/26000_analytics_reporting_bi
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -625,7 +621,7 @@ Status values:
 | docs\26000_analytics_reporting_bi\26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md | 26040 Cross Tenant Benchmark And Data Sharing Boundary. | active |
 | docs\26000_analytics_reporting_bi\26050_Analytics_To_Action_Governance.md | 26050 Analytics To Action Governance. | active |
 
-## 28 docs/28000_future_expansion
+## 27 docs/28000_future_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -636,7 +632,7 @@ Status values:
 | docs\28000_future_expansion\28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. | active |
 | docs\28000_future_expansion\28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. | active |
 
-## 29 docs/30000_future_saas_modules
+## 28 docs/30000_future_saas_modules
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -651,14 +647,14 @@ Status values:
 | docs\30000_future_saas_modules\30080_Native_All_In_One_Service_Runtime_Readme.md | 03800 Native All-In-One Service Runtime Readme. | initial |
 | docs\30000_future_saas_modules\30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md | 03810 Dual Track External Alliance And Native Service Strategy. | active |
 
-## 30 docs/_conflicts
+## 29 docs/_conflicts
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\_conflicts\root_conflict_review\03540_POS_Callback_Replay_Manual_Fallback_And_Evidence_Policy.md | 03540 POS Callback Replay Manual Fallback And Evidence Policy. | conflict-review |
 | docs\_conflicts\root_conflict_review\03910_First_7_Days_Activation_Check_Policy.md | 03910 First 7 Days Activation Check Policy. | conflict-review |
 
-## 31 Root-Level Residual Or Staging Files
+## 30 Root-Level Residual Or Staging Files
 
 | file path | purpose | current status |
 | --- | --- | --- |
