@@ -1,4 +1,4 @@
-﻿# 09000 Data Model State Machine Readme
+# 09000 Data Model State Machine Readme
 
 ## 1 Purpose
 

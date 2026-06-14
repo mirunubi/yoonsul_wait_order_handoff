@@ -1,8 +1,8 @@
-﻿# 00007 Full Directory Map
+# 00007 Full Directory Map
 
 ## 1 Purpose
 
-This document maps only paths inside `yoonsul_wait_order_handoff`.
+This document maps paths inside `yoonsul_wait_order_handoff`.
 
 Documentation paths use five-digit prefixes and approximately 2,000-slot domain bands.
 
@@ -25,19 +25,36 @@ Governance markdown files live under `docs/`, not at the project root.
 
 ```text
 docs/
-  00000_Project_Overview.md
-  00001_Md_Rules.md
-  00002_Naming_Rules.md
-  00003_Project_Context.md
-  00010_Korean_Document_And_Encoding_Safety_Rules.md
-  00005_Document_Number_Index.md
-  00007_Full_Directory_Map.md
-  00099_Docs_Governance_Checklist.md
+  _conflicts/
+    root_conflict_review/
+      03540_POS_Callback_Replay_Manual_Fallback_And_Evidence_Policy.md
+      03910_First_7_Days_Activation_Check_Policy.md
+  00000_foundation/
+    documentation_governance/
+      04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md
+      04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md
+      04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md
+      04750_Documentation_File_Naming_Folder_Path_And_Import_Normalization_Policy.md
+      04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md
+      04770_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage_Policy.md
+      04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md
+      04790_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety_Policy.md
+      04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md
+      04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md
+      04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md
   00100_project_foundation/
     00100_Project_Foundation_Readme.md
     00110_Project_Identity_And_Overview.md
     00120_BM_Patent_Linkage.md
     00130_Non_Implementation_Boundary.md
+    00140_Organization_Core_Readme.md
+    00150_CatchMenu_Company_Business_Unit_And_Legal_Entity_Policy.md
+    00160_Internal_Team_Role_And_Responsibility_Policy.md
+    00170_Merchant_Account_Company_And_Store_Context_Policy.md
+    00180_Operator_Assignment_And_Backup_Responsibility_Policy.md
+    00190_Cross_Business_Franchise_OS_And_CatchMenu_Boundary_Policy.md
+    00200_Organization_Core_MVP_Cutline.md
+    00210_Organization_Core_Index_And_Readiness_Check.md
   01000_mvp_scope/
     01000_MVP_Scope_Readme.md
     01010_MVP_Scope.md
@@ -46,6 +63,32 @@ docs/
     01040_MVP_Active_Optional_Future_NonGoal_Matrix.md
     01050_MVP_Package_And_Feature_Flag_Boundary.md
     01060_MVP_Store_Type_Adoption_Sequence.md
+    01070_CatchMenu_Service_Concept.md
+    01080_CatchMenu_Guest_Request_Lifecycle_And_State_Policy.md
+    01080_CatchMenu_Stage_0_POS_Less_Menu_Request_Policy.md
+    01090_CatchMenu_Guest_And_Merchant_Positioning.md
+    01090_CatchMenu_Request_Order_Payment_And_Benefit_Authority_Boundary.md
+    01095_CatchMenu_Guest_Identity_Session_And_Context_Continuity_Policy.md
+    01100_CatchMenu_I18n_Order_Request_Translation_Policy.md
+    01110_CatchMenu_Module_Option_And_Product_Package_Policy.md
+    01120_CatchMenu_Adoption_And_Expansion_Path_Policy.md
+    01130_CatchMenu_Merchant_Onboarding_And_Readiness_Policy.md
+    01140_CatchMenu_Guest_Request_Lifecycle_And_State_Policy.md
+    01150_CatchMenu_Request_Order_Payment_And_Benefit_Authority_Boundary.md
+    01160_CatchMenu_Guest_Identity_Session_And_Context_Continuity_Policy.md
+    01170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md
+    01180_Stage_0_Translation_And_Critical_Request_Handling.md
+    01190_Stage_0_Support_Signal_And_Evidence_Packet.md
+    01200_CatchMenu_POS_Less_Entry_Runtime_And_QR_Request_MVP_Readme.md
+    01200_Stage_0_QR_Menu_Store_Context_And_Versioning_Policy.md
+    01210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
+    01220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md
+    01230_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board_Policy.md
+    01240_CatchMenu_POS_Less_Guest_Web_Screen_Policy.md
+    01250_CatchMenu_POS_Less_Owner_Web_Console_Policy.md
+    01260_CatchMenu_POS_Less_Request_State_Transition_Guard.md
+    01290_Stage_0_MVP_Implementation_Cutline.md
+    01299_Stage_0_Index_And_Readiness_Check.md
   03000_saas_runtime/
     03000_SaaS_Runtime_Readme.md
     03010_Tenant_Store_Runtime_And_Package_Model.md
@@ -54,9 +97,66 @@ docs/
     03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md
     03050_Runtime_Profile_Change_And_Audit_Governance.md
     03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md
+    03100_Entry_Media_Inventory_Readme.md
+    03110_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation_Policy.md
+    03130_Entry_Media_Status_Lifecycle_And_Audit_Policy.md
+    03140_Entry_Media_Test_Field_Sample_And_Production_Separation_Policy.md
+    03150_Entry_Media_Lost_Damaged_And_Retired_Asset_Policy.md
+    03160_Entry_Media_Identifier_Encoding_And_Resolution_Policy.md
+    03170_Entry_Media_Scan_Usage_And_Trial_Observation_Policy.md
+    03180_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link_Policy.md
+    03190_Entry_Media_Production_Batch_Stock_And_Inventory_Control_Policy.md
+    03199_Entry_Media_Inventory_Index_And_MVP_Cutline.md
+  04000_kds_integration_kitchen_continuity/
+    04000_KDS_Integration_And_Kitchen_Continuity_Readme.md
+    04010_KDS_Handoff_Candidate_And_Kitchen_Ticket_Policy.md
+    04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md
+    04030_KDS_Retry_Remake_Delay_And_Fulfillment_Status_Policy.md
+    04040_KDS_Degraded_Operation_Manual_Kitchen_Note_Policy.md
+    04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md
+    04099_KDS_Integration_Kitchen_Continuity_Index_And_Readiness_Check.md
+  04100_menu_availability_soldout_runtime/
+    04100_Menu_Availability_Soldout_Runtime_Readme.md
+    04110_Menu_Availability_Soldout_And_Preorder_Blocking_Policy.md
+    04120_Limited_Quantity_Menu_And_Waiting_Preorder_Control_Policy.md
+    04130_POS_KDS_Inventory_Availability_Sync_Policy.md
+    04190_Menu_Availability_Soldout_MVP_Cutline.md
+    04199_Menu_Availability_Soldout_Index_And_Readiness_Check.md
+  04200_kds_operation_payment_recovery_boundary/
+    04210_KDS_Station_Routing_Policy.md
+    04220_Kitchen_Display_Staff_Role_And_Training_SOP.md
+    04230_KDS_Bridge_Vendor_Integration_Boundary.md
+    04240_Manual_Kitchen_Recovery_And_Reconciliation_Policy.md
+    04250_Manual_Kitchen_Recovery_Evidence_Packet_Policy.md
+    04260_POS_Payment_Webhook_And_Kitchen_Release_Boundary_Policy.md
+    04270_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation_Policy.md
+    04280_Customer_Display_Dynamic_QR_And_Payment_Status_UX_Policy.md
+    04290_Store_Payment_Device_And_Counter_Bottleneck_Reduction_Policy.md
+  04300_pos_provider_adapter_governance/
+    04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md
+    04310_Canonical_Order_Model_And_POS_Event_Normalization_Policy.md
+    04320_POS_Adapter_Capability_Level_And_Integration_Contract_Policy.md
+    04330_POS_Adapter_Error_Code_And_Diagnostic_Message_Policy.md
+    04340_POS_Vendor_Priority_And_Integration_Roadmap_Policy.md
+    04350_POS_Adapter_Test_Harness_And_Certification_Scenario_Policy.md
+    04360_POS_Provider_Onboarding_Evidence_And_Contract_Checklist_Policy.md
+    04370_POS_Integration_Monitoring_Replay_And_Incident_Runbook_Policy.md
+    04380_POS_Integration_Support_Escalation_And_Vendor_Communication_Policy.md
+    04390_POS_Integration_Governance_Index_And_Readiness_Check.md
+    04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
+    04410 PAYCO Payment And Order Provider MVP Boundary Policy.md
+    04420_POS_Adapter_Runtime_Data_Object_And_Event_Family_Policy.md
+    04430_OKPOS_And_Major_POS_Integration_Candidate_Policy.md
+    04440_Major_POS_API_Discovery_And_Technical_Spike_Policy.md
+    04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
+    04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
   05000_customer_handoff_flow/
     05000_Customer_Handoff_Flow_Readme.md
     05010_User_Flow.md
+    05020_Stage_0_Readme.md
+    05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
+    05040_Stage_0B_Send_To_Store_Request_Flow.md
+    05050_Reservation_Preorder_Governance_Readme.md
   07000_admin_console/
     07000_Admin_Console_Readme.md
     07010_Admin_Console_Context_And_Role_Model.md
@@ -70,6 +170,17 @@ docs/
     07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md
     07100_Admin_Audit_Review_And_Change_History_Model.md
     07110_Admin_Support_And_BreakGlass_Boundary.md
+  08000_ai_customer_center/
+    08000_AI_Customer_Center_Readme.md
+    08001_AI_Customer_Center_Foundation.md
+    08100_CatchMenu_Support_Signal_And_Case_Handoff_Policy.md
+    08200_CatchMenu_Knowledge_Retrieval_pgvector_Gateway_Policy.md
+    08300_AI_Response_Boundary.md
+    08400_CatchMenu_Troubleshooting_Foundation.md
+    08500_Evidence_Packet_Foundation.md
+    08600_Support_Server_Strategy.md
+    08700_Scale_Out_Strategy.md
+    08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md
   09000_data_model_state_machine/
     09000_Data_Model_State_Machine_Readme.md
     09010_Data_Model_Draft.md
@@ -83,7 +194,47 @@ docs/
     09090_Order_Candidate_And_Confirmation_State_Refinement.md
     09100_Admin_Support_Audit_Entity_Lineage_Model.md
     09110_Future_Profile_And_Analytics_State_Boundary.md
+  10000_static_catalog_runtime_planning/
+    09660_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming_Policy.md
+    09670_Catch_Menu_Customer_Surface_Projection_And_i18n_Naming_Policy.md
+    09680_Provider_Evidence_Collection_Template_And_Capability_Review_Policy.md
+    09690_Security_Monitoring_Foundation_README_Insert_And_Index_Patch_Policy.md
+    09700_Controlled_Non-Runtime_Catalog_Schema_Planning_Policy.md
+    09710_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package_Policy.md
+    09720_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet_Policy.md
+    09730_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix_Policy.md
+    09740_i18n_Message_Key_Registry_And_Customer_Visible_Text_Review_Policy.md
+    09750_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping_Policy.md
+    09760_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping_Policy.md
+    09770_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping_Policy.md
+    09780_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary_Policy.md
+    09790_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control_Policy.md
+    09800_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet_Policy.md
+    09810_Value_Recovery_Reconciliation_And_Partial_Execution_Closure_Policy.md
+    09820_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice_Policy.md
+    09830_Non-Reversible_Value_Action_And_Preventive_Control_Escalation_Policy.md
+    09840_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary_Policy.md
+    09850_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control_Policy.md
+    09860_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention_Policy.md
+    09870_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff_Policy.md
+    09880_Incident_Learning_Boundary_Test_Matrix_Update_And_Policy_Patch_Handoff.md
+    09890_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate_Policy.md
+    09900_Controlled_Implementation_Candidate_Template_And_First_Package_Selection_Policy.md
+    09910_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft_Policy.md
+    09920_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping_Policy.md
+    09930_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability_Policy.md
+    09940_i18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review_Policy.md
+    09950_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface_Policy.md
+    09960_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State_Policy.md
+    09970_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface_Policy.md
+    09980_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping_Policy.md
+    09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md
+    10000_Static_Catalog_Runtime_Planning_Readme.md
   11000_integration_boundary/
+    04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
+    04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
+    04420_POS_Adapter_Runtime_Data_Object_And_Event_Family_Policy.md
+    04430_OKPOS_And_Major_POS_Integration_Candidate_Policy.md
     11000_Integration_Boundary_Readme.md
     11010_POS_Payment_Printer_Integration_Boundary.md
     11020_POS_API_Integration_Truth_Boundary.md
@@ -91,6 +242,42 @@ docs/
     11040_Payment_And_Financial_Truth_Boundary.md
     11050_Manual_POS_Input_And_Reconciliation_Boundary.md
     11060_Integration_Failure_Retry_And_Recovery_Boundary.md
+    11070_POS_Callback_Replay_Manual_Fallback_And_Evidence_Policy.md
+    11080_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md
+    11090_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md
+    11100_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md
+    11110_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md
+    11120_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md
+    11130_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md
+    11140_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
+    11150_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
+    11160_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+    11170_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md
+    11180_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md
+    11190_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md
+    11200_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison_Policy.md
+    11210_Provider_Adapter_Boundary_And_Canonical_Event_Mapping_Policy.md
+    11220_Open_API_Partner_Alliance_Readme.md
+    11230_Provider_Adapter_Runtime_Readme.md
+    11240_External_POS_Integration_Runtime_Readme.md
+    11250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md
+    11260_POS_Provider_Adapter_Contract_And_Capability_Declaration_Policy.md
+    11270_POS_Menu_Table_Order_Mapping_And_Idempotency_Policy.md
+  12000_implementation_mapping/
+    04830_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy.md
+    04840_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping_Policy.md
+    04850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md
+    04860_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping_Policy.md
+    04870_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping_Policy.md
+    04880_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping_Policy.md
+    04890_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping_Policy.md
+    04900_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping_Policy.md
+    04910_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping_Policy.md
+    04920_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping_Policy.md
+    04930_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping_Policy.md
+    04940_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping_Policy.md
+    04950_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping_Policy.md
+    04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md
   13000_app_api_projection/
     13000_App_Api_Projection_Readme.md
     13010_App_Surface_And_Channel_Projection.md
@@ -106,6 +293,55 @@ docs/
     13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
     13120_Integration_Status_Projection_Boundary.md
     13130_Future_Surface_And_Api_Non_MVP_Boundary.md
+  13000_security_runtime_test_catalog/
+    04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md
+    04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md
+    04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md
+    05000_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog_Policy.md
+    05010_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog_Policy.md
+    05020_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog_Policy.md
+    05030_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog_Policy.md
+    05040_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog_Policy.md
+    05050_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog_Policy.md
+    05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md
+    05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md
+    05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md
+    05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md
+    05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+    05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
+    05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
+    05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
+    05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
+    05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
+    13000_Security_Runtime_Test_Catalog_Readme.md
+  14000_pos_provider_integration_strategy/
+    05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md
+    05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md
+    05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md
+    05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md
+    05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md
+    05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md
+    05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md
+    05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md
+    05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
+    05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
+    05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
+    05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md
+    05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md
+    05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md
+    05280_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison_Policy.md
+    05290_Provider_Adapter_Boundary_And_Canonical_Event_Mapping_Policy.md
+    05310_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist_Policy.md
+    05320_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record_Policy.md
+    05330_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency_Policy.md
+    05340_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy_Policy.md
+    05350_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary_Policy.md
+    05360_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary_Policy.md
+    05370_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split_Policy.md
+    05380_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection_Policy.md
+    05390_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control_Policy.md
+    05400_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md
+    05410_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md
   15000_membership_loyalty/
     15000_Membership_Loyalty_Readme.md
     15010_Membership_Loyalty_Product_Boundary.md
@@ -129,6 +365,45 @@ docs/
     17120_Admin_Support_UI_Authority_And_Recovery_Model.md
     17130_Future_UI_Surface_Non_MVP_Boundary.md
   20000_validation_security_audit/
+    foundation_security/
+      Foundation Security 001 Customer Identifier CI DI And Sensitive Identity Protection Policy.md
+      Foundation Security 002 Secure Coding And DevSecOps Gate Policy.md
+      Foundation Security 003 Secret Management Credential Vault And Key Rotation Policy.md
+      Foundation Security 004 Cloud Security Financial Sector Alignment Policy.md
+      Foundation Security 005 Access Control RBAC ABAC And Least Privilege Policy.md
+      Foundation Security 006 Logging Audit Evidence And Tamper Resistance Policy.md
+      Foundation Security 007 Vulnerability Patch Dependency And Incident Response Policy.md
+      Foundation Security 008 Data Retention Deletion Export And Privacy Response Policy.md
+      Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md
+      README.md
+    04440_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection_Policy.md
+    04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
+    04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
+    04470_Financial_Grade_Security_Baseline_And_Secret_Coding_Policy.md
+    04480_POS_KDS_RPC_Security_And_Trust_Boundary_Policy.md
+    04490_Degraded_Security_Recovery_And_Evidence_Boundary_Policy.md
+    04500_Secret_Rotation_Exposure_Response_And_Secure_Configuration_Policy.md
+    04510_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response_Policy.md
+    04520_Support_Access_Masking_Break_Glass_And_Scoped_Session_Policy.md
+    04530_Security_Audit_Event_Immutability_And_Tamper_Evidence_Policy.md
+    04540_Device_Trust_Session_Revocation_And_Store_Runtime_Access_Policy.md
+    04550_Payment_Boundary_Refund_Correction_And_Settlement_Security_Policy.md
+    04560_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access_Policy.md
+    04570_Secure_Deployment_Environment_Separation_And_Release_Gate_Policy.md
+    04580_Log_Masking_Error_Disclosure_And_Diagnostic_Data_Policy.md
+    04590_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security_Policy.md
+    04600_Data_Export_Report_Benchmark_And_External_Sharing_Security_Policy.md
+    04610_AI_Analytics_Dataset_Minimization_And_Model_Output_Security_Policy.md
+    04620_Security_Incident_Response_Severity_Classification_And_Recovery_Governance_Policy.md
+    04630_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review_Policy.md
+    04640_Security_Policy_Index_Readiness_Check_And_Implementation_Gate_Policy.md
+    04650_Security_Review_SOP_Operational_Checklist_And_Control_Owner_Policy.md
+    04660_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification_Policy.md
+    04670_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking_Policy.md
+    04680_Security_Training_Role_Awareness_And_Operational_Discipline_Policy.md
+    04690_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review_Policy.md
+    04700_Security_Foundation_Final_Index_And_Next_Phase_Handoff_Policy.md
+    04710_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking_Policy.md
     20000_Validation_Security_Audit_Readme.md
     20010_SaaS_Data_Capture_And_Governance_Principle.md
     20020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md
@@ -154,7 +429,64 @@ docs/
     20240_Role_Permission_Change_And_Access_Review_Governance.md
     20250_Security_Incident_And_Breach_Response_Governance.md
     20260_External_Integration_And_Webhook_Audit_Governance.md
+    20300_Identity_Access_Readme.md
+    20310_User_Account_And_Login_Policy.md
+    20320_Role_Permission_And_Scope_Policy.md
+    20330_Merchant_User_And_Store_Access_Policy.md
+    20340_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
+    20350_Log_Masking_Error_Disclosure_And_Diagnostic_Data_Policy.md
+    20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md
+  21000_financial_security_monitoring_catalog/
+    09500_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum_Policy.md
+    09510_Financial_Event_Alert_Logging_And_Automated_Warning_System_Policy.md
+    09520_Universal_Integration_Event_Alert_Logging_And_Evidence_Policy.md
+    09530_Universal_Integration_Event_Catalog_And_Alert_Family_Index_Policy.md
+    09540_Universal_Integration_Reconciliation_And_Idempotency_Catalog_Policy.md
+    09550_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement_Policy.md
+    09560_Financial-Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability_Policy.md
+    09570_Financial-Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness_Policy.md
+    09580_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment_Policy.md
+    09590_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection_Policy.md
+    09600_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance_Policy.md
+    09610_Financial-Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral_Policy.md
+    09620_Financial-Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff_Policy.md
+    09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md
+    09631_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Boundary_Catalog.md
+    09632_Containment_Status_And_Trigger_Map_Catalog.md
+    09633_Quarantine_Status_And_Trigger_Map_Catalog.md
+    09634_Security_Control_Records_And_Security_Class_Catalog.md
+    09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md
+    09636_Unix-Style_Error_Code_Catalog_And_Domain_Fault_Mapping_Policy.md
+    09637_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture_Policy.md
+    09638_Monitoring_View_And_Risk_Projection_Contract.md
+    09639_AI_Daemon_Monitoring_Boundary_Contract_And_Rule-Based_Filter_Catalog.md
+    09640_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Boundary_Catalog.md
+    09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md
+    09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md
+    09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md
+    09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md
+    09645_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure_Policy.md
+    09646_Foundation_Closure_Index_Update_And_Post-Closure_Handoff_Direction_Policy.md
+    09650_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization_Policy.md
+    21000_Financial_Security_Monitoring_Catalog_Readme.md
   22000_implementation_planning/
+    09330_API_RPC_Event_Contract_Planning_Boundary_Policy.md
+    09340_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping_Policy.md
+    09350_Payment_KDS_Provider_Adapter_Package_Planning_Policy.md
+    09360_Support_Admin_Evidence_Audit_Package_Planning_Policy.md
+    09370_AI_Support_Gateway_pgvector_RAG_Package_Planning_Policy.md
+    09380_External_Menu_Projection_Redtable_Partner_Package_Planning_Policy.md
+    09390_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral_Policy.md
+    09400_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory_Policy.md
+    09410_Controlled_Coding_Entry_Candidate_Package_Selection_Policy.md
+    09420_Foundation-First_Coding_Entry_Gate_And_Guardrail_Package_Policy.md
+    09430_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance_Policy.md
+    09440_Controlled_Foundation_Implementation_Handoff_And_Work_Order_Policy.md
+    09450_Foundation_Catalog_Implementation_Order_And_Dependency_Policy.md
+    09460_Foundation_Catalog_File_Layout_And_Naming_Convention_Policy.md
+    09470_Foundation_Catalog_Header_Schema_And_Required_Metadata_Policy.md
+    09480_Foundation_Catalog_Validation_Checklist_And_Review_Gate_Policy.md
+    09490_External_POS_Third-Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement_Policy.md
     22000_Implementation_Planning_Readme.md
     22010_Implementation_Readiness_Gate.md
     22020_Build_Sequence_And_Phase_Boundary.md
@@ -169,6 +501,20 @@ docs/
     24030_Incident_Response_And_Degraded_Operation_Boundary.md
     24040_Operational_Runbook_Boundary.md
     24050_Environment_And_Config_Non_Implementation_Boundary.md
+    24060_First_7_Days_Activation_Check_Policy.md
+    24070_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md
+    24080_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist_Policy.md
+    24090_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record_Policy.md
+    24100_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency_Policy.md
+    24110_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection_Policy.md
+    24120_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control_Policy.md
+    24130_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md
+    24140_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md
+    24150_Merchant_Success_Troubleshooting_Readme.md
+    24160_First_30_Days_Troubleshooting_And_Conversion_Readiness_Policy.md
+    24170_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization_Policy.md
+    24180_Request_Board_Staff_Adoption_And_Operation_Check_Policy.md
+    24190_POS_Manual_Fallback_Training_And_Store_Usage_Policy.md
   26000_analytics_reporting_bi/
     26000_Analytics_Reporting_Bi_Readme.md
     26010_Analytics_Product_Boundary.md
@@ -185,55 +531,50 @@ docs/
     28060_Franchise_Intelligence_Feedback_Loop_Model.md
   30000_future_saas_modules/
     30000_Future_Saas_Modules_Readme.md
+    30010_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy_Policy.md
+    30020_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary_Policy.md
+    30030_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary_Policy.md
+    30040_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split_Policy.md
+    30050_Ad_Promotion_CMS_Readme.md
+    30060_Billing_Plan_Settlement_Readme.md
+    30070_Sales_Partner_Field_Growth_Readme.md
+    30080_Native_All_In_One_Service_Runtime_Readme.md
+    30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
+  00000_Project_Overview.md
+  00001_Md_Rules.md
+  00002_Naming_Rules.md
+  00003_Project_Context.md
+  00005_Document_Number_Index.md
+  00007_Full_Directory_Map.md
+  00010 Wait Order Project Overview.md
+  00015_Korean_Document_And_Encoding_Safety_Rules.md
+  00020 Store Capability Stage 0 To 5 Module Policy.md
+  00030 Runtime Boundary.md
+  00040 Operation Patterns For KDS And Mini Runtime.md
+  00050 Deployment Mode Model.md
+  00080 CatchMenu Failure Error Code Naming And Diagnostic Hierarchy.md
+  00099_Docs_Governance_Checklist.md
+  10000 Foundation Static Catalog Package Closure And Runtime Entry Deferral Policy.md
+  10010 Explicit Static Catalog Coding Authorization Packet Template And Approval Boundary Policy.md
+  10020 Modular SaaS Core And Future Kiosk Reuse Principle Policy.md
+  10030 Domain Object Core Use Case API And Safe Projection Architecture Policy.md
+  10040 Domain Capability Control Plane And Runtime Feature Assembly Policy.md
+  10041 Windows Installer Option Package And Local Runtime Configuration Policy.md
+  10042 Android Device Provisioning Runtime Configuration And Kiosk Mode Policy.md
+  10043 Catch Menu Mini Kiosk Admin Surface Reuse And Franchise OS Upgrade Path Policy.md
+  10044 Mini Kiosk To Full Kiosk CMS Payment And Device Expansion Policy.md
+  10045 Franchise OS Capability Inheritance And Tenant Store Assembly Policy.md
 ```
 
-`directory_tree.txt` and `tree_directory_view.txt` are temporary local snapshots when present. They are not governance documents.
+## 4 Directory Notes
 
-## 4 Folder Purposes
+- `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
+- `docs/00000_foundation/documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
+- `docs/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
+- `docs/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
+- `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.
+- `docs/20000_validation_security_audit/foundation_security/` System-wide Foundation Security 001-009 constitution and financial-grade readiness baseline inherited by runtime, integration, monitoring, and provider documents.
+- `docs/21000_financial_security_monitoring_catalog/` Financial-grade security monitoring, bulkhead, alert/event catalogs, retention/archive, legal hold, pgvector traceability, AI daemon monitoring, readiness, and closure.
+- `docs/22000_implementation_planning/` Controlled implementation planning, foundation-first coding entry, package selection, readiness checks, blocker review, and handoff policies.
 
-| folder | purpose |
-| --- | --- |
-| docs/00100_project_foundation | Project identity, BM boundary, patent linkage, and non-implementation boundary. |
-| docs/01000_mvp_scope | MVP definition, active/optional/future/non-goal matrix, package/feature flag boundary, store-type adoption sequence, and market-facing scope. |
-| docs/03000_saas_runtime | SaaS context axes, store runtime profiles, package/feature flag governance, change/audit governance, and non-MVP future profile boundaries. |
-| docs/05000_customer_handoff_flow | Customer waiting, preorder, arrival, seat/table, Mini Kiosk, and multilingual flow. |
-| docs/07000_admin_console | Admin context navigation, runtime profile configuration, feature flag approval, audit review, support/break-glass boundary, and operational monitoring governance. |
-| docs/09000_data_model_state_machine | Conceptual entities, state ownership, audit/recovery lineage, context alignment, runtime profile entities, order confirmation refinement, and future state boundaries. Not physical schema. |
-| docs/11000_integration_boundary | POS API, printer, Store Agent, payment/financial truth, manual POS/reconciliation, and failure/retry/recovery boundaries. Not integration implementation. |
-| docs/13000_app_api_projection | Surface-to-authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP boundaries. Not endpoint implementation. |
-| docs/15000_membership_loyalty | Membership, loyalty, coupon, stamp, and point boundary governance. Active documentation domain; not active MVP runtime. |
-| docs/17000_ui_screen_composition | UI surface-to-authority composition, integration wording, button/badge governance, customer/Mini Kiosk wording, admin/support recovery UI, future non-MVP surfaces, and wireframe boundary. Not UI implementation. |
-| docs/20000_validation_security_audit | Access visibility, support masking/session, export/report/benchmark, retention/deletion/anonymization, audit evidence compliance, runtime misuse prevention, suspicious activity review, cross-tenant isolation, runtime forensics, customer privacy, staff monitoring, payment authority, admin action safety, policy change audit, role/access review, incident response, and external integration audit governance. Not security runtime. |
-| docs/22000_implementation_planning | Implementation readiness gates, build sequence, schema/API checklists, QA/rollback planning, and MVP non-goals. Planning boundary only; not implementation approval. |
-| docs/24000_deployment_operations | Deployment readiness, release governance, runtime support, incident/degraded operation, runbook, and environment/config boundaries. Planning boundary only; not deployment approval. |
-| docs/26000_analytics_reporting_bi | Analytics product boundary, metrics catalog, report/dashboard boundary, cross-tenant benchmark rules, and insight-to-action governance. Documentation boundary only; not analytics runtime. |
-| docs/28000_future_expansion | Long-term future/reference only. Not active MVP runtime. Not Franchise OS implementation. Related active domains: `15000`, `26000`, `20000`, `22000`, `24000`. |
-| docs/30000_future_saas_modules | Long-term reserved future SaaS module documentation band. |
-
-## 5 Reserved Band Notes
-
-`15000~16999` is the active membership/loyalty boundary documentation band. Historical future references also remain in `docs/28000_future_expansion/` until a separate migration is approved.
-
-`17000~19999` holds the initial UI screen composition detail wave. This band is documentation projection only, not UI implementation.
-
-`22000~23999` holds the initial implementation planning boundary detail wave. This band is planning boundary only, not implementation approval.
-
-`24000~25999` holds the initial deployment/operations/support planning boundary detail wave. This band is planning boundary only, not deployment approval.
-
-`30000~99999` is a reserved landing band with readme landing document only.
-
-`26000~27999` holds the initial analytics/reporting/BI boundary detail wave. This band is documentation boundary only, not analytics runtime.
-
-`28000~29999` is long-term future/reference only. `docs/28000_future_expansion/` holds historical/future expansion reference documents. Not active MVP runtime. Not Franchise OS implementation. Related active domains: `15000`, `26000`, `20000`, `22000`, `24000`.
-
-## 6 Current Status
-
-Status: active root governance map.
-
-## 7 External Boundary Note
-
-`yoonsul_os` may reference `yoonsul_wait_order_handoff`.
-`yoonsul_wait_order_handoff` implementation must remain outside `yoonsul_os`.
-
-`yoonsul_os` is not indexed in this project's `00007_Full_Directory_Map.md`.
-`yoonsul_franchise_os` is a future external solution context only and is not mapped as an internal path.
+Root-level non-00000 markdown files are treated as residual staging or unresolved duplicate candidates until explicitly reviewed and placed.

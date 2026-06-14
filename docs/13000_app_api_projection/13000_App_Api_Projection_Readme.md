@@ -1,4 +1,4 @@
-﻿# 13000 App Api Projection Readme
+# 13000 App Api Projection Readme
 
 ## 1 Purpose
 

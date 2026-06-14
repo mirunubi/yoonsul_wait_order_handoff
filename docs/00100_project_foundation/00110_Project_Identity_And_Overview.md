@@ -1,4 +1,4 @@
-﻿# 00110 Project Identity And Overview
+# 00110 Project Identity And Overview
 
 ## Project Identity
 
@@ -59,4 +59,3 @@ Waiting customer
 ## Explicit System Limit
 
 This MVP is not a POS, KDS, payment system, loyalty system, payroll system, franchise operating system, or AI automation platform.
-

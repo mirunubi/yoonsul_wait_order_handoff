@@ -1,4 +1,4 @@
-﻿# 05010 User Flow
+# 05010 User Flow
 
 ## 1 Purpose
 
@@ -219,5 +219,3 @@ Recovery keeps the staff path visible rather than silently failing.
 - How much preparation visibility is shown before KDS integration exists.
 - Whether multilingual content is entered by store staff, imported, or translated by later tooling.
 - Which customer notifications are in-app only versus SMS, messenger, or display-board linked.
-
-

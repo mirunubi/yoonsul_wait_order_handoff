@@ -1,4 +1,4 @@
-﻿# 28000 Future Expansion Readme
+# 28000 Future Expansion Readme
 
 ## 1 Purpose
 

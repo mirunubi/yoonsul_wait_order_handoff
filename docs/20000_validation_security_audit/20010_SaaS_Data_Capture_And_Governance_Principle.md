@@ -1,4 +1,4 @@
-﻿# 20010 SaaS Data Capture And Governance Principle
+# 20010 SaaS Data Capture And Governance Principle
 
 ## 1 Purpose
 
@@ -100,4 +100,3 @@ The first MVP does not include:
 ## 8 Current Status
 
 Status: active SaaS data governance principle.
-

@@ -1,4 +1,4 @@
-﻿# 00000 Project Overview
+# 00000 Project Overview
 
 ## 1 Project Identity
 
@@ -49,4 +49,3 @@ This project remains separate from `yoonsul_os` and `yoonsul_franchise_os`.
 Status: governance spine initialized.
 
 This document is a root governance overview. Detailed project identity, MVP scope, flow, data model, and BM boundary documents live under `docs/`.
-

@@ -1,4 +1,4 @@
-﻿# 28020 Membership Loyalty Point Future Model
+# 28020 Membership Loyalty Point Future Model
 
 ## 1 Purpose
 
@@ -101,5 +101,3 @@ Future activation requires:
 ## 9 Current Status
 
 Status: future-reserved historical/future context. Active boundaries are in `15000`.
-
-

@@ -1,4 +1,4 @@
-﻿# 09050 Audit Recovery Event Lineage Model
+# 09050 Audit Recovery Event Lineage Model
 
 ## 1 Purpose
 
@@ -110,4 +110,3 @@ support access requested
 ## 9 Current Status
 
 Status: active audit and recovery lineage model.
-

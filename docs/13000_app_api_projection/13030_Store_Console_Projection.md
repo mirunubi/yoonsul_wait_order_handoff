@@ -1,4 +1,4 @@
-﻿# 13030 Store Console Projection
+# 13030 Store Console Projection
 
 ## 1 Purpose
 
@@ -77,4 +77,3 @@ Conceptual role access:
 ## 7 Current Status
 
 Status: active store console projection only. No implementation approval.
-

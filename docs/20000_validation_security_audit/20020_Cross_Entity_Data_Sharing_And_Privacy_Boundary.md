@@ -1,4 +1,4 @@
-﻿# 20020 Cross Entity Data Sharing And Privacy Boundary
+# 20020 Cross Entity Data Sharing And Privacy Boundary
 
 ## 1 Purpose
 
@@ -91,4 +91,3 @@ Legal or policy review is required for:
 ## 9 Current Status
 
 Status: active cross-entity privacy boundary.
-

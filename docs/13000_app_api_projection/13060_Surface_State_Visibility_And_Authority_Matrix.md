@@ -1,4 +1,4 @@
-﻿# 13060 Surface State Visibility And Authority Matrix
+# 13060 Surface State Visibility And Authority Matrix
 
 ## 1 Purpose
 
@@ -101,4 +101,3 @@ This document does not include:
 ## 10 Current Status
 
 Status: active surface visibility and authority projection. No implementation approval.
-

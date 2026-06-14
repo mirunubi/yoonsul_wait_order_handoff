@@ -1,4 +1,4 @@
-﻿# 00120 BM Patent Linkage
+# 00120 BM Patent Linkage
 
 ## Patent-Idea Link
 
@@ -57,4 +57,3 @@ The MVP should generate evidence for these business-method points:
 - Common staff edit reasons
 - Customer completion rate from menu view to submitted candidate
 - Mini Kiosk usage without waiting session
-

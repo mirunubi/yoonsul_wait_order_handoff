@@ -1,4 +1,4 @@
-﻿# 13020 Customer Webapp Projection
+# 13020 Customer Webapp Projection
 
 ## 1 Purpose
 
@@ -74,4 +74,3 @@ Customer wording must distinguish order candidate, staff-confirmed order, POS-co
 ## 7 Current Status
 
 Status: active customer webapp projection only. No implementation approval.
-

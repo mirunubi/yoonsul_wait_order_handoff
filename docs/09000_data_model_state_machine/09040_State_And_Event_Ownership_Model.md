@@ -1,4 +1,4 @@
-﻿# 09040 State And Event Ownership Model
+# 09040 State And Event Ownership Model
 
 ## 1 Purpose
 
@@ -94,4 +94,3 @@ It does not define SQL, migrations, app code, Supabase functions, RLS, RPC, API 
 ## 9 Current Status
 
 Status: active state and event ownership model.
-

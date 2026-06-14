@@ -1,4 +1,4 @@
-﻿# 00003 Project Context
+# 00003 Project Context
 
 ## 0 Scope
 
@@ -45,5 +45,3 @@ The project also supports:
 ## 5 Current Status
 
 Status: active root governance context.
-
-

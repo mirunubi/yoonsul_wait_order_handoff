@@ -1,4 +1,4 @@
-﻿# 07020 Admin Store Runtime Configuration Model
+# 07020 Admin Store Runtime Configuration Model
 
 ## 1 Purpose
 
@@ -192,6 +192,3 @@ Feature flag change does not equal approval.
 ## 9 Current Status
 
 Status: active admin console governance design.
-
-
-

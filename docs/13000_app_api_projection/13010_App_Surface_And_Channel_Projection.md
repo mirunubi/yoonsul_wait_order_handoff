@@ -1,4 +1,4 @@
-﻿# 13010 App Surface And Channel Projection
+# 13010 App Surface And Channel Projection
 
 ## 1 Purpose
 
@@ -68,4 +68,3 @@ This projection does not include:
 ## 7 Current Status
 
 Status: active app/channel projection only. No implementation approval.
-

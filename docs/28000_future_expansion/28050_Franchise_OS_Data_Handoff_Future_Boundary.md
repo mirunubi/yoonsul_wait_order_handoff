@@ -1,4 +1,4 @@
-﻿# 28050 Franchise OS Data Handoff Future Boundary
+# 28050 Franchise OS Data Handoff Future Boundary
 
 ## 1 Purpose
 
@@ -81,4 +81,3 @@ Conceptual future flow:
 ## 8 Current Status
 
 Status: future-reserved handoff boundary only. Not Franchise OS runtime.
-

@@ -1,4 +1,4 @@
-﻿# 28030 Point Bridge And Exchange Future Boundary
+# 28030 Point Bridge And Exchange Future Boundary
 
 ## 1 Purpose
 
@@ -65,5 +65,3 @@ Active MVP may only reserve future document references.
 ## 7 Current Status
 
 Status: future-reserved historical/future context. Active boundaries are in `15000` and `20000`.
-
-

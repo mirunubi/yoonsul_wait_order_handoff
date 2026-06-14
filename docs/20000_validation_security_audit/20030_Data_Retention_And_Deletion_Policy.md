@@ -1,4 +1,4 @@
-﻿# 20030 Data Retention And Deletion Policy
+# 20030 Data Retention And Deletion Policy
 
 ## 1 Purpose
 
@@ -91,4 +91,3 @@ The current documentation does not include:
 ## 8 Current Status
 
 Status: active retention and deletion governance draft.
-

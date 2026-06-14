@@ -1,4 +1,4 @@
-﻿# 00099 Docs Governance Checklist
+# 00099 Docs Governance Checklist
 
 ## 0 Scope
 
@@ -45,5 +45,3 @@ Documentation approval does not equal implementation approval.
 ## 4 Current Status
 
 Status: active root governance checklist.
-
-

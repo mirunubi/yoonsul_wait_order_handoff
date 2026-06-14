@@ -1,4 +1,4 @@
-﻿# 07000 Admin Console Readme
+# 07000 Admin Console Readme
 
 ## 1 Purpose
 

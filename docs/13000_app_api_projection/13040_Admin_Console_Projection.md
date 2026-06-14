@@ -1,4 +1,4 @@
-﻿# 13040 Admin Console Projection
+# 13040 Admin Console Projection
 
 ## 1 Purpose
 
@@ -70,5 +70,3 @@ Admin Console projection must follow `docs/07000_admin_console/07070_Admin_Conte
 ## 7 Current Status
 
 Status: active admin console projection only. No implementation approval.
-
-

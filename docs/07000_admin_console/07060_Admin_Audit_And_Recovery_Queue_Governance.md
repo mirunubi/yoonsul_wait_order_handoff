@@ -1,4 +1,4 @@
-﻿# 07060 Admin Audit And Recovery Queue Governance
+# 07060 Admin Audit And Recovery Queue Governance
 
 ## 1 Purpose
 
@@ -100,5 +100,3 @@ Conceptual lifecycle:
 ## 9 Current Status
 
 Status: active admin console governance design.
-
-

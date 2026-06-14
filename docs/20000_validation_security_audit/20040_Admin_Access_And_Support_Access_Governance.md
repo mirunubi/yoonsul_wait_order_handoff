@@ -1,4 +1,4 @@
-﻿# 20040 Admin Access And Support Access Governance
+# 20040 Admin Access And Support Access Governance
 
 ## 1 Purpose
 
@@ -94,4 +94,3 @@ Conceptual sensitivity classes:
 ## 8 Current Status
 
 Status: active admin and support access governance draft.
-

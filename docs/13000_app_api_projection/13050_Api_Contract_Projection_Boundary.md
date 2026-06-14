@@ -1,4 +1,4 @@
-﻿# 13050 Api Contract Projection Boundary
+# 13050 Api Contract Projection Boundary
 
 ## 1 Purpose
 
@@ -94,4 +94,3 @@ Implementation planning must pass `22040` before endpoint or app implementation 
 ## 8 Current Status
 
 Status: active API contract projection boundary. No implementation approval.
-

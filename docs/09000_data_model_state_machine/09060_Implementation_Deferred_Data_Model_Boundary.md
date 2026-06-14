@@ -1,4 +1,4 @@
-﻿# 09060 Implementation Deferred Data Model Boundary
+# 09060 Implementation Deferred Data Model Boundary
 
 ## 1 Purpose
 
@@ -89,4 +89,3 @@ This document remains the conceptual data model non-implementation boundary.
 ## 8 Current Status
 
 Status: active implementation-deferred data model boundary.
-

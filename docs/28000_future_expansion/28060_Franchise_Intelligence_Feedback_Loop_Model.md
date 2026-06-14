@@ -1,4 +1,4 @@
-﻿# 28060 Franchise Intelligence Feedback Loop Model
+# 28060 Franchise Intelligence Feedback Loop Model
 
 ## 1 Purpose
 
@@ -80,4 +80,3 @@ Future feedback loops require:
 ## 8 Current Status
 
 Status: future-reserved long-term reference only. Not AI or Franchise OS runtime.
-

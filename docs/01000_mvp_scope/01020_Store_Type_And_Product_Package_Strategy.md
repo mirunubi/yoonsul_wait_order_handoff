@@ -1,4 +1,4 @@
-﻿# 01020 Store Type And Product Package Strategy
+# 01020 Store Type And Product Package Strategy
 
 ## 1 Overall Direction
 
@@ -262,5 +262,3 @@ Package names must align with `docs/03000_saas_runtime/03010_Tenant_Store_Runtim
 Store type classification in this document is business-facing.
 
 Package plan and feature flags are SaaS runtime-facing.
-
-

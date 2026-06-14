@@ -1,4 +1,4 @@
-﻿# 07010 Admin Console Context And Role Model
+# 07010 Admin Console Context And Role Model
 
 ## 1 Purpose
 
@@ -299,5 +299,3 @@ Must not control:
 ## 7 Current Status
 
 Status: active admin console governance design.
-
-

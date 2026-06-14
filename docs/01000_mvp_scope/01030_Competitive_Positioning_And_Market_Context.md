@@ -1,4 +1,4 @@
-﻿# 01030 Competitive Positioning And Market Context
+# 01030 Competitive Positioning And Market Context
 
 ## 1 Purpose
 
@@ -171,6 +171,3 @@ Future data, ad, CRM, and AI expansion is reserved in `docs/28000_future_expansi
 Status: active market positioning design.
 
 This document is documentation-only and does not define sales collateral, ads, legal claims, implementation, or pricing finalization.
-
-
-

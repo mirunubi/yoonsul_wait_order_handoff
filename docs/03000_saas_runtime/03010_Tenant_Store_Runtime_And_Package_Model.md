@@ -1,4 +1,4 @@
-﻿# 03010 Tenant Store Runtime And Package Model
+# 03010 Tenant Store Runtime And Package Model
 
 ## 1 Purpose
 
@@ -500,4 +500,3 @@ Admin audit/recovery queue governance is defined in `docs/07000_admin_console/07
 - Package/feature flag runtime governance is defined in `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`.
 - Runtime profile change/audit governance is defined in `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
 - Non-MVP future runtime profiles are defined in `docs/03000_saas_runtime/03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md`.
-

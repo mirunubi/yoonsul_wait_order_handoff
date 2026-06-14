@@ -1,4 +1,4 @@
-﻿# 20050 Data Export And Report Approval Governance
+# 20050 Data Export And Report Approval Governance
 
 ## 1 Purpose
 
@@ -98,4 +98,3 @@ Analytics visibility does not equal export authority.
 ## 9 Current Status
 
 Status: active export and report approval governance draft.
-

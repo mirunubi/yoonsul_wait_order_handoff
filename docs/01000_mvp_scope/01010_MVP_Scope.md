@@ -1,4 +1,4 @@
-﻿# 01010 MVP Scope
+# 01010 MVP Scope
 
 ## Included
 
@@ -114,4 +114,3 @@ Order candidate:
 - Package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
 - Store-type adoption sequence is defined in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
 - `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md` defines implementation non-goals and must remain aligned with `01040`.
-

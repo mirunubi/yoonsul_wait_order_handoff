@@ -1,4 +1,4 @@
-﻿# 20060 Anonymization And Pseudonymization Standard
+# 20060 Anonymization And Pseudonymization Standard
 
 ## 1 Purpose
 
@@ -70,4 +70,3 @@ The current MVP does not include:
 ## 8 Current Status
 
 Status: active anonymization and pseudonymization standard draft.
-

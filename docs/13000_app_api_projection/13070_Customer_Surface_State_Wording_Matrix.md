@@ -1,4 +1,4 @@
-﻿# 13070 Customer Surface State Wording Matrix
+# 13070 Customer Surface State Wording Matrix
 
 ## 1 Purpose
 
@@ -89,4 +89,3 @@ See also `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundar
 ## 9 Current Status
 
 Status: active customer wording projection. No implementation approval.
-

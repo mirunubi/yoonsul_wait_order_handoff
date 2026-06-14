@@ -1,4 +1,4 @@
-﻿# 07030 Admin Operational Monitoring And Recovery Model
+# 07030 Admin Operational Monitoring And Recovery Model
 
 ## 1 Purpose
 
@@ -99,5 +99,3 @@ Active MVP must not show point balance, point redemption, wallet, or loyalty led
 ## 9 Current Status
 
 Status: active admin console governance design.
-
-

@@ -1,4 +1,4 @@
-﻿# 07050 Admin Approval Workflow Model
+# 07050 Admin Approval Workflow Model
 
 ## 1 Purpose
 
@@ -104,5 +104,3 @@ Recovery queue must show affected items.
 ## 9 Current Status
 
 Status: active admin console governance design.
-
-

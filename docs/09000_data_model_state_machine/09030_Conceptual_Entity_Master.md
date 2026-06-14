@@ -1,4 +1,4 @@
-﻿# 09030 Conceptual Entity Master
+# 09030 Conceptual Entity Master
 
 ## 1 Purpose
 
@@ -135,4 +135,3 @@ Physical schema must not be inferred directly from `03000` docs.
 ## 13 Current Status
 
 Status: active conceptual entity master. No physical schema.
-

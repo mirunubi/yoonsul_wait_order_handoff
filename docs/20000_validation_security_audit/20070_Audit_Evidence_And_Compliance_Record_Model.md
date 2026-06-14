@@ -1,4 +1,4 @@
-﻿# 20070 Audit Evidence And Compliance Record Model
+# 20070 Audit Evidence And Compliance Record Model
 
 ## 1 Purpose
 
@@ -98,4 +98,3 @@ Runbook-driven actions must still generate audit evidence per this document.
 ## 8 Current Status
 
 Status: active audit evidence and compliance record draft.
-

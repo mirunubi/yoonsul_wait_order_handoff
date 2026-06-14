@@ -1,4 +1,4 @@
-﻿# 07040 Admin Screen Inventory And Navigation Model
+# 07040 Admin Screen Inventory And Navigation Model
 
 ## 1 Purpose
 
@@ -115,5 +115,3 @@ Store/admin/support action authority is defined in `docs/13000_app_api_projectio
 ## 9 Current Status
 
 Status: active admin console governance design.
-
-

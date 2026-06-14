@@ -1,4 +1,4 @@
-﻿# 00002 Naming Rules
+# 00002 Naming Rules
 
 ## 0 Scope
 
@@ -33,7 +33,7 @@ Root governance files:
 - `00003_Project_Context.md`
 - `00005_Document_Number_Index.md`
 - `00007_Full_Directory_Map.md`
-- `00010_Korean_Document_And_Encoding_Safety_Rules.md`
+- `00015_Korean_Document_And_Encoding_Safety_Rules.md`
 - `00099_Docs_Governance_Checklist.md`
 
 ## 4 Docs Domain Bands

@@ -1,4 +1,4 @@
-﻿# 13080 Store Admin Support Action Authority Matrix
+# 13080 Store Admin Support Action Authority Matrix
 
 ## 1 Purpose
 
@@ -101,4 +101,3 @@ Conceptual action families:
 ## 8 Current Status
 
 Status: active store/admin/support action authority projection. No implementation approval.
-

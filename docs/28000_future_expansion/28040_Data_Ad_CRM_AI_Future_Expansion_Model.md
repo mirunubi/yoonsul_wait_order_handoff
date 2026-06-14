@@ -1,4 +1,4 @@
-﻿# 28040 Data Ad CRM AI Future Expansion Model
+# 28040 Data Ad CRM AI Future Expansion Model
 
 ## 1 Purpose
 
@@ -151,5 +151,3 @@ This `9040` document remains future-reserved and must not imply active MVP ad, C
 ## 12 Current Status
 
 Status: future-reserved long-term market/future reference. Active analytics boundary is in `26000`.
-
-
