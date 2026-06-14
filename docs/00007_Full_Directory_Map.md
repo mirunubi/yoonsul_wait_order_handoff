@@ -123,6 +123,7 @@ docs/
     04190_Menu_Availability_Soldout_MVP_Cutline.md
     04199_Menu_Availability_Soldout_Index_And_Readiness_Check.md
   04200_kds_operation_payment_recovery_boundary/
+    04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md
     04210_KDS_Station_Routing_Policy.md
     04220_Kitchen_Display_Staff_Role_And_Training_SOP.md
     04230_KDS_Bridge_Vendor_Integration_Boundary.md

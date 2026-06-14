@@ -150,6 +150,7 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
+| docs\04200_kds_operation_payment_recovery_boundary\04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md | 04200 KDS Operation Payment Recovery Boundary Readme. | initial |
 | docs\04200_kds_operation_payment_recovery_boundary\04210_KDS_Station_Routing_Policy.md | 04210 KDS Station Routing Policy. | active |
 | docs\04200_kds_operation_payment_recovery_boundary\04220_Kitchen_Display_Staff_Role_And_Training_SOP.md | 04220 Kitchen Display Staff Role And Training SOP. | active |
 | docs\04200_kds_operation_payment_recovery_boundary\04230_KDS_Bridge_Vendor_Integration_Boundary.md | 04230 KDS Bridge Vendor Integration Boundary. | active |
