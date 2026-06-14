@@ -50,18 +50,18 @@ Status values:
 | docs\00100_project_foundation\00190_Cross_Business_Franchise_OS_And_CatchMenu_Boundary_Policy.md | 00550 Cross Business Franchise OS And CatchMenu Boundary Policy. | active |
 | docs\00100_project_foundation\00200_Organization_Core_MVP_Cutline.md | 00590 Organization Core MVP Cutline. | active |
 | docs\00100_project_foundation\00210_Organization_Core_Index_And_Readiness_Check.md | 00599 Organization Core Index And Readiness Check. | active |
-| docs\00100_project_foundation\documentation_governance\README.md | Documentation Governance. | initial |
-| docs\00100_project_foundation\documentation_governance\04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md | 04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md | 04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md | 04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04750_Documentation_File_Naming_Folder_Path_And_Import_Normalization_Policy.md | 04750 Documentation File Naming Folder Path And Import Normalization Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md | 04760 Documentation Index Directory Map And Cross Reference Synchronization Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04770_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage_Policy.md | 04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md | 04780 Documentation Batch Import Review Report And Commit Discipline Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04790_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety_Policy.md | 04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md | 04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md | 04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy. | active |
-| docs\00100_project_foundation\documentation_governance\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md | 04820 Documentation Governance Final Index And PC Import Preparation Checklist. | active |
+| docs\00100_project_foundation\00150_documentation_governance\README.md | Documentation Governance. | initial |
+| docs\00100_project_foundation\00150_documentation_governance\04720_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow_Policy.md | 04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md | 04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md | 04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04750_Documentation_File_Naming_Folder_Path_And_Import_Normalization_Policy.md | 04750 Documentation File Naming Folder Path And Import Normalization Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md | 04760 Documentation Index Directory Map And Cross Reference Synchronization Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04770_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage_Policy.md | 04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md | 04780 Documentation Batch Import Review Report And Commit Discipline Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04790_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety_Policy.md | 04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md | 04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md | 04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy. | active |
+| docs\00100_project_foundation\00150_documentation_governance\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md | 04820 Documentation Governance Final Index And PC Import Preparation Checklist. | active |
 
 ## 4 docs/01000_mvp_scope
 
