@@ -15,7 +15,7 @@ This folder defines project identity, BM boundary, patent linkage, and the first
 
 | document | description |
 | --- | --- |
-| `00150_documentation_governance/README.md` | Documentation governance policies for import, naming, index synchronization, duplicate handling, and readiness. |
+| `00450_documentation_governance/00450_Documentation_Governance_Readme.md` | Documentation governance policies for import, naming, index synchronization, duplicate handling, and readiness. |
 | `00110_Project_Identity_And_Overview.md` | Project identity and overview. |
 | `00120_BM_Patent_Linkage.md` | BM patent candidate linkage. |
 | `00130_Non_Implementation_Boundary.md` | Non-implementation boundary. |
