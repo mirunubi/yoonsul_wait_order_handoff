@@ -1,13 +1,24 @@
-# 09000 Data Model State Machine Readme
+# 09000_Data_Model_State_Machine_Readme
 
 ## 1 Purpose
 
-This folder defines conceptual data model and state machine design only.
+This folder defines the `09000` Data Model / State Machine package at conceptual design level only.
 
 This wave consolidates the conceptual model after MVP scope, SaaS runtime, and Admin Console consolidation waves.
 
 ## 2 In Scope
 
+- Data object definitions.
+- State machines.
+- Order state.
+- Wait state.
+- Handoff state.
+- Session state.
+- Payment/KDS projection state.
+- Provider event state.
+- Recovery state.
+- Idempotency state.
+- Audit/evidence state.
 - Conceptual entities.
 - State names and transitions.
 - Data ownership boundaries.
@@ -22,7 +33,17 @@ This wave consolidates the conceptual model after MVP scope, SaaS runtime, and A
 - Future profile and analytics state boundaries.
 - Implementation-deferred data model boundary.
 
-## 3 Document List
+## 3 Relationship Notes
+
+- `09000` owns canonical data/state model policy.
+- `03000` owns SaaS runtime/session authority.
+- `04000`/`04100`/`04200`/`04300` consume state models for KDS, menu availability, recovery, and POS adapter integration.
+- `05000` consumes customer-safe state projections.
+- `07000` consumes admin/support state surfaces.
+- `08000` consumes AI support-safe summaries and non-authoritative state references.
+- Foundation Security governs sensitive identity, secrets, access, audit, retention, and incident response for all state models.
+
+## 4 Document List
 
 | document | description |
 | --- | --- |
@@ -44,7 +65,7 @@ This wave consolidates the conceptual model after MVP scope, SaaS runtime, and A
 
 This domain remains conceptual and does not approve schema.
 
-## 4 Consolidation Notes
+## 5 Consolidation Notes
 
 `09010` remains draft/candidate notes.
 
@@ -58,11 +79,11 @@ The `09000_data_model_state_machine` namespace stays flat with no subfolders for
 
 Subfolders may be introduced later if the project expands.
 
-## 5 Out Of Scope
+## 6 Out Of Scope
 
 - SQL, migrations, production schema, Supabase functions, RPC, and generated types.
 - Physical table definitions, columns, RLS, Edge Functions, and app code.
 
-## 6 Current Status
+## 7 Current Status
 
 Status: conceptual data model consolidation wave complete. No SQL. No migration. Not schema approval.

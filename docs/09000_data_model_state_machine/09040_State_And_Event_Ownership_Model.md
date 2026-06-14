@@ -1,4 +1,4 @@
-# 09040 State And Event Ownership Model
+# 09040_State_And_Event_Ownership_Model
 
 ## 1 Purpose
 

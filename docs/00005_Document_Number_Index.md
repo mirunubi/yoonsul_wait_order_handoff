@@ -231,18 +231,18 @@ Status values:
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\09000_data_model_state_machine\09000_Data_Model_State_Machine_Readme.md | 09000 Data Model State Machine Readme. | initial |
-| docs\09000_data_model_state_machine\09010_Data_Model_Draft.md | 09010 Data Model Draft. | active |
-| docs\09000_data_model_state_machine\09020_Handoff_State_Machine.md | 09020 Handoff State Machine. | active |
-| docs\09000_data_model_state_machine\09030_Conceptual_Entity_Master.md | 09030 Conceptual Entity Master. | active |
-| docs\09000_data_model_state_machine\09040_State_And_Event_Ownership_Model.md | 09040 State And Event Ownership Model. | active |
-| docs\09000_data_model_state_machine\09050_Audit_Recovery_Event_Lineage_Model.md | 09050 Audit Recovery Event Lineage Model. | active |
-| docs\09000_data_model_state_machine\09060_Implementation_Deferred_Data_Model_Boundary.md | 09060 Implementation Deferred Data Model Boundary. | active |
-| docs\09000_data_model_state_machine\09070_Context_Entity_Alignment_Model.md | 09070 Context Entity Alignment Model. | active |
-| docs\09000_data_model_state_machine\09080_Runtime_Profile_And_Change_Request_Entity_Model.md | 09080 Runtime Profile And Change Request Entity Model. | active |
-| docs\09000_data_model_state_machine\09090_Order_Candidate_And_Confirmation_State_Refinement.md | 09090 Order Candidate And Confirmation State Refinement. | active |
-| docs\09000_data_model_state_machine\09100_Admin_Support_Audit_Entity_Lineage_Model.md | 09100 Admin Support Audit Entity Lineage Model. | active |
-| docs\09000_data_model_state_machine\09110_Future_Profile_And_Analytics_State_Boundary.md | 09110 Future Profile And Analytics State Boundary. | active |
+| docs\09000_data_model_state_machine\09000_Data_Model_State_Machine_Readme.md | 09000_Data_Model_State_Machine_Readme. | initial |
+| docs\09000_data_model_state_machine\09010_Data_Model_Draft.md | 09010_Data_Model_Draft. | active |
+| docs\09000_data_model_state_machine\09020_Handoff_State_Machine.md | 09020_Handoff_State_Machine. | active |
+| docs\09000_data_model_state_machine\09030_Conceptual_Entity_Master.md | 09030_Conceptual_Entity_Master. | active |
+| docs\09000_data_model_state_machine\09040_State_And_Event_Ownership_Model.md | 09040_State_And_Event_Ownership_Model. | active |
+| docs\09000_data_model_state_machine\09050_Audit_Recovery_Event_Lineage_Model.md | 09050_Audit_Recovery_Event_Lineage_Model. | active |
+| docs\09000_data_model_state_machine\09060_Implementation_Deferred_Data_Model_Boundary.md | 09060_Implementation_Deferred_Data_Model_Boundary. | active |
+| docs\09000_data_model_state_machine\09070_Context_Entity_Alignment_Model.md | 09070_Context_Entity_Alignment_Model. | active |
+| docs\09000_data_model_state_machine\09080_Runtime_Profile_And_Change_Request_Entity_Model.md | 09080_Runtime_Profile_And_Change_Request_Entity_Model. | active |
+| docs\09000_data_model_state_machine\09090_Order_Candidate_And_Confirmation_State_Refinement.md | 09090_Order_Candidate_And_Confirmation_State_Refinement. | active |
+| docs\09000_data_model_state_machine\09100_Admin_Support_Audit_Entity_Lineage_Model.md | 09100_Admin_Support_Audit_Entity_Lineage_Model. | active |
+| docs\09000_data_model_state_machine\09110_Future_Profile_And_Analytics_State_Boundary.md | 09110_Future_Profile_And_Analytics_State_Boundary. | active |
 
 ## 14 docs/10000_static_catalog_runtime_planning
 
