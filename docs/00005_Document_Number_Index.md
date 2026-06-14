@@ -282,7 +282,30 @@ Status values:
 | docs\10000_static_catalog_runtime_planning\09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md | 09990 AI pgvector Governance Catalog Static Package Handoff And Non Authority Boundary Policy. | active |
 | docs\10000_static_catalog_runtime_planning\10000_Static_Catalog_Runtime_Planning_Readme.md | 10000 Static Catalog Runtime Planning Readme. | initial |
 
-## 15 docs/11000_integration_boundary
+## 15 docs/10000_store_runtime_room_framing
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\10000_store_runtime_room_framing\10141_SaaS_Tenant_Isolation_And_Cross-Tenant_Data_Containment_Beam_Policy.md | 10141 SaaS Tenant Isolation And Cross-Tenant Data Containment Beam Policy. | moved |
+| docs\10000_store_runtime_room_framing\10200_Store_Room_Framing_And_Runtime_Domain_Boundary_Index.md | 10200 Store Room Framing And Runtime Domain Boundary Index. | moved |
+| docs\10000_store_runtime_room_framing\10210_Order_Intake_Room_Boundary_Policy.md | 10210 Order Intake Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10220_Order_Validation_Room_Boundary_Policy.md | 10220 Order Validation Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10230_POS_Handoff_Room_Boundary_Policy.md | 10230 POS Handoff Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10240_KDS_Ticket_Room_Boundary_Policy.md | 10240 KDS Ticket Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10250_Kitchen_Execution_Room_Boundary_Policy.md | 10250 Kitchen Execution Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10260_Staff_Assist_Room_Boundary_Policy.md | 10260 Staff Assist Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10270_Device_Runtime_Room_Boundary_Policy.md | 10270 Device Runtime Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10280_Printer_Peripheral_Room_Boundary_Policy.md | 10280 Printer Peripheral Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10290_Degraded_Operation_Room_Boundary_Policy.md | 10290 Degraded Operation Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10300_Manual_Fallback_Room_Boundary_Policy.md | 10300 Manual Fallback Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10310_Store_Incident_Room_Boundary_Policy.md | 10310 Store Incident Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10320_Operational_Evidence_Room_Boundary_Policy.md | 10320 Operational Evidence Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10330_Fulfillment_Visibility_Room_Boundary_Policy.md | 10330 Fulfillment Visibility Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10340_Store_Recovery_Route_Room_Boundary_Policy.md | 10340 Store Recovery Route Room Boundary Policy. | moved |
+| docs\10000_store_runtime_room_framing\10350_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff_Policy.md | 10350 Store Runtime Room Framing Closure And Next Axis Handoff Policy. | moved |
+| docs\10000_store_runtime_room_framing\README.md | Store Runtime Room Framing Readme. | initial |
+
+## 16 docs/11000_integration_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -319,7 +342,7 @@ Status values:
 | docs\11000_integration_boundary\11260_POS_Provider_Adapter_Contract_And_Capability_Declaration_Policy.md | 03520 POS Provider Adapter Contract And Capability Declaration Policy. | active |
 | docs\11000_integration_boundary\11270_POS_Menu_Table_Order_Mapping_And_Idempotency_Policy.md | 03530 POS Menu Table Order Mapping And Idempotency Policy. | active |
 
-## 16 docs/12000_implementation_mapping
+## 17 docs/12000_implementation_mapping
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -338,7 +361,7 @@ Status values:
 | docs\12000_implementation_mapping\04950_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping_Policy.md | 04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy. | active |
 | docs\12000_implementation_mapping\04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md | 04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy. | active |
 
-## 17 docs/13000_app_api_projection
+## 18 docs/13000_app_api_projection
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -357,7 +380,7 @@ Status values:
 | docs\13000_app_api_projection\13120_Integration_Status_Projection_Boundary.md | 13120 Integration Status Projection Boundary. | active |
 | docs\13000_app_api_projection\13130_Future_Surface_And_Api_Non_MVP_Boundary.md | 13130 Future Surface And Api Non MVP Boundary. | active |
 
-## 18 docs/13000_security_runtime_test_catalog
+## 19 docs/13000_security_runtime_test_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -382,7 +405,7 @@ Status values:
 | docs\13000_security_runtime_test_catalog\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
 | docs\13000_security_runtime_test_catalog\13000_Security_Runtime_Test_Catalog_Readme.md | 13000 Security Runtime Test Catalog Readme. | initial |
 
-## 19 docs/14000_pos_provider_integration_strategy
+## 20 docs/14000_pos_provider_integration_strategy
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -414,7 +437,7 @@ Status values:
 | docs\14000_pos_provider_integration_strategy\05400_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md | 05400 Pilot Evidence Packet Template And Store Test Result Recording Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05410_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md | 05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy. | active |
 
-## 20 docs/15000_membership_loyalty
+## 21 docs/15000_membership_loyalty
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -425,7 +448,7 @@ Status values:
 | docs\15000_membership_loyalty\15040_External_Membership_Bridge_Future_Boundary.md | 15040 External Membership Bridge Future Boundary. | active |
 | docs\15000_membership_loyalty\15050_Membership_Admin_And_UI_Reserved_Surface.md | 15050 Membership Admin And Ui Reserved Surface. | active |
 
-## 21 docs/17000_ui_screen_composition
+## 22 docs/17000_ui_screen_composition
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -444,7 +467,7 @@ Status values:
 | docs\17000_ui_screen_composition\17120_Admin_Support_UI_Authority_And_Recovery_Model.md | 17120 Admin Support UI Authority And Recovery Model. | active |
 | docs\17000_ui_screen_composition\17130_Future_UI_Surface_Non_MVP_Boundary.md | 17130 Future UI Surface Non MVP Boundary. | active |
 
-## 22 docs/20000_validation_security_audit
+## 23 docs/20000_validation_security_audit
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -519,7 +542,7 @@ Status values:
 | docs\20000_validation_security_audit\foundation_security\Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md | Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check. | active |
 | docs\20000_validation_security_audit\foundation_security\README.md | Foundation Security Governance. | initial |
 
-## 23 docs/21000_financial_security_monitoring_catalog
+## 24 docs/21000_financial_security_monitoring_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -556,7 +579,7 @@ Status values:
 | docs\21000_financial_security_monitoring_catalog\09650_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization_Policy.md | 09650 Controlled Implementation Candidate Selection And Package Prioritization Policy. | active |
 | docs\21000_financial_security_monitoring_catalog\21000_Financial_Security_Monitoring_Catalog_Readme.md | 21000 Financial Security Monitoring Catalog Readme. | initial |
 
-## 24 docs/22000_implementation_planning
+## 25 docs/22000_implementation_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -585,7 +608,7 @@ Status values:
 | docs\22000_implementation_planning\22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md | 22050 Qa Smoke Test And Rollback Planning Boundary. | active |
 | docs\22000_implementation_planning\22060_Mvp_Implementation_Non_Goals.md | 22060 Mvp Implementation Non Goals. | active |
 
-## 25 docs/24000_deployment_operations
+## 26 docs/24000_deployment_operations
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -610,7 +633,7 @@ Status values:
 | docs\24000_deployment_operations\24180_Request_Board_Staff_Adoption_And_Operation_Check_Policy.md | 03940 Request Board Staff Adoption And Operation Check Policy. | active |
 | docs\24000_deployment_operations\24190_POS_Manual_Fallback_Training_And_Store_Usage_Policy.md | 03950 POS Manual Fallback Training And Store Usage Policy. | active |
 
-## 26 docs/26000_analytics_reporting_bi
+## 27 docs/26000_analytics_reporting_bi
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -621,7 +644,7 @@ Status values:
 | docs\26000_analytics_reporting_bi\26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md | 26040 Cross Tenant Benchmark And Data Sharing Boundary. | active |
 | docs\26000_analytics_reporting_bi\26050_Analytics_To_Action_Governance.md | 26050 Analytics To Action Governance. | active |
 
-## 27 docs/28000_future_expansion
+## 28 docs/28000_future_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -632,7 +655,7 @@ Status values:
 | docs\28000_future_expansion\28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. | active |
 | docs\28000_future_expansion\28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. | active |
 
-## 28 docs/30000_future_saas_modules
+## 29 docs/30000_future_saas_modules
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -647,7 +670,7 @@ Status values:
 | docs\30000_future_saas_modules\30080_Native_All_In_One_Service_Runtime_Readme.md | 03800 Native All-In-One Service Runtime Readme. | initial |
 | docs\30000_future_saas_modules\30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md | 03810 Dual Track External Alliance And Native Service Strategy. | active |
 
-## 29 docs/_conflicts
+## 30 docs/_conflicts
 
 | file path | purpose | current status |
 | --- | --- | --- |

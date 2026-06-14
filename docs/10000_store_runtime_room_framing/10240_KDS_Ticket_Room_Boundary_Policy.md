@@ -1,4 +1,4 @@
-# 10240 KDS Ticket Room Boundary Policy
+# 10240_KDS_Ticket_Room_Boundary_Policy
 
 ## 1. Purpose
 

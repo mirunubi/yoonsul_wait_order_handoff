@@ -230,6 +230,25 @@ docs/
     09980_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping_Policy.md
     09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md
     10000_Static_Catalog_Runtime_Planning_Readme.md
+  10000_store_runtime_room_framing/
+    10141_SaaS_Tenant_Isolation_And_Cross-Tenant_Data_Containment_Beam_Policy.md
+    10200_Store_Room_Framing_And_Runtime_Domain_Boundary_Index.md
+    10210_Order_Intake_Room_Boundary_Policy.md
+    10220_Order_Validation_Room_Boundary_Policy.md
+    10230_POS_Handoff_Room_Boundary_Policy.md
+    10240_KDS_Ticket_Room_Boundary_Policy.md
+    10250_Kitchen_Execution_Room_Boundary_Policy.md
+    10260_Staff_Assist_Room_Boundary_Policy.md
+    10270_Device_Runtime_Room_Boundary_Policy.md
+    10280_Printer_Peripheral_Room_Boundary_Policy.md
+    10290_Degraded_Operation_Room_Boundary_Policy.md
+    10300_Manual_Fallback_Room_Boundary_Policy.md
+    10310_Store_Incident_Room_Boundary_Policy.md
+    10320_Operational_Evidence_Room_Boundary_Policy.md
+    10330_Fulfillment_Visibility_Room_Boundary_Policy.md
+    10340_Store_Recovery_Route_Room_Boundary_Policy.md
+    10350_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff_Policy.md
+    README.md
   11000_integration_boundary/
     04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
     04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
@@ -572,6 +591,7 @@ docs/
 - `docs/00100_project_foundation/00150_documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
 - `docs/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
 - `docs/10000_static_catalog_runtime_planning/` Catch & Order SaaS runtime planning, static catalog handoff, recovery, i18n, provider evidence, customer-safe status, compensation/value recovery, and AI pgvector governance handoff.
+- `docs/10000_store_runtime_room_framing/` Store Runtime Room framing and boundary package for tenant isolation beam, order intake, validation, POS/KDS/kitchen/staff/device/peripheral runtime, degraded/manual fallback, incident, evidence, visibility, recovery route, and closure.
 - `docs/20000_validation_security_audit/` Validation, security, privacy, audit, identity, incident, compliance, and financial-grade security controls.
 - `docs/20000_validation_security_audit/foundation_security/` System-wide Foundation Security 001-009 constitution and financial-grade readiness baseline inherited by runtime, integration, monitoring, and provider documents.
 - `docs/21000_financial_security_monitoring_catalog/` Financial-grade security monitoring, bulkhead, alert/event catalogs, retention/archive, legal hold, pgvector traceability, AI daemon monitoring, readiness, and closure.

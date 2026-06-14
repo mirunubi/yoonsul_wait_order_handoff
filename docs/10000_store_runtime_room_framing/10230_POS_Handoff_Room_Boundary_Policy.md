@@ -1,4 +1,4 @@
-# 10230 POS Handoff Room Boundary Policy
+# 10230_POS_Handoff_Room_Boundary_Policy
 
 ## 1. Purpose
 
