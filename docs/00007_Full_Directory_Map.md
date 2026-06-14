@@ -134,6 +134,7 @@ docs/
     04280_Customer_Display_Dynamic_QR_And_Payment_Status_UX_Policy.md
     04290_Store_Payment_Device_And_Counter_Bottleneck_Reduction_Policy.md
   04300_pos_provider_adapter_governance/
+    04300_POS_Provider_Adapter_Governance_Readme.md
     04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md
     04310_Canonical_Order_Model_And_POS_Event_Normalization_Policy.md
     04320_POS_Adapter_Capability_Level_And_Integration_Contract_Policy.md
@@ -145,7 +146,7 @@ docs/
     04380_POS_Integration_Support_Escalation_And_Vendor_Communication_Policy.md
     04390_POS_Integration_Governance_Index_And_Readiness_Check.md
     04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
-    04410 PAYCO Payment And Order Provider MVP Boundary Policy.md
+    04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
     04420_POS_Adapter_Runtime_Data_Object_And_Event_Family_Policy.md
     04430_OKPOS_And_Major_POS_Integration_Candidate_Policy.md
     04440_Major_POS_API_Discovery_And_Technical_Spike_Policy.md
