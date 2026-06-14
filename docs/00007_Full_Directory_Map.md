@@ -107,51 +107,53 @@ docs/
     03180_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link_Policy.md
     03190_Entry_Media_Production_Batch_Stock_And_Inventory_Control_Policy.md
     03199_Entry_Media_Inventory_Index_And_MVP_Cutline.md
-  04000_kds_integration_kitchen_continuity/
-    04000_KDS_Integration_Kitchen_Continuity_Readme.md
-    04010_KDS_Handoff_Candidate_And_Kitchen_Ticket_Policy.md
-    04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md
-    04030_KDS_Retry_Remake_Delay_And_Fulfillment_Status_Policy.md
-    04040_KDS_Degraded_Operation_Manual_Kitchen_Note_Policy.md
-    04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md
-    04099_KDS_Integration_Kitchen_Continuity_Index_And_Readiness_Check.md
-  04100_menu_availability_soldout_runtime/
-    04100_Menu_Availability_Soldout_Runtime_Readme.md
-    04110_Menu_Availability_Soldout_And_Preorder_Blocking_Policy.md
-    04120_Limited_Quantity_Menu_And_Waiting_Preorder_Control_Policy.md
-    04130_POS_KDS_Inventory_Availability_Sync_Policy.md
-    04190_Menu_Availability_Soldout_MVP_Cutline.md
-    04199_Menu_Availability_Soldout_Index_And_Readiness_Check.md
-  04200_kds_operation_payment_recovery_boundary/
-    04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md
-    04210_KDS_Station_Routing_Policy.md
-    04220_Kitchen_Display_Staff_Role_And_Training_SOP.md
-    04230_KDS_Bridge_Vendor_Integration_Boundary.md
-    04240_Manual_Kitchen_Recovery_And_Reconciliation_Policy.md
-    04250_Manual_Kitchen_Recovery_Evidence_Packet_Policy.md
-    04260_POS_Payment_Webhook_And_Kitchen_Release_Boundary_Policy.md
-    04270_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation_Policy.md
-    04280_Customer_Display_Dynamic_QR_And_Payment_Status_UX_Policy.md
-    04290_Store_Payment_Device_And_Counter_Bottleneck_Reduction_Policy.md
-  04300_pos_provider_adapter_governance/
-    04300_POS_Provider_Adapter_Governance_Readme.md
-    04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md
-    04310_Canonical_Order_Model_And_POS_Event_Normalization_Policy.md
-    04320_POS_Adapter_Capability_Level_And_Integration_Contract_Policy.md
-    04330_POS_Adapter_Error_Code_And_Diagnostic_Message_Policy.md
-    04340_POS_Vendor_Priority_And_Integration_Roadmap_Policy.md
-    04350_POS_Adapter_Test_Harness_And_Certification_Scenario_Policy.md
-    04360_POS_Provider_Onboarding_Evidence_And_Contract_Checklist_Policy.md
-    04370_POS_Integration_Monitoring_Replay_And_Incident_Runbook_Policy.md
-    04380_POS_Integration_Support_Escalation_And_Vendor_Communication_Policy.md
-    04390_POS_Integration_Governance_Index_And_Readiness_Check.md
-    04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
-    04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
-    04420_POS_Adapter_Runtime_Data_Object_And_Event_Family_Policy.md
-    04430_OKPOS_And_Major_POS_Integration_Candidate_Policy.md
-    04440_Major_POS_API_Discovery_And_Technical_Spike_Policy.md
-    04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
-    04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
+  04000_store_runtime_pos_kds_operations/
+    04000_Store_Runtime_POS_KDS_Operations_Readme.md
+    04000_kds_integration_kitchen_continuity/
+      04000_KDS_Integration_Kitchen_Continuity_Readme.md
+      04010_KDS_Handoff_Candidate_And_Kitchen_Ticket_Policy.md
+      04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md
+      04030_KDS_Retry_Remake_Delay_And_Fulfillment_Status_Policy.md
+      04040_KDS_Degraded_Operation_Manual_Kitchen_Note_Policy.md
+      04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md
+      04099_KDS_Integration_Kitchen_Continuity_Index_And_Readiness_Check.md
+    04100_menu_availability_soldout_runtime/
+      04100_Menu_Availability_Soldout_Runtime_Readme.md
+      04110_Menu_Availability_Soldout_And_Preorder_Blocking_Policy.md
+      04120_Limited_Quantity_Menu_And_Waiting_Preorder_Control_Policy.md
+      04130_POS_KDS_Inventory_Availability_Sync_Policy.md
+      04190_Menu_Availability_Soldout_MVP_Cutline.md
+      04199_Menu_Availability_Soldout_Index_And_Readiness_Check.md
+    04200_kds_operation_payment_recovery_boundary/
+      04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md
+      04210_KDS_Station_Routing_Policy.md
+      04220_Kitchen_Display_Staff_Role_And_Training_SOP.md
+      04230_KDS_Bridge_Vendor_Integration_Boundary.md
+      04240_Manual_Kitchen_Recovery_And_Reconciliation_Policy.md
+      04250_Manual_Kitchen_Recovery_Evidence_Packet_Policy.md
+      04260_POS_Payment_Webhook_And_Kitchen_Release_Boundary_Policy.md
+      04270_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation_Policy.md
+      04280_Customer_Display_Dynamic_QR_And_Payment_Status_UX_Policy.md
+      04290_Store_Payment_Device_And_Counter_Bottleneck_Reduction_Policy.md
+    04300_pos_provider_adapter_governance/
+      04300_POS_Provider_Adapter_Governance_Readme.md
+      04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md
+      04310_Canonical_Order_Model_And_POS_Event_Normalization_Policy.md
+      04320_POS_Adapter_Capability_Level_And_Integration_Contract_Policy.md
+      04330_POS_Adapter_Error_Code_And_Diagnostic_Message_Policy.md
+      04340_POS_Vendor_Priority_And_Integration_Roadmap_Policy.md
+      04350_POS_Adapter_Test_Harness_And_Certification_Scenario_Policy.md
+      04360_POS_Provider_Onboarding_Evidence_And_Contract_Checklist_Policy.md
+      04370_POS_Integration_Monitoring_Replay_And_Incident_Runbook_Policy.md
+      04380_POS_Integration_Support_Escalation_And_Vendor_Communication_Policy.md
+      04390_POS_Integration_Governance_Index_And_Readiness_Check.md
+      04400_Toss_Payments_MVP_Integration_Boundary_Policy.md
+      04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md
+      04420_POS_Adapter_Runtime_Data_Object_And_Event_Family_Policy.md
+      04430_OKPOS_And_Major_POS_Integration_Candidate_Policy.md
+      04440_Major_POS_API_Discovery_And_Technical_Spike_Policy.md
+      04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
+      04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
   05000_customer_handoff_flow/
   05100_implementation_readiness_and_provider_verification/
     05100_Implementation_Readiness_And_Provider_Verification_Readme.md
@@ -738,13 +740,14 @@ docs/
 
 ## 4 Directory Notes
 
+- `docs/04000_store_runtime_pos_kds_operations/` Store runtime POS/KDS operations band (`04000`~`04300` subpackages).
 - `docs/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
 - `docs/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
 - `docs/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
 - `docs/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.
 - `docs/00100_project_foundation/00450_documentation_governance/` Documentation governance policies for import, naming, index synchronization, duplicates, archive lineage, and review discipline.
-- `docs/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
+- `docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/` POS/provider adapter governance, canonical order/event mapping, provider onboarding, monitoring, escalation, and provider-specific POS/payment boundary candidates.
 - `docs/10000_foundation_static_catalog_package/` Foundation static catalog, product line, and Mini Kiosk package.
 - `docs/10100_four_side_platform_skeleton/` Four-side platform skeleton package.
 - `docs/10400_financial_trust_room/` Financial trust room package.

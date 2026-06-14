@@ -23,7 +23,7 @@ It frames how POS provider adapter boundaries, provider capability discovery, ev
 
 - This package is the POS/provider adapter governance and enforcement layer.
 - This package inherits Foundation Security for identity protection, secret management, access control, audit/evidence, vulnerability response, and retention/export rules.
-- This package aligns with `docs/04000_kds_integration_kitchen_continuity/`, `docs/04100_menu_availability_soldout_runtime/`, and `docs/04200_kds_operation_payment_recovery_boundary/` where POS state affects kitchen execution or customer-safe recovery.
+- This package aligns with `docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/`, `docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/`, and `docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/` where POS state affects kitchen execution or customer-safe recovery.
 - This package must not treat external POS state as internal truth unless verified by the accepted adapter contract.
 
 ## 4 File List

@@ -19,8 +19,8 @@ It frames how kitchen operation, payment uncertainty, degraded operation, manual
 
 ## 3 Relationship Notes
 
-- This package depends on `docs/04000_kds_integration_kitchen_continuity/`.
-- This package depends on `docs/04100_menu_availability_soldout_runtime/` when sold-out state or menu readiness affects recovery.
+- This package depends on `docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/`.
+- This package depends on `docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/` when sold-out state or menu readiness affects recovery.
 - This package inherits Foundation Security for audit/evidence, access control, data retention, and incident response.
 - This package must not mutate payment truth directly unless the relevant payment authority policy allows it.
 
