@@ -154,18 +154,36 @@ docs/
       04440_Major_POS_API_Discovery_And_Technical_Spike_Policy.md
       04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md
       04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md
-  05000_customer_handoff_flow/
-  05100_implementation_readiness_and_provider_verification/
-    05100_Implementation_Readiness_And_Provider_Verification_Readme.md
-    05100_10807_Root_File_Rename_And_Move_Plan.md
-  05200_pos_payment_provider_and_kiosk_reuse/
-    05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md
-    05000_Customer_Handoff_Flow_Readme.md
-    05010_User_Flow.md
-    05020_Stage_0_Readme.md
-    05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
-    05040_Stage_0B_Send_To_Store_Request_Flow.md
-    05050_Reservation_Preorder_Governance_Readme.md
+  05000_customer_handoff_and_implementation_readiness/
+    05000_Customer_Handoff_And_Implementation_Readiness_Readme.md
+    05000_customer_handoff_flow/
+      05000_Customer_Handoff_Flow_Readme.md
+      05010_User_Flow.md
+      05020_Stage_0_Readme.md
+      05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
+      05040_Stage_0B_Send_To_Store_Request_Flow.md
+      05050_Reservation_Preorder_Governance_Readme.md
+    05100_implementation_readiness_and_provider_verification/
+      05100_Implementation_Readiness_And_Provider_Verification_Readme.md
+      05100_10807_Root_File_Rename_And_Move_Plan.md
+      05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md
+      05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md
+      05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md
+      05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md
+      05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
+      05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md
+      05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md
+      05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md
+      05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md
+      05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md
+    05200_pos_payment_provider_and_kiosk_reuse/
+      05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md
+      05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md
+      05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md
+      05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md
+      05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md
+      05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md
+      05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md
   07000_admin_console/
     07000_Admin_Console_Readme.md
     07010_Admin_Console_Context_And_Role_Model.md
@@ -741,8 +759,9 @@ docs/
 ## 4 Directory Notes
 
 - `docs/04000_store_runtime_pos_kds_operations/` Store runtime POS/KDS operations band (`04000`~`04300` subpackages).
-- `docs/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
-- `docs/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
+- `docs/05000_customer_handoff_and_implementation_readiness/` Customer handoff and implementation readiness band (`05000`~`05200` subpackages).
+- `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/` Implementation readiness, provider verification, and controlled entry gate package (`05100`~`05190`).
+- `docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/` POS payment provider grouping and mini-kiosk reuse package (`05200`~`05250`).
 - `docs/10720_legal_notice_sop_and_regulatory_control/` Legal notice SOP and regulatory control package (`10721`~`10736`).
 - `docs/10800_store_onboarding_and_sales_setup_axis/` Store onboarding and sales setup axis (`10800`~`10807`, `10805_01`).
 - `docs/_conflicts/root_conflict_review/` Preserved conflict copies awaiting manual review; not canonical domain documents.

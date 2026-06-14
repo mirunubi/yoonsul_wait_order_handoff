@@ -63,7 +63,7 @@ Additional forbidden jumps:
 
 - `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md`
 - `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md`
-- `docs/05000_customer_handoff_flow/05010_User_Flow.md`
+- `docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md`
 - `docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md`
 
 ## 6 Open Decisions

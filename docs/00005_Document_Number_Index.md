@@ -190,18 +190,53 @@ Status values:
 | docs\04000_store_runtime_pos_kds_operations\04300_pos_provider_adapter_governance\04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md | 04450 POS RPC Communication Security And Provider Trust Boundary Policy. | active |
 | docs\04000_store_runtime_pos_kds_operations\04300_pos_provider_adapter_governance\04460_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation_Policy.md | 04460 POS Webhook Signature Secret Rotation And Credential Isolation Policy. | active |
 
-## 11 docs/05000_customer_handoff_flow
+## 11 docs/05000_customer_handoff_and_implementation_readiness
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\05000_customer_handoff_flow\05000_Customer_Handoff_Flow_Readme.md | 05000 Customer Handoff Flow Readme. | initial |
-| docs\05000_customer_handoff_flow\05010_User_Flow.md | 05010 User Flow. | active |
-| docs\05000_customer_handoff_flow\05020_Stage_0_Readme.md | 01100 Stage 0 Readme. | initial |
-| docs\05000_customer_handoff_flow\05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md | 01110 Stage 0A QR Menu And Show To Staff Flow. | active |
-| docs\05000_customer_handoff_flow\05040_Stage_0B_Send_To_Store_Request_Flow.md | 01120 Stage 0B Send To Store Request Flow. | active |
-| docs\05000_customer_handoff_flow\05050_Reservation_Preorder_Governance_Readme.md | 03100 Reservation Preorder Governance Readme. | initial |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_Customer_Handoff_And_Implementation_Readiness_Readme.md | 05000 Customer Handoff And Implementation Readiness Readme. | initial |
 
-## 12 docs/07000_admin_console
+## 12 docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05000_Customer_Handoff_Flow_Readme.md | 05000 Customer Handoff Flow Readme. | initial |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05010_User_Flow.md | 05010 User Flow. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05020_Stage_0_Readme.md | 01100 Stage 0 Readme. | initial |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md | 01110 Stage 0A QR Menu And Show To Staff Flow. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05040_Stage_0B_Send_To_Store_Request_Flow.md | 01120 Stage 0B Send To Store Request Flow. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05000_customer_handoff_flow\05050_Reservation_Preorder_Governance_Readme.md | 03100 Reservation Preorder Governance Readme. | initial |
+
+## 13 docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05100_Implementation_Readiness_And_Provider_Verification_Readme.md | 05100_Implementation_Readiness_And_Provider_Verification_Readme. | initial |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05100_10807_Root_File_Rename_And_Move_Plan.md | 05100_10807_Root_File_Rename_And_Move_Plan. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md | 05100 Test Catalog Lane Index Readiness Check And Evidence Handoff Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 05110 Implementation Readiness Backlog And Test Execution Planning Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md | 05120 Runtime Owner Registry And Implementation Responsibility Matrix Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 05130 Evidence Packet Template And Test Result Recording Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md | 05150 Toss POS Official Verification Checklist And Integration Evidence Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md | 05160 Controlled Implementation Entry Gate And Build Authorization Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md | 05170 PAYCO POS Integration Implementation Approach And Official Verification Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md | 05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05100_implementation_readiness_and_provider_verification\05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md | 05190 MVP Provider Cutline And Phase 2 POS Expansion Deferral Policy. | active |
+
+## 14 docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md | 05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme. | initial |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md | 05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md | 05210 Mini Kiosk And Kiosk Provider Integration Module Boundary Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md | 05220 Mini Kiosk Payment Flow State And Recovery Boundary Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md | 05230 Mini Kiosk Session Identity Device Trust And Customer Context Boundary Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md | 05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy. | active |
+| docs\05000_customer_handoff_and_implementation_readiness\05200_pos_payment_provider_and_kiosk_reuse\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05250 OKPOS OKDC Integration Implementation Approach And Test Mapping Policy. | active |
+
+## 15 docs/07000_admin_console
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -218,7 +253,7 @@ Status values:
 | docs\07000_admin_console\07100_Admin_Audit_Review_And_Change_History_Model.md | 07100_Admin_Audit_Review_And_Change_History_Model. | active |
 | docs\07000_admin_console\07110_Admin_Support_And_BreakGlass_Boundary.md | 07110_Admin_Support_And_BreakGlass_Boundary. | active |
 
-## 13 docs/08000_ai_customer_center
+## 16 docs/08000_ai_customer_center
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -233,7 +268,7 @@ Status values:
 | docs\08000_ai_customer_center\08700_Scale_Out_Strategy.md | 08700_Scale_Out_Strategy. | active |
 | docs\08000_ai_customer_center\08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy.md | 08800_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access_Policy. | active |
 
-## 14 docs/09000_data_model_state_machine
+## 17 docs/09000_data_model_state_machine
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -250,7 +285,7 @@ Status values:
 | docs\09000_data_model_state_machine\09100_Admin_Support_Audit_Entity_Lineage_Model.md | 09100_Admin_Support_Audit_Entity_Lineage_Model. | active |
 | docs\09000_data_model_state_machine\09110_Future_Profile_And_Analytics_State_Boundary.md | 09110_Future_Profile_And_Analytics_State_Boundary. | active |
 
-## 15 docs/10000_static_catalog_runtime_planning
+## 18 docs/10000_static_catalog_runtime_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -290,7 +325,7 @@ Status values:
 | docs\10000_static_catalog_runtime_planning\09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md | 09990 AI pgvector Governance Catalog Static Package Handoff And Non Authority Boundary Policy. | active |
 | docs\10000_static_catalog_runtime_planning\10000_Static_Catalog_Runtime_Planning_Readme.md | 10000 Static Catalog Runtime Planning Readme. | initial |
 
-## 16 docs/10000_store_runtime_room_framing
+## 19 docs/10000_store_runtime_room_framing
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -313,7 +348,7 @@ Status values:
 | docs\10000_store_runtime_room_framing\10350_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff_Policy.md | 10350 Store Runtime Room Framing Closure And Next Axis Handoff Policy. | moved |
 | docs\10000_store_runtime_room_framing\README.md | Store Runtime Room Framing Readme. | initial |
 
-## 17 docs/11000_integration_boundary
+## 20 docs/11000_integration_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -350,7 +385,7 @@ Status values:
 | docs\11000_integration_boundary\11260_POS_Provider_Adapter_Contract_And_Capability_Declaration_Policy.md | 03520 POS Provider Adapter Contract And Capability Declaration Policy. | active |
 | docs\11000_integration_boundary\11270_POS_Menu_Table_Order_Mapping_And_Idempotency_Policy.md | 03530 POS Menu Table Order Mapping And Idempotency Policy. | active |
 
-## 18 docs/12000_implementation_mapping
+## 21 docs/12000_implementation_mapping
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -369,7 +404,7 @@ Status values:
 | docs\12000_implementation_mapping\04950_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping_Policy.md | 04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy. | active |
 | docs\12000_implementation_mapping\04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md | 04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy. | active |
 
-## 19 docs/13000_app_api_projection
+## 22 docs/13000_app_api_projection
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -388,12 +423,10 @@ Status values:
 | docs\13000_app_api_projection\13120_Integration_Status_Projection_Boundary.md | 13120 Integration Status Projection Boundary. | active |
 | docs\13000_app_api_projection\13130_Future_Surface_And_Api_Non_MVP_Boundary.md | 13130 Future Surface And Api Non MVP Boundary. | active |
 
-## 20 docs/13000_security_runtime_test_catalog
+## 23 docs/13000_security_runtime_test_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\05100_implementation_readiness_and_provider_verification\05100_Implementation_Readiness_And_Provider_Verification_Readme.md | 05100_Implementation_Readiness_And_Provider_Verification_Readme. | initial |
-| docs\05100_implementation_readiness_and_provider_verification\05100_10807_Root_File_Rename_And_Move_Plan.md | 05100_10807_Root_File_Rename_And_Move_Plan. | active |
 | docs\13000_security_runtime_test_catalog\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md | 04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy. | active |
 | docs\13000_security_runtime_test_catalog\04980_Tenant_Store_RLS_Access_Control_Test_Catalog_Policy.md | 04980 Tenant Store RLS Access Control Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy. | active |
@@ -408,29 +441,12 @@ Status values:
 | docs\13000_security_runtime_test_catalog\05080_Vendor_Partner_Access_External_Integration_Test_Catalog_Policy.md | 05080 Vendor Partner Access External Integration Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\05090_Secure_Deployment_Release_Gate_Rollback_Test_Catalog_Policy.md | 05090 Secure Deployment Release Gate Rollback Test Catalog Policy. | active |
 | docs\13000_security_runtime_test_catalog\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05095 Toss POS Integration Implementation Approach And Test Mapping Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md | 05100 Test Catalog Lane Index Readiness Check And Evidence Handoff Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 05110 Implementation Readiness Backlog And Test Execution Planning Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md | 05120 Runtime Owner Registry And Implementation Responsibility Matrix Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 05130 Evidence Packet Template And Test Result Recording Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md | 05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy. | active |
 | docs\13000_security_runtime_test_catalog\13000_Security_Runtime_Test_Catalog_Readme.md | 13000 Security Runtime Test Catalog Readme. | initial |
 
-## 21 docs/14000_pos_provider_integration_strategy
+## 24 docs/14000_pos_provider_integration_strategy
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md | 05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme. | initial |
-| docs\05100_implementation_readiness_and_provider_verification\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md | 05150 Toss POS Official Verification Checklist And Integration Evidence Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md | 05160 Controlled Implementation Entry Gate And Build Authorization Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05170_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification_Policy.md | 05170 PAYCO POS Integration Implementation Approach And Official Verification Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05180_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment_Policy.md | 05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy. | active |
-| docs\05100_implementation_readiness_and_provider_verification\05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md | 05190 MVP Provider Cutline And Phase 2 POS Expansion Deferral Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md | 05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md | 05210 Mini Kiosk And Kiosk Provider Integration Module Boundary Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md | 05220 Mini Kiosk Payment Flow State And Recovery Boundary Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md | 05230 Mini Kiosk Session Identity Device Trust And Customer Context Boundary Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md | 05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy. | active |
-| docs\05200_pos_payment_provider_and_kiosk_reuse\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md | 05250 OKPOS OKDC Integration Implementation Approach And Test Mapping Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md | 05255 Store POS Adoption Strategy OKPOS Ledger And Toss Kiosk Combination Assessment. | active |
 | docs\14000_pos_provider_integration_strategy\05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md | 05260 Toss Base Strategy And OKPOS Compatibility Interface Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md | 05270 Table Order POS Ecosystem Phase 2 And Phase 3 Expansion Roadmap Policy. | active |
@@ -448,7 +464,7 @@ Status values:
 | docs\14000_pos_provider_integration_strategy\05400_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording_Policy.md | 05400 Pilot Evidence Packet Template And Store Test Result Recording Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05410_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning_Policy.md | 05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy. | active |
 
-## 22 docs/15000_membership_loyalty
+## 25 docs/15000_membership_loyalty
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -459,7 +475,7 @@ Status values:
 | docs\15000_membership_loyalty\15040_External_Membership_Bridge_Future_Boundary.md | 15040 External Membership Bridge Future Boundary. | active |
 | docs\15000_membership_loyalty\15050_Membership_Admin_And_UI_Reserved_Surface.md | 15050 Membership Admin And Ui Reserved Surface. | active |
 
-## 23 docs/17000_ui_screen_composition
+## 26 docs/17000_ui_screen_composition
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -478,7 +494,7 @@ Status values:
 | docs\17000_ui_screen_composition\17120_Admin_Support_UI_Authority_And_Recovery_Model.md | 17120 Admin Support UI Authority And Recovery Model. | active |
 | docs\17000_ui_screen_composition\17130_Future_UI_Surface_Non_MVP_Boundary.md | 17130 Future UI Surface Non MVP Boundary. | active |
 
-## 24 docs/20000_validation_security_audit
+## 27 docs/20000_validation_security_audit
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -553,7 +569,7 @@ Status values:
 | docs\20000_validation_security_audit\foundation_security\Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check.md | Foundation Security 009 Security Governance Index And Financial-Grade Readiness Check. | active |
 | docs\20000_validation_security_audit\foundation_security\README.md | Foundation Security Governance. | initial |
 
-## 25 docs/21000_financial_security_monitoring_catalog
+## 28 docs/21000_financial_security_monitoring_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -590,7 +606,7 @@ Status values:
 | docs\21000_financial_security_monitoring_catalog\09650_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization_Policy.md | 09650 Controlled Implementation Candidate Selection And Package Prioritization Policy. | active |
 | docs\21000_financial_security_monitoring_catalog\21000_Financial_Security_Monitoring_Catalog_Readme.md | 21000 Financial Security Monitoring Catalog Readme. | initial |
 
-## 26 docs/22000_implementation_planning
+## 29 docs/22000_implementation_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -619,7 +635,7 @@ Status values:
 | docs\22000_implementation_planning\22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md | 22050 Qa Smoke Test And Rollback Planning Boundary. | active |
 | docs\22000_implementation_planning\22060_Mvp_Implementation_Non_Goals.md | 22060 Mvp Implementation Non Goals. | active |
 
-## 27 docs/24000_deployment_operations
+## 30 docs/24000_deployment_operations
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -644,7 +660,7 @@ Status values:
 | docs\24000_deployment_operations\24180_Request_Board_Staff_Adoption_And_Operation_Check_Policy.md | 03940 Request Board Staff Adoption And Operation Check Policy. | active |
 | docs\24000_deployment_operations\24190_POS_Manual_Fallback_Training_And_Store_Usage_Policy.md | 03950 POS Manual Fallback Training And Store Usage Policy. | active |
 
-## 28 docs/26000_analytics_reporting_bi
+## 31 docs/26000_analytics_reporting_bi
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -655,7 +671,7 @@ Status values:
 | docs\26000_analytics_reporting_bi\26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md | 26040 Cross Tenant Benchmark And Data Sharing Boundary. | active |
 | docs\26000_analytics_reporting_bi\26050_Analytics_To_Action_Governance.md | 26050 Analytics To Action Governance. | active |
 
-## 29 docs/28000_future_expansion
+## 32 docs/28000_future_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -666,7 +682,7 @@ Status values:
 | docs\28000_future_expansion\28050_Franchise_OS_Data_Handoff_Future_Boundary.md | 28050 Franchise OS Data Handoff Future Boundary. | active |
 | docs\28000_future_expansion\28060_Franchise_Intelligence_Feedback_Loop_Model.md | 28060 Franchise Intelligence Feedback Loop Model. | active |
 
-## 30 docs/30000_future_saas_modules
+## 33 docs/30000_future_saas_modules
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -681,14 +697,14 @@ Status values:
 | docs\30000_future_saas_modules\30080_Native_All_In_One_Service_Runtime_Readme.md | 03800 Native All-In-One Service Runtime Readme. | initial |
 | docs\30000_future_saas_modules\30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md | 03810 Dual Track External Alliance And Native Service Strategy. | active |
 
-## 31 docs/_conflicts
+## 34 docs/_conflicts
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\_conflicts\root_conflict_review\03540_POS_Callback_Replay_Manual_Fallback_And_Evidence_Policy.md | 03540 POS Callback Replay Manual Fallback And Evidence Policy. | conflict-review |
 | docs\_conflicts\root_conflict_review\03910_First_7_Days_Activation_Check_Policy.md | 03910 First 7 Days Activation Check Policy. | conflict-review |
 
-## 32 docs\10000_foundation_static_catalog_package
+## 35 docs\10000_foundation_static_catalog_package
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -717,7 +733,7 @@ Status values:
 | docs\10000_foundation_static_catalog_package\10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy.md | 10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy. | active |
 | docs\10000_foundation_static_catalog_package\10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy.md | 10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy. | active |
 
-## 33 docs\10100_four_side_platform_skeleton
+## 36 docs\10100_four_side_platform_skeleton
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -729,7 +745,7 @@ Status values:
 | docs\10100_four_side_platform_skeleton\10140_Cross-Axis_Authority_Evidence_Audit_And_Fallback_Beam_Policy.md | 10140_Cross-Axis_Authority_Evidence_Audit_And_Fallback_Beam_Policy. | active |
 | docs\10100_four_side_platform_skeleton\10150_Four-Side_Skeleton_Closure_And_Runtime_Deferral_Policy.md | 10150_Four-Side_Skeleton_Closure_And_Runtime_Deferral_Policy. | active |
 
-## 34 docs\10400_financial_trust_room
+## 37 docs\10400_financial_trust_room
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -744,7 +760,7 @@ Status values:
 | docs\10400_financial_trust_room\10470_Financial_Evidence_Audit_And_Export_Boundary_Policy.md | 10470_Financial_Evidence_Audit_And_Export_Boundary_Policy. | active |
 | docs\10400_financial_trust_room\10480_Financial_Trust_Closure_And_Data_Governance_Handoff_Policy.md | 10480_Financial_Trust_Closure_And_Data_Governance_Handoff_Policy. | active |
 
-## 35 docs\10500_data_governance_room
+## 38 docs\10500_data_governance_room
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -763,7 +779,7 @@ Status values:
 | docs\10500_data_governance_room\10570_Retention_Export_And_Compliance_Data_Boundary_Policy.md | 10570_Retention_Export_And_Compliance_Data_Boundary_Policy. | active |
 | docs\10500_data_governance_room\10580_Data_Governance_Closure_And_Cross-Room_Handoff_Policy.md | 10580_Data_Governance_Closure_And_Cross-Room_Handoff_Policy. | active |
 
-## 36 docs\10600_cross_room_plumbing_wiring_insulation
+## 39 docs\10600_cross_room_plumbing_wiring_insulation
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -790,7 +806,7 @@ Status values:
 | docs\10600_cross_room_plumbing_wiring_insulation\10680_Audit_Correlation_Nightly_Batch_Policy.md | 10680_Audit_Correlation_Nightly_Batch_Policy. | active |
 | docs\10600_cross_room_plumbing_wiring_insulation\10690_Cross-Room_Plumbing_Closure_Policy.md | 10690_Cross-Room_Plumbing_Closure_Policy. | active |
 
-## 37 docs\10600_cross_room_plumbing_wiring_insulation\10609_financial_regulation_risk_expansion
+## 40 docs\10600_cross_room_plumbing_wiring_insulation\10609_financial_regulation_risk_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -812,7 +828,7 @@ Status values:
 | docs\10600_cross_room_plumbing_wiring_insulation\10609_financial_regulation_risk_expansion\10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md | 10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy. | active |
 | docs\10600_cross_room_plumbing_wiring_insulation\10609_financial_regulation_risk_expansion\10609_Financial_Regulation_Risk_Expansion_Readme.md | 10609_Financial_Regulation_Risk_Expansion_Readme. | initial |
 
-## 38 docs\10700_security_trust_and_smart_order_control
+## 41 docs\10700_security_trust_and_smart_order_control
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -821,7 +837,7 @@ Status values:
 | docs\10700_security_trust_and_smart_order_control\10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md | 10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy. | active |
 | docs\10700_security_trust_and_smart_order_control\10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy.md | 10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy. | active |
 
-## 39 docs\40000_menu_taxonomy_and_ai_classification
+## 42 docs\40000_menu_taxonomy_and_ai_classification
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -844,7 +860,7 @@ Status values:
 | docs\40000_menu_taxonomy_and_ai_classification\10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy.md | 10719_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy.md | 10720_Privacy_Consent_Evidence_Packet_And_Retention_Policy. | active |
 | docs\40000_menu_taxonomy_and_ai_classification\40000_Menu_Taxonomy_And_AI_Classification_Readme.md | 40000_Menu_Taxonomy_And_AI_Classification_Readme. | initial |
-## 40 docs\10720_legal_notice_sop_and_regulatory_control
+## 43 docs\10720_legal_notice_sop_and_regulatory_control
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -867,7 +883,7 @@ Status values:
 | docs\10720_legal_notice_sop_and_regulatory_control\10736_Legal_Notice_Implementation_Authorization_Draft_Policy.md | 10736_Legal_Notice_Implementation_Authorization_Draft_Policy. | active |
 
 
-## 41 docs\10800_store_onboarding_and_sales_setup_axis
+## 44 docs\10800_store_onboarding_and_sales_setup_axis
 
 | file path | purpose | current status |
 | --- | --- | --- |

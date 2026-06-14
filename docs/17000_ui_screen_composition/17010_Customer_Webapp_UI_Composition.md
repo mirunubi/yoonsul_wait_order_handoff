@@ -182,7 +182,7 @@ Customer wording must distinguish order candidate, staff-confirmed order, POS-co
 
 - `docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md`
 - `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
-- `docs/05000_customer_handoff_flow/05010_User_Flow.md`
+- `docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md`
 - `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 5 Open Decisions

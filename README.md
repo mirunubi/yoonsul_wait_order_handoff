@@ -66,7 +66,7 @@ All tasks must preserve UTF-8.
 - [Docs Governance Checklist](docs/00099_Docs_Governance_Checklist.md)
 - [Project Identity And Overview](docs/00100_project_foundation/00110_Project_Identity_And_Overview.md)
 - [MVP Scope](docs/01000_mvp_scope/01010_MVP_Scope.md)
-- [User Flow](docs/05000_customer_handoff_flow/05010_User_Flow.md)
+- [User Flow](docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md)
 - [Data Model Draft](docs/09000_data_model_state_machine/09010_Data_Model_Draft.md)
 - [Non-Implementation Boundary](docs/00100_project_foundation/00130_Non_Implementation_Boundary.md)
 - [BM Patent Linkage](docs/00100_project_foundation/00120_BM_Patent_Linkage.md)
@@ -87,7 +87,8 @@ yoonsul_wait_order_handoff/
     00100_project_foundation/
     01000_mvp_scope/
     03000_saas_runtime/
-    05000_customer_handoff_flow/
+    05000_customer_handoff_and_implementation_readiness/
+      05000_customer_handoff_flow/
     07000_admin_console/
     09000_data_model_state_machine/
     11000_integration_boundary/
