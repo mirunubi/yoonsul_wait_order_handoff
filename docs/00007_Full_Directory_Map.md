@@ -499,6 +499,7 @@ docs/
       05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md
   14000_pos_provider_integration_strategy/
     14000_POS_Provider_Integration_Strategy_Readme.md
+    14000_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report.md
     05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md
     05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md
     05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md

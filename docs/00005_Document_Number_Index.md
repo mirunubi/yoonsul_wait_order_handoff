@@ -625,6 +625,7 @@ Status values:
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\14000_pos_provider_integration_strategy\14000_POS_Provider_Integration_Strategy_Readme.md | 14000 POS Provider Integration Strategy Readme. | initial |
+| docs\14000_pos_provider_integration_strategy\14000_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report.md | 14000 13000 Wave 4A POS Provider Strategy Preapply Dedupe Report. | active |
 | docs\14000_pos_provider_integration_strategy\05255_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination_Assessment.md | 05255 Store POS Adoption Strategy OKPOS Ledger And Toss Kiosk Combination Assessment. | active |
 | docs\14000_pos_provider_integration_strategy\05260_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface_Policy.md | 05260 Toss Base Strategy And OKPOS Compatibility Interface Policy. | active |
 | docs\14000_pos_provider_integration_strategy\05270_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap_Policy.md | 05270 Table Order POS Ecosystem Phase 2 And Phase 3 Expansion Roadmap Policy. | active |
