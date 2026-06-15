@@ -1,0 +1,369 @@
+{
+  "generated_at": "2026-06-15T19:03:50.085904+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "inputs": [
+    "migration_folder_20000_security_archive_disposition_plan.md",
+    "migration_folder_20000_security_archive_disposition_plan.json"
+  ],
+  "edited_files": [
+    "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+    "docs/00005_Document_Number_Index.md"
+  ],
+  "archive_file_count": 53,
+  "p1_marker_summary": {
+    "superseded_by_foundation_security": 3,
+    "superseded_by_20000_root_active": 5,
+    "duplicate_copy_xx01": 25,
+    "deferred": 20
+  },
+  "p1_canonical_targets": {
+    "04440": "foundation_security/20001",
+    "04640": "foundation_security/20009",
+    "04700": "foundation_security/20009",
+    "04460": "20340",
+    "04520": "20090",
+    "04550": "20210",
+    "04560": "20170",
+    "04580": "20350"
+  },
+  "markers_applied": [
+    {
+      "archived_file": "20999_archive_duplicate_review/04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+      "disposition": "superseded_by_foundation_security",
+      "canonical_target": "foundation_security/20001",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "disposition": "superseded_by_20000_root_active",
+      "canonical_target": "20340",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20002_Policy_Foundation_Security_Secure_Coding_And_DevSecOps_Gate.md; foundation_security/20003_Policy_Foundation_Security_Secret_Management_Credential_Vault_And_Key_Rotation.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04470_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/ (POS-KDS runtime band)",
+      "priority": "P3"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04480_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04000_store_runtime_pos_kds_operations/ (degraded recovery runtime boundary)",
+      "priority": "P3"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04490_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20003_Policy_Foundation_Security_Secret_Management_Credential_Vault_And_Key_Rotation.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04500_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20001_Policy_Foundation_Security_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04510_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "disposition": "superseded_by_20000_root_active",
+      "canonical_target": "20090",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04520_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20006_Policy_Foundation_Security_Logging_Audit_Evidence_And_Tamper_Resistance.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04530_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "disposition": "deferred",
+      "canonical_target": "20000_validation_security_audit/20310_Policy_User_Account_And_Login.md; 20000_validation_security_audit/20330_Policy_Merchant_User_And_Store_Access.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04540_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "disposition": "superseded_by_20000_root_active",
+      "canonical_target": "20210",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04550_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "disposition": "superseded_by_20000_root_active",
+      "canonical_target": "20170",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04560_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04900_security_runtime_test_catalog/05090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04570_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "disposition": "superseded_by_20000_root_active",
+      "canonical_target": "20350",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04580_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "disposition": "deferred",
+      "canonical_target": "20000_validation_security_audit/20260_Governance_External_Integration_And_Webhook_Audit.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04590_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "disposition": "deferred",
+      "canonical_target": "20000_validation_security_audit/20100_Governance_Export_Report_And_Benchmark.md; foundation_security/20008_Policy_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04600_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04900_security_runtime_test_catalog/05070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04610_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "disposition": "deferred",
+      "canonical_target": "20000_validation_security_audit/20250_Governance_Security_Incident_And_Breach_Response.md; foundation_security/20007_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04620_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "disposition": "deferred",
+      "canonical_target": "20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md; foundation_security/20009_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04630_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "disposition": "superseded_by_foundation_security",
+      "canonical_target": "foundation_security/20009",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04640_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20009_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04650_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/04900_security_runtime_test_catalog/04970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04660_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20007_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response.md",
+      "priority": "P2"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04670_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "disposition": "deferred",
+      "canonical_target": "(none \u2014 governance ops reference)",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04680_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "disposition": "deferred",
+      "canonical_target": "docs/11000_integration_boundary/11210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "priority": "P3"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04690_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "disposition": "superseded_by_foundation_security",
+      "canonical_target": "foundation_security/20009",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04700_* (archive base pair)",
+      "priority": "P1"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "disposition": "deferred",
+      "canonical_target": "foundation_security/20009_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md",
+      "priority": "P4"
+    },
+    {
+      "archived_file": "20999_archive_duplicate_review/04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "disposition": "duplicate_copy_xx01",
+      "canonical_target": "20999_archive_duplicate_review/04710_* (archive base pair)",
+      "priority": "P1"
+    }
+  ],
+  "validation": {
+    "files_scanned": 1054,
+    "duplicate_prefix_groups": [],
+    "heading_mismatches": [],
+    "index05_stale_paths": [],
+    "index07_stale_paths": [],
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_invalid": []
+  },
+  "constraints": {
+    "archived_bodies_edited": false,
+    "files_renamed": false,
+    "files_moved": false,
+    "files_deleted": false,
+    "content_merged": false,
+    "code_sql_flutter_migrations_touched": false,
+    "staged_or_committed": false
+  },
+  "validation_pass": true
+}
