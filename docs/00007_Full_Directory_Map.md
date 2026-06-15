@@ -877,6 +877,60 @@ docs/
     17120_Admin_Support_UI_Authority_And_Recovery_Model.md
     17130_Boundary_Future_UI_Surface_Non_MVP.md
   20000_validation_security_audit/
+    20999_archive_duplicate_review/
+      04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md
+      04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md
+      04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md
+      04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md
+      04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md
+      04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md
+      04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md
+      04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md
+      04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md
+      04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md
+      04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md
+      04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md
+      04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md
+      04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md
+      04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md
+      04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md
+      04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md
+      04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md
+      04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md
+      04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md
+      04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md
+      04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md
+      04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md
+      04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md
+      04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md
+      04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md
+      04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md
+      04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md
+      04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md
+      04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md
+      04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md
+      04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md
+      04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md
+      04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md
+      04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md
+      04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md
+      04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md
+      04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md
+      04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md
+      04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md
+      04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md
+      04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md
+      04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md
+      04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md
+      04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md
+      04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md
+      04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md
+      04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md
+      04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md
+      04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md
+      04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md
+      04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md
+      04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md
     foundation_security/
       20000_Readme_Foundation_Security.md
       20001_Policy_Foundation_Security_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md
@@ -888,59 +942,6 @@ docs/
       20007_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response.md
       20008_Policy_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response.md
       20009_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md
-    04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md
-    04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md
-    04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md
-    04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md
-    04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md
-    04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md
-    04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md
-    04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md
-    04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md
-    04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md
-    04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md
-    04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md
-    04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md
-    04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md
-    04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md
-    04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md
-    04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md
-    04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md
-    04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md
-    04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md
-    04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md
-    04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md
-    04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md
-    04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md
-    04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md
-    04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md
-    04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md
-    04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md
-    04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md
-    04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md
-    04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md
-    04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md
-    04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md
-    04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md
-    04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md
-    04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md
-    04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md
-    04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md
-    04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md
-    04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md
-    04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md
-    04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md
-    04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md
-    04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md
-    04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md
-    04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md
-    04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md
-    04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md
-    04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md
-    04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md
-    04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md
-    04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md
-    04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md
     20000_Readme_Validation_Security_Audit.md
     20010_Governance_SaaS_Data_Capture_And_Principle.md
     20020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md
