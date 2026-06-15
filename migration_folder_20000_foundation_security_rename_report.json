@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-06-15T19:20:00.000000+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "folder_rename": {
+    "from": "foundation_security",
+    "to": "20400_foundation_security"
+  },
+  "prefix_map": {
+    "20000": "20400",
+    "20001": "20410",
+    "20002": "20420",
+    "20003": "20430",
+    "20004": "20440",
+    "20005": "20450",
+    "20006": "20460",
+    "20007": "20470",
+    "20008": "20480",
+    "20009": "20490"
+  },
+  "files_renamed": 10,
+  "headings_synced": 10,
+  "reference_files_updated": [
+    "docs\\20000_validation_security_audit\\20000_Readme_Validation_Security_Audit.md",
+    "docs\\00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+    "docs\\00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md"
+  ],
+  "post_fix": [
+    "20400_20400_foundation_security -> 20400_foundation_security",
+    "20991_superseded_by_20400_foundation_security -> 20991_superseded_by_foundation_security"
+  ],
+  "indexes_rebuilt": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md"
+  ],
+  "validation": {
+    "duplicate_prefix_groups": 0,
+    "heading_mismatches": 0,
+    "index05_stale_paths": 0,
+    "index07_stale_paths": 0,
+    "paths_over_240": 0
+  },
+  "validation_pass": true,
+  "constraints": {
+    "bodies_not_read": true,
+    "other_folders_not_renamed": true,
+    "staged_or_committed": false
+  }
+}

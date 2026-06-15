@@ -1,0 +1,480 @@
+{
+  "generated_at": "2026-06-15T19:11:28.205327+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "moves": [
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20991_superseded_by_foundation_security\\04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+      "subfolder": "20991_superseded_by_foundation_security",
+      "disposition": "superseded_by_foundation_security",
+      "relation_type": "duplicate_of_foundation_security",
+      "filename": "04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20995_deferred_move_review\\04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "subfolder": "20995_deferred_move_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_move_to_04000_later",
+      "filename": "04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20992_superseded_by_20000_root_active\\04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "subfolder": "20992_superseded_by_20000_root_active",
+      "disposition": "superseded_by_20000_root_active",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20995_deferred_move_review\\04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "subfolder": "20995_deferred_move_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_move_to_04000_later",
+      "filename": "04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20995_deferred_move_review\\04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "subfolder": "20995_deferred_move_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_move_to_04000_later",
+      "filename": "04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20992_superseded_by_20000_root_active\\04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "subfolder": "20992_superseded_by_20000_root_active",
+      "disposition": "superseded_by_20000_root_active",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20992_superseded_by_20000_root_active\\04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "subfolder": "20992_superseded_by_20000_root_active",
+      "disposition": "superseded_by_20000_root_active",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20992_superseded_by_20000_root_active\\04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "subfolder": "20992_superseded_by_20000_root_active",
+      "disposition": "superseded_by_20000_root_active",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20992_superseded_by_20000_root_active\\04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "subfolder": "20992_superseded_by_20000_root_active",
+      "disposition": "superseded_by_20000_root_active",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "duplicate_of_20000_root_active",
+      "filename": "04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20991_superseded_by_foundation_security\\04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "subfolder": "20991_superseded_by_foundation_security",
+      "disposition": "superseded_by_foundation_security",
+      "relation_type": "duplicate_of_foundation_security",
+      "filename": "04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20994_deferred_merge_review\\04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "subfolder": "20994_deferred_merge_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_merge_into_foundation_security",
+      "filename": "04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20995_deferred_move_review\\04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "subfolder": "20995_deferred_move_review",
+      "disposition": "deferred",
+      "relation_type": "candidate_move_to_11000_later",
+      "filename": "04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20991_superseded_by_foundation_security\\04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "subfolder": "20991_superseded_by_foundation_security",
+      "disposition": "superseded_by_foundation_security",
+      "relation_type": "duplicate_of_foundation_security",
+      "filename": "04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20996_keep_archive_only\\04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "subfolder": "20996_keep_archive_only",
+      "disposition": "deferred",
+      "relation_type": "keep_as_archive_only",
+      "filename": "04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md"
+    },
+    {
+      "from": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "to": "docs\\20000_validation_security_audit\\20999_archive_duplicate_review\\20993_duplicate_copy_xx01\\04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "subfolder": "20993_duplicate_copy_xx01",
+      "disposition": "duplicate_copy_xx01",
+      "relation_type": "duplicate_copy_xx01",
+      "filename": "04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md"
+    }
+  ],
+  "subfolder_counts": {
+    "20991_superseded_by_foundation_security": 3,
+    "20995_deferred_move_review": 4,
+    "20992_superseded_by_20000_root_active": 5,
+    "20994_deferred_merge_review": 10,
+    "20993_duplicate_copy_xx01": 25,
+    "20996_keep_archive_only": 6
+  },
+  "expected_subfolder_counts": {
+    "20991_superseded_by_foundation_security": 3,
+    "20992_superseded_by_20000_root_active": 5,
+    "20993_duplicate_copy_xx01": 25,
+    "20994_deferred_merge_review": 10,
+    "20995_deferred_move_review": 4,
+    "20996_keep_archive_only": 6
+  },
+  "subfolder_counts_match": true,
+  "path_reference_updates": [],
+  "edited_files": [
+    "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md"
+  ],
+  "validation": {
+    "loose_archive_root_files": [],
+    "archive_file_count": 53,
+    "subfolder_counts": {
+      "20991_superseded_by_foundation_security": 3,
+      "20995_deferred_move_review": 4,
+      "20992_superseded_by_20000_root_active": 5,
+      "20994_deferred_merge_review": 10,
+      "20993_duplicate_copy_xx01": 25,
+      "20996_keep_archive_only": 6
+    },
+    "duplicate_prefix_groups": [],
+    "heading_mismatches": [],
+    "index05_stale_paths": [],
+    "index07_stale_paths": [],
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_invalid": []
+  },
+  "validation_pass": true,
+  "constraints": {
+    "files_deleted": false,
+    "content_merged": false,
+    "archived_bodies_edited": false,
+    "code_sql_flutter_migrations_touched": false,
+    "staged_or_committed": false
+  }
+}
