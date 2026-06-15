@@ -1,4 +1,4 @@
-04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy
+# 04850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy
 
 \#\# 1\. Purpose
 
@@ -64,26 +64,26 @@ Audit must prove what happened, who acted, under what context, with what authori
 
 This mapping depends on:
 
-\- 04470 Financial Grade Security Baseline And Secret Coding Policy
-\- 04480 POS KDS RPC Security And Trust Boundary Policy
-\- 04490 Degraded Security Recovery And Evidence Boundary Policy
-\- 04500 Secret Rotation Exposure Response And Secure Configuration Policy
-\- 04510 CI DI Identity Linkage Data Protection And Leakage Response Policy
-\- 04520 Support Access Masking Break Glass And Scoped Session Policy
-\- 04530 Security Audit Event Immutability And Tamper Evidence Policy
-\- 04540 Device Trust Session Revocation And Store Runtime Access Policy
-\- 04550 Payment Boundary Refund Correction And Settlement Security Policy
-\- 04560 Tenant Store Boundary Isolation And Cross Context Access Policy
-\- 04570 Secure Deployment Environment Separation And Release Gate Policy
-\- 04580 Log Masking Error Disclosure And Diagnostic Data Policy
-\- 04590 Webhook Signature Idempotency Replay And External Integration Security Policy
-\- 04600 Data Export Report Benchmark And External Sharing Security Policy
-\- 04610 AI Analytics Dataset Minimization And Model Output Security Policy
-\- 04620 Security Incident Response Severity Classification And Recovery Governance Policy
-\- 04630 Compliance Readiness Evidence Control And Financial Grade Security Review Policy
-\- 04660 Security Testing Abuse Case Threat Modeling And Verification Policy
-\- 04830 Implementation Mapping Lane Start And Policy To Code Constraint Handoff Policy
-\- 04840 Tenant Store Context RLS And Access Control Implementation Mapping Policy
+\- 04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding
+\- 04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary
+\- 04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary
+\- 04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration
+\- 04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response
+\- 04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session
+\- 04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence
+\- 04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access
+\- 04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security
+\- 04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access
+\- 04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate
+\- 04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data
+\- 04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security
+\- 04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security
+\- 04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security
+\- 04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance
+\- 04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review
+\- 04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification
+\- 04831_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy
+\- 04841_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping
 
 Audit mapping must inherit all security foundation constraints.
 

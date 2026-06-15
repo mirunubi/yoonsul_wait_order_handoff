@@ -1,0 +1,1867 @@
+{
+  "wave": "low_confidence_classification_wave_01",
+  "root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "scope": "30 selected low-confidence files from migration_precleanup_type_review_report.json; selection favored Projection/Model/Composition/Catalog/Standard/Contract/Strategy terms for actionable classification.",
+  "low_confidence_files_selected": [
+    "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+    "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+    "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+    "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+    "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+    "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+    "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+    "docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md",
+    "docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md",
+    "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+    "docs/21000_financial_security_monitoring_catalog/09632_Containment_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09633_Quarantine_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09634_Security_Control_Records_And_Security_Class_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09638_Monitoring_View_And_Risk_Projection_Contract.md",
+    "docs/21000_financial_security_monitoring_catalog/09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+    "docs/26000_analytics_reporting_bi/26020_Operational_Metrics_Catalog.md",
+    "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+    "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+    "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+    "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+    "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+    "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md"
+  ],
+  "files_classified_by_category": {
+    "needs_new_document_type_decision": [
+      "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+      "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md"
+    ],
+    "safe_rename": [
+      "docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md",
+      "docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md",
+      "docs/21000_financial_security_monitoring_catalog/09632_Containment_Status_And_Trigger_Map_Catalog.md",
+      "docs/21000_financial_security_monitoring_catalog/09633_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "docs/21000_financial_security_monitoring_catalog/09634_Security_Control_Records_And_Security_Class_Catalog.md",
+      "docs/21000_financial_security_monitoring_catalog/09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "docs/21000_financial_security_monitoring_catalog/09638_Monitoring_View_And_Risk_Projection_Contract.md",
+      "docs/21000_financial_security_monitoring_catalog/09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "docs/21000_financial_security_monitoring_catalog/09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "docs/26000_analytics_reporting_bi/26020_Operational_Metrics_Catalog.md"
+    ]
+  },
+  "classification_details": [
+    {
+      "path": "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "exists": true,
+      "first_heading": "# 13010 App Surface And Channel Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document defines app/channel projection only.",
+        "It does not approve implementation.",
+        "It distinguishes customer webapp, store console, admin console, support console, and future surfaces.",
+        "This document does not define routing, UI components, API functions, authentication implementation, database schema, payment integration, POS integration, or production app structure.",
+        "## 2 App Surfaces"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "exists": true,
+      "first_heading": "# 13020 Customer Webapp Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Customer webapp supports waiting, menu browsing, cart/order candidate, Mini Kiosk, multilingual flow, and customer notification.",
+        "It must not falsely imply POS-confirmed order when store confirmation is still required.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, auth implementation, database schema, payment integration, POS integration, or production customer app behavior.",
+        "## 2 Customer Modes"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "exists": true,
+      "first_heading": "# 13030 Store Console Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Store console helps store staff review order candidates, preorder requests, waiting sessions, Mini Kiosk sessions, Store Agent/printer status, and manual recovery items.",
+        "Store console is not POS.",
+        "Store console is not financial truth.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, database schema, POS integration, payment integration, printer driver, or production store app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "exists": true,
+      "first_heading": "# 13040 Admin Console Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console projection turns 4000 governance into conceptual app surfaces.",
+        "It does not create implementation tasks.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, auth implementation, database schema, package billing implementation, payment integration, or POS integration.",
+        "## 2 Admin Screen Groups"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "exists": true,
+      "first_heading": "# 13090 Surface To Authority Projection Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Surface visibility must not imply mutation authority.",
+        "App/API projection must preserve authority boundaries from `07000`, `09000`, `11000`, and `20000`.",
+        "This document defines projection only and does not create routes, endpoints, or UI code.",
+        "This document is projection governance only.",
+        "It does not approve app implementation, auth middleware, or permission schema."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17010 Customer Webapp Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Customer webapp UI supports QR/NFC entry, waiting registration, menu browsing, cart/order candidate, preorder request, staff review pending, called/arrival prompts, table/pickup handoff, and recovery messages.",
+        "It must match confirmation authority and customer wording rules from `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`.",
+        "It must not imply POS/order/payment confirmation unless the correct authority exists.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, database schema, payment integration, POS integration, or production customer app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17020 Mini Kiosk Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Mini Kiosk UI supports store-assisted or customer-operated tablet/QR ordering without assuming waiting flow.",
+        "It is useful for foreign visitors, non-face-to-face ordering, and stores without physical kiosks.",
+        "It must remain lightweight and must not imply payment/order completion unless confirmed.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, tablet lock implementation, or production kiosk behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17030 Store Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Store Console helps store staff operate waiting, order candidate review, preorder requests, Mini Kiosk sessions, Store Agent/printer/POS API visibility, and manual recovery.",
+        "Store Console is not POS.",
+        "Store Console is not financial truth.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, POS integration, printer driver, or production store app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17040 Admin Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console UI composition follows `docs/07000_admin_console/` governance and `docs/13000_app_api_projection/13040_Admin_Console_Projection.md`.",
+        "It configures and monitors SaaS runtime but is not POS, payment settlement, or membership ledger.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, auth implementation, or production admin behavior.",
+        "## 2 Screen Groups"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17050 Support Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Support Console is scoped, time-bounded, audited operational assistance.",
+        "Support Console is not approval authority.",
+        "Support Console must respect tenant/store scope and sensitive data masking.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, auth implementation, or production support tooling."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "exists": true,
+      "first_heading": "# 17080 UI Surface To Authority Composition Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "UI visibility must not imply action authority.",
+        "Buttons, badges, labels, and status cards must reflect real authority boundaries.",
+        "This document aligns with `13090` and does not create UI implementation.",
+        "This document is UI composition governance only.",
+        "It does not approve UI components, routes, or design assets."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "exists": true,
+      "first_heading": "# 17090 Integration Status UI Wording Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Integration UI wording must not overstate operational or financial truth.",
+        "Different surfaces may expose different levels of integration status.",
+        "This document aligns with `11020`~`11060` and `13120`.",
+        "This document is UI wording governance only.",
+        "It does not create final copywriting, translations, or UI components."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md",
+      "exists": true,
+      "first_heading": "# 20060 Anonymization And Pseudonymization Standard",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Future analytics should prefer aggregated/anonymized/pseudonymized data.",
+        "Anonymization and pseudonymization are not the same.",
+        "This document defines conceptual rules only, not implementation.",
+        "It does not define SQL, migrations, app code, Supabase functions, anonymization pipeline, AI training dataset generation, or external sharing implementation.",
+        "## 2 Definitions"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/20000_validation_security_audit/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+        "docs/20000_validation_security_audit/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+        "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+        "docs/20000_validation_security_audit/20300_Identity_Access_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Standard defines conceptual rules in validation/security context; Standard safely maps to Policy.",
+      "target": "docs/20000_validation_security_audit/20060_Policy_Anonymization_And_Pseudonymization_Standard.md",
+      "document_type": "Policy"
+    },
+    {
+      "path": "docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md",
+      "exists": true,
+      "first_heading": "# 20110 Retention Deletion Anonymization Consolidation",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Retention/deletion/anonymization rules must not destroy required audit evidence.",
+        "Anonymization and pseudonymization are not the same.",
+        "This document consolidates `20030` and `20060` concepts.",
+        "This document is governance only.",
+        "It does not approve deletion jobs, retention automation, or anonymization pipelines."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/20000_validation_security_audit/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+        "docs/20000_validation_security_audit/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+        "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+        "docs/20000_validation_security_audit/20300_Identity_Access_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Document states it is governance-only consolidation of retention/deletion/anonymization rules.",
+      "target": "docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md",
+      "document_type": "Governance"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "exists": true,
+      "first_heading": "# 09630 Financial-Grade Security Monitoring Foundation Catalog Execution Plan And Artifact Map",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the execution plan and artifact map for the Financial-Grade Security Monitoring Foundation Catalog work.",
+        "The previous document `09620` defined the work order and implementation handoff policy.",
+        "This document breaks the catalog-first work into concrete artifact groups so that later implementation can proceed in a controlled, reviewable, non-runtime sequence.",
+        "The goal is to prepare the Foundation catalog layer before any live trigger, monitoring view, daemon, pgvector, archive, alert worker, provider adapter, or containment executor is implemented.",
+        "This document does not authorize coding."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09632_Containment_Status_And_Trigger_Map_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09632 Containment Status And Trigger Map Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the containment status and trigger map for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09631` defined bulkheads, source-of-truth boundaries, trust levels, and prohibited propagation paths.",
+        "This document defines what happens when a bulkhead is compromised, uncertain, stale, duplicated, replayed, mismatched, or at risk of infecting another domain.",
+        "Containment is the defensive action that prevents bad state from spreading.",
+        "This document is catalog-only."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Catalog-only status/trigger map is an index-style controlled catalog.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09633_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09633 Quarantine Status And Trigger Map Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the quarantine status and trigger map for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09632` defined containment, which blocks dangerous propagation after a risk condition is detected.",
+        "This document defines quarantine, which isolates suspicious, unverified, malformed, stale, duplicate, ambiguous, or evidence-incomplete inputs before they are allowed to affect runtime truth.",
+        "Quarantine is the controlled waiting room.",
+        "Containment blocks spread."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Catalog-only status/trigger map is an index-style controlled catalog.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09634_Security_Control_Records_And_Security_Class_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09634 Security Control Records And Security Class Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the Security Control Records catalog for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifacts defined:",
+        "- `09631`: bulkheads, source-of-truth, and trust boundaries",
+        "- `09632`: containment status and trigger map",
+        "- `09633`: quarantine status and trigger map"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Security control records/security class catalog is an index-style catalog, not an operational register instance.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09635 Security Event Alert Families And Severity Routing Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the Security Event and Alert Families catalog for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09634` defined security control records and security classes.",
+        "This document defines the controlled event families and alert families that those controls must emit, route, audit, and review.",
+        "A security control without event and alert mapping cannot be monitored.",
+        "A containment or quarantine rule without event and alert mapping cannot be trusted."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Event/alert family catalog is an index-style catalog.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09638_Monitoring_View_And_Risk_Projection_Contract.md",
+      "exists": true,
+      "first_heading": "# 09638 Monitoring View And Risk Projection Contract",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the Monitoring View and Risk Projection contract for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09637` defined the Trigger Signal Audit Packet contract.",
+        "This document defines how future monitoring views may project trigger signals, audit signals, event families, error codes, containment candidates, quarantine candidates, reconciliation candidates, and daemon-readable risk summaries.",
+        "Monitoring views are not business truth.",
+        "Monitoring views are read-only projection surfaces that help the daemon, support/admin, security, finance, provider review, AI governance, and pgvector review identify risk without scanning raw hot business tables."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Contract defines future projection/monitoring view contract; Contract safely maps to Spec.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "document_type": "Spec"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09641 Retention Tier Archive Naming Manifest And Lifecycle Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the retention tier, archive naming, archive manifest, and lifecycle catalog for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09640` defined pgvector approved source traceability, lifecycle, and authority boundaries.",
+        "This document defines how logs, trigger signals, monitoring summaries, event records, alert records, evidence references, audit references, daemon outputs, pgvector source summaries, and archive objects must move through controlled lifecycle tiers.",
+        "The purpose is to prevent security, financial, provider, customer, AI, pgvector, archive, and support evidence from becoming uncontrolled, untraceable, mutable, or legally unsafe.",
+        "This document is catalog-only."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Retention/archive lifecycle catalog is an index-style controlled catalog.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "exists": true,
+      "first_heading": "# 09642 Legal Hold Deletion Anonymization And Retention Review Catalog",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the legal hold, deletion, anonymization, and retention review catalog for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09641` defined retention tiers, archive naming, archive manifests, and lifecycle rules.",
+        "This document defines how legal hold, deletion review, anonymization review, consent-related retention impact, archive dependency, pgvector dependency, audit dependency, evidence dependency, and operational replay risks must be handled before any data is deleted, anonymized, released, or retained longer than the default lifecycle.",
+        "Deletion is not a cleanup task.",
+        "Deletion is a governed authority action."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Legal hold/deletion/anonymization review catalog is an index-style controlled catalog.",
+      "target": "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "exists": true,
+      "first_heading": "# 09644 Patent Security Monitoring Architecture Summary And Claim Support Feature Map",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the patent-supporting architecture summary for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09643` defined the boundary test checklist and validation matrix.",
+        "This document summarizes the technical architecture, differentiating features, technical effects, and claim-supporting feature map that may later be reviewed by a patent attorney.",
+        "This document is not a patent claim set.",
+        "This document is not a filing-ready specification."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/26000_analytics_reporting_bi/26020_Operational_Metrics_Catalog.md",
+      "exists": true,
+      "first_heading": "# 26020 Operational Metrics Catalog",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Metrics must be defined before reports/dashboards.",
+        "Metrics are conceptual and not SQL queries.",
+        "This document is conceptual metrics catalog only.",
+        "It does not define SQL, warehouse schema, dashboard queries, or BI implementation.",
+        "## 2 Metric Families"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/26000_analytics_reporting_bi/26000_Analytics_Reporting_Bi_Readme.md"
+      ],
+      "category": "safe_rename",
+      "decision_reason": "Operational metrics catalog is an index of conceptual metric families.",
+      "target": "docs/26000_analytics_reporting_bi/26020_Index_Operational_Metrics_Catalog.md",
+      "document_type": "Index"
+    },
+    {
+      "path": "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "exists": true,
+      "first_heading": "# 28020 Membership Loyalty Point Future Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Membership, loyalty, coupon, stamp, and point design is important for SaaS competitiveness.",
+        "However, it is not part of the early MVP runtime.",
+        "It is reserved under future expansion because it involves ledger, balance, settlement, refund, tax, accounting, external membership, and multi-brand policy complexity.",
+        "This document is conceptual only.",
+        "It does not define SQL, migrations, app code, payment implementation, wallet implementation, membership integration, or point ledger implementation."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "exists": true,
+      "first_heading": "# 28040 Data Ad CRM AI Future Expansion Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document reserves future expansion around data, advertising, CRM, analytics, and AI.",
+        "These areas may become important after the MVP proves waiting/order handoff and Mini Kiosk adoption.",
+        "They are not active MVP runtime.",
+        "This document is conceptual only.",
+        "It does not define implementation, SQL, migrations, ad serving, AI model, CRM automation, membership ledger, or personal data processing policy."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "exists": true,
+      "first_heading": "# 28060 Franchise Intelligence Feedback Loop Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document defines a future-only feedback loop model where operational signals may become reviewed franchise intelligence recommendations.",
+        "It is documentation-only.",
+        "It does not define SQL, migrations, app code, AI engine, automation server, Franchise OS integration, or direct runtime mutation.",
+        "## 2 Feedback Loop Model",
+        "Conceptual feedback loop:"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "exists": true,
+      "first_heading": "03810 Dual Track External Alliance And Native Service Strategy",
+      "leading_excerpt": [
+        "Legacy path: $old.",
+        "1\\. Purpose",
+        "This document defines the Dual Track strategy for CatchMenu / Wait Order Handoff.",
+        "The restaurant technology market is moving in two directions at the same time.",
+        "One direction is external alliance.",
+        "Platforms integrate through APIs, SDKs, POS plugins, table-order channels, reservation/waiting channels, payment providers, and partner gateways."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/30000_future_saas_modules/30000_Future_Saas_Modules_Readme.md",
+        "docs/30000_future_saas_modules/30050_Ad_Promotion_CMS_Readme.md",
+        "docs/30000_future_saas_modules/30060_Billing_Plan_Settlement_Readme.md",
+        "docs/30000_future_saas_modules/30070_Sales_Partner_Field_Growth_Readme.md",
+        "docs/30000_future_saas_modules/30080_Native_All_In_One_Service_Runtime_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Strategy is not an approved DocumentType; mapping to Policy/Assessment/Report is subjective here."
+    },
+    {
+      "path": "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+      "exists": true,
+      "first_heading": "# 07010_Admin_Console_Context_And_Role_Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console manages SaaS runtime configuration and operational visibility.",
+        "It is not a POS.",
+        "It is not a payment settlement console.",
+        "It is not a membership/point ledger console.",
+        "It controls package, feature, integration, payment profile visibility, and operational recovery."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/07000_admin_console/07000_Admin_Console_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md",
+      "exists": true,
+      "first_heading": "# 09010_Data_Model_Draft",
+      "leading_excerpt": [
+        "## Domain Model",
+        "Core domains:",
+        "- Tenant",
+        "- Store",
+        "- Store Runtime",
+        "- Customer Session"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/09000_data_model_state_machine/09000_Data_Model_State_Machine_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    }
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/20000_validation_security_audit/20060_Anonymization_And_Pseudonymization_Standard.md",
+      "to": "docs/20000_validation_security_audit/20060_Policy_Anonymization_And_Pseudonymization_Standard.md",
+      "document_type": "Policy",
+      "reason": "Standard defines conceptual rules in validation/security context; Standard safely maps to Policy.",
+      "target_length": 136,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md",
+      "to": "docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md",
+      "document_type": "Governance",
+      "reason": "Document states it is governance-only consolidation of retention/deletion/anonymization rules.",
+      "target_length": 143,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09632_Containment_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "document_type": "Index",
+      "reason": "Catalog-only status/trigger map is an index-style controlled catalog.",
+      "target_length": 146,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09633_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "document_type": "Index",
+      "reason": "Catalog-only status/trigger map is an index-style controlled catalog.",
+      "target_length": 145,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09634_Security_Control_Records_And_Security_Class_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "document_type": "Index",
+      "reason": "Security control records/security class catalog is an index-style catalog, not an operational register instance.",
+      "target_length": 155,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "document_type": "Index",
+      "reason": "Event/alert family catalog is an index-style catalog.",
+      "target_length": 162,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09638_Monitoring_View_And_Risk_Projection_Contract.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "document_type": "Spec",
+      "reason": "Contract defines future projection/monitoring view contract; Contract safely maps to Spec.",
+      "target_length": 147,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "document_type": "Index",
+      "reason": "Retention/archive lifecycle catalog is an index-style controlled catalog.",
+      "target_length": 164,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/21000_financial_security_monitoring_catalog/09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "to": "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "document_type": "Index",
+      "reason": "Legal hold/deletion/anonymization review catalog is an index-style controlled catalog.",
+      "target_length": 166,
+      "move_method": "filesystem rename"
+    },
+    {
+      "from": "docs/26000_analytics_reporting_bi/26020_Operational_Metrics_Catalog.md",
+      "to": "docs/26000_analytics_reporting_bi/26020_Index_Operational_Metrics_Catalog.md",
+      "document_type": "Index",
+      "reason": "Operational metrics catalog is an index of conceptual metric families.",
+      "target_length": 116,
+      "move_method": "filesystem rename"
+    }
+  ],
+  "moved_files": [],
+  "files_skipped": [
+    {
+      "path": "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Strategy is not an approved DocumentType; mapping to Policy/Assessment/Report is subjective here."
+    },
+    {
+      "path": "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md",
+      "category": "needs_new_document_type_decision",
+      "reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    }
+  ],
+  "new_document_type_decision_candidates": [
+    {
+      "path": "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "exists": true,
+      "first_heading": "# 13010 App Surface And Channel Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document defines app/channel projection only.",
+        "It does not approve implementation.",
+        "It distinguishes customer webapp, store console, admin console, support console, and future surfaces.",
+        "This document does not define routing, UI components, API functions, authentication implementation, database schema, payment integration, POS integration, or production app structure.",
+        "## 2 App Surfaces"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "exists": true,
+      "first_heading": "# 13020 Customer Webapp Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Customer webapp supports waiting, menu browsing, cart/order candidate, Mini Kiosk, multilingual flow, and customer notification.",
+        "It must not falsely imply POS-confirmed order when store confirmation is still required.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, auth implementation, database schema, payment integration, POS integration, or production customer app behavior.",
+        "## 2 Customer Modes"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "exists": true,
+      "first_heading": "# 13030 Store Console Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Store console helps store staff review order candidates, preorder requests, waiting sessions, Mini Kiosk sessions, Store Agent/printer status, and manual recovery items.",
+        "Store console is not POS.",
+        "Store console is not financial truth.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, database schema, POS integration, payment integration, printer driver, or production store app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "exists": true,
+      "first_heading": "# 13040 Admin Console Projection",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console projection turns 4000 governance into conceptual app surfaces.",
+        "It does not create implementation tasks.",
+        "This document is projection only.",
+        "It does not define UI components, routing, API implementation, auth implementation, database schema, package billing implementation, payment integration, or POS integration.",
+        "## 2 Admin Screen Groups"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "exists": true,
+      "first_heading": "# 13090 Surface To Authority Projection Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Surface visibility must not imply mutation authority.",
+        "App/API projection must preserve authority boundaries from `07000`, `09000`, `11000`, and `20000`.",
+        "This document defines projection only and does not create routes, endpoints, or UI code.",
+        "This document is projection governance only.",
+        "It does not approve app implementation, auth middleware, or permission schema."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/13000_app_api_projection/13000_App_Api_Projection_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Projection is not an approved DocumentType; mapping to Spec/Report/Policy would be subjective without a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17010 Customer Webapp Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Customer webapp UI supports QR/NFC entry, waiting registration, menu browsing, cart/order candidate, preorder request, staff review pending, called/arrival prompts, table/pickup handoff, and recovery messages.",
+        "It must match confirmation authority and customer wording rules from `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`.",
+        "It must not imply POS/order/payment confirmation unless the correct authority exists.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, database schema, payment integration, POS integration, or production customer app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17020 Mini Kiosk Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Mini Kiosk UI supports store-assisted or customer-operated tablet/QR ordering without assuming waiting flow.",
+        "It is useful for foreign visitors, non-face-to-face ordering, and stores without physical kiosks.",
+        "It must remain lightweight and must not imply payment/order completion unless confirmed.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, tablet lock implementation, or production kiosk behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17030 Store Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Store Console helps store staff operate waiting, order candidate review, preorder requests, Mini Kiosk sessions, Store Agent/printer/POS API visibility, and manual recovery.",
+        "Store Console is not POS.",
+        "Store Console is not financial truth.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, POS integration, printer driver, or production store app behavior."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17040 Admin Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console UI composition follows `docs/07000_admin_console/` governance and `docs/13000_app_api_projection/13040_Admin_Console_Projection.md`.",
+        "It configures and monitors SaaS runtime but is not POS, payment settlement, or membership ledger.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, auth implementation, or production admin behavior.",
+        "## 2 Screen Groups"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "exists": true,
+      "first_heading": "# 17050 Support Console Ui Composition",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Support Console is scoped, time-bounded, audited operational assistance.",
+        "Support Console is not approval authority.",
+        "Support Console must respect tenant/store scope and sensitive data masking.",
+        "This document is UI screen composition projection only.",
+        "It does not define UI components, routing, API endpoints, auth implementation, or production support tooling."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "UI Composition is not an approved DocumentType; mapping to Spec/Guide/Policy needs a project-level decision."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "exists": true,
+      "first_heading": "# 17080 UI Surface To Authority Composition Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "UI visibility must not imply action authority.",
+        "Buttons, badges, labels, and status cards must reflect real authority boundaries.",
+        "This document aligns with `13090` and does not create UI implementation.",
+        "This document is UI composition governance only.",
+        "It does not approve UI components, routes, or design assets."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "exists": true,
+      "first_heading": "# 17090 Integration Status UI Wording Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Integration UI wording must not overstate operational or financial truth.",
+        "Different surfaces may expose different levels of integration status.",
+        "This document aligns with `11020`~`11060` and `13120`.",
+        "This document is UI wording governance only.",
+        "It does not create final copywriting, translations, or UI components."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/17000_ui_screen_composition/17000_Ui_Screen_Composition_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "exists": true,
+      "first_heading": "# 09630 Financial-Grade Security Monitoring Foundation Catalog Execution Plan And Artifact Map",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the execution plan and artifact map for the Financial-Grade Security Monitoring Foundation Catalog work.",
+        "The previous document `09620` defined the work order and implementation handoff policy.",
+        "This document breaks the catalog-first work into concrete artifact groups so that later implementation can proceed in a controlled, reviewable, non-runtime sequence.",
+        "The goal is to prepare the Foundation catalog layer before any live trigger, monitoring view, daemon, pgvector, archive, alert worker, provider adapter, or containment executor is implemented.",
+        "This document does not authorize coding."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "exists": true,
+      "first_heading": "# 09644 Patent Security Monitoring Architecture Summary And Claim Support Feature Map",
+      "leading_excerpt": [
+        "## 1. Purpose",
+        "This document defines the patent-supporting architecture summary for the Financial-Grade Security Monitoring Foundation Package.",
+        "The previous artifact `09643` defined the boundary test checklist and validation matrix.",
+        "This document summarizes the technical architecture, differentiating features, technical effects, and claim-supporting feature map that may later be reviewed by a patent attorney.",
+        "This document is not a patent claim set.",
+        "This document is not a filing-ready specification."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+        "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+        "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+        "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Plan/Map is not an approved DocumentType; this item needs a project-level type decision."
+    },
+    {
+      "path": "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "exists": true,
+      "first_heading": "# 28020 Membership Loyalty Point Future Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Membership, loyalty, coupon, stamp, and point design is important for SaaS competitiveness.",
+        "However, it is not part of the early MVP runtime.",
+        "It is reserved under future expansion because it involves ledger, balance, settlement, refund, tax, accounting, external membership, and multi-brand policy complexity.",
+        "This document is conceptual only.",
+        "It does not define SQL, migrations, app code, payment implementation, wallet implementation, membership integration, or point ledger implementation."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "exists": true,
+      "first_heading": "# 28040 Data Ad CRM AI Future Expansion Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document reserves future expansion around data, advertising, CRM, analytics, and AI.",
+        "These areas may become important after the MVP proves waiting/order handoff and Mini Kiosk adoption.",
+        "They are not active MVP runtime.",
+        "This document is conceptual only.",
+        "It does not define implementation, SQL, migrations, ad serving, AI model, CRM automation, membership ledger, or personal data processing policy."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "exists": true,
+      "first_heading": "# 28060 Franchise Intelligence Feedback Loop Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "This document defines a future-only feedback loop model where operational signals may become reviewed franchise intelligence recommendations.",
+        "It is documentation-only.",
+        "It does not define SQL, migrations, app code, AI engine, automation server, Franchise OS integration, or direct runtime mutation.",
+        "## 2 Feedback Loop Model",
+        "Conceptual feedback loop:"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/28000_future_expansion/28000_Future_Expansion_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "exists": true,
+      "first_heading": "03810 Dual Track External Alliance And Native Service Strategy",
+      "leading_excerpt": [
+        "Legacy path: $old.",
+        "1\\. Purpose",
+        "This document defines the Dual Track strategy for CatchMenu / Wait Order Handoff.",
+        "The restaurant technology market is moving in two directions at the same time.",
+        "One direction is external alliance.",
+        "Platforms integrate through APIs, SDKs, POS plugins, table-order channels, reservation/waiting channels, payment providers, and partner gateways."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/30000_future_saas_modules/30000_Future_Saas_Modules_Readme.md",
+        "docs/30000_future_saas_modules/30050_Ad_Promotion_CMS_Readme.md",
+        "docs/30000_future_saas_modules/30060_Billing_Plan_Settlement_Readme.md",
+        "docs/30000_future_saas_modules/30070_Sales_Partner_Field_Growth_Readme.md",
+        "docs/30000_future_saas_modules/30080_Native_All_In_One_Service_Runtime_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Strategy is not an approved DocumentType; mapping to Policy/Assessment/Report is subjective here."
+    },
+    {
+      "path": "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+      "exists": true,
+      "first_heading": "# 07010_Admin_Console_Context_And_Role_Model",
+      "leading_excerpt": [
+        "## 1 Purpose",
+        "Admin Console manages SaaS runtime configuration and operational visibility.",
+        "It is not a POS.",
+        "It is not a payment settlement console.",
+        "It is not a membership/point ledger console.",
+        "It controls package, feature, integration, payment profile visibility, and operational recovery."
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/07000_admin_console/07000_Admin_Console_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    },
+    {
+      "path": "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md",
+      "exists": true,
+      "first_heading": "# 09010_Data_Model_Draft",
+      "leading_excerpt": [
+        "## Domain Model",
+        "Core domains:",
+        "- Tenant",
+        "- Store",
+        "- Store Runtime",
+        "- Customer Session"
+      ],
+      "index_reference_found": true,
+      "map_reference_found": true,
+      "folder_readme_or_index_candidates": [
+        "docs/09000_data_model_state_machine/09000_Data_Model_State_Machine_Readme.md"
+      ],
+      "category": "needs_new_document_type_decision",
+      "decision_reason": "Model is not an approved DocumentType; mapping to Spec/Implementation/Matrix/Policy is context-dependent."
+    }
+  ],
+  "special_exceptions_identified": [],
+  "heading_updates": [
+    {
+      "file": "docs/20000_validation_security_audit/20060_Policy_Anonymization_And_Pseudonymization_Standard.md",
+      "old_heading": "20060_Anonymization_And_Pseudonymization_Standard",
+      "new_heading": "20060_Policy_Anonymization_And_Pseudonymization_Standard"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md",
+      "old_heading": "20110_Retention_Deletion_Anonymization_Consolidation",
+      "new_heading": "20110_Governance_Retention_Deletion_Anonymization_Consolidation"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "old_heading": "09632_Containment_Status_And_Trigger_Map_Catalog",
+      "new_heading": "09632_Index_Containment_Status_And_Trigger_Map_Catalog"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "old_heading": "09633_Quarantine_Status_And_Trigger_Map_Catalog",
+      "new_heading": "09633_Index_Quarantine_Status_And_Trigger_Map_Catalog"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "old_heading": "09634_Security_Control_Records_And_Security_Class_Catalog",
+      "new_heading": "09634_Index_Security_Control_Records_And_Security_Class_Catalog"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "old_heading": "09635_Security_Event_Alert_Families_And_Severity_Routing_Catalog",
+      "new_heading": "09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "old_heading": "09638_Monitoring_View_And_Risk_Projection_Contract",
+      "new_heading": "09638_Spec_Monitoring_View_And_Risk_Projection_Contract"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "old_heading": "09641_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog",
+      "new_heading": "09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "old_heading": "09642_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog",
+      "new_heading": "09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog"
+    },
+    {
+      "file": "docs/26000_analytics_reporting_bi/26020_Index_Operational_Metrics_Catalog.md",
+      "old_heading": "26020_Operational_Metrics_Catalog",
+      "new_heading": "26020_Index_Operational_Metrics_Catalog"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md",
+    "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+    "docs/20000_validation_security_audit/20060_Policy_Anonymization_And_Pseudonymization_Standard.md",
+    "docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md",
+    "docs/20000_validation_security_audit/20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md",
+    "docs/20000_validation_security_audit/20190_Customer_Privacy_And_Consent_Governance.md",
+    "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+    "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/21000_Financial_Security_Monitoring_Catalog_Readme.md",
+    "docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md",
+    "docs/26000_analytics_reporting_bi/26000_Analytics_Reporting_Bi_Readme.md",
+    "docs/26000_analytics_reporting_bi/26010_Analytics_Product_Boundary.md",
+    "docs/26000_analytics_reporting_bi/26020_Index_Operational_Metrics_Catalog.md",
+    "docs/26000_analytics_reporting_bi/26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "remaining_low_confidence_files": 59,
+  "remaining_low_confidence_unprocessed_sample": [
+    "docs/00000_Project_Overview.md",
+    "docs/00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs/00001_Md_Rules.md",
+    "docs/00002_Naming_Rules.md",
+    "docs/00003_Project_Context.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/00010_Wait_Order_Project_Overview.md",
+    "docs/00015_Korean_Document_And_Encoding_Safety_Rules.md",
+    "docs/00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md",
+    "docs/00050_Deployment_Mode_Model.md",
+    "docs/00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md",
+    "docs/00100_project_foundation/00110_Project_Identity_And_Overview.md",
+    "docs/00100_project_foundation/00120_BM_Patent_Linkage.md",
+    "docs/00100_project_foundation/00200_Organization_Core_MVP_Cutline.md",
+    "docs/01000_mvp_scope/01010_MVP_Scope.md",
+    "docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md",
+    "docs/01000_mvp_scope/01030_Competitive_Positioning_And_Market_Context.md",
+    "docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md",
+    "docs/01000_mvp_scope/01070_CatchMenu_Service_Concept.md",
+    "docs/01000_mvp_scope/01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md",
+    "docs/01000_mvp_scope/01170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md",
+    "docs/01000_mvp_scope/01180_Stage_0_Translation_And_Critical_Request_Handling.md",
+    "docs/01000_mvp_scope/01210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md",
+    "docs/01000_mvp_scope/01220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md",
+    "docs/01000_mvp_scope/01260_CatchMenu_POS_Less_Request_State_Transition_Guard.md",
+    "docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md",
+    "docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md",
+    "docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md",
+    "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md",
+    "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04190_Menu_Availability_Soldout_MVP_Cutline.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05030_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05040_Stage_0B_Send_To_Store_Request_Flow.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05105_Plan_10807_Root_File_Rename_And_Move.md",
+    "docs/07000_admin_console/07020_Admin_Store_Runtime_Configuration_Model.md",
+    "docs/07000_admin_console/07030_Admin_Operational_Monitoring_And_Recovery_Model.md",
+    "docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md",
+    "docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md",
+    "docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md",
+    "docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md",
+    "docs/08000_ai_customer_center/08001_AI_Customer_Center_Foundation.md",
+    "docs/08000_ai_customer_center/08400_CatchMenu_Troubleshooting_Foundation.md",
+    "docs/08000_ai_customer_center/08600_Support_Server_Strategy.md",
+    "docs/08000_ai_customer_center/08700_Scale_Out_Strategy.md",
+    "docs/08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff.md",
+    "docs/09000_data_model_state_machine/09020_Handoff_State_Machine.md",
+    "docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md",
+    "docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md",
+    "docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md",
+    "docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md",
+    "docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md",
+    "docs/09090 Cross Range Closure Readiness Check And Next Documentation Phase Gate.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10005_Plan_10712_Root_File_Rename_And_Move.md",
+    "docs/11000_integration_boundary/11250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md",
+    "docs/15000_membership_loyalty/15020_Lightweight_Coupon_And_Stamp_Future_Model.md",
+    "docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md",
+    "docs/17000_ui_screen_composition/17110_Customer_MiniKiosk_State_Wording_Consolidation.md",
+    "docs/17000_ui_screen_composition/17120_Admin_Support_UI_Authority_And_Recovery_Model.md",
+    "docs/VAN, payment provider, Redtable-type partner, delivery platform, local daemon, store network, store POS PC, or operator action.  Gateway logs are not noise.  Gateway evidence is the operating system's shield..md"
+  ],
+  "selected_low_confidence_needing_decision_count": 20,
+  "selected_low_confidence_needing_decision": [
+    "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+    "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+    "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+    "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+    "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+    "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+    "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+    "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+    "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+    "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+    "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+    "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+    "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+    "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+    "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+    "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md"
+  ],
+  "remaining_medium_manual_review_files": 5,
+  "remaining_repository_duplicate_prefix_groups": 0,
+  "remaining_duplicate_prefix_group_sample": [],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "remaining_over_220_sample": [
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10057_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral_Policy.md",
+      "length": 238
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md",
+      "length": 236
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10055_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft_Policy.md",
+      "length": 236
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md",
+      "length": 235
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10607_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case_Policy.md",
+      "length": 235
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Financial_Regulation_Risk_Expansion_Readme.md",
+      "length": 235
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05240_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel_Policy.md",
+      "length": 234
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09910_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft_Policy.md",
+      "length": 234
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09960_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State_Policy.md",
+      "length": 234
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "length": 233
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09980_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping_Policy.md",
+      "length": 232
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md",
+      "length": 232
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10615_Policy_Chargeback_Adjustment_Governance.md",
+      "length": 232
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md",
+      "length": 231
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md",
+      "length": 231
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10643_Policy_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion.md",
+      "length": 231
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "length": 230
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md",
+      "length": 230
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "length": 230
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10625_Policy_Vision_AI_Store_Infrastructure.md",
+      "length": 230
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md",
+      "length": 229
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10613_Policy_Double_Entry_Integrity_Kernel.md",
+      "length": 229
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "length": 228
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10619_Policy_Disaster_Regulatory_Heritage.md",
+      "length": 228
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09840_Policy_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md",
+      "length": 227
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10612_Policy_Platform_Benchmark_Boundary.md",
+      "length": 227
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10616_Policy_Fixed_Point_Hash_Monitoring.md",
+      "length": 227
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "length": 226
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09950_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface_Policy.md",
+      "length": 226
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10603_Reconciliation_DLQ_Device_Non-Repudiation_And_Cold_Storage_Lifecycle_Policy.md",
+      "length": 226
+    },
+    {
+      "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05190_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral_Policy.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10043_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path_Policy.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10601_Policy_Financial_Grade_Ledger_Reconciliation_And_Four_Source_Closing_Audit.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10620_Policy_Multi_Tenant_Finance_SaaS.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10622_Policy_No_Show_Financial_Control.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10623_Policy_Realtime_AI_Field_Control.md",
+      "length": 225
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09890_Policy_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md",
+      "length": 224
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md",
+      "length": 224
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md",
+      "length": 224
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10621_Policy_Remote_Wait_Peak_Control.md",
+      "length": 224
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10056_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate_Policy.md",
+      "length": 223
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10610_Policy_Financial_Risk_Boundary.md",
+      "length": 223
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10614_Policy_Acquiring_Ledger_Kernel.md",
+      "length": 223
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/09750_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping_Policy.md",
+      "length": 222
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10618_Policy_Fast_Payout_Governance.md",
+      "length": 222
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10624_Policy_Kitchen_IoT_Automation.md",
+      "length": 222
+    },
+    {
+      "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10641_Web_App_RPC_Session_Redirect_URL_And_Parameter_Exposure_Security_Policy.md",
+      "length": 222
+    }
+  ],
+  "remaining_non_compliant_filenames": 633,
+  "remaining_non_compliant_filename_sample": [
+    "docs/00000_Project_Overview.md",
+    "docs/00001_Md_Rules.md",
+    "docs/00002_Naming_Rules.md",
+    "docs/00003_Project_Context.md",
+    "docs/00005_Document_Number_Index.md",
+    "docs/00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/00010_Wait_Order_Project_Overview.md",
+    "docs/00015_Korean_Document_And_Encoding_Safety_Rules.md",
+    "docs/00020_Store_Capability_Stage_0_To_5_Module_Policy.md",
+    "docs/00030_Runtime_Boundary.md",
+    "docs/00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md",
+    "docs/00050_Deployment_Mode_Model.md",
+    "docs/00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md",
+    "docs/00099_Docs_Governance_Checklist.md",
+    "docs/00300_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md",
+    "docs/00310_Policy_Gateway_Correlation_Id_And_Transaction_Lifecycle_Traceability.md",
+    "docs/00320_Policy_Immutable_Request_Response_Payload_Evidence_And_Masking.md",
+    "docs/00330_Policy_Idempotency_Retry_Timeout_And_Duplicate_External_Handoff.md",
+    "docs/00340_Policy_POS_Provider_Black_Box_Responsibility_Separation_And_Smoking_Gun_Evidence.md",
+    "docs/00350 Gateway Handoff Audit Timeline And Provider Dispute Response Policy.md",
+    "docs/00360 External POS PG VAN Local Daemon And Store Network Failure Boundary Policy.md",
+    "docs/00370 Gateway Evidence Packet Correlation And Audit Register Policy.md",
+    "docs/00390 Gateway Integrity Audit Readiness Check And Cross Runtime Handoff Policy.md",
+    "docs/04470 Financial Grade Security Baseline And Secret Coding Policy.md",
+    "docs/04480 POS KDS RPC Security And Trust Boundary Policy.md",
+    "docs/04490 Degraded Security Recovery And Evidence Boundary Policy.md",
+    "docs/04500 Secret Rotation Exposure Response And Secure Configuration Policy.md",
+    "docs/04510 CI DI Identity Linkage Data Protection And Leakage Response Policy.md",
+    "docs/04520 Support Access Masking Break Glass And Scoped Session Policy.md",
+    "docs/04530 Security Audit Event Immutability And Tamper Evidence Policy.md",
+    "docs/04540 Device Trust Session Revocation And Store Runtime Access Policy.md",
+    "docs/04550 Payment Boundary Refund Correction And Settlement Security Policy.md",
+    "docs/04560 Tenant Store Boundary Isolation And Cross Context Access Policy.md",
+    "docs/04570 Secure Deployment Environment Separation And Release Gate Policy.md",
+    "docs/04580 Log Masking Error Disclosure And Diagnostic Data Policy.md",
+    "docs/04590 Webhook Signature Idempotency Replay And External Integration Security Policy.md",
+    "docs/04600 Data Export Report Benchmark And External Sharing Security Policy.md",
+    "docs/04610 AI Analytics Dataset Minimization And Model Output Security Policy.md",
+    "docs/04620 Security Incident Response Severity Classification And Recovery Governance Policy.md",
+    "docs/04630 Compliance Readiness Evidence Control And Financial Grade Security Review Policy.md",
+    "docs/04640 Security Policy Index Readiness Check And Implementation Gate Policy.md",
+    "docs/04650 Security Review SOP Operational Checklist And Control Owner Policy.md",
+    "docs/04660 Security Testing Abuse Case Threat Modeling And Verification Policy.md",
+    "docs/04670 Vulnerability Disclosure Patch Prioritization And Remediation Tracking Policy.md",
+    "docs/04680 Security Training Role Awareness And Operational Discipline Policy.md",
+    "docs/04690 Vendor Partner Access Third Party Risk And Integration Review Policy.md",
+    "docs/04700 Security Foundation Final Index And Next Phase Handoff Policy.md",
+    "docs/04710 Security Foundation Continuation Register And Open Gap Tracking Policy.md",
+    "docs/04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy.md",
+    "docs/04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy.md",
+    "docs/04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy.md",
+    "docs/04750 Documentation File Naming Folder Path And Import Normalization Policy.md",
+    "docs/04760 Documentation Index Directory Map And Cross Reference Synchronization Policy.md",
+    "docs/04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy.md",
+    "docs/04780 Documentation Batch Import Review Report And Commit Discipline Policy.md",
+    "docs/04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy.md",
+    "docs/04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy.md",
+    "docs/04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy.md",
+    "docs/04820 Documentation Governance Final Index And PC Import Preparation Checklist.md",
+    "docs/04830 Implementation Mapping Lane Start And Policy To Code Constraint Handoff Policy.md",
+    "docs/04840 Tenant Store Context RLS And Access Control Implementation Mapping Policy.md",
+    "docs/04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy.md",
+    "docs/04860 POS KDS RPC Bridge Idempotency Replay Implementation Mapping Policy.md",
+    "docs/04870 Payment Webhook Refund Settlement And Reconciliation Implementation Mapping Policy.md",
+    "docs/04880 CI DI Identity Linkage Callback Masking And Leakage Response Implementation Mapping Policy.md",
+    "docs/04890 Support Access Masking Break Glass And Scoped Session Implementation Mapping Policy.md",
+    "docs/04900 Device Trust Session Revocation Store Runtime And Lost Device Implementation Mapping Policy.md",
+    "docs/04910 Local Agent Degraded Recovery Sync Conflict And Manual Evidence Implementation Mapping Policy.md",
+    "docs/04920 Export Report Benchmark External Sharing And Data Extraction Implementation Mapping Policy.md",
+    "docs/04930 AI Analytics Dataset Minimization Model Output And Recommendation Boundary Implementation Mapping Policy.md",
+    "docs/04940 Vendor Partner Access Third Party Risk And External Integration Implementation Mapping Policy.md",
+    "docs/04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy.md",
+    "docs/04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy.md",
+    "docs/04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy.md",
+    "docs/04980 Tenant Store RLS Access Control Test Catalog Policy.md",
+    "docs/04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy.md",
+    "docs/05000 POS KDS RPC Bridge Idempotency Replay Test Catalog Policy.md",
+    "docs/05010 Payment Webhook Refund Settlement Reconciliation Test Catalog Policy.md",
+    "docs/05020 CI DI Identity Callback Masking Leakage Test Catalog Policy.md",
+    "docs/05030 Support Access Masking Break Glass Scoped Session Test Catalog Policy.md",
+    "docs/05040 Device Trust Session Revocation Lost Device Test Catalog Policy.md",
+    "docs/05050 Local Agent Degraded Recovery Sync Conflict Test Catalog Policy.md",
+    "docs/05060 Export Report Benchmark External Sharing Test Catalog Policy.md",
+    "docs/05070 AI Analytics Dataset Minimization Recommendation Boundary Test Catalog Policy.md",
+    "docs/05080 Vendor Partner Access External Integration Test Catalog Policy.md",
+    "docs/05090 Secure Deployment Release Gate Rollback Test Catalog Policy.md",
+    "docs/05095 Toss POS Integration Implementation Approach And Test Mapping Policy.md",
+    "docs/05100 Test Catalog Lane Index Readiness Check And Evidence Handoff Policy.md",
+    "docs/05110 Implementation Readiness Backlog And Test Execution Planning Policy.md",
+    "docs/05120 Runtime Owner Registry And Implementation Responsibility Matrix Policy.md",
+    "docs/05130 Evidence Packet Template And Test Result Recording Policy.md",
+    "docs/05140 Blocker Register Waiver Deferred Scope And Risk Acceptance Policy.md",
+    "docs/05150 Toss POS Official Verification Checklist And Integration Evidence Policy.md",
+    "docs/05160 Controlled Implementation Entry Gate And Build Authorization Policy.md",
+    "docs/05170 PAYCO POS Integration Implementation Approach And Official Verification Policy.md",
+    "docs/05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy.md",
+    "docs/05190 MVP Provider Cutline And Phase 2 POS Expansion Deferral Policy.md",
+    "docs/05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy.md",
+    "docs/05210 Mini Kiosk And Kiosk Provider Integration Module Boundary Policy.md",
+    "docs/05220 Mini Kiosk Payment Flow State And Recovery Boundary Policy.md",
+    "docs/05230 Mini Kiosk Session Identity Device Trust And Customer Context Boundary Policy.md",
+    "docs/05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy.md",
+    "docs/05250 OKPOS OKDC Integration Implementation Approach And Test Mapping Policy.md",
+    "docs/05255 Store POS Adoption Strategy OKPOS Ledger And Toss Kiosk Combination Assessment.md",
+    "docs/05260 Toss Base Strategy And OKPOS Compatibility Interface Policy.md",
+    "docs/05270 Table Order POS Ecosystem Phase 2 And Phase 3 Expansion Roadmap Policy.md",
+    "docs/05280 Cloud Open API Versus Local Daemon Provider Architecture Comparison Policy.md",
+    "docs/05290 Provider Adapter Boundary And Canonical Event Mapping Policy.md",
+    "docs/05330_POS_Master_Data_Sync_And_Precheck_Validation_Policy.md",
+    "docs/05340_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch_Policy.md",
+    "docs/05350_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary_Policy.md",
+    "docs/05360_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance_Policy.md",
+    "docs/05370_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection_Policy.md",
+    "docs/05380_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense_Policy.md",
+    "docs/05390_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync_Policy.md",
+    "docs/05400_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense_Policy.md",
+    "docs/05410_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync_Policy.md",
+    "docs/05420_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart_Policy.md",
+    "docs/05430_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer_Policy.md"
+  ],
+  "utf8_validation": {
+    "edited_files_ok": true,
+    "repo_wide_ok": false,
+    "edited_file_errors": [],
+    "repo_wide_errors": [
+      {
+        "path": "docs/directory_tree.txt",
+        "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+      }
+    ]
+  },
+  "korean_readability_check": {
+    "ok": true,
+    "files_with_korean_text_count": 444,
+    "sample": [
+      "docs/00006_Plan_Top_Level_Folder_Consolidation.md",
+      "docs/00300_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md",
+      "docs/00310_Policy_Gateway_Correlation_Id_And_Transaction_Lifecycle_Traceability.md",
+      "docs/00320_Policy_Immutable_Request_Response_Payload_Evidence_And_Masking.md",
+      "docs/00330_Policy_Idempotency_Retry_Timeout_And_Duplicate_External_Handoff.md",
+      "docs/00340_Policy_POS_Provider_Black_Box_Responsibility_Separation_And_Smoking_Gun_Evidence.md",
+      "docs/00350 Gateway Handoff Audit Timeline And Provider Dispute Response Policy.md",
+      "docs/00360 External POS PG VAN Local Daemon And Store Network Failure Boundary Policy.md",
+      "docs/00370 Gateway Evidence Packet Correlation And Audit Register Policy.md",
+      "docs/00380_Policy_Gateway_Evidence_Shield.md",
+      "docs/00390 Gateway Integrity Audit Readiness Check And Cross Runtime Handoff Policy.md",
+      "docs/04470 Financial Grade Security Baseline And Secret Coding Policy.md",
+      "docs/04500 Secret Rotation Exposure Response And Secure Configuration Policy.md",
+      "docs/04510 CI DI Identity Linkage Data Protection And Leakage Response Policy.md",
+      "docs/04520 Support Access Masking Break Glass And Scoped Session Policy.md",
+      "docs/04530 Security Audit Event Immutability And Tamper Evidence Policy.md",
+      "docs/04540 Device Trust Session Revocation And Store Runtime Access Policy.md",
+      "docs/04550 Payment Boundary Refund Correction And Settlement Security Policy.md",
+      "docs/04560 Tenant Store Boundary Isolation And Cross Context Access Policy.md",
+      "docs/04570 Secure Deployment Environment Separation And Release Gate Policy.md",
+      "docs/04580 Log Masking Error Disclosure And Diagnostic Data Policy.md",
+      "docs/04590 Webhook Signature Idempotency Replay And External Integration Security Policy.md",
+      "docs/04600 Data Export Report Benchmark And External Sharing Security Policy.md",
+      "docs/04610 AI Analytics Dataset Minimization And Model Output Security Policy.md",
+      "docs/04620 Security Incident Response Severity Classification And Recovery Governance Policy.md",
+      "docs/04630 Compliance Readiness Evidence Control And Financial Grade Security Review Policy.md",
+      "docs/04640 Security Policy Index Readiness Check And Implementation Gate Policy.md",
+      "docs/04650 Security Review SOP Operational Checklist And Control Owner Policy.md",
+      "docs/04660 Security Testing Abuse Case Threat Modeling And Verification Policy.md",
+      "docs/04670 Vulnerability Disclosure Patch Prioritization And Remediation Tracking Policy.md"
+    ]
+  },
+  "implementation_files_touched": [],
+  "sql_migration_flutter_code_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "validation_notes": [
+    "git diff --check should be run after this report generation. Existing unstaged long-path renames may still appear as old-path artifacts."
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "wave": "duplicate_prefix_resolution_04_10609",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "scope_folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion",
+  "duplicate_groups_found": [
+    {
+      "prefix": "10609",
+      "files": [
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_Policy_Financial_Risk_Boundary.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_01_Policy_Refund_WORM_Ledger.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_02_Policy_Platform_Benchmark_Boundary.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_03_Policy_Double_Entry_Integrity_Kernel.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_04_Policy_Acquiring_Ledger_Kernel.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_05_Policy_Chargeback_Adjustment_Governance.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_06_Policy_Fixed_Point_Hash_Monitoring.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_07_Policy_External_Network_KYC.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_08_Policy_Fast_Payout_Governance.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_09_Policy_Disaster_Regulatory_Heritage.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_10_Policy_Multi_Tenant_Finance_SaaS.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_11_Policy_Remote_Wait_Peak_Control.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_12_Policy_No_Show_Financial_Control.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_13_Policy_Realtime_AI_Field_Control.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_14_Policy_Kitchen_IoT_Automation.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_15_Policy_Vision_AI_Store_Infrastructure.md",
+        "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_Financial_Regulation_Risk_Expansion_Readme.md"
+      ]
+    }
+  ],
+  "duplicate_groups_resolved": [
+    {
+      "prefix": "10609",
+      "renamed_files": 16,
+      "preserved": "10609_Financial_Regulation_Risk_Expansion_Readme.md"
+    }
+  ],
+  "renamed_files": [
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_Policy_Financial_Risk_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10610_Policy_Financial_Risk_Boundary.md",
+      "old_prefix": "10609",
+      "new_prefix": "10610"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_01_Policy_Refund_WORM_Ledger.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10611_Policy_Refund_WORM_Ledger.md",
+      "old_prefix": "10609",
+      "new_prefix": "10611"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_02_Policy_Platform_Benchmark_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10612_Policy_Platform_Benchmark_Boundary.md",
+      "old_prefix": "10609",
+      "new_prefix": "10612"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_03_Policy_Double_Entry_Integrity_Kernel.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10613_Policy_Double_Entry_Integrity_Kernel.md",
+      "old_prefix": "10609",
+      "new_prefix": "10613"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_04_Policy_Acquiring_Ledger_Kernel.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10614_Policy_Acquiring_Ledger_Kernel.md",
+      "old_prefix": "10609",
+      "new_prefix": "10614"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_05_Policy_Chargeback_Adjustment_Governance.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10615_Policy_Chargeback_Adjustment_Governance.md",
+      "old_prefix": "10609",
+      "new_prefix": "10615"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_06_Policy_Fixed_Point_Hash_Monitoring.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10616_Policy_Fixed_Point_Hash_Monitoring.md",
+      "old_prefix": "10609",
+      "new_prefix": "10616"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_07_Policy_External_Network_KYC.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10617_Policy_External_Network_KYC.md",
+      "old_prefix": "10609",
+      "new_prefix": "10617"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_08_Policy_Fast_Payout_Governance.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10618_Policy_Fast_Payout_Governance.md",
+      "old_prefix": "10609",
+      "new_prefix": "10618"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_09_Policy_Disaster_Regulatory_Heritage.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10619_Policy_Disaster_Regulatory_Heritage.md",
+      "old_prefix": "10609",
+      "new_prefix": "10619"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_10_Policy_Multi_Tenant_Finance_SaaS.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10620_Policy_Multi_Tenant_Finance_SaaS.md",
+      "old_prefix": "10609",
+      "new_prefix": "10620"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_11_Policy_Remote_Wait_Peak_Control.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10621_Policy_Remote_Wait_Peak_Control.md",
+      "old_prefix": "10609",
+      "new_prefix": "10621"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_12_Policy_No_Show_Financial_Control.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10622_Policy_No_Show_Financial_Control.md",
+      "old_prefix": "10609",
+      "new_prefix": "10622"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_13_Policy_Realtime_AI_Field_Control.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10623_Policy_Realtime_AI_Field_Control.md",
+      "old_prefix": "10609",
+      "new_prefix": "10623"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_14_Policy_Kitchen_IoT_Automation.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10624_Policy_Kitchen_IoT_Automation.md",
+      "old_prefix": "10609",
+      "new_prefix": "10624"
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_15_Policy_Vision_AI_Store_Infrastructure.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10625_Policy_Vision_AI_Store_Infrastructure.md",
+      "old_prefix": "10609",
+      "new_prefix": "10625"
+    }
+  ],
+  "new_numbers_assigned": [
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10610",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10610_Policy_Financial_Risk_Boundary.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10611",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10611_Policy_Refund_WORM_Ledger.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10612",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10612_Policy_Platform_Benchmark_Boundary.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10613",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10613_Policy_Double_Entry_Integrity_Kernel.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10614",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10614_Policy_Acquiring_Ledger_Kernel.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10615",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10615_Policy_Chargeback_Adjustment_Governance.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10616",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10616_Policy_Fixed_Point_Hash_Monitoring.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10617",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10617_Policy_External_Network_KYC.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10618",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10618_Policy_Fast_Payout_Governance.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10619",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10619_Policy_Disaster_Regulatory_Heritage.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10620",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10620_Policy_Multi_Tenant_Finance_SaaS.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10621",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10621_Policy_Remote_Wait_Peak_Control.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10622",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10622_Policy_No_Show_Financial_Control.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10623",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10623_Policy_Realtime_AI_Field_Control.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10624",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10624_Policy_Kitchen_IoT_Automation.md"
+    },
+    {
+      "old_prefix": "10609",
+      "new_prefix": "10625",
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10625_Policy_Vision_AI_Store_Infrastructure.md"
+    }
+  ],
+  "files_skipped": [
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_Financial_Regulation_Risk_Expansion_Readme.md",
+      "reason": "preserved folder-level README/control document on 10609"
+    }
+  ],
+  "heading_updates": [
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10610_Policy_Financial_Risk_Boundary.md",
+      "old_heading": "# 10609_Policy_Financial_Risk_Boundary",
+      "new_heading": "# 10610_Policy_Financial_Risk_Boundary"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10611_Policy_Refund_WORM_Ledger.md",
+      "old_heading": "# 10609_01_Policy_Refund_WORM_Ledger",
+      "new_heading": "# 10611_Policy_Refund_WORM_Ledger"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10612_Policy_Platform_Benchmark_Boundary.md",
+      "old_heading": "# 10609_02_Policy_Platform_Benchmark_Boundary",
+      "new_heading": "# 10612_Policy_Platform_Benchmark_Boundary"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10613_Policy_Double_Entry_Integrity_Kernel.md",
+      "old_heading": "# 10609_03_Policy_Double_Entry_Integrity_Kernel",
+      "new_heading": "# 10613_Policy_Double_Entry_Integrity_Kernel"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10614_Policy_Acquiring_Ledger_Kernel.md",
+      "old_heading": "# 10609_04_Policy_Acquiring_Ledger_Kernel",
+      "new_heading": "# 10614_Policy_Acquiring_Ledger_Kernel"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10615_Policy_Chargeback_Adjustment_Governance.md",
+      "old_heading": "# 10609_05_Policy_Chargeback_Adjustment_Governance",
+      "new_heading": "# 10615_Policy_Chargeback_Adjustment_Governance"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10616_Policy_Fixed_Point_Hash_Monitoring.md",
+      "old_heading": "# 10609_06_Policy_Fixed_Point_Hash_Monitoring",
+      "new_heading": "# 10616_Policy_Fixed_Point_Hash_Monitoring"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10617_Policy_External_Network_KYC.md",
+      "old_heading": "# 10609_07_Policy_External_Network_KYC",
+      "new_heading": "# 10617_Policy_External_Network_KYC"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10618_Policy_Fast_Payout_Governance.md",
+      "old_heading": "# 10609_08_Policy_Fast_Payout_Governance",
+      "new_heading": "# 10618_Policy_Fast_Payout_Governance"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10619_Policy_Disaster_Regulatory_Heritage.md",
+      "old_heading": "# 10609_09_Policy_Disaster_Regulatory_Heritage",
+      "new_heading": "# 10619_Policy_Disaster_Regulatory_Heritage"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10620_Policy_Multi_Tenant_Finance_SaaS.md",
+      "old_heading": "# 10609_10_Policy_Multi_Tenant_Finance_SaaS",
+      "new_heading": "# 10620_Policy_Multi_Tenant_Finance_SaaS"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10621_Policy_Remote_Wait_Peak_Control.md",
+      "old_heading": "# 10609_11_Policy_Remote_Wait_Peak_Control",
+      "new_heading": "# 10621_Policy_Remote_Wait_Peak_Control"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10622_Policy_No_Show_Financial_Control.md",
+      "old_heading": "# 10609_12_Policy_No_Show_Financial_Control",
+      "new_heading": "# 10622_Policy_No_Show_Financial_Control"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10623_Policy_Realtime_AI_Field_Control.md",
+      "old_heading": "# 10609_13_Policy_Realtime_AI_Field_Control",
+      "new_heading": "# 10623_Policy_Realtime_AI_Field_Control"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10624_Policy_Kitchen_IoT_Automation.md",
+      "old_heading": "# 10609_14_Policy_Kitchen_IoT_Automation",
+      "new_heading": "# 10624_Policy_Kitchen_IoT_Automation"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10625_Policy_Vision_AI_Store_Infrastructure.md",
+      "old_heading": "# 10609_15_Policy_Vision_AI_Store_Infrastructure",
+      "new_heading": "# 10625_Policy_Vision_AI_Store_Infrastructure"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "docs\\00005_Document_Number_Index.md",
+    "docs\\00007_Full_Directory_Map.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10005_Plan_10712_Root_File_Rename_And_Move.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10609_financial_regulation_risk_expansion\\10609_Financial_Regulation_Risk_Expansion_Readme.md",
+    "migration_long_path_reduction_wave_01_report.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_long_path_report.md",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "remaining_duplicate_prefix_groups_in_10609": 0,
+  "remaining_duplicate_prefix_groups_in_10609_detail": [],
+  "remaining_repository_duplicate_prefix_groups": 43,
+  "remaining_repository_duplicate_prefix_group_sample": [
+    {
+      "folder": "docs",
+      "prefix": "05410",
+      "files": [
+        "docs\\05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md",
+        "docs\\05410_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05420",
+      "files": [
+        "docs\\05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md",
+        "docs\\05420_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05430",
+      "files": [
+        "docs\\05431_Policy_Early_SaaS_Customer_Success_Retention.md",
+        "docs\\05430_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05440",
+      "files": [
+        "docs\\05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+        "docs\\05440_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05450",
+      "files": [
+        "docs\\05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md",
+        "docs\\05450_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05460",
+      "files": [
+        "docs\\05461_Policy_SaaS_Pricing_Experiment_Transition.md",
+        "docs\\05460_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05470",
+      "files": [
+        "docs\\05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md",
+        "docs\\05470_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05480",
+      "files": [
+        "docs\\05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+        "docs\\05480_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05490",
+      "files": [
+        "docs\\05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+        "docs\\05490_POS_Provider_Capability_Profile_And_Readiness_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05500",
+      "files": [
+        "docs\\05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+        "docs\\05500_POS_Provider_Test_Fixture_And_Simulation_Scenario_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05510",
+      "files": [
+        "docs\\05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+        "docs\\05510_POS_Gateway_Operator_Recovery_Console_And_Action_Authority_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05520",
+      "files": [
+        "docs\\05521_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+        "docs\\05520_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05530",
+      "files": [
+        "docs\\05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+        "docs\\05530_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05540",
+      "files": [
+        "docs\\05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+        "docs\\05540_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05550",
+      "files": [
+        "docs\\05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+        "docs\\05550_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05560",
+      "files": [
+        "docs\\05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+        "docs\\05560_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05570",
+      "files": [
+        "docs\\05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+        "docs\\05570_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05580",
+      "files": [
+        "docs\\05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+        "docs\\05580_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05590",
+      "files": [
+        "docs\\05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+        "docs\\05590_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05600",
+      "files": [
+        "docs\\05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+        "docs\\05600_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05610",
+      "files": [
+        "docs\\05611_Policy_Phase_1_Internal_Simulation_Rehearsal.md",
+        "docs\\05610_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05620",
+      "files": [
+        "docs\\05621_Policy_Staff_Only_Dry_Run_Fallback_Training.md",
+        "docs\\05620_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05630",
+      "files": [
+        "docs\\05631_Policy_Limited_Customer_Pilot_Live_Safety.md",
+        "docs\\05630_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05640",
+      "files": [
+        "docs\\05641_Policy_Pilot_Incident_Review_Scope_Adjustment.md",
+        "docs\\05640_Policy_POS_Gateway_Compliance_Readiness.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05650",
+      "files": [
+        "docs\\05651_Policy_Pilot_Learning_Review_Next_Scope.md",
+        "docs\\05650_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05660",
+      "files": [
+        "docs\\05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md",
+        "docs\\05660_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05670",
+      "files": [
+        "docs\\05671_Policy_Early_Paid_SaaS_Churn_Intervention.md",
+        "docs\\05670_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05680",
+      "files": [
+        "docs\\05681_Policy_Standard_SaaS_Customer_Graduation.md",
+        "docs\\05680_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05690",
+      "files": [
+        "docs\\05691_Policy_Multi_Store_Expansion_Onboarding.md",
+        "docs\\05690_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05700",
+      "files": [
+        "docs\\05701_Policy_Multi_Store_Operations_Dashboard.md",
+        "docs\\05700_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance_Policy.md"
+      ]
+    }
+  ],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "validation_notes": {
+    "utf8": "passed: 28 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: no Korean text found in touched Wave 04 10609 file set; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "git_diff_check": "known stale unstaged-rename artifact: reports old long 10609 tracked paths from Long Path Wave 01, while current filesystem has 0 Markdown paths over 240 and 0 duplicate groups in 10609 folder",
+    "commit": "not staged and not committed"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-06-15T18:12:59.877748+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "scope": "docs/08000_ai_customer_center",
+  "duplicate_groups_found": [
+    {
+      "prefix": "08000",
+      "files": [
+        "08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+        "08000_Readme_AI_Customer_Center.md"
+      ]
+    },
+    {
+      "prefix": "08100",
+      "files": [
+        "08100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md",
+        "08100_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md"
+      ]
+    }
+  ],
+  "files_renumbered": [
+    {
+      "from": "docs\\08000_ai_customer_center\\08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+      "to": "docs\\08000_ai_customer_center\\08002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+      "old_prefix": "08000",
+      "new_prefix": "08002",
+      "canonical_kept": "08000_Readme_AI_Customer_Center.md is folder Readme (initial)"
+    },
+    {
+      "from": "docs\\08000_ai_customer_center\\08100_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md",
+      "to": "docs\\08000_ai_customer_center\\08101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md",
+      "old_prefix": "08100",
+      "new_prefix": "08101",
+      "canonical_kept": "08100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md is listed in folder Readme"
+    }
+  ],
+  "headings_updated": [
+    "docs\\08000_ai_customer_center\\08002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+    "docs\\08000_ai_customer_center\\08101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md"
+  ],
+  "references_updated": [
+    {
+      "file": "docs\\00100_project_foundation\\00450_documentation_governance\\00451_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md",
+      "replacements": [
+        "08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff"
+      ]
+    },
+    {
+      "file": "docs\\08000_ai_customer_center\\08002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+      "replacements": [
+        "08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution",
+        "08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff"
+      ]
+    },
+    {
+      "file": "docs\\08000_ai_customer_center\\08101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md",
+      "replacements": [
+        "08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution",
+        "08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md",
+      "replacements": [
+        "08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution",
+        "08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff"
+      ]
+    }
+  ],
+  "remaining_duplicate_prefix_groups": [],
+  "paths_over_220": [],
+  "paths_over_240": [],
+  "utf8_and_korean": {
+    "utf8_failures": 0,
+    "files_with_korean_body": 15
+  },
+  "index_00005_rebuilt_count": 1053,
+  "dirmap_00007_rebuilt_count": 1054,
+  "code_touched": false,
+  "staged_or_committed": false
+}

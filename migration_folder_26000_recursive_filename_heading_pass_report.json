@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-15T17:38:42.757392+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/26000_analytics_reporting_bi",
+  "files_scanned": 6,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 67 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 26000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/26000_analytics_reporting_bi/26000_Readme_Analytics_Reporting_Bi.md",
+    "docs/26000_analytics_reporting_bi/26010_Boundary_Analytics_Product.md",
+    "docs/26000_analytics_reporting_bi/26020_Index_Operational_Metrics_Catalog.md",
+    "docs/26000_analytics_reporting_bi/26030_Report_And_Dashboard_Boundary.md",
+    "docs/26000_analytics_reporting_bi/26040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md",
+    "docs/26000_analytics_reporting_bi/26050_Governance_Analytics_To_Action.md"
+  ],
+  "unchanged_count": 6,
+  "exceptions": [],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 41 verified; section 67 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ]
+}

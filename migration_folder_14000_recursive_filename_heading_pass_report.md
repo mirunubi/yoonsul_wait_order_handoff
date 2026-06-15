@@ -1,0 +1,85 @@
+# Migration Folder 14000 Recursive Filename And Heading Pass Report
+
+Generated: 2026-06-15T16:53:05.955427+00:00
+
+## Summary
+
+- **Scanned:** 201
+- **Renamed:** 0
+- **Renumbered:** 0
+- **Headings updated:** 28
+- **Reference files updated:** 13
+- **Governance files updated:** 2
+- **Unchanged:** 167
+- **Exceptions:** 38 (33 cross-band `05xxx` + 5 stale `+1` siblings)
+
+## Headings Updated
+
+- `docs/14000_pos_provider_integration_strategy/05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md` — `05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination` → `# 05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination`
+- `docs/14000_pos_provider_integration_strategy/05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md` — `05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface` → `# 05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface`
+- `docs/14000_pos_provider_integration_strategy/05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md` — `05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap` → `# 05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap`
+- `docs/14000_pos_provider_integration_strategy/05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md` — `05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison` → `# 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison`
+- `docs/14000_pos_provider_integration_strategy/05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md` — `05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping` → `# 05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping`
+- `docs/14000_pos_provider_integration_strategy/05310_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md` — `05310 First Store POS Equipment Decision And Provider Procurement Checklist Policy` → `# 05310_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist`
+- `docs/14000_pos_provider_integration_strategy/05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md` — `05320 Store Vendor Quote Comparison And Adoption Decision Record Policy` → `# 05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record`
+- `docs/14000_pos_provider_integration_strategy/05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md` — `05330 Small Kiosk Vendor Evaluation And Integration Transparency Policy` → `# 05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency`
+- `docs/14000_pos_provider_integration_strategy/05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md` — `05340 Franchise OS Linked POS SaaS Expansion And Hardware Partner Strategy Policy` → `# 05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy`
+- `docs/14000_pos_provider_integration_strategy/05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md` — `05350 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy` → `# 05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary`
+- `docs/14000_pos_provider_integration_strategy/05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md` — `05360 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy` → `# 05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary`
+- `docs/14000_pos_provider_integration_strategy/05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md` — `05370 Franchise Store Billing Responsibility And HQ Store SaaS Fee Split Policy` → `# 05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split`
+- `docs/14000_pos_provider_integration_strategy/05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md` — `05380 Franchise SaaS Pilot Store Rollout And Evidence Collection Policy` → `# 05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection`
+- `docs/14000_pos_provider_integration_strategy/05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md` — `05390 Pilot Store Register Test Partner Selection And Scope Control Policy` → `# 05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control`
+- `docs/14000_pos_provider_integration_strategy/05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md` — `05400 Pilot Evidence Packet Template And Store Test Result Recording Policy` → `# 05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording`
+- `docs/14000_pos_provider_integration_strategy/05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md` — `05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy` → `# 05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning`
+- `docs/14000_pos_provider_integration_strategy/14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff.md` — `14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff` → `# 14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md` — `05151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence` → `# 05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md` — `05161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization` → `# 05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md` — `05170 PAYCO POS Integration Implementation Approach And Official Verification Policy` → `# 05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md` — `05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy` → `# 05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md` — `05191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral` → `# 05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md` — `05201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse` → `# 05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md` — `05211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary` → `# 05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md` — `05221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary` → `# 05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md` — `05231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary` → `# 05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md` — `05241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel` → `# 05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel`
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md` — `05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping` → `# 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping`
+
+## References Updated
+
+- `docs/14000_pos_provider_integration_strategy/05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md` — 4 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md` — 5 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/14000_Readme_POS_Provider_Integration_Strategy.md` — 3 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md` — 1 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md` — 2 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md` — 3 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md` — 2 replacement(s)
+- `docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md` — 2 replacement(s)
+
+## Exceptions
+
+- Cross-band `05xxx` files in 14000 folder: 33 (22 root + 11 archive)
+- Stale +1 siblings retained: 5
+
+## Duplicate Prefix Groups
+
+_None — all five-digit prefixes are unique._
+
+## Path Length
+
+- Paths >220 chars: 0
+- Paths >240 chars: 0
+
+## UTF-8 And Korean
+
+- UTF-8 valid: True
+- Korean body text: not edited
+
+## Safety
+
+- No code/SQL/Flutter/migrations touched
+- Nothing staged or committed

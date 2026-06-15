@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-06-15T17:41:15.558565+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/28000_future_expansion",
+  "files_scanned": 6,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "heading": "# 28020_Membership_Loyalty_Point_Future_Model",
+      "previous": "# 28020 Membership Loyalty Point Future Model"
+    },
+    {
+      "file": "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "heading": "# 28040_Data_Ad_CRM_AI_Future_Expansion_Model",
+      "previous": "# 28040 Data Ad CRM AI Future Expansion Model"
+    },
+    {
+      "file": "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "heading": "# 28060_Franchise_Intelligence_Feedback_Loop_Model",
+      "previous": "# 28060 Franchise Intelligence Feedback Loop Model"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 68 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 28000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/28000_future_expansion/28000_Readme_Future_Expansion.md",
+    "docs/28000_future_expansion/28030_Boundary_Point_Bridge_And_Exchange_Future.md",
+    "docs/28000_future_expansion/28050_Boundary_Franchise_OS_Data_Handoff_Future.md"
+  ],
+  "unchanged_count": 3,
+  "exceptions": [
+    {
+      "file": "docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md",
+      "reason": "no approved DocumentType token (`Membership` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/28000_future_expansion/28040_Data_Ad_CRM_AI_Future_Expansion_Model.md",
+      "reason": "no approved DocumentType token (`Data` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/28000_future_expansion/28060_Franchise_Intelligence_Feedback_Loop_Model.md",
+      "reason": "no approved DocumentType token (`Franchise` prefix; `Model` not mapped by meaning)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 42 verified; section 68 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ]
+}

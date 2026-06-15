@@ -1,4 +1,4 @@
-# 26030 Report And Dashboard Boundary
+# 26030_Report_And_Dashboard_Boundary
 
 ## 1 Purpose
 
@@ -57,9 +57,9 @@ Future dashboard implementation requires separate wave approval after `26010`, `
 ## 5 Cross-References
 
 - `docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md`
-- `docs/20000_validation_security_audit/20050_Data_Export_And_Report_Approval_Governance.md`
-- `docs/26000_analytics_reporting_bi/26040_Cross_Tenant_Benchmark_And_Data_Sharing_Boundary.md`
-- `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
+- `docs/20000_validation_security_audit/20050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/26000_analytics_reporting_bi/26040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
+- `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`
 
 ## 6 Open Decisions
 

@@ -1,4 +1,4 @@
-# 03010 Tenant Store Runtime And Package Model
+# 03010_Tenant_Store_Runtime_And_Package_Model
 
 ## 1 Purpose
 
@@ -425,7 +425,7 @@ A store without POS API or platform payment must not display "order completed" b
 
 MVP scope cross-reference:
 
-- MVP package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
+- MVP package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md`.
 - Store-type adoption sequence is defined in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
 - Feature flags do not equal implementation approval.
 
@@ -435,11 +435,11 @@ Membership/loyalty optional SaaS boundary is defined in `docs/15000_membership_l
 
 Primary governance:
 
-- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
-- `docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md`
-- `docs/15000_membership_loyalty/15040_External_Membership_Bridge_Future_Boundary.md`
+- `docs/15000_membership_loyalty/15010_Boundary_Membership_Loyalty_Product.md`
+- `docs/15000_membership_loyalty/15030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
+- `docs/15000_membership_loyalty/15040_Boundary_External_Membership_Bridge_Future.md`
 
-Historical/future context also remains in `docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md` and `docs/28000_future_expansion/28030_Point_Bridge_And_Exchange_Future_Boundary.md` until a separate migration is approved.
+Historical/future context also remains in `docs/28000_future_expansion/28020_Membership_Loyalty_Point_Future_Model.md` and `docs/28000_future_expansion/28030_Boundary_Point_Bridge_And_Exchange_Future.md` until a separate migration is approved.
 
 Active package flags must not enable point ledger, wallet, or external membership bridge by default.
 
@@ -491,12 +491,12 @@ Admin screen inventory is defined in `docs/07000_admin_console/07040_Admin_Scree
 
 Admin approval workflow is defined in `docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md`.
 
-Admin audit/recovery queue governance is defined in `docs/07000_admin_console/07060_Admin_Audit_And_Recovery_Queue_Governance.md`.
+Admin audit/recovery queue governance is defined in `docs/07000_admin_console/07060_Governance_Admin_Audit_And_Recovery_Queue.md`.
 
 ## 16 SaaS Runtime Consolidation Cross-Reference
 
 - Context axes are expanded in `docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md`.
 - Store runtime profiles are defined in `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`.
-- Package/feature flag runtime governance is defined in `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`.
-- Runtime profile change/audit governance is defined in `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
-- Non-MVP future runtime profiles are defined in `docs/03000_saas_runtime/03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md`.
+- Package/feature flag runtime governance is defined in `docs/03000_saas_runtime/03040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`.
+- Runtime profile change/audit governance is defined in `docs/03000_saas_runtime/03050_Governance_Runtime_Profile_Change_And_Audit.md`.
+- Non-MVP future runtime profiles are defined in `docs/03000_saas_runtime/03060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`.

@@ -1,4 +1,4 @@
-# 01010 MVP Scope
+# 01010_MVP_Scope
 
 ## Included
 
@@ -110,7 +110,7 @@ Order candidate:
 
 ## MVP Scope Consolidation Cross-Reference
 
-- MVP scope is consolidated in `docs/01000_mvp_scope/01040_MVP_Active_Optional_Future_NonGoal_Matrix.md`.
-- Package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
+- MVP scope is consolidated in `docs/01000_mvp_scope/01040_Matrix_MVP_Active_Optional_Future_NonGoal.md`.
+- Package/feature flag boundary is defined in `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md`.
 - Store-type adoption sequence is defined in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
-- `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md` defines implementation non-goals and must remain aligned with `01040`.
+- `docs/22000_implementation_planning/22060_Boundary_Mvp_Implementation_Non_Goals.md` defines implementation non-goals and must remain aligned with `01040`.

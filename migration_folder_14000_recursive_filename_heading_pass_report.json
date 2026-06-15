@@ -1,0 +1,550 @@
+{
+  "generated_at": "2026-06-15T16:53:05.955427+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/14000_pos_provider_integration_strategy",
+  "files_scanned": 201,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "heading": "# 05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination",
+      "previous": "05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "heading": "# 05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface",
+      "previous": "05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "heading": "# 05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap",
+      "previous": "05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "heading": "# 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison",
+      "previous": "05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "heading": "# 05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping",
+      "previous": "05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05310_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md",
+      "heading": "# 05310_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist",
+      "previous": "05310 First Store POS Equipment Decision And Provider Procurement Checklist Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+      "heading": "# 05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record",
+      "previous": "05320 Store Vendor Quote Comparison And Adoption Decision Record Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+      "heading": "# 05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency",
+      "previous": "05330 Small Kiosk Vendor Evaluation And Integration Transparency Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+      "heading": "# 05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy",
+      "previous": "05340 Franchise OS Linked POS SaaS Expansion And Hardware Partner Strategy Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md",
+      "heading": "# 05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary",
+      "previous": "05350 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md",
+      "heading": "# 05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary",
+      "previous": "05360 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+      "heading": "# 05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split",
+      "previous": "05370 Franchise Store Billing Responsibility And HQ Store SaaS Fee Split Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md",
+      "heading": "# 05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection",
+      "previous": "05380 Franchise SaaS Pilot Store Rollout And Evidence Collection Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md",
+      "heading": "# 05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control",
+      "previous": "05390 Pilot Store Register Test Partner Selection And Scope Control Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md",
+      "heading": "# 05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording",
+      "previous": "05400 Pilot Evidence Packet Template And Store Test Result Recording Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+      "heading": "# 05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning",
+      "previous": "05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff.md",
+      "heading": "# 14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff",
+      "previous": "14146_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md",
+      "heading": "# 05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence",
+      "previous": "05151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "heading": "# 05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization",
+      "previous": "05161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+      "heading": "# 05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification",
+      "previous": "05170 PAYCO POS Integration Implementation Approach And Official Verification Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md",
+      "heading": "# 05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment",
+      "previous": "05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md",
+      "heading": "# 05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral",
+      "previous": "05191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "heading": "# 05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse",
+      "previous": "05201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "heading": "# 05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary",
+      "previous": "05211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "heading": "# 05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary",
+      "previous": "05221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "heading": "# 05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary",
+      "previous": "05231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md",
+      "heading": "# 05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel",
+      "previous": "05241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "heading": "# 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping",
+      "previous": "05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "replacements": [
+        "05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination -> 05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "replacements": [
+        "05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface -> 05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "replacements": [
+        "05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap -> 05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "replacements": [
+        "05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison -> 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "replacements": [
+        "05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface -> 05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface",
+        "05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap -> 05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap",
+        "05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison -> 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison",
+        "05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping -> 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "replacements": [
+        "05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface -> 05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface",
+        "05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap -> 05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap",
+        "05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison -> 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison",
+        "05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping -> 05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping",
+        "05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping -> 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/14000_Readme_POS_Provider_Integration_Strategy.md",
+      "replacements": [
+        "05170_Policy_PAYCO_POS_Verification.md -> 05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+        "05180_Policy_Provider_Priority_Openness.md -> 05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md",
+        "05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md -> 05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "replacements": [
+        "05151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence -> 05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+      "replacements": [
+        "05161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization -> 05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "replacements": [
+        "05191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral -> 05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral",
+        "05201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse -> 05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "replacements": [
+        "05191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral -> 05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral",
+        "05201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse -> 05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse",
+        "05211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary -> 05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "replacements": [
+        "05211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary -> 05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary",
+        "05221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary -> 05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary"
+      ]
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/archive_duplicate_review/05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md",
+      "replacements": [
+        "05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison -> 05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison",
+        "05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping -> 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+      ]
+    },
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 34 rebuilt; section 60 migration note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "14000 tree rebuilt; directory note updated"
+    }
+  ],
+  "unchanged": [
+    "docs/14000_pos_provider_integration_strategy/05420_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md",
+    "docs/14000_pos_provider_integration_strategy/14001_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+    "docs/14000_pos_provider_integration_strategy/14002_Readme_POS_Gateway_Resilience_Field_Exception_Catalog.md",
+    "docs/14000_pos_provider_integration_strategy/14003_Index_POS_Gateway_Resilience_Field_Exception_Catalog_Entry.md",
+    "docs/14000_pos_provider_integration_strategy/14004_Policy_POS_Gateway_Interface_Abstraction_Adapter_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+    "docs/14000_pos_provider_integration_strategy/14006_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+    "docs/14000_pos_provider_integration_strategy/14007_Policy_Store_Vendor_Quote_Comparison_Adoption_Decision_Record.md",
+    "docs/14000_pos_provider_integration_strategy/14008_Policy_POS_Master_Data_Sync_And_Precheck_Validation.md",
+    "docs/14000_pos_provider_integration_strategy/14009_Policy_Small_Kiosk_Vendor_Evaluation_Integration_Transparency.md",
+    "docs/14000_pos_provider_integration_strategy/14010_Policy_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch.md",
+    "docs/14000_pos_provider_integration_strategy/14011_Policy_Franchise_OS_POS_SaaS_Hardware_Partner_Strategy.md",
+    "docs/14000_pos_provider_integration_strategy/14012_Policy_SaaS_Revenue_Model_Provider_Partnership.md",
+    "docs/14000_pos_provider_integration_strategy/14013_Policy_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance.md",
+    "docs/14000_pos_provider_integration_strategy/14014_Policy_SaaS_Package_Tier_Gateway_Pricing_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14015_Policy_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection.md",
+    "docs/14000_pos_provider_integration_strategy/14016_Policy_Franchise_Store_Billing_HQ_SaaS_Fee_Split.md",
+    "docs/14000_pos_provider_integration_strategy/14017_Policy_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense.md",
+    "docs/14000_pos_provider_integration_strategy/14018_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md",
+    "docs/14000_pos_provider_integration_strategy/14019_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md",
+    "docs/14000_pos_provider_integration_strategy/14020_Assessment_PAYCO_Openness_And_Integration_Strategy_Note.md",
+    "docs/14000_pos_provider_integration_strategy/14021_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14022_Policy_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense.md",
+    "docs/14000_pos_provider_integration_strategy/14023_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md",
+    "docs/14000_pos_provider_integration_strategy/14024_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md",
+    "docs/14000_pos_provider_integration_strategy/14025_Policy_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart.md",
+    "docs/14000_pos_provider_integration_strategy/14026_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md",
+    "docs/14000_pos_provider_integration_strategy/14027_Policy_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer.md",
+    "docs/14000_pos_provider_integration_strategy/14028_Policy_Early_SaaS_Customer_Success_Retention.md",
+    "docs/14000_pos_provider_integration_strategy/14029_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md",
+    "docs/14000_pos_provider_integration_strategy/14030_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+    "docs/14000_pos_provider_integration_strategy/14031_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md",
+    "docs/14000_pos_provider_integration_strategy/14032_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md",
+    "docs/14000_pos_provider_integration_strategy/14033_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14034_Policy_SaaS_Pricing_Experiment_Transition.md",
+    "docs/14000_pos_provider_integration_strategy/14035_Policy_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation.md",
+    "docs/14000_pos_provider_integration_strategy/14036_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md",
+    "docs/14000_pos_provider_integration_strategy/14037_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md",
+    "docs/14000_pos_provider_integration_strategy/14038_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+    "docs/14000_pos_provider_integration_strategy/14039_Policy_POS_Provider_Capability_Profile_And_Readiness_Evidence.md",
+    "docs/14000_pos_provider_integration_strategy/14040_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+    "docs/14000_pos_provider_integration_strategy/14041_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md",
+    "docs/14000_pos_provider_integration_strategy/14042_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+    "docs/14000_pos_provider_integration_strategy/14043_Policy_POS_Gateway_Operator_Recovery_Console_And_Action_Authority.md",
+    "docs/14000_pos_provider_integration_strategy/14044_Policy_High_Velocity_Markdown_Backlog_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14045_Policy_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence.md",
+    "docs/14000_pos_provider_integration_strategy/14046_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+    "docs/14000_pos_provider_integration_strategy/14047_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md",
+    "docs/14000_pos_provider_integration_strategy/14048_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+    "docs/14000_pos_provider_integration_strategy/14049_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md",
+    "docs/14000_pos_provider_integration_strategy/14050_Policy_Implementation_Backlog_Extraction_Cutline.md",
+    "docs/14000_pos_provider_integration_strategy/14051_Policy_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold.md",
+    "docs/14000_pos_provider_integration_strategy/14052_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+    "docs/14000_pos_provider_integration_strategy/14053_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md",
+    "docs/14000_pos_provider_integration_strategy/14054_Policy_Phase_1_MVP_Implementation_Sequence.md",
+    "docs/14000_pos_provider_integration_strategy/14055_Policy_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance.md",
+    "docs/14000_pos_provider_integration_strategy/14056_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+    "docs/14000_pos_provider_integration_strategy/14057_Policy_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14058_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+    "docs/14000_pos_provider_integration_strategy/14059_Policy_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14060_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+    "docs/14000_pos_provider_integration_strategy/14061_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md",
+    "docs/14000_pos_provider_integration_strategy/14062_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+    "docs/14000_pos_provider_integration_strategy/14063_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md",
+    "docs/14000_pos_provider_integration_strategy/14064_Policy_Phase_1_Internal_Simulation_Rehearsal.md",
+    "docs/14000_pos_provider_integration_strategy/14065_Policy_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill.md",
+    "docs/14000_pos_provider_integration_strategy/14066_Policy_Staff_Only_Dry_Run_Fallback_Training.md",
+    "docs/14000_pos_provider_integration_strategy/14067_Policy_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail.md",
+    "docs/14000_pos_provider_integration_strategy/14068_Policy_Limited_Customer_Pilot_Live_Safety.md",
+    "docs/14000_pos_provider_integration_strategy/14069_Policy_POS_Gateway_Compliance_Readiness.md",
+    "docs/14000_pos_provider_integration_strategy/14070_Policy_Pilot_Incident_Review_Scope_Adjustment.md",
+    "docs/14000_pos_provider_integration_strategy/14071_Policy_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response.md",
+    "docs/14000_pos_provider_integration_strategy/14072_Policy_Pilot_Learning_Review_Next_Scope.md",
+    "docs/14000_pos_provider_integration_strategy/14073_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md",
+    "docs/14000_pos_provider_integration_strategy/14074_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md",
+    "docs/14000_pos_provider_integration_strategy/14075_Policy_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification.md",
+    "docs/14000_pos_provider_integration_strategy/14076_Policy_Early_Paid_SaaS_Churn_Intervention.md",
+    "docs/14000_pos_provider_integration_strategy/14077_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md",
+    "docs/14000_pos_provider_integration_strategy/14078_Policy_Standard_SaaS_Customer_Graduation.md",
+    "docs/14000_pos_provider_integration_strategy/14079_Policy_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral.md",
+    "docs/14000_pos_provider_integration_strategy/14080_Policy_Multi_Store_Expansion_Onboarding.md",
+    "docs/14000_pos_provider_integration_strategy/14081_Policy_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance.md",
+    "docs/14000_pos_provider_integration_strategy/14082_Policy_Multi_Store_Operations_Dashboard.md",
+    "docs/14000_pos_provider_integration_strategy/14083_Policy_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness.md",
+    "docs/14000_pos_provider_integration_strategy/14084_Policy_Multi_Store_Support_Queue_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14085_Policy_Multi_Store_Provider_Incident_Broadcast_Containment.md",
+    "docs/14000_pos_provider_integration_strategy/14086_Policy_Multi_Store_Billing_Provider_Cost_Allocation.md",
+    "docs/14000_pos_provider_integration_strategy/14087_Policy_Multi_Store_Contract_Scope_Change_Governance.md",
+    "docs/14000_pos_provider_integration_strategy/14088_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md",
+    "docs/14000_pos_provider_integration_strategy/14089_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md",
+    "docs/14000_pos_provider_integration_strategy/14090_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md",
+    "docs/14000_pos_provider_integration_strategy/14091_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md",
+    "docs/14000_pos_provider_integration_strategy/14092_Policy_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+    "docs/14000_pos_provider_integration_strategy/14093_Index_Multi_Store_Commercial_Governance_Handoff.md",
+    "docs/14000_pos_provider_integration_strategy/14094_Policy_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline.md",
+    "docs/14000_pos_provider_integration_strategy/14095_Policy_SaaS_Admin_Console_Lane_Start.md",
+    "docs/14000_pos_provider_integration_strategy/14096_Policy_POS_Gateway_Core_Data_Model_Event_Ledger_State_Projection_And_Route_Registry.md",
+    "docs/14000_pos_provider_integration_strategy/14097_Policy_SaaS_Admin_Tenant_Store_Directory.md",
+    "docs/14000_pos_provider_integration_strategy/14098_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md",
+    "docs/14000_pos_provider_integration_strategy/14099_Matrix_SaaS_Admin_Role_Permission.md",
+    "docs/14000_pos_provider_integration_strategy/14100_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md",
+    "docs/14000_pos_provider_integration_strategy/14101_Policy_SaaS_Admin_Surface_Map_Navigation.md",
+    "docs/14000_pos_provider_integration_strategy/14102_Policy_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation.md",
+    "docs/14000_pos_provider_integration_strategy/14103_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+    "docs/14000_pos_provider_integration_strategy/14104_Policy_POS_Gateway_Callback_Webhook_Provider_Lookup_And_Async_State_Reconciliation.md",
+    "docs/14000_pos_provider_integration_strategy/14105_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+    "docs/14000_pos_provider_integration_strategy/14106_Policy_POS_Gateway_Reconciliation_Case_Settlement_Matching_Provider_POS_And_Internal_Ledger.md",
+    "docs/14000_pos_provider_integration_strategy/14107_Policy_SaaS_Admin_List_Table_Bulk_Action.md",
+    "docs/14000_pos_provider_integration_strategy/14108_Policy_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export.md",
+    "docs/14000_pos_provider_integration_strategy/14109_Policy_SaaS_Admin_Notification_Work_Queue.md",
+    "docs/14000_pos_provider_integration_strategy/14110_Policy_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow.md",
+    "docs/14000_pos_provider_integration_strategy/14111_Policy_SaaS_Admin_Audit_Trail_Collaboration.md",
+    "docs/14000_pos_provider_integration_strategy/14112_Policy_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation.md",
+    "docs/14000_pos_provider_integration_strategy/14113_Index_SaaS_Admin_Console_UI_Planning_Handoff.md",
+    "docs/14000_pos_provider_integration_strategy/14114_Policy_POS_Gateway_Release_Gate_Kill_Switch_Rollback_Execution_And_Post_Release_Monitoring.md",
+    "docs/14000_pos_provider_integration_strategy/14115_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md",
+    "docs/14000_pos_provider_integration_strategy/14116_Policy_POS_Gateway_Provider_Route_Certification_Sandbox_Test_Result_And_Production_Approval_Evidence.md",
+    "docs/14000_pos_provider_integration_strategy/14117_Policy_POS_Gateway_Credential_Secret_Callback_Security_And_Provider_Access_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14118_Policy_POS_Gateway_Runtime_Configuration_Environment_Separation_And_Production_Credential_Activation.md",
+    "docs/14000_pos_provider_integration_strategy/14119_Policy_POS_Gateway_Migration_Backfill_Cutover_Existing_Transaction_Protection_And_Data_Integrity.md",
+    "docs/14000_pos_provider_integration_strategy/14120_Policy_POS_Gateway_Production_Cutover_Runbook_Incident_Command_And_Rollback_Execution.md",
+    "docs/14000_pos_provider_integration_strategy/14121_Policy_POS_Gateway_Production_Readiness_Checklist_Smoke_Test_And_Operational_Acceptance.md",
+    "docs/14000_pos_provider_integration_strategy/14122_Policy_POS_Gateway_Operational_Monitoring_Alerting_SLO_Error_Budget_And_Runtime_Health.md",
+    "docs/14000_pos_provider_integration_strategy/14123_Policy_POS_Gateway_Incident_Response_Dispute_Investigation_Provider_Escalation_And_Postmortem.md",
+    "docs/14000_pos_provider_integration_strategy/14124_Policy_POS_Gateway_Implementation_Closeout_Evidence_Handoff_Operational_Ownership_And_Phase_Transition.md",
+    "docs/14000_pos_provider_integration_strategy/14125_Policy_POS_Gateway_Implementation_Lane_Index_Readiness_Check_Evidence_Map_And_Next_Phase_Handoff.md",
+    "docs/14000_pos_provider_integration_strategy/14126_Policy_POS_Gateway_Provider_Onboarding_Certification_Capability_Verification_And_Expansion_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14127_Policy_POS_Gateway_Multi_Provider_Routing_Fallback_Provider_Priority_And_Store_Specific_Adapter_Selection.md",
+    "docs/14000_pos_provider_integration_strategy/14128_Policy_POS_Gateway_Store_Rollout_Wave_Control_Pilot_Expansion_Field_Feedback_And_Stabilization.md",
+    "docs/14000_pos_provider_integration_strategy/14129_Policy_POS_Gateway_Tenant_Store_SaaS_Onboarding_Package_Template_Provisioning_And_Operational_Enablement.md",
+    "docs/14000_pos_provider_integration_strategy/14130_Policy_POS_Gateway_Menu_Item_Option_Modifier_Mapping_Template_Versioning_And_Price_Integrity.md",
+    "docs/14000_pos_provider_integration_strategy/14131_Policy_POS_Gateway_Price_Promotion_Discount_Coupon_Tax_Service_Charge_And_Total_Calculation_Integrity.md",
+    "docs/14000_pos_provider_integration_strategy/14132_Policy_POS_Gateway_Inventory_Availability_Sold_Out_Stock_Sync_And_Order_Blocking_Integrity.md",
+    "docs/14000_pos_provider_integration_strategy/14133_Policy_POS_Gateway_Order_Channel_Separation_Dine_In_Takeout_Delivery_Kiosk_Table_QR_And_Staff_Order_Routing.md",
+    "docs/14000_pos_provider_integration_strategy/14134_Policy_POS_Gateway_Table_Session_Seat_Object_QR_NFC_Device_Identity_And_Handoff_Integrity.md",
+    "docs/14000_pos_provider_integration_strategy/14135_Policy_POS_Gateway_Staff_Operation_Manual_Fallback_Override_Authority_And_Manager_Approval.md",
+    "docs/14000_pos_provider_integration_strategy/14136_Policy_POS_Gateway_Customer_Status_Message_Receipt_Proof_Notification_And_Dispute_Communication.md",
+    "docs/14000_pos_provider_integration_strategy/14137_Policy_POS_Gateway_Reconciliation_Case_Workflow_Variance_Resolution_Manual_Adjustment_And_Audit_Closure.md",
+    "docs/14000_pos_provider_integration_strategy/14138_Policy_POS_Gateway_Data_Retention_Archive_Privacy_Redaction_And_Forensic_Evidence_Lifecycle.md",
+    "docs/14000_pos_provider_integration_strategy/14139_Policy_POS_Gateway_Access_Control_Role_Segregation_Tenant_Isolation_Privileged_Action_And_Approval_Audit.md",
+    "docs/14000_pos_provider_integration_strategy/14140_Policy_POS_Gateway_Performance_Load_Peak_Traffic_Queue_Backpressure_And_Capacity_Planning.md",
+    "docs/14000_pos_provider_integration_strategy/14141_Policy_POS_Gateway_Disaster_Recovery_Business_Continuity_Provider_Outage_Store_Offline_Mode_And_Service_Resumption.md",
+    "docs/14000_pos_provider_integration_strategy/14142_Policy_POS_Gateway_Change_Management_Release_Governance_Configuration_Drift_Control_And_Production_Deployment.md",
+    "docs/14000_pos_provider_integration_strategy/14143_Policy_POS_Gateway_Training_Runbook_Field_Operation_Checklist_Store_Readiness_And_Knowledge_Transfer.md",
+    "docs/14000_pos_provider_integration_strategy/14144_Policy_POS_Gateway_Vendor_Provider_SLA_Contract_Limitation_Liability_Escalation_And_Service_Governance.md",
+    "docs/14000_pos_provider_integration_strategy/14145_Policy_POS_Gateway_Post_Launch_Stabilization_Continuous_Improvement_Operational_Maturity_And_Control_Evolution.md",
+    "docs/14000_pos_provider_integration_strategy/14147_Policy_POS_Gateway_Cross_Tenant_SaaS_Standardization_Template_Inheritance_Customization_And_Control_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14148_Policy_POS_Gateway_Cross_Module_Integration_Order_Handoff_Kiosk_CRM_Loyalty_HR_Finance_And_Audit_Interface_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14149_Policy_POS_Gateway_AI_Assisted_Operation_Automation_Recommendation_Human_Approval_And_Controlled_Decision_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14150_Policy_POS_Gateway_Final_Operational_Governance_Index_Control_Map_Readiness_Summary_And_Phase_Closeout.md",
+    "docs/14000_pos_provider_integration_strategy/14151_Policy_POS_Gateway_Implementation_Task_Breakdown_Executable_Work_Package_Index_And_Build_Sequence.md",
+    "docs/14000_pos_provider_integration_strategy/14152_Implementation_POS_Gateway_Global_Scale_Final_Boss_Risk_Absorption_Architecture_Invariant_Guardrail.md",
+    "docs/14000_pos_provider_integration_strategy/14153_WorkPackage_POS_Gateway_Core_Registry_Tenant_Store_Provider_Capability_And_Environment_Binding_Implementation.md",
+    "docs/14000_pos_provider_integration_strategy/14154_WorkPackage_POS_Gateway_Menu_Mapping_Price_Availability_And_Calculation_Snapshot_Implementation.md",
+    "docs/14000_pos_provider_integration_strategy/14155_WorkPackage_POS_Gateway_Order_Payment_Cancel_Refund_State_Machine_And_Transaction_Timeline_Implementation.md",
+    "docs/14000_pos_provider_integration_strategy/14156_WorkPackage_POS_Gateway_Idempotency_Queue_Retry_Dead_Letter_Replay_And_Duplicate_Prevention.md",
+    "docs/14000_pos_provider_integration_strategy/14157_WorkPackage_POS_Gateway_Table_QR_NFC_Kiosk_Device_Receipt_Proof_And_Customer_Status.md",
+    "docs/14000_pos_provider_integration_strategy/14158_WorkPackage_POS_Gateway_Manual_Fallback_Manager_Approval_Staff_Action_And_Override.md",
+    "docs/14000_pos_provider_integration_strategy/14159_WorkPackage_POS_Gateway_Reconciliation_Audit_Evidence_Settlement_And_Accounting_Guard.md",
+    "docs/14000_pos_provider_integration_strategy/14160_WorkPackage_POS_Gateway_Monitoring_Incident_Disaster_Recovery_Pilot_Readiness_And_Closeout.md",
+    "docs/14000_pos_provider_integration_strategy/14161_WorkPackage_Store_Runtime_Integration_Control_Tower_And_Operational_Command_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14162_WorkPackage_Store_Runtime_Kiosk_Mini_Kiosk_Device_Session_Order_Assist_And_Customer_Flow_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14163_WorkPackage_Store_Runtime_Staff_Tablet_Manager_Console_Override_Manual_Control_And_Evidence_Boundary.md",
+    "docs/14000_pos_provider_integration_strategy/14164_WorkPackage_Store_Runtime_Daily_Closeout_End_Of_Day_Evidence_Exception_Carry_Forward_And_Manager_Approval.md",
+    "docs/14000_pos_provider_integration_strategy/14165_WorkPackage_Store_Runtime_Finance_Reconciliation_Accounting_Settlement_Handoff_And_Exception_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14166_WorkPackage_Store_Runtime_Customer_Dispute_Complaint_Compensation_Support_Handoff_And_Evidence_Control.md",
+    "docs/14000_pos_provider_integration_strategy/14167_WorkPackage_Store_Runtime_Incident_Degraded_Operation_Rollback_Pause_Recovery_And_Command_Control.md"
+  ],
+  "unchanged_count": 167,
+  "exceptions": [
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "reason": "cross-band prefix `05255` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "reason": "cross-band prefix `05256` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "reason": "cross-band prefix `05260` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "reason": "cross-band prefix `05261` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05270_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "reason": "cross-band prefix `05270` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "reason": "cross-band prefix `05271` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05280_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "reason": "cross-band prefix `05280` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "reason": "cross-band prefix `05281` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05290_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "reason": "cross-band prefix `05290` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "reason": "cross-band prefix `05291` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05310_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md",
+      "reason": "cross-band prefix `05310` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+      "reason": "cross-band prefix `05320` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+      "reason": "cross-band prefix `05330` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+      "reason": "cross-band prefix `05340` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md",
+      "reason": "cross-band prefix `05350` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md",
+      "reason": "cross-band prefix `05360` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+      "reason": "cross-band prefix `05370` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md",
+      "reason": "cross-band prefix `05380` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md",
+      "reason": "cross-band prefix `05390` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md",
+      "reason": "cross-band prefix `05400` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+      "reason": "cross-band prefix `05410` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05420_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md",
+      "reason": "cross-band prefix `05420` in 14000 folder"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05261_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05271_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05281_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/05291_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 34 synced to 201 files; section 60 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md 14000 tree synced to 201 files; directory note updated"
+  ]
+}

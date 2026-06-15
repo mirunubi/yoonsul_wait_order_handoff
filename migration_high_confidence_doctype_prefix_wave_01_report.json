@@ -1,0 +1,1356 @@
+{
+  "wave": "high_confidence_doctype_prefix_01",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "selection_policy": "first 60 live high-confidence non-root terminal DocumentType candidates with no target conflict and target path <=240",
+  "high_confidence_files_selected": [
+    {
+      "from": "docs\\00100_project_foundation\\00130_Non_Implementation_Boundary.md",
+      "to": "docs\\00100_project_foundation\\00130_Boundary_Non_Implementation.md",
+      "document_type": "Boundary",
+      "target_length": 106
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00190_Cross_Business_Franchise_OS_And_CatchMenu_Boundary_Policy.md",
+      "to": "docs\\00100_project_foundation\\00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 136
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Documentation_Governance_Readme.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Readme_Documentation_Governance.md",
+      "document_type": "Readme",
+      "target_length": 141
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04730_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "document_type": "Policy",
+      "target_length": 188
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04740_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "document_type": "Policy",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04760_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04780_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "document_type": "Policy",
+      "target_length": 179
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04800_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "document_type": "Policy",
+      "target_length": 198
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04810_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "document_type": "Policy",
+      "target_length": 188
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04820_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "document_type": "Checklist",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\03000_saas_runtime\\03050_Runtime_Profile_Change_And_Audit_Governance.md",
+      "to": "docs\\03000_saas_runtime\\03050_Governance_Runtime_Profile_Change_And_Audit.md",
+      "document_type": "Governance",
+      "target_length": 116
+    },
+    {
+      "from": "docs\\03000_saas_runtime\\03130_Entry_Media_Status_Lifecycle_And_Audit_Policy.md",
+      "to": "docs\\03000_saas_runtime\\03130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md",
+      "document_type": "Policy",
+      "target_length": 118
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04000_kds_integration_kitchen_continuity\\04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04000_kds_integration_kitchen_continuity\\04020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_Readme_KDS_Operation_Payment_Recovery_Boundary.md",
+      "document_type": "Readme",
+      "target_length": 185
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04250_Manual_Kitchen_Recovery_Evidence_Packet_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md",
+      "document_type": "Policy",
+      "target_length": 185
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04260_POS_Payment_Webhook_And_Kitchen_Release_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 194
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_POS_Provider_Adapter_Governance_Readme.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_Readme_POS_Provider_Adapter_Governance.md",
+      "document_type": "Readme",
+      "target_length": 169
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04360_POS_Provider_Onboarding_Evidence_And_Contract_Checklist_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md",
+      "document_type": "Policy",
+      "target_length": 193
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04370_POS_Integration_Monitoring_Replay_And_Incident_Runbook_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md",
+      "document_type": "Policy",
+      "target_length": 192
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04400_Toss_Payments_MVP_Integration_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 176
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 183
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 196
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md",
+      "document_type": "Policy",
+      "target_length": 169
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 191
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md",
+      "document_type": "Policy",
+      "target_length": 150
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md",
+      "document_type": "Policy",
+      "target_length": 167
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 158
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_Customer_Handoff_And_Implementation_Readiness_Readme.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_Readme_Customer_Handoff_And_Implementation_Readiness.md",
+      "document_type": "Readme",
+      "target_length": 158
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05050_Reservation_Preorder_Governance_Readme.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05050_Readme_Reservation_Preorder_Governance.md",
+      "document_type": "Readme",
+      "target_length": 172
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\06510_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 231
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 233
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "document_type": "Policy",
+      "target_length": 228
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md",
+      "document_type": "Policy",
+      "target_length": 235
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "document_type": "Policy",
+      "target_length": 230
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 213
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 207
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 226
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 219
+    },
+    {
+      "from": "docs\\07000_admin_console\\07060_Admin_Audit_And_Recovery_Queue_Governance.md",
+      "to": "docs\\07000_admin_console\\07060_Governance_Admin_Audit_And_Recovery_Queue.md",
+      "document_type": "Governance",
+      "target_length": 115
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 236
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md",
+      "document_type": "Policy",
+      "target_length": 209
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md",
+      "document_type": "Policy",
+      "target_length": 231
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09660_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md",
+      "document_type": "Policy",
+      "target_length": 207
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09680_Provider_Evidence_Collection_Template_And_Capability_Review_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09690_Security_Monitoring_Foundation_README_Insert_And_Index_Patch_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch.md",
+      "document_type": "Policy",
+      "target_length": 212
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09730_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 216
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09770_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 217
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09780_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09790_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control.md",
+      "document_type": "Policy",
+      "target_length": 215
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09800_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09840_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09840_Policy_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 227
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09860_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09890_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09890_Policy_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09900_Controlled_Implementation_Candidate_Template_And_First_Package_Selection_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09930_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md",
+      "document_type": "Policy",
+      "target_length": 229
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09970_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 232
+    }
+  ],
+  "renamed_files": [
+    {
+      "from": "docs\\00100_project_foundation\\00130_Non_Implementation_Boundary.md",
+      "to": "docs\\00100_project_foundation\\00130_Boundary_Non_Implementation.md",
+      "document_type": "Boundary",
+      "target_length": 106
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00190_Cross_Business_Franchise_OS_And_CatchMenu_Boundary_Policy.md",
+      "to": "docs\\00100_project_foundation\\00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 136
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Documentation_Governance_Readme.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Readme_Documentation_Governance.md",
+      "document_type": "Readme",
+      "target_length": 141
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04730_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04730_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "document_type": "Policy",
+      "target_length": 188
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04740_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04740_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "document_type": "Policy",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04760_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04760_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04780_Documentation_Batch_Import_Review_Report_And_Commit_Discipline_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04780_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "document_type": "Policy",
+      "target_length": 179
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04800_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04800_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "document_type": "Policy",
+      "target_length": 198
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04810_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking_Policy.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04810_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "document_type": "Policy",
+      "target_length": 188
+    },
+    {
+      "from": "docs\\00100_project_foundation\\00450_documentation_governance\\04820_Documentation_Governance_Final_Index_And_PC_Import_Preparation_Checklist.md",
+      "to": "docs\\00100_project_foundation\\00450_documentation_governance\\04820_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "document_type": "Checklist",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\03000_saas_runtime\\03050_Runtime_Profile_Change_And_Audit_Governance.md",
+      "to": "docs\\03000_saas_runtime\\03050_Governance_Runtime_Profile_Change_And_Audit.md",
+      "document_type": "Governance",
+      "target_length": 116
+    },
+    {
+      "from": "docs\\03000_saas_runtime\\03130_Entry_Media_Status_Lifecycle_And_Audit_Policy.md",
+      "to": "docs\\03000_saas_runtime\\03130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md",
+      "document_type": "Policy",
+      "target_length": 118
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04000_kds_integration_kitchen_continuity\\04020_POS_Accepted_Order_To_KDS_Ticket_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04000_kds_integration_kitchen_continuity\\04020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_KDS_Operation_Payment_Recovery_Boundary_Readme.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_Readme_KDS_Operation_Payment_Recovery_Boundary.md",
+      "document_type": "Readme",
+      "target_length": 185
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04250_Manual_Kitchen_Recovery_Evidence_Packet_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md",
+      "document_type": "Policy",
+      "target_length": 185
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04260_POS_Payment_Webhook_And_Kitchen_Release_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 194
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_POS_Provider_Adapter_Governance_Readme.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_Readme_POS_Provider_Adapter_Governance.md",
+      "document_type": "Readme",
+      "target_length": 169
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04360_POS_Provider_Onboarding_Evidence_And_Contract_Checklist_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md",
+      "document_type": "Policy",
+      "target_length": 193
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04370_POS_Integration_Monitoring_Replay_And_Incident_Runbook_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md",
+      "document_type": "Policy",
+      "target_length": 192
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04400_Toss_Payments_MVP_Integration_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 176
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 183
+    },
+    {
+      "from": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04450_POS_RPC_Communication_Security_And_Provider_Trust_Boundary_Policy.md",
+      "to": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 196
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04970_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md",
+      "document_type": "Policy",
+      "target_length": 169
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 191
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\04999_archive_duplicate_review\\05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05060_Export_Report_Benchmark_External_Sharing_Test_Catalog_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md",
+      "document_type": "Policy",
+      "target_length": 150
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05070_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md",
+      "document_type": "Policy",
+      "target_length": 167
+    },
+    {
+      "from": "docs\\04900_security_runtime_test_catalog\\05095_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping_Policy.md",
+      "to": "docs\\04900_security_runtime_test_catalog\\05095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 158
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_Customer_Handoff_And_Implementation_Readiness_Readme.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_Readme_Customer_Handoff_And_Implementation_Readiness.md",
+      "document_type": "Readme",
+      "target_length": 158
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05050_Reservation_Preorder_Governance_Readme.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05050_Readme_Reservation_Preorder_Governance.md",
+      "document_type": "Readme",
+      "target_length": 172
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\06510_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 231
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 233
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "document_type": "Policy",
+      "target_length": 228
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md",
+      "document_type": "Policy",
+      "target_length": 235
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "document_type": "Policy",
+      "target_length": 230
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 213
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 207
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 226
+    },
+    {
+      "from": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy.md",
+      "to": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 219
+    },
+    {
+      "from": "docs\\07000_admin_console\\07060_Admin_Audit_And_Recovery_Queue_Governance.md",
+      "to": "docs\\07000_admin_console\\07060_Governance_Admin_Audit_And_Recovery_Queue.md",
+      "document_type": "Governance",
+      "target_length": 115
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 236
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md",
+      "document_type": "Policy",
+      "target_length": 209
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md",
+      "document_type": "Policy",
+      "target_length": 231
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09660_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md",
+      "document_type": "Policy",
+      "target_length": 207
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09680_Provider_Evidence_Collection_Template_And_Capability_Review_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09690_Security_Monitoring_Foundation_README_Insert_And_Index_Patch_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch.md",
+      "document_type": "Policy",
+      "target_length": 212
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09730_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix.md",
+      "document_type": "Policy",
+      "target_length": 216
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09770_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping.md",
+      "document_type": "Policy",
+      "target_length": 217
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09780_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09790_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control.md",
+      "document_type": "Policy",
+      "target_length": 215
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09800_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet.md",
+      "document_type": "Policy",
+      "target_length": 211
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09840_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09840_Policy_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 227
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09860_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09890_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09890_Policy_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09900_Controlled_Implementation_Candidate_Template_And_First_Package_Selection_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09930_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md",
+      "document_type": "Policy",
+      "target_length": 229
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09970_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md",
+      "document_type": "Policy",
+      "target_length": 224
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09990_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary_Policy.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 232
+    }
+  ],
+  "moved_files": [],
+  "files_skipped": [
+    {
+      "reason": "already_compliant",
+      "count": 63
+    },
+    {
+      "reason": "missing_from_stale_report",
+      "count": 21
+    },
+    {
+      "reason": "root_level_deferred",
+      "count": 155
+    },
+    {
+      "reason": "safe_high_confidence_batch_limit",
+      "count": 132
+    }
+  ],
+  "heading_updates": [
+    {
+      "file": "docs\\00100_project_foundation\\00130_Boundary_Non_Implementation.md",
+      "old_heading": "# 00130 Non-Implementation Boundary",
+      "new_heading": "# 00130_Boundary_Non_Implementation"
+    },
+    {
+      "file": "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Readme_Documentation_Governance.md",
+      "old_heading": "# 00450_Documentation_Governance_Readme",
+      "new_heading": "# 00450_Readme_Documentation_Governance"
+    },
+    {
+      "file": "docs\\03000_saas_runtime\\03050_Governance_Runtime_Profile_Change_And_Audit.md",
+      "old_heading": "# 03050 Runtime Profile Change And Audit Governance",
+      "new_heading": "# 03050_Governance_Runtime_Profile_Change_And_Audit"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_Readme_KDS_Operation_Payment_Recovery_Boundary.md",
+      "old_heading": "# 04200_KDS_Operation_Payment_Recovery_Boundary_Readme",
+      "new_heading": "# 04200_Readme_KDS_Operation_Payment_Recovery_Boundary"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md",
+      "old_heading": "# **04250 Manual Kitchen Recovery Evidence Packet Policy**",
+      "new_heading": "# 04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md",
+      "old_heading": "# **04260 POS Payment Webhook And Kitchen Release Boundary Policy**",
+      "new_heading": "# 04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_Readme_POS_Provider_Adapter_Governance.md",
+      "old_heading": "# 04300_POS_Provider_Adapter_Governance_Readme",
+      "new_heading": "# 04300_Readme_POS_Provider_Adapter_Governance"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md",
+      "old_heading": "# **04360 POS Provider Onboarding Evidence And Contract Checklist Policy**",
+      "new_heading": "# 04360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md",
+      "old_heading": "# **04370 POS Integration Monitoring Replay And Incident Runbook Policy**",
+      "new_heading": "# 04370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "old_heading": "# 04400 Toss Payments MVP Integration Boundary Policy",
+      "new_heading": "# 04400_Policy_Toss_Payments_MVP_Integration_Boundary"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "old_heading": "# 04410_PAYCO_Payment_And_Order_Provider_MVP_Boundary_Policy",
+      "new_heading": "# 04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary"
+    },
+    {
+      "file": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "old_heading": "# 04450 POS RPC Communication Security And Provider Trust Boundary Policy",
+      "new_heading": "# 04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_Readme_Customer_Handoff_And_Implementation_Readiness.md",
+      "old_heading": "# 05000_Customer_Handoff_And_Implementation_Readiness_Readme",
+      "new_heading": "# 05000_Readme_Customer_Handoff_And_Implementation_Readiness"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md",
+      "old_heading": "# 06510_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary_Policy",
+      "new_heading": "# 06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "old_heading": "# 05120_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix_Policy",
+      "new_heading": "# 05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "old_heading": "# 05140_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance_Policy",
+      "new_heading": "# 05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md",
+      "old_heading": "# 05150_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence_Policy",
+      "new_heading": "# 05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md",
+      "old_heading": "# 05160_Controlled_Implementation_Entry_Gate_And_Build_Authorization_Policy",
+      "new_heading": "# 05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "old_heading": "# 05210_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary_Policy",
+      "new_heading": "# 05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "old_heading": "# 05220_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary_Policy",
+      "new_heading": "# 05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "old_heading": "# 05230_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary_Policy",
+      "new_heading": "# 05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary"
+    },
+    {
+      "file": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "old_heading": "# 05250_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping_Policy",
+      "new_heading": "# 05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+    },
+    {
+      "file": "docs\\07000_admin_console\\07060_Governance_Admin_Audit_And_Recovery_Queue.md",
+      "old_heading": "# 07060_Admin_Audit_And_Recovery_Queue_Governance",
+      "new_heading": "# 07060_Governance_Admin_Audit_And_Recovery_Queue"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md",
+      "old_heading": "# 10010_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary_Policy",
+      "new_heading": "# 10010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md",
+      "old_heading": "# 10047_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry_Policy",
+      "new_heading": "# 10047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md",
+      "old_heading": "# 10048_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement_Policy",
+      "new_heading": "# 10048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md",
+      "old_heading": "# 10049_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority_Policy",
+      "new_heading": "# 10049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md",
+      "old_heading": "# 10051_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation_Policy",
+      "new_heading": "# 10051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md",
+      "old_heading": "# 09660 Catch & Order SaaS Runtime Boundary And Module Naming Policy",
+      "new_heading": "# 09660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review.md",
+      "old_heading": "# 09680 Provider Evidence Collection Template And Capability Review Policy",
+      "new_heading": "# 09680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch.md",
+      "old_heading": "# 09690 Security Monitoring Foundation README Insert And Index Patch Policy",
+      "new_heading": "# 09690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix.md",
+      "old_heading": "# 09730 Provider Evidence Review Packet And Capability Acceptance Matrix Policy",
+      "new_heading": "# 09730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping.md",
+      "old_heading": "# 09770 Support Admin Visible Message Boundary And Review Surface Mapping Policy",
+      "new_heading": "# 09770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary.md",
+      "old_heading": "# 09780 Customer Recovery Message Catalog And Compensation Review Boundary Policy",
+      "new_heading": "# 09780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control.md",
+      "old_heading": "# 09790 Compensation Review Authority Matrix And Value Recovery Control Policy",
+      "new_heading": "# 09790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet.md",
+      "old_heading": "# 09800 Value Recovery Evidence Audit And Idempotency Review Packet Policy",
+      "new_heading": "# 09800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09840_Policy_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md",
+      "old_heading": "# 09840 High-Risk Compensation Escalation And Franchise Policy Inheritance Boundary Policy",
+      "new_heading": "# 09840_Policy_High-Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention.md",
+      "old_heading": "# 09860 Mass Recovery Root Cause Evidence Packet And Recurrence Prevention Policy",
+      "new_heading": "# 09860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09890_Policy_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md",
+      "old_heading": "# 09890 Post-Incident Coding Readiness Review And Controlled Implementation Gate Policy",
+      "new_heading": "# 09890_Policy_Post-Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md",
+      "old_heading": "# 09900 Controlled Implementation Candidate Template And First Package Selection Policy",
+      "new_heading": "# 09900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md",
+      "old_heading": "# 09930 Provider Evidence Registry Static Package Handoff And Capability Traceability Policy",
+      "new_heading": "# 09930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md",
+      "old_heading": "# 09970 Support Admin Boundary Catalog Static Package Handoff And Review Surface Policy",
+      "new_heading": "# 09970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface"
+    },
+    {
+      "file": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\09990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md",
+      "old_heading": "# 09990 AI pgvector Governance Catalog Static Package Handoff And Non Authority Boundary Policy",
+      "new_heading": "# 09990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "README.md",
+    "docs\\00002_Naming_Rules.md",
+    "docs\\00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+    "docs\\00005_Document_Number_Index.md",
+    "docs\\00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs\\00007_Full_Directory_Map.md",
+    "docs\\00100_project_foundation\\00100_Project_Foundation_Readme.md",
+    "docs\\00100_project_foundation\\00450_documentation_governance\\00450_Readme_Documentation_Governance.md",
+    "docs\\03000_saas_runtime\\03000_SaaS_Runtime_Readme.md",
+    "docs\\03000_saas_runtime\\03010_Tenant_Store_Runtime_And_Package_Model.md",
+    "docs\\03000_saas_runtime\\03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md",
+    "docs\\03000_saas_runtime\\03050_Governance_Runtime_Profile_Change_And_Audit.md",
+    "docs\\04000_store_runtime_pos_kds_operations\\04200_kds_operation_payment_recovery_boundary\\04200_Readme_KDS_Operation_Payment_Recovery_Boundary.md",
+    "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_Readme_POS_Provider_Adapter_Governance.md",
+    "docs\\04750 Documentation File Naming Folder Path And Import Normalization Policy.md",
+    "docs\\04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy.md",
+    "docs\\04900_security_runtime_test_catalog\\04900_Security_Runtime_Test_Catalog_Readme.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05000_Customer_Handoff_Flow_Readme.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05000_customer_handoff_flow\\05060_SOP_Entrance_Waiting_Assist_Device_Operation.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05100_Implementation_Readiness_And_Provider_Verification_Readme.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05105_Plan_10807_Root_File_Rename_And_Move.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md",
+    "docs\\05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy.md",
+    "docs\\05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy.md",
+    "docs\\07000_admin_console\\07000_Admin_Console_Readme.md",
+    "docs\\07000_admin_console\\07020_Admin_Store_Runtime_Configuration_Model.md",
+    "docs\\07000_admin_console\\07080_Admin_Runtime_Profile_Configuration_Governance.md",
+    "docs\\07000_admin_console\\07100_Admin_Audit_Review_And_Change_History_Model.md",
+    "docs\\09000_data_model_state_machine\\09080_Runtime_Profile_And_Change_Request_Entity_Model.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10000_Foundation_Static_Catalog_Package_Readme.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10005_Plan_10712_Root_File_Rename_And_Move.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_static_catalog_runtime_planning\\10000_Static_Catalog_Runtime_Planning_Readme.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+    "docs\\11000_integration_boundary\\11000_Readme_Integration_Boundary.md",
+    "docs\\14000_pos_provider_integration_strategy\\14000_POS_Provider_Integration_Strategy_Readme.md",
+    "docs\\20000_validation_security_audit\\20000_Readme_Validation_Security_Audit.md",
+    "migration_duplicate_prefix_resolution_wave_01_report.json",
+    "migration_duplicate_prefix_resolution_wave_01_report.md",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.json",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_long_path_report.json",
+    "migration_precleanup_long_path_report.md",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "remaining_high_confidence_files": 132,
+  "remaining_high_confidence_sample": [
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md",
+      "document_type": "Index",
+      "target_length": 192
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10210_Policy_Order_Intake_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10210_Policy_Order_Intake_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 173
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10220_Policy_Order_Validation_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10220_Policy_Order_Validation_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 177
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10230_Policy_POS_Handoff_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10230_Policy_POS_Handoff_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 172
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10240_Policy_KDS_Ticket_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10240_Policy_KDS_Ticket_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 171
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10250_Policy_Kitchen_Execution_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10250_Policy_Kitchen_Execution_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 178
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10260_Policy_Staff_Assist_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10260_Policy_Staff_Assist_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 173
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10270_Policy_Device_Runtime_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10270_Policy_Device_Runtime_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 175
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10280_Policy_Printer_Peripheral_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10280_Policy_Printer_Peripheral_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 179
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10290_Policy_Degraded_Operation_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10290_Policy_Degraded_Operation_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 179
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10300_Policy_Manual_Fallback_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10300_Policy_Manual_Fallback_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 176
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10310_Policy_Store_Incident_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10310_Policy_Store_Incident_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 175
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10320_Policy_Operational_Evidence_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10320_Policy_Operational_Evidence_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 181
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10330_Policy_Fulfillment_Visibility_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10330_Policy_Fulfillment_Visibility_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 183
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10340_Policy_Store_Recovery_Route_Room_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_store_runtime_room_framing\\10340_Policy_Store_Recovery_Route_Room_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 181
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton\\10130_Policy_CMS_i18n_AI_pgvector_Data_Governance_Skeleton.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton\\10130_Policy_CMS_i18n_AI_pgvector_Data_Governance_Skeleton.md",
+      "document_type": "Policy",
+      "target_length": 193
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton\\10140_Policy_Cross_Axis_Authority_Evidence_Audit_And_Fallback_Beam.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton\\10140_Policy_Cross-Axis_Authority_Evidence_Audit_And_Fallback_Beam.md",
+      "document_type": "Policy",
+      "target_length": 201
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10410_Policy_Payment_Intent_And_Authorization_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10410_Policy_Payment_Intent_And_Authorization_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 182
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10420_Policy_Payment_Confirmation_And_Provider_Callback_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10420_Policy_Payment_Confirmation_And_Provider_Callback_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 192
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10430_Policy_Refund_Cancellation_And_Void_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10430_Policy_Refund_Cancellation_And_Void_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 178
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10440_Policy_Coupon_Point_Wallet_And_Stored_Value_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10440_Policy_Coupon_Point_Wallet_And_Stored_Value_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10450_Policy_Settlement_Allocation_And_Reconciliation_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10450_Policy_Settlement_Allocation_And_Reconciliation_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 190
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10460_Policy_Compensation_And_Customer_Recovery_Value_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10460_Policy_Compensation_And_Customer_Recovery_Value_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 190
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10470_Policy_Financial_Evidence_Audit_And_Export_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10470_Policy_Financial_Evidence_Audit_And_Export_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 185
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10480_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10480_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff.md",
+      "document_type": "Policy",
+      "target_length": 192
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10500_Readme_Data_Governance_Room.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10500_Readme_Data_Governance_Room.md",
+      "document_type": "Readme",
+      "target_length": 161
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10510_Policy_CMS_Content_Publication_And_Targeting_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10510_Policy_CMS_Content_Publication_And_Targeting_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 187
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10520_Policy_i18n_Message_Key_And_Human_Visible_Text_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10520_Policy_i18n_Message_Key_And_Human_Visible_Text_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 189
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10530_Policy_Safe_Projection_Masking_And_Audience_Visibility_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10530_Policy_Safe_Projection_Masking_And_Audience_Visibility_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 197
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10540_Policy_AI_Advisory_Runtime_And_Non_Authority_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10540_Policy_AI_Advisory_Runtime_And_Non-Authority_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 187
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10550_Policy_pgvector_Context_Retrieval_And_Similarity_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10550_Policy_pgvector_Context_Retrieval_And_Similarity_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 191
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10551_Policy_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10551_Policy_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 207
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10552_Policy_Layered_Immune_Security_Agent_Architecture_And_Cross_Check_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10552_Policy_Layered_Immune_Security_Agent_Architecture_And_Cross-Check_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 208
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10553_Policy_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10553_Policy_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 220
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10554_Policy_Four_Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10554_Policy_Four-Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation.md",
+      "document_type": "Policy",
+      "target_length": 218
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10560_Policy_Analytics_Read_Model_And_Benchmark_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10560_Policy_Analytics_Read_Model_And_Benchmark_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 184
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10570_Policy_Retention_Export_And_Compliance_Data_Boundary.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10570_Policy_Retention_Export_And_Compliance_Data_Boundary.md",
+      "document_type": "Policy",
+      "target_length": 186
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10580_Policy_Data_Governance_Closure_And_Cross_Room_Handoff.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10580_Policy_Data_Governance_Closure_And_Cross-Room_Handoff.md",
+      "document_type": "Policy",
+      "target_length": 187
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10601_Policy_Financial_Grade_Ledger_Reconciliation_And_Four_Source_Closing_Audit.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10601_Policy_Financial-Grade_Ledger_Reconciliation_And_Four-Source_Closing_Audit.md",
+      "document_type": "Policy",
+      "target_length": 225
+    },
+    {
+      "from": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10610_Policy_Cross_Room_Event_Bus_And_Evidence_Packet_Routing.md",
+      "to": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10600_cross_room_plumbing_wiring_insulation\\10610_Policy_Cross-Room_Event_Bus_And_Evidence_Packet_Routing.md",
+      "document_type": "Policy",
+      "target_length": 206
+    }
+  ],
+  "remaining_medium_confidence_files": 26,
+  "remaining_low_confidence_files": 89,
+  "remaining_repository_duplicate_prefix_groups": 0,
+  "remaining_duplicate_prefix_group_sample": [],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "remaining_non_compliant_filenames": 796,
+  "remaining_non_compliant_filename_sample": [
+    "docs\\06210_Policy_POS_Gateway_Expansion_Readiness_Multi_Store_Scale_Control_Operational_Replication_And_Governance_Handoff.md",
+    "docs\\00000_Project_Overview.md",
+    "docs\\00001_Md_Rules.md",
+    "docs\\00002_Naming_Rules.md",
+    "docs\\00003_Project_Context.md",
+    "docs\\00005_Document_Number_Index.md",
+    "docs\\00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs\\00007_Full_Directory_Map.md",
+    "docs\\00010_Wait_Order_Project_Overview.md",
+    "docs\\00015_Korean_Document_And_Encoding_Safety_Rules.md",
+    "docs\\00020_Store_Capability_Stage_0_To_5_Module_Policy.md",
+    "docs\\00030_Runtime_Boundary.md",
+    "docs\\00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md",
+    "docs\\00050_Deployment_Mode_Model.md",
+    "docs\\00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md",
+    "docs\\00099_Docs_Governance_Checklist.md",
+    "docs\\00300_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md",
+    "docs\\00310_Policy_Gateway_Correlation_Id_And_Transaction_Lifecycle_Traceability.md",
+    "docs\\00320_Policy_Immutable_Request_Response_Payload_Evidence_And_Masking.md",
+    "docs\\00330_Policy_Idempotency_Retry_Timeout_And_Duplicate_External_Handoff.md",
+    "docs\\00340_Policy_POS_Provider_Black_Box_Responsibility_Separation_And_Smoking_Gun_Evidence.md",
+    "docs\\00350 Gateway Handoff Audit Timeline And Provider Dispute Response Policy.md",
+    "docs\\00360 External POS PG VAN Local Daemon And Store Network Failure Boundary Policy.md",
+    "docs\\00370 Gateway Evidence Packet Correlation And Audit Register Policy.md",
+    "docs\\00390 Gateway Integrity Audit Readiness Check And Cross Runtime Handoff Policy.md",
+    "docs\\04470 Financial Grade Security Baseline And Secret Coding Policy.md",
+    "docs\\04480 POS KDS RPC Security And Trust Boundary Policy.md",
+    "docs\\04490 Degraded Security Recovery And Evidence Boundary Policy.md",
+    "docs\\04500 Secret Rotation Exposure Response And Secure Configuration Policy.md",
+    "docs\\04510 CI DI Identity Linkage Data Protection And Leakage Response Policy.md",
+    "docs\\04520 Support Access Masking Break Glass And Scoped Session Policy.md",
+    "docs\\04530 Security Audit Event Immutability And Tamper Evidence Policy.md",
+    "docs\\04540 Device Trust Session Revocation And Store Runtime Access Policy.md",
+    "docs\\04550 Payment Boundary Refund Correction And Settlement Security Policy.md",
+    "docs\\04560 Tenant Store Boundary Isolation And Cross Context Access Policy.md",
+    "docs\\04570 Secure Deployment Environment Separation And Release Gate Policy.md",
+    "docs\\04580 Log Masking Error Disclosure And Diagnostic Data Policy.md",
+    "docs\\04590 Webhook Signature Idempotency Replay And External Integration Security Policy.md",
+    "docs\\04600 Data Export Report Benchmark And External Sharing Security Policy.md",
+    "docs\\04610 AI Analytics Dataset Minimization And Model Output Security Policy.md",
+    "docs\\04620 Security Incident Response Severity Classification And Recovery Governance Policy.md",
+    "docs\\04630 Compliance Readiness Evidence Control And Financial Grade Security Review Policy.md",
+    "docs\\04640 Security Policy Index Readiness Check And Implementation Gate Policy.md",
+    "docs\\04650 Security Review SOP Operational Checklist And Control Owner Policy.md",
+    "docs\\04660 Security Testing Abuse Case Threat Modeling And Verification Policy.md",
+    "docs\\04670 Vulnerability Disclosure Patch Prioritization And Remediation Tracking Policy.md",
+    "docs\\04680 Security Training Role Awareness And Operational Discipline Policy.md",
+    "docs\\04690 Vendor Partner Access Third Party Risk And Integration Review Policy.md",
+    "docs\\04700 Security Foundation Final Index And Next Phase Handoff Policy.md",
+    "docs\\04710 Security Foundation Continuation Register And Open Gap Tracking Policy.md",
+    "docs\\04720 Mobile Draft Google Docs Handoff And PC Directory Import Workflow Policy.md",
+    "docs\\04730 Documentation Completion Roadmap And Implementation Deferral Governance Policy.md",
+    "docs\\04740 Documentation Lane Coverage Matrix And Missing Document Detection Policy.md",
+    "docs\\04750 Documentation File Naming Folder Path And Import Normalization Policy.md",
+    "docs\\04760 Documentation Index Directory Map And Cross Reference Synchronization Policy.md",
+    "docs\\04770 Documentation Duplicate Merge Obsolete Archive And Version Lineage Policy.md",
+    "docs\\04780 Documentation Batch Import Review Report And Commit Discipline Policy.md",
+    "docs\\04790 Documentation Mobile Draft Quality Control And Markdown Copy Safety Policy.md",
+    "docs\\04800 Documentation AI Prompt Library Review Boundary And No Implementation Instruction Policy.md",
+    "docs\\04810 Documentation Readiness Dashboard Status Register And Progress Tracking Policy.md",
+    "docs\\04820 Documentation Governance Final Index And PC Import Preparation Checklist.md",
+    "docs\\04830 Implementation Mapping Lane Start And Policy To Code Constraint Handoff Policy.md",
+    "docs\\04840 Tenant Store Context RLS And Access Control Implementation Mapping Policy.md",
+    "docs\\04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy.md",
+    "docs\\04860 POS KDS RPC Bridge Idempotency Replay Implementation Mapping Policy.md",
+    "docs\\04870 Payment Webhook Refund Settlement And Reconciliation Implementation Mapping Policy.md",
+    "docs\\04880 CI DI Identity Linkage Callback Masking And Leakage Response Implementation Mapping Policy.md",
+    "docs\\04890 Support Access Masking Break Glass And Scoped Session Implementation Mapping Policy.md",
+    "docs\\04900 Device Trust Session Revocation Store Runtime And Lost Device Implementation Mapping Policy.md",
+    "docs\\04910 Local Agent Degraded Recovery Sync Conflict And Manual Evidence Implementation Mapping Policy.md",
+    "docs\\04920 Export Report Benchmark External Sharing And Data Extraction Implementation Mapping Policy.md",
+    "docs\\04930 AI Analytics Dataset Minimization Model Output And Recommendation Boundary Implementation Mapping Policy.md",
+    "docs\\04940 Vendor Partner Access Third Party Risk And External Integration Implementation Mapping Policy.md",
+    "docs\\04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy.md",
+    "docs\\04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy.md",
+    "docs\\04970 Security And Runtime Test Catalog Lane Start And Verification Governance Policy.md",
+    "docs\\04980 Tenant Store RLS Access Control Test Catalog Policy.md",
+    "docs\\04990 Audit Append Only Evidence And Tamper Resistance Test Catalog Policy.md",
+    "docs\\05000 POS KDS RPC Bridge Idempotency Replay Test Catalog Policy.md",
+    "docs\\05010 Payment Webhook Refund Settlement Reconciliation Test Catalog Policy.md"
+  ],
+  "validation_notes": {
+    "utf8": "passed: 104 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: 10 touched files contain Korean text and decoded cleanly; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "git_diff_check": "known stale unstaged-rename artifact: reports old long 10609 tracked paths from Long Path Wave 01, while current filesystem has 0 Markdown paths over 240",
+    "commit": "not staged and not committed"
+  }
+}

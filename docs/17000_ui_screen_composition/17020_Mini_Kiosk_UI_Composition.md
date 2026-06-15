@@ -1,4 +1,4 @@
-# 17020 Mini Kiosk Ui Composition
+# 17020_Mini_Kiosk_UI_Composition
 
 ## 1 Purpose
 
@@ -127,9 +127,9 @@ Menu translation must not change order/payment authority meaning per `13070`.
 
 - `docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md`
 - `docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md`
-- `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
+- `docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md`
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
-- `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 5 Open Decisions
 

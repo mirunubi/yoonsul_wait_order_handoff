@@ -1,4 +1,4 @@
-# 15020 Lightweight Coupon And Stamp Future Model
+# 15020_Lightweight_Coupon_And_Stamp_Future_Model
 
 ## 1 Purpose
 
@@ -66,10 +66,10 @@ Additional risks:
 
 ## 6 Cross-References
 
-- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
-- `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md`
-- `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
-- `docs/20000_validation_security_audit/20010_SaaS_Data_Capture_And_Governance_Principle.md`
+- `docs/15000_membership_loyalty/15010_Boundary_Membership_Loyalty_Product.md`
+- `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md`
+- `docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/20000_validation_security_audit/20010_Governance_SaaS_Data_Capture_And_Principle.md`
 
 ## 7 Open Decisions
 

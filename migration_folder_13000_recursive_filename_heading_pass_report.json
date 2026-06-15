@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-06-15T16:48:38.773886+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/13000_app_api_projection",
+  "files_scanned": 14,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "heading": "# 13010_App_Surface_And_Channel_Projection",
+      "previous": "# 13010 App Surface And Channel Projection"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "heading": "# 13020_Customer_Webapp_Projection",
+      "previous": "# 13020 Customer Webapp Projection"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "heading": "# 13030_Store_Console_Projection",
+      "previous": "# 13030 Store Console Projection"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "heading": "# 13040_Admin_Console_Projection",
+      "previous": "# 13040 Admin Console Projection"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "heading": "# 13090_Surface_To_Authority_Projection_Model",
+      "previous": "# 13090 Surface To Authority Projection Model"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md",
+      "heading": "# 13110_Idempotency_Recovery_And_Audit_Envelope_Projection",
+      "previous": "# 13110 Idempotency Recovery And Audit Envelope Projection"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 59 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 13000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/13000_app_api_projection/13000_Readme_App_Api_Projection.md",
+    "docs/13000_app_api_projection/13050_Boundary_Api_Contract_Projection.md",
+    "docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md",
+    "docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md",
+    "docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md",
+    "docs/13000_app_api_projection/13100_Boundary_Customer_Store_Admin_Api_Group.md",
+    "docs/13000_app_api_projection/13120_Boundary_Integration_Status_Projection.md",
+    "docs/13000_app_api_projection/13130_Boundary_Future_Surface_And_Api_Non_MVP.md"
+  ],
+  "exceptions": [
+    {
+      "file": "docs/13000_app_api_projection/13010_App_Surface_And_Channel_Projection.md",
+      "reason": "no approved DocumentType token (`App` prefix; `Projection` not mapped by meaning)"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13020_Customer_Webapp_Projection.md",
+      "reason": "no approved DocumentType token (`Customer` prefix; `Projection` not mapped by meaning)"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13030_Store_Console_Projection.md",
+      "reason": "no approved DocumentType token (`Store` prefix; `Projection` not mapped by meaning)"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13040_Admin_Console_Projection.md",
+      "reason": "no approved DocumentType token (`Admin` prefix; `Projection` not mapped by meaning)"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md",
+      "reason": "no approved DocumentType token (`Surface` prefix; `Projection`/`Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md",
+      "reason": "no approved DocumentType token (`Idempotency` prefix; `Projection` not mapped by meaning)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 32 verified; section 59 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note updated"
+  ]
+}

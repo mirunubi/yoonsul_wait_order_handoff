@@ -1,4 +1,4 @@
-# 17030 Store Console Ui Composition
+# 17030_Store_Console_UI_Composition
 
 ## 1 Purpose
 
@@ -150,10 +150,10 @@ Conceptual store console controls:
 ## 5 Cross-References
 
 - `docs/13000_app_api_projection/13030_Store_Console_Projection.md`
-- `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
-- `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
-- `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md`
-- `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md`
+- `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 6 Open Decisions
 

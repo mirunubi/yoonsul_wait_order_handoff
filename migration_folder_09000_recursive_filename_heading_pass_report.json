@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-06-15T16:23:15.909869+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/09000_data_model_state_machine",
+  "files_scanned": 12,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "§55 migration pass note added"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 09000 pass"
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "docs/09000_data_model_state_machine/09000_Readme_Data_Model_State_Machine.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09020_Handoff_State_Machine.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md",
+      "reason": "filename and heading already compliant"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09110_Boundary_Future_Profile_And_Analytics_State.md",
+      "reason": "filename and heading already compliant"
+    }
+  ],
+  "compliant_filenames": [
+    "docs/09000_data_model_state_machine/09000_Readme_Data_Model_State_Machine.md",
+    "docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md",
+    "docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md",
+    "docs/09000_data_model_state_machine/09110_Boundary_Future_Profile_And_Analytics_State.md"
+  ],
+  "exceptions": [
+    {
+      "file": "docs/09000_data_model_state_machine/09010_Data_Model_Draft.md",
+      "reason": "no approved DocumentType token (`Data` prefix; `Draft` not mapped by meaning)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09020_Handoff_State_Machine.md",
+      "reason": "no approved DocumentType token (`Handoff` prefix)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md",
+      "reason": "no approved DocumentType token (`Conceptual` prefix)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md",
+      "reason": "no approved DocumentType token (`State` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09070_Context_Entity_Alignment_Model.md",
+      "reason": "no approved DocumentType token (`Context` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md",
+      "reason": "no approved DocumentType token (`Runtime` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md",
+      "reason": "no approved DocumentType token (`Order` prefix)"
+    },
+    {
+      "file": "docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md",
+      "reason": "no approved DocumentType token (`Admin` prefix; embedded `Audit` is not the post-prefix DocumentType)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false
+}

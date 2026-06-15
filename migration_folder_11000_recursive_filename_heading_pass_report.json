@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-06-15T16:39:23.038511+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/11000_integration_boundary",
+  "files_scanned": 42,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/11000_integration_boundary/11070_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md",
+      "heading": "# 11070_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence",
+      "previous": "03540 POS Callback Replay Manual Fallback And Evidence Policy"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11080_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+      "heading": "# 11080_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification",
+      "previous": "# 05170 PAYCO POS Integration Implementation Approach And Official Verification Policy"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11090_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md",
+      "heading": "# 11090_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment",
+      "previous": "# 05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md",
+      "heading": "# 11100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral",
+      "previous": "# 11100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "heading": "# 11110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse",
+      "previous": "# 11110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "heading": "# 11120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary",
+      "previous": "# 11120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "heading": "# 11130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary",
+      "previous": "11130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "heading": "# 11140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary",
+      "previous": "# 11140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md",
+      "heading": "# 11150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel",
+      "previous": "# 11150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "heading": "# 11160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping",
+      "previous": "# 11160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "heading": "# 11170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination",
+      "previous": "# 11170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "heading": "# 11180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface",
+      "previous": "# 11180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "heading": "# 11190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap",
+      "previous": "# 11190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "heading": "# 11200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison",
+      "previous": "# 11200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "heading": "# 11210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping",
+      "previous": "# 11210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11220_Readme_Open_API_Partner_Alliance.md",
+      "heading": "# 11220_Readme_Open_API_Partner_Alliance",
+      "previous": "03300 Open API Partner Alliance Readme"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11230_Readme_Provider_Adapter_Runtime.md",
+      "heading": "# 11230_Readme_Provider_Adapter_Runtime",
+      "previous": "03400 Provider Adapter Runtime Readme"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11240_Readme_External_POS_Integration_Runtime.md",
+      "heading": "# 11240_Readme_External_POS_Integration_Runtime",
+      "previous": "03500 External POS Integration Runtime Readme"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md",
+      "heading": "# 11250_POS_Integration_Module_And_All_POS_Expansion_Strategy",
+      "previous": "03510 POS Integration Module And All-POS Expansion Strategy"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md",
+      "heading": "# 11260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration",
+      "previous": "03520 POS Provider Adapter Contract And Capability Declaration Policy"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md",
+      "heading": "# 11270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency",
+      "previous": "03530 POS Menu Table Order Mapping And Idempotency Policy"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/11000_integration_boundary/11000_Readme_Integration_Boundary.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/11000_integration_boundary/11270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "canonical filename/path refs"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "canonical filename/path refs"
+    }
+  ],
+  "unchanged_count": 21,
+  "exceptions": [
+    {
+      "file": "docs/11000_integration_boundary/11250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md",
+      "reason": "no approved DocumentType token (`POS` prefix; `Strategy` not mapped by meaning)"
+    },
+    {
+      "file": "docs/11000_integration_boundary/04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "reason": "cross-band number `04400` inside `11000` folder (folder-local retention)"
+    },
+    {
+      "file": "docs/11000_integration_boundary/04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "reason": "cross-band number `04410` inside `11000` folder"
+    },
+    {
+      "file": "docs/11000_integration_boundary/04420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "reason": "cross-band number `04420` inside `11000` folder"
+    },
+    {
+      "file": "docs/11000_integration_boundary/04430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "reason": "cross-band number `04430` inside `11000` folder"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 30 rebuilt; section 57 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md tree expanded; directory note added"
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "wave": "duplicate_prefix_resolution_05",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "selected_groups": [
+    {
+      "folder": "docs",
+      "old_prefix": "05410"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05420"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05430"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05440"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05450"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05460"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05470"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05480"
+    }
+  ],
+  "resolved_groups": [
+    {
+      "folder": "docs",
+      "old_prefix": "05410"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05420"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05430"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05440"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05450"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05460"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05470"
+    },
+    {
+      "folder": "docs",
+      "old_prefix": "05480"
+    }
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy.md",
+      "to": "docs/05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md",
+      "old_prefix": "05410",
+      "new_prefix": "05411"
+    },
+    {
+      "from": "docs/05420 Pilot To Paid SaaS Conversion And Early Customer Commitment Policy.md",
+      "to": "docs/05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md",
+      "old_prefix": "05420",
+      "new_prefix": "05421"
+    },
+    {
+      "from": "docs/05430 Early SaaS Customer Success Support Tier And Retention Signal Policy.md",
+      "to": "docs/05431_Policy_Early_SaaS_Customer_Success_Retention.md",
+      "old_prefix": "05430",
+      "new_prefix": "05431"
+    },
+    {
+      "from": "docs/05440 Early SaaS Renewal Upgrade Downgrade And Exit Governance Policy.md",
+      "to": "docs/05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+      "old_prefix": "05440",
+      "new_prefix": "05441"
+    },
+    {
+      "from": "docs/05450 SaaS Churn Reason Taxonomy And Product Pricing Feedback Loop Policy.md",
+      "to": "docs/05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md",
+      "old_prefix": "05450",
+      "new_prefix": "05451"
+    },
+    {
+      "from": "docs/05460 SaaS Pricing Experiment Pilot Discount And Standard Price Transition Policy.md",
+      "to": "docs/05461_Policy_SaaS_Pricing_Experiment_Transition.md",
+      "old_prefix": "05460",
+      "new_prefix": "05461"
+    },
+    {
+      "from": "docs/05470 Mobile Obsidian Git Draft Capture And PC Import Workflow Policy.md",
+      "to": "docs/05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md",
+      "old_prefix": "05470",
+      "new_prefix": "05471"
+    },
+    {
+      "from": "docs/05480 PC Documentation Import Normalization Index And Mobile Inbox Cleanup Policy.md",
+      "to": "docs/05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+      "old_prefix": "05480",
+      "new_prefix": "05481"
+    }
+  ],
+  "moved_files": [],
+  "new_numbers_assigned": [
+    {
+      "old_prefix": "05410",
+      "new_prefix": "05411",
+      "file": "docs/05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md"
+    },
+    {
+      "old_prefix": "05420",
+      "new_prefix": "05421",
+      "file": "docs/05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md"
+    },
+    {
+      "old_prefix": "05430",
+      "new_prefix": "05431",
+      "file": "docs/05431_Policy_Early_SaaS_Customer_Success_Retention.md"
+    },
+    {
+      "old_prefix": "05440",
+      "new_prefix": "05441",
+      "file": "docs/05441_Policy_Early_SaaS_Renewal_Exit_Governance.md"
+    },
+    {
+      "old_prefix": "05450",
+      "new_prefix": "05451",
+      "file": "docs/05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md"
+    },
+    {
+      "old_prefix": "05460",
+      "new_prefix": "05461",
+      "file": "docs/05461_Policy_SaaS_Pricing_Experiment_Transition.md"
+    },
+    {
+      "old_prefix": "05470",
+      "new_prefix": "05471",
+      "file": "docs/05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md"
+    },
+    {
+      "old_prefix": "05480",
+      "new_prefix": "05481",
+      "file": "docs/05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md"
+    }
+  ],
+  "heading_updates": [
+    {
+      "file": "docs/05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md",
+      "old_heading": "# 05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy",
+      "new_heading": "# 05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning"
+    },
+    {
+      "file": "docs/05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md",
+      "old_heading": "# 05420 Pilot To Paid SaaS Conversion And Early Customer Commitment Policy",
+      "new_heading": "# 05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment"
+    },
+    {
+      "file": "docs/05431_Policy_Early_SaaS_Customer_Success_Retention.md",
+      "old_heading": "# 05430 Early SaaS Customer Success Support Tier And Retention Signal Policy",
+      "new_heading": "# 05431_Policy_Early_SaaS_Customer_Success_Retention"
+    },
+    {
+      "file": "docs/05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+      "old_heading": "# 05440 Early SaaS Renewal Upgrade Downgrade And Exit Governance Policy",
+      "new_heading": "# 05441_Policy_Early_SaaS_Renewal_Exit_Governance"
+    },
+    {
+      "file": "docs/05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md",
+      "old_heading": "# 05450 SaaS Churn Reason Taxonomy And Product Pricing Feedback Loop Policy",
+      "new_heading": "# 05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback"
+    },
+    {
+      "file": "docs/05461_Policy_SaaS_Pricing_Experiment_Transition.md",
+      "old_heading": "# 05460 SaaS Pricing Experiment Pilot Discount And Standard Price Transition Policy",
+      "new_heading": "# 05461_Policy_SaaS_Pricing_Experiment_Transition"
+    },
+    {
+      "file": "docs/05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md",
+      "old_heading": "# 05470 Mobile Obsidian Git Draft Capture And PC Import Workflow Policy",
+      "new_heading": "# 05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow"
+    },
+    {
+      "file": "docs/05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+      "old_heading": "# 05480 PC Documentation Import Normalization Index And Mobile Inbox Cleanup Policy",
+      "new_heading": "# 05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "migration_duplicate_prefix_resolution_wave_01_report.json",
+    "migration_duplicate_prefix_resolution_wave_02_report.json",
+    "migration_duplicate_prefix_resolution_wave_03_report.json",
+    "migration_duplicate_prefix_resolution_wave_04_10609_report.json",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.json",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_root_bad_filename_report.json",
+    "migration_precleanup_root_bad_filename_report.md",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "skipped": [
+    {
+      "folder": "docs",
+      "prefix": "05490-05900 root groups",
+      "reason": "remaining root collision series deferred after safe contiguous Wave 05 slice"
+    },
+    {
+      "folder": "docs",
+      "prefix": "groups requiring lane policy",
+      "reason": "not selected because primary/secondary relationship or target lane remains unclear"
+    }
+  ],
+  "remaining_duplicate_prefix_groups": 35,
+  "remaining_duplicate_prefix_group_sample": [
+    {
+      "folder": "docs",
+      "prefix": "05490",
+      "files": [
+        "docs\\05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+        "docs\\05490_POS_Provider_Capability_Profile_And_Readiness_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05500",
+      "files": [
+        "docs\\05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+        "docs\\05500_POS_Provider_Test_Fixture_And_Simulation_Scenario_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05510",
+      "files": [
+        "docs\\05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+        "docs\\05510_POS_Gateway_Operator_Recovery_Console_And_Action_Authority_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05520",
+      "files": [
+        "docs\\05521_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+        "docs\\05520_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05530",
+      "files": [
+        "docs\\05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+        "docs\\05530_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05540",
+      "files": [
+        "docs\\05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+        "docs\\05540_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05550",
+      "files": [
+        "docs\\05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+        "docs\\05550_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05560",
+      "files": [
+        "docs\\05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+        "docs\\05560_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05570",
+      "files": [
+        "docs\\05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+        "docs\\05570_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05580",
+      "files": [
+        "docs\\05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+        "docs\\05580_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05590",
+      "files": [
+        "docs\\05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+        "docs\\05590_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05600",
+      "files": [
+        "docs\\05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+        "docs\\05600_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05610",
+      "files": [
+        "docs\\05611_Policy_Phase_1_Internal_Simulation_Rehearsal.md",
+        "docs\\05610_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05620",
+      "files": [
+        "docs\\05621_Policy_Staff_Only_Dry_Run_Fallback_Training.md",
+        "docs\\05620_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05630",
+      "files": [
+        "docs\\05631_Policy_Limited_Customer_Pilot_Live_Safety.md",
+        "docs\\05630_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05640",
+      "files": [
+        "docs\\05641_Policy_Pilot_Incident_Review_Scope_Adjustment.md",
+        "docs\\05640_Policy_POS_Gateway_Compliance_Readiness.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05650",
+      "files": [
+        "docs\\05651_Policy_Pilot_Learning_Review_Next_Scope.md",
+        "docs\\05650_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05660",
+      "files": [
+        "docs\\05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md",
+        "docs\\05660_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05670",
+      "files": [
+        "docs\\05671_Policy_Early_Paid_SaaS_Churn_Intervention.md",
+        "docs\\05670_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05680",
+      "files": [
+        "docs\\05681_Policy_Standard_SaaS_Customer_Graduation.md",
+        "docs\\05680_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05690",
+      "files": [
+        "docs\\05691_Policy_Multi_Store_Expansion_Onboarding.md",
+        "docs\\05690_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05700",
+      "files": [
+        "docs\\05701_Policy_Multi_Store_Operations_Dashboard.md",
+        "docs\\05700_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05710",
+      "files": [
+        "docs\\05711_Policy_Multi_Store_Support_Queue_Control.md",
+        "docs\\05710_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05790",
+      "files": [
+        "docs\\05791_Index_Multi_Store_Commercial_Governance_Handoff.md",
+        "docs\\05790_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05800",
+      "files": [
+        "docs\\05801_Policy_SaaS_Admin_Console_Lane_Start.md",
+        "docs\\05800_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05810",
+      "files": [
+        "docs\\05811_Policy_SaaS_Admin_Tenant_Store_Directory.md",
+        "docs\\05810_POS_Gateway_Core_Data_Model_Event_Ledger_State_Projection_And_Route_Registry_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05820",
+      "files": [
+        "docs\\05821_Matrix_SaaS_Admin_Role_Permission.md",
+        "docs\\05820_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05830",
+      "files": [
+        "docs\\05831_Policy_SaaS_Admin_Surface_Map_Navigation.md",
+        "docs\\05830_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05840",
+      "files": [
+        "docs\\05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+        "docs\\05840_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05850",
+      "files": [
+        "docs\\05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+        "docs\\05850_POS_Gateway_Callback_Webhook_Provider_Lookup_And_Async_State_Reconciliation_Policy.md"
+      ]
+    }
+  ],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "validation_notes": {
+    "utf8": "passed: 22 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: 1 touched file contains Korean text and decoded cleanly; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "git_diff_check": "known stale unstaged-rename artifact: reports old long 10609 tracked paths from Long Path Wave 01, while current filesystem has 0 Markdown paths over 240",
+    "commit": "not staged and not committed"
+  }
+}

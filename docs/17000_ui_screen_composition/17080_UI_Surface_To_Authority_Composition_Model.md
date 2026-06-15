@@ -1,4 +1,4 @@
-# 17080 UI Surface To Authority Composition Model
+# 17080_UI_Surface_To_Authority_Composition_Model
 
 ## 1 Purpose
 
@@ -51,7 +51,7 @@ It does not approve UI components, routes, or design assets.
 ## 5 Cross-References
 
 - `docs/13000_app_api_projection/13090_Surface_To_Authority_Projection_Model.md`
-- `docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md`
+- `docs/17000_ui_screen_composition/17100_Governance_Action_Button_And_Status_Badge.md`
 - `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md`
 
 ## 6 Open Decisions

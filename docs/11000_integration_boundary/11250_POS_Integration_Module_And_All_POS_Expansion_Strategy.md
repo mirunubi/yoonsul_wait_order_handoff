@@ -1,4 +1,4 @@
-03510 POS Integration Module And All-POS Expansion Strategy
+# 11250_POS_Integration_Module_And_All_POS_Expansion_Strategy
 
 Legacy path: $old.
 
@@ -76,9 +76,9 @@ provider certification contract
 Related documents:
 
 03500\_External\_POS\_Integration\_Runtime\_Readme.md
-03520\_POS\_Provider\_Adapter\_Contract\_And\_Capability\_Declaration\_Policy.md
-03530\_POS\_Menu\_Table\_Order\_Mapping\_And\_Idempotency\_Policy.md
-03540\_POS\_Callback\_Replay\_Manual\_Fallback\_And\_Evidence\_Policy.md
+11260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md
+11270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md
+11070_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md
 03400\_Provider\_Adapter\_Runtime\_Readme.md
 03600\_Billing\_Plan\_Settlement\_Readme.md
 03800\_Native\_All\_In\_One\_Service\_Runtime\_Readme.md

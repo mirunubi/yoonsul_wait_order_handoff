@@ -80,7 +80,7 @@ It does not define SQL, migrations, app code, Supabase functions, RLS, RPC, API 
 - Order candidate/confirmation refinement is defined in `docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md`.
 - Runtime profile/change state ownership is defined in `docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md`.
 - Admin/support/audit lineage is defined in `docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md`.
-- Future profile/analytics state boundary is defined in `docs/09000_data_model_state_machine/09110_Future_Profile_And_Analytics_State_Boundary.md`.
+- Future profile/analytics state boundary is defined in `docs/09000_data_model_state_machine/09110_Boundary_Future_Profile_And_Analytics_State.md`.
 
 ## 8 Open Decisions
 

@@ -1,0 +1,45 @@
+# 40000_Readme_Menu_Taxonomy_And_AI_Classification
+
+## 1 Purpose
+
+This folder defines the menu taxonomy and AI menu classification package.
+
+## 2 In Scope
+
+- AI menu intake parsing and interactive editor.
+- Two-level menu taxonomy and classification.
+- Cuisine and format seed registries.
+- Menu review, option builder, and special sales pattern governance.
+- Legal notice and privacy consent governance related to menu surfaces.
+
+## 3 Relationship Notes
+
+- Documents use folder-local numbers `40003`~`40021` (`40000` readme, `40005` report).
+- `10700_security_trust_and_smart_order_control/` owns security trust and smart-order control only.
+
+## 4 Document List
+
+| document | description |
+| --- | --- |
+| `40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md` | 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary. |
+| `40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md` | 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification. |
+| `40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` | 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary. |
+| `40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md` | 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance. |
+| `40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md` | 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance. |
+| `40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md` | 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance. |
+| `40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md` | 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification. |
+| `40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md` | 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping. |
+| `40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md` | 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention. |
+
+## 5 Current Status
+
+Status: package organized by root markdown rename/move apply wave. Governance only.

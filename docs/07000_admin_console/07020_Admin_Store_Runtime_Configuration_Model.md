@@ -168,7 +168,7 @@ Payment profile must be independent from POS API profile.
 
 ## 7 SaaS Runtime Cross-Reference
 
-Admin store runtime configuration must follow `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`, `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`, and `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
+Admin store runtime configuration must follow `docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md`, `docs/03000_saas_runtime/03040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`, and `docs/03000_saas_runtime/03050_Governance_Runtime_Profile_Change_And_Audit.md`.
 
 Admin visibility does not equal activation authority.
 
@@ -176,9 +176,9 @@ Feature flag change does not equal approval.
 
 ## 7.1 Admin Console Consolidation Cross-Reference
 
-- Runtime profile configuration governance is defined in `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md`.
+- Runtime profile configuration governance is defined in `docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md`.
 - Feature flag approval/emergency disable is defined in `docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`.
-- Runtime profile change/audit must align with `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`.
+- Runtime profile change/audit must align with `docs/03000_saas_runtime/03050_Governance_Runtime_Profile_Change_And_Audit.md`.
 - Admin visibility does not equal activation authority.
 
 ## 8 Open Decisions

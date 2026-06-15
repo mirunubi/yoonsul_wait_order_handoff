@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-06-15T17:32:45.599468+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/22000_implementation_planning",
+  "files_scanned": 47,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 39 rebuilt; section 65 migration note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "22000 tree rebuilt; directory note updated"
+    }
+  ],
+  "unchanged": [
+    "docs/22000_implementation_planning/09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+    "docs/22000_implementation_planning/09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+    "docs/22000_implementation_planning/09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+    "docs/22000_implementation_planning/09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+    "docs/22000_implementation_planning/09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+    "docs/22000_implementation_planning/09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+    "docs/22000_implementation_planning/09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+    "docs/22000_implementation_planning/09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+    "docs/22000_implementation_planning/09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+    "docs/22000_implementation_planning/09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+    "docs/22000_implementation_planning/09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+    "docs/22000_implementation_planning/09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+    "docs/22000_implementation_planning/09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+    "docs/22000_implementation_planning/09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+    "docs/22000_implementation_planning/09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+    "docs/22000_implementation_planning/09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+    "docs/22000_implementation_planning/09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+    "docs/22000_implementation_planning/22000_Implementation_Planning_Readme.md",
+    "docs/22000_implementation_planning/22001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register.md",
+    "docs/22000_implementation_planning/22002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register.md",
+    "docs/22000_implementation_planning/22003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction.md",
+    "docs/22000_implementation_planning/22004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md",
+    "docs/22000_implementation_planning/22005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register.md",
+    "docs/22000_implementation_planning/22006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline.md",
+    "docs/22000_implementation_planning/22007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register.md",
+    "docs/22000_implementation_planning/22008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md",
+    "docs/22000_implementation_planning/22009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md",
+    "docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md",
+    "docs/22000_implementation_planning/22011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md",
+    "docs/22000_implementation_planning/22012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md",
+    "docs/22000_implementation_planning/22013_Policy_Error_Message_Code_Namespace_I18n_And_Recovery_Traceability.md",
+    "docs/22000_implementation_planning/22014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md",
+    "docs/22000_implementation_planning/22015_Policy_Security_Legal_Provider_Review_Gate.md",
+    "docs/22000_implementation_planning/22016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md",
+    "docs/22000_implementation_planning/22017_Policy_I18n_Library_First_Development_And_External_Menu_Translation_Integration.md",
+    "docs/22000_implementation_planning/22018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md",
+    "docs/22000_implementation_planning/22019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md",
+    "docs/22000_implementation_planning/22020_Boundary_Build_Sequence_And_Phase.md",
+    "docs/22000_implementation_planning/22021_Policy_Redtable_Type_Global_Menu_Translation_Payment_Partner_Module.md",
+    "docs/22000_implementation_planning/22022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md",
+    "docs/22000_implementation_planning/22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md",
+    "docs/22000_implementation_planning/22024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md",
+    "docs/22000_implementation_planning/22025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md",
+    "docs/22000_implementation_planning/22030_Checklist_Schema_Design_Readiness.md",
+    "docs/22000_implementation_planning/22040_Checklist_Api_App_Implementation_Readiness.md",
+    "docs/22000_implementation_planning/22050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md",
+    "docs/22000_implementation_planning/22060_Boundary_Mvp_Implementation_Non_Goals.md"
+  ],
+  "unchanged_count": 47,
+  "exceptions": [
+    {
+      "file": "docs/22000_implementation_planning/09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "reason": "cross-band prefix `09330` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "reason": "cross-band prefix `09340` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "reason": "cross-band prefix `09350` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "reason": "cross-band prefix `09360` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "reason": "cross-band prefix `09370` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "reason": "cross-band prefix `09380` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "reason": "cross-band prefix `09390` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "reason": "cross-band prefix `09400` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "reason": "cross-band prefix `09410` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "reason": "cross-band prefix `09420` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "reason": "cross-band prefix `09430` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "reason": "cross-band prefix `09440` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "reason": "cross-band prefix `09450` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "reason": "cross-band prefix `09460` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "reason": "cross-band prefix `09470` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "reason": "cross-band prefix `09480` in 22000 folder"
+    },
+    {
+      "file": "docs/22000_implementation_planning/09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "reason": "cross-band prefix `09490` in 22000 folder"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 39 synced to 47 files; section 65 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md 22000 tree synced to 47 files; directory note updated"
+  ]
+}

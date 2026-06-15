@@ -1,4 +1,4 @@
-01120 Stage 0B Send To Store Request Flow
+# 01220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow
 
 1\. Purpose
 

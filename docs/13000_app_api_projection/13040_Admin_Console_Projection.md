@@ -1,4 +1,4 @@
-# 13040 Admin Console Projection
+# 13040_Admin_Console_Projection
 
 ## 1 Purpose
 
@@ -56,7 +56,7 @@ These actions are projections of governance needs, not implementation tasks.
 
 ## 5 Admin Console Governance Cross-Reference
 
-Admin Console projection must follow `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md` for context navigation, runtime profile configuration, approval/disable, audit review, and support boundary.
+Admin Console projection must follow `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md` for context navigation, runtime profile configuration, approval/disable, audit review, and support boundary.
 
 ## 6 Open Decisions
 

@@ -42,13 +42,13 @@ This document does not define flag storage, admin UI implementation, or automati
 - reactivation must require review.
 - support cannot silently disable on behalf of approval authority.
 
-Aligns with `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md` and `docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md`.
+Aligns with `docs/03000_saas_runtime/03040_Governance_Package_Plan_And_Feature_Flag_Runtime.md` and `docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md`.
 
 ## 5 Cross-References
 
-- `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`
-- `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md`
-- `docs/24000_deployment_operations/24010_Deployment_Readiness_And_Release_Governance.md`
+- `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md`
+- `docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md`
+- `docs/24000_deployment_operations/24010_Governance_Deployment_Readiness_And_Release.md`
 
 ## 6 Open Decisions
 

@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-06-15T18:06:43.975014+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "critical_filename_violations_fixed": [
+    {
+      "from": "docs\\\\05170 PAYCO POS Integration Implementation Approach And Official Verification Policy.md",
+      "to": "docs\\\\05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md"
+    },
+    {
+      "from": "docs\\\\05180 POS Payment Provider Integration Priority Matrix And Openness Assessment Policy.md",
+      "to": "docs\\\\05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md"
+    },
+    {
+      "from": "docs\\\\08100 High Risk Store Operation Foundation Readiness Check And Cross Runtime Handoff.md",
+      "to": "docs\\\\08100_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md"
+    },
+    {
+      "from": "docs\\\\09090 Cross Range Closure Readiness Check And Next Documentation Phase Gate.md",
+      "to": "docs\\\\09095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md"
+    }
+  ],
+  "critical_filename_violations_skipped": [
+    {
+      "file": "docs\\\\Foundation I18n Content Registry SOP Parsing And Multilingual Runtime Policy.md",
+      "reason": "no five-digit prefix; DocumentType/number assignment not mechanically obvious"
+    }
+  ],
+  "root_files_moved_count": 42,
+  "root_files_kept": [
+    "docs\\00000_Project_Overview.md",
+    "docs\\00001_Md_Rules.md",
+    "docs\\00002_Naming_Rules.md",
+    "docs\\00003_Project_Context.md",
+    "docs\\00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+    "docs\\00005_Document_Number_Index.md",
+    "docs\\00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs\\00007_Full_Directory_Map.md",
+    "docs\\00010_Wait_Order_Project_Overview.md",
+    "docs\\00015_Korean_Document_And_Encoding_Safety_Rules.md",
+    "docs\\00020_Store_Capability_Stage_0_To_5_Module_Policy.md",
+    "docs\\00030_Runtime_Boundary.md",
+    "docs\\00040_Operation_Patterns_For_KDS_And_Mini_Runtime.md",
+    "docs\\00050_Deployment_Mode_Model.md",
+    "docs\\00080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md",
+    "docs\\00099_Docs_Governance_Checklist.md",
+    "docs\\Foundation I18n Content Registry SOP Parsing And Multilingual Runtime Policy.md"
+  ],
+  "headings_fixed_count": 139,
+  "headings_remaining_mismatch": 0,
+  "index_00005_rebuilt_count": 1053,
+  "dirmap_00007_rebuilt_count": 1054,
+  "remaining_unapproved_document_type_count": 79,
+  "remaining_cross_band_folder_count": 9,
+  "duplicate_prefix_groups": [
+    {
+      "folder": "docs\\08000_ai_customer_center",
+      "prefix": "08000",
+      "files": [
+        "08000_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md",
+        "08000_Readme_AI_Customer_Center.md"
+      ]
+    },
+    {
+      "folder": "docs\\08000_ai_customer_center",
+      "prefix": "08100",
+      "files": [
+        "08100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md",
+        "08100_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md"
+      ]
+    }
+  ],
+  "paths_over_220": [],
+  "paths_over_240": [],
+  "utf8_and_korean": {
+    "utf8_failures": 0,
+    "files_with_korean_body": 172
+  },
+  "code_touched": false,
+  "staged_or_committed": false
+}

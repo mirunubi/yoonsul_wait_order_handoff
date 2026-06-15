@@ -1,4 +1,4 @@
-# 20070 Audit Evidence And Compliance Record Model
+# 20070_Audit_Evidence_And_Compliance_Record_Model
 
 ## 1 Purpose
 
@@ -76,7 +76,7 @@ Compliance records may support:
 
 ## 6 Operations Evidence Cross-Reference
 
-Runtime support and incident operation evidence must follow `docs/24000_deployment_operations/24020_Runtime_Operations_And_Support_Boundary.md` and `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`.
+Runtime support and incident operation evidence must follow `docs/24000_deployment_operations/24020_Boundary_Runtime_Operations_And_Support.md` and `docs/24000_deployment_operations/24030_Boundary_Incident_Response_And_Degraded_Operation.md`.
 
 Runbook-driven actions must still generate audit evidence per this document.
 

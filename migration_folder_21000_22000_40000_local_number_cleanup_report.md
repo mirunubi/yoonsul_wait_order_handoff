@@ -1,0 +1,105 @@
+# Migration Folder 21000/22000/40000 Local Number Cleanup Report
+
+Generated: 2026-06-15T17:54:00.719313+00:00
+
+## Summary
+
+- **Files scanned:** 99
+- **Files renumbered:** 66
+- **Headings updated:** 66
+- **Reference files updated:** 74
+- **Exceptions:** 2
+- **00005 updated:** True
+- **00007 updated:** True
+
+## Per Folder
+
+- `docs/21000_financial_security_monitoring_catalog`: scanned 32, renumbered 31
+- `docs/22000_implementation_planning`: scanned 47, renumbered 17
+- `docs/40000_menu_taxonomy_and_ai_classification`: scanned 20, renumbered 18
+
+## Renumbered
+
+- `docs\21000_financial_security_monitoring_catalog\09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md` → `docs\21000_financial_security_monitoring_catalog\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md` (`09500` → `21500`)
+- `docs\21000_financial_security_monitoring_catalog\09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md` → `docs\21000_financial_security_monitoring_catalog\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md` (`09510` → `21510`)
+- `docs\21000_financial_security_monitoring_catalog\09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md` → `docs\21000_financial_security_monitoring_catalog\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md` (`09520` → `21520`)
+- `docs\21000_financial_security_monitoring_catalog\09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md` → `docs\21000_financial_security_monitoring_catalog\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md` (`09530` → `21530`)
+- `docs\21000_financial_security_monitoring_catalog\09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md` (`09540` → `21540`)
+- `docs\21000_financial_security_monitoring_catalog\09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md` → `docs\21000_financial_security_monitoring_catalog\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md` (`09550` → `21550`)
+- `docs\21000_financial_security_monitoring_catalog\09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md` → `docs\21000_financial_security_monitoring_catalog\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md` (`09560` → `21560`)
+- `docs\21000_financial_security_monitoring_catalog\09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md` → `docs\21000_financial_security_monitoring_catalog\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md` (`09570` → `21570`)
+- `docs\21000_financial_security_monitoring_catalog\09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md` → `docs\21000_financial_security_monitoring_catalog\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md` (`09580` → `21580`)
+- `docs\21000_financial_security_monitoring_catalog\09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md` → `docs\21000_financial_security_monitoring_catalog\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md` (`09590` → `21590`)
+- `docs\21000_financial_security_monitoring_catalog\09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md` → `docs\21000_financial_security_monitoring_catalog\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md` (`09600` → `21600`)
+- `docs\21000_financial_security_monitoring_catalog\09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md` → `docs\21000_financial_security_monitoring_catalog\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md` (`09610` → `21610`)
+- `docs\21000_financial_security_monitoring_catalog\09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md` → `docs\21000_financial_security_monitoring_catalog\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md` (`09620` → `21620`)
+- `docs\21000_financial_security_monitoring_catalog\09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md` → `docs\21000_financial_security_monitoring_catalog\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md` (`09630` → `21630`)
+- `docs\21000_financial_security_monitoring_catalog\09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md` (`09631` → `21631`)
+- `docs\21000_financial_security_monitoring_catalog\09632_Index_Containment_Status_And_Trigger_Map_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md` (`09632` → `21632`)
+- `docs\21000_financial_security_monitoring_catalog\09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md` (`09633` → `21633`)
+- `docs\21000_financial_security_monitoring_catalog\09634_Index_Security_Control_Records_And_Security_Class_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md` (`09634` → `21634`)
+- `docs\21000_financial_security_monitoring_catalog\09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md` (`09635` → `21635`)
+- `docs\21000_financial_security_monitoring_catalog\09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md` → `docs\21000_financial_security_monitoring_catalog\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md` (`09636` → `21636`)
+- `docs\21000_financial_security_monitoring_catalog\09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md` → `docs\21000_financial_security_monitoring_catalog\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md` (`09637` → `21637`)
+- `docs\21000_financial_security_monitoring_catalog\09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md` → `docs\21000_financial_security_monitoring_catalog\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md` (`09638` → `21638`)
+- `docs\21000_financial_security_monitoring_catalog\09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md` (`09639` → `21639`)
+- `docs\21000_financial_security_monitoring_catalog\09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md` (`09640` → `21640`)
+- `docs\21000_financial_security_monitoring_catalog\09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md` (`09641` → `21641`)
+- `docs\21000_financial_security_monitoring_catalog\09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md` → `docs\21000_financial_security_monitoring_catalog\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md` (`09642` → `21642`)
+- `docs\21000_financial_security_monitoring_catalog\09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md` → `docs\21000_financial_security_monitoring_catalog\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md` (`09643` → `21643`)
+- `docs\21000_financial_security_monitoring_catalog\09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md` → `docs\21000_financial_security_monitoring_catalog\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md` (`09644` → `21644`)
+- `docs\21000_financial_security_monitoring_catalog\09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md` → `docs\21000_financial_security_monitoring_catalog\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md` (`09645` → `21645`)
+- `docs\21000_financial_security_monitoring_catalog\09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md` → `docs\21000_financial_security_monitoring_catalog\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md` (`09646` → `21646`)
+- `docs\21000_financial_security_monitoring_catalog\09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md` → `docs\21000_financial_security_monitoring_catalog\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md` (`09650` → `21650`)
+- `docs\22000_implementation_planning\09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md` → `docs\22000_implementation_planning\22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md` (`09330` → `22330`)
+- `docs\22000_implementation_planning\09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md` → `docs\22000_implementation_planning\22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md` (`09340` → `22340`)
+- `docs\22000_implementation_planning\09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md` → `docs\22000_implementation_planning\22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md` (`09350` → `22350`)
+- `docs\22000_implementation_planning\09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md` → `docs\22000_implementation_planning\22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md` (`09360` → `22360`)
+- `docs\22000_implementation_planning\09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md` → `docs\22000_implementation_planning\22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md` (`09370` → `22370`)
+- `docs\22000_implementation_planning\09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md` → `docs\22000_implementation_planning\22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md` (`09380` → `22380`)
+- `docs\22000_implementation_planning\09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md` → `docs\22000_implementation_planning\22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md` (`09390` → `22390`)
+- `docs\22000_implementation_planning\09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md` → `docs\22000_implementation_planning\22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md` (`09400` → `22400`)
+- `docs\22000_implementation_planning\09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md` → `docs\22000_implementation_planning\22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md` (`09410` → `22410`)
+- `docs\22000_implementation_planning\09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md` → `docs\22000_implementation_planning\22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md` (`09420` → `22420`)
+- `docs\22000_implementation_planning\09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md` → `docs\22000_implementation_planning\22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md` (`09430` → `22430`)
+- `docs\22000_implementation_planning\09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md` → `docs\22000_implementation_planning\22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md` (`09440` → `22440`)
+- `docs\22000_implementation_planning\09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md` → `docs\22000_implementation_planning\22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md` (`09450` → `22450`)
+- `docs\22000_implementation_planning\09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md` → `docs\22000_implementation_planning\22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md` (`09460` → `22460`)
+- `docs\22000_implementation_planning\09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md` → `docs\22000_implementation_planning\22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md` (`09470` → `22470`)
+- `docs\22000_implementation_planning\09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md` → `docs\22000_implementation_planning\22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md` (`09480` → `22480`)
+- `docs\22000_implementation_planning\09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md` → `docs\22000_implementation_planning\22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md` (`09490` → `22490`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md` (`10703` → `40003`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md` → `docs\40000_menu_taxonomy_and_ai_classification\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md` (`10704` → `40004`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10705` → `40006`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10706` → `40007`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10707` → `40008`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10708` → `40009`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10709` → `40010`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10710` → `40011`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10711` → `40012`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10712` → `40013`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10713` → `40014`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` → `docs\40000_menu_taxonomy_and_ai_classification\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` (`10714` → `40015`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md` → `docs\40000_menu_taxonomy_and_ai_classification\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md` (`10715` → `40016`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md` → `docs\40000_menu_taxonomy_and_ai_classification\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md` (`10716` → `40017`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md` → `docs\40000_menu_taxonomy_and_ai_classification\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md` (`10717` → `40018`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md` → `docs\40000_menu_taxonomy_and_ai_classification\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md` (`10718` → `40019`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md` → `docs\40000_menu_taxonomy_and_ai_classification\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md` (`10719` → `40020`)
+- `docs\40000_menu_taxonomy_and_ai_classification\10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md` → `docs\40000_menu_taxonomy_and_ai_classification\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md` (`10720` → `40021`)
+
+## Exceptions
+
+- `docs\21000_financial_security_monitoring_catalog\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md` — no approved DocumentType token (`Financial-Grade` prefix); renumbered but filename retained
+- `docs\21000_financial_security_monitoring_catalog\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md` — no approved DocumentType token (`Patent` prefix); renumbered but filename retained
+
+## Path Length
+
+- Paths >220: 0
+- Paths >240: 0
+
+## Safety
+
+- UTF-8 valid; Korean body text not edited
+- No code/SQL/Flutter/migrations touched
+- Nothing staged or committed
+

@@ -1,4 +1,4 @@
-# 20230 Policy Change And Configuration Audit Governance
+# 20230_Policy_Change_And_Configuration_Audit_Governance
 
 ## 1 Purpose
 
@@ -47,7 +47,7 @@ Out of scope:
 - support operators may assist but do not approve policy changes.
 - customer-facing behavior changes require extra review beyond technical config change.
 
-Aligns with `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md` at admin console level.
+Aligns with `docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md` at admin console level.
 
 ## 5 Pre-Change Review Requirements
 
@@ -91,9 +91,9 @@ Aligns with `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_
 
 ## 10 Cross-References
 
-- `docs/20000_validation_security_audit/20220_Admin_Console_Action_Safety_Governance.md`
+- `docs/20000_validation_security_audit/20220_Governance_Admin_Console_Action_Safety.md`
 - `docs/09000_data_model_state_machine/09080_Runtime_Profile_And_Change_Request_Entity_Model.md`
-- `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`
+- `docs/24000_deployment_operations/24030_Boundary_Incident_Response_And_Degraded_Operation.md`
 
 ## 11 Open Decisions
 

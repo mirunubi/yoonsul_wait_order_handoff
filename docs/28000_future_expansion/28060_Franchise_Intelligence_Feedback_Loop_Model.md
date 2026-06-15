@@ -1,4 +1,4 @@
-# 28060 Franchise Intelligence Feedback Loop Model
+# 28060_Franchise_Intelligence_Feedback_Loop_Model
 
 ## 1 Purpose
 
@@ -66,7 +66,7 @@ Future feedback loops require:
 - It does not create automatic feature flag/package/config mutation.
 - Analytics insight does not equal execution.
 - Recommendation does not equal runtime mutation.
-- Any future feedback loop must pass `docs/26000_analytics_reporting_bi/26050_Analytics_To_Action_Governance.md` and `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md` readiness gates.
+- Any future feedback loop must pass `docs/26000_analytics_reporting_bi/26050_Governance_Analytics_To_Action.md` and `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md` readiness gates.
 
 ## 7 Open Decisions
 

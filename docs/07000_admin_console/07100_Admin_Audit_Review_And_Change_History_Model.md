@@ -49,10 +49,10 @@ It does not define audit storage schema or export runtime.
 
 ## 5 Cross-References
 
-- `docs/07000_admin_console/07060_Admin_Audit_And_Recovery_Queue_Governance.md`
+- `docs/07000_admin_console/07060_Governance_Admin_Audit_And_Recovery_Queue.md`
 - `docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md`
-- `docs/03000_saas_runtime/03050_Runtime_Profile_Change_And_Audit_Governance.md`
-- `docs/20000_validation_security_audit/20050_Data_Export_And_Report_Approval_Governance.md`
+- `docs/03000_saas_runtime/03050_Governance_Runtime_Profile_Change_And_Audit.md`
+- `docs/20000_validation_security_audit/20050_Governance_Data_Export_And_Report_Approval.md`
 
 ## 6 Open Decisions
 

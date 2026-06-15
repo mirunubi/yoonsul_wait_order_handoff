@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-06-15T15:42:07.266127+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/01000_mvp_scope",
+  "files_scanned": 33,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md"
+  ],
+  "00005_updated": true,
+  "00007_updated": true,
+  "files_unchanged": [
+    {
+      "file": "docs/01000_mvp_scope/01000_Readme_MVP_Scope.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01040_Matrix_MVP_Active_Optional_Future_NonGoal.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01100_Policy_CatchMenu_I18n_Order_Request_Translation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01110_Policy_CatchMenu_Module_Option_And_Product_Package.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01120_Policy_CatchMenu_Adoption_And_Expansion_Path.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01190_Evidence_Stage_0_Support_Signal_And_Packet.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01290_Implementation_Stage_0_MVP_Cutline.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01299_Index_Stage_0_And_Readiness_Check.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    }
+  ],
+  "exceptions_remembered_for_later": [
+    {
+      "file": "docs/01000_mvp_scope/01010_MVP_Scope.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01030_Competitive_Positioning_And_Market_Context.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01070_CatchMenu_Service_Concept.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01100_Policy_CatchMenu_I18n_Order_Request_Translation.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01110_Policy_CatchMenu_Module_Option_And_Product_Package.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01120_Policy_CatchMenu_Adoption_And_Expansion_Path.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01180_Stage_0_Translation_And_Critical_Request_Handling.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01190_Evidence_Stage_0_Support_Signal_And_Packet.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01260_CatchMenu_POS_Less_Request_State_Transition_Guard.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01290_Implementation_Stage_0_MVP_Cutline.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/01000_mvp_scope/01299_Index_Stage_0_And_Readiness_Check.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    }
+  ],
+  "duplicate_prefix_groups_in_this_folder": [],
+  "markdown_paths_over_240": [],
+  "markdown_paths_over_220": [],
+  "utf8_validation": "pass_with_known_exceptions",
+  "repo_wide_utf8_exceptions": [
+    {
+      "path": "docs/directory_tree.txt",
+      "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+    }
+  ],
+  "korean_readability": "pass",
+  "implementation_code_files_touched": [],
+  "sql_migration_flutter_code_files_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "notes": [
+    "Only docs/01000_mvp_scope was recursively processed. No full document body semantic review was performed."
+  ],
+  "git_diff_check": "exit_0_with_pre_existing_old_path_filename_too_long_messages_from_unstaged_10609_renames"
+}

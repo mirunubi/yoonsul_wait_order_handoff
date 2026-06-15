@@ -1,0 +1,500 @@
+{
+  "generated_at": "2026-06-15T15:38:21.020058+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/00100_project_foundation",
+  "files_scanned": 43,
+  "files_renamed": [
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04720_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04721_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04730_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04731_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04740_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04741_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04750_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04751_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04760_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04761_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04770_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04771_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04780_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04781_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04790_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04791_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04800_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04801_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04810_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04811_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04820_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04821_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "reason": "folder recursive filename normalization"
+    }
+  ],
+  "files_renumbered": [
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04720_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "old_number": "04720",
+      "new_number": "00459"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04721_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "old_number": "04721",
+      "new_number": "00460"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04730_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "old_number": "04730",
+      "new_number": "00461"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04731_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "old_number": "04731",
+      "new_number": "00462"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04740_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "old_number": "04740",
+      "new_number": "00463"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04741_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "old_number": "04741",
+      "new_number": "00464"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04750_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "old_number": "04750",
+      "new_number": "00465"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04751_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "old_number": "04751",
+      "new_number": "00466"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04760_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "old_number": "04760",
+      "new_number": "00467"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04761_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "old_number": "04761",
+      "new_number": "00468"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04770_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "old_number": "04770",
+      "new_number": "00469"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04771_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "old_number": "04771",
+      "new_number": "00470"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04780_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "old_number": "04780",
+      "new_number": "00471"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04781_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "old_number": "04781",
+      "new_number": "00472"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04790_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "old_number": "04790",
+      "new_number": "00473"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04791_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "old_number": "04791",
+      "new_number": "00474"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04800_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "old_number": "04800",
+      "new_number": "00475"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04801_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "old_number": "04801",
+      "new_number": "00476"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04810_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "old_number": "04810",
+      "new_number": "00477"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04811_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "old_number": "04811",
+      "new_number": "00478"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04820_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "old_number": "04820",
+      "new_number": "00479"
+    },
+    {
+      "from": "docs/00100_project_foundation/00450_documentation_governance/04821_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "to": "docs/00100_project_foundation/00450_documentation_governance/00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "old_number": "04821",
+      "new_number": "00480"
+    }
+  ],
+  "headings_updated": [
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "heading": "00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "heading": "00462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "heading": "00464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "heading": "00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "heading": "00468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "heading": "00470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "heading": "00472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "heading": "00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "heading": "00476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "heading": "00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "heading": "00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation"
+    }
+  ],
+  "references_updated": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00450_Readme_Documentation_Governance.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+    "docs/00100_project_foundation/00450_documentation_governance/00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md"
+  ],
+  "00005_updated": true,
+  "00007_updated": true,
+  "files_unchanged": [
+    {
+      "file": "docs/00100_project_foundation/00100_Readme_Project_Foundation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00130_Boundary_Non_Implementation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00140_Readme_Organization_Core.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00160_Policy_Internal_Team_Role_And_Responsibility.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00170_Policy_Merchant_Account_Company_And_Store_Context.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00180_Policy_Operator_Assignment_And_Backup_Responsibility.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00210_Index_Organization_Core_And_Readiness_Check.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00450_Readme_Documentation_Governance.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00451_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00452_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00453_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00454_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00455_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00456_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00457_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00458_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    }
+  ],
+  "exceptions_remembered_for_later": [
+    {
+      "file": "docs/00100_project_foundation/00110_Project_Identity_And_Overview.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/00100_project_foundation/00120_BM_Patent_Linkage.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/00100_project_foundation/00140_Readme_Organization_Core.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00160_Policy_Internal_Team_Role_And_Responsibility.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00170_Policy_Merchant_Account_Company_And_Store_Context.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00180_Policy_Operator_Assignment_And_Backup_Responsibility.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00200_Organization_Core_MVP_Cutline.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/00100_project_foundation/00210_Index_Organization_Core_And_Readiness_Check.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/00100_project_foundation/00450_documentation_governance/00479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    }
+  ],
+  "duplicate_prefix_groups_in_this_folder": [],
+  "markdown_paths_over_240": [],
+  "markdown_paths_over_220": [],
+  "utf8_validation": "pass_with_known_exceptions",
+  "repo_wide_utf8_exceptions": [
+    {
+      "path": "docs/directory_tree.txt",
+      "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+    }
+  ],
+  "korean_readability": "pass",
+  "implementation_code_files_touched": [],
+  "sql_migration_flutter_code_files_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "notes": [
+    "Only docs/00100_project_foundation was recursively processed. No full document body semantic review was performed."
+  ],
+  "git_diff_check": "exit_0_with_pre_existing_old_path_filename_too_long_messages_from_unstaged_10609_renames"
+}

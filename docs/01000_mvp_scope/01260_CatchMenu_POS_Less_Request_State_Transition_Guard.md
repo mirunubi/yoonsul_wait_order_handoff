@@ -1,4 +1,4 @@
-01160 Stage 0 Request State Transition Guard
+# 01260_CatchMenu_POS_Less_Request_State_Transition_Guard
 
 1\. Purpose
 

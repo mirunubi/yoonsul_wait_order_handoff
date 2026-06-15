@@ -1,4 +1,4 @@
-# 13090 Surface To Authority Projection Model
+# 13090_Surface_To_Authority_Projection_Model
 
 ## 1 Purpose
 
@@ -50,15 +50,15 @@ It does not approve app implementation, auth middleware, or permission schema.
 ## 5 UI Composition Cross-Reference
 
 - UI surface-to-authority composition is refined in `docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md`.
-- UI button/status governance is defined in `docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md`.
+- UI button/status governance is defined in `docs/17000_ui_screen_composition/17100_Governance_Action_Button_And_Status_Badge.md`.
 - Surface projection does not create UI implementation.
 
 ## 6 Cross-References
 
-- `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
-- `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
+- `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md`
 - `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md`
-- `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`
+- `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`
 
 ## 7 Open Decisions
 

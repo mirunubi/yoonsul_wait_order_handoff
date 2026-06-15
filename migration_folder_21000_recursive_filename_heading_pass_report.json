@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-06-15T17:29:53.518956+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/21000_financial_security_monitoring_catalog",
+  "files_scanned": 32,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "heading": "# 09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map",
+      "previous": "# 09630 Financial-Grade Security Monitoring Foundation Catalog Execution Plan And Artifact Map"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "heading": "# 09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map",
+      "previous": "# 09644 Patent Security Monitoring Architecture Summary And Claim Support Feature Map"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 64 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 21000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/21000_financial_security_monitoring_catalog/09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+    "docs/21000_financial_security_monitoring_catalog/09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+    "docs/21000_financial_security_monitoring_catalog/09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+    "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+    "docs/21000_financial_security_monitoring_catalog/09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+    "docs/21000_financial_security_monitoring_catalog/09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+    "docs/21000_financial_security_monitoring_catalog/09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+    "docs/21000_financial_security_monitoring_catalog/09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+    "docs/21000_financial_security_monitoring_catalog/09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+    "docs/21000_financial_security_monitoring_catalog/09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+    "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+    "docs/21000_financial_security_monitoring_catalog/09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+    "docs/21000_financial_security_monitoring_catalog/09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+    "docs/21000_financial_security_monitoring_catalog/09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+    "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+    "docs/21000_financial_security_monitoring_catalog/09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+    "docs/21000_financial_security_monitoring_catalog/09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+    "docs/21000_financial_security_monitoring_catalog/09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+    "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+    "docs/21000_financial_security_monitoring_catalog/09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+    "docs/21000_financial_security_monitoring_catalog/21000_Readme_Financial_Security_Monitoring_Catalog.md"
+  ],
+  "unchanged_count": 30,
+  "exceptions": [
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "reason": "no approved DocumentType token (`Financial-Grade` prefix; `Plan` not mapped by meaning); kebab-case segment retained as exception"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "reason": "no approved DocumentType token (`Patent` prefix)"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "reason": "cross-band prefix `09500` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "reason": "cross-band prefix `09510` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "reason": "cross-band prefix `09520` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "reason": "cross-band prefix `09530` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "reason": "cross-band prefix `09540` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "reason": "cross-band prefix `09550` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "reason": "cross-band prefix `09560` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "reason": "cross-band prefix `09570` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "reason": "cross-band prefix `09580` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "reason": "cross-band prefix `09590` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "reason": "cross-band prefix `09600` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "reason": "cross-band prefix `09610` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "reason": "cross-band prefix `09620` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "reason": "cross-band prefix `09630` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "reason": "cross-band prefix `09631` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "reason": "cross-band prefix `09632` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "reason": "cross-band prefix `09633` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "reason": "cross-band prefix `09634` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "reason": "cross-band prefix `09635` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "reason": "cross-band prefix `09636` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "reason": "cross-band prefix `09637` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "reason": "cross-band prefix `09638` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "reason": "cross-band prefix `09639` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "reason": "cross-band prefix `09640` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "reason": "cross-band prefix `09641` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "reason": "cross-band prefix `09642` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "reason": "cross-band prefix `09643` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "reason": "cross-band prefix `09644` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "reason": "cross-band prefix `09645` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "reason": "cross-band prefix `09646` in 21000 folder"
+    },
+    {
+      "file": "docs/21000_financial_security_monitoring_catalog/09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "reason": "cross-band prefix `09650` in 21000 folder"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 38 verified; section 64 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note updated"
+  ],
+  "cross_band_count": 31
+}

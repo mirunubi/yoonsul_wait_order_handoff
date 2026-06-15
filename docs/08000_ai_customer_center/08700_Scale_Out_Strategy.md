@@ -1,4 +1,4 @@
-08700 Scale Out Strategy
+# 08700_Scale_Out_Strategy
 
 1\. Purpose
 

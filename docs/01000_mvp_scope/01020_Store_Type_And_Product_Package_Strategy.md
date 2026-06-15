@@ -1,4 +1,4 @@
-# 01020 Store Type And Product Package Strategy
+# 01020_Store_Type_And_Product_Package_Strategy
 
 ## 1 Overall Direction
 
@@ -252,7 +252,7 @@ This document is development design only. It does not create SQL, migrations, ap
 ## 12 MVP Consolidation Cross-Reference
 
 - Store-type adoption sequence is consolidated in `docs/01000_mvp_scope/01060_MVP_Store_Type_Adoption_Sequence.md`.
-- Package/feature flag boundary is consolidated in `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`.
+- Package/feature flag boundary is consolidated in `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md`.
 - Full OS and platform payment remain non-default MVP paths.
 
 ## 13 Runtime Model Cross-Reference

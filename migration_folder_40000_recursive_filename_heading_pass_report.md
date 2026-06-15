@@ -1,0 +1,68 @@
+# Migration Folder 40000 Recursive Filename And Heading Pass Report
+
+Generated: 2026-06-15T17:48:08.603349+00:00
+
+## Summary
+
+- **Scanned:** 20
+- **Renamed:** 0
+- **Renumbered:** 0
+- **Headings updated:** 0
+- **Reference files updated:** 0
+- **Governance files updated:** 2
+- **Unchanged:** 2
+- **Exceptions:** 18
+
+## Headings Updated
+
+_None — all first headings already match filename stems._
+
+## References Updated
+
+_None — no in-folder exact path/filename reference changes required._
+
+## Exceptions (not renamed / renumbered)
+
+- `docs\40000_menu_taxonomy_and_ai_classification\10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md` — cross-band prefix `10703` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md` — cross-band prefix `10704` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10705` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10706` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10707` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10708` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10709` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10710` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10711` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10712` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10713` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md` — cross-band prefix `10714` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md` — cross-band prefix `10715` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md` — cross-band prefix `10716` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md` — cross-band prefix `10717` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md` — cross-band prefix `10718` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md` — cross-band prefix `10719` in 40000 folder
+- `docs\40000_menu_taxonomy_and_ai_classification\10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md` — cross-band prefix `10720` in 40000 folder; cross-package collision with `10000/10720_legal_notice_sop_and_regulatory_control/10720_Readme_Legal_Notice_SOP_And_Regulatory_Control.md`
+
+## Unchanged (folder-local compliant)
+
+- `docs\40000_menu_taxonomy_and_ai_classification\40000_Readme_Menu_Taxonomy_And_AI_Classification.md`
+- `docs\40000_menu_taxonomy_and_ai_classification\40005_Report_Menu_Taxonomy_Wave_5_Review.md`
+
+## Duplicate Prefix Groups
+
+_None — all five-digit prefixes are unique._
+
+## Path Length
+
+- Paths >220 chars: 0
+- Paths >240 chars: 0
+
+## UTF-8 And Korean
+
+- UTF-8 valid: True
+- Korean body text: not edited
+
+## Safety
+
+- No code/SQL/Flutter/migrations touched
+- Nothing staged or committed
+

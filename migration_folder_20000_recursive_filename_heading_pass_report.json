@@ -1,0 +1,749 @@
+{
+  "generated_at": "2026-06-15T17:09:40.284607+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/20000_validation_security_audit",
+  "files_scanned": 95,
+  "files_renamed": [
+    {
+      "from": "docs/20000_validation_security_audit/20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md",
+      "to": "docs/20000_validation_security_audit/20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md",
+      "reason": "drop trailing DocumentType token _Policy from Audit document"
+    }
+  ],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/20000_validation_security_audit/04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "heading": "# 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+      "previous": "# 04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "heading": "# 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+      "previous": "# 04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "heading": "# 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+      "previous": "# 04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "heading": "# 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+      "previous": "# 04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "heading": "# 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+      "previous": "# 04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "heading": "# 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+      "previous": "# 04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "heading": "# 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+      "previous": "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "heading": "# 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+      "previous": "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "heading": "# 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+      "previous": "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "heading": "# 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+      "previous": "# 04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "heading": "# 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+      "previous": "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "heading": "# 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+      "previous": "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "heading": "# 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+      "previous": "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "heading": "# 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+      "previous": "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "heading": "# 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+      "previous": "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "heading": "# 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+      "previous": "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "heading": "# 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+      "previous": "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "heading": "# 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate",
+      "previous": "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "heading": "# 04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner",
+      "previous": "04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "heading": "# 04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification",
+      "previous": "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "heading": "# 04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking",
+      "previous": "04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "heading": "# 04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline",
+      "previous": "04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "heading": "# 04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review",
+      "previous": "04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "heading": "# 04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff",
+      "previous": "04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "heading": "# 04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking",
+      "previous": "04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20300_Readme_Identity_Access.md",
+      "heading": "# 20300_Readme_Identity_Access",
+      "previous": "00400 Identity Access Readme"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20310_Policy_User_Account_And_Login.md",
+      "heading": "# 20310_Policy_User_Account_And_Login",
+      "previous": "00410 User Account And Login Policy"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20320_Policy_Role_Permission_And_Scope.md",
+      "heading": "# 20320_Policy_Role_Permission_And_Scope",
+      "previous": "00420 Role Permission And Scope Policy"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20330_Policy_Merchant_User_And_Store_Access.md",
+      "heading": "# 20330_Policy_Merchant_User_And_Store_Access",
+      "previous": "00430 Merchant User And Store Access Policy"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20340_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "heading": "# 20340_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation",
+      "previous": "04460 POS Webhook Signature Secret Rotation And Credential Isolation Policy"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20350_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "heading": "# 20350_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+      "previous": "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md",
+      "heading": "# 20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping",
+      "previous": "04851_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/20000_validation_security_audit/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate -> 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate"
+      ]
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate -> 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate"
+      ]
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate -> 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate",
+        "04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner -> 04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner",
+        "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification -> 04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification",
+        "04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking -> 04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking",
+        "04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline -> 04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline",
+        "04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review -> 04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review",
+        "04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff -> 04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff"
+      ]
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate -> 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate",
+        "04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner -> 04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner",
+        "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification -> 04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification",
+        "04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking -> 04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking",
+        "04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline -> 04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline",
+        "04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review -> 04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review",
+        "04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff -> 04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff"
+      ]
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate -> 04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate",
+        "04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner -> 04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner",
+        "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification -> 04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification",
+        "04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking -> 04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking",
+        "04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline -> 04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline",
+        "04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review -> 04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review",
+        "04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff -> 04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff",
+        "04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking -> 04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04851_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy -> 20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping",
+        "20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md -> 20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md"
+      ]
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md",
+      "replacements": [
+        "04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding -> 04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding",
+        "04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary -> 04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary",
+        "04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary -> 04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary",
+        "04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration -> 04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration",
+        "04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response -> 04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response",
+        "04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session -> 04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session",
+        "04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence -> 04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence",
+        "04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access -> 04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access",
+        "04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security -> 04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security",
+        "04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access -> 04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access",
+        "04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate -> 04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate",
+        "04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data -> 04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data",
+        "04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security -> 04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security",
+        "04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security -> 04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security",
+        "04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security -> 04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security",
+        "04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance -> 04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance",
+        "04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review -> 04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review",
+        "04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification -> 04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification"
+      ]
+    },
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 37 rebuilt; section 63 migration note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "20000 tree rebuilt; directory note updated"
+    }
+  ],
+  "unchanged": [
+    "docs/20000_validation_security_audit/04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+    "docs/20000_validation_security_audit/04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+    "docs/20000_validation_security_audit/04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+    "docs/20000_validation_security_audit/04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+    "docs/20000_validation_security_audit/04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+    "docs/20000_validation_security_audit/04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+    "docs/20000_validation_security_audit/04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+    "docs/20000_validation_security_audit/04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+    "docs/20000_validation_security_audit/04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+    "docs/20000_validation_security_audit/04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+    "docs/20000_validation_security_audit/04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+    "docs/20000_validation_security_audit/04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+    "docs/20000_validation_security_audit/04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+    "docs/20000_validation_security_audit/04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+    "docs/20000_validation_security_audit/04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+    "docs/20000_validation_security_audit/04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+    "docs/20000_validation_security_audit/04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+    "docs/20000_validation_security_audit/04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+    "docs/20000_validation_security_audit/04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+    "docs/20000_validation_security_audit/04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+    "docs/20000_validation_security_audit/04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+    "docs/20000_validation_security_audit/04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+    "docs/20000_validation_security_audit/04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+    "docs/20000_validation_security_audit/04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+    "docs/20000_validation_security_audit/04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+    "docs/20000_validation_security_audit/04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+    "docs/20000_validation_security_audit/20010_Governance_SaaS_Data_Capture_And_Principle.md",
+    "docs/20000_validation_security_audit/20020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md",
+    "docs/20000_validation_security_audit/20030_Policy_Data_Retention_And_Deletion.md",
+    "docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md",
+    "docs/20000_validation_security_audit/20050_Governance_Data_Export_And_Report_Approval.md",
+    "docs/20000_validation_security_audit/20060_Policy_Anonymization_And_Pseudonymization_Standard.md",
+    "docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md",
+    "docs/20000_validation_security_audit/20080_Governance_Access_Context_And_Data_Visibility.md",
+    "docs/20000_validation_security_audit/20090_Governance_Support_Access_Masking_And_Scoped_Session.md",
+    "docs/20000_validation_security_audit/20100_Governance_Export_Report_And_Benchmark.md",
+    "docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md",
+    "docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md",
+    "docs/20000_validation_security_audit/20150_Governance_Runtime_Misuse_And_Abuse_Prevention.md",
+    "docs/20000_validation_security_audit/20160_Governance_Suspicious_Activity_Review_And_Escalation.md",
+    "docs/20000_validation_security_audit/20170_Governance_Cross_Tenant_Isolation_And_Data_Leakage_Prevention.md",
+    "docs/20000_validation_security_audit/20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md",
+    "docs/20000_validation_security_audit/20190_Governance_Customer_Privacy_And_Consent.md",
+    "docs/20000_validation_security_audit/20200_Governance_Staff_Privacy_And_Operational_Monitoring.md",
+    "docs/20000_validation_security_audit/20210_Governance_Payment_Boundary_And_Financial_Authority.md",
+    "docs/20000_validation_security_audit/20220_Governance_Admin_Console_Action_Safety.md",
+    "docs/20000_validation_security_audit/20230_Policy_Change_And_Configuration_Audit_Governance.md",
+    "docs/20000_validation_security_audit/20240_Governance_Role_Permission_Change_And_Access_Review.md",
+    "docs/20000_validation_security_audit/20250_Governance_Security_Incident_And_Breach_Response.md",
+    "docs/20000_validation_security_audit/20260_Governance_External_Integration_And_Webhook_Audit.md",
+    "docs/20000_validation_security_audit/foundation_security/20000_Readme_Foundation_Security.md",
+    "docs/20000_validation_security_audit/foundation_security/20001_Policy_Foundation_Security_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+    "docs/20000_validation_security_audit/foundation_security/20002_Policy_Foundation_Security_Secure_Coding_And_DevSecOps_Gate.md",
+    "docs/20000_validation_security_audit/foundation_security/20003_Policy_Foundation_Security_Secret_Management_Credential_Vault_And_Key_Rotation.md",
+    "docs/20000_validation_security_audit/foundation_security/20004_Policy_Foundation_Security_Cloud_Security_Financial_Sector_Alignment.md",
+    "docs/20000_validation_security_audit/foundation_security/20005_Policy_Foundation_Security_Access_Control_RBAC_ABAC_And_Least_Privilege.md",
+    "docs/20000_validation_security_audit/foundation_security/20006_Policy_Foundation_Security_Logging_Audit_Evidence_And_Tamper_Resistance.md",
+    "docs/20000_validation_security_audit/foundation_security/20007_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response.md",
+    "docs/20000_validation_security_audit/foundation_security/20008_Policy_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response.md",
+    "docs/20000_validation_security_audit/foundation_security/20009_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md"
+  ],
+  "unchanged_count": 60,
+  "exceptions": [
+    {
+      "file": "docs/20000_validation_security_audit/04440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md",
+      "reason": "cross-band prefix `04440` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "reason": "cross-band prefix `04450` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "reason": "cross-band prefix `04460` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04470_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "reason": "cross-band prefix `04470` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "reason": "cross-band prefix `04471` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "reason": "cross-band prefix `04480` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "reason": "cross-band prefix `04481` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "reason": "cross-band prefix `04490` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "reason": "cross-band prefix `04491` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04500_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "reason": "cross-band prefix `04500` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "reason": "cross-band prefix `04501` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04510_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "reason": "cross-band prefix `04510` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "reason": "cross-band prefix `04511` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04520_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "reason": "cross-band prefix `04520` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "reason": "cross-band prefix `04521` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04530_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "reason": "cross-band prefix `04530` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "reason": "cross-band prefix `04531` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04540_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "reason": "cross-band prefix `04540` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "reason": "cross-band prefix `04541` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "reason": "cross-band prefix `04550` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "reason": "cross-band prefix `04551` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "reason": "cross-band prefix `04560` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "reason": "cross-band prefix `04561` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04570_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "reason": "cross-band prefix `04570` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "reason": "cross-band prefix `04571` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "reason": "cross-band prefix `04580` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "reason": "cross-band prefix `04581` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04590_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "reason": "cross-band prefix `04590` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "reason": "cross-band prefix `04591` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04600_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "reason": "cross-band prefix `04600` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "reason": "cross-band prefix `04601` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04610_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "reason": "cross-band prefix `04610` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "reason": "cross-band prefix `04611` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "reason": "cross-band prefix `04620` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "reason": "cross-band prefix `04621` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "reason": "cross-band prefix `04630` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "reason": "cross-band prefix `04631` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md",
+      "reason": "cross-band prefix `04640` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "reason": "cross-band prefix `04641` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04650_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "reason": "cross-band prefix `04650` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "reason": "cross-band prefix `04651` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "reason": "cross-band prefix `04660` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "reason": "cross-band prefix `04661` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "reason": "cross-band prefix `04670` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "reason": "cross-band prefix `04671` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "reason": "cross-band prefix `04680` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "reason": "cross-band prefix `04681` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "reason": "cross-band prefix `04690` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "reason": "cross-band prefix `04691` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "reason": "cross-band prefix `04700` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "reason": "cross-band prefix `04701` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "reason": "cross-band prefix `04710` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "reason": "cross-band prefix `04711` in 20000 folder"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04471_Policy_Financial_Grade_Security_Baseline_And_Secret_Coding.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04481_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04491_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04501_Policy_Secret_Rotation_Exposure_Response_And_Secure_Configuration.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04511_Policy_CI_DI_Identity_Linkage_Data_Protection_And_Leakage_Response.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04521_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04531_Policy_Security_Audit_Event_Immutability_And_Tamper_Evidence.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04541_Policy_Device_Trust_Session_Revocation_And_Store_Runtime_Access.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04551_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04561_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04571_Policy_Secure_Deployment_Environment_Separation_And_Release_Gate.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04581_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04591_Policy_Webhook_Signature_Idempotency_Replay_And_External_Integration_Security.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04601_Policy_Data_Export_Report_Benchmark_And_External_Sharing_Security.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04611_Policy_AI_Analytics_Dataset_Minimization_And_Model_Output_Security.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04621_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04631_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04641_Policy_Security_Policy_Index_Readiness_Check_And_Implementation_Gate.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04651_Policy_Security_Review_SOP_Operational_Checklist_And_Control_Owner.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04661_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04671_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04681_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/04711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md",
+      "reason": "stale +1 sibling retained; canonical base file exists"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/20000_Readme_Validation_Security_Audit.md",
+      "reason": "duplicate prefix `20000` with foundation_security/20000_Readme_Foundation_Security.md (different subfolders)"
+    },
+    {
+      "file": "docs/20000_validation_security_audit/foundation_security/20000_Readme_Foundation_Security.md",
+      "reason": "duplicate prefix `20000` with root 20000_Readme_Validation_Security_Audit.md (different subfolders)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 37 synced to 95 files; section 63 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md 20000 tree synced to 95 files; directory note updated"
+  ]
+}

@@ -1,4 +1,4 @@
-# 01060 Mvp Store Type Adoption Sequence
+# 01060_MVP_Store_Type_Adoption_Sequence
 
 ## 1 Purpose
 
@@ -43,9 +43,9 @@ Aligns with `docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.
 ## 5 Cross-References
 
 - `docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md`
-- `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md`
-- `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md`
-- `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md`
+- `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md`
+- `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md`
+- `docs/22000_implementation_planning/22060_Boundary_Mvp_Implementation_Non_Goals.md`
 
 ## 6 Open Decisions
 

@@ -1,4 +1,4 @@
-04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy
+# 04960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy
 
 \#\# 1\. Purpose
 
@@ -62,20 +62,20 @@ It is not the final gate by itself.
 
 The first implementation mapping block includes:
 
-\- 04830 Implementation Mapping Lane Start And Policy To Code Constraint Handoff Policy
-\- 04840 Tenant Store Context RLS And Access Control Implementation Mapping Policy
-\- 04850 Audit Event Taxonomy Append Only And Evidence Implementation Mapping Policy
-\- 04860 POS KDS RPC Bridge Idempotency Replay Implementation Mapping Policy
-\- 04870 Payment Webhook Refund Settlement And Reconciliation Implementation Mapping Policy
-\- 04880 CI DI Identity Linkage Callback Masking And Leakage Response Implementation Mapping Policy
-\- 04890 Support Access Masking Break Glass And Scoped Session Implementation Mapping Policy
-\- 04900 Device Trust Session Revocation Store Runtime And Lost Device Implementation Mapping Policy
-\- 04910 Local Agent Degraded Recovery Sync Conflict And Manual Evidence Implementation Mapping Policy
-\- 04920 Export Report Benchmark External Sharing And Data Extraction Implementation Mapping Policy
-\- 04930 AI Analytics Dataset Minimization Model Output And Recommendation Boundary Implementation Mapping Policy
-\- 04940 Vendor Partner Access Third Party Risk And External Integration Implementation Mapping Policy
-\- 04950 Secure Deployment Environment Separation Release Gate And Rollback Implementation Mapping Policy
-\- 04960 Implementation Mapping Lane Index Readiness Check And Next Phase Handoff Policy
+\- 04831_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy
+\- 04841_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping
+\- 04851_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy
+\- 04861_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping
+\- 04871_Policy_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping
+\- 04881_Policy_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping
+\- 04891_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping
+\- 04901_Policy_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping
+\- 04911_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping
+\- 04921_Policy_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping
+\- 04931_Policy_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping
+\- 04941_Policy_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping
+\- 04951_Policy_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping
+\- 04961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy
 
 This block should be treated as the first high-risk mapping foundation.
 

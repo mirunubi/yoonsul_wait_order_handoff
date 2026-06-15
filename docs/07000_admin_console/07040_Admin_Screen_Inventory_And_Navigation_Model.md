@@ -79,7 +79,7 @@ Membership/point navigation must remain future-reserved unless `docs/15000_membe
 
 Primary boundary references:
 
-- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
+- `docs/15000_membership_loyalty/15010_Boundary_Membership_Loyalty_Product.md`
 - `docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md`
 
 Admin screen placeholders must not imply active point ledger, wallet, or bridge.
@@ -99,18 +99,18 @@ It must not expose active point balance, point redemption, wallet, or point ledg
 ## 7 Admin Console Consolidation Cross-Reference
 
 - Admin context navigation/scope model is defined in `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md`.
-- Runtime profile configuration screens must follow `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md`.
+- Runtime profile configuration screens must follow `docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md`.
 - Feature flag approval/emergency disable screens must follow `docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`.
 - Audit/change history screens must follow `docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md`.
-- Support/break-glass boundary must follow `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md`.
+- Support/break-glass boundary must follow `docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md`.
 
 ## 8 App/API Projection Cross-Reference
 
-Surface state visibility is defined in `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`.
+Surface state visibility is defined in `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`.
 
-Customer wording matrix is defined in `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`.
+Customer wording matrix is defined in `docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md`.
 
-Store/admin/support action authority is defined in `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`.
+Store/admin/support action authority is defined in `docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md`.
 
 ## 9 Current Status
 

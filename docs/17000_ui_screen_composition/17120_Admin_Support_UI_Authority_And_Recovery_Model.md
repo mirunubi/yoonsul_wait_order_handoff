@@ -1,4 +1,4 @@
-# 17120 Admin Support UI Authority And Recovery Model
+# 17120_Admin_Support_UI_Authority_And_Recovery_Model
 
 ## 1 Purpose
 
@@ -48,10 +48,10 @@ It does not approve admin console code or support tooling.
 
 ## 5 Cross-References
 
-- `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md`
+- `docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md`
 - `docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
-- `docs/17000_ui_screen_composition/17100_Action_Button_And_Status_Badge_Governance.md`
-- `docs/24000_deployment_operations/24020_Runtime_Operations_And_Support_Boundary.md`
+- `docs/17000_ui_screen_composition/17100_Governance_Action_Button_And_Status_Badge.md`
+- `docs/24000_deployment_operations/24020_Boundary_Runtime_Operations_And_Support.md`
 
 ## 6 Open Decisions
 

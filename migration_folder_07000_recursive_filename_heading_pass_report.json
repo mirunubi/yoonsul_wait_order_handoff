@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-06-15T16:11:06.528095+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/07000_admin_console",
+  "files_scanned": 12,
+  "canonical_files": 12,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "§53 migration pass note added"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 07000 pass"
+    }
+  ],
+  "unchanged": [
+    {
+      "file": "docs/07000_admin_console/07000_Readme_Admin_Console.md",
+      "reason": "filename already compliant and heading matches stem"
+    },
+    {
+      "file": "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07020_Admin_Store_Runtime_Configuration_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07030_Admin_Operational_Monitoring_And_Recovery_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07060_Governance_Admin_Audit_And_Recovery_Queue.md",
+      "reason": "filename already compliant and heading matches stem"
+    },
+    {
+      "file": "docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md",
+      "reason": "filename already compliant and heading matches stem"
+    },
+    {
+      "file": "docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md",
+      "reason": "heading matches stem; filename exception retained"
+    },
+    {
+      "file": "docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md",
+      "reason": "filename already compliant and heading matches stem"
+    }
+  ],
+  "exceptions": {
+    "model_filename_no_doctype": [
+      {
+        "file": "docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07020_Admin_Store_Runtime_Configuration_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07030_Admin_Operational_Monitoring_And_Recovery_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07050_Admin_Approval_Workflow_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      },
+      {
+        "file": "docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md",
+        "reason": "no approved DocumentType token exists (`Admin`/`Model` suffix pattern; same exception class as 03000 `*_Model.md` files)"
+      }
+    ],
+    "stale_sibling_pairs": [],
+    "duplicate_prefix_groups": []
+  },
+  "stale_sibling_copies": [],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md §15 verified; §53 migration note added"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ]
+}

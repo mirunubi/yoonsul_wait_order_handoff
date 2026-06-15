@@ -1,0 +1,152 @@
+{
+  "wave": "root_bad_filename_normalization_01",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "scope": "direct docs root Markdown files in 05300-05900 range; non-duplicate bad filenames only",
+  "root_bad_filenames_selected": [
+    "docs/05300 Provider Register Phase Gate And Vendor Evidence Tracking Policy.md",
+    "docs/05310 POS Gateway Interface Abstraction And Adapter Boundary Policy.md",
+    "docs/05320 POS Menu Hierarchy Option Transformer Policy.md",
+    "docs/05720 Multi Store Provider Incident Broadcast Shared Risk And Cross Store Containment Policy.md",
+    "docs/05730 Multi Store Billing Operations Invoice Support Fee And Provider Cost Allocation Policy.md",
+    "docs/05740 Multi Store Contract Scope Change Module Amendment And Commercial Governance Policy.md",
+    "docs/05750 Multi Store Renewal Forecast Revenue Risk And Expansion Pipeline Governance Policy.md",
+    "docs/05760 Multi Store Revenue Recognition Boundary Deferred Revenue And Billing Audit Evidence Policy.md",
+    "docs/05770 Multi Store Commercial Audit Trail Invoice Dispute And Customer Trust Recovery Policy.md",
+    "docs/05780 Multi Store Commercial Risk Register Pricing Governance And Margin Protection Policy.md"
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/05300 Provider Register Phase Gate And Vendor Evidence Tracking Policy.md",
+      "to": "docs/05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+      "preserved_prefix": "05300"
+    },
+    {
+      "from": "docs/05310 POS Gateway Interface Abstraction And Adapter Boundary Policy.md",
+      "to": "docs/05310_Policy_POS_Gateway_Interface_Abstraction_Adapter_Boundary.md",
+      "preserved_prefix": "05310"
+    },
+    {
+      "from": "docs/05320 POS Menu Hierarchy Option Transformer Policy.md",
+      "to": "docs/05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+      "preserved_prefix": "05320"
+    },
+    {
+      "from": "docs/05720 Multi Store Provider Incident Broadcast Shared Risk And Cross Store Containment Policy.md",
+      "to": "docs/05720_Policy_Multi_Store_Provider_Incident_Broadcast_Containment.md",
+      "preserved_prefix": "05720"
+    },
+    {
+      "from": "docs/05730 Multi Store Billing Operations Invoice Support Fee And Provider Cost Allocation Policy.md",
+      "to": "docs/05730_Policy_Multi_Store_Billing_Provider_Cost_Allocation.md",
+      "preserved_prefix": "05730"
+    },
+    {
+      "from": "docs/05740 Multi Store Contract Scope Change Module Amendment And Commercial Governance Policy.md",
+      "to": "docs/05740_Policy_Multi_Store_Contract_Scope_Change_Governance.md",
+      "preserved_prefix": "05740"
+    },
+    {
+      "from": "docs/05750 Multi Store Renewal Forecast Revenue Risk And Expansion Pipeline Governance Policy.md",
+      "to": "docs/05750_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md",
+      "preserved_prefix": "05750"
+    },
+    {
+      "from": "docs/05760 Multi Store Revenue Recognition Boundary Deferred Revenue And Billing Audit Evidence Policy.md",
+      "to": "docs/05760_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md",
+      "preserved_prefix": "05760"
+    },
+    {
+      "from": "docs/05770 Multi Store Commercial Audit Trail Invoice Dispute And Customer Trust Recovery Policy.md",
+      "to": "docs/05770_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md",
+      "preserved_prefix": "05770"
+    },
+    {
+      "from": "docs/05780 Multi Store Commercial Risk Register Pricing Governance And Margin Protection Policy.md",
+      "to": "docs/05780_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md",
+      "preserved_prefix": "05780"
+    }
+  ],
+  "moved_files": [],
+  "files_skipped": [],
+  "heading_updates": [
+    {
+      "file": "docs/05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+      "old_heading": "# 05300 Provider Register Phase Gate And Vendor Evidence Tracking Policy",
+      "new_heading": "# 05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking"
+    },
+    {
+      "file": "docs/05310_Policy_POS_Gateway_Interface_Abstraction_Adapter_Boundary.md",
+      "old_heading": "# 05310 POS Gateway Interface Abstraction And Adapter Boundary Policy",
+      "new_heading": "# 05310_Policy_POS_Gateway_Interface_Abstraction_Adapter_Boundary"
+    },
+    {
+      "file": "docs/05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+      "old_heading": "# 05320 POS Menu Hierarchy Option Transformer Policy",
+      "new_heading": "# 05320_Policy_POS_Menu_Hierarchy_Option_Transformer"
+    },
+    {
+      "file": "docs/05720_Policy_Multi_Store_Provider_Incident_Broadcast_Containment.md",
+      "old_heading": "# 05720 Multi Store Provider Incident Broadcast Shared Risk And Cross Store Containment Policy",
+      "new_heading": "# 05720_Policy_Multi_Store_Provider_Incident_Broadcast_Containment"
+    },
+    {
+      "file": "docs/05730_Policy_Multi_Store_Billing_Provider_Cost_Allocation.md",
+      "old_heading": "# 05730 Multi Store Billing Operations Invoice Support Fee And Provider Cost Allocation Policy",
+      "new_heading": "# 05730_Policy_Multi_Store_Billing_Provider_Cost_Allocation"
+    },
+    {
+      "file": "docs/05740_Policy_Multi_Store_Contract_Scope_Change_Governance.md",
+      "old_heading": "# 05740 Multi Store Contract Scope Change Module Amendment And Commercial Governance Policy",
+      "new_heading": "# 05740_Policy_Multi_Store_Contract_Scope_Change_Governance"
+    },
+    {
+      "file": "docs/05750_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md",
+      "old_heading": "# 05750 Multi Store Renewal Forecast Revenue Risk And Expansion Pipeline Governance Policy",
+      "new_heading": "# 05750_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline"
+    },
+    {
+      "file": "docs/05760_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md",
+      "old_heading": "# 05760 Multi Store Revenue Recognition Boundary Deferred Revenue And Billing Audit Evidence Policy",
+      "new_heading": "# 05760_Policy_Multi_Store_Revenue_Recognition_Billing_Audit"
+    },
+    {
+      "file": "docs/05770_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md",
+      "old_heading": "# 05770 Multi Store Commercial Audit Trail Invoice Dispute And Customer Trust Recovery Policy",
+      "new_heading": "# 05770_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery"
+    },
+    {
+      "file": "docs/05780_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md",
+      "old_heading": "# 05780 Multi Store Commercial Risk Register Pricing Governance And Margin Protection Policy",
+      "new_heading": "# 05780_Policy_Multi_Store_Commercial_Risk_Pricing_Margin"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "migration_duplicate_prefix_resolution_wave_01_report.json",
+    "migration_duplicate_prefix_resolution_wave_06_root_05300_05900_report.json",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.json",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_root_bad_filename_report.json",
+    "migration_precleanup_root_bad_filename_report.md",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "remaining_root_bad_filenames_05300_05900": 0,
+  "remaining_root_bad_filename_sample": [],
+  "remaining_repository_duplicate_prefix_groups": 0,
+  "remaining_duplicate_prefix_group_sample": [],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "validation_notes": {
+    "utf8": "passed: 22 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: 2 touched files contain Korean text and decoded cleanly; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "git_diff_check": "known stale unstaged-rename artifact: reports old long 10609 tracked paths from Long Path Wave 01, while current filesystem has 0 Markdown paths over 240",
+    "commit": "not staged and not committed"
+  }
+}

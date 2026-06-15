@@ -1,4 +1,4 @@
-# 03030 Store Runtime Profile Model
+# 03030_Store_Runtime_Profile_Model
 
 ## 1 Purpose
 
@@ -50,13 +50,13 @@ It does not define database schema, API endpoints, or production runtime code.
 - analytics profile does not equal BI runtime active.
 - support profile does not equal support approval.
 
-Additional rules align with `docs/01000_mvp_scope/01050_MVP_Package_And_Feature_Flag_Boundary.md` and `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md`.
+Additional rules align with `docs/01000_mvp_scope/01050_Boundary_MVP_Package_And_Feature_Flag.md` and `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md`.
 
 ## 5 Cross-References
 
 - `docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md`
-- `docs/03000_saas_runtime/03040_Package_Plan_And_Feature_Flag_Runtime_Governance.md`
-- `docs/03000_saas_runtime/03060_Runtime_Profile_Non_MVP_And_Future_Flag_Boundary.md`
+- `docs/03000_saas_runtime/03040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
+- `docs/03000_saas_runtime/03060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`
 - `docs/07000_admin_console/07020_Admin_Store_Runtime_Configuration_Model.md`
 
 ## 6 Open Decisions

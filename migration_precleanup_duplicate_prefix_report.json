@@ -1,0 +1,2122 @@
+{
+  "summary": {
+    "duplicate_prefix_groups": 72
+  },
+  "groups": [
+    {
+      "folder": "docs",
+      "duplicate_prefix": "00000",
+      "files": [
+        {
+          "path": "docs/00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+          "current_filename": "00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+          "proposed_canonical_filename": "00000_Report_Final_Documentation_Structure_Integrity_Audit.md",
+          "inferred_document_type": "Report",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 00000_Final_Documentation_Structure_Integrity_Audit_Report"
+        },
+        {
+          "path": "docs/00000_Project_Overview.md",
+          "current_filename": "00000_Project_Overview.md",
+          "proposed_canonical_filename": null,
+          "inferred_document_type": "Policy",
+          "confidence": "low",
+          "reason": "fallback based on governed markdown location",
+          "heading": "# 00000 Project Overview"
+        },
+        {
+          "path": "docs/00006_Plan_Top_Level_Folder_Consolidation.md",
+          "current_filename": "00006_Plan_Top_Level_Folder_Consolidation.md",
+          "proposed_canonical_filename": null,
+          "inferred_document_type": "Policy",
+          "confidence": "low",
+          "reason": "fallback based on governed markdown location",
+          "heading": "# 00000_Top_Level_Folder_Consolidation_Plan"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05300",
+      "files": [
+        {
+          "path": "docs/05305_Index_POS_Gateway_Resilience_Field_Exception_Catalog_Entry.md",
+          "current_filename": "05305_Index_POS_Gateway_Resilience_Field_Exception_Catalog_Entry.md",
+          "proposed_canonical_filename": "05300_Index_POS_Gateway_Resilience_And_Field_Exception_Catalog_Entry.md",
+          "inferred_document_type": "Index",
+          "confidence": "medium",
+          "reason": "keyword `index` found",
+          "heading": "# 05300 POS Gateway Resilience And Field Exception Catalog Index Entry"
+        },
+        {
+          "path": "docs/05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+          "current_filename": "05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+          "proposed_canonical_filename": "05300_Policy_Provider_Register_Phase_Gate_And_Vendor_Evidence_Tracking.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05300 Provider Register Phase Gate And Vendor Evidence Tracking Policy"
+        },
+        {
+          "path": "docs/05300_Readme_POS_Gateway_Resilience_And_Field_Exception_Catalog.md",
+          "current_filename": "05300_Readme_POS_Gateway_Resilience_And_Field_Exception_Catalog.md",
+          "proposed_canonical_filename": "05300_Readme_POS_Gateway_Resilience_And_Field_Exception_Catalog.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05320",
+      "files": [
+        {
+          "path": "docs/05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+          "current_filename": "05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+          "proposed_canonical_filename": "05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+          "current_filename": "05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+          "proposed_canonical_filename": "05320_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05330",
+      "files": [
+        {
+          "path": "docs/05330_Policy_POS_Master_Data_Sync_And_Precheck_Validation.md",
+          "current_filename": "05330_Policy_POS_Master_Data_Sync_And_Precheck_Validation.md",
+          "proposed_canonical_filename": "05330_Policy_POS_Master_Data_Sync_And_Precheck_Validation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+          "current_filename": "05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+          "proposed_canonical_filename": "05330_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05340",
+      "files": [
+        {
+          "path": "docs/05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+          "current_filename": "05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+          "proposed_canonical_filename": "05340_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05340_Policy_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch.md",
+          "current_filename": "05340_Policy_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch.md",
+          "proposed_canonical_filename": "05340_Policy_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05350",
+      "files": [
+        {
+          "path": "docs/05351_Policy_SaaS_Revenue_Model_Provider_Partnership.md",
+          "current_filename": "05351_Policy_SaaS_Revenue_Model_Provider_Partnership.md",
+          "proposed_canonical_filename": "05350_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05350 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy"
+        },
+        {
+          "path": "docs/05350_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary_Policy.md",
+          "current_filename": "05350_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary_Policy.md",
+          "proposed_canonical_filename": "05350_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05350 POS Kitchen Printer Delegation And Direct Printing Boundary Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05360",
+      "files": [
+        {
+          "path": "docs/05361_Policy_SaaS_Package_Tier_Gateway_Pricing_Boundary.md",
+          "current_filename": "05361_Policy_SaaS_Package_Tier_Gateway_Pricing_Boundary.md",
+          "proposed_canonical_filename": "05360_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05360 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy"
+        },
+        {
+          "path": "docs/05360_Policy_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance.md",
+          "current_filename": "05360_Policy_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance.md",
+          "proposed_canonical_filename": "05360_Policy_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05370",
+      "files": [
+        {
+          "path": "docs/05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+          "current_filename": "05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+          "proposed_canonical_filename": "05370_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05370_Policy_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection.md",
+          "current_filename": "05370_Policy_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection.md",
+          "proposed_canonical_filename": "05370_Policy_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05380",
+      "files": [
+        {
+          "path": "docs/05381_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md",
+          "current_filename": "05381_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md",
+          "proposed_canonical_filename": "05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05380 Franchise SaaS Pilot Store Rollout And Evidence Collection Policy"
+        },
+        {
+          "path": "docs/05380_Policy_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense.md",
+          "current_filename": "05380_Policy_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense.md",
+          "proposed_canonical_filename": "05380_Policy_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05390",
+      "files": [
+        {
+          "path": "docs/05391_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md",
+          "current_filename": "05391_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md",
+          "proposed_canonical_filename": "05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05390 Pilot Store Register Test Partner Selection And Scope Control Policy"
+        },
+        {
+          "path": "docs/05390_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md",
+          "current_filename": "05390_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md",
+          "proposed_canonical_filename": "05390_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05400",
+      "files": [
+        {
+          "path": "docs/05401_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md",
+          "current_filename": "05401_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md",
+          "proposed_canonical_filename": "05400_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05400 Pilot Evidence Packet Template And Store Test Result Recording Policy"
+        },
+        {
+          "path": "docs/05400_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense_Policy.md",
+          "current_filename": "05400_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense_Policy.md",
+          "proposed_canonical_filename": "05400_Policy_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05400 POS Schema Validation Raw Packet Audit And Spec Drift Defense Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05410",
+      "files": [
+        {
+          "path": "docs/05410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md",
+          "current_filename": "05410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md",
+          "proposed_canonical_filename": "05410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+          "current_filename": "05410_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+          "proposed_canonical_filename": "05410_Spec_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+          "inferred_document_type": "Spec",
+          "confidence": "medium",
+          "reason": "keyword `spec` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05420",
+      "files": [
+        {
+          "path": "docs/05420_Policy_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart.md",
+          "current_filename": "05420_Policy_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart.md",
+          "proposed_canonical_filename": "05420_Policy_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05420_Policy_Pilot_To_Paid_SaaS_Conversion_And_Early_Customer_Commitment.md",
+          "current_filename": "05420_Policy_Pilot_To_Paid_SaaS_Conversion_And_Early_Customer_Commitment.md",
+          "proposed_canonical_filename": "05420_Policy_Pilot_To_Paid_SaaS_Conversion_And_Early_Customer_Commitment.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05430",
+      "files": [
+        {
+          "path": "docs/05430_Policy_Early_SaaS_Customer_Success_Support_Tier_And_Retention_Signal.md",
+          "current_filename": "05430_Policy_Early_SaaS_Customer_Success_Support_Tier_And_Retention_Signal.md",
+          "proposed_canonical_filename": "05430_Policy_Early_SaaS_Customer_Success_Support_Tier_And_Retention_Signal.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05430_Policy_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer.md",
+          "current_filename": "05430_Policy_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer.md",
+          "proposed_canonical_filename": "05430_Policy_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05440",
+      "files": [
+        {
+          "path": "docs/05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+          "current_filename": "05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+          "proposed_canonical_filename": "05440_Policy_Early_SaaS_Renewal_Upgrade_Downgrade_And_Exit_Governance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05440 Early SaaS Renewal Upgrade Downgrade And Exit Governance Policy"
+        },
+        {
+          "path": "docs/05440_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md",
+          "current_filename": "05440_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md",
+          "proposed_canonical_filename": "05440_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05450",
+      "files": [
+        {
+          "path": "docs/05450_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md",
+          "current_filename": "05450_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md",
+          "proposed_canonical_filename": "05450_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05450_Policy_SaaS_Churn_Reason_Taxonomy_And_Product_Pricing_Feedback_Loop.md",
+          "current_filename": "05450_Policy_SaaS_Churn_Reason_Taxonomy_And_Product_Pricing_Feedback_Loop.md",
+          "proposed_canonical_filename": "05450_Policy_SaaS_Churn_Reason_Taxonomy_And_Product_Pricing_Feedback_Loop.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05460",
+      "files": [
+        {
+          "path": "docs/05460_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md",
+          "current_filename": "05460_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md",
+          "proposed_canonical_filename": "05460_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05460_Policy_SaaS_Pricing_Experiment_Pilot_Discount_And_Standard_Price_Transition.md",
+          "current_filename": "05460_Policy_SaaS_Pricing_Experiment_Pilot_Discount_And_Standard_Price_Transition.md",
+          "proposed_canonical_filename": "05460_Policy_SaaS_Pricing_Experiment_Pilot_Discount_And_Standard_Price_Transition.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05470",
+      "files": [
+        {
+          "path": "docs/05470_Policy_Mobile_Obsidian_Git_Draft_Capture_And_PC_Import_Workflow.md",
+          "current_filename": "05470_Policy_Mobile_Obsidian_Git_Draft_Capture_And_PC_Import_Workflow.md",
+          "proposed_canonical_filename": "05470_Policy_Mobile_Obsidian_Git_Draft_Capture_And_PC_Import_Workflow.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05470_Policy_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation.md",
+          "current_filename": "05470_Policy_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation.md",
+          "proposed_canonical_filename": "05470_Policy_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05480",
+      "files": [
+        {
+          "path": "docs/05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+          "current_filename": "05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+          "proposed_canonical_filename": "05480_Policy_PC_Documentation_Import_Normalization_Index_And_Mobile_Inbox_Cleanup.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05480 PC Documentation Import Normalization Index And Mobile Inbox Cleanup Policy"
+        },
+        {
+          "path": "docs/05480_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md",
+          "current_filename": "05480_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md",
+          "proposed_canonical_filename": "05480_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05490",
+      "files": [
+        {
+          "path": "docs/05490_POS_Provider_Capability_Profile_And_Readiness_Evidence_Policy.md",
+          "current_filename": "05490_POS_Provider_Capability_Profile_And_Readiness_Evidence_Policy.md",
+          "proposed_canonical_filename": "05490_Policy_POS_Provider_Capability_Profile_And_Readiness_Evidence.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05490 POS Provider Capability Profile And Readiness Evidence Policy"
+        },
+        {
+          "path": "docs/05490_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery_And_Documentation_Safety.md",
+          "current_filename": "05490_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery_And_Documentation_Safety.md",
+          "proposed_canonical_filename": "05490_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery_And_Documentation_Safety.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05500",
+      "files": [
+        {
+          "path": "docs/05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+          "current_filename": "05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+          "proposed_canonical_filename": "05500_Policy_Mobile_Documentation_Workflow_Index_Readiness_Check_And_Transition_Gate.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05500 Mobile Documentation Workflow Index Readiness Check And Transition Gate Policy"
+        },
+        {
+          "path": "docs/05500_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md",
+          "current_filename": "05500_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md",
+          "proposed_canonical_filename": "05500_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05510",
+      "files": [
+        {
+          "path": "docs/05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+          "current_filename": "05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+          "proposed_canonical_filename": "05510_Policy_High_Velocity_Markdown_Production_Batch_Review_And_Implementation_Backlog_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05510 High Velocity Markdown Production Batch Review And Implementation Backlog Control Policy"
+        },
+        {
+          "path": "docs/05510_Policy_POS_Gateway_Operator_Recovery_Console_And_Action_Authority.md",
+          "current_filename": "05510_Policy_POS_Gateway_Operator_Recovery_Console_And_Action_Authority.md",
+          "proposed_canonical_filename": "05510_Policy_POS_Gateway_Operator_Recovery_Console_And_Action_Authority.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05520",
+      "files": [
+        {
+          "path": "docs/05520_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence_Policy.md",
+          "current_filename": "05520_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence_Policy.md",
+          "proposed_canonical_filename": "05520_Policy_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05520 POS Integration Incident Triage And Provider Dispute Evidence Policy"
+        },
+        {
+          "path": "docs/05520_Policy_Data_Flow_Based_Documentation_Folder_Reorganization_And_Batch_Sorting.md",
+          "current_filename": "05520_Policy_Data_Flow_Based_Documentation_Folder_Reorganization_And_Batch_Sorting.md",
+          "proposed_canonical_filename": "05520_Policy_Data_Flow_Based_Documentation_Folder_Reorganization_And_Batch_Sorting.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05530",
+      "files": [
+        {
+          "path": "docs/05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+          "current_filename": "05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+          "proposed_canonical_filename": "05530_Policy_Data_Flow_Index_Runtime_Ownership_And_Implementation_Extraction_Matrix.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05530 Data Flow Index Runtime Ownership And Implementation Extraction Matrix Policy"
+        },
+        {
+          "path": "docs/05530_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md",
+          "current_filename": "05530_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md",
+          "proposed_canonical_filename": "05530_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05540",
+      "files": [
+        {
+          "path": "docs/05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+          "current_filename": "05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+          "proposed_canonical_filename": "05540_Policy_Backlog_Extraction_Queue_And_Phase_Cutline_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05540 Implementation Backlog Extraction Queue And Phase Cutline Control Policy"
+        },
+        {
+          "path": "docs/05540_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md",
+          "current_filename": "05540_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md",
+          "proposed_canonical_filename": "05540_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05550",
+      "files": [
+        {
+          "path": "docs/05550_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold_Policy.md",
+          "current_filename": "05550_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold_Policy.md",
+          "proposed_canonical_filename": "05550_Policy_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05550 POS Gateway Audit Evidence Retention Privacy And Legal Hold Policy"
+        },
+        {
+          "path": "docs/05550_Policy_Phase_1_MVP_Build_Authorization_Runtime_Scope_And_No_Scope_Creep.md",
+          "current_filename": "05550_Policy_Phase_1_MVP_Build_Authorization_Runtime_Scope_And_No_Scope_Creep.md",
+          "proposed_canonical_filename": "05550_Policy_Phase_1_MVP_Build_Authorization_Runtime_Scope_And_No_Scope_Creep.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05560",
+      "files": [
+        {
+          "path": "docs/05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+          "current_filename": "05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+          "proposed_canonical_filename": "05560_Policy_Phase_1_MVP_Implementation_Sequence_Dependency_And_Build_Order.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05560 Phase 1 MVP Implementation Sequence Dependency And Build Order Policy"
+        },
+        {
+          "path": "docs/05560_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md",
+          "current_filename": "05560_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md",
+          "proposed_canonical_filename": "05560_Runbook_POS_Gateway_Training_Drill_And_Store_Support_Readiness_Policy.md",
+          "inferred_document_type": "Runbook",
+          "confidence": "medium",
+          "reason": "keyword `runbook` found",
+          "heading": "# 05560 POS Gateway Runbook Training Drill And Store Support Readiness Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05570",
+      "files": [
+        {
+          "path": "docs/05570_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance_Policy.md",
+          "current_filename": "05570_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance_Policy.md",
+          "proposed_canonical_filename": "05570_Policy_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05570 POS Gateway Configuration Change Feature Flag And Provider Version Governance Policy"
+        },
+        {
+          "path": "docs/05570_Policy_Phase_1_MVP_Runtime_State_Vocabulary_And_Canonical_Event_Naming.md",
+          "current_filename": "05570_Policy_Phase_1_MVP_Runtime_State_Vocabulary_And_Canonical_Event_Naming.md",
+          "proposed_canonical_filename": "05570_Policy_Phase_1_MVP_Runtime_State_Vocabulary_And_Canonical_Event_Naming.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05580",
+      "files": [
+        {
+          "path": "docs/05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+          "current_filename": "05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+          "proposed_canonical_filename": "05580_Policy_Phase_1_Runtime_State_Transition_Matrix_And_Authority_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05580 Phase 1 Runtime State Transition Matrix And Authority Boundary Policy"
+        },
+        {
+          "path": "docs/05580_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary_Policy.md",
+          "current_filename": "05580_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary_Policy.md",
+          "proposed_canonical_filename": "05580_Policy_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05580 POS Gateway Data Model Event Ledger And State Machine Implementation Boundary Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05590",
+      "files": [
+        {
+          "path": "docs/05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+          "current_filename": "05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+          "proposed_canonical_filename": "05590_Policy_Phase_1_Runtime_Transition_Test_Case_And_Evidence_Packet_Mapping.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05590 Phase 1 Runtime Transition Test Case And Evidence Packet Mapping Policy"
+        },
+        {
+          "path": "docs/05590_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary_Policy.md",
+          "current_filename": "05590_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary_Policy.md",
+          "proposed_canonical_filename": "05590_Policy_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05590 POS Gateway API Command Query And Internal Service Boundary Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05600",
+      "files": [
+        {
+          "path": "docs/05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+          "current_filename": "05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+          "proposed_canonical_filename": "05600_Policy_Phase_1_Pilot_Readiness_Gate_Required_Test_Register_And_Blocker_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05600 Phase 1 Pilot Readiness Gate Required Test Register And Blocker Control Policy"
+        },
+        {
+          "path": "docs/05600_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md",
+          "current_filename": "05600_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md",
+          "proposed_canonical_filename": "05600_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05610",
+      "files": [
+        {
+          "path": "docs/05610_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md",
+          "current_filename": "05610_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md",
+          "proposed_canonical_filename": "05610_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05610_Policy_Phase_1_Internal_Simulation_Dry_Run_And_Pre_Pilot_Rehearsal.md",
+          "current_filename": "05610_Policy_Phase_1_Internal_Simulation_Dry_Run_And_Pre_Pilot_Rehearsal.md",
+          "proposed_canonical_filename": "05610_Policy_Phase_1_Internal_Simulation_Dry_Run_And_Pre_Pilot_Rehearsal.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05620",
+      "files": [
+        {
+          "path": "docs/05620_Policy_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill.md",
+          "current_filename": "05620_Policy_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill.md",
+          "proposed_canonical_filename": "05620_Policy_POS_Gateway_Backup_Restore_Replay_And_Disaster_Recovery_Drill.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05620_Policy_Staff_Only_Dry_Run_Store_Role_Rehearsal_And_Operational_Fallback_Training.md",
+          "current_filename": "05620_Policy_Staff_Only_Dry_Run_Store_Role_Rehearsal_And_Operational_Fallback_Training.md",
+          "proposed_canonical_filename": "05620_Policy_Staff_Only_Dry_Run_Store_Role_Rehearsal_And_Operational_Fallback_Training.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05630",
+      "files": [
+        {
+          "path": "docs/05630_Policy_Limited_Customer_Pilot_Scope_Restriction_Customer_Communication_And_Live_Safety.md",
+          "current_filename": "05630_Policy_Limited_Customer_Pilot_Scope_Restriction_Customer_Communication_And_Live_Safety.md",
+          "proposed_canonical_filename": "05630_Policy_Limited_Customer_Pilot_Scope_Restriction_Customer_Communication_And_Live_Safety.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05630_Policy_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail.md",
+          "current_filename": "05630_Policy_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail.md",
+          "proposed_canonical_filename": "05630_Policy_POS_Gateway_Performance_Capacity_Load_Shedding_And_Cost_Guardrail.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05640",
+      "files": [
+        {
+          "path": "docs/05640_Policy_POS_Gateway_Compliance_Readiness.md",
+          "current_filename": "05640_Policy_POS_Gateway_Compliance_Readiness.md",
+          "proposed_canonical_filename": "05640_Policy_POS_Gateway_Compliance_Financial_Audit_Regulatory_And_Consumer_Protection_Readiness.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05640 POS Gateway Compliance Financial Audit Regulatory And Consumer Protection Readiness Policy"
+        },
+        {
+          "path": "docs/05640_Policy_Pilot_Incident_Review_Blocker_Conversion_And_Scope_Adjustment.md",
+          "current_filename": "05640_Policy_Pilot_Incident_Review_Blocker_Conversion_And_Scope_Adjustment.md",
+          "proposed_canonical_filename": "05640_Policy_Pilot_Incident_Review_Blocker_Conversion_And_Scope_Adjustment.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05650",
+      "files": [
+        {
+          "path": "docs/05650_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response_Policy.md",
+          "current_filename": "05650_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response_Policy.md",
+          "proposed_canonical_filename": "05650_Policy_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05650 POS Gateway Dispute Evidence Packet Refund Cancellation And Chargeback Response Policy"
+        },
+        {
+          "path": "docs/05650_Policy_Pilot_Learning_Daily_Review_Weekly_Consolidation_And_Next_Scope_Decision.md",
+          "current_filename": "05650_Policy_Pilot_Learning_Daily_Review_Weekly_Consolidation_And_Next_Scope_Decision.md",
+          "proposed_canonical_filename": "05650_Policy_Pilot_Learning_Daily_Review_Weekly_Consolidation_And_Next_Scope_Decision.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05660",
+      "files": [
+        {
+          "path": "docs/05660_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md",
+          "current_filename": "05660_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md",
+          "proposed_canonical_filename": "05660_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05660_Policy_Pilot_To_Paid_SaaS_Conversion_Operational_Proof_And_Commercial_Readiness.md",
+          "current_filename": "05660_Policy_Pilot_To_Paid_SaaS_Conversion_Operational_Proof_And_Commercial_Readiness.md",
+          "proposed_canonical_filename": "05660_Policy_Pilot_To_Paid_SaaS_Conversion_Operational_Proof_And_Commercial_Readiness.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05670",
+      "files": [
+        {
+          "path": "docs/05670_Policy_Early_Paid_SaaS_Customer_Monitoring_Churn_Risk_And_Retention_Intervention.md",
+          "current_filename": "05670_Policy_Early_Paid_SaaS_Customer_Monitoring_Churn_Risk_And_Retention_Intervention.md",
+          "proposed_canonical_filename": "05670_Policy_Early_Paid_SaaS_Customer_Monitoring_Churn_Risk_And_Retention_Intervention.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05670_Policy_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification.md",
+          "current_filename": "05670_Policy_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification.md",
+          "proposed_canonical_filename": "05670_Policy_POS_Gateway_Provider_Onboarding_Certification_Sandbox_And_Official_Verification.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05680",
+      "files": [
+        {
+          "path": "docs/05680_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md",
+          "current_filename": "05680_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md",
+          "proposed_canonical_filename": "05680_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05680_Policy_Standard_SaaS_Customer_Graduation_Renewal_Expansion_And_Stable_Operations.md",
+          "current_filename": "05680_Policy_Standard_SaaS_Customer_Graduation_Renewal_Expansion_And_Stable_Operations.md",
+          "proposed_canonical_filename": "05680_Policy_Standard_SaaS_Customer_Graduation_Renewal_Expansion_And_Stable_Operations.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05690",
+      "files": [
+        {
+          "path": "docs/05690_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral_Policy.md",
+          "current_filename": "05690_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral_Policy.md",
+          "proposed_canonical_filename": "05690_Policy_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05690_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral_Policy.md"
+        },
+        {
+          "path": "docs/05690_Policy_Multi_Store_Expansion_Readiness_Repeatable_Onboarding_And_Provider_Stack_Replication.md",
+          "current_filename": "05690_Policy_Multi_Store_Expansion_Readiness_Repeatable_Onboarding_And_Provider_Stack_Replication.md",
+          "proposed_canonical_filename": "05690_Policy_Multi_Store_Expansion_Readiness_Repeatable_Onboarding_And_Provider_Stack_Replication.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05700",
+      "files": [
+        {
+          "path": "docs/05700_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance_Policy.md",
+          "current_filename": "05700_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance_Policy.md",
+          "proposed_canonical_filename": "05700_Policy_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05700_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance_Policy.md"
+        },
+        {
+          "path": "docs/05700_Policy_Multi_Store_Operations_Dashboard_Store_Health_Support_Load_And_Expansion_Control.md",
+          "current_filename": "05700_Policy_Multi_Store_Operations_Dashboard_Store_Health_Support_Load_And_Expansion_Control.md",
+          "proposed_canonical_filename": "05700_Policy_Multi_Store_Operations_Dashboard_Store_Health_Support_Load_And_Expansion_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05710",
+      "files": [
+        {
+          "path": "docs/05710_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness_Policy.md",
+          "current_filename": "05710_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness_Policy.md",
+          "proposed_canonical_filename": "05710_Policy_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05710_POS_Gateway_Store_Tenant_Operations_Runbook_Handoff_And_Training_Readiness_Policy.md"
+        },
+        {
+          "path": "docs/05710_Policy_Multi_Store_Support_Operations_Queue_Escalation_And_Capacity_Control.md",
+          "current_filename": "05710_Policy_Multi_Store_Support_Operations_Queue_Escalation_And_Capacity_Control.md",
+          "proposed_canonical_filename": "05710_Policy_Multi_Store_Support_Operations_Queue_Escalation_And_Capacity_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05790",
+      "files": [
+        {
+          "path": "docs/05791_Index_Multi_Store_Commercial_Governance_Handoff.md",
+          "current_filename": "05791_Index_Multi_Store_Commercial_Governance_Handoff.md",
+          "proposed_canonical_filename": "05790_Policy_Multi_Store_Commercial_Governance_Index_Readiness_Check_And_Next_Phase_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05790 Multi Store Commercial Governance Index Readiness Check And Next Phase Handoff Policy"
+        },
+        {
+          "path": "docs/05790_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md",
+          "current_filename": "05790_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md",
+          "proposed_canonical_filename": "05790_Policy_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05790_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy.md"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05800",
+      "files": [
+        {
+          "path": "docs/05801_Policy_SaaS_Admin_Console_Lane_Start.md",
+          "current_filename": "05801_Policy_SaaS_Admin_Console_Lane_Start.md",
+          "proposed_canonical_filename": "05800_Policy_SaaS_Admin_Console_Lane_Start_Role_Surface_Runtime_View_And_Action_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05800 SaaS Admin Console Lane Start Role Surface Runtime View And Action Boundary Policy"
+        },
+        {
+          "path": "docs/05800_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline_Policy.md",
+          "current_filename": "05800_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline_Policy.md",
+          "proposed_canonical_filename": "05800_Policy_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05800_POS_Gateway_Implementation_Backlog_Provider_Route_Build_Order_And_Phase_Cutline_Policy.md"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05810",
+      "files": [
+        {
+          "path": "docs/05810_Policy_POS_Gateway_Core_Data_Model_Event_Ledger_State_Projection_And_Route_Registry.md",
+          "current_filename": "05810_Policy_POS_Gateway_Core_Data_Model_Event_Ledger_State_Projection_And_Route_Registry.md",
+          "proposed_canonical_filename": "05810_Policy_POS_Gateway_Core_Data_Model_Event_Ledger_State_Projection_And_Route_Registry.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05810_Policy_SaaS_Admin_Tenant_Store_Directory_Role_Scope_And_Context_Switch.md",
+          "current_filename": "05810_Policy_SaaS_Admin_Tenant_Store_Directory_Role_Scope_And_Context_Switch.md",
+          "proposed_canonical_filename": "05810_Policy_SaaS_Admin_Tenant_Store_Directory_Role_Scope_And_Context_Switch.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05820",
+      "files": [
+        {
+          "path": "docs/05821_Matrix_SaaS_Admin_Role_Permission.md",
+          "current_filename": "05821_Matrix_SaaS_Admin_Role_Permission.md",
+          "proposed_canonical_filename": "05820_Policy_SaaS_Admin_Role_Permission_Matrix_View_Action_Export_And_Override_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05820 SaaS Admin Role Permission Matrix View Action Export And Override Boundary Policy"
+        },
+        {
+          "path": "docs/05820_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md",
+          "current_filename": "05820_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md",
+          "proposed_canonical_filename": "05820_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05830",
+      "files": [
+        {
+          "path": "docs/05830_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md",
+          "current_filename": "05830_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md",
+          "proposed_canonical_filename": "05830_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05830_Policy_SaaS_Admin_Surface_Map_Navigation_Information_Architecture_And_Screen_Grouping.md",
+          "current_filename": "05830_Policy_SaaS_Admin_Surface_Map_Navigation_Information_Architecture_And_Screen_Grouping.md",
+          "proposed_canonical_filename": "05830_Policy_SaaS_Admin_Surface_Map_Navigation_Information_Architecture_And_Screen_Grouping.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05840",
+      "files": [
+        {
+          "path": "docs/05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+          "current_filename": "05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+          "proposed_canonical_filename": "05840_Policy_SaaS_Admin_Dashboard_Card_KPI_Widget_Alert_And_Drilldown_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05840 SaaS Admin Dashboard Card KPI Widget Alert And Drilldown Boundary Policy"
+        },
+        {
+          "path": "docs/05840_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation_Policy.md",
+          "current_filename": "05840_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation_Policy.md",
+          "proposed_canonical_filename": "05840_Policy_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05840_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation_Policy.md"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05850",
+      "files": [
+        {
+          "path": "docs/05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+          "current_filename": "05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+          "proposed_canonical_filename": "05850_Policy_SaaS_Admin_Record_Detail_Page_Form_Field_Masking_And_Edit_Mode_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05850 SaaS Admin Record Detail Page Form Field Masking And Edit Mode Boundary Policy"
+        },
+        {
+          "path": "docs/05850_Policy_POS_Gateway_Callback_Webhook_Provider_Lookup_And_Async_State_Reconciliation.md",
+          "current_filename": "05850_Policy_POS_Gateway_Callback_Webhook_Provider_Lookup_And_Async_State_Reconciliation.md",
+          "proposed_canonical_filename": "05850_Policy_POS_Gateway_Callback_Webhook_Provider_Lookup_And_Async_State_Reconciliation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05860",
+      "files": [
+        {
+          "path": "docs/05861_Policy_SaaS_Admin_List_Table_Bulk_Action.md",
+          "current_filename": "05861_Policy_SaaS_Admin_List_Table_Bulk_Action.md",
+          "proposed_canonical_filename": "05860_Policy_SaaS_Admin_List_Table_Filter_Search_Sort_Bulk_Action_And_Selection_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05860 SaaS Admin List Table Filter Search Sort Bulk Action And Selection Boundary Policy"
+        },
+        {
+          "path": "docs/05860_Policy_POS_Gateway_Reconciliation_Case_Settlement_Matching_Provider_POS_And_Internal_Ledger.md",
+          "current_filename": "05860_Policy_POS_Gateway_Reconciliation_Case_Settlement_Matching_Provider_POS_And_Internal_Ledger.md",
+          "proposed_canonical_filename": "05860_Policy_POS_Gateway_Reconciliation_Case_Settlement_Matching_Provider_POS_And_Internal_Ledger.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05870",
+      "files": [
+        {
+          "path": "docs/05870_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export_Policy.md",
+          "current_filename": "05870_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export_Policy.md",
+          "proposed_canonical_filename": "05870_Policy_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05870_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export_Policy.md"
+        },
+        {
+          "path": "docs/05870_Policy_SaaS_Admin_Notification_Inbox_Task_Assignment_And_Work_Queue.md",
+          "current_filename": "05870_Policy_SaaS_Admin_Notification_Inbox_Task_Assignment_And_Work_Queue.md",
+          "proposed_canonical_filename": "05870_Policy_SaaS_Admin_Notification_Inbox_Task_Assignment_And_Work_Queue.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05880",
+      "files": [
+        {
+          "path": "docs/05881_Policy_SaaS_Admin_Audit_Trail_Collaboration.md",
+          "current_filename": "05881_Policy_SaaS_Admin_Audit_Trail_Collaboration.md",
+          "proposed_canonical_filename": "05880_Policy_SaaS_Admin_Audit_Trail_Activity_History_Comment_Note_And_Collaboration_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05880 SaaS Admin Audit Trail Activity History Comment Note And Collaboration Boundary Policy"
+        },
+        {
+          "path": "docs/05880_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow_Policy.md",
+          "current_filename": "05880_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow_Policy.md",
+          "proposed_canonical_filename": "05880_Policy_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05880_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow_Policy.md"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05890",
+      "files": [
+        {
+          "path": "docs/05891_Index_SaaS_Admin_Console_UI_Planning_Handoff.md",
+          "current_filename": "05891_Index_SaaS_Admin_Console_UI_Planning_Handoff.md",
+          "proposed_canonical_filename": "05890_Policy_SaaS_Admin_Console_Index_Readiness_Check_And_UI_Planning_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05890 SaaS Admin Console Index Readiness Check And UI Planning Handoff Policy"
+        },
+        {
+          "path": "docs/05890_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation_Policy.md",
+          "current_filename": "05890_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation_Policy.md",
+          "proposed_canonical_filename": "05890_Policy_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05890_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation_Policy.md"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs",
+      "duplicate_prefix": "05900",
+      "files": [
+        {
+          "path": "docs/05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md",
+          "current_filename": "05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md",
+          "proposed_canonical_filename": "05900_Policy_Phase_1_SaaS_Provider_Pilot_Commercial_Admin_Documentation_Range_Final_Index_And_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05900 Phase 1 SaaS Provider Pilot Commercial Admin Documentation Range Final Index And Handoff Policy"
+        },
+        {
+          "path": "docs/05900_Policy_POS_Gateway_Release_Gate_Kill_Switch_Rollback_Execution_And_Post_Release_Monitoring.md",
+          "current_filename": "05900_Policy_POS_Gateway_Release_Gate_Kill_Switch_Rollback_Execution_And_Post_Release_Monitoring.md",
+          "proposed_canonical_filename": "05900_Policy_POS_Gateway_Release_Gate_Kill_Switch_Rollback_Execution_And_Post_Release_Monitoring.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/01000_mvp_scope",
+      "duplicate_prefix": "01080",
+      "files": [
+        {
+          "path": "docs/01000_mvp_scope/01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+          "current_filename": "01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+          "proposed_canonical_filename": "01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/01000_mvp_scope/01080_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md",
+          "current_filename": "01080_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md",
+          "proposed_canonical_filename": "01080_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/01000_mvp_scope",
+      "duplicate_prefix": "01090",
+      "files": [
+        {
+          "path": "docs/01000_mvp_scope/01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+          "current_filename": "01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+          "proposed_canonical_filename": "01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md",
+          "inferred_document_type": "Boundary",
+          "confidence": "medium",
+          "reason": "keyword `boundary` found",
+          "heading": null
+        },
+        {
+          "path": "docs/01000_mvp_scope/01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md",
+          "current_filename": "01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md",
+          "proposed_canonical_filename": null,
+          "inferred_document_type": "Policy",
+          "confidence": "low",
+          "reason": "fallback based on governed markdown location",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/01000_mvp_scope",
+      "duplicate_prefix": "01200",
+      "files": [
+        {
+          "path": "docs/01000_mvp_scope/01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md",
+          "current_filename": "01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md",
+          "proposed_canonical_filename": "01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/01000_mvp_scope/01200_Readme_CatchMenu_POS_Less_Entry_Runtime_And_QR_Request_MVP.md",
+          "current_filename": "01200_Readme_CatchMenu_POS_Less_Entry_Runtime_And_QR_Request_MVP.md",
+          "proposed_canonical_filename": "01200_Readme_CatchMenu_POS_Less_Entry_Runtime_And_QR_Request_MVP.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance",
+      "duplicate_prefix": "04300",
+      "files": [
+        {
+          "path": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_Readme_POS_Provider_Adapter_Governance.md",
+          "current_filename": "04300_Readme_POS_Provider_Adapter_Governance.md",
+          "proposed_canonical_filename": "04300_Readme_POS_Provider_Adapter_Governance.md",
+          "inferred_document_type": "Readme",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 04300_POS_Provider_Adapter_Governance_Readme"
+        },
+        {
+          "path": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+          "current_filename": "04300_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+          "proposed_canonical_filename": "04300_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification",
+      "duplicate_prefix": "05100",
+      "files": [
+        {
+          "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05105_Plan_10807_Root_File_Rename_And_Move.md",
+          "current_filename": "05105_Plan_10807_Root_File_Rename_And_Move.md",
+          "proposed_canonical_filename": null,
+          "inferred_document_type": "Policy",
+          "confidence": "low",
+          "reason": "fallback based on governed markdown location",
+          "heading": "# 05100_10807_Root_File_Rename_And_Move_Plan"
+        },
+        {
+          "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05100_Implementation_Readiness_And_Provider_Verification_Readme.md",
+          "current_filename": "05100_Implementation_Readiness_And_Provider_Verification_Readme.md",
+          "proposed_canonical_filename": "05100_Readme_Readiness_And_Provider_Verification.md",
+          "inferred_document_type": "Readme",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05100_Implementation_Readiness_And_Provider_Verification_Readme"
+        },
+        {
+          "path": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+          "current_filename": "05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+          "proposed_canonical_filename": "05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 05100_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff_Policy"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse",
+      "duplicate_prefix": "05200",
+      "files": [
+        {
+          "path": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+          "current_filename": "05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+          "proposed_canonical_filename": "05200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md",
+          "current_filename": "05200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md",
+          "proposed_canonical_filename": "05200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture",
+      "duplicate_prefix": "10000",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md",
+          "current_filename": "10000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md",
+          "proposed_canonical_filename": "10000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+          "current_filename": "10000_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+          "proposed_canonical_filename": "10000_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+          "inferred_document_type": "Report",
+          "confidence": "medium",
+          "reason": "keyword `report` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package",
+      "duplicate_prefix": "10000",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10005_Plan_10712_Root_File_Rename_And_Move.md",
+          "current_filename": "10005_Plan_10712_Root_File_Rename_And_Move.md",
+          "proposed_canonical_filename": null,
+          "inferred_document_type": "Policy",
+          "confidence": "low",
+          "reason": "fallback based on governed markdown location",
+          "heading": "# 10000_10712_Root_File_Rename_And_Move_Plan"
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10000_Policy_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral.md",
+          "current_filename": "10000_Policy_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral.md",
+          "proposed_canonical_filename": "10000_Policy_Foundation_Static_Catalog_Package_Closure_And_Runtime_Entry_Deferral.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10000_Readme_Foundation_Static_Catalog_Package.md",
+          "current_filename": "10000_Readme_Foundation_Static_Catalog_Package.md",
+          "proposed_canonical_filename": "10000_Readme_Foundation_Static_Catalog_Package.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton",
+      "duplicate_prefix": "10100",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10100_Policy_Four_Side_Platform_Skeleton_And_Cross_Axis_Construction.md",
+          "current_filename": "10100_Policy_Four_Side_Platform_Skeleton_And_Cross_Axis_Construction.md",
+          "proposed_canonical_filename": "10100_Policy_Four_Side_Platform_Skeleton_And_Cross_Axis_Construction.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10100_Readme_Four_Side_Platform_Skeleton.md",
+          "current_filename": "10100_Readme_Four_Side_Platform_Skeleton.md",
+          "proposed_canonical_filename": "10100_Readme_Four_Side_Platform_Skeleton.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room",
+      "duplicate_prefix": "10400",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+          "current_filename": "10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+          "proposed_canonical_filename": "10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+          "inferred_document_type": "Index",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index"
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10400_Readme_Financial_Trust_Room.md",
+          "current_filename": "10400_Readme_Financial_Trust_Room.md",
+          "proposed_canonical_filename": "10400_Readme_Financial_Trust_Room.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room",
+      "duplicate_prefix": "10500",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+          "current_filename": "10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+          "proposed_canonical_filename": "10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+          "inferred_document_type": "Index",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index"
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10500_Readme_Data_Governance_Room.md",
+          "current_filename": "10500_Readme_Data_Governance_Room.md",
+          "proposed_canonical_filename": "10500_Readme_Data_Governance_Room.md",
+          "inferred_document_type": "Readme",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": "# 10500_Readme_Data_Governance_Room"
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation",
+      "duplicate_prefix": "10600",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10600_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning.md",
+          "current_filename": "10600_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning.md",
+          "proposed_canonical_filename": "10600_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning.md",
+          "inferred_document_type": "Index",
+          "confidence": "medium",
+          "reason": "keyword `index` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md",
+          "current_filename": "10600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md",
+          "proposed_canonical_filename": "10600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion",
+      "duplicate_prefix": "10609",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md",
+          "current_filename": "10609_01_Partial_Refund_Sequence_Business_Date_Triple-Axis_And_WORM_Ledger_Audit_Boundary_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_01_Partial_Refund_Sequence_Business_Date_Triple_Axis_And_WORM_Ledger_Audit_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary_Policy.md",
+          "current_filename": "10609_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_02_Commercial_Platform_Benchmark_Order_Payment_Hardware_Financial_Tax_And_Compliance_Verification_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_05_Chargeback_Dispute_Social_Engineering_Multi-Party_Approval_And_Manual_Adjustment_Governance_Policy.md",
+          "current_filename": "10609_05_Chargeback_Dispute_Social_Engineering_Multi-Party_Approval_And_Manual_Adjustment_Governance_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_05_Chargeback_Dispute_Social_Engineering_Multi_Party_Approval_And_Manual_Adjustment_Governance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_08_Fast_Payout_Virtual_Close_Offsetting_Auto-Billing_And_Operational_Asset_Optimization_Governance_Policy.md",
+          "current_filename": "10609_08_Fast_Payout_Virtual_Close_Offsetting_Auto-Billing_And_Operational_Asset_Optimization_Governance_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_08_Fast_Payout_Virtual_Close_Offsetting_Auto_Billing_And_Operational_Asset_Optimization_Governance.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_09_Disaster_PITR_RPO_Policy_Engine_Regulatory_Change_And_Long-Term_Financial_Heritage_Preservation_Policy.md",
+          "current_filename": "10609_09_Disaster_PITR_RPO_Policy_Engine_Regulatory_Change_And_Long-Term_Financial_Heritage_Preservation_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_09_Disaster_PITR_RPO_Engine_Regulatory_Change_And_Long_Term_Financial_Heritage_Preservation.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md",
+          "current_filename": "10609_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary_Policy.md",
+          "proposed_canonical_filename": "10609_Policy_Financial_Regulation_Escrow_FDS_And_Settlement_Lag_Risk_Boundary.md",
+          "inferred_document_type": "Policy",
+          "confidence": "high",
+          "reason": "manifest detected document type; terminal DocumentType token",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_03_Double_Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel.md",
+          "current_filename": "10609_Policy_03_Double_Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel.md",
+          "proposed_canonical_filename": "10609_Policy_03_Double_Entry_Ledger_Money_Flow_AML_FDS_Freezing_And_Merkle_Integrity_Kernel.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_04_Acquiring_State_Fixed_Point_Arithmetic_Append_Only_Ledger_Continuity_And_Financial_Kernel_Map.md",
+          "current_filename": "10609_Policy_04_Acquiring_State_Fixed_Point_Arithmetic_Append_Only_Ledger_Continuity_And_Financial_Kernel_Map.md",
+          "proposed_canonical_filename": "10609_Policy_04_Acquiring_State_Fixed_Point_Arithmetic_Append_Only_Ledger_Continuity_And_Financial_Kernel_Map.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_06_Fixed_Point_Batch_Snapshot_Fan_Out_And_Hash_Chain_Monitoring_Action.md",
+          "current_filename": "10609_Policy_06_Fixed_Point_Batch_Snapshot_Fan_Out_And_Hash_Chain_Monitoring_Action.md",
+          "proposed_canonical_filename": "10609_Policy_06_Fixed_Point_Batch_Snapshot_Fan_Out_And_Hash_Chain_Monitoring_Action.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_07_External_Financial_Network_Circuit_Breaker_Saga_Fallback_KYC_And_Account_Ownership_Verification.md",
+          "current_filename": "10609_Policy_07_External_Financial_Network_Circuit_Breaker_Saga_Fallback_KYC_And_Account_Ownership_Verification.md",
+          "proposed_canonical_filename": "10609_Policy_07_External_Financial_Network_Circuit_Breaker_Saga_Fallback_KYC_And_Account_Ownership_Verification.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_10_Multi_Tenant_Sharding_Take_Rate_Optimization_Split_Payout_And_Franchise_Finance_SaaS_Architecture.md",
+          "current_filename": "10609_Policy_10_Multi_Tenant_Sharding_Take_Rate_Optimization_Split_Payout_And_Franchise_Finance_SaaS_Architecture.md",
+          "proposed_canonical_filename": "10609_Policy_10_Multi_Tenant_Sharding_Take_Rate_Optimization_Split_Payout_And_Franchise_Finance_SaaS_Architecture.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_11_Remote_Wait_Preorder_Queue_Authorization_Capture_NFC_Handshake_And_Peak_Traffic_Control.md",
+          "current_filename": "10609_Policy_11_Remote_Wait_Preorder_Queue_Authorization_Capture_NFC_Handshake_And_Peak_Traffic_Control.md",
+          "proposed_canonical_filename": "10609_Policy_11_Remote_Wait_Preorder_Queue_Authorization_Capture_NFC_Handshake_And_Peak_Traffic_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_12_No_Show_Deposit_Penalty_Abuse_Scoring_Booking_Circuit_Breaker_And_Reservation_Financial_Control.md",
+          "current_filename": "10609_Policy_12_No_Show_Deposit_Penalty_Abuse_Scoring_Booking_Circuit_Breaker_And_Reservation_Financial_Control.md",
+          "proposed_canonical_filename": "10609_Policy_12_No_Show_Deposit_Penalty_Abuse_Scoring_Booking_Circuit_Breaker_And_Reservation_Financial_Control.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_13_Realtime_Sync_AI_Turnover_Prediction_Local_Mesh_Dynamic_Pricing_SoftPOS_And_Field_Control_Expansion.md",
+          "current_filename": "10609_Policy_13_Realtime_Sync_AI_Turnover_Prediction_Local_Mesh_Dynamic_Pricing_SoftPOS_And_Field_Control_Expansion.md",
+          "proposed_canonical_filename": "10609_Policy_13_Realtime_Sync_AI_Turnover_Prediction_Local_Mesh_Dynamic_Pricing_SoftPOS_And_Field_Control_Expansion.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_14_Kitchen_IoT_UWB_Spatial_Matching_Auto_SCM_And_Physical_Automation_Expansion.md",
+          "current_filename": "10609_Policy_14_Kitchen_IoT_UWB_Spatial_Matching_Auto_SCM_And_Physical_Automation_Expansion.md",
+          "proposed_canonical_filename": "10609_Policy_14_Kitchen_IoT_UWB_Spatial_Matching_Auto_SCM_And_Physical_Automation_Expansion.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Policy_15_Vision_AI_Acoustic_Intelligence_Cloud_Native_vPOS_And_Spatial_Autonomous_Store_Infrastructure.md",
+          "current_filename": "10609_Policy_15_Vision_AI_Acoustic_Intelligence_Cloud_Native_vPOS_And_Spatial_Autonomous_Store_Infrastructure.md",
+          "proposed_canonical_filename": "10609_Policy_15_Vision_AI_Acoustic_Intelligence_Cloud_Native_vPOS_And_Spatial_Autonomous_Store_Infrastructure.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/10609_Readme_Financial_Regulation_Risk_Expansion.md",
+          "current_filename": "10609_Readme_Financial_Regulation_Risk_Expansion.md",
+          "proposed_canonical_filename": "10609_Readme_Financial_Regulation_Risk_Expansion.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control",
+      "duplicate_prefix": "10700",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10700_Index_Security_And_Trust_Foundation.md",
+          "current_filename": "10700_Index_Security_And_Trust_Foundation.md",
+          "proposed_canonical_filename": "10700_Index_Security_And_Trust_Foundation.md",
+          "inferred_document_type": "Index",
+          "confidence": "medium",
+          "reason": "keyword `index` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10700_Readme_Security_Trust_And_Smart_Order_Control.md",
+          "current_filename": "10700_Readme_Security_Trust_And_Smart_Order_Control.md",
+          "proposed_canonical_filename": "10700_Readme_Security_Trust_And_Smart_Order_Control.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis",
+      "duplicate_prefix": "10800",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10800_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "current_filename": "10800_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "proposed_canonical_filename": "10800_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "inferred_document_type": "Index",
+          "confidence": "medium",
+          "reason": "keyword `index` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "current_filename": "10800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "proposed_canonical_filename": "10800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis",
+      "duplicate_prefix": "10805",
+      "files": [
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10805_Policy_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry.md",
+          "current_filename": "10805_Policy_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry.md",
+          "proposed_canonical_filename": "10805_Policy_01_Ingredient_Master_Pool_Taxonomy_And_Korean_Namul_Seed_Registry.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        },
+        {
+          "path": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10805_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff.md",
+          "current_filename": "10805_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff.md",
+          "proposed_canonical_filename": "10805_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff.md",
+          "inferred_document_type": "Policy",
+          "confidence": "medium",
+          "reason": "keyword `policy` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/14000_pos_provider_integration_strategy",
+      "duplicate_prefix": "14000",
+      "files": [
+        {
+          "path": "docs/14000_pos_provider_integration_strategy/14000_Readme_POS_Provider_Integration_Strategy.md",
+          "current_filename": "14000_Readme_POS_Provider_Integration_Strategy.md",
+          "proposed_canonical_filename": "14000_Readme_POS_Provider_Integration_Strategy.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        },
+        {
+          "path": "docs/14000_pos_provider_integration_strategy/14000_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+          "current_filename": "14000_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+          "proposed_canonical_filename": "14000_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+          "inferred_document_type": "Report",
+          "confidence": "medium",
+          "reason": "keyword `report` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    },
+    {
+      "folder": "docs/40000_menu_taxonomy_and_ai_classification",
+      "duplicate_prefix": "40000",
+      "files": [
+        {
+          "path": "docs/40000_menu_taxonomy_and_ai_classification/40000_Readme_Menu_Taxonomy_And_AI_Classification.md",
+          "current_filename": "40000_Readme_Menu_Taxonomy_And_AI_Classification.md",
+          "proposed_canonical_filename": "40000_Readme_Menu_Taxonomy_And_AI_Classification.md",
+          "inferred_document_type": "Readme",
+          "confidence": "medium",
+          "reason": "keyword `readme` found",
+          "heading": null
+        },
+        {
+          "path": "docs/40000_menu_taxonomy_and_ai_classification/40000_Report_Menu_Taxonomy_Wave_5_Review.md",
+          "current_filename": "40000_Report_Menu_Taxonomy_Wave_5_Review.md",
+          "proposed_canonical_filename": "40000_Report_Menu_Taxonomy_Wave_5_Review.md",
+          "inferred_document_type": "Report",
+          "confidence": "medium",
+          "reason": "keyword `report` found",
+          "heading": null
+        }
+      ],
+      "recommended_resolution": "Manual review required; keep one document per folder-local numeric prefix, move unrelated root conflicts to canonical folders or assign next available number in the owning folder.",
+      "proposed_new_numbers": [],
+      "manual_review": true
+    }
+  ]
+}

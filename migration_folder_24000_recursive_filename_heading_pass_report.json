@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-06-15T17:35:46.151353+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/24000_deployment_operations",
+  "files_scanned": 20,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/24000_deployment_operations/24060_Policy_First_7_Days_Activation_Check.md",
+      "heading": "# 24060_Policy_First_7_Days_Activation_Check",
+      "previous": "03910 First 7 Days Activation Check Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24070_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md",
+      "heading": "# 24070_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog",
+      "previous": "05091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24080_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md",
+      "heading": "# 24080_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist",
+      "previous": "# 05310 First Store POS Equipment Decision And Provider Procurement Checklist Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24090_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md",
+      "heading": "# 24090_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record",
+      "previous": "# 05320 Store Vendor Quote Comparison And Adoption Decision Record Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24100_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md",
+      "heading": "# 24100_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency",
+      "previous": "# 05330 Small Kiosk Vendor Evaluation And Integration Transparency Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md",
+      "heading": "# 24110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection",
+      "previous": "05380 Franchise SaaS Pilot Store Rollout And Evidence Collection Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md",
+      "heading": "# 24120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control",
+      "previous": "05390 Pilot Store Register Test Partner Selection And Scope Control Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24130_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md",
+      "heading": "# 24130_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording",
+      "previous": "05400 Pilot Evidence Packet Template And Store Test Result Recording Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24140_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md",
+      "heading": "# 24140_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning",
+      "previous": "05410 Pilot Incident Retrospective Blocker Conversion And Next Store Learning Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24150_Readme_Merchant_Success_Troubleshooting.md",
+      "heading": "# 24150_Readme_Merchant_Success_Troubleshooting",
+      "previous": "03900 Merchant Success Troubleshooting Readme"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness.md",
+      "heading": "# 24160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness",
+      "previous": "03920 First 30 Days Troubleshooting And Conversion Readiness Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization.md",
+      "heading": "# 24170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization",
+      "previous": "03930 AI Menu Intake Correction And Live Menu Stabilization Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md",
+      "heading": "# 24180_Policy_Request_Board_Staff_Adoption_And_Operation_Check",
+      "previous": "03940 Request Board Staff Adoption And Operation Check Policy"
+    },
+    {
+      "file": "docs/24000_deployment_operations/24190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md",
+      "heading": "# 24190_Policy_POS_Manual_Fallback_Training_And_Store_Usage",
+      "previous": "03950 POS Manual Fallback Training And Store Usage Policy"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/24000_deployment_operations/24000_Readme_Deployment_Operations.md",
+      "replacements": [
+        "05091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog -> 24070_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24060_Policy_First_7_Days_Activation_Check.md",
+      "replacements": [
+        "03900_Merchant_Success_Troubleshooting_Readme -> 24150_Readme_Merchant_Success_Troubleshooting",
+        "03920_First_30_Days_Troubleshooting_And_Conversion_Readiness_Policy -> 24160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness",
+        "03930_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization_Policy -> 24170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization",
+        "03940_Request_Board_Staff_Adoption_And_Operation_Check_Policy -> 24180_Policy_Request_Board_Staff_Adoption_And_Operation_Check",
+        "03950_POS_Manual_Fallback_Training_And_Store_Usage_Policy -> 24190_Policy_POS_Manual_Fallback_Training_And_Store_Usage"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md",
+      "replacements": [
+        "05380_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection -> 24110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md",
+      "replacements": [
+        "05390_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control -> 24120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness.md",
+      "replacements": [
+        "03900\\_Merchant\\_Success\\_Troubleshooting\\_Readme -> 24150\\_Readme\\_Merchant\\_Success\\_Troubleshooting.md",
+        "03910\\_First\\_7\\_Days\\_Activation\\_Check\\_Policy -> 24060\\_Policy\\_First\\_7\\_Days\\_Activation\\_Check.md",
+        "03930\\_AI\\_Menu\\_Intake\\_Correction\\_And\\_Live\\_Menu\\_Stabilization\\_Policy -> 24170\\_Policy\\_AI\\_Menu\\_Intake\\_Correction\\_And\\_Live\\_Menu\\_Stabilization.md",
+        "03940\\_Request\\_Board\\_Staff\\_Adoption\\_And\\_Operation\\_Check\\_Policy -> 24180\\_Policy\\_Request\\_Board\\_Staff\\_Adoption\\_And\\_Operation\\_Check.md",
+        "03950\\_POS\\_Manual\\_Fallback\\_Training\\_And\\_Store\\_Usage\\_Policy -> 24190\\_Policy\\_POS\\_Manual\\_Fallback\\_Training\\_And\\_Store\\_Usage.md"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization.md",
+      "replacements": [
+        "03900\\_Merchant\\_Success\\_Troubleshooting\\_Readme -> 24150\\_Readme\\_Merchant\\_Success\\_Troubleshooting.md",
+        "03910\\_First\\_7\\_Days\\_Activation\\_Check\\_Policy -> 24060\\_Policy\\_First\\_7\\_Days\\_Activation\\_Check.md",
+        "03920\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness\\_Policy -> 24160\\_Policy\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness.md"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md",
+      "replacements": [
+        "03900\\_Merchant\\_Success\\_Troubleshooting\\_Readme -> 24150\\_Readme\\_Merchant\\_Success\\_Troubleshooting.md",
+        "03910\\_First\\_7\\_Days\\_Activation\\_Check\\_Policy -> 24060\\_Policy\\_First\\_7\\_Days\\_Activation\\_Check.md",
+        "03920\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness\\_Policy -> 24160\\_Policy\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness.md",
+        "03930\\_AI\\_Menu\\_Intake\\_Correction\\_And\\_Live\\_Menu\\_Stabilization\\_Policy -> 24170\\_Policy\\_AI\\_Menu\\_Intake\\_Correction\\_And\\_Live\\_Menu\\_Stabilization.md",
+        "03950\\_POS\\_Manual\\_Fallback\\_Training\\_And\\_Store\\_Usage\\_Policy -> 24190\\_Policy\\_POS\\_Manual\\_Fallback\\_Training\\_And\\_Store\\_Usage.md"
+      ]
+    },
+    {
+      "file": "docs/24000_deployment_operations/24190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md",
+      "replacements": [
+        "03900\\_Merchant\\_Success\\_Troubleshooting\\_Readme -> 24150\\_Readme\\_Merchant\\_Success\\_Troubleshooting.md",
+        "03910\\_First\\_7\\_Days\\_Activation\\_Check\\_Policy -> 24060\\_Policy\\_First\\_7\\_Days\\_Activation\\_Check.md",
+        "03920\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness\\_Policy -> 24160\\_Policy\\_First\\_30\\_Days\\_Troubleshooting\\_And\\_Conversion\\_Readiness.md",
+        "03940\\_Request\\_Board\\_Staff\\_Adoption\\_And\\_Operation\\_Check\\_Policy -> 24180\\_Policy\\_Request\\_Board\\_Staff\\_Adoption\\_And\\_Operation\\_Check.md"
+      ]
+    },
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 40 purpose fields synced; section 66 migration note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 24000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/24000_deployment_operations/24010_Governance_Deployment_Readiness_And_Release.md",
+    "docs/24000_deployment_operations/24020_Boundary_Runtime_Operations_And_Support.md",
+    "docs/24000_deployment_operations/24030_Boundary_Incident_Response_And_Degraded_Operation.md",
+    "docs/24000_deployment_operations/24040_Boundary_Operational_Runbook.md",
+    "docs/24000_deployment_operations/24050_Boundary_Environment_And_Config_Non_Implementation.md"
+  ],
+  "unchanged_count": 5,
+  "exceptions": [],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 40 synced; section 66 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ],
+  "legacy_number_normalization": "14 files had legacy 03xxx/05xxx headings; in-folder refs normalized to 24xxx filename stems"
+}

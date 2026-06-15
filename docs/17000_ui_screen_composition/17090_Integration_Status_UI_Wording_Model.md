@@ -1,4 +1,4 @@
-# 17090 Integration Status UI Wording Model
+# 17090_Integration_Status_UI_Wording_Model
 
 ## 1 Purpose
 
@@ -54,9 +54,9 @@ It does not create final copywriting, translations, or UI components.
 
 ## 5 Cross-References
 
-- `docs/11000_integration_boundary/11020_POS_API_Integration_Truth_Boundary.md`
-- `docs/13000_app_api_projection/13120_Integration_Status_Projection_Boundary.md`
-- `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/11000_integration_boundary/11020_Boundary_POS_API_Integration_Truth.md`
+- `docs/13000_app_api_projection/13120_Boundary_Integration_Status_Projection.md`
+- `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 6 Open Decisions
 

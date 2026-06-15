@@ -1,4 +1,4 @@
-# 17050 Support Console Ui Composition
+# 17050_Support_Console_UI_Composition
 
 ## 1 Purpose
 
@@ -110,10 +110,10 @@ Additional constraints:
 
 ## 4 Cross-References
 
-- `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`
+- `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`
 - `docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md`
-- `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
-- `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
+- `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md`
 - `docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md`
 
 ## 5 Open Decisions

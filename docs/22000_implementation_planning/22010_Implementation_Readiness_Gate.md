@@ -1,4 +1,4 @@
-# 22010 Implementation Readiness Gate
+# 22010_Implementation_Readiness_Gate
 
 ## 1 Purpose
 
@@ -19,12 +19,12 @@ It does not define schema, migrations, app code, API endpoints, RLS policies, or
 | entity master review | `docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md` |
 | state/event ownership review | `docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md` |
 | audit/recovery lineage review | `docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md` |
-| integration boundary review | `docs/11000_integration_boundary/11010_POS_Payment_Printer_Integration_Boundary.md` |
-| security/access/privacy review | `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`, `docs/20000_validation_security_audit/20020_Cross_Entity_Data_Sharing_And_Privacy_Boundary.md` |
-| API projection review | `docs/13000_app_api_projection/13050_Api_Contract_Projection_Boundary.md`, `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md` |
-| UI wording/surface review | `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`, `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md` |
-| legal/payment/loyalty exclusion review | `docs/15000_membership_loyalty/15030_Point_Ledger_And_Wallet_Non_Implementation_Boundary.md`, `docs/22000_implementation_planning/22060_Mvp_Implementation_Non_Goals.md` |
-| rollback/test planning review | `docs/22000_implementation_planning/22050_QA_Smoke_Test_And_Rollback_Planning_Boundary.md` |
+| integration boundary review | `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md` |
+| security/access/privacy review | `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`, `docs/20000_validation_security_audit/20020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md` |
+| API projection review | `docs/13000_app_api_projection/13050_Boundary_Api_Contract_Projection.md`, `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md` |
+| UI wording/surface review | `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`, `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md` |
+| legal/payment/loyalty exclusion review | `docs/15000_membership_loyalty/15030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`, `docs/22000_implementation_planning/22060_Boundary_Mvp_Implementation_Non_Goals.md` |
+| rollback/test planning review | `docs/22000_implementation_planning/22050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md` |
 
 Each gate category must produce an explicit pass/fail outcome before implementation planning advances to physical design.
 
@@ -65,7 +65,7 @@ Additional hard stops:
 
 ## 5 Security Governance Consolidation Cross-Reference
 
-Implementation readiness must review `docs/20000_validation_security_audit/20080_Access_Context_And_Data_Visibility_Governance.md` through `docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md` before implementation approval.
+Implementation readiness must review `docs/20000_validation_security_audit/20080_Governance_Access_Context_And_Data_Visibility.md` through `docs/20000_validation_security_audit/20120_Audit_Evidence_Packet_And_Compliance_Readiness.md` before implementation approval.
 
 Security/audit/privacy governance does not create implementation, but it is a hard gate.
 
@@ -84,9 +84,9 @@ It does not create implementation artifacts.
 ## 7 Cross-References
 
 - `docs/09000_data_model_state_machine/09060_Implementation_Deferred_Data_Model_Boundary.md`
-- `docs/22000_implementation_planning/22030_Schema_Design_Readiness_Checklist.md`
-- `docs/22000_implementation_planning/22040_Api_App_Implementation_Readiness_Checklist.md`
-- `docs/22000_implementation_planning/22020_Build_Sequence_And_Phase_Boundary.md`
+- `docs/22000_implementation_planning/22030_Checklist_Schema_Design_Readiness.md`
+- `docs/22000_implementation_planning/22040_Checklist_Api_App_Implementation_Readiness.md`
+- `docs/22000_implementation_planning/22020_Boundary_Build_Sequence_And_Phase.md`
 
 ## 8 Open Decisions
 

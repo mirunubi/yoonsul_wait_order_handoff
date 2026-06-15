@@ -1,4 +1,4 @@
-# 15050 Membership Admin And Ui Reserved Surface
+# 15050_Membership_Admin_And_UI_Reserved_Surface
 
 ## 1 Purpose
 
@@ -49,7 +49,7 @@ Additional wording rules:
 - coupon issued does not equal coupon redeemed.
 - membership hint does not equal verified membership account.
 
-Cross-reference: `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md` and `docs/17000_ui_screen_composition/17060_UI_State_Wording_And_Empty_State_Guideline.md`.
+Cross-reference: `docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md` and `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`.
 
 ## 5 Non-MVP Boundary
 
@@ -67,7 +67,7 @@ Placeholders, if visible, must be clearly marked as future-reserved and must not
 - `docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md`
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md`
-- `docs/15000_membership_loyalty/15010_Membership_Loyalty_Product_Boundary.md`
+- `docs/15000_membership_loyalty/15010_Boundary_Membership_Loyalty_Product.md`
 
 ## 7 Open Decisions
 

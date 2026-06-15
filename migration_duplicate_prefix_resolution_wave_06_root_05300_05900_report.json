@@ -1,0 +1,718 @@
+{
+  "wave": "duplicate_prefix_resolution_06_root_05300_05900",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "scope": "root docs 05300-05900 collision series",
+  "root_05300_05900_duplicate_groups_found": [
+    "05490",
+    "05500",
+    "05510",
+    "05520",
+    "05530",
+    "05540",
+    "05550",
+    "05560",
+    "05570",
+    "05580",
+    "05590",
+    "05600",
+    "05610",
+    "05620",
+    "05630",
+    "05640",
+    "05650",
+    "05660",
+    "05670",
+    "05680",
+    "05690",
+    "05700",
+    "05710",
+    "05790",
+    "05800",
+    "05810",
+    "05820",
+    "05830",
+    "05840",
+    "05850",
+    "05860",
+    "05870",
+    "05880",
+    "05890",
+    "05900"
+  ],
+  "groups_resolved": [
+    "05490",
+    "05500",
+    "05510",
+    "05520",
+    "05530",
+    "05540",
+    "05550",
+    "05560",
+    "05570",
+    "05580",
+    "05590",
+    "05600",
+    "05610",
+    "05620",
+    "05630",
+    "05640",
+    "05650",
+    "05660",
+    "05670",
+    "05680",
+    "05690",
+    "05700",
+    "05710",
+    "05790",
+    "05800",
+    "05810",
+    "05820",
+    "05830",
+    "05840",
+    "05850",
+    "05860",
+    "05870",
+    "05880",
+    "05890",
+    "05900"
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/05490 Mobile PC Git Conflict Prevention Recovery And Documentation Safety Policy.md",
+      "to": "docs/05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+      "old_prefix": "05490",
+      "new_prefix": "05491"
+    },
+    {
+      "from": "docs/05500 Mobile Documentation Workflow Index Readiness Check And Transition Gate Policy.md",
+      "to": "docs/05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+      "old_prefix": "05500",
+      "new_prefix": "05501"
+    },
+    {
+      "from": "docs/05510 High Velocity Markdown Production Batch Review And Implementation Backlog Control Policy.md",
+      "to": "docs/05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+      "old_prefix": "05510",
+      "new_prefix": "05511"
+    },
+    {
+      "from": "docs/05520 Data Flow Based Documentation Folder Reorganization And Batch Sorting Policy.md",
+      "to": "docs/05521_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+      "old_prefix": "05520",
+      "new_prefix": "05521"
+    },
+    {
+      "from": "docs/05530 Data Flow Index Runtime Ownership And Implementation Extraction Matrix Policy.md",
+      "to": "docs/05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+      "old_prefix": "05530",
+      "new_prefix": "05531"
+    },
+    {
+      "from": "docs/05540 Implementation Backlog Extraction Queue And Phase Cutline Control Policy.md",
+      "to": "docs/05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+      "old_prefix": "05540",
+      "new_prefix": "05541"
+    },
+    {
+      "from": "docs/05550 Phase 1 MVP Build Authorization Runtime Scope And No-Scope Creep Policy.md",
+      "to": "docs/05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+      "old_prefix": "05550",
+      "new_prefix": "05551"
+    },
+    {
+      "from": "docs/05560 Phase 1 MVP Implementation Sequence Dependency And Build Order Policy.md",
+      "to": "docs/05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+      "old_prefix": "05560",
+      "new_prefix": "05561"
+    },
+    {
+      "from": "docs/05570 Phase 1 MVP Runtime State Vocabulary And Canonical Event Naming Policy.md",
+      "to": "docs/05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+      "old_prefix": "05570",
+      "new_prefix": "05571"
+    },
+    {
+      "from": "docs/05580 Phase 1 Runtime State Transition Matrix And Authority Boundary Policy.md",
+      "to": "docs/05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+      "old_prefix": "05580",
+      "new_prefix": "05581"
+    },
+    {
+      "from": "docs/05590 Phase 1 Runtime Transition Test Case And Evidence Packet Mapping Policy.md",
+      "to": "docs/05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+      "old_prefix": "05590",
+      "new_prefix": "05591"
+    },
+    {
+      "from": "docs/05600 Phase 1 Pilot Readiness Gate Required Test Register And Blocker Control Policy.md",
+      "to": "docs/05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+      "old_prefix": "05600",
+      "new_prefix": "05601"
+    },
+    {
+      "from": "docs/05610 Phase 1 Internal Simulation Dry Run And Pre Pilot Rehearsal Policy.md",
+      "to": "docs/05611_Policy_Phase_1_Internal_Simulation_Rehearsal.md",
+      "old_prefix": "05610",
+      "new_prefix": "05611"
+    },
+    {
+      "from": "docs/05620 Staff Only Dry Run Store Role Rehearsal And Operational Fallback Training Policy.md",
+      "to": "docs/05621_Policy_Staff_Only_Dry_Run_Fallback_Training.md",
+      "old_prefix": "05620",
+      "new_prefix": "05621"
+    },
+    {
+      "from": "docs/05630 Limited Customer Pilot Scope Restriction Customer Communication And Live Safety Policy.md",
+      "to": "docs/05631_Policy_Limited_Customer_Pilot_Live_Safety.md",
+      "old_prefix": "05630",
+      "new_prefix": "05631"
+    },
+    {
+      "from": "docs/05640 Pilot Incident Review Blocker Conversion And Scope Adjustment Policy.md",
+      "to": "docs/05641_Policy_Pilot_Incident_Review_Scope_Adjustment.md",
+      "old_prefix": "05640",
+      "new_prefix": "05641"
+    },
+    {
+      "from": "docs/05640 POS Gateway Compliance Financial Audit Regulatory And Consumer Protection Readiness Policy.md",
+      "to": "docs/05640_Policy_POS_Gateway_Compliance_Readiness.md",
+      "old_prefix": "05640",
+      "new_prefix": "05640"
+    },
+    {
+      "from": "docs/05650 Pilot Learning Daily Review Weekly Consolidation And Next Scope Decision Policy.md",
+      "to": "docs/05651_Policy_Pilot_Learning_Review_Next_Scope.md",
+      "old_prefix": "05650",
+      "new_prefix": "05651"
+    },
+    {
+      "from": "docs/05660 Pilot To Paid SaaS Conversion Operational Proof And Commercial Readiness Policy.md",
+      "to": "docs/05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md",
+      "old_prefix": "05660",
+      "new_prefix": "05661"
+    },
+    {
+      "from": "docs/05670 Early Paid SaaS Customer Monitoring Churn Risk And Retention Intervention Policy.md",
+      "to": "docs/05671_Policy_Early_Paid_SaaS_Churn_Intervention.md",
+      "old_prefix": "05670",
+      "new_prefix": "05671"
+    },
+    {
+      "from": "docs/05680 Standard SaaS Customer Graduation Renewal Expansion And Stable Operations Policy.md",
+      "to": "docs/05681_Policy_Standard_SaaS_Customer_Graduation.md",
+      "old_prefix": "05680",
+      "new_prefix": "05681"
+    },
+    {
+      "from": "docs/05690 Multi Store Expansion Readiness Repeatable Onboarding And Provider Stack Replication Policy.md",
+      "to": "docs/05691_Policy_Multi_Store_Expansion_Onboarding.md",
+      "old_prefix": "05690",
+      "new_prefix": "05691"
+    },
+    {
+      "from": "docs/05700 Multi Store Operations Dashboard Store Health Support Load And Expansion Control Policy.md",
+      "to": "docs/05701_Policy_Multi_Store_Operations_Dashboard.md",
+      "old_prefix": "05700",
+      "new_prefix": "05701"
+    },
+    {
+      "from": "docs/05710 Multi Store Support Operations Queue Escalation And Capacity Control Policy.md",
+      "to": "docs/05711_Policy_Multi_Store_Support_Queue_Control.md",
+      "old_prefix": "05710",
+      "new_prefix": "05711"
+    },
+    {
+      "from": "docs/05790 Multi Store Commercial Governance Index Readiness Check And Next Phase Handoff Policy.md",
+      "to": "docs/05791_Index_Multi_Store_Commercial_Governance_Handoff.md",
+      "old_prefix": "05790",
+      "new_prefix": "05791"
+    },
+    {
+      "from": "docs/05800 SaaS Admin Console Lane Start Role Surface Runtime View And Action Boundary Policy.md",
+      "to": "docs/05801_Policy_SaaS_Admin_Console_Lane_Start.md",
+      "old_prefix": "05800",
+      "new_prefix": "05801"
+    },
+    {
+      "from": "docs/05810 SaaS Admin Tenant Store Directory Role Scope And Context Switch Policy.md",
+      "to": "docs/05811_Policy_SaaS_Admin_Tenant_Store_Directory.md",
+      "old_prefix": "05810",
+      "new_prefix": "05811"
+    },
+    {
+      "from": "docs/05820 SaaS Admin Role Permission Matrix View Action Export And Override Boundary Policy.md",
+      "to": "docs/05821_Matrix_SaaS_Admin_Role_Permission.md",
+      "old_prefix": "05820",
+      "new_prefix": "05821"
+    },
+    {
+      "from": "docs/05830 SaaS Admin Surface Map Navigation Information Architecture And Screen Grouping Policy.md",
+      "to": "docs/05831_Policy_SaaS_Admin_Surface_Map_Navigation.md",
+      "old_prefix": "05830",
+      "new_prefix": "05831"
+    },
+    {
+      "from": "docs/05840 SaaS Admin Dashboard Card KPI Widget Alert And Drilldown Boundary Policy.md",
+      "to": "docs/05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+      "old_prefix": "05840",
+      "new_prefix": "05841"
+    },
+    {
+      "from": "docs/05850 SaaS Admin Record Detail Page Form Field Masking And Edit Mode Boundary Policy.md",
+      "to": "docs/05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+      "old_prefix": "05850",
+      "new_prefix": "05851"
+    },
+    {
+      "from": "docs/05860 SaaS Admin List Table Filter Search Sort Bulk Action And Selection Boundary Policy.md",
+      "to": "docs/05861_Policy_SaaS_Admin_List_Table_Bulk_Action.md",
+      "old_prefix": "05860",
+      "new_prefix": "05861"
+    },
+    {
+      "from": "docs/05870 SaaS Admin Notification Inbox Task Assignment And Work Queue Policy.md",
+      "to": "docs/05871_Policy_SaaS_Admin_Notification_Work_Queue.md",
+      "old_prefix": "05870",
+      "new_prefix": "05871"
+    },
+    {
+      "from": "docs/05880 SaaS Admin Audit Trail Activity History Comment Note And Collaboration Boundary Policy.md",
+      "to": "docs/05881_Policy_SaaS_Admin_Audit_Trail_Collaboration.md",
+      "old_prefix": "05880",
+      "new_prefix": "05881"
+    },
+    {
+      "from": "docs/05890 SaaS Admin Console Index Readiness Check And UI Planning Handoff Policy.md",
+      "to": "docs/05891_Index_SaaS_Admin_Console_UI_Planning_Handoff.md",
+      "old_prefix": "05890",
+      "new_prefix": "05891"
+    },
+    {
+      "from": "docs/05900 Phase 1 SaaS Provider Pilot Commercial Admin Documentation Range Final Index And Handoff Policy.md",
+      "to": "docs/05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md",
+      "old_prefix": "05900",
+      "new_prefix": "05901"
+    }
+  ],
+  "moved_files": [],
+  "target_folders_selected": [
+    {
+      "folder": "docs",
+      "reason": "target folder unclear or root lane already contains companion documents; resolved in-place without creating folders"
+    }
+  ],
+  "new_numbers_assigned": [
+    {
+      "old_prefix": "05490",
+      "new_prefix": "05491",
+      "file": "docs/05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md"
+    },
+    {
+      "old_prefix": "05500",
+      "new_prefix": "05501",
+      "file": "docs/05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md"
+    },
+    {
+      "old_prefix": "05510",
+      "new_prefix": "05511",
+      "file": "docs/05511_Policy_High_Velocity_Markdown_Backlog_Control.md"
+    },
+    {
+      "old_prefix": "05520",
+      "new_prefix": "05521",
+      "file": "docs/05521_Policy_Data_Flow_Documentation_Folder_Sorting.md"
+    },
+    {
+      "old_prefix": "05530",
+      "new_prefix": "05531",
+      "file": "docs/05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md"
+    },
+    {
+      "old_prefix": "05540",
+      "new_prefix": "05541",
+      "file": "docs/05541_Policy_Implementation_Backlog_Extraction_Cutline.md"
+    },
+    {
+      "old_prefix": "05550",
+      "new_prefix": "05551",
+      "file": "docs/05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md"
+    },
+    {
+      "old_prefix": "05560",
+      "new_prefix": "05561",
+      "file": "docs/05561_Policy_Phase_1_MVP_Implementation_Sequence.md"
+    },
+    {
+      "old_prefix": "05570",
+      "new_prefix": "05571",
+      "file": "docs/05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md"
+    },
+    {
+      "old_prefix": "05580",
+      "new_prefix": "05581",
+      "file": "docs/05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md"
+    },
+    {
+      "old_prefix": "05590",
+      "new_prefix": "05591",
+      "file": "docs/05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md"
+    },
+    {
+      "old_prefix": "05600",
+      "new_prefix": "05601",
+      "file": "docs/05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md"
+    },
+    {
+      "old_prefix": "05610",
+      "new_prefix": "05611",
+      "file": "docs/05611_Policy_Phase_1_Internal_Simulation_Rehearsal.md"
+    },
+    {
+      "old_prefix": "05620",
+      "new_prefix": "05621",
+      "file": "docs/05621_Policy_Staff_Only_Dry_Run_Fallback_Training.md"
+    },
+    {
+      "old_prefix": "05630",
+      "new_prefix": "05631",
+      "file": "docs/05631_Policy_Limited_Customer_Pilot_Live_Safety.md"
+    },
+    {
+      "old_prefix": "05640",
+      "new_prefix": "05641",
+      "file": "docs/05641_Policy_Pilot_Incident_Review_Scope_Adjustment.md"
+    },
+    {
+      "old_prefix": "05640",
+      "new_prefix": "05640",
+      "file": "docs/05640_Policy_POS_Gateway_Compliance_Readiness.md"
+    },
+    {
+      "old_prefix": "05650",
+      "new_prefix": "05651",
+      "file": "docs/05651_Policy_Pilot_Learning_Review_Next_Scope.md"
+    },
+    {
+      "old_prefix": "05660",
+      "new_prefix": "05661",
+      "file": "docs/05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md"
+    },
+    {
+      "old_prefix": "05670",
+      "new_prefix": "05671",
+      "file": "docs/05671_Policy_Early_Paid_SaaS_Churn_Intervention.md"
+    },
+    {
+      "old_prefix": "05680",
+      "new_prefix": "05681",
+      "file": "docs/05681_Policy_Standard_SaaS_Customer_Graduation.md"
+    },
+    {
+      "old_prefix": "05690",
+      "new_prefix": "05691",
+      "file": "docs/05691_Policy_Multi_Store_Expansion_Onboarding.md"
+    },
+    {
+      "old_prefix": "05700",
+      "new_prefix": "05701",
+      "file": "docs/05701_Policy_Multi_Store_Operations_Dashboard.md"
+    },
+    {
+      "old_prefix": "05710",
+      "new_prefix": "05711",
+      "file": "docs/05711_Policy_Multi_Store_Support_Queue_Control.md"
+    },
+    {
+      "old_prefix": "05790",
+      "new_prefix": "05791",
+      "file": "docs/05791_Index_Multi_Store_Commercial_Governance_Handoff.md"
+    },
+    {
+      "old_prefix": "05800",
+      "new_prefix": "05801",
+      "file": "docs/05801_Policy_SaaS_Admin_Console_Lane_Start.md"
+    },
+    {
+      "old_prefix": "05810",
+      "new_prefix": "05811",
+      "file": "docs/05811_Policy_SaaS_Admin_Tenant_Store_Directory.md"
+    },
+    {
+      "old_prefix": "05820",
+      "new_prefix": "05821",
+      "file": "docs/05821_Matrix_SaaS_Admin_Role_Permission.md"
+    },
+    {
+      "old_prefix": "05830",
+      "new_prefix": "05831",
+      "file": "docs/05831_Policy_SaaS_Admin_Surface_Map_Navigation.md"
+    },
+    {
+      "old_prefix": "05840",
+      "new_prefix": "05841",
+      "file": "docs/05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md"
+    },
+    {
+      "old_prefix": "05850",
+      "new_prefix": "05851",
+      "file": "docs/05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md"
+    },
+    {
+      "old_prefix": "05860",
+      "new_prefix": "05861",
+      "file": "docs/05861_Policy_SaaS_Admin_List_Table_Bulk_Action.md"
+    },
+    {
+      "old_prefix": "05870",
+      "new_prefix": "05871",
+      "file": "docs/05871_Policy_SaaS_Admin_Notification_Work_Queue.md"
+    },
+    {
+      "old_prefix": "05880",
+      "new_prefix": "05881",
+      "file": "docs/05881_Policy_SaaS_Admin_Audit_Trail_Collaboration.md"
+    },
+    {
+      "old_prefix": "05890",
+      "new_prefix": "05891",
+      "file": "docs/05891_Index_SaaS_Admin_Console_UI_Planning_Handoff.md"
+    },
+    {
+      "old_prefix": "05900",
+      "new_prefix": "05901",
+      "file": "docs/05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md"
+    }
+  ],
+  "files_skipped": [
+    {
+      "scope": "root 05300-05900 non-duplicate files",
+      "reason": "left untouched because this wave resolves duplicate prefix collisions only"
+    }
+  ],
+  "ambiguous_files_requiring_manual_review": [],
+  "heading_updates": [
+    {
+      "file": "docs/05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+      "old_heading": "# 05490 Mobile PC Git Conflict Prevention Recovery And Documentation Safety Policy",
+      "new_heading": "# 05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery"
+    },
+    {
+      "file": "docs/05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+      "old_heading": "# 05500 Mobile Documentation Workflow Index Readiness Check And Transition Gate Policy",
+      "new_heading": "# 05501_Policy_Mobile_Documentation_Workflow_Transition_Gate"
+    },
+    {
+      "file": "docs/05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+      "old_heading": "# 05510 High Velocity Markdown Production Batch Review And Implementation Backlog Control Policy",
+      "new_heading": "# 05511_Policy_High_Velocity_Markdown_Backlog_Control"
+    },
+    {
+      "file": "docs/05521_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+      "old_heading": "# 05520 Data Flow Based Documentation Folder Reorganization And Batch Sorting Policy",
+      "new_heading": "# 05521_Policy_Data_Flow_Documentation_Folder_Sorting"
+    },
+    {
+      "file": "docs/05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+      "old_heading": "# 05530 Data Flow Index Runtime Ownership And Implementation Extraction Matrix Policy",
+      "new_heading": "# 05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction"
+    },
+    {
+      "file": "docs/05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+      "old_heading": "# 05540 Implementation Backlog Extraction Queue And Phase Cutline Control Policy",
+      "new_heading": "# 05541_Policy_Implementation_Backlog_Extraction_Cutline"
+    },
+    {
+      "file": "docs/05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+      "old_heading": "# 05550 Phase 1 MVP Build Authorization Runtime Scope And No-Scope Creep Policy",
+      "new_heading": "# 05551_Policy_Phase_1_MVP_Build_Authorization_Scope"
+    },
+    {
+      "file": "docs/05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+      "old_heading": "# 05560 Phase 1 MVP Implementation Sequence Dependency And Build Order Policy",
+      "new_heading": "# 05561_Policy_Phase_1_MVP_Implementation_Sequence"
+    },
+    {
+      "file": "docs/05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+      "old_heading": "# 05570 Phase 1 MVP Runtime State Vocabulary And Canonical Event Naming Policy",
+      "new_heading": "# 05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary"
+    },
+    {
+      "file": "docs/05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+      "old_heading": "# 05580 Phase 1 Runtime State Transition Matrix And Authority Boundary Policy",
+      "new_heading": "# 05581_Matrix_Phase_1_Runtime_State_Transition_Authority"
+    },
+    {
+      "file": "docs/05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+      "old_heading": "# 05590 Phase 1 Runtime Transition Test Case And Evidence Packet Mapping Policy",
+      "new_heading": "# 05591_Policy_Phase_1_Runtime_Transition_Test_Evidence"
+    },
+    {
+      "file": "docs/05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md",
+      "old_heading": "# 05600 Phase 1 Pilot Readiness Gate Required Test Register And Blocker Control Policy",
+      "new_heading": "# 05601_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker"
+    },
+    {
+      "file": "docs/05611_Policy_Phase_1_Internal_Simulation_Rehearsal.md",
+      "old_heading": "# 05610 Phase 1 Internal Simulation Dry Run And Pre Pilot Rehearsal Policy",
+      "new_heading": "# 05611_Policy_Phase_1_Internal_Simulation_Rehearsal"
+    },
+    {
+      "file": "docs/05621_Policy_Staff_Only_Dry_Run_Fallback_Training.md",
+      "old_heading": "# 05620 Staff Only Dry Run Store Role Rehearsal And Operational Fallback Training Policy",
+      "new_heading": "# 05621_Policy_Staff_Only_Dry_Run_Fallback_Training"
+    },
+    {
+      "file": "docs/05631_Policy_Limited_Customer_Pilot_Live_Safety.md",
+      "old_heading": "# 05630 Limited Customer Pilot Scope Restriction Customer Communication And Live Safety Policy",
+      "new_heading": "# 05631_Policy_Limited_Customer_Pilot_Live_Safety"
+    },
+    {
+      "file": "docs/05641_Policy_Pilot_Incident_Review_Scope_Adjustment.md",
+      "old_heading": "# 05640 Pilot Incident Review Blocker Conversion And Scope Adjustment Policy",
+      "new_heading": "# 05641_Policy_Pilot_Incident_Review_Scope_Adjustment"
+    },
+    {
+      "file": "docs/05640_Policy_POS_Gateway_Compliance_Readiness.md",
+      "old_heading": "# 05640 POS Gateway Compliance Financial Audit Regulatory And Consumer Protection Readiness Policy",
+      "new_heading": "# 05640_Policy_POS_Gateway_Compliance_Readiness"
+    },
+    {
+      "file": "docs/05651_Policy_Pilot_Learning_Review_Next_Scope.md",
+      "old_heading": "# 05650 Pilot Learning Daily Review Weekly Consolidation And Next Scope Decision Policy",
+      "new_heading": "# 05651_Policy_Pilot_Learning_Review_Next_Scope"
+    },
+    {
+      "file": "docs/05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness.md",
+      "old_heading": "# 05660 Pilot To Paid SaaS Conversion Operational Proof And Commercial Readiness Policy",
+      "new_heading": "# 05661_Policy_Pilot_To_Paid_SaaS_Commercial_Readiness"
+    },
+    {
+      "file": "docs/05671_Policy_Early_Paid_SaaS_Churn_Intervention.md",
+      "old_heading": "# 05670 Early Paid SaaS Customer Monitoring Churn Risk And Retention Intervention Policy",
+      "new_heading": "# 05671_Policy_Early_Paid_SaaS_Churn_Intervention"
+    },
+    {
+      "file": "docs/05681_Policy_Standard_SaaS_Customer_Graduation.md",
+      "old_heading": "# 05680 Standard SaaS Customer Graduation Renewal Expansion And Stable Operations Policy",
+      "new_heading": "# 05681_Policy_Standard_SaaS_Customer_Graduation"
+    },
+    {
+      "file": "docs/05691_Policy_Multi_Store_Expansion_Onboarding.md",
+      "old_heading": "# 05690 Multi Store Expansion Readiness Repeatable Onboarding And Provider Stack Replication Policy",
+      "new_heading": "# 05691_Policy_Multi_Store_Expansion_Onboarding"
+    },
+    {
+      "file": "docs/05701_Policy_Multi_Store_Operations_Dashboard.md",
+      "old_heading": "# 05700 Multi Store Operations Dashboard Store Health Support Load And Expansion Control Policy",
+      "new_heading": "# 05701_Policy_Multi_Store_Operations_Dashboard"
+    },
+    {
+      "file": "docs/05711_Policy_Multi_Store_Support_Queue_Control.md",
+      "old_heading": "# 05710 Multi Store Support Operations Queue Escalation And Capacity Control Policy",
+      "new_heading": "# 05711_Policy_Multi_Store_Support_Queue_Control"
+    },
+    {
+      "file": "docs/05791_Index_Multi_Store_Commercial_Governance_Handoff.md",
+      "old_heading": "# 05790 Multi Store Commercial Governance Index Readiness Check And Next Phase Handoff Policy",
+      "new_heading": "# 05791_Index_Multi_Store_Commercial_Governance_Handoff"
+    },
+    {
+      "file": "docs/05801_Policy_SaaS_Admin_Console_Lane_Start.md",
+      "old_heading": "# 05800 SaaS Admin Console Lane Start Role Surface Runtime View And Action Boundary Policy",
+      "new_heading": "# 05801_Policy_SaaS_Admin_Console_Lane_Start"
+    },
+    {
+      "file": "docs/05811_Policy_SaaS_Admin_Tenant_Store_Directory.md",
+      "old_heading": "# 05810 SaaS Admin Tenant Store Directory Role Scope And Context Switch Policy",
+      "new_heading": "# 05811_Policy_SaaS_Admin_Tenant_Store_Directory"
+    },
+    {
+      "file": "docs/05821_Matrix_SaaS_Admin_Role_Permission.md",
+      "old_heading": "# 05820 SaaS Admin Role Permission Matrix View Action Export And Override Boundary Policy",
+      "new_heading": "# 05821_Matrix_SaaS_Admin_Role_Permission"
+    },
+    {
+      "file": "docs/05831_Policy_SaaS_Admin_Surface_Map_Navigation.md",
+      "old_heading": "# 05830 SaaS Admin Surface Map Navigation Information Architecture And Screen Grouping Policy",
+      "new_heading": "# 05831_Policy_SaaS_Admin_Surface_Map_Navigation"
+    },
+    {
+      "file": "docs/05841_Policy_SaaS_Admin_Dashboard_KPI_Alert.md",
+      "old_heading": "# 05840 SaaS Admin Dashboard Card KPI Widget Alert And Drilldown Boundary Policy",
+      "new_heading": "# 05841_Policy_SaaS_Admin_Dashboard_KPI_Alert"
+    },
+    {
+      "file": "docs/05851_Policy_SaaS_Admin_Record_Detail_Field_Masking.md",
+      "old_heading": "# 05850 SaaS Admin Record Detail Page Form Field Masking And Edit Mode Boundary Policy",
+      "new_heading": "# 05851_Policy_SaaS_Admin_Record_Detail_Field_Masking"
+    },
+    {
+      "file": "docs/05861_Policy_SaaS_Admin_List_Table_Bulk_Action.md",
+      "old_heading": "# 05860 SaaS Admin List Table Filter Search Sort Bulk Action And Selection Boundary Policy",
+      "new_heading": "# 05861_Policy_SaaS_Admin_List_Table_Bulk_Action"
+    },
+    {
+      "file": "docs/05871_Policy_SaaS_Admin_Notification_Work_Queue.md",
+      "old_heading": "# 05870 SaaS Admin Notification Inbox Task Assignment And Work Queue Policy",
+      "new_heading": "# 05871_Policy_SaaS_Admin_Notification_Work_Queue"
+    },
+    {
+      "file": "docs/05881_Policy_SaaS_Admin_Audit_Trail_Collaboration.md",
+      "old_heading": "# 05880 SaaS Admin Audit Trail Activity History Comment Note And Collaboration Boundary Policy",
+      "new_heading": "# 05881_Policy_SaaS_Admin_Audit_Trail_Collaboration"
+    },
+    {
+      "file": "docs/05891_Index_SaaS_Admin_Console_UI_Planning_Handoff.md",
+      "old_heading": "# 05890 SaaS Admin Console Index Readiness Check And UI Planning Handoff Policy",
+      "new_heading": "# 05891_Index_SaaS_Admin_Console_UI_Planning_Handoff"
+    },
+    {
+      "file": "docs/05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff.md",
+      "old_heading": "# 05900 Phase 1 SaaS Provider Pilot Commercial Admin Documentation Range Final Index And Handoff Policy",
+      "new_heading": "# 05901_Index_Phase_1_SaaS_Provider_Pilot_Handoff"
+    }
+  ],
+  "heading_skipped": [],
+  "reference_updated_files": [
+    "migration_duplicate_prefix_resolution_wave_01_report.json",
+    "migration_duplicate_prefix_resolution_wave_02_report.json",
+    "migration_duplicate_prefix_resolution_wave_03_report.json",
+    "migration_duplicate_prefix_resolution_wave_04_10609_report.json",
+    "migration_duplicate_prefix_resolution_wave_05_report.json",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.json",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_root_bad_filename_report.json",
+    "migration_precleanup_root_bad_filename_report.md",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "remaining_duplicate_prefix_groups": 0,
+  "remaining_duplicate_prefix_group_sample": [],
+  "remaining_root_bad_filenames": 10,
+  "remaining_root_bad_filename_sample": [
+    "docs\\05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md",
+    "docs\\05310_Policy_POS_Gateway_Interface_Abstraction_Adapter_Boundary.md",
+    "docs\\05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+    "docs\\05720_Policy_Multi_Store_Provider_Incident_Broadcast_Containment.md",
+    "docs\\05730_Policy_Multi_Store_Billing_Provider_Cost_Allocation.md",
+    "docs\\05740_Policy_Multi_Store_Contract_Scope_Change_Governance.md",
+    "docs\\05750_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md",
+    "docs\\05760_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md",
+    "docs\\05770_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md",
+    "docs\\05780_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md"
+  ],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 47,
+  "validation_notes": {
+    "utf8": "passed: 51 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: 3 touched files contain Korean text and decoded cleanly; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "git_diff_check": "known stale unstaged-rename artifact: reports old long 10609 tracked paths from Long Path Wave 01, while current filesystem has 0 Markdown paths over 240 and 0 duplicate prefix groups",
+    "commit": "not staged and not committed"
+  }
+}

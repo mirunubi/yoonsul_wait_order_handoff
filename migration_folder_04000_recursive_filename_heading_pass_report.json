@@ -1,0 +1,430 @@
+{
+  "generated_at": "2026-06-15T15:48:10.698247+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/04000_store_runtime_pos_kds_operations",
+  "files_scanned": 48,
+  "files_renamed": [
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/05350_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/06350_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/08060_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09070_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09130_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09260_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04301_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04440_Policy_Major_POS_API_Discovery_And_Technical_Spike.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "reason": "folder recursive filename normalization"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "reason": "folder recursive filename normalization"
+    }
+  ],
+  "files_renumbered": [
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/05350_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+      "old_number": "05350",
+      "new_number": "04001"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/06350_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "old_number": "06350",
+      "new_number": "04002"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/08060_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md",
+      "old_number": "08060",
+      "new_number": "04003"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09070_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md",
+      "old_number": "09070",
+      "new_number": "04004"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09130_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md",
+      "old_number": "09130",
+      "new_number": "04005"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/09260_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md",
+      "old_number": "09260",
+      "new_number": "04006"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04400_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04301_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "old_number": "04400",
+      "new_number": "04301"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "old_number": "04410",
+      "new_number": "04302"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "old_number": "04420",
+      "new_number": "04303"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "old_number": "04430",
+      "new_number": "04304"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04440_Policy_Major_POS_API_Discovery_And_Technical_Spike.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md",
+      "old_number": "04440",
+      "new_number": "04306"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04450_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "old_number": "04450",
+      "new_number": "04307"
+    },
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04460_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "old_number": "04460",
+      "new_number": "04308"
+    }
+  ],
+  "headings_updated": [
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md",
+      "heading": "04001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "heading": "04002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md",
+      "heading": "04003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md",
+      "heading": "04004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md",
+      "heading": "04005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md",
+      "heading": "04006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04301_Policy_Toss_Payments_MVP_Integration_Boundary.md",
+      "heading": "04301_Policy_Toss_Payments_MVP_Integration_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md",
+      "heading": "04302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md",
+      "heading": "04303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md",
+      "heading": "04304_Policy_OKPOS_And_Major_POS_Integration_Candidate"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md",
+      "heading": "04306_Policy_Major_POS_API_Discovery_And_Technical_Spike"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md",
+      "heading": "04307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md",
+      "heading": "04308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation"
+    }
+  ],
+  "references_updated": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_Readme_POS_Provider_Adapter_Governance.md"
+  ],
+  "00005_updated": true,
+  "00007_updated": true,
+  "files_unchanged": [
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04000_Readme_KDS_Integration_Kitchen_Continuity.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_Readme_Store_Runtime_POS_KDS_Operations.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04100_Readme_Menu_Availability_Soldout_Runtime.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04130_Policy_POS_KDS_Inventory_Availability_Sync.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04199_Index_Menu_Availability_Soldout_And_Readiness_Check.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04200_Readme_KDS_Operation_Payment_Recovery_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04210_Policy_KDS_Station_Routing.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04220_SOP_Kitchen_Display_Staff_Role_And_Training.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04230_Boundary_KDS_Bridge_Vendor_Integration.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_Readme_POS_Provider_Adapter_Governance.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04310_Policy_Canonical_Order_Model_And_POS_Event_Normalization.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04390_Index_POS_Integration_Governance_And_Readiness_Check.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    }
+  ],
+  "exceptions_remembered_for_later": [
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04130_Policy_POS_KDS_Inventory_Availability_Sync.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04190_Menu_Availability_Soldout_MVP_Cutline.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/04199_Index_Menu_Availability_Soldout_And_Readiness_Check.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04210_Policy_KDS_Station_Routing.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04220_SOP_Kitchen_Display_Staff_Role_And_Training.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04200_kds_operation_payment_recovery_boundary/04230_Boundary_KDS_Bridge_Vendor_Integration.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    }
+  ],
+  "duplicate_prefix_groups_in_this_folder": [],
+  "markdown_paths_over_240": [],
+  "markdown_paths_over_220": [
+    {
+      "path": "docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/04002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md",
+      "length": 233
+    }
+  ],
+  "utf8_validation": "pass_with_known_exceptions",
+  "repo_wide_utf8_exceptions": [
+    {
+      "path": "docs/directory_tree.txt",
+      "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+    }
+  ],
+  "korean_readability": "pass",
+  "implementation_code_files_touched": [],
+  "sql_migration_flutter_code_files_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "notes": [
+    "Only docs/04000_store_runtime_pos_kds_operations was recursively processed. No full document body semantic review was performed."
+  ],
+  "git_diff_check": "exit_0_with_pre_existing_old_path_filename_too_long_messages_from_unstaged_10609_renames"
+}

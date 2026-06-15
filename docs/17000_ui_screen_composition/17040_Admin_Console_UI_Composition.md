@@ -1,4 +1,4 @@
-# 17040 Admin Console Ui Composition
+# 17040_Admin_Console_UI_Composition
 
 ## 1 Purpose
 
@@ -150,7 +150,7 @@ High-risk changes include package plan, feature flags, payment profile, POS API 
 
 ## 4 Admin Console Governance Cross-Reference
 
-Admin UI composition must follow `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md`.
+Admin UI composition must follow `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md`.
 
 UI button visibility must not imply action authority.
 
@@ -159,14 +159,14 @@ Emergency disable and rollback UI must preserve audit/review boundaries.
 ## 5 Cross-References
 
 - `docs/07000_admin_console/07070_Admin_Context_Navigation_And_Scope_Model.md`
-- `docs/07000_admin_console/07080_Admin_Runtime_Profile_Configuration_Governance.md`
+- `docs/07000_admin_console/07080_Governance_Admin_Runtime_Profile_Configuration.md`
 - `docs/07000_admin_console/07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`
 - `docs/07000_admin_console/07100_Admin_Audit_Review_And_Change_History_Model.md`
-- `docs/07000_admin_console/07110_Admin_Support_And_BreakGlass_Boundary.md`
+- `docs/07000_admin_console/07110_Boundary_Admin_Support_And_BreakGlass.md`
 - `docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md`
 - `docs/13000_app_api_projection/13040_Admin_Console_Projection.md`
-- `docs/13000_app_api_projection/13080_Store_Admin_Support_Action_Authority_Matrix.md`
-- `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`
+- `docs/13000_app_api_projection/13080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`
 - `docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md`
 
 ## 6 Open Decisions

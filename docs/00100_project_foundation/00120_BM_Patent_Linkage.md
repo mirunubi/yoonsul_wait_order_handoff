@@ -1,4 +1,4 @@
-# 00120 BM Patent Linkage
+# 00120_BM_Patent_Linkage
 
 ## Patent-Idea Link
 

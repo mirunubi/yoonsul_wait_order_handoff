@@ -1,4 +1,4 @@
-# 17110 Customer MiniKiosk State Wording Consolidation
+# 17110_Customer_MiniKiosk_State_Wording_Consolidation
 
 ## 1 Purpose
 
@@ -54,9 +54,9 @@ It does not approve customer-facing copy or multilingual assets.
 
 - `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`
 - `docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md`
-- `docs/13000_app_api_projection/13070_Customer_Surface_State_Wording_Matrix.md`
+- `docs/13000_app_api_projection/13070_Matrix_Customer_Surface_State_Wording.md`
 - `docs/09000_data_model_state_machine/09090_Order_Candidate_And_Confirmation_State_Refinement.md`
-- `docs/11000_integration_boundary/11040_Payment_And_Financial_Truth_Boundary.md`
+- `docs/11000_integration_boundary/11040_Boundary_Payment_And_Financial_Truth.md`
 
 ## 6 Open Decisions
 

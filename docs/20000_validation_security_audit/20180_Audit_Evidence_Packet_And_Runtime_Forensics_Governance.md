@@ -1,4 +1,4 @@
-# 20180 Audit Evidence Packet And Runtime Forensics Governance
+# 20180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance
 
 ## 1 Purpose
 
@@ -97,12 +97,12 @@ Audit packet is evidence, not approval.
 
 ## 10 Cross-References
 
-- `docs/20000_validation_security_audit/20160_Suspicious_Activity_Review_And_Escalation_Governance.md`
-- `docs/20000_validation_security_audit/20110_Retention_Deletion_Anonymization_Consolidation.md`
+- `docs/20000_validation_security_audit/20160_Governance_Suspicious_Activity_Review_And_Escalation.md`
+- `docs/20000_validation_security_audit/20110_Governance_Retention_Deletion_Anonymization_Consolidation.md`
 - `docs/13000_app_api_projection/13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
-- `docs/24000_deployment_operations/24030_Incident_Response_And_Degraded_Operation_Boundary.md`
+- `docs/24000_deployment_operations/24030_Boundary_Incident_Response_And_Degraded_Operation.md`
 
-Note: `20110_Retention_Deletion_Anonymization_Consolidation.md` is a separate document in the same number band covering retention lifecycle governance.
+Note: `20110_Governance_Retention_Deletion_Anonymization_Consolidation.md` is a separate document in the same number band covering retention lifecycle governance.
 
 ## 11 Open Decisions
 

@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-06-15T16:59:28.379511+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/15000_membership_loyalty",
+  "files_scanned": 6,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/15000_membership_loyalty/15020_Lightweight_Coupon_And_Stamp_Future_Model.md",
+      "heading": "# 15020_Lightweight_Coupon_And_Stamp_Future_Model",
+      "previous": "# 15020 Lightweight Coupon And Stamp Future Model"
+    },
+    {
+      "file": "docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md",
+      "heading": "# 15050_Membership_Admin_And_UI_Reserved_Surface",
+      "previous": "# 15050 Membership Admin And Ui Reserved Surface"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 61 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 15000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/15000_membership_loyalty/15000_Readme_Membership_Loyalty.md",
+    "docs/15000_membership_loyalty/15010_Boundary_Membership_Loyalty_Product.md",
+    "docs/15000_membership_loyalty/15030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md",
+    "docs/15000_membership_loyalty/15040_Boundary_External_Membership_Bridge_Future.md"
+  ],
+  "unchanged_count": 4,
+  "exceptions": [
+    {
+      "file": "docs/15000_membership_loyalty/15020_Lightweight_Coupon_And_Stamp_Future_Model.md",
+      "reason": "no approved DocumentType token (`Lightweight` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/15000_membership_loyalty/15050_Membership_Admin_And_UI_Reserved_Surface.md",
+      "reason": "no approved DocumentType token (`Membership` prefix)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 35 verified; section 61 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ]
+}

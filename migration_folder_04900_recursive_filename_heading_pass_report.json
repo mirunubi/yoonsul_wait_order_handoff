@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-06-15T15:58:38.120627+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/04900_security_runtime_test_catalog",
+  "files_scanned": 35,
+  "files_renamed": [
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md",
+      "to": "docs/04900_security_runtime_test_catalog/04991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md",
+      "reason": "drop trailing DocumentType token _Policy from Audit filename"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "reason": "folder-local archive numbering alignment"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md",
+      "reason": "folder-local archive numbering and drop trailing _Policy"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "reason": "folder-local archive numbering alignment"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05131_Evidence_Packet_Template_And_Test_Result_Recording.md",
+      "reason": "folder-local archive numbering and drop trailing _Policy"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "reason": "folder-local archive numbering alignment"
+    }
+  ],
+  "files_renumbered": [
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "old_number": "05100",
+      "new_number": "05106"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md",
+      "old_number": "05110",
+      "new_number": "05111"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "old_number": "05120",
+      "new_number": "05121"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05131_Evidence_Packet_Template_And_Test_Result_Recording.md",
+      "old_number": "05130",
+      "new_number": "05131"
+    },
+    {
+      "from": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "to": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "old_number": "05140",
+      "new_number": "05141"
+    }
+  ],
+  "headings_updated": [
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md",
+      "heading": "#04991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "heading": "#05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md",
+      "heading": "#05111_Implementation_Readiness_Backlog_And_Test_Execution_Planning"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+      "heading": "#05121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05131_Evidence_Packet_Template_And_Test_Result_Recording.md",
+      "heading": "#05131_Evidence_Packet_Template_And_Test_Result_Recording"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+      "heading": "#05141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance"
+    }
+  ],
+  "references_updated": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/04900_security_runtime_test_catalog/04900_Readme_Security_Runtime_Test_Catalog.md",
+    "docs/14000_pos_provider_integration_strategy/14000_Readme_POS_Provider_Integration_Strategy.md"
+  ],
+  "00005_updated": true,
+  "00007_updated": true,
+  "files_unchanged": [
+    "docs/04900_security_runtime_test_catalog/04900_Readme_Security_Runtime_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/04971_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md",
+    "docs/04900_security_runtime_test_catalog/04981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/04991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+    "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md",
+    "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md",
+    "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05131_Evidence_Packet_Template_And_Test_Result_Recording.md",
+    "docs/04900_security_runtime_test_catalog/04999_archive_duplicate_review/05141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md",
+    "docs/04900_security_runtime_test_catalog/05001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05011_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05021_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05031_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05051_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05061_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05071_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md",
+    "docs/04900_security_runtime_test_catalog/05096_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md"
+  ],
+  "exceptions_remembered": [
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/04990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md",
+      "reason": "stale_pre_renumber_copy; canonical +1 sibling exists"
+    },
+    {
+      "file": "docs/04900_security_runtime_test_catalog/05100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md",
+      "reason": "stray_duplicate_outside_archive; canonical under 05000/05100"
+    }
+  ],
+  "duplicate_prefix_groups_in_this_folder": {},
+  "pre_renumber_sibling_pairs": [
+    ["04970", "04971"],
+    ["04980", "04981"],
+    ["04990", "04991"],
+    ["05000", "05001"],
+    ["05010", "05011"],
+    ["05020", "05021"],
+    ["05030", "05031"],
+    ["05040", "05041"],
+    ["05050", "05051"],
+    ["05060", "05061"],
+    ["05070", "05071"],
+    ["05080", "05081"],
+    ["05090", "05091"],
+    ["05095", "05096"]
+  ],
+  "markdown_paths_over_240": [],
+  "markdown_paths_over_220": [],
+  "utf8_validation": "pass",
+  "utf8_issues": [],
+  "korean_readability": "pass",
+  "implementation_code_files_touched": [],
+  "sql_migration_flutter_code_files_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "notes": [
+    "Only docs/04900_security_runtime_test_catalog was recursively processed. No full document body semantic review was performed.",
+    "Stale pre-renumber copies (04970/04980/.../05095) were not deleted per no-delete rule."
+  ],
+  "git_diff_check": "exit_0"
+}

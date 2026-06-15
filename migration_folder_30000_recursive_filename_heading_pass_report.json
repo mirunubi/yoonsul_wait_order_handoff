@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-06-15T17:44:44.145186+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/30000_future_saas_modules",
+  "files_scanned": 10,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/30000_future_saas_modules/30010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md",
+      "heading": "# 30010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy",
+      "previous": "# 05340 Franchise OS Linked POS SaaS Expansion And Hardware Partner Strategy Policy"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md",
+      "heading": "# 30020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary",
+      "previous": "# 05350 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md",
+      "heading": "# 30030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary",
+      "previous": "05360 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md",
+      "heading": "# 30040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split",
+      "previous": "05370 Franchise Store Billing Responsibility And HQ Store SaaS Fee Split Policy"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30050_Readme_Ad_Promotion_CMS.md",
+      "heading": "# 30050_Readme_Ad_Promotion_CMS",
+      "previous": "03200 Ad Promotion CMS Readme"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30060_Readme_Billing_Plan_Settlement.md",
+      "heading": "# 30060_Readme_Billing_Plan_Settlement",
+      "previous": "03600 Billing Plan Settlement Readme"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30070_Readme_Sales_Partner_Field_Growth.md",
+      "heading": "# 30070_Readme_Sales_Partner_Field_Growth",
+      "previous": "03700 Sales Partner Field Growth Readme"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30080_Readme_Native_All_In_One_Service_Runtime.md",
+      "heading": "# 30080_Readme_Native_All_In_One_Service_Runtime",
+      "previous": "03800 Native All-In-One Service Runtime Readme"
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "heading": "# 30090_Dual_Track_External_Alliance_And_Native_Service_Strategy",
+      "previous": "03810 Dual Track External Alliance And Native Service Strategy"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/30000_future_saas_modules/30000_Readme_Future_Saas_Modules.md",
+      "replacements": [
+        "03200 Ad Promotion CMS Readme -> 30050 Readme Ad Promotion CMS",
+        "03600 Billing Plan Settlement Readme -> 30060 Readme Billing Plan Settlement",
+        "03700 Sales Partner Field Growth Readme -> 30070 Readme Sales Partner Field Growth",
+        "03800 Native All-In-One Service Runtime Readme -> 30080 Readme Native All In One Service Runtime"
+      ]
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30060_Readme_Billing_Plan_Settlement.md",
+      "replacements": [
+        "docs/03200\\_ad\\_promotion\\_cms/ -> docs/30000_future_saas_modules/30050_Readme_Ad_Promotion_CMS.md",
+        "docs/03700\\_sales\\_partner\\_field\\_growth/ -> docs/30000_future_saas_modules/30070_Readme_Sales_Partner_Field_Growth.md",
+        "docs/03800\\_native\\_all\\_in\\_one\\_service\\_runtime/ -> docs/30000_future_saas_modules/30080_Readme_Native_All_In_One_Service_Runtime.md"
+      ]
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30070_Readme_Sales_Partner_Field_Growth.md",
+      "replacements": [
+        "docs/03600\\_billing\\_plan\\_settlement/ -> docs/30000_future_saas_modules/30060_Readme_Billing_Plan_Settlement.md"
+      ]
+    },
+    {
+      "file": "docs/30000_future_saas_modules/30080_Readme_Native_All_In_One_Service_Runtime.md",
+      "replacements": [
+        "docs/03200\\_ad\\_promotion\\_cms/ -> docs/30000_future_saas_modules/30050_Readme_Ad_Promotion_CMS.md",
+        "docs/03600\\_billing\\_plan\\_settlement/ -> docs/30000_future_saas_modules/30060_Readme_Billing_Plan_Settlement.md",
+        "docs/03700\\_sales\\_partner\\_field\\_growth/ -> docs/30000_future_saas_modules/30070_Readme_Sales_Partner_Field_Growth.md"
+      ]
+    },
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 43 purpose fields synced; section 69 migration note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 30000 pass"
+    }
+  ],
+  "unchanged": [],
+  "unchanged_count": 0,
+  "exceptions": [
+    {
+      "file": "docs/30000_future_saas_modules/30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md",
+      "reason": "no approved DocumentType token (`Dual` prefix; `Strategy` not mapped by meaning)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 43 synced; section 69 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ],
+  "legacy_number_normalization": "nine files had legacy 03xxx/05xxx headings; in-folder refs normalized to 30xxx filename stems"
+}

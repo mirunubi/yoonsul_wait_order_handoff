@@ -1,0 +1,111 @@
+{
+  "wave": "long_path_reduction_02",
+  "folder_renamed": false,
+  "selected_files": [
+    "docs/VAN, payment provider, Redtable-type partner, delivery platform, local daemon, store network, store POS PC, or operator action.  Gateway logs are not noise.  Gateway evidence is the operating system's shield..md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10602_Financial_Reconciliation_Blind_Spot_Control_Time_State_Offline_Log_And_Auditor_Security_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10604_SaaS_Scale_Constraint_Multi-Tenancy_Hardware_Regulation_Noise_And_Distributed_Batch_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10605_SaaS_Field_Resilience_Network_Provider_SLA_And_Policy-Based_Customization_Constraint_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10606_Extreme_Edge_Case_Power_Cut_Twenty-Four-Hour_Store_Hardware_Peripheral_And_Human_CS_Operations_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10608_Pseudonymized_AI_Analysis_Noisy_Neighbor_Control_Nonce_Idempotency_And_Final_SaaS_Edge_Guard_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10642_Web_RPC_Redirect_Session_Infrastructure_Mobile_And_Deep_Security_Implementation_Guide_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy.md"
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/VAN, payment provider, Redtable-type partner, delivery platform, local daemon, store network, store POS PC, or operator action.  Gateway logs are not noise.  Gateway evidence is the operating system's shield..md",
+      "to": "docs/00380_Policy_Gateway_Evidence_Shield.md",
+      "old_path_length": 256,
+      "new_path_length": 84
+    },
+    {
+      "from": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md",
+      "to": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05170_Policy_PAYCO_POS_Verification.md",
+      "old_path_length": 241,
+      "new_path_length": 192
+    },
+    {
+      "from": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md",
+      "to": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05180_Policy_Provider_Priority_Openness.md",
+      "old_path_length": 242,
+      "new_path_length": 196
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10054_Catch_Menu_Mini_Kiosk_Foundation_Static_Artifact_Target_File_Map_And_Coding_Authorization_Draft_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10054_Policy_Catch_Menu_Static_Target_Map.md",
+      "old_path_length": 249,
+      "new_path_length": 182
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10602_Financial_Reconciliation_Blind_Spot_Control_Time_State_Offline_Log_And_Auditor_Security_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10602_Policy_Reconciliation_Blind_Spot.md",
+      "old_path_length": 245,
+      "new_path_length": 183
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10604_SaaS_Scale_Constraint_Multi-Tenancy_Hardware_Regulation_Noise_And_Distributed_Batch_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10604_Policy_SaaS_Scale_Constraints.md",
+      "old_path_length": 241,
+      "new_path_length": 180
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10605_SaaS_Field_Resilience_Network_Provider_SLA_And_Policy-Based_Customization_Constraint_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10605_Policy_Field_Resilience_SLA.md",
+      "old_path_length": 242,
+      "new_path_length": 178
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10606_Extreme_Edge_Case_Power_Cut_Twenty-Four-Hour_Store_Hardware_Peripheral_And_Human_CS_Operations_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10606_Policy_Extreme_Edge_Operations.md",
+      "old_path_length": 252,
+      "new_path_length": 181
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10608_Pseudonymized_AI_Analysis_Noisy_Neighbor_Control_Nonce_Idempotency_And_Final_SaaS_Edge_Guard_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10608_Policy_AI_SaaS_Edge_Guard.md",
+      "old_path_length": 250,
+      "new_path_length": 176
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10642_Web_RPC_Redirect_Session_Infrastructure_Mobile_And_Deep_Security_Implementation_Guide_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10642_Guide_Web_RPC_Security.md",
+      "old_path_length": 243,
+      "new_path_length": 173
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10701_Policy_Fast_Track_Abuse_Control.md",
+      "old_path_length": 251,
+      "new_path_length": 183
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10702_Policy_Fast_Track_Store_Ops.md",
+      "old_path_length": 246,
+      "new_path_length": 179
+    }
+  ],
+  "reference_updated_files": [
+    "docs/00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05105_Plan_10807_Root_File_Rename_And_Move.md",
+    "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/05100_Implementation_Readiness_And_Provider_Verification_Readme.md",
+    "docs/05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy.md",
+    "docs/05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10005_Plan_10712_Root_File_Rename_And_Move.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/10000_Foundation_Static_Catalog_Package_Readme.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10600_Cross_Room_Plumbing_Wiring_Insulation_Readme.md",
+    "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10700_Security_Trust_And_Smart_Order_Control_Readme.md",
+    "docs/14000_pos_provider_integration_strategy/14000_POS_Provider_Integration_Strategy_Readme.md",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_long_path_report.md",
+    "migration_precleanup_root_bad_filename_report.md",
+    "migration_precleanup_type_review_report.md"
+  ]
+}

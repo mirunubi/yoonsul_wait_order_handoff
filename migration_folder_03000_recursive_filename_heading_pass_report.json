@@ -1,0 +1,146 @@
+{
+  "generated_at": "2026-06-15T15:45:24.475517+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/03000_saas_runtime",
+  "files_scanned": 17,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [],
+  "references_updated": [
+    "docs/00005_Document_Number_Index.md",
+    "docs/00007_Full_Directory_Map.md"
+  ],
+  "00005_updated": true,
+  "00007_updated": true,
+  "files_unchanged": [
+    {
+      "file": "docs/03000_saas_runtime/03000_Readme_SaaS_Runtime.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03040_Governance_Package_Plan_And_Feature_Flag_Runtime.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03050_Governance_Runtime_Profile_Change_And_Audit.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03100_Readme_Entry_Media_Inventory.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03199_Index_Entry_Media_Inventory_And_MVP_Cutline.md",
+      "reason": "filename already compliant and folder-local number accepted"
+    }
+  ],
+  "exceptions_remembered_for_later": [
+    {
+      "file": "docs/03000_saas_runtime/03010_Tenant_Store_Runtime_And_Package_Model.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_Context_Model.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03030_Store_Runtime_Profile_Model.md",
+      "reason": "no approved DocumentType token exists"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03100_Readme_Entry_Media_Inventory.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    },
+    {
+      "file": "docs/03000_saas_runtime/03199_Index_Entry_Media_Inventory_And_MVP_Cutline.md",
+      "reason": "heading_sync_first_nonempty_not_heading"
+    }
+  ],
+  "duplicate_prefix_groups_in_this_folder": [],
+  "markdown_paths_over_240": [],
+  "markdown_paths_over_220": [],
+  "utf8_validation": "pass_with_known_exceptions",
+  "repo_wide_utf8_exceptions": [
+    {
+      "path": "docs/directory_tree.txt",
+      "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte"
+    }
+  ],
+  "korean_readability": "pass",
+  "implementation_code_files_touched": [],
+  "sql_migration_flutter_code_files_created_or_edited": [],
+  "staged_files": [],
+  "nothing_staged_or_committed": true,
+  "notes": [
+    "Only docs/03000_saas_runtime was recursively processed. No full document body semantic review was performed."
+  ],
+  "git_diff_check": "exit_0_with_pre_existing_old_path_filename_too_long_messages_from_unstaged_10609_renames"
+}

@@ -1,0 +1,637 @@
+{
+  "wave": "duplicate_prefix_resolution_01",
+  "root": "D:/workspace/yoonsul_wait_order_handoff",
+  "selected_groups": [
+    {
+      "folder": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance",
+      "old_prefix": "04300",
+      "files": [
+        "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md",
+        "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md"
+      ]
+    },
+    {
+      "folder": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse",
+      "old_prefix": "05200",
+      "files": [
+        "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md",
+        "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture",
+      "old_prefix": "10000",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10000_Runtime_Foundation_Wave_3A_Preapply_Verification_Report.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton",
+      "old_prefix": "10100",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10100_Four-Side_Platform_Skeleton_And_Cross-Axis_Construction_Policy.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room",
+      "old_prefix": "10400",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room",
+      "old_prefix": "10500",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10700_security_trust_and_smart_order_control",
+      "old_prefix": "10700",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10700_Security_And_Trust_Foundation_Index.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10705_Index_Security_And_Trust_Foundation.md"
+      ]
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10800_store_onboarding_and_sales_setup_axis",
+      "old_prefix": "10800",
+      "files": [
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md",
+        "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10809_Index_Store_Onboarding_And_Sales_Setup_Axis.md"
+      ]
+    },
+    {
+      "folder": "docs\\14000_pos_provider_integration_strategy",
+      "old_prefix": "14000",
+      "files": [
+        "docs/14000_pos_provider_integration_strategy/14000_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report.md",
+        "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md"
+      ]
+    },
+    {
+      "folder": "docs\\40000_menu_taxonomy_and_ai_classification",
+      "old_prefix": "40000",
+      "files": [
+        "docs/40000_menu_taxonomy_and_ai_classification/40000_Menu_Taxonomy_Wave_5_Review_Report.md",
+        "docs/40000_menu_taxonomy_and_ai_classification/40005_Report_Menu_Taxonomy_Wave_5_Review.md"
+      ]
+    }
+  ],
+  "resolved_groups": [
+    {
+      "folder": "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance",
+      "old_prefix": "04300",
+      "new_file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+      "new_prefix": "04305"
+    },
+    {
+      "folder": "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse",
+      "old_prefix": "05200",
+      "new_file": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "new_prefix": "05205"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture",
+      "old_prefix": "10000",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+      "new_prefix": "10005"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton",
+      "old_prefix": "10100",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md",
+      "new_prefix": "10105"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room",
+      "old_prefix": "10400",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+      "new_prefix": "10405"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room",
+      "old_prefix": "10500",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+      "new_prefix": "10505"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10700_security_trust_and_smart_order_control",
+      "old_prefix": "10700",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10705_Index_Security_And_Trust_Foundation.md",
+      "new_prefix": "10705"
+    },
+    {
+      "folder": "docs\\10000_runtime_foundation_and_cross_room_architecture\\10800_store_onboarding_and_sales_setup_axis",
+      "old_prefix": "10800",
+      "new_file": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10809_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+      "new_prefix": "10809"
+    },
+    {
+      "folder": "docs\\14000_pos_provider_integration_strategy",
+      "old_prefix": "14000",
+      "new_file": "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+      "new_prefix": "14005"
+    },
+    {
+      "folder": "docs\\40000_menu_taxonomy_and_ai_classification",
+      "old_prefix": "40000",
+      "new_file": "docs/40000_menu_taxonomy_and_ai_classification/40005_Report_Menu_Taxonomy_Wave_5_Review.md",
+      "new_prefix": "40005"
+    }
+  ],
+  "renamed_files": [
+    {
+      "from": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04300_POS_Provider_Abstraction_And_Multi_POS_Adapter_Policy.md",
+      "to": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+      "old_prefix": "04300",
+      "new_prefix": "04305"
+    },
+    {
+      "from": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy.md",
+      "to": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "old_prefix": "05200",
+      "new_prefix": "05205"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_Runtime_Foundation_Wave_3A_Preapply_Verification_Report.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+      "old_prefix": "10000",
+      "new_prefix": "10005"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10100_Four-Side_Platform_Skeleton_And_Cross-Axis_Construction_Policy.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md",
+      "old_prefix": "10100",
+      "new_prefix": "10105"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+      "old_prefix": "10400",
+      "new_prefix": "10405"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+      "old_prefix": "10500",
+      "new_prefix": "10505"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10700_Security_And_Trust_Foundation_Index.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10705_Index_Security_And_Trust_Foundation.md",
+      "old_prefix": "10700",
+      "new_prefix": "10705"
+    },
+    {
+      "from": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10800_Store_Onboarding_And_Sales_Setup_Axis_Index.md",
+      "to": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10809_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+      "old_prefix": "10800",
+      "new_prefix": "10809"
+    },
+    {
+      "from": "docs/14000_pos_provider_integration_strategy/14000_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report.md",
+      "to": "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+      "old_prefix": "14000",
+      "new_prefix": "14005"
+    },
+    {
+      "from": "docs/40000_menu_taxonomy_and_ai_classification/40000_Menu_Taxonomy_Wave_5_Review_Report.md",
+      "to": "docs/40000_menu_taxonomy_and_ai_classification/40005_Report_Menu_Taxonomy_Wave_5_Review.md",
+      "old_prefix": "40000",
+      "new_prefix": "40005"
+    }
+  ],
+  "moved_files": [],
+  "new_numbers_assigned": [
+    {
+      "old_prefix": "04300",
+      "new_prefix": "04305",
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md"
+    },
+    {
+      "old_prefix": "05200",
+      "new_prefix": "05205",
+      "file": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md"
+    },
+    {
+      "old_prefix": "10000",
+      "new_prefix": "10005",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md"
+    },
+    {
+      "old_prefix": "10100",
+      "new_prefix": "10105",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md"
+    },
+    {
+      "old_prefix": "10400",
+      "new_prefix": "10405",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md"
+    },
+    {
+      "old_prefix": "10500",
+      "new_prefix": "10505",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md"
+    },
+    {
+      "old_prefix": "10700",
+      "new_prefix": "10705",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10705_Index_Security_And_Trust_Foundation.md"
+    },
+    {
+      "old_prefix": "10800",
+      "new_prefix": "10809",
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10809_Index_Store_Onboarding_And_Sales_Setup_Axis.md"
+    },
+    {
+      "old_prefix": "14000",
+      "new_prefix": "14005",
+      "file": "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md"
+    },
+    {
+      "old_prefix": "40000",
+      "new_prefix": "40005",
+      "file": "docs/40000_menu_taxonomy_and_ai_classification/40005_Report_Menu_Taxonomy_Wave_5_Review.md"
+    }
+  ],
+  "heading_updates": [
+    {
+      "file": "docs/04000_store_runtime_pos_kds_operations/04300_pos_provider_adapter_governance/04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md",
+      "old_heading": "# **04300 POS Provider Abstraction And Multi-POS Adapter Policy**",
+      "new_heading": "# 04305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter"
+    },
+    {
+      "file": "docs/05000_customer_handoff_and_implementation_readiness/05200_pos_payment_provider_and_kiosk_reuse/05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md",
+      "old_heading": "# 05200_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse_Policy",
+      "new_heading": "# 05205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+      "old_heading": "# 10000_Runtime_Foundation_Wave_3A_Preapply_Verification_Report",
+      "new_heading": "# 10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md",
+      "old_heading": "# 10100_Four-Side_Platform_Skeleton_And_Cross-Axis_Construction_Policy",
+      "new_heading": "# 10105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md",
+      "old_heading": "# 10400_Financial_Trust_Room_Framing_And_Domain_Boundary_Index",
+      "new_heading": "# 10405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md",
+      "old_heading": "# 10500_Data_Governance_Room_Framing_And_Intelligence_Boundary_Index",
+      "new_heading": "# 10505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/10705_Index_Security_And_Trust_Foundation.md",
+      "old_heading": "# 10700_Security_And_Trust_Foundation_Index",
+      "new_heading": "# 10705_Index_Security_And_Trust_Foundation"
+    },
+    {
+      "file": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/10809_Index_Store_Onboarding_And_Sales_Setup_Axis.md",
+      "old_heading": "# 10800_Store_Onboarding_And_Sales_Setup_Axis_Index",
+      "new_heading": "# 10809_Index_Store_Onboarding_And_Sales_Setup_Axis"
+    },
+    {
+      "file": "docs/14000_pos_provider_integration_strategy/14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe.md",
+      "old_heading": "# 13000_14000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe_Report",
+      "new_heading": "# 14005_Report_13000_Wave_4A_POS_Provider_Strategy_Preapply_Dedupe"
+    },
+    {
+      "file": "docs/40000_menu_taxonomy_and_ai_classification/40005_Report_Menu_Taxonomy_Wave_5_Review.md",
+      "old_heading": "# 40000_Menu_Taxonomy_Wave_5_Review_Report",
+      "new_heading": "# 40005_Report_Menu_Taxonomy_Wave_5_Review"
+    }
+  ],
+  "reference_updated_files": [
+    "docs\\00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+    "docs\\00006_Plan_Top_Level_Folder_Consolidation.md",
+    "docs\\00005_Document_Number_Index.md",
+    "docs\\00007_Full_Directory_Map.md",
+    "docs\\04000_store_runtime_pos_kds_operations\\04300_pos_provider_adapter_governance\\04300_Readme_POS_Provider_Adapter_Governance.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05100_implementation_readiness_and_provider_verification\\05105_Plan_10807_Root_File_Rename_And_Move.md",
+    "docs\\05000_customer_handoff_and_implementation_readiness\\05200_pos_payment_provider_and_kiosk_reuse\\05200_POS_Payment_Provider_And_Kiosk_Reuse_Readme.md",
+    "docs\\05200 POS Payment Provider Document Folder Grouping And Kiosk Reuse Policy.md",
+    "docs\\05240 MVP Provider Cutline Revision Toss OKPOS First Phase And PAYCO Payment Channel Policy.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10000_foundation_static_catalog_package\\10005_Plan_10712_Root_File_Rename_And_Move.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10100_four_side_platform_skeleton\\10100_Four_Side_Platform_Skeleton_Readme.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10400_financial_trust_room\\10400_Financial_Trust_Room_Readme.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10500_data_governance_room\\10500_Readme_Data_Governance_Room.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10700_security_trust_and_smart_order_control\\10700_Security_Trust_And_Smart_Order_Control_Readme.md",
+    "docs\\10000_runtime_foundation_and_cross_room_architecture\\10800_store_onboarding_and_sales_setup_axis\\10800_Store_Onboarding_And_Sales_Setup_Axis_Readme.md",
+    "docs\\14000_pos_provider_integration_strategy\\14000_POS_Provider_Integration_Strategy_Readme.md",
+    "migration_long_path_reduction_wave_01_report.json",
+    "migration_long_path_reduction_wave_02_report.json",
+    "migration_manifest_md_naming_prefix.json",
+    "migration_manifest_md_naming_prefix.md",
+    "migration_precleanup_duplicate_prefix_report.json",
+    "migration_precleanup_duplicate_prefix_report.md",
+    "migration_precleanup_long_path_report.json",
+    "migration_precleanup_long_path_report.md",
+    "migration_precleanup_type_review_report.json",
+    "migration_precleanup_type_review_report.md"
+  ],
+  "skipped": [
+    {
+      "folder": "docs",
+      "prefix": "05300-05900 root groups",
+      "reason": "large root-level lane collision series; needs separate lane sorting/numbering wave"
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation",
+      "prefix": "10600",
+      "reason": "nearby numbers occupied and 10609 subfolder band requires separate decision"
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion",
+      "prefix": "10609",
+      "reason": "17-file family produced by Wave 01; needs dedicated subnumber strategy"
+    },
+    {
+      "folder": "docs/01000_mvp_scope",
+      "prefix": "01080/01090/01200",
+      "reason": "active MVP scope documents; deferred to avoid semantic renumbering in first wave"
+    },
+    {
+      "folder": "docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification",
+      "prefix": "05100",
+      "reason": "three active index/readme/plan docs; needs folder policy decision"
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package",
+      "prefix": "10000",
+      "reason": "three active package docs; deferred to avoid larger cross-reference churn"
+    },
+    {
+      "folder": "docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis",
+      "prefix": "10805",
+      "reason": "two active policy docs; deferred for semantic review"
+    }
+  ],
+  "remaining_duplicate_prefix_groups": 62,
+  "remaining_duplicate_prefix_group_sample": [
+    {
+      "folder": "docs",
+      "prefix": "00000",
+      "files": [
+        "docs\\00004_Report_Final_Documentation_Structure_Integrity_Audit.md",
+        "docs\\00000_Project_Overview.md",
+        "docs\\00006_Plan_Top_Level_Folder_Consolidation.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05300",
+      "files": [
+        "docs\\05305_Index_POS_Gateway_Resilience_Field_Exception_Catalog_Entry.md",
+        "docs\\05301_Readme_POS_Gateway_Resilience_Field_Exception_Catalog.md",
+        "docs\\05300_Policy_Provider_Register_Phase_Gate_Vendor_Evidence_Tracking.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05320",
+      "files": [
+        "docs\\05320_Policy_POS_Menu_Hierarchy_Option_Transformer.md",
+        "docs\\05321_Policy_Store_Vendor_Quote_Comparison_Adoption_Decision_Record.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05330",
+      "files": [
+        "docs\\05331_Policy_Small_Kiosk_Vendor_Evaluation_Integration_Transparency.md",
+        "docs\\05330_POS_Master_Data_Sync_And_Precheck_Validation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05340",
+      "files": [
+        "docs\\05341_Policy_Franchise_OS_POS_SaaS_Hardware_Partner_Strategy.md",
+        "docs\\05340_POS_Payment_Tax_Discount_And_Reconciliation_Mismatch_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05350",
+      "files": [
+        "docs\\05351_Policy_SaaS_Revenue_Model_Provider_Partnership.md",
+        "docs\\05350_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05360",
+      "files": [
+        "docs\\05361_Policy_SaaS_Package_Tier_Gateway_Pricing_Boundary.md",
+        "docs\\05360_POS_Hardware_Heartbeat_Local_Agent_And_Network_Disappearance_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05370",
+      "files": [
+        "docs\\05371_Policy_Franchise_Store_Billing_HQ_SaaS_Fee_Split.md",
+        "docs\\05370_POS_Circuit_Breaker_Queue_And_Rate_Limit_Protection_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05380",
+      "files": [
+        "docs\\05381_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md",
+        "docs\\05380_POS_Idempotency_Duplicate_Order_And_Manual_Reentry_Defense_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05390",
+      "files": [
+        "docs\\05391_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md",
+        "docs\\05390_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05400",
+      "files": [
+        "docs\\05401_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md",
+        "docs\\05400_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05410",
+      "files": [
+        "docs\\05411_Policy_Pilot_Incident_Retrospective_Blocker_Learning.md",
+        "docs\\05410_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05420",
+      "files": [
+        "docs\\05421_Policy_Pilot_To_Paid_SaaS_Conversion_Commitment.md",
+        "docs\\05420_POS_Legacy_Hardware_OS_Adaptive_Timeout_And_App_Restart_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05430",
+      "files": [
+        "docs\\05431_Policy_Early_SaaS_Customer_Success_Retention.md",
+        "docs\\05430_POS_Inventory_Race_Condition_And_Stock_Hold_Buffer_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05440",
+      "files": [
+        "docs\\05441_Policy_Early_SaaS_Renewal_Exit_Governance.md",
+        "docs\\05440_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05450",
+      "files": [
+        "docs\\05451_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md",
+        "docs\\05450_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05460",
+      "files": [
+        "docs\\05461_Policy_SaaS_Pricing_Experiment_Transition.md",
+        "docs\\05460_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05470",
+      "files": [
+        "docs\\05471_Policy_Mobile_Obsidian_Git_Draft_Import_Workflow.md",
+        "docs\\05470_POS_InDoubt_Transaction_Network_Cancel_Receipt_Number_And_Financial_Reconciliation_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05480",
+      "files": [
+        "docs\\05481_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md",
+        "docs\\05480_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05490",
+      "files": [
+        "docs\\05491_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md",
+        "docs\\05490_POS_Provider_Capability_Profile_And_Readiness_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05500",
+      "files": [
+        "docs\\05501_Policy_Mobile_Documentation_Workflow_Transition_Gate.md",
+        "docs\\05500_POS_Provider_Test_Fixture_And_Simulation_Scenario_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05510",
+      "files": [
+        "docs\\05511_Policy_High_Velocity_Markdown_Backlog_Control.md",
+        "docs\\05510_POS_Gateway_Operator_Recovery_Console_And_Action_Authority_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05520",
+      "files": [
+        "docs\\05521_Policy_Data_Flow_Documentation_Folder_Sorting.md",
+        "docs\\05520_POS_Integration_Incident_Triage_And_Provider_Dispute_Evidence_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05530",
+      "files": [
+        "docs\\05531_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md",
+        "docs\\05530_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05540",
+      "files": [
+        "docs\\05541_Policy_Implementation_Backlog_Extraction_Cutline.md",
+        "docs\\05540_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05550",
+      "files": [
+        "docs\\05551_Policy_Phase_1_MVP_Build_Authorization_Scope.md",
+        "docs\\05550_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05560",
+      "files": [
+        "docs\\05561_Policy_Phase_1_MVP_Implementation_Sequence.md",
+        "docs\\05560_Policy_POS_Gateway_Runbook_Training_Drill_And_Store_Support_Readiness.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05570",
+      "files": [
+        "docs\\05571_Policy_Phase_1_MVP_Runtime_State_Vocabulary.md",
+        "docs\\05570_POS_Gateway_Configuration_Change_Feature_Flag_And_Provider_Version_Governance_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05580",
+      "files": [
+        "docs\\05581_Matrix_Phase_1_Runtime_State_Transition_Authority.md",
+        "docs\\05580_POS_Gateway_Data_Model_Event_Ledger_And_State_Machine_Implementation_Boundary_Policy.md"
+      ]
+    },
+    {
+      "folder": "docs",
+      "prefix": "05590",
+      "files": [
+        "docs\\05591_Policy_Phase_1_Runtime_Transition_Test_Evidence.md",
+        "docs\\05590_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary_Policy.md"
+      ]
+    }
+  ],
+  "remaining_over_240_count": 0,
+  "remaining_over_240_paths": [],
+  "remaining_over_220_count": 51,
+  "validation_notes": {
+    "utf8": "passed: 39 touched/report files decoded as strict UTF-8",
+    "korean_readability": "passed: no Korean text found in touched Wave 01 file set; no mojibake detected",
+    "staged": "passed: git diff --cached --name-only returned empty",
+    "implementation_files_touched": "passed: no Dart/SQL/JS/TS/Python diffs detected",
+    "code_sql_flutter_created_or_edited": "passed: no implementation, SQL, migration, or Flutter files created/edited",
+    "commit": "not staged and not committed"
+  }
+}

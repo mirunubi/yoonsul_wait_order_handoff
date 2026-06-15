@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-06-15T17:03:42.141006+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "target_folder": "docs/17000_ui_screen_composition",
+  "files_scanned": 14,
+  "files_renamed": [],
+  "files_renumbered": [],
+  "headings_updated": [
+    {
+      "file": "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "heading": "# 17010_Customer_Webapp_UI_Composition",
+      "previous": "# 17010 Customer Webapp Ui Composition"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "heading": "# 17020_Mini_Kiosk_UI_Composition",
+      "previous": "# 17020 Mini Kiosk Ui Composition"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "heading": "# 17030_Store_Console_UI_Composition",
+      "previous": "# 17030 Store Console Ui Composition"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "heading": "# 17040_Admin_Console_UI_Composition",
+      "previous": "# 17040 Admin Console Ui Composition"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "heading": "# 17050_Support_Console_UI_Composition",
+      "previous": "# 17050 Support Console Ui Composition"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "heading": "# 17080_UI_Surface_To_Authority_Composition_Model",
+      "previous": "# 17080 UI Surface To Authority Composition Model"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "heading": "# 17090_Integration_Status_UI_Wording_Model",
+      "previous": "# 17090 Integration Status UI Wording Model"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17110_Customer_MiniKiosk_State_Wording_Consolidation.md",
+      "heading": "# 17110_Customer_MiniKiosk_State_Wording_Consolidation",
+      "previous": "# 17110 Customer MiniKiosk State Wording Consolidation"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17120_Admin_Support_UI_Authority_And_Recovery_Model.md",
+      "heading": "# 17120_Admin_Support_UI_Authority_And_Recovery_Model",
+      "previous": "# 17120 Admin Support UI Authority And Recovery Model"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs/00005_Document_Number_Index.md",
+      "replacements": "section 62 migration pass note"
+    },
+    {
+      "file": "docs/00007_Full_Directory_Map.md",
+      "replacements": "directory note for 17000 pass"
+    }
+  ],
+  "unchanged": [
+    "docs/17000_ui_screen_composition/17000_Readme_Ui_Screen_Composition.md",
+    "docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md",
+    "docs/17000_ui_screen_composition/17070_Boundary_Wireframe_Prototype.md",
+    "docs/17000_ui_screen_composition/17100_Governance_Action_Button_And_Status_Badge.md",
+    "docs/17000_ui_screen_composition/17130_Boundary_Future_UI_Surface_Non_MVP.md"
+  ],
+  "unchanged_count": 5,
+  "exceptions": [
+    {
+      "file": "docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md",
+      "reason": "no approved DocumentType token (`Customer` prefix; `UI Composition` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17020_Mini_Kiosk_UI_Composition.md",
+      "reason": "no approved DocumentType token (`Mini` prefix; `UI Composition` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17030_Store_Console_UI_Composition.md",
+      "reason": "no approved DocumentType token (`Store` prefix; `UI Composition` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17040_Admin_Console_UI_Composition.md",
+      "reason": "no approved DocumentType token (`Admin` prefix; `UI Composition` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17050_Support_Console_UI_Composition.md",
+      "reason": "no approved DocumentType token (`Support` prefix; `UI Composition` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17080_UI_Surface_To_Authority_Composition_Model.md",
+      "reason": "no approved DocumentType token (`UI` prefix; `Surface`/`Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17090_Integration_Status_UI_Wording_Model.md",
+      "reason": "no approved DocumentType token (`Integration` prefix; `Model` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17110_Customer_MiniKiosk_State_Wording_Consolidation.md",
+      "reason": "no approved DocumentType token (`Customer` prefix; `State` not mapped by meaning)"
+    },
+    {
+      "file": "docs/17000_ui_screen_composition/17120_Admin_Support_UI_Authority_And_Recovery_Model.md",
+      "reason": "no approved DocumentType token (`Admin` prefix; `Model` not mapped by meaning)"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": [],
+    "utf8_ok": true
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "code_touched": false,
+  "staged_or_committed": false,
+  "index_updated": [
+    "docs/00005_Document_Number_Index.md section 36 verified; section 62 migration note"
+  ],
+  "directory_map_updated": [
+    "docs/00007_Full_Directory_Map.md directory note added"
+  ]
+}

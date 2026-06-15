@@ -1,4 +1,4 @@
-# 13110 Idempotency Recovery And Audit Envelope Projection
+# 13110_Idempotency_Recovery_And_Audit_Envelope_Projection
 
 ## 1 Purpose
 
@@ -50,7 +50,7 @@ It does not approve idempotency key storage, audit tables, or retry jobs.
 ## 5 Cross-References
 
 - `docs/09000_data_model_state_machine/09100_Admin_Support_Audit_Entity_Lineage_Model.md`
-- `docs/11000_integration_boundary/11060_Integration_Failure_Retry_And_Recovery_Boundary.md`
+- `docs/11000_integration_boundary/11060_Boundary_Integration_Failure_Retry_And_Recovery.md`
 - `docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md`
 
 ## 6 Open Decisions

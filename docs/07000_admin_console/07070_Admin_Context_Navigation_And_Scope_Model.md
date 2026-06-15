@@ -47,8 +47,8 @@ Aligns with `docs/03000_saas_runtime/03020_Tenant_Company_Legal_Operating_Group_
 
 - `docs/07000_admin_console/07010_Admin_Console_Context_And_Role_Model.md`
 - `docs/07000_admin_console/07040_Admin_Screen_Inventory_And_Navigation_Model.md`
-- `docs/13000_app_api_projection/13060_Surface_State_Visibility_And_Authority_Matrix.md`
-- `docs/20000_validation_security_audit/20040_Admin_Access_And_Support_Access_Governance.md`
+- `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`
 
 ## 6 Open Decisions
 

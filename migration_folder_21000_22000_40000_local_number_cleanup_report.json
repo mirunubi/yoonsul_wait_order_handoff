@@ -1,0 +1,2527 @@
+{
+  "generated_at": "2026-06-15T17:54:00.719313+00:00",
+  "project_root": "D:\\workspace\\yoonsul_wait_order_handoff",
+  "folders": {
+    "docs/21000_financial_security_monitoring_catalog": {
+      "scanned": 32,
+      "renumbered": 31,
+      "exceptions": 0
+    },
+    "docs/22000_implementation_planning": {
+      "scanned": 47,
+      "renumbered": 17,
+      "exceptions": 0
+    },
+    "docs/40000_menu_taxonomy_and_ai_classification": {
+      "scanned": 20,
+      "renumbered": 18,
+      "exceptions": 0
+    }
+  },
+  "files_scanned": 99,
+  "files_renumbered": [
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "old_number": "09500",
+      "new_number": "21500"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "old_number": "09510",
+      "new_number": "21510"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "old_number": "09520",
+      "new_number": "21520"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "old_number": "09530",
+      "new_number": "21530"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "old_number": "09540",
+      "new_number": "21540"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "old_number": "09550",
+      "new_number": "21550"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "old_number": "09560",
+      "new_number": "21560"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "old_number": "09570",
+      "new_number": "21570"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "old_number": "09580",
+      "new_number": "21580"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "old_number": "09590",
+      "new_number": "21590"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "old_number": "09600",
+      "new_number": "21600"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "old_number": "09610",
+      "new_number": "21610"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "old_number": "09620",
+      "new_number": "21620"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "old_number": "09630",
+      "new_number": "21630"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "old_number": "09631",
+      "new_number": "21631"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "old_number": "09632",
+      "new_number": "21632"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "old_number": "09633",
+      "new_number": "21633"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "old_number": "09634",
+      "new_number": "21634"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "old_number": "09635",
+      "new_number": "21635"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "old_number": "09636",
+      "new_number": "21636"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "old_number": "09637",
+      "new_number": "21637"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "old_number": "09638",
+      "new_number": "21638"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "old_number": "09639",
+      "new_number": "21639"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "old_number": "09640",
+      "new_number": "21640"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "old_number": "09641",
+      "new_number": "21641"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "old_number": "09642",
+      "new_number": "21642"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "old_number": "09643",
+      "new_number": "21643"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "old_number": "09644",
+      "new_number": "21644"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "old_number": "09645",
+      "new_number": "21645"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "old_number": "09646",
+      "new_number": "21646"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "old_number": "09650",
+      "new_number": "21650"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "to": "docs\\22000_implementation_planning\\22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "old_number": "09330",
+      "new_number": "22330"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "to": "docs\\22000_implementation_planning\\22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "old_number": "09340",
+      "new_number": "22340"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "old_number": "09350",
+      "new_number": "22350"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "old_number": "09360",
+      "new_number": "22360"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "old_number": "09370",
+      "new_number": "22370"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "old_number": "09380",
+      "new_number": "22380"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "to": "docs\\22000_implementation_planning\\22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "old_number": "09390",
+      "new_number": "22390"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "to": "docs\\22000_implementation_planning\\22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "old_number": "09400",
+      "new_number": "22400"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "to": "docs\\22000_implementation_planning\\22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "old_number": "09410",
+      "new_number": "22410"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "to": "docs\\22000_implementation_planning\\22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "old_number": "09420",
+      "new_number": "22420"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "to": "docs\\22000_implementation_planning\\22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "old_number": "09430",
+      "new_number": "22430"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "to": "docs\\22000_implementation_planning\\22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "old_number": "09440",
+      "new_number": "22440"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "to": "docs\\22000_implementation_planning\\22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "old_number": "09450",
+      "new_number": "22450"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "to": "docs\\22000_implementation_planning\\22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "old_number": "09460",
+      "new_number": "22460"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "to": "docs\\22000_implementation_planning\\22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "old_number": "09470",
+      "new_number": "22470"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "to": "docs\\22000_implementation_planning\\22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "old_number": "09480",
+      "new_number": "22480"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "to": "docs\\22000_implementation_planning\\22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "old_number": "09490",
+      "new_number": "22490"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "old_number": "10703",
+      "new_number": "40003"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "old_number": "10704",
+      "new_number": "40004"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10705",
+      "new_number": "40006"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10706",
+      "new_number": "40007"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10707",
+      "new_number": "40008"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10708",
+      "new_number": "40009"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10709",
+      "new_number": "40010"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10710",
+      "new_number": "40011"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10711",
+      "new_number": "40012"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10712",
+      "new_number": "40013"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10713",
+      "new_number": "40014"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10714",
+      "new_number": "40015"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "old_number": "10715",
+      "new_number": "40016"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "old_number": "10716",
+      "new_number": "40017"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "old_number": "10717",
+      "new_number": "40018"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "old_number": "10718",
+      "new_number": "40019"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "old_number": "10719",
+      "new_number": "40020"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "old_number": "10720",
+      "new_number": "40021"
+    }
+  ],
+  "files_renamed": [
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "old_number": "09500",
+      "new_number": "21500"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "old_number": "09510",
+      "new_number": "21510"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "old_number": "09520",
+      "new_number": "21520"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "old_number": "09530",
+      "new_number": "21530"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "old_number": "09540",
+      "new_number": "21540"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "old_number": "09550",
+      "new_number": "21550"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "old_number": "09560",
+      "new_number": "21560"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "old_number": "09570",
+      "new_number": "21570"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "old_number": "09580",
+      "new_number": "21580"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "old_number": "09590",
+      "new_number": "21590"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "old_number": "09600",
+      "new_number": "21600"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "old_number": "09610",
+      "new_number": "21610"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "old_number": "09620",
+      "new_number": "21620"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "old_number": "09630",
+      "new_number": "21630"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "old_number": "09631",
+      "new_number": "21631"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "old_number": "09632",
+      "new_number": "21632"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "old_number": "09633",
+      "new_number": "21633"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "old_number": "09634",
+      "new_number": "21634"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "old_number": "09635",
+      "new_number": "21635"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "old_number": "09636",
+      "new_number": "21636"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "old_number": "09637",
+      "new_number": "21637"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "old_number": "09638",
+      "new_number": "21638"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "old_number": "09639",
+      "new_number": "21639"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "old_number": "09640",
+      "new_number": "21640"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "old_number": "09641",
+      "new_number": "21641"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "old_number": "09642",
+      "new_number": "21642"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "old_number": "09643",
+      "new_number": "21643"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "old_number": "09644",
+      "new_number": "21644"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "old_number": "09645",
+      "new_number": "21645"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "old_number": "09646",
+      "new_number": "21646"
+    },
+    {
+      "from": "docs\\21000_financial_security_monitoring_catalog\\09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "to": "docs\\21000_financial_security_monitoring_catalog\\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "old_number": "09650",
+      "new_number": "21650"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "to": "docs\\22000_implementation_planning\\22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "old_number": "09330",
+      "new_number": "22330"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "to": "docs\\22000_implementation_planning\\22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "old_number": "09340",
+      "new_number": "22340"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "old_number": "09350",
+      "new_number": "22350"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "old_number": "09360",
+      "new_number": "22360"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "old_number": "09370",
+      "new_number": "22370"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "to": "docs\\22000_implementation_planning\\22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "old_number": "09380",
+      "new_number": "22380"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "to": "docs\\22000_implementation_planning\\22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "old_number": "09390",
+      "new_number": "22390"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "to": "docs\\22000_implementation_planning\\22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "old_number": "09400",
+      "new_number": "22400"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "to": "docs\\22000_implementation_planning\\22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "old_number": "09410",
+      "new_number": "22410"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "to": "docs\\22000_implementation_planning\\22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "old_number": "09420",
+      "new_number": "22420"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "to": "docs\\22000_implementation_planning\\22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "old_number": "09430",
+      "new_number": "22430"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "to": "docs\\22000_implementation_planning\\22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "old_number": "09440",
+      "new_number": "22440"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "to": "docs\\22000_implementation_planning\\22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "old_number": "09450",
+      "new_number": "22450"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "to": "docs\\22000_implementation_planning\\22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "old_number": "09460",
+      "new_number": "22460"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "to": "docs\\22000_implementation_planning\\22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "old_number": "09470",
+      "new_number": "22470"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "to": "docs\\22000_implementation_planning\\22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "old_number": "09480",
+      "new_number": "22480"
+    },
+    {
+      "from": "docs\\22000_implementation_planning\\09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "to": "docs\\22000_implementation_planning\\22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "old_number": "09490",
+      "new_number": "22490"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "old_number": "10703",
+      "new_number": "40003"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "old_number": "10704",
+      "new_number": "40004"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10705",
+      "new_number": "40006"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10706",
+      "new_number": "40007"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10707",
+      "new_number": "40008"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10708",
+      "new_number": "40009"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10709",
+      "new_number": "40010"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10710",
+      "new_number": "40011"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10711",
+      "new_number": "40012"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10712",
+      "new_number": "40013"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10713",
+      "new_number": "40014"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "old_number": "10714",
+      "new_number": "40015"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "old_number": "10715",
+      "new_number": "40016"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "old_number": "10716",
+      "new_number": "40017"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "old_number": "10717",
+      "new_number": "40018"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "old_number": "10718",
+      "new_number": "40019"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "old_number": "10719",
+      "new_number": "40020"
+    },
+    {
+      "from": "docs\\40000_menu_taxonomy_and_ai_classification\\10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "to": "docs\\40000_menu_taxonomy_and_ai_classification\\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "old_number": "10720",
+      "new_number": "40021"
+    }
+  ],
+  "headings_updated": [
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "heading": "# 21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum",
+      "previous": "# 09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "heading": "# 21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System",
+      "previous": "# 09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "heading": "# 21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence",
+      "previous": "# 09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "heading": "# 21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index",
+      "previous": "# 09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "heading": "# 21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog",
+      "previous": "# 09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "heading": "# 21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement",
+      "previous": "# 09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "heading": "# 21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability",
+      "previous": "# 09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "heading": "# 21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness",
+      "previous": "# 09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "heading": "# 21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment",
+      "previous": "# 09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "heading": "# 21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection",
+      "previous": "# 09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "heading": "# 21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance",
+      "previous": "# 09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "heading": "# 21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral",
+      "previous": "# 09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "heading": "# 21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff",
+      "previous": "# 09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "heading": "# 21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map",
+      "previous": "# 09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "heading": "# 21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog",
+      "previous": "# 09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "heading": "# 21632_Index_Containment_Status_And_Trigger_Map_Catalog",
+      "previous": "# 09632_Index_Containment_Status_And_Trigger_Map_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "heading": "# 21633_Index_Quarantine_Status_And_Trigger_Map_Catalog",
+      "previous": "# 09633_Index_Quarantine_Status_And_Trigger_Map_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "heading": "# 21634_Index_Security_Control_Records_And_Security_Class_Catalog",
+      "previous": "# 09634_Index_Security_Control_Records_And_Security_Class_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "heading": "# 21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog",
+      "previous": "# 09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "heading": "# 21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping",
+      "previous": "# 09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "heading": "# 21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture",
+      "previous": "# 09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "heading": "# 21638_Spec_Monitoring_View_And_Risk_Projection_Contract",
+      "previous": "# 09638_Spec_Monitoring_View_And_Risk_Projection_Contract"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "heading": "# 21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog",
+      "previous": "# 09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "heading": "# 21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog",
+      "previous": "# 09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "heading": "# 21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog",
+      "previous": "# 09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "heading": "# 21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog",
+      "previous": "# 09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "heading": "# 21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix",
+      "previous": "# 09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "heading": "# 21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map",
+      "previous": "# 09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "heading": "# 21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure",
+      "previous": "# 09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "heading": "# 21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction",
+      "previous": "# 09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "heading": "# 21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization",
+      "previous": "# 09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "heading": "# 22330_Policy_API_RPC_Event_Contract_Planning_Boundary",
+      "previous": "# 09330_Policy_API_RPC_Event_Contract_Planning_Boundary"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "heading": "# 22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping",
+      "previous": "# 09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "heading": "# 22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning",
+      "previous": "# 09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "heading": "# 22360_Policy_Support_Admin_Evidence_Audit_Package_Planning",
+      "previous": "# 09360_Policy_Support_Admin_Evidence_Audit_Package_Planning"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "heading": "# 22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning",
+      "previous": "# 09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "heading": "# 22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning",
+      "previous": "# 09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "heading": "# 22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral",
+      "previous": "# 09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "heading": "# 22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory",
+      "previous": "# 09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "heading": "# 22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection",
+      "previous": "# 09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "heading": "# 22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package",
+      "previous": "# 09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "heading": "# 22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance",
+      "previous": "# 09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "heading": "# 22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order",
+      "previous": "# 09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "heading": "# 22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency",
+      "previous": "# 09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "heading": "# 22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention",
+      "previous": "# 09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "heading": "# 22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata",
+      "previous": "# 09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "heading": "# 22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate",
+      "previous": "# 09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate"
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "heading": "# 22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement",
+      "previous": "# 09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "heading": "# 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary",
+      "previous": "# 10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "heading": "# 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification",
+      "previous": "# 10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "heading": "# 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary",
+      "previous": "# 10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "heading": "# 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance",
+      "previous": "# 10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "heading": "# 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance",
+      "previous": "# 10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "heading": "# 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance",
+      "previous": "# 10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "heading": "# 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification",
+      "previous": "# 10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "heading": "# 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping",
+      "previous": "# 10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping"
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "heading": "# 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention",
+      "previous": "# 10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention"
+    }
+  ],
+  "references_updated": [
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21000_Readme_Financial_Security_Monitoring_Catalog.md",
+      "replacements": [
+        "09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md -> 21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md (1)",
+        "09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md -> 21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md (1)",
+        "09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md -> 21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md (1)",
+        "09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md -> 21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md (1)",
+        "09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md -> 21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md (1)",
+        "09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md -> 21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md (1)",
+        "09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md -> 21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md (1)",
+        "09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md -> 21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md (1)",
+        "09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md -> 21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md (1)",
+        "09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md -> 21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md (1)",
+        "09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md -> 21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md (1)",
+        "09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md -> 21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md (1)",
+        "09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md -> 21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md (1)",
+        "09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md -> 21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md (1)",
+        "09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md -> 21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md (1)",
+        "09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md -> 21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md (1)",
+        "09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md -> 21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md (1)",
+        "09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md -> 21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md (1)",
+        "09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md -> 21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md (1)",
+        "09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md -> 21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md (1)",
+        "09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md -> 21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md (1)",
+        "09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md -> 21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md (1)",
+        "09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md -> 21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md (1)",
+        "09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md -> 21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md (1)",
+        "09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md -> 21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md (1)",
+        "09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md -> 21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md (1)",
+        "09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md -> 21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md (1)",
+        "09634_Index_Security_Control_Records_And_Security_Class_Catalog.md -> 21634_Index_Security_Control_Records_And_Security_Class_Catalog.md (1)",
+        "09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md -> 21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md (1)",
+        "09632_Index_Containment_Status_And_Trigger_Map_Catalog.md -> 21632_Index_Containment_Status_And_Trigger_Map_Catalog.md (1)",
+        "09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md -> 21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md (1)",
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (1)",
+        "09632 -> 21632 (1)",
+        "09633 -> 21633 (1)",
+        "09634 -> 21634 (1)",
+        "09635 -> 21635 (1)",
+        "09636 -> 21636 (1)",
+        "09637 -> 21637 (1)",
+        "09638 -> 21638 (1)",
+        "09639 -> 21639 (1)",
+        "09640 -> 21640 (1)",
+        "09641 -> 21641 (1)",
+        "09642 -> 21642 (1)",
+        "09643 -> 21643 (1)",
+        "09644 -> 21644 (1)",
+        "09645 -> 21645 (1)",
+        "09646 -> 21646 (1)",
+        "09650 -> 21650 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md",
+      "replacements": [
+        "09450 -> 22450 (1)",
+        "09460 -> 22460 (1)",
+        "09470 -> 22470 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (2)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09330 -> 22330 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (2)",
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09330 -> 22330 (1)",
+        "09360 -> 22360 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md",
+      "replacements": [
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09480 -> 22480 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09330 -> 22330 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (2)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md",
+      "replacements": [
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09370 -> 22370 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md",
+      "replacements": [
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09330 -> 22330 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md",
+      "replacements": [
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (2)",
+        "09530 -> 21530 (2)",
+        "09540 -> 21540 (2)",
+        "09550 -> 21550 (2)",
+        "09560 -> 21560 (2)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (2)",
+        "09590 -> 21590 (2)",
+        "09600 -> 21600 (2)",
+        "09610 -> 21610 (1)",
+        "09330 -> 22330 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09470 -> 22470 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md",
+      "replacements": [
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (2)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "replacements": [
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (2)",
+        "09631 -> 21631 (5)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (4)",
+        "09634 -> 21634 (5)",
+        "09635 -> 21635 (4)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (4)",
+        "09639 -> 21639 (6)",
+        "09640 -> 21640 (6)",
+        "09641 -> 21641 (5)",
+        "09642 -> 21642 (2)",
+        "09643 -> 21643 (5)",
+        "09644 -> 21644 (5)",
+        "09645 -> 21645 (2)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md",
+      "replacements": [
+        "09560 -> 21560 (2)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (2)",
+        "09620 -> 21620 (2)",
+        "09630 -> 21630 (3)",
+        "09631 -> 21631 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md",
+      "replacements": [
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (2)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (3)",
+        "09632 -> 21632 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md",
+      "replacements": [
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (2)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (3)",
+        "09633 -> 21633 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md",
+      "replacements": [
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (2)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (3)",
+        "09632 -> 21632 (3)",
+        "09633 -> 21633 (3)",
+        "09634 -> 21634 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md",
+      "replacements": [
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (2)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (2)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (3)",
+        "09635 -> 21635 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md",
+      "replacements": [
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (3)",
+        "09636 -> 21636 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md",
+      "replacements": [
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (3)",
+        "09637 -> 21637 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md",
+      "replacements": [
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (3)",
+        "09638 -> 21638 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md",
+      "replacements": [
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (3)",
+        "09639 -> 21639 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md",
+      "replacements": [
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (2)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (2)",
+        "09639 -> 21639 (3)",
+        "09640 -> 21640 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md",
+      "replacements": [
+        "09600 -> 21600 (2)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (2)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (2)",
+        "09639 -> 21639 (2)",
+        "09640 -> 21640 (3)",
+        "09641 -> 21641 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md",
+      "replacements": [
+        "09600 -> 21600 (2)",
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (2)",
+        "09635 -> 21635 (2)",
+        "09636 -> 21636 (2)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (2)",
+        "09639 -> 21639 (2)",
+        "09640 -> 21640 (2)",
+        "09641 -> 21641 (3)",
+        "09642 -> 21642 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md",
+      "replacements": [
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (1)",
+        "09633 -> 21633 (1)",
+        "09634 -> 21634 (1)",
+        "09635 -> 21635 (1)",
+        "09636 -> 21636 (1)",
+        "09637 -> 21637 (1)",
+        "09638 -> 21638 (1)",
+        "09639 -> 21639 (1)",
+        "09640 -> 21640 (1)",
+        "09641 -> 21641 (1)",
+        "09642 -> 21642 (4)",
+        "09643 -> 21643 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "replacements": [
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (2)",
+        "09632 -> 21632 (1)",
+        "09633 -> 21633 (1)",
+        "09634 -> 21634 (1)",
+        "09635 -> 21635 (1)",
+        "09636 -> 21636 (1)",
+        "09637 -> 21637 (1)",
+        "09638 -> 21638 (1)",
+        "09639 -> 21639 (1)",
+        "09640 -> 21640 (1)",
+        "09641 -> 21641 (1)",
+        "09642 -> 21642 (1)",
+        "09643 -> 21643 (4)",
+        "09644 -> 21644 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md",
+      "replacements": [
+        "09560 -> 21560 (2)",
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (6)",
+        "09632 -> 21632 (2)",
+        "09633 -> 21633 (2)",
+        "09634 -> 21634 (3)",
+        "09635 -> 21635 (3)",
+        "09636 -> 21636 (3)",
+        "09637 -> 21637 (2)",
+        "09638 -> 21638 (2)",
+        "09639 -> 21639 (2)",
+        "09640 -> 21640 (2)",
+        "09641 -> 21641 (2)",
+        "09642 -> 21642 (2)",
+        "09643 -> 21643 (4)",
+        "09644 -> 21644 (6)",
+        "09645 -> 21645 (3)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md",
+      "replacements": [
+        "09560 -> 21560 (5)",
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (2)",
+        "09634 -> 21634 (1)",
+        "09635 -> 21635 (1)",
+        "09636 -> 21636 (1)",
+        "09637 -> 21637 (1)",
+        "09638 -> 21638 (1)",
+        "09639 -> 21639 (1)",
+        "09640 -> 21640 (1)",
+        "09641 -> 21641 (1)",
+        "09642 -> 21642 (1)",
+        "09643 -> 21643 (2)",
+        "09644 -> 21644 (2)",
+        "09645 -> 21645 (6)",
+        "09646 -> 21646 (3)",
+        "09650 -> 21650 (1)"
+      ]
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md",
+      "replacements": [
+        "09560 -> 21560 (2)",
+        "09643 -> 21643 (3)",
+        "09646 -> 21646 (4)",
+        "09650 -> 21650 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22000_Implementation_Planning_Readme.md",
+      "replacements": [
+        "09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md -> 22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md (1)",
+        "09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md -> 22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md (1)",
+        "09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md -> 22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md (1)",
+        "09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md -> 22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md (1)",
+        "09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md -> 22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md (1)",
+        "09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md -> 22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md (1)",
+        "09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md -> 22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md (1)",
+        "09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md -> 22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md (1)",
+        "09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md -> 22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md (1)",
+        "09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md -> 22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md (1)",
+        "09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md -> 22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md (1)",
+        "09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md -> 22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md (1)",
+        "09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md -> 22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md (1)",
+        "09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md -> 22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md (1)",
+        "09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md -> 22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md (1)",
+        "09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md -> 22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md (1)",
+        "09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md -> 22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md (1)",
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (1)",
+        "09420 -> 22420 (1)",
+        "09430 -> 22430 (1)",
+        "09440 -> 22440 (1)",
+        "09450 -> 22450 (1)",
+        "09460 -> 22460 (1)",
+        "09470 -> 22470 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md",
+      "replacements": [
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09390 -> 22390 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md",
+      "replacements": [
+        "09330 -> 22330 (2)",
+        "09340 -> 22340 (2)",
+        "09350 -> 22350 (2)",
+        "09360 -> 22360 (2)",
+        "09370 -> 22370 (2)",
+        "09380 -> 22380 (2)",
+        "09390 -> 22390 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md",
+      "replacements": [
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md",
+      "replacements": [
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md",
+      "replacements": [
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (1)",
+        "09420 -> 22420 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md",
+      "replacements": [
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (1)",
+        "09420 -> 22420 (1)",
+        "09430 -> 22430 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md",
+      "replacements": [
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (1)",
+        "09420 -> 22420 (1)",
+        "09430 -> 22430 (1)",
+        "09440 -> 22440 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md",
+      "replacements": [
+        "09500 -> 21500 (1)",
+        "09600 -> 21600 (1)",
+        "09400 -> 22400 (1)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md",
+      "replacements": [
+        "09390 -> 22390 (2)",
+        "09400 -> 22400 (2)",
+        "09410 -> 22410 (2)",
+        "09420 -> 22420 (2)",
+        "09430 -> 22430 (2)",
+        "09440 -> 22440 (3)",
+        "09450 -> 22450 (3)",
+        "09460 -> 22460 (4)",
+        "09470 -> 22470 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md",
+      "replacements": [
+        "09510 -> 21510 (1)",
+        "09530 -> 21530 (1)",
+        "09450 -> 22450 (2)",
+        "09460 -> 22460 (1)",
+        "09470 -> 22470 (2)"
+      ]
+    },
+    {
+      "file": "docs\\22000_implementation_planning\\22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md",
+      "replacements": [
+        "09330 -> 22330 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09430 -> 22430 (1)",
+        "09470 -> 22470 (1)",
+        "09480 -> 22480 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40000_Readme_Menu_Taxonomy_And_AI_Classification.md",
+      "replacements": [
+        "10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md -> 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md (1)",
+        "10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary -> 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary (1)",
+        "10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md -> 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md (1)",
+        "10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance -> 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance (1)",
+        "10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md -> 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md (1)",
+        "10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance -> 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance (1)",
+        "10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md -> 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md (1)",
+        "10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance -> 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance (1)",
+        "10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md -> 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md (1)",
+        "10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification -> 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification (1)",
+        "10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md -> 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md (1)",
+        "10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md -> 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md (1)",
+        "10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification -> 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification (1)",
+        "10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping -> 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping (1)",
+        "10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md -> 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md (1)",
+        "10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention -> 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention (1)",
+        "10703 -> 40003 (2)",
+        "10720 -> 40021 (2)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md",
+      "replacements": [
+        "10704 -> 40004 (1)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md",
+      "replacements": [
+        "10703 -> 40003 (3)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40005_Report_Menu_Taxonomy_Wave_5_Review.md",
+      "replacements": [
+        "10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md -> 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md (1)",
+        "10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md -> 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md (1)",
+        "10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md -> 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md (1)",
+        "10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md -> 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md (1)",
+        "10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md -> 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md (1)",
+        "10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md -> 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md (1)",
+        "10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md -> 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md (1)",
+        "10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md -> 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md (2)",
+        "10703 -> 40003 (22)",
+        "10704 -> 40004 (6)",
+        "10705 -> 40006 (7)",
+        "10706 -> 40007 (2)",
+        "10707 -> 40008 (2)",
+        "10708 -> 40009 (2)",
+        "10709 -> 40010 (2)",
+        "10710 -> 40011 (2)",
+        "10711 -> 40012 (2)",
+        "10712 -> 40013 (3)",
+        "10713 -> 40014 (2)",
+        "10714 -> 40015 (7)",
+        "10715 -> 40016 (6)",
+        "10716 -> 40017 (13)",
+        "10717 -> 40018 (2)",
+        "10718 -> 40019 (2)",
+        "10719 -> 40020 (9)",
+        "10720 -> 40021 (42)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (3)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (3)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (2)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (2)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (2)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (1)",
+        "10712 -> 40013 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (2)",
+        "10711 -> 40012 (1)",
+        "10712 -> 40013 (1)",
+        "10713 -> 40014 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (2)",
+        "10712 -> 40013 (1)",
+        "10713 -> 40014 (1)",
+        "10714 -> 40015 (1)",
+        "10715 -> 40016 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (2)",
+        "10713 -> 40014 (1)",
+        "10714 -> 40015 (1)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (1)",
+        "10712 -> 40013 (2)",
+        "10714 -> 40015 (1)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (1)",
+        "10712 -> 40013 (1)",
+        "10713 -> 40014 (2)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (1)",
+        "10718 -> 40019 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (1)",
+        "10706 -> 40007 (1)",
+        "10707 -> 40008 (1)",
+        "10708 -> 40009 (1)",
+        "10709 -> 40010 (1)",
+        "10710 -> 40011 (1)",
+        "10711 -> 40012 (1)",
+        "10712 -> 40013 (1)",
+        "10713 -> 40014 (1)",
+        "10714 -> 40015 (2)",
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (1)",
+        "10718 -> 40019 (1)",
+        "10719 -> 40020 (1)",
+        "10720 -> 40021 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (2)",
+        "10705 -> 40006 (2)",
+        "10714 -> 40015 (2)",
+        "10715 -> 40016 (2)",
+        "10717 -> 40018 (1)",
+        "10718 -> 40019 (1)",
+        "10719 -> 40020 (1)",
+        "10720 -> 40021 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (1)",
+        "10705 -> 40006 (1)",
+        "10714 -> 40015 (1)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (2)",
+        "10718 -> 40019 (1)",
+        "10719 -> 40020 (1)",
+        "10720 -> 40021 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10704 -> 40004 (1)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (2)",
+        "10719 -> 40020 (1)",
+        "10720 -> 40021 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md",
+      "replacements": [
+        "10703 -> 40003 (1)",
+        "10715 -> 40016 (1)",
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (1)",
+        "10718 -> 40019 (2)",
+        "10720 -> 40021 (1)"
+      ]
+    },
+    {
+      "file": "docs\\40000_menu_taxonomy_and_ai_classification\\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md",
+      "replacements": [
+        "10716 -> 40017 (1)",
+        "10717 -> 40018 (1)",
+        "10718 -> 40019 (1)",
+        "10719 -> 40020 (2)"
+      ]
+    },
+    {
+      "file": "docs\\00005_Document_Number_Index.md",
+      "replacements": [
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md -> docs\\21000_financial_security_monitoring_catalog\\21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md -> docs\\21000_financial_security_monitoring_catalog\\21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md -> docs\\21000_financial_security_monitoring_catalog\\21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md -> docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md -> docs\\21000_financial_security_monitoring_catalog\\21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md -> docs\\21000_financial_security_monitoring_catalog\\21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md -> docs\\21000_financial_security_monitoring_catalog\\21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md -> docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md -> docs\\21000_financial_security_monitoring_catalog\\21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md -> docs\\21000_financial_security_monitoring_catalog\\21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md -> docs\\21000_financial_security_monitoring_catalog\\21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md -> docs\\21000_financial_security_monitoring_catalog\\21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md -> docs\\21000_financial_security_monitoring_catalog\\21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md -> docs\\21000_financial_security_monitoring_catalog\\21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md -> docs\\21000_financial_security_monitoring_catalog\\21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md -> docs\\21000_financial_security_monitoring_catalog\\21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md -> docs\\21000_financial_security_monitoring_catalog\\21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md -> docs\\21000_financial_security_monitoring_catalog\\21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md -> docs\\21000_financial_security_monitoring_catalog\\21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md -> docs\\21000_financial_security_monitoring_catalog\\21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md (1)",
+        "10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09634_Index_Security_Control_Records_And_Security_Class_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21634_Index_Security_Control_Records_And_Security_Class_Catalog.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md (1)",
+        "docs\\40000_menu_taxonomy_and_ai_classification\\10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md -> docs\\40000_menu_taxonomy_and_ai_classification\\40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md -> docs\\21000_financial_security_monitoring_catalog\\21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09632_Index_Containment_Status_And_Trigger_Map_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21632_Index_Containment_Status_And_Trigger_Map_Catalog.md (1)",
+        "docs\\21000_financial_security_monitoring_catalog\\09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md -> docs\\21000_financial_security_monitoring_catalog\\21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md (1)",
+        "10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary -> 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary (1)",
+        "10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance -> 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance (1)",
+        "10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary -> 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary (1)",
+        "10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance -> 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance (1)",
+        "10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance -> 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance (1)",
+        "10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification -> 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification (1)",
+        "10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification -> 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification (1)",
+        "10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping -> 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping (1)",
+        "10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention -> 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention (1)",
+        "09500 -> 21500 (1)",
+        "09510 -> 21510 (1)",
+        "09520 -> 21520 (1)",
+        "09530 -> 21530 (1)",
+        "09540 -> 21540 (1)",
+        "09550 -> 21550 (1)",
+        "09560 -> 21560 (1)",
+        "09570 -> 21570 (1)",
+        "09580 -> 21580 (1)",
+        "09590 -> 21590 (1)",
+        "09600 -> 21600 (1)",
+        "09610 -> 21610 (1)",
+        "09620 -> 21620 (1)",
+        "09630 -> 21630 (1)",
+        "09631 -> 21631 (1)",
+        "09632 -> 21632 (1)",
+        "09633 -> 21633 (1)",
+        "09634 -> 21634 (1)",
+        "09635 -> 21635 (1)",
+        "09636 -> 21636 (1)",
+        "09637 -> 21637 (1)",
+        "09638 -> 21638 (1)",
+        "09639 -> 21639 (1)",
+        "09640 -> 21640 (1)",
+        "09641 -> 21641 (1)",
+        "09642 -> 21642 (1)",
+        "09643 -> 21643 (1)",
+        "09644 -> 21644 (1)",
+        "09645 -> 21645 (1)",
+        "09646 -> 21646 (1)",
+        "09650 -> 21650 (1)",
+        "09330 -> 22330 (1)",
+        "09340 -> 22340 (1)",
+        "09350 -> 22350 (1)",
+        "09360 -> 22360 (1)",
+        "09370 -> 22370 (1)",
+        "09380 -> 22380 (1)",
+        "09390 -> 22390 (1)",
+        "09400 -> 22400 (1)",
+        "09410 -> 22410 (1)",
+        "09420 -> 22420 (1)",
+        "09430 -> 22430 (1)",
+        "09440 -> 22440 (1)",
+        "09450 -> 22450 (1)",
+        "09460 -> 22460 (1)",
+        "09470 -> 22470 (1)",
+        "09480 -> 22480 (1)",
+        "09490 -> 22490 (1)",
+        "10703 -> 40003 (1)",
+        "10705 -> 40006 (1)",
+        "10712 -> 40013 (2)",
+        "10720 -> 40021 (22)"
+      ]
+    },
+    {
+      "file": "docs\\00007_Full_Directory_Map.md",
+      "replacements": [
+        "10714_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10703_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md -> 40003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md (1)",
+        "10711_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10713_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "09490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md -> 22490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md (1)",
+        "10712_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "09610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md -> 21610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md (1)",
+        "10709_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10710_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10707_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "10715_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md -> 40016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md (1)",
+        "10706_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "09560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md -> 21560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md (1)",
+        "09620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md -> 21620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md (1)",
+        "09630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md -> 21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md (1)",
+        "09570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md -> 21570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md (1)",
+        "10708_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "09650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md -> 21650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md (1)",
+        "10705_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md -> 40006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md (1)",
+        "09640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md -> 21640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md (1)",
+        "10716_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md -> 40017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md (1)",
+        "09500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md -> 21500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md (1)",
+        "09644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md -> 21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md (1)",
+        "09600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md -> 21600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md (1)",
+        "09390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md -> 22390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md (1)",
+        "10717_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md -> 40018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md (1)",
+        "09645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md -> 21645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md (1)",
+        "09646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md -> 21646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md (1)",
+        "09430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md -> 22430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md (1)",
+        "09400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md -> 22400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md (1)",
+        "09550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md -> 21550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md (1)",
+        "09580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md -> 21580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md (1)",
+        "10704_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md -> 40004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md (1)",
+        "09639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md -> 21639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md (1)",
+        "09642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md -> 21642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md (1)",
+        "09540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md -> 21540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md (1)",
+        "09637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md -> 21637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md (1)",
+        "09590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md -> 21590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md (1)",
+        "09641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md -> 21641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md (1)",
+        "09340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md -> 22340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md (1)",
+        "09440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md -> 22440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md (1)",
+        "09510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md -> 21510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md (1)",
+        "09530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md -> 21530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md (1)",
+        "09643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md -> 21643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md (1)",
+        "09380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md -> 22380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md (1)",
+        "09635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md -> 21635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md (1)",
+        "09420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md -> 22420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md (1)",
+        "09631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md -> 21631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md (1)",
+        "09480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md -> 22480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md (1)",
+        "09520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md -> 21520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md (1)",
+        "09636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md -> 21636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md (1)",
+        "09450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md -> 22450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md (1)",
+        "09470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md -> 22470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md (1)",
+        "09460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md -> 22460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md (1)",
+        "09410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md -> 22410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md (1)",
+        "10718_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md -> 40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md (1)",
+        "09634_Index_Security_Control_Records_And_Security_Class_Catalog.md -> 21634_Index_Security_Control_Records_And_Security_Class_Catalog.md (1)",
+        "10719_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md -> 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md (1)",
+        "09370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md -> 22370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md (1)",
+        "09350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md -> 22350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md (1)",
+        "09360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md -> 22360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md (1)",
+        "10720_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md -> 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md (1)",
+        "09638_Spec_Monitoring_View_And_Risk_Projection_Contract.md -> 21638_Spec_Monitoring_View_And_Risk_Projection_Contract.md (1)",
+        "09632_Index_Containment_Status_And_Trigger_Map_Catalog.md -> 21632_Index_Containment_Status_And_Trigger_Map_Catalog.md (1)",
+        "09633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md -> 21633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md (1)",
+        "09330_Policy_API_RPC_Event_Contract_Planning_Boundary.md -> 22330_Policy_API_RPC_Event_Contract_Planning_Boundary.md (1)",
+        "09500 -> 21500 (1)",
+        "09650 -> 21650 (1)",
+        "09330 -> 22330 (1)",
+        "09490 -> 22490 (1)",
+        "10703 -> 40003 (1)",
+        "10705 -> 40006 (1)",
+        "10712 -> 40013 (1)",
+        "10720 -> 40021 (7)"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md",
+      "reason": "no approved DocumentType token (`Financial-Grade` prefix); renumbered but filename retained"
+    },
+    {
+      "file": "docs\\21000_financial_security_monitoring_catalog\\21644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md",
+      "reason": "no approved DocumentType token (`Patent` prefix); renumbered but filename retained"
+    }
+  ],
+  "duplicate_prefix_groups": [],
+  "path_length_checks": {
+    "paths_over_220": [],
+    "paths_over_240": []
+  },
+  "utf8_and_korean_readability": {
+    "utf8_valid": true,
+    "korean_body_not_edited": true
+  },
+  "index_00005_updated": true,
+  "directory_map_00007_updated": true,
+  "code_touched": false,
+  "staged_or_committed": false
+}
