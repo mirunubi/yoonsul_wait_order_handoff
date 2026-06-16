@@ -239,13 +239,13 @@ docs/
       05410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md
       06410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md
       06440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md
-      06470_WorkPackage_Store_Runtime_Inventory_Soldout_Menu_Availability_Kitchen_Production_Signal_And_Exception_Control.md
+      06470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md
       06510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
       06511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
       06520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md
       06530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control.md
-      06540_Policy_Entrance_Customer_Notification_Call_Message_Status_Display_Multilingual_Guidance_And_Evidence_Control.md
-      06620_Policy_Customer_Runtime_Evidence_Packet_Audit_Trail_Cross_Flow_Traceability_Closeout_Handoff_And_Governance.md
+      06540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md
+      06620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md
       06700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md
       06710_SOP_Customer_Runtime_Waiting_Call_No_Show_Recovery_And_Staff_Correction_Operation.md
       06720_SOP_Customer_Runtime_Table_Matching_Preorder_Link_And_Service_Context_Operation.md
@@ -1111,8 +1111,8 @@ docs/
     40019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md
     40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md
     40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md
-  _conflicts/
-    root_conflict_review/
+  00999_conflicts/
+    00999_root_conflict_review/
       03540_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md
       03910_Policy_First_7_Days_Activation_Check.md
       05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md
@@ -1135,3 +1135,7 @@ docs/
   00099_Docs_Governance_Checklist.md
   Foundation I18n Content Registry SOP Parsing And Multilingual Runtime Policy.md
 ```
+
+Folder `docs/00999_conflicts/00999_root_conflict_review/` contains preserved root conflict review files moved from the legacy unnumbered conflict review folder in `migration_root_conflict_review_numbered_archive_report.md`; final domain destinations are deferred.
+
+Remaining repo-wide Markdown paths over 240 chars were shortened in-place in `migration_final_long_path_240_cleanup_report.md`; folders were not moved.
