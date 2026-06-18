@@ -1,0 +1,273 @@
+---
+description: Project rules for yoonsul_wait_order_handoff documentation governance, six-digit numbering, and safe batch execution.
+globs:
+  - "**/*.md"
+  - "**/*.mdc"
+alwaysApply: true
+---
+
+# yoonsul_wait_order_handoff Cursor Project Rules
+
+## 1. Project Identity
+
+This repository is `yoonsul_wait_order_handoff`.
+
+The project is a financial-grade wait/order/handoff, POS Gateway, KDS, runtime flow, audit, and implementation documentation project.
+
+The `docs/` area is for development documentation only.
+
+SOP documents must not be mixed into `docs/` unless an explicitly approved cross-reference stub is required.
+
+## 2. Current Rule Sources
+
+Treat these files as the current authoritative rule sources:
+
+- `docs/000001_Md_Rules.md`
+- `docs/000002_Naming_Rules.md`
+- `docs/000005_Document_Number_Index.md`
+- `docs/000007_Full_Directory_Map.md`
+
+Do not use old five-digit rule file paths as the active source of truth.
+
+## 3. Six-Digit Numbering Rule
+
+All new Markdown files must use a six-digit numeric prefix.
+
+Canonical filename format:
+
+```text
+xxxxxx_DocumentType_Title_In_English_Title_Case.md
+```
+
+Do not create new five-digit-prefixed Markdown files.
+
+Existing five-digit files are migration targets only.
+
+Default migration rule:
+
+```text
+xxxxx_Title.md -> 0xxxxx_Title.md
+```
+
+## 4. DocumentType Rules
+
+Approved DocumentType values include:
+
+- Policy
+- SOP
+- Checklist
+- Readme
+- Index
+- Runbook
+- Evidence
+- Audit
+- Governance
+- Boundary
+- Matrix
+- Template
+- Register
+- Report
+- Assessment
+- WorkPackage
+- Implementation
+- Guide
+- Spec
+- ADR
+- Overview
+- Logic
+- Module
+
+`Overview`, `Logic`, and `Module` are independent DocumentTypes.
+
+They are not subtypes of `Spec`.
+
+Use:
+
+- `Overview` for implementation entry maps: what files, docs, SQL, Flutter, modules, and related assets are involved.
+- `Logic` for implementation design: what tables, fields, states, transitions, and rules are changed.
+- `Module` for implemented result: what was built, where it is, how it behaves, and how future repair should start.
+- `Spec` only for formal contracts, interfaces, schema, event payloads, API contracts, protocol definitions, and state contracts.
+
+## 5. Folder Authority
+
+`Readme` is folder semantic authority.
+
+A folder Readme defines:
+
+- folder purpose
+- ownership boundary
+- what belongs inside
+- what does not belong inside
+- internal number band
+- file role map
+- flat vs subfolder policy
+- add/move rule
+
+Avoid creating folder-level `Index` documents unless explicitly instructed.
+
+Global document number tracking belongs to:
+
+```text
+docs/000005_Document_Number_Index.md
+```
+
+Global directory structure tracking belongs to:
+
+```text
+docs/000007_Full_Directory_Map.md
+```
+
+If a document is created, renamed, or moved, update `000005`.
+
+If a folder is created, renamed, or moved, update `000007`.
+
+If folder semantics change, update the relevant Readme.
+
+## 6. Current Stabilized High-Range Domains
+
+The current stabilized high-range folders are:
+
+```text
+docs/600000_implementation_lifecycle/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/
+docs/700000_runtime_flow/
+```
+
+The POS Gateway package internal folders are:
+
+```text
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605100_core_flows/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605200_read_only_dry_run/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605300_authorization_execution/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605400_breach_hold/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605500_future_hold_lift/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605600_ticket_closeout/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605700_repair_hold_lift/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605800_release_monitoring/
+docs/600000_implementation_lifecycle/605000_pos_gateway_package/605900_final_closeout_archive/
+```
+
+The runtime flow folders are:
+
+```text
+docs/700000_runtime_flow/700100_readme_governance/
+docs/700000_runtime_flow/701000_registry_core_flows/
+docs/700000_runtime_flow/702000_md_dependency_graph/
+docs/700000_runtime_flow/703000_module_map/
+docs/700000_runtime_flow/704000_test_coverage/
+docs/700000_runtime_flow/705000_code_handoff/
+docs/700000_runtime_flow/706000_exception_governance/
+docs/700000_runtime_flow/707000_human_approval/
+docs/700000_runtime_flow/708000_release_gate/
+docs/700000_runtime_flow/709000_archive_review/
+```
+
+## 7. Batch Execution Rule
+
+Only perform work inside the explicitly requested batch scope.
+
+Do not infer or expand the scope.
+
+Do not perform broad repository-wide replacements unless the batch explicitly says to do so.
+
+Do not rename, move, or delete files unless the batch explicitly authorizes it.
+
+Prefer this batch pattern:
+
+1. planning report
+2. manifest matrix
+3. reviewed execution
+4. integrity scan
+5. closeout report
+
+## 8. Absolute Safety Rules
+
+Do not use PowerShell `Set-Content`.
+
+Do not normalize encoding.
+
+Do not run formatters.
+
+Do not rewrite Korean body text.
+
+Do not rewrite prose unless explicitly requested.
+
+Do not modify SQL, migrations, application code, Supabase functions, packages, or runtime code during documentation governance batches.
+
+Do not create runtime implementation.
+
+Do not delete files unless explicitly instructed.
+
+Do not create new files under old five-digit paths.
+
+Do not create new five-digit Markdown files.
+
+## 9. Encoding Rule
+
+Preserve UTF-8.
+
+Preserve Korean text.
+
+Avoid tools or commands that may corrupt Korean encoding.
+
+When editing existing Markdown files, use targeted safe edits only.
+
+## 10. Link and H1 Rule
+
+When a file basename is renamed:
+
+- Update H1 only if H1 exactly mirrors the old filename.
+- Do not force-edit H1 if it is a deliberate title.
+- Internal links should be updated in a separate integrity batch unless the current batch explicitly includes link updates.
+- Historical migration records may keep old paths as audit evidence if clearly historical.
+
+## 11. Long Path Rule
+
+This project has long path risk.
+
+Keep folder names short where possible.
+
+Prefer short stable folder names such as:
+
+```text
+600000_implementation_lifecycle
+605000_pos_gateway_package
+700000_runtime_flow
+```
+
+Do not create long explanatory folder names unless explicitly approved.
+
+## 12. Current Next Batch
+
+The next recommended batch is:
+
+```text
+Batch 4D High Range H1 And Manual Review Closure
+```
+
+Do not execute Batch 4D unless explicitly instructed.
+
+## 13. Validation Rule
+
+After any documentation governance batch, run:
+
+```text
+git diff --check
+git status --short
+```
+
+If files were staged, also run:
+
+```text
+git diff --cached --name-status
+```
+
+Report:
+
+- files created
+- files modified
+- files renamed
+- files moved
+- files deleted
+- validation result
+- safety notes
