@@ -1,0 +1,22 @@
+{
+  "manifest_version": "0.1-placeholder",
+  "workpackage_id": "WP-10A-001",
+  "title": "Minimal Static Validation Tooling For Hydration Registry And Source Module Map",
+  "stdlib_only": true,
+  "writes_files": false,
+  "runtime_behavior": false,
+  "validators": [
+    {
+      "id": "validate_hydration_registry",
+      "script": "tools/static_validation/validate_hydration_registry.py",
+      "schema": "packages/hydration_registry/hydration_registry.schema.json",
+      "example": "packages/hydration_registry/hydration_registry.example.json"
+    },
+    {
+      "id": "validate_source_module_map",
+      "script": "tools/static_validation/validate_source_module_map.py",
+      "schema": "packages/source_module_map/source_module_map.schema.json",
+      "example": "packages/source_module_map/source_module_map.example.json"
+    }
+  ]
+}
