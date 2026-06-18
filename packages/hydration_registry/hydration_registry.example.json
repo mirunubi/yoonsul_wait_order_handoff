@@ -1,0 +1,40 @@
+{
+  "registry_version": "0.1-placeholder",
+  "generated_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "source_scope": {
+    "included_paths": [
+      "packages/hydration_registry/",
+      "packages/source_module_map/"
+    ],
+    "excluded_paths": [
+      "apps/",
+      "supabase/",
+      "data/"
+    ]
+  },
+  "modules": [
+    {
+      "module_id": "MODULE-PLACEHOLDER-001",
+      "module_name": "Hydration Registry Placeholder",
+      "source_paths": [
+        "packages/hydration_registry/"
+      ],
+      "owner": "TBD",
+      "status": "placeholder"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EVIDENCE-PLACEHOLDER-001",
+      "description": "Placeholder evidence entry for read-only hydration review.",
+      "path": "docs/000075_Report_WP_8A_001_Read_Only_Repository_Hydration_Evidence_Capture.md"
+    }
+  ],
+  "restrictions": [
+    {
+      "restriction_id": "RESTRICTION-PLACEHOLDER-001",
+      "path_pattern": "apps/",
+      "rule": "Forbidden for first neutral skeleton."
+    }
+  ]
+}

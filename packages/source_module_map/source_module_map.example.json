@@ -1,0 +1,37 @@
+{
+  "map_version": "0.1-placeholder",
+  "source_files": [
+    {
+      "path": "packages/source_module_map/README.md",
+      "module_id": "MODULE-PLACEHOLDER-001",
+      "file_role": "documentation-placeholder"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "MODULE-PLACEHOLDER-001",
+      "module_name": "Source Module Map Placeholder",
+      "domain": "WP-8A-001"
+    }
+  ],
+  "ownership": [
+    {
+      "module_id": "MODULE-PLACEHOLDER-001",
+      "owner": "TBD"
+    }
+  ],
+  "test_mapping": [
+    {
+      "module_id": "MODULE-PLACEHOLDER-001",
+      "test_path": "tests/source_module_map/source_module_map_validation_cases.md",
+      "test_status": "manual-static-placeholder"
+    }
+  ],
+  "forbidden_paths": [
+    "apps/",
+    "supabase/",
+    "data/",
+    "package.json",
+    "pubspec.yaml"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/yoonsul/hydration_registry.schema.json",
+  "title": "Hydration Registry Placeholder Schema",
+  "description": "Neutral, non-runtime schema for read-only repository hydration evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "registry_version",
+    "generated_at",
+    "source_scope",
+    "modules",
+    "evidence",
+    "restrictions"
+  ],
+  "properties": {
+    "registry_version": {
+      "type": "string",
+      "description": "Version of the hydration registry shape."
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "Timestamp or placeholder timestamp for registry generation."
+    },
+    "source_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "included_paths",
+        "excluded_paths"
+      ],
+      "properties": {
+        "included_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "module_id",
+          "module_name",
+          "source_paths",
+          "owner",
+          "status"
+        ],
+        "properties": {
+          "module_id": {
+            "type": "string"
+          },
+          "module_name": {
+            "type": "string"
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "owner": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "description",
+          "path"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "restriction_id",
+          "path_pattern",
+          "rule"
+        ],
+        "properties": {
+          "restriction_id": {
+            "type": "string"
+          },
+          "path_pattern": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

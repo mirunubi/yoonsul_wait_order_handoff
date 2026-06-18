@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/yoonsul/source_module_map.schema.json",
+  "title": "Source Module Map Placeholder Schema",
+  "description": "Neutral, non-runtime schema for source-to-module mapping evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "map_version",
+    "source_files",
+    "modules",
+    "ownership",
+    "test_mapping",
+    "forbidden_paths"
+  ],
+  "properties": {
+    "map_version": {
+      "type": "string"
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "module_id",
+          "file_role"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "file_role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "module_id",
+          "module_name",
+          "domain"
+        ],
+        "properties": {
+          "module_id": {
+            "type": "string"
+          },
+          "module_name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ownership": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "module_id",
+          "owner"
+        ],
+        "properties": {
+          "module_id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "test_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "module_id",
+          "test_path",
+          "test_status"
+        ],
+        "properties": {
+          "module_id": {
+            "type": "string"
+          },
+          "test_path": {
+            "type": "string"
+          },
+          "test_status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "forbidden_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
