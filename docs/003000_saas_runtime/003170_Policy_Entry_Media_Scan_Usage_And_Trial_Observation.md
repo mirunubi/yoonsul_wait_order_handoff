@@ -1,0 +1,746 @@
+# 003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation
+
+Legacy path: $old.
+
+1\. Purpose
+
+This document defines the scan, usage, and trial observation policy for CatchMenu Entry Media.
+
+Entry Media such as QR codes and NFC tags are not only access points. They also provide lightweight signals about whether a merchant trial is actually being used.
+
+The system should observe usage without turning field trial into surveillance or punitive monitoring.
+
+Core purpose:
+
+Record QR/NFC usage safely.
+Measure whether trial assets are being used.
+Support merchant conversion decisions.
+Detect inactive or misplaced Entry Media.
+Preserve privacy-safe scan evidence.
+
+Korean purpose:
+
+QR/NFC 사용을 안전하게 기록한다.
+체험 자산이 실제로 사용되는지 측정한다.
+업주 전환 판단을 지원한다.
+미사용 또는 잘못 비치된 Entry Media를 감지한다.
+개인정보를 최소화한 스캔 증거를 보존한다.
+
+2\. Scope
+
+This document covers:
+
+QR scan event
+NFC tap event
+scan resolution result
+usage aggregation
+trial usage observation
+inactive asset detection
+merchant conversion signal
+field placement signal
+support signal
+privacy boundary
+analytics boundary
+audit relationship
+
+This document does not define:
+
+guest personal profiling
+advertising tracking
+payment analytics
+POS sales analytics
+KDS throughput analytics
+full merchant CRM
+field visit SOP
+AI customer center conversation analytics
+
+Related documents:
+
+00300\_Entry\_Media\_Inventory\_Readme.md
+00310\_QR\_NFC\_Entry\_Plate\_Assignment\_Recovery\_And\_Reallocation\_Policy.md
+00320\_Entry\_Media\_Mapping\_History\_And\_Deactivation\_Policy.md
+00330\_Entry\_Media\_Status\_Lifecycle\_And\_Audit\_Policy.md
+00340\_Entry\_Media\_Test\_Field\_Sample\_And\_Production\_Separation\_Policy.md
+00350\_Entry\_Media\_Lost\_Damaged\_And\_Retired\_Asset\_Policy.md
+00360\_Entry\_Media\_Identifier\_Encoding\_And\_Resolution\_Policy.md
+
+3\. Core Principle
+
+Entry Media usage observation should support operations, not punish merchants.
+
+Core rule:
+
+Observe usage to improve adoption and recover unused assets.
+Do not treat usage metrics as legal or punitive judgment by default.
+
+Korean rule:
+
+사용량 관측은 도입 지원과 미사용 자산 회수를 위한 것이다.
+사용량 지표를 기본적으로 법적·징벌적 판단으로 쓰지 않는다.
+
+4\. Scan Event Definition
+
+A scan event is created when a guest or operator accesses Entry Media through QR or NFC.
+
+Possible scan sources:
+
+QR\_CODE
+NFC\_TAG
+SHORT\_LINK
+ENTRY\_URL
+FIELD\_TEST
+ADMIN\_TEST
+
+A scan event may or may not create a guest request.
+
+Core rule:
+
+Scan is entry signal.
+Scan is not request.
+Scan is not order.
+Scan is not payment.
+
+5\. Recommended Scan Event Fields
+
+Recommended fields:
+
+scan\_id
+entry\_media\_id
+entry\_plate\_id
+media\_type
+scan\_source
+scan\_time
+resolution\_status
+resolved\_mapping\_id
+store\_id
+menu\_context\_id
+enabled\_stage
+placement
+context\_type
+environment
+guest\_session\_id
+device\_hint
+language\_hint
+failure\_code
+trace\_id
+
+Privacy note:
+
+guest\_session\_id should be pseudonymous.
+device\_hint should be minimal.
+personal identity should not be required.
+
+6\. Scan Resolution Relationship
+
+Scan event should reference resolution result from:
+
+00360\_Entry\_Media\_Identifier\_Encoding\_And\_Resolution\_Policy.md
+
+The scan event should preserve:
+
+what was scanned
+when it was scanned
+how it resolved
+whether resolution failed
+which mapping was active at scan time
+
+Core rule:
+
+Scan event records observed access.
+Resolution result records operational context.
+
+7\. Usage Event Types
+
+Suggested usage events:
+
+ENTRY\_MEDIA\_SCANNED
+ENTRY\_MEDIA\_SCAN\_RESOLVED
+ENTRY\_MEDIA\_SCAN\_FAILED
+MENU\_OPENED\_FROM\_ENTRY\_MEDIA
+LANGUAGE\_SELECTED
+SHOW\_TO\_STAFF\_OPENED
+REQUEST\_SEND\_ATTEMPTED
+REQUEST\_SENT\_FROM\_ENTRY\_MEDIA
+OWNER\_CONSOLE\_OPENED\_FROM\_TRIAL
+REQUEST\_CONFIRMED\_FROM\_ENTRY\_MEDIA
+
+Not every event belongs to Entry Media Inventory.
+
+Entry Media Inventory should own scan and resolution events.
+
+Stage 0 runtime may own menu, request, and confirmation events.
+
+8\. Event Ownership Separation
+
+Entry Media Inventory owns:
+
+ENTRY\_MEDIA\_SCANNED
+ENTRY\_MEDIA\_SCAN\_RESOLVED
+ENTRY\_MEDIA\_SCAN\_FAILED
+
+Stage 0 runtime owns:
+
+MENU\_VIEWED
+ITEMS\_SELECTED
+SHOW\_TO\_STAFF\_OPENED
+REQUEST\_SENT
+STORE\_CONFIRMED
+
+Owner Console owns:
+
+OWNER\_CONSOLE\_OPENED
+REQUEST\_VIEWED\_BY\_STORE
+REQUEST\_CONFIRMED\_BY\_STORE
+
+Core rule:
+
+Entry Media observes entry.
+Runtime modules own downstream behavior.
+
+9\. Trial Observation Definition
+
+Trial observation means measuring whether a trial merchant actually uses the installed Entry Media and related admin function.
+
+Trial observation may include:
+
+scan count
+unique session count
+menu open count
+show-to-staff count
+request send count
+owner console login count
+request confirmation count
+days with activity
+last activity date
+
+Trial observation should support:
+
+merchant coaching
+trial extension decision
+conversion discussion
+recovery decision
+asset utilization planning
+
+10\. Trial Usage Summary
+
+A trial usage summary may be generated by store and trial period.
+
+Recommended fields:
+
+trial\_id
+store\_id
+entry\_plate\_id
+trial\_start\_date
+trial\_end\_date
+scan\_count
+nfc\_tap\_count
+qr\_scan\_count
+menu\_open\_count
+show\_to\_staff\_count
+request\_sent\_count
+owner\_console\_open\_count
+request\_confirmed\_count
+active\_days
+last\_scan\_at
+last\_owner\_console\_activity\_at
+usage\_level
+
+Usage summary is an operational aid.
+
+It is not a payment ledger.
+
+11\. Usage Level
+
+Suggested usage levels:
+
+NO\_USAGE
+LOW\_USAGE
+MEANINGFUL\_USAGE
+ACTIVE\_USAGE
+HIGH\_USAGE
+
+Meaning:
+
+NO\_USAGE
+\= no meaningful scan or admin activity
+
+LOW\_USAGE
+\= occasional scan, little downstream activity
+
+MEANINGFUL\_USAGE
+\= repeated scans or some merchant interaction
+
+ACTIVE\_USAGE
+\= recurring usage across multiple days
+
+HIGH\_USAGE
+\= strong repeated usage and request/admin activity
+
+Thresholds may be configured later.
+
+12\. No Usage Detection
+
+No usage may indicate:
+
+plate not installed
+plate placed poorly
+merchant forgot
+staff not trained
+QR/NFC not working
+menu not ready
+store has low traffic
+merchant not interested
+
+No usage must not automatically mean merchant fault.
+
+Core rule:
+
+No usage is a follow-up signal, not a judgment.
+
+13\. Low Usage Follow-Up
+
+Low usage may trigger operations follow-up.
+
+Possible follow-up:
+
+check plate placement
+retrain merchant
+verify QR/NFC works
+confirm menu is ready
+ask whether merchant wants request function
+offer repositioning
+prepare recovery if merchant declines
+
+System may create support or operations signal.
+
+14\. Meaningful Usage Signal
+
+Meaningful usage may support conversion conversation.
+
+Possible signal:
+
+TRIAL\_MEANINGFUL\_USAGE\_DETECTED
+
+Meaningful usage may be based on:
+
+scan count threshold
+active days threshold
+show-to-staff usage
+request sent usage
+owner console activity
+
+This signal helps identify merchants worth retaining.
+
+15\. Recovery Candidate Signal
+
+If trial period is near end and usage is low or absent, the system may create:
+
+TRIAL\_RECOVERY\_CANDIDATE
+
+This does not recover the asset automatically.
+
+Operations team should review.
+
+Core rule:
+
+Usage signal may recommend recovery.
+It must not erase mapping or recover physical asset by itself.
+
+16\. Conversion Candidate Signal
+
+If usage is meaningful, the system may create:
+
+TRIAL\_CONVERSION\_CANDIDATE
+
+Possible criteria:
+
+repeated scans
+request sending enabled and used
+owner console viewed
+merchant confirmed requests
+foreign language usage detected
+merchant feedback positive
+
+Conversion candidate signal is sales/ops support.
+
+It is not contract conclusion.
+
+17\. Placement Effectiveness
+
+Because Stage 0 may use inside plate and outside mini ad board, placement should be observable.
+
+Placement comparison may include:
+
+OUTSIDE\_AD\_BOARD scan count
+INSIDE\_STORE\_GUIDE scan count
+COUNTER\_GUIDE scan count
+WINDOW\_GUIDE scan count
+
+This helps decide whether:
+
+outside plate attracts browsing
+inside plate supports ordering
+counter placement is better
+plate should be moved
+
+18\. Outside Mini Ad Board Observation
+
+Outside plate may generate:
+
+menu preview scans
+language selection
+store information views
+low request conversion
+
+This is normal.
+
+Outside plate usage should not be judged by request count only.
+
+Core rule:
+
+Outside Entry Media may support discovery, not only ordering.
+
+19\. Inside Store Guide Observation
+
+Inside plate may generate:
+
+menu views
+show-to-staff usage
+request send usage
+owner console interaction
+
+Inside usage is more closely related to operational adoption.
+
+Core rule:
+
+Inside Entry Media is stronger evidence of operational use.
+
+20\. QR vs NFC Observation
+
+The system may compare QR and NFC usage.
+
+Possible metrics:
+
+qr\_scan\_count
+nfc\_tap\_count
+qr\_to\_menu\_open\_rate
+nfc\_to\_menu\_open\_rate
+failure\_rate\_by\_media\_type
+
+Use comparison to improve physical design.
+
+Do not assume one method is always superior.
+
+21\. Failure Observation
+
+Scan failure should be counted.
+
+Failure examples:
+
+invalid token
+no active mapping
+multiple active mappings
+deactivated media scanned
+retired media scanned
+lost media scanned
+menu context missing
+store context missing
+environment mismatch
+
+Frequent failure may indicate asset or mapping problem.
+
+22\. Trial Period Observation Window
+
+Default trial observation window may align with trial period.
+
+Example:
+
+trial\_start\_date
+→ trial\_end\_date
+
+Default trial length:
+
+3 months
+
+Observation may also include:
+
+first 7 days
+first 30 days
+last 14 days before trial end
+post-expiration grace period
+
+23\. Activity Recency
+
+Activity recency matters.
+
+Recommended fields:
+
+last\_scan\_at
+last\_menu\_open\_at
+last\_request\_sent\_at
+last\_owner\_console\_open\_at
+last\_store\_confirmation\_at
+
+A store with old activity but no recent usage may need follow-up.
+
+24\. Privacy Boundary
+
+Usage observation must be privacy-safe.
+
+Do not collect by default:
+
+guest real name
+phone number
+email
+payment identifier
+precise personal identity
+cross-site tracking identity
+
+Allowed lightweight context:
+
+anonymous guest session
+language choice
+scan source
+media type
+store context
+request flow events
+device/browser hint
+
+Core rule:
+
+Observe operational usage, not personal identity.
+
+25\. Device Hint Boundary
+
+Device hint may help diagnose issues.
+
+Allowed examples:
+
+mobile browser family
+OS family
+NFC supported or not
+language setting
+screen size class
+
+Avoid:
+
+persistent device fingerprinting
+unnecessary unique device tracking
+cross-merchant guest tracking
+
+26\. Language Usage Observation
+
+Language selection may help merchant value demonstration.
+
+Metrics:
+
+language\_selected\_count
+foreign\_language\_usage\_count
+language\_distribution
+translation\_warning\_count
+
+This can show merchant value:
+
+foreign guests actually use menu translation
+
+But language data should be aggregated when used for merchant reporting.
+
+27\. Merchant-Facing Usage Summary
+
+Merchant-facing usage summary should be simple.
+
+Examples:
+
+이번 달 NFC/QR 메뉴 열람: 124회
+외국어 메뉴 사용: 18회
+직원에게 보여주기: 12회
+매장 요청 전송: 7회
+
+Avoid exposing internal diagnostics unless support mode is enabled.
+
+28\. Internal Ops Usage Summary
+
+Operations team may see more detailed usage summary.
+
+Examples:
+
+trial usage level
+active days
+last activity
+placement performance
+QR vs NFC split
+owner console activity
+request confirmation activity
+failure count
+recovery candidate flag
+conversion candidate flag
+
+Ops summary should support field decisions.
+
+29\. Support Signals
+
+Support signals may include:
+
+TRIAL\_NO\_USAGE\_DETECTED
+TRIAL\_LOW\_USAGE\_DETECTED
+TRIAL\_MEANINGFUL\_USAGE\_DETECTED
+TRIAL\_CONVERSION\_CANDIDATE
+TRIAL\_RECOVERY\_CANDIDATE
+ENTRY\_MEDIA\_SCAN\_FAILURE\_SPIKE
+NFC\_TAP\_FAILURE\_SPIKE
+QR\_SCAN\_FAILURE\_SPIKE
+DEACTIVATED\_MEDIA\_SCANNED\_REPEATEDLY
+PLACEMENT\_USAGE\_LOW
+OWNER\_CONSOLE\_UNUSED\_DURING\_TRIAL
+
+Support Signal does not mutate asset or merchant state.
+
+30\. Audit Relationship
+
+Not every scan is an audit event.
+
+High-volume scan events may be stored as usage logs.
+
+Audit events should be created for sensitive cases such as:
+
+scan on retired media
+scan on lost media
+scan with multiple active mappings
+scan with wrong environment
+scan on deactivated media after recovery
+
+Core rule:
+
+Usage logs observe volume.
+Audit logs preserve sensitive operational events.
+
+31\. Evidence Packet Relationship
+
+Evidence Packet may include usage evidence when relevant.
+
+Examples:
+
+entry\_media\_id
+scan count during trial
+last scan at
+scan failure history
+placement usage
+trial usage level
+owner console usage summary
+conversion candidate signal
+recovery candidate signal
+
+Evidence must not include unnecessary guest personal data.
+
+32\. Usage Metrics Retention
+
+Usage metrics should be retained long enough to support:
+
+trial review
+merchant conversion
+asset recovery
+support investigation
+product improvement
+
+Raw scan logs may have shorter retention than aggregated summaries, depending on policy.
+
+Core rule:
+
+Keep what supports operations.
+Do not keep unnecessary personal detail.
+
+33\. Usage Data Correction
+
+If usage data is wrong because of test scans or setup scans, correct through annotation or filtering.
+
+Do not silently delete raw history when it matters.
+
+Possible labels:
+
+TEST\_SCAN
+FIELD\_OPERATOR\_SCAN
+SETUP\_SCAN
+MERCHANT\_DEMO\_SCAN
+GUEST\_SCAN
+UNKNOWN\_SCAN
+
+Core rule:
+
+Classify test scans.
+Do not let setup activity distort merchant usage.
+
+34\. Test Scan Filtering
+
+During installation or demo, many scans may occur.
+
+These should be marked when possible.
+
+Examples:
+
+field\_operator scan
+admin verification scan
+demo scan
+QA scan
+
+Trial conversion analysis should distinguish guest usage from setup/test usage.
+
+35\. Minimum MVP Requirement
+
+MVP should support at least:
+
+scan log
+resolution status
+store-level aggregation
+trial period usage summary
+QR vs NFC count
+last scan time
+basic no-usage detection
+basic recovery candidate signal
+basic conversion candidate signal
+basic failure count
+test scan flag if possible
+
+MVP may defer:
+
+advanced funnel analytics
+geo analytics
+cross-store cohort analysis
+A/B placement testing
+automated merchant scoring
+advanced dashboard visualization
+
+36\. Relationship To Entry Media Inventory
+
+Entry Media Inventory owns the asset identity and mapping.
+
+Scan usage observes how the asset is used.
+
+Core separation:
+
+Inventory says what the asset is and where it points.
+Usage says whether people are actually scanning it.
+
+37\. Relationship To Merchant Ops SOP
+
+Field SOP may define how operations team responds to low usage or recovery candidate.
+
+This policy defines the system signals and records.
+
+Core separation:
+
+System detects usage pattern.
+Operations decides field action.
+
+38\. Final Rule
+
+Entry Media scan and usage observation must support trial learning, merchant conversion, and asset recovery without becoming invasive tracking.
+
+Final rule:
+
+Log the scan.
+Resolve the context.
+Aggregate the usage.
+Separate test from guest activity.
+Signal no-use and meaningful-use.
+Protect privacy.
+Do not mutate assets from usage alone.
