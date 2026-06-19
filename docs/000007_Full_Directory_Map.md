@@ -98,109 +98,109 @@ docs/
     000200_Organization_Core_MVP_Cutline.md
     000210_Index_Organization_Core_And_Readiness_Check.md
   01000_mvp_scope/
-    0001000_Readme_MVP_Scope.md
-    0001010_MVP_Scope.md
-    0001020_Store_Type_And_Product_Package_Strategy.md
-    0001030_Competitive_Positioning_And_Market_Context.md
-    0001040_Matrix_MVP_Active_Optional_Future_NonGoal.md
-    0001050_Boundary_MVP_Package_And_Feature_Flag.md
-    0001060_MVP_Store_Type_Adoption_Sequence.md
-    0001070_CatchMenu_Service_Concept.md
-    0001080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md
-    0001085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md
-    0001090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md
-    0001092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md
-    0001095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md
-    0001100_Policy_CatchMenu_I18n_Order_Request_Translation.md
-    0001110_Policy_CatchMenu_Module_Option_And_Product_Package.md
-    0001120_Policy_CatchMenu_Adoption_And_Expansion_Path.md
-    0001130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md
-    0001140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md
-    0001150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md
-    0001160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md
-    0001170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md
-    0001180_Stage_0_Translation_And_Critical_Request_Handling.md
-    0001190_Evidence_Stage_0_Support_Signal_And_Packet.md
-    0001200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md
-    0001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md
-    0001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
-    0001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md
-    0001230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md
-    0001240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md
-    0001250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md
-    0001260_CatchMenu_POS_Less_Request_State_Transition_Guard.md
-    0001290_Implementation_Stage_0_MVP_Cutline.md
-    0001299_Index_Stage_0_And_Readiness_Check.md
+    001000_Readme_MVP_Scope.md
+    001010_MVP_Scope.md
+    001020_Store_Type_And_Product_Package_Strategy.md
+    001030_Competitive_Positioning_And_Market_Context.md
+    001040_Matrix_MVP_Active_Optional_Future_NonGoal.md
+    001050_Boundary_MVP_Package_And_Feature_Flag.md
+    001060_MVP_Store_Type_Adoption_Sequence.md
+    001070_CatchMenu_Service_Concept.md
+    001080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md
+    001085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md
+    001090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md
+    001092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md
+    001095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md
+    001100_Policy_CatchMenu_I18n_Order_Request_Translation.md
+    001110_Policy_CatchMenu_Module_Option_And_Product_Package.md
+    001120_Policy_CatchMenu_Adoption_And_Expansion_Path.md
+    001130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md
+    001140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md
+    001150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md
+    001160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md
+    001170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md
+    001180_Stage_0_Translation_And_Critical_Request_Handling.md
+    001190_Evidence_Stage_0_Support_Signal_And_Packet.md
+    001200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md
+    001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md
+    001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
+    001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md
+    001230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md
+    001240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md
+    001250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md
+    001260_CatchMenu_POS_Less_Request_State_Transition_Guard.md
+    001290_Implementation_Stage_0_MVP_Cutline.md
+    001299_Index_Stage_0_And_Readiness_Check.md
   03000_saas_runtime/
-    0003000_Readme_SaaS_Runtime.md
-    0003010_Tenant_Store_Runtime_And_Package_Model.md
-    0003020_Tenant_Company_Legal_Operating_Group_Context_Model.md
-    0003030_Store_Runtime_Profile_Model.md
-    0003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md
-    0003050_Governance_Runtime_Profile_Change_And_Audit.md
-    0003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md
-    0003100_Readme_Entry_Media_Inventory.md
-    0003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md
-    0003130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md
-    0003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md
-    0003150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md
-    0003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md
-    0003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md
-    0003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md
-    0003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md
-    0003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md
+    003000_Readme_SaaS_Runtime.md
+    003010_Tenant_Store_Runtime_And_Package_Model.md
+    003020_Tenant_Company_Legal_Operating_Group_Context_Model.md
+    003030_Store_Runtime_Profile_Model.md
+    003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md
+    003050_Governance_Runtime_Profile_Change_And_Audit.md
+    003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md
+    003100_Readme_Entry_Media_Inventory.md
+    003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md
+    003130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md
+    003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md
+    003150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md
+    003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md
+    003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md
+    003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md
+    003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md
+    003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md
   04000_store_runtime_pos_kds_operations/
     04000_kds_integration_kitchen_continuity/
-      0004000_Readme_KDS_Integration_Kitchen_Continuity.md
-      0004001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md
-      0004002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md
-      0004003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md
-      0004004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md
-      0004005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md
-      0004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md
-      0004010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md
-      0004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md
-      0004030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md
-      0004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md
-      0004090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md
-      0004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md
+      004000_Readme_KDS_Integration_Kitchen_Continuity.md
+      004001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md
+      004002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md
+      004003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md
+      004004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md
+      004005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md
+      004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md
+      004010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md
+      004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md
+      004030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md
+      004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md
+      004090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md
+      004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md
     04100_menu_availability_soldout_runtime/
-      0004100_Readme_Menu_Availability_Soldout_Runtime.md
-      0004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md
-      0004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md
-      0004130_Policy_POS_KDS_Inventory_Availability_Sync.md
-      0004190_Menu_Availability_Soldout_MVP_Cutline.md
-      0004199_Index_Menu_Availability_Soldout_And_Readiness_Check.md
+      004100_Readme_Menu_Availability_Soldout_Runtime.md
+      004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md
+      004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md
+      004130_Policy_POS_KDS_Inventory_Availability_Sync.md
+      004190_Menu_Availability_Soldout_MVP_Cutline.md
+      004199_Index_Menu_Availability_Soldout_And_Readiness_Check.md
     04200_kds_operation_payment_recovery_boundary/
-      0004200_Readme_KDS_Operation_Payment_Recovery_Boundary.md
-      0004210_Policy_KDS_Station_Routing.md
-      0004230_Boundary_KDS_Bridge_Vendor_Integration.md
-      0004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md
-      0004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md
-      0004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md
-      0004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md
-      0004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md
-      0004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md
+      004200_Readme_KDS_Operation_Payment_Recovery_Boundary.md
+      004210_Policy_KDS_Station_Routing.md
+      004230_Boundary_KDS_Bridge_Vendor_Integration.md
+      004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md
+      004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md
+      004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md
+      004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md
+      004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md
+      004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md
     04300_pos_provider_adapter_governance/
-      0004300_Readme_POS_Provider_Adapter_Governance.md
-      0004301_Policy_Toss_Payments_MVP_Integration_Boundary.md
-      0004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md
-      0004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md
-      0004304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
-      0004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md
-      0004306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md
-      0004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md
-      0004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md
-      0004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization.md
-      0004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md
-      0004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md
-      0004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md
-      0004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md
-      0004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md
-      0004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md
-      0004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md
-      0004390_Index_POS_Integration_Governance_And_Readiness_Check.md
-    0004000_Readme_Store_Runtime_POS_KDS_Operations.md
+      004300_Readme_POS_Provider_Adapter_Governance.md
+      004301_Policy_Toss_Payments_MVP_Integration_Boundary.md
+      004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md
+      004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md
+      004304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
+      004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md
+      004306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md
+      004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md
+      004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md
+      004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization.md
+      004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md
+      004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md
+      004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md
+      004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md
+      004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md
+      004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md
+      004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md
+      004390_Index_POS_Integration_Governance_And_Readiness_Check.md
+    004000_Readme_Store_Runtime_POS_KDS_Operations.md
   04900_security_runtime_test_catalog/
     04999_archive_duplicate_review/
       005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
@@ -303,77 +303,77 @@ docs/
       005131_Evidence_Packet_Template_And_Test_Result_Recording.md
       005140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md
       005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md
-      05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md
+      005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md
       005151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md
-      05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
+      005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
       005161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
       005170_Policy_PAYCO_POS_Verification.md
       005180_Policy_Provider_Priority_Openness.md
-      05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
+      005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
       005191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
     05200_pos_payment_provider_and_kiosk_reuse/
       005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md
       005201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
       005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
-      05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
+      005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
       005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
-      05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
+      005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
       005221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
-      05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
+      005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
       005231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
-      05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
+      005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
       005241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
-      05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
+      005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
       005251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
     005000_Readme_Customer_Handoff_And_Implementation_Readiness.md
   07000_admin_console/
-    0007000_Readme_Admin_Console.md
-    0007010_Admin_Console_Context_And_Role_Model.md
-    0007020_Admin_Store_Runtime_Configuration_Model.md
-    0007030_Admin_Operational_Monitoring_And_Recovery_Model.md
-    0007040_Admin_Screen_Inventory_And_Navigation_Model.md
-    0007050_Admin_Approval_Workflow_Model.md
-    0007060_Governance_Admin_Audit_And_Recovery_Queue.md
-    0007070_Admin_Context_Navigation_And_Scope_Model.md
-    0007080_Governance_Admin_Runtime_Profile_Configuration.md
-    0007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md
-    0007100_Admin_Audit_Review_And_Change_History_Model.md
-    0007110_Boundary_Admin_Support_And_BreakGlass.md
+    007000_Readme_Admin_Console.md
+    007010_Admin_Console_Context_And_Role_Model.md
+    007020_Admin_Store_Runtime_Configuration_Model.md
+    007030_Admin_Operational_Monitoring_And_Recovery_Model.md
+    007040_Admin_Screen_Inventory_And_Navigation_Model.md
+    007050_Admin_Approval_Workflow_Model.md
+    007060_Governance_Admin_Audit_And_Recovery_Queue.md
+    007070_Admin_Context_Navigation_And_Scope_Model.md
+    007080_Governance_Admin_Runtime_Profile_Configuration.md
+    007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md
+    007100_Admin_Audit_Review_And_Change_History_Model.md
+    007110_Boundary_Admin_Support_And_BreakGlass.md
   08000_ai_customer_center/
-    0008000_Readme_AI_Customer_Center.md
-    0008001_AI_Customer_Center_Foundation.md
-    0008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md
-    0008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary.md
-    0008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence.md
-    0008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment.md
-    0008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention.md
-    0008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization.md
-    0008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence.md
-    0008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response.md
-    0008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary.md
-    0008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md
-    0008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md
-    0008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway.md
-    0008300_Boundary_AI_Response.md
-    0008400_CatchMenu_Troubleshooting_Foundation.md
-    0008500_Evidence_Packet_Foundation.md
-    0008600_Support_Server_Strategy.md
-    0008700_Scale_Out_Strategy.md
-    0008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access.md
+    008000_Readme_AI_Customer_Center.md
+    008001_AI_Customer_Center_Foundation.md
+    008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md
+    008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary.md
+    008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence.md
+    008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment.md
+    008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention.md
+    008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization.md
+    008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence.md
+    008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response.md
+    008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary.md
+    008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md
+    008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md
+    008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway.md
+    008300_Boundary_AI_Response.md
+    008400_CatchMenu_Troubleshooting_Foundation.md
+    008500_Evidence_Packet_Foundation.md
+    008600_Support_Server_Strategy.md
+    008700_Scale_Out_Strategy.md
+    008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access.md
   09000_data_model_state_machine/
-    0009000_Readme_Data_Model_State_Machine.md
-    0009010_Data_Model_Draft.md
-    0009020_Handoff_State_Machine.md
-    0009030_Conceptual_Entity_Master.md
-    0009040_State_And_Event_Ownership_Model.md
-    0009050_Audit_Recovery_Event_Lineage_Model.md
-    0009060_Implementation_Deferred_Data_Model_Boundary.md
-    0009070_Context_Entity_Alignment_Model.md
-    0009080_Runtime_Profile_And_Change_Request_Entity_Model.md
-    0009090_Order_Candidate_And_Confirmation_State_Refinement.md
-    0009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md
-    0009100_Admin_Support_Audit_Entity_Lineage_Model.md
-    0009110_Boundary_Future_Profile_And_Analytics_State.md
+    009000_Readme_Data_Model_State_Machine.md
+    009010_Data_Model_Draft.md
+    009020_Handoff_State_Machine.md
+    009030_Conceptual_Entity_Master.md
+    009040_State_And_Event_Ownership_Model.md
+    009050_Audit_Recovery_Event_Lineage_Model.md
+    009060_Implementation_Deferred_Data_Model_Boundary.md
+    009070_Context_Entity_Alignment_Model.md
+    009080_Runtime_Profile_And_Change_Request_Entity_Model.md
+    009090_Order_Candidate_And_Confirmation_State_Refinement.md
+    009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md
+    009100_Admin_Support_Audit_Entity_Lineage_Model.md
+    009110_Boundary_Future_Profile_And_Analytics_State.md
   10000_runtime_foundation_and_cross_room_architecture/
     10000_foundation_static_catalog_package/
       010000_Readme_Foundation_Static_Catalog_Package.md
@@ -567,523 +567,106 @@ docs/
     010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md
     010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md
   11000_integration_boundary/
-    0004400_Policy_Toss_Payments_MVP_Integration_Boundary.md
-    0004410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md
-    0004420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md
-    0004430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
-    0011000_Readme_Integration_Boundary.md
-    0011001_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md
-    0011002_Policy_Gateway_Correlation_Id_And_Transaction_Lifecycle_Traceability.md
-    0011003_Policy_Immutable_Request_Response_Payload_Evidence_And_Masking.md
-    0011004_Policy_Idempotency_Retry_Timeout_And_Duplicate_External_Handoff.md
-    0011005_Policy_POS_Provider_Black_Box_Responsibility_Separation_And_Smoking_Gun_Evidence.md
-    0011006_Policy_Gateway_Handoff_Audit_Timeline_And_Provider_Dispute_Response.md
-    0011007_Policy_External_POS_PG_VAN_Local_Daemon_And_Store_Network_Failure_Boundary.md
-    0011008_Policy_Gateway_Evidence_Packet_Correlation_And_Audit_Register.md
-    0011009_Policy_Gateway_Evidence_Shield.md
-    0011010_Boundary_POS_Payment_Printer_Integration.md
-    0011011_Policy_Gateway_Integrity_Audit_Readiness_Check_And_Cross_Runtime_Handoff.md
-    0011020_Boundary_POS_API_Integration_Truth.md
-    0011030_Boundary_Printer_And_Store_Agent.md
-    0011040_Boundary_Payment_And_Financial_Truth.md
-    0011050_Boundary_Manual_POS_Input_And_Reconciliation.md
-    0011060_Boundary_Integration_Failure_Retry_And_Recovery.md
-    0011070_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md
-    0011080_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md
-    0011090_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md
-    0011100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
-    0011110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
-    0011120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
-    0011130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
-    0011140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
-    0011150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
-    0011160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
-    0011170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md
-    0011180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md
-    0011190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md
-    0011200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md
-    0011210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md
-    0011220_Readme_Open_API_Partner_Alliance.md
-    0011230_Readme_Provider_Adapter_Runtime.md
-    0011240_Readme_External_POS_Integration_Runtime.md
-    0011250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md
-    0011260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md
-    0011270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md
+    004400_Policy_Toss_Payments_MVP_Integration_Boundary.md
+    004410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md
+    004420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md
+    004430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
+    011000_Readme_Integration_Boundary.md
+    011001_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md
+    011002_Policy_Gateway_Correlation_Id_And_Transaction_Lifecycle_Traceability.md
+    011003_Policy_Immutable_Request_Response_Payload_Evidence_And_Masking.md
+    011004_Policy_Idempotency_Retry_Timeout_And_Duplicate_External_Handoff.md
+    011005_Policy_POS_Provider_Black_Box_Responsibility_Separation_And_Smoking_Gun_Evidence.md
+    011006_Policy_Gateway_Handoff_Audit_Timeline_And_Provider_Dispute_Response.md
+    011007_Policy_External_POS_PG_VAN_Local_Daemon_And_Store_Network_Failure_Boundary.md
+    011008_Policy_Gateway_Evidence_Packet_Correlation_And_Audit_Register.md
+    011009_Policy_Gateway_Evidence_Shield.md
+    011010_Boundary_POS_Payment_Printer_Integration.md
+    011011_Policy_Gateway_Integrity_Audit_Readiness_Check_And_Cross_Runtime_Handoff.md
+    011020_Boundary_POS_API_Integration_Truth.md
+    011030_Boundary_Printer_And_Store_Agent.md
+    011040_Boundary_Payment_And_Financial_Truth.md
+    011050_Boundary_Manual_POS_Input_And_Reconciliation.md
+    011060_Boundary_Integration_Failure_Retry_And_Recovery.md
+    011070_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md
+    011080_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md
+    011090_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md
+    011100_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
+    011110_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
+    011120_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
+    011130_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
+    011140_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
+    011150_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
+    011160_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
+    011170_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md
+    011180_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md
+    011190_Policy_Table_Order_POS_Ecosystem_Phase_2_And_Phase_3_Expansion_Roadmap.md
+    011200_Policy_Cloud_Open_API_Versus_Local_Daemon_Provider_Architecture_Comparison.md
+    011210_Policy_Provider_Adapter_Boundary_And_Canonical_Event_Mapping.md
+    011220_Readme_Open_API_Partner_Alliance.md
+    011230_Readme_Provider_Adapter_Runtime.md
+    011240_Readme_External_POS_Integration_Runtime.md
+    011250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md
+    011260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md
+    011270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md
   12000_implementation_mapping/
-    0004830_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy.md
-    0004831_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff.md
-    0004840_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md
-    0004841_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md
-    0004850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md
-    0004851_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md
-    0004860_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping.md
-    0004861_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping.md
-    0004870_Policy_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping.md
-    0004871_Policy_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping.md
-    0004880_Policy_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping.md
-    0004881_Policy_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping.md
-    0004890_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping.md
-    0004891_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping.md
-    0004900_Policy_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping.md
-    0004901_Policy_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping.md
-    0004910_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping.md
-    0004911_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping.md
-    0004920_Policy_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping.md
-    0004921_Policy_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping.md
-    0004930_Policy_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping.md
-    0004931_Policy_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping.md
-    0004940_Policy_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping.md
-    0004941_Policy_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping.md
-    0004950_Policy_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping.md
-    0004951_Policy_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping.md
-    0004960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md
-    0004961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff.md
-    0012000_Implementation_Mapping_Readme.md
+    004830_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff_Policy.md
+    004831_Implementation_Mapping_Lane_Start_And_Policy_To_Code_Constraint_Handoff.md
+    004840_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md
+    004841_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md
+    004850_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping_Policy.md
+    004851_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md
+    004860_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping.md
+    004861_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Implementation_Mapping.md
+    004870_Policy_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping.md
+    004871_Policy_Payment_Webhook_Refund_Settlement_And_Reconciliation_Implementation_Mapping.md
+    004880_Policy_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping.md
+    004881_Policy_CI_DI_Identity_Linkage_Callback_Masking_And_Leakage_Response_Implementation_Mapping.md
+    004890_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping.md
+    004891_Policy_Support_Access_Masking_Break_Glass_And_Scoped_Session_Implementation_Mapping.md
+    004900_Policy_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping.md
+    004901_Policy_Device_Trust_Session_Revocation_Store_Runtime_And_Lost_Device_Implementation_Mapping.md
+    004910_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping.md
+    004911_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_And_Manual_Evidence_Implementation_Mapping.md
+    004920_Policy_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping.md
+    004921_Policy_Export_Report_Benchmark_External_Sharing_And_Data_Extraction_Implementation_Mapping.md
+    004930_Policy_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping.md
+    004931_Policy_AI_Analytics_Dataset_Minimization_Model_Output_And_Recommendation_Boundary_Implementation_Mapping.md
+    004940_Policy_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping.md
+    004941_Policy_Vendor_Partner_Access_Third_Party_Risk_And_External_Integration_Implementation_Mapping.md
+    004950_Policy_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping.md
+    004951_Policy_Secure_Deployment_Environment_Separation_Release_Gate_And_Rollback_Implementation_Mapping.md
+    004960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md
+    004961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff.md
+    012000_Implementation_Mapping_Readme.md
   13000_app_api_projection/
-    0013000_Readme_App_Api_Projection.md
-    0013010_App_Surface_And_Channel_Projection.md
-    0013020_Customer_Webapp_Projection.md
-    0013030_Store_Console_Projection.md
-    0013040_Admin_Console_Projection.md
-    0013050_Boundary_Api_Contract_Projection.md
-    0013060_Matrix_Surface_State_Visibility_And_Authority.md
-    0013070_Matrix_Customer_Surface_State_Wording.md
-    0013080_Matrix_Store_Admin_Support_Action_Authority.md
-    0013090_Surface_To_Authority_Projection_Model.md
-    0013100_Boundary_Customer_Store_Admin_Api_Group.md
-    0013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
-    0013120_Boundary_Integration_Status_Projection.md
-    0013130_Boundary_Future_Surface_And_Api_Non_MVP.md
-  070000_external_integration_control_plane_validation_correction_log_and_process_governance/
-    070000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md
-    070005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md
-    070100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md
-    070110_Governance_External_POS_VAN_PG_Provider_Boundary_Trust_And_Liability_Model.md
-    070120_Policy_External_Payment_Request_Response_Separation_And_State_Authority.md
-    070130_Spec_External_Payment_Response_Field_Registry_Approval_Cancel_Receipt_And_Trace_Metadata.md
-    070140_Policy_External_Payment_Amount_Tax_Discount_Service_Charge_And_Order_Match_Validation.md
-    070150_Policy_External_Payment_Timeout_Unknown_State_Inquiry_And_Ambiguous_Result_Control.md
-    070160_Runbook_External_Payment_Communication_Error_Recovery_Reversal_And_Manager_Action.md
-    070170_Audit_External_Payment_Response_Evidence_Raw_Payload_Hash_And_Tamper_Check.md
-    070180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md
-    070190_Index_POS_VAN_PG_External_Payment_Integration_Closeout_And_Handoff.md
-    070200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md
-    070210_Governance_External_RPC_API_Webhook_Trust_Boundary_And_State_Authority.md
-    070220_Policy_External_RPC_API_Webhook_Inbound_Event_Reception_Raw_Log_And_Acknowledgement.md
-    070230_Spec_External_RPC_API_Webhook_Event_Envelope_Canonical_Field_And_Signature_Registry.md
-    070240_Policy_External_RPC_API_Webhook_Signature_Timestamp_Replay_And_Quarantine_Control.md
-    070250_Policy_External_RPC_API_Webhook_Deduplication_Idempotency_And_Event_Order_Control.md
-    070260_Policy_External_RPC_API_Webhook_Event_Order_State_Machine_And_Late_Arrival_Control.md
-    070270_Runbook_External_RPC_API_Webhook_Late_Event_Conflict_Quarantine_And_Replay_Action.md
-    070280_Audit_External_RPC_API_Webhook_Event_Raw_Log_Replay_Evidence_And_Tamper_Check.md
-    070290_Index_External_RPC_API_Webhook_Response_Contract_Closeout_And_Handoff.md
-    070300_Index_External_Payment_Inquiry_Unknown_State_And_Recovery_Governance.md
-    070310_Policy_External_Payment_Unknown_State_Detection_And_Classification.md
-    070320_Policy_External_Payment_Inquiry_Channel_Requirement_And_Response_Authority.md
-    070330_Runbook_External_Payment_Inquiry_Request_Retry_Escalation_And_Manager_Action.md
-    070340_Policy_External_Payment_Inquiry_Result_Validation_And_State_Release_Control.md
-    070350_Policy_External_Payment_Recovery_Decision_Auto_Release_Manual_Review_And_Hold_Control.md
-    070360_Matrix_External_Payment_Recovery_Decision_State_Evidence_And_Action_Map.md
-    070370_Audit_External_Payment_Inquiry_Recovery_Evidence_And_Manager_Decision_Log.md
-    070380_Register_External_Payment_Inquiry_Recovery_Exception_Gap_And_Open_Issue.md
-    070390_Index_External_Payment_Inquiry_Unknown_State_And_Recovery_Closeout_And_Handoff.md
-    070400_Index_External_Response_Validation_Correction_And_Canonical_Mapping.md
-    070410_Policy_External_Response_Validation_Gate_And_Canonical_Acceptance_Control.md
-    070420_Spec_External_Response_Canonical_Code_Field_And_Provider_Mapping_Registry.md
-    070430_Policy_External_Response_Correction_Normalization_And_Quarantine_Control.md
-    070440_Policy_External_Response_Field_Mismatch_Conflict_And_Manual_Review_Control.md
-    070450_Matrix_External_Response_Mismatch_Type_Severity_Action_And_Escalation_Map.md
-    070460_Runbook_External_Response_Mismatch_Review_Correction_And_Escalation_Action.md
-    070470_Audit_External_Response_Correction_Evidence_Manager_Approval_And_Replay_Log.md
-    070480_Register_External_Response_Correction_Exception_Gap_And_Open_Issue.md
-    070490_Index_External_Response_Validation_Correction_And_Canonical_Mapping_Closeout_And_Handoff.md
-    070500_Index_External_Cancel_Refund_Reversal_And_Compensation_Control.md
-    070510_Policy_External_Cancel_Refund_State_Authority_And_Request_Eligibility_Control.md
-    070520_Policy_External_Reversal_Net_Cancel_And_Compensation_Request_Control.md
-    070530_Policy_External_Refund_Method_Limit_Partial_Cancel_And_Customer_Return_Control.md
-    070540_Runbook_External_Cancel_Refund_Reversal_Failure_Recovery_And_Manager_Action.md
-    070550_Matrix_External_Cancel_Refund_Reversal_Failure_Mode_Action_And_Escalation_Map.md
-    070560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md
-    070570_Register_External_Cancel_Refund_Reversal_Exception_Gap_And_Open_Issue.md
-    070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md
-    070650_Matrix_External_Settlement_Reconciliation_Exception_Type_Action_And_Escalation_Map.md
-  750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/
-    750000_Index_Delivery_App_Channel_Integration_KDS_DID_And_Order_Ingestion_Runtime.md
-    750010_Assessment_Delivery_App_Channel_API_KDS_DID_And_Omnichannel_Order_Ingestion_Architecture.md
-    750020_Guide_Delivery_App_API_KDS_DID_Integration_Context_Summary.md
-    750030_Policy_Delivery_App_Official_API_Integration_And_No_Scraping_Boundary.md
-    750040_Boundary_POS_API_Gateway_KDS_DID_And_Kitchen_Runtime_Responsibility.md
-    750050_Matrix_Delivery_App_POS_KDS_DID_Channel_Integration_Map.md
-    750060_Policy_Delivery_App_Customer_Privacy_Masking_Tokenization_And_Data_Retention.md
-    750080_Logic_Delivery_App_KDS_Smart_Routing_Station_Splitting_BOM_And_Assembly_State_Machine.md
-    750090_Checklist_Delivery_App_KDS_DID_Hardware_Environmental_Durability_And_Installation_Readiness.md
-    750100_Assessment_Delivery_App_KDS_DID_Vendor_Ecosystem_Smartcast_Foodtech_Toss_Mate_OKPOS_And_Loyverse.md
-    750110_Matrix_Delivery_App_KDS_DID_Vendor_Capability_API_Channel_Hardware_And_Target_Market.md
-    750120_Policy_Delivery_App_Webhook_Polling_HMAC_OAuth_And_IP_Whitelist_Security.md
-    750130_Runbook_Delivery_App_KDS_DID_Order_Channel_Failure_Degraded_Mode_And_Manual_Fallback.md
-    750140_Evidence_Delivery_App_KDS_DID_Channel_Integration_Verification_And_Field_Test_Packet.md
-    750150_Report_Delivery_App_KDS_DID_Kitchen_Runtime_Bottleneck_KPI_And_Operational_Intelligence.md
-    750160_Guide_Delivery_App_KDS_DID_Context_Snapshot_Rules_Summary_For_51355_Pipeline.md
-    750170_Template_Delivery_App_KDS_DID_Module_Impact_Scope_And_Context_Slicing_Packet.md
-    750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md
-    750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md
-  600000_implementation_lifecycle/
-    000100_Report_Batch_9F_WP_9B_001_Artifact_Pack_Closeout.md
-    000101_Evidence_WP_9B_001_SMM_001_To_SMM_009_Static_Validation_Result_Packet.md
-    000102_Matrix_WP_9B_001_Source_Module_Map_Static_Validation_Findings_Map.md
-    000103_Report_Batch_9F_Combined_WP_9B_001_Static_Validation_Full_Closeout.md
-    000104_Report_Batch_10A_Runtime_Stack_Decision_And_First_Real_Implementation_Lane_Selection.md
-    000105_Report_Batch_10B_WP_10A_001_Implementation_Authorization_Packet.md
-    051355_Guide_AI_Assisted_Financial_Grade_Development_Pipeline_Cursor_Claude_Codex_Automated_Gate_And_Human_Merge.md
-    600100_readme_governance/
-    601000_olm_model/
-    602000_source_map/
-    603000_ai_handoff/
-    604000_workpackets/
-    605000_pos_gateway_package/
-      605100_core_flows/
-        000910_Spec_Overview_POS_Gateway_Approval_Main_Flow.md
-        000920_Spec_Logic_POS_Gateway_Approval_State_Transition_And_Exception_Rule.md
-        000930_Spec_Module_POS_Gateway_Approval_API_Data_Model_And_Test_Map.md
-        000940_Matrix_POS_Gateway_Approval_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        000950_Checklist_POS_Gateway_Approval_Code_Handoff_Readiness.md
-        000960_Template_POS_Gateway_Approval_Claude_Code_Handoff_Prompt.md
-        000970_Template_POS_Gateway_Approval_Cursor_IDE_File_Level_Assist_Prompt.md
-        000980_Evidence_POS_Gateway_Approval_Code_Handoff_And_Review_Packet.md
-        000990_Index_POS_Gateway_Approval_Implementation_Package_Closeout.md
-        001000_Spec_Overview_POS_Gateway_Cancel_Refund_Recovery_Main_Flow.md
-        001010_Spec_Logic_POS_Gateway_Cancel_Refund_State_Transition_And_Exception_Rule.md
-        001020_Spec_Module_POS_Gateway_Cancel_Refund_API_Data_Model_And_Test_Map.md
-        001030_Matrix_POS_Gateway_Cancel_Refund_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        001040_Checklist_POS_Gateway_Cancel_Refund_Code_Handoff_Readiness.md
-        001050_Template_POS_Gateway_Cancel_Refund_Claude_Code_Handoff_Prompt.md
-        001060_Template_POS_Gateway_Cancel_Refund_Cursor_IDE_File_Level_Assist_Prompt.md
-        001070_Evidence_POS_Gateway_Cancel_Refund_Code_Handoff_And_Review_Packet.md
-        001080_Index_POS_Gateway_Cancel_Refund_Implementation_Package_Closeout.md
-        001090_Spec_Overview_POS_Gateway_Timeout_Retry_DLQ_And_Replay_Main_Flow.md
-        001100_Spec_Logic_POS_Gateway_Timeout_Retry_DLQ_Replay_State_Transition_And_Exception_Rule.md
-        001110_Spec_Module_POS_Gateway_Timeout_Retry_DLQ_Replay_API_Data_Model_And_Test_Map.md
-        001120_Matrix_POS_Gateway_Timeout_Retry_DLQ_Replay_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        001130_Checklist_POS_Gateway_Timeout_Retry_DLQ_Replay_Code_Handoff_Readiness.md
-        001140_Template_POS_Gateway_Timeout_Retry_DLQ_Replay_Claude_Code_Handoff_Prompt.md
-        001150_Template_POS_Gateway_Timeout_Retry_DLQ_Replay_Cursor_IDE_File_Level_Assist_Prompt.md
-        001160_Evidence_POS_Gateway_Timeout_Retry_DLQ_Replay_Code_Handoff_And_Review_Packet.md
-        001170_Index_POS_Gateway_Timeout_Retry_DLQ_Replay_Implementation_Package_Closeout.md
-        001180_Spec_Overview_POS_Gateway_Store_Offline_Local_Ledger_And_Resync_Main_Flow.md
-        001190_Spec_Logic_POS_Gateway_Store_Offline_Local_Ledger_Resync_State_Transition_And_Exception_Rule.md
-        001200_Spec_Module_POS_Gateway_Store_Offline_Local_Ledger_Resync_API_Data_Model_And_Test_Map.md
-        001210_Matrix_POS_Gateway_Store_Offline_Local_Ledger_Resync_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        001220_Checklist_POS_Gateway_Store_Offline_Local_Ledger_Resync_Code_Handoff_Readiness.md
-        001230_Template_POS_Gateway_Store_Offline_Local_Ledger_Resync_Claude_Code_Handoff_Prompt.md
-        001240_Template_POS_Gateway_Store_Offline_Local_Ledger_Resync_Cursor_IDE_File_Level_Assist_Prompt.md
-        001250_Evidence_POS_Gateway_Store_Offline_Local_Ledger_Resync_Code_Handoff_And_Review_Packet.md
-        001260_Index_POS_Gateway_Store_Offline_Local_Ledger_Resync_Implementation_Package_Closeout.md
-        001270_Spec_Overview_POS_Gateway_Webhook_Inbound_Verification_And_Event_Normalization_Main_Flow.md
-        001280_Spec_Logic_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_State_Transition_And_Exception_Rule.md
-        001290_Spec_Module_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_API_Data_Model_And_Test_Map.md
-        001300_Matrix_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        001310_Checklist_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Code_Handoff_Readiness.md
-        001320_Template_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Claude_Code_Handoff_Prompt.md
-        001330_Template_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Cursor_IDE_File_Level_Assist_Prompt.md
-        001340_Evidence_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Code_Handoff_And_Review_Packet.md
-        001350_Index_POS_Gateway_Webhook_Inbound_Verification_Event_Normalization_Implementation_Package_Closeout.md
-        001360_Spec_Overview_POS_Gateway_Settlement_Dispute_And_Evidence_Export_Main_Flow.md
-        001370_Spec_Logic_POS_Gateway_Settlement_Dispute_Evidence_Export_State_Transition_And_Exception_Rule.md
-        001380_Spec_Module_POS_Gateway_Settlement_Dispute_Evidence_Export_API_Data_Model_And_Test_Map.md
-        001390_Matrix_POS_Gateway_Settlement_Dispute_Evidence_Export_Overview_Logic_Module_To_Flow_Bundle_Traceability.md
-        001400_Checklist_POS_Gateway_Settlement_Dispute_Evidence_Export_Code_Handoff_Readiness.md
-        001410_Template_POS_Gateway_Settlement_Dispute_Evidence_Export_Claude_Code_Handoff_Prompt.md
-        001420_Template_POS_Gateway_Settlement_Dispute_Evidence_Export_Cursor_IDE_File_Level_Assist_Prompt.md
-        001430_Evidence_POS_Gateway_Settlement_Dispute_Evidence_Export_Code_Handoff_And_Review_Packet.md
-        001440_Index_POS_Gateway_Settlement_Dispute_Evidence_Export_Implementation_Package_Closeout.md
-        001450_Index_POS_Gateway_Runtime_Flow_Implementation_Package_Master_Closeout.md
-      605200_read_only_dry_run/
-        001460_Template_POS_Gateway_Runtime_Flow_Bundle_Read_Only_Hydration_Report.md
-        001470_Checklist_POS_Gateway_Runtime_Flow_Bundle_Master_Code_Handoff_Readiness.md
-        001480_Gate_POS_Gateway_Runtime_Flow_Bundle_Code_Handoff_Approval_Evidence_And_No_Implementation_Guard.md
-        001490_Report_POS_Gateway_Runtime_Flow_Bundle_Final_Code_Handoff_Readiness_Closeout.md
-        001500_Index_POS_Gateway_Runtime_Flow_Bundle_WorkPackage_Code_Handoff_Transition.md
-        001510_Guide_POS_Gateway_Runtime_Flow_Bundle_Cursor_Handoff_Read_Only_Instruction_Package.md
-        001520_Checklist_POS_Gateway_Runtime_Flow_Bundle_Cursor_Read_Only_Dry_Run_Verification.md
-        001530_Template_POS_Gateway_Runtime_Flow_Bundle_Cursor_Dry_Run_Evidence_Packet.md
-        001540_Report_POS_Gateway_Runtime_Flow_Bundle_Cursor_Dry_Run_Review_Board_And_Handoff_Decision.md
-        001550_Policy_POS_Gateway_Runtime_Flow_Bundle_Controlled_Code_Handoff_Boundary.md
-        001560_Checklist_POS_Gateway_Runtime_Flow_Bundle_Controlled_Code_Handoff_Preflight.md
-        001570_Template_POS_Gateway_Runtime_Flow_Bundle_Implementation_Request_Packet.md
-        001580_Register_POS_Gateway_Runtime_Flow_Bundle_Handoff_Blocker_Waiver_And_Risk_Carry_Forward.md
-        001590_Report_POS_Gateway_Runtime_Flow_Bundle_Controlled_Handoff_Closeout.md
-      605300_authorization_execution/
-        001600_Gate_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Preparation.md
-        001610_Policy_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Boundary.md
-        001620_Checklist_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Readiness.md
-        001630_Template_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Request.md
-        001640_Gate_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Review.md
-        001650_Gate_POS_Gateway_Runtime_Flow_Bundle_Implementation_Authorization_Decision.md
-        001660_Template_POS_Gateway_Runtime_Flow_Bundle_Controlled_Execution_Packet.md
-        001670_Checklist_POS_Gateway_Runtime_Flow_Bundle_Controlled_Execution_Release_Preflight.md
-        001680_Gate_POS_Gateway_Runtime_Flow_Bundle_Controlled_Execution_Release_Decision.md
-        001690_Report_POS_Gateway_Runtime_Flow_Bundle_Controlled_Execution_Closeout.md
-        001700_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Execution_Evidence_Review.md
-        001710_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Execution_Risk_And_Evidence_Carry_Forward.md
-        001720_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Execution_Governance_Closeout.md
-        001730_Report_POS_Gateway_Runtime_Flow_Bundle_Master_Post_Execution_Closeout.md
-      605400_breach_hold/
-        001740_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Execution_Evidence_Remediation.md
-        001750_Gate_POS_Gateway_Runtime_Flow_Bundle_Boundary_Breach_Remediation.md
-        001760_Template_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Packet.md
-        001770_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Review.md
-        001780_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Release_Decision.md
-        001790_Packet_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Preparation.md
-        001800_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Authorization.md
-        001810_Checklist_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Readiness_Review.md
-        001820_Review_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Evidence_Review.md
-        001830_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Release_Decision.md
-        001840_Review_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Release_Closeout_Review.md
-        001850_Report_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Restricted_Execution_Release_Closeout_Report.md
-        001860_Report_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Master_Closeout_And_Implementation_Hold.md
-        001870_Register_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Residual_Risk_Register.md
-        001880_Report_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Evidence_Archive_And_Preservation_Report.md
-        001890_Checklist_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Implementation_Hold_Verification_Checklist.md
-        001900_Index_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Closeout_Index.md
-        001910_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Implementation_Hold_Continuation_Decision.md
-        001920_Report_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Tool_Safety_And_Document_Integrity_Closeout_Report.md
-        001930_Checklist_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Closeout_Archive_Verification_Checklist.md
-        001940_Register_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Final_Carryover_Register.md
-        001950_Report_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Final_Master_Closeout_Summary.md
-        001960_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Post_Closeout_Hold_Escalation_Decision.md
-        001970_Checklist_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Pre_Hold_Lift_Readiness_Blocker_Checklist.md
-        001980_Index_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Final_Closeout_Index.md
-        001990_Gate_POS_Gateway_Runtime_Flow_Bundle_Breach_Corrective_Action_Final_Documentation_Lane_Close_Decision.md
-      605500_future_hold_lift/
-        002000_Template_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Gate_Request_Template.md
-        002010_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Gate_Request_Readiness_Review.md
-        002020_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Request_Completeness_Checklist.md
-        002030_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Routing_Decision.md
-        002040_Register_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Routing_Register.md
-        002050_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Packet_Checklist.md
-        002060_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Entry_Decision.md
-        002070_Register_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Open_Item_Register.md
-        002080_Template_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Decision_Template.md
-        002090_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Decision_Completeness_Checklist.md
-        002100_Register_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Decision_Register.md
-        002110_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Result_Aggregation_Decision.md
-        002120_Report_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Owner_Review_Result_Summary_Report.md
-        002130_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Aggregation_Readiness_Checklist.md
-        002140_Register_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Aggregation_Open_Item_Register.md
-        002150_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Readiness_Decision.md
-        002160_Template_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Request_Template.md
-        002170_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Entry_Decision.md
-        002180_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Request_Completeness_Checklist.md
-        002190_Register_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Open_Item_Register.md
-        002200_Report_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Request_Summary_Report.md
-        002210_Gate_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Draft_Authorization_Preparation_Decision.md
-        002220_Template_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Authorization_Gate_Draft_Template.md
-        002230_Checklist_POS_Gateway_Runtime_Flow_Bundle_Future_Hold_Lift_Authorization_Gate_Draft_Completeness_Checklist.md
-      605600_ticket_closeout/
-        002240_Template_POS_Gateway_Runtime_Flow_Bundle_Implementation_Ticket_Package_Template.md
-        002250_Checklist_POS_Gateway_Runtime_Flow_Bundle_Implementation_Ticket_Package_Readiness_Checklist.md
-        002260_Template_POS_Gateway_Runtime_Flow_Bundle_Code_Handoff_Checklist_Template.md
-        002270_Template_POS_Gateway_Runtime_Flow_Bundle_Claude_Implementation_Prompt_Template.md
-        002280_Template_POS_Gateway_Runtime_Flow_Bundle_Cursor_File_Application_Prompt_Template.md
-        002290_Template_POS_Gateway_Runtime_Flow_Bundle_Implementation_Review_Packet_Template.md
-        002300_Template_POS_Gateway_Runtime_Flow_Bundle_Change_Evidence_Packet_Template.md
-        002310_Template_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_And_Fix_Guide_Template.md
-        002320_Checklist_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_Completeness_Checklist.md
-        002330_Register_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_Open_Item_Register.md
-        002340_Report_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_Summary_Report.md
-        002350_Gate_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_Decision.md
-        002360_Register_POS_Gateway_Runtime_Flow_Bundle_Implementation_Closeout_Carryforward_Register.md
-        002370_Report_POS_Gateway_Runtime_Flow_Bundle_Implementation_Ticket_Master_Closeout_Report.md
-      605700_repair_hold_lift/
-        002380_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Fix_Request_Template.md
-        002390_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Fix_Request_Readiness_Checklist.md
-        002400_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Fix_Request_Entry_Decision.md
-        002410_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Fix_Request_Open_Item_Register.md
-        002420_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Fix_Evidence_Packet_Template.md
-        002430_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Ticket_Package_Template.md
-        002440_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Ticket_Package_Readiness_Checklist.md
-        002450_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Ticket_Authorization_Decision.md
-        002460_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Evidence_Packet_Template.md
-        002470_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Evidence_Completeness_Checklist.md
-        002480_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Evidence_Review_Report.md
-        002490_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Closeout_Decision.md
-        002500_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Master_Closeout_Report.md
-        002510_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Closeout_Carryforward_Register.md
-        002520_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Closeout_Index.md
-        002530_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Archive_And_Preservation_Report.md
-        002540_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Close_Decision.md
-        002550_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Master_Closeout_Summary.md
-        002560_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Open_Item_Register.md
-        002570_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Closeout_Index.md
-        002580_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Documentation_Lane_Close_Decision.md
-        002590_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Documentation_Lane_Closeout_Report.md
-        002600_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Documentation_Lane_Final_Index.md
-        002610_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Evidence_Preservation_Summary.md
-        002620_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Documentation_Lane_Residual_Risk_Register.md
-        002630_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Closeout_Hold_Decision.md
-        002640_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Readiness_Checklist.md
-        002650_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Master_Archive_Index.md
-        002660_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Closeout_Governance_Summary.md
-        002670_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Review_Entry_Decision.md
-        002680_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Review_Packet_Template.md
-        002690_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Review_Packet_Completeness_Checklist.md
-        002700_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Decision_Readiness_Gate.md
-        002710_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Hold_Lift_Decision.md
-        002720_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Decision_Condition_Register.md
-        002730_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Hold_Lift_Decision_Summary_Report.md
-        002740_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Post_Decision_Compliance_Checklist.md
-        002750_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Routing_Decision.md
-        002760_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Post_Decision_Open_Item_Register.md
-        002770_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Decision_Evidence_Preservation_Report.md
-        002780_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Decision_Closeout_Index.md
-        002790_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Hold_Lift_Decision_Final_Preservation_Summary.md
-        002800_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Governance_Closeout_Report.md
-        002810_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Open_Item_Closure_Checklist.md
-        002820_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Index.md
-        002830_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Master_Closeout_Summary.md
-        002840_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Post_Hold_Lift_Carryforward_Register.md
-        002850_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Master_Closeout_Checklist.md
-        002860_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Master_Closeout_Index.md
-        002870_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Post_Hold_Lift_Archive_And_Preservation_Report.md
-        002880_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Master_Closeout_Report.md
-        002890_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Exception_Register.md
-        002900_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Post_Hold_Lift_Archive_Index.md
-        002920_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Exception_Closure_Checklist.md
-        002930_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Post_Hold_Lift_Master_Index.md
-        002940_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Evidence_Preservation_Summary.md
-        002950_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Lane_Close_Decision.md
-        002960_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Lane_Close_Decision_Report.md
-        002970_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Post_Hold_Lift_Master_Archive_Index.md
-        002980_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Documentation_Archive_Closeout_Report.md
-        002990_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Hold_Lift_Final_Governance_Summary.md
-        003000_Index_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Final_Control_Index.md
-      605800_release_monitoring/
-        003010_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Preparation_Routing_Decision.md
-        003020_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Preparation_Packet_Template.md
-        003030_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Preparation_Readiness_Checklist.md
-        003040_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Preparation_Routing_Result_Report.md
-        003050_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Preparation_Open_Item_Register.md
-        003060_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Entry_Decision.md
-        003070_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Review_Packet_Template.md
-        003080_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Review_Packet_Completeness_Checklist.md
-        003090_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Entry_Decision_Report.md
-        003100_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Release_Gate_Review_Open_Item_Register.md
-        003110_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Gate.md
-        003120_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Readiness_Checklist.md
-        003130_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Record_Template.md
-        003140_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Readiness_Report.md
-        003150_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Condition_Register.md
-        003160_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Formal_Release_Decision_Report.md
-        003170_Checklist_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Readiness_Checklist.md
-        003180_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Packet_Template.md
-        003190_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Entry_Decision.md
-        003200_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Readiness_Report.md
-        003210_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Open_Item_Register.md
-        003230_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Entry_Decision_Report.md
-        003240_Template_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Evidence_Packet_Template.md
-        003250_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Activation_Decision.md
-        003260_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Condition_Register.md
-        003270_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Packet_Completeness_Report.md
-        003280_Checklist_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Evidence_Completeness.md
-        003290_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Closeout_Entry_Decision.md
-      605900_final_closeout_archive/
-        003300_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Activation_Decision_Report.md
-        003310_Register_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Final_Open_Item_Register.md
-        003320_Report_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Evidence_Completeness_Report.md
-        003330_Gate_POS_Gateway_Runtime_Flow_Bundle_Post_Implementation_Repair_Post_Release_Monitoring_Closeout_Decision.md
-        003340_Template_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Closeout_Packet.md
-        003350_Checklist_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Closeout_Readiness.md
-        003360_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Open_Item_Closeout.md
-        003370_Register_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Residual_Risk.md
-        003380_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Closeout_Packet_Completeness.md
-        003390_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Close_Decision.md
-        003400_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Closeout_Index.md
-        003410_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Residual_Risk_Summary.md
-        003420_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Closeout_Summary.md
-        003430_Register_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Carryforward.md
-        003440_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Doc_Lane_Close.md
-        003450_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_Index.md
-        003460_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Evidence_Preservation_Final.md
-        003470_Checklist_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Carryforward_Closure.md
-        003480_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Doc_Lane_Closeout.md
-        003490_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Master_Closeout_Index.md
-        003500_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Master_Closeout.md
-        003510_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Master_Close_Decision.md
-        003520_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Governance_Summary.md
-        003530_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Index.md
-        003540_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Lane_Handoff.md
-        003550_Register_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Exception.md
-        003560_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_Closeout.md
-        003570_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Handoff_Index.md
-        003580_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Lane_Closeout.md
-        003590_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Lane_Close_Decision.md
-        003600_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Closeout_Master_Summary.md
-        003610_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Master_Index.md
-        003630_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Documentation_Final_Close.md
-        003640_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Master_Closeout.md
-        003650_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_Master_Index.md
-        003660_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Preservation_Summary.md
-        003670_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Post_Close_Governance_Decision.md
-        003680_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Evidence_Handoff.md
-        003690_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Archive.md
-        003700_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Documentation_Preservation.md
-        003710_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Archive_Lane_Close_Decision.md
-        003720_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Governance_Archive.md
-        003730_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Closure_Index.md
-        003740_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_System_Handoff.md
-        003750_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Master_Archive_Close_Decision.md
-        003760_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Governance_Closeout.md
-        003770_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Master_Close_Index.md
-        003780_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_System_Closeout_Summary.md
-        003790_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Master_Archive.md
-        003800_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Package_Close_Decision.md
-        003810_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Post_Close_Master_Index.md
-        003820_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Readiness_Handoff.md
-        003830_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Master_Final_Closeout.md
-        003840_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Post_Close_Readiness_Decision.md
-        003850_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Hold_Index.md
-        003860_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Implementation_Readiness_Reference.md
-        003870_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Documentation_Closeout.md
-        003880_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Readiness_Hold_Decision.md
-        003890_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_Hold_Index.md
-        003900_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Handoff.md
-        003910_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Documentation_Safety_Summary.md
-        003920_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Post_Closeout_Summary.md
-        003930_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Close_Decision.md
-        003940_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Index.md
-        003950_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Package_Handoff.md
-        003960_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Lane_Summary.md
-        003970_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Lane_Close_Decision.md
-        003980_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Master_Index.md
-        003990_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_And_Hold_Summary.md
-        004000_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Bundle_Closeout.md
-        004010_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Bundle_Close_Decision.md
-        004020_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Completion_Index.md
-        004030_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Archive.md
-        004040_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Handoff_To_Implementation_Readiness.md
-        004050_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Bundle_Evidence_Preservation.md
-        004060_Gate_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Archive_Close_Decision.md
-        004070_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Archive_Index.md
-        004080_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Readiness_Reference_Closeout.md
-        004090_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_System_Handoff.md
-    606000_evidence_diff/
-      064340_Evidence_Flow_Bundle_Implementation_Review_Packet.md
-    607000_repair_closeout/
-    608000_release_gate/
-    609000_archive_review/
+    013000_Readme_App_Api_Projection.md
+    013010_App_Surface_And_Channel_Projection.md
+    013020_Customer_Webapp_Projection.md
+    013030_Store_Console_Projection.md
+    013040_Admin_Console_Projection.md
+    013050_Boundary_Api_Contract_Projection.md
+    013060_Matrix_Surface_State_Visibility_And_Authority.md
+    013070_Matrix_Customer_Surface_State_Wording.md
+    013080_Matrix_Store_Admin_Support_Action_Authority.md
+    013090_Surface_To_Authority_Projection_Model.md
+    013100_Boundary_Customer_Store_Admin_Api_Group.md
+    013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
+    013120_Boundary_Integration_Status_Projection.md
+    013130_Boundary_Future_Surface_And_Api_Non_MVP.md
   14000_pos_provider_integration_strategy/
     archive_duplicate_review/
-      05150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md
-      05160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
+      005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md
+      005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
       005170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md
       005180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md
-      05190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
+      005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md
       005200_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
-      05210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
-      05220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
-      05230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
-      05240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
-      05250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
+      005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
+      005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
+      005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
+      005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md
+      005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
     005255_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md
     005256_Assessment_Store_POS_Adoption_Strategy_OKPOS_Ledger_And_Toss_Kiosk_Combination.md
     005260_Policy_Toss_Base_Strategy_And_OKPOS_Compatibility_Interface.md
@@ -1127,6 +710,7 @@ docs/
     014018_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md
     014019_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md
     014020_Assessment_PAYCO_Openness_And_Integration_Strategy_Note.md
+    014020_Report_Domestic_POS_Industry_Ecosystem_Market_Architecture_And_Limitations.md
     014021_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md
     014022_Policy_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense.md
     014023_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md
@@ -1137,6 +721,7 @@ docs/
     014028_Policy_Early_SaaS_Customer_Success_Retention.md
     014029_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md
     014030_Policy_Early_SaaS_Renewal_Exit_Governance.md
+    014030_Policy_POS_Provider_Architecture_Classification_And_Gateway_Integration_Strategy.md
     014031_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md
     014032_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md
     014033_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md
@@ -1146,6 +731,7 @@ docs/
     014037_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md
     014038_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md
     014039_Policy_POS_Provider_Capability_Profile_And_Readiness_Evidence.md
+    014040_Checklist_POS_Gateway_Risk_Failure_Mode_And_Field_Readiness.md
     014040_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md
     014041_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md
     014042_Policy_Mobile_Documentation_Workflow_Transition_Gate.md
@@ -1156,6 +742,7 @@ docs/
     014047_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md
     014048_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md
     014049_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md
+    014050_Matrix_POS_Provider_Priority_Openness_Risk_And_MVP_Fit.md
     014050_Policy_Implementation_Backlog_Extraction_Cutline.md
     014051_Policy_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold.md
     014052_Policy_Phase_1_MVP_Build_Authorization_Scope.md
@@ -1167,6 +754,7 @@ docs/
     014058_Matrix_Phase_1_Runtime_State_Transition_Authority.md
     014059_Policy_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary.md
     014060_Policy_Phase_1_Runtime_Transition_Test_Evidence.md
+    014060_Report_POS_Market_Shift_And_Catch_Order_Strategic_Implication.md
     014061_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md
     014062_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md
     014063_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md
@@ -1177,6 +765,7 @@ docs/
     014068_Policy_Limited_Customer_Pilot_Live_Safety.md
     014069_Policy_POS_Gateway_Compliance_Readiness.md
     014070_Policy_Pilot_Incident_Review_Scope_Adjustment.md
+    014070_Spec_POS_Provider_Adapter_Boundary_And_Evidence_Contract.md
     014071_Policy_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response.md
     014072_Policy_Pilot_Learning_Review_Next_Scope.md
     014073_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md
@@ -1186,6 +775,7 @@ docs/
     014077_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md
     014078_Policy_Standard_SaaS_Customer_Graduation.md
     014079_Policy_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral.md
+    014080_Checklist_POS_Provider_Onboarding_Certification_And_Pilot_Readiness.md
     014080_Policy_Multi_Store_Expansion_Onboarding.md
     014081_Policy_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance.md
     014082_Policy_Multi_Store_Operations_Dashboard.md
@@ -1197,6 +787,7 @@ docs/
     014088_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md
     014089_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md
     014090_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md
+    014090_Template_POS_Provider_Integration_Evidence_Packet.md
     014091_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md
     014092_Policy_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
     014093_Index_Multi_Store_Commercial_Governance_Handoff.md
@@ -1207,6 +798,7 @@ docs/
     014098_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md
     014099_Matrix_SaaS_Admin_Role_Permission.md
     014100_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md
+    014100_Register_POS_Provider_Readiness_Status_And_Next_Action.md
     014101_Policy_SaaS_Admin_Surface_Map_Navigation.md
     014102_Policy_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation.md
     014103_Policy_SaaS_Admin_Dashboard_KPI_Alert.md
@@ -1217,6 +809,7 @@ docs/
     014108_Policy_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export.md
     014109_Policy_SaaS_Admin_Notification_Work_Queue.md
     014110_Policy_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow.md
+    014110_Template_POS_Provider_Official_Verification_Request.md
     014111_Policy_SaaS_Admin_Audit_Trail_Collaboration.md
     014112_Policy_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation.md
     014113_Index_SaaS_Admin_Console_UI_Planning_Handoff.md
@@ -1226,6 +819,7 @@ docs/
     014117_Policy_POS_Gateway_Credential_Secret_Callback_Security_And_Provider_Access_Control.md
     014118_Policy_POS_Gateway_Runtime_Configuration_Environment_Separation_And_Production_Credential_Activation.md
     014119_Policy_POS_Gateway_Migration_Backfill_Cutover_Existing_Transaction_Protection_And_Data_Integrity.md
+    014120_Assessment_POS_Provider_Official_Response_And_Integration_Disposition.md
     014120_Policy_POS_Gateway_Production_Cutover_Runbook_Incident_Command_And_Rollback_Execution.md
     014121_Policy_POS_Gateway_Production_Readiness_Checklist_Smoke_Test_And_Operational_Acceptance.md
     014122_Policy_POS_Gateway_Operational_Monitoring_Alerting_SLO_Error_Budget_And_Runtime_Health.md
@@ -1237,6 +831,7 @@ docs/
     014128_Policy_POS_Gateway_Store_Rollout_Wave_Control_Pilot_Expansion_Field_Feedback_And_Stabilization.md
     014129_Policy_POS_Gateway_Tenant_Store_SaaS_Onboarding_Package_Template_Provisioning_And_Operational_Enablement.md
     014130_Policy_POS_Gateway_Menu_Item_Option_Modifier_Mapping_Template_Versioning_And_Price_Integrity.md
+    014130_Register_POS_Provider_Blocker_Risk_And_Resolution_Tracking.md
     014131_Policy_POS_Gateway_Price_Promotion_Discount_Coupon_Tax_Service_Charge_And_Total_Calculation_Integrity.md
     014132_Policy_POS_Gateway_Inventory_Availability_Sold_Out_Stock_Sync_And_Order_Blocking_Integrity.md
     014133_Policy_POS_Gateway_Order_Channel_Separation_Dine_In_Takeout_Delivery_Kiosk_Table_QR_And_Staff_Order_Routing.md
@@ -1246,6 +841,7 @@ docs/
     014137_Policy_POS_Gateway_Reconciliation_Case_Workflow_Variance_Resolution_Manual_Adjustment_And_Audit_Closure.md
     014138_Policy_POS_Gateway_Data_Retention_Archive_Privacy_Redaction_And_Forensic_Evidence_Lifecycle.md
     014139_Policy_POS_Gateway_Access_Control_Role_Segregation_Tenant_Isolation_Privileged_Action_And_Approval_Audit.md
+    014140_Governance_POS_Provider_Integration_Decision_Gate.md
     014140_Policy_POS_Gateway_Performance_Load_Peak_Traffic_Queue_Backpressure_And_Capacity_Planning.md
     014141_Policy_POS_Gateway_Disaster_Recovery_Business_Continuity_Provider_Outage_Store_Offline_Mode_And_Service_Resumption.md
     014142_Policy_POS_Gateway_Change_Management_Release_Governance_Configuration_Drift_Control_And_Production_Deployment.md
@@ -1266,6 +862,7 @@ docs/
     014157_WorkPackage_POS_Gateway_Table_QR_NFC_Kiosk_Device_Receipt_Proof_And_Customer_Status.md
     014158_WorkPackage_POS_Gateway_Manual_Fallback_Manager_Approval_Staff_Action_And_Override.md
     014159_WorkPackage_POS_Gateway_Reconciliation_Audit_Evidence_Settlement_And_Accounting_Guard.md
+    014160_Register_POS_Provider_Incident_Reconciliation_And_Mismatch_Tracking.md
     014160_WorkPackage_POS_Gateway_Monitoring_Incident_Disaster_Recovery_Pilot_Readiness_And_Closeout.md
     014161_WorkPackage_Store_Runtime_Integration_Control_Tower_And_Operational_Command_Boundary.md
     014162_WorkPackage_Store_Runtime_Kiosk_Mini_Kiosk_Device_Session_Order_Assist_And_Customer_Flow_Control.md
@@ -1274,28 +871,143 @@ docs/
     014165_WorkPackage_Store_Runtime_Finance_Reconciliation_Accounting_Settlement_Handoff_And_Exception_Control.md
     014166_WorkPackage_Store_Runtime_Customer_Dispute_Complaint_Compensation_Support_Handoff_And_Evidence_Control.md
     014167_WorkPackage_Store_Runtime_Incident_Degraded_Operation_Rollback_Pause_Recovery_And_Command_Control.md
+    014170_Report_POS_Provider_Pilot_Closeout_Expansion_And_Next_Tier_Decision.md
+    014180_Governance_POS_Provider_Rollout_Batch_Control_And_Store_Expansion.md
+    014190_Governance_POS_Provider_Change_Management_Version_Drift_And_Regression_Control.md
+    014200_Index_POS_Provider_Integration_Strategy_Closeout_And_Handoff.md
+    014210_WorkPackage_POS_Provider_First_Verification_Wave_And_Contact_Backlog.md
+    014220_Register_POS_Provider_First_Verification_Contact_Log.md
+    014230_Template_POS_Provider_First_Verification_Request_Packet.md
+    014240_Assessment_POS_Provider_First_Verification_Response_Summary.md
+    014250_Register_POS_Provider_First_Verification_Blocker_Summary.md
+    014260_Register_POS_Provider_First_Verification_Next_Action_And_Owner_Queue.md
+    014270_Index_POS_Provider_First_Verification_Wave_Closeout_And_Handoff.md
+    014280_WorkPackage_POS_KDS_Manual_Fallback_And_First_Store_Readiness_Bridge.md
+    014310_Policy_First_Store_Payment_Order_Separation_And_Reconciliation.md
+    014320_Checklist_First_Store_POS_KDS_Staff_Training_And_Fallback_Readiness.md
+    014330_Template_First_Store_Daily_Reconciliation_And_Manual_Correction_Log.md
+    014340_Index_First_Store_Manual_Fallback_Readiness_Closeout_And_Handoff.md
+    014350_Checklist_First_Store_Catch_Order_Opening_Readiness_Gate.md
+    014360_Runbook_First_Store_Day_Zero_Activation_And_Manual_Fallback_Operation.md
+    014370_Runbook_First_Store_Order_Payment_Kitchen_Mismatch_Escalation.md
+    014380_Template_First_Store_Support_Answer_Map_For_Manual_Fallback.md
+    014390_Index_First_Store_Opening_Readiness_Closeout_And_Handoff.md
+    014400_WorkPackage_First_Store_First_Week_Stabilization_And_Evidence_Capture.md
+    014420_Template_First_Store_Day_Zero_And_First_Week_Evidence_Packet.md
+    014430_Report_First_Store_First_Week_Closeout_And_Next_Scope_Decision.md
+    014440_Index_First_Store_First_Week_Stabilization_Closeout_And_Handoff.md
+    014450_WorkPackage_First_Store_First_Month_Stabilization_And_Operational_Learning.md
+    014460_Register_First_Store_Recurring_Issue_Root_Cause_And_Control_Action.md
+    014470_Report_First_Store_First_Month_Closeout_And_System_Hardening_Decision.md
+    014480_Index_First_Store_Operational_Stabilization_Closeout_And_Handoff.md
+    014490_WorkPackage_First_Store_Next_Scope_Expansion_And_Automation_Backlog.md
+    014500_Register_First_Store_Automation_Candidate_Backlog_And_Safety_Gate.md
+    014510_Report_First_Store_Next_Scope_Expansion_Readiness_Decision.md
+    014520_Index_First_Store_Next_Scope_Expansion_And_Automation_Handoff.md
+    014550_Template_AI_Customer_Center_Approved_Answer_Map_And_Escalation_Rule.md
+    014570_Index_AI_Customer_Center_Manual_Fallback_Knowledge_Closeout_And_Handoff.md
   15000_membership_loyalty/
-    0015000_Readme_Membership_Loyalty.md
-    0015010_Boundary_Membership_Loyalty_Product.md
-    0015020_Lightweight_Coupon_And_Stamp_Future_Model.md
-    0015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md
-    0015040_Boundary_External_Membership_Bridge_Future.md
-    0015050_Membership_Admin_And_UI_Reserved_Surface.md
+    015000_Index_Membership_Loyalty_Coupon_And_Customer_Identity_Expansion_Wave_1.md
+    015000_Readme_Membership_Loyalty.md
+    015010_Boundary_Membership_Loyalty_Product.md
+    015020_Lightweight_Coupon_And_Stamp_Future_Model.md
+    015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md
+    015040_Boundary_External_Membership_Bridge_Future.md
+    015050_Membership_Admin_And_UI_Reserved_Surface.md
+    015100_Governance_Membership_Master_Control.md
+    015101_Overview_Membership_Loyalty_Operating_Model.md
+    015102_Boundary_Membership_No_Runtime_Implementation_Boundary.md
+    015103_Checklist_Membership_Governance_Preflight_Check.md
+    015104_Boundary_Customer_Identity_Control.md
+    015105_Matrix_Customer_Identity_Field_To_Owner_Map.md
+    015106_Checklist_Customer_Identity_Boundary_Check.md
+    015107_Audit_Customer_Identity_Boundary_Audit.md
+    015108_Boundary_Customer_Consent_Privacy_Control.md
+    015109_Matrix_Customer_Consent_To_Benefit_Action_Map.md
+    015110_Checklist_Customer_Consent_Privacy_Check.md
+    015111_Audit_Customer_Consent_Privacy_Audit.md
+    015112_Overview_Phone_Token_Device_Identity_Model.md
+    015113_Matrix_Phone_Token_Device_Field_Map.md
+    015114_Checklist_Phone_Token_Device_Identity_Check.md
+    015115_Report_Phone_Token_Device_Identity_Risk_Report.md
+    015116_Overview_Loyalty_Points_Model.md
+    015117_Matrix_Loyalty_Points_Earn_Burn_Rule_Map.md
+    015118_Checklist_Loyalty_Points_Model_Check.md
+    015119_Audit_Loyalty_Points_Model_Audit.md
+    015120_Overview_Stamp_Visit_Reward_Model.md
+    015121_Matrix_Stamp_Visit_Reward_Rule_Map.md
+    015122_Checklist_Stamp_Visit_Reward_Model_Check.md
+    015123_Report_Stamp_Visit_Reward_Model_Gap_Report.md
+    015124_Governance_Coupon_Issuance_Policy.md
+    015125_Matrix_Coupon_Issuance_Rule_To_Channel_Map.md
+    015126_Checklist_Coupon_Issuance_Policy_Check.md
+    015127_Audit_Coupon_Issuance_Policy_Audit.md
+    015128_Overview_Coupon_Redemption_Flow.md
+    015129_Matrix_Coupon_Redemption_State_Map.md
+    015130_Checklist_Coupon_Redemption_Flow_Check.md
+    015131_Report_Coupon_Redemption_Flow_Gap_Report.md
+    015132_Overview_Coupon_Validation_Rejection_Flow.md
+    015133_Matrix_Coupon_Validation_Rejection_Reason_Map.md
+    015134_Checklist_Coupon_Validation_Rejection_Check.md
+    015135_Audit_Coupon_Validation_Rejection_Audit.md
+    015136_Overview_Coupon_Cancel_Restore_Flow.md
+    015137_Matrix_Coupon_Cancel_Restore_State_Map.md
+    015138_Checklist_Coupon_Cancel_Restore_Flow_Check.md
+    015139_Report_Coupon_Cancel_Restore_Flow_Gap_Report.md
+    015140_Overview_Reward_Tiering_Model.md
+    015141_Matrix_Reward_Tier_To_Benefit_Map.md
+    015142_Checklist_Reward_Tiering_Model_Check.md
+    015143_Audit_Reward_Tiering_Model_Audit.md
+    015144_Boundary_Promotion_Campaign_Control.md
+    015145_Matrix_Promotion_Campaign_To_Benefit_Map.md
+    015146_Checklist_Promotion_Campaign_Boundary_Check.md
+    015147_Report_Promotion_Campaign_Risk_Report.md
+    015148_Boundary_Store_Specific_Benefit_Control.md
+    015149_Matrix_Store_Specific_Benefit_Rule_Map.md
+    015150_Checklist_Store_Specific_Benefit_Boundary_Check.md
+    015151_Audit_Store_Specific_Benefit_Audit.md
+    015152_Boundary_Franchise_Tenant_Benefit_Control.md
+    015153_Matrix_Franchise_Tenant_Benefit_Rule_Map.md
+    015154_Checklist_Franchise_Tenant_Benefit_Boundary_Check.md
+    015155_Report_Franchise_Tenant_Benefit_Risk_Report.md
+    015156_Governance_Fraud_Abuse_Prevention_Control.md
+    015157_Matrix_Fraud_Abuse_Signal_To_Action_Map.md
+    015158_Checklist_Fraud_Abuse_Prevention_Check.md
+    015159_Audit_Fraud_Abuse_Prevention_Audit.md
+    015160_Governance_Duplicate_Use_Prevention_Control.md
+    015161_Matrix_Duplicate_Use_Key_To_Event_Map.md
+    015162_Checklist_Duplicate_Use_Prevention_Check.md
+    015163_Audit_Duplicate_Use_Prevention_Audit.md
+    015164_Overview_POS_Kiosk_App_Benefit_Projection.md
+    015165_Matrix_POS_Kiosk_App_Benefit_Projection_Map.md
+    015166_Checklist_POS_Kiosk_App_Benefit_Projection_Check.md
+    015167_Report_POS_Kiosk_App_Benefit_Projection_Gap_Report.md
+    015168_Overview_Settlement_Cost_Allocation_Model.md
+    015169_Matrix_Settlement_Cost_Allocation_Rule_Map.md
+    015170_Checklist_Settlement_Cost_Allocation_Check.md
+    015171_Audit_Settlement_Cost_Allocation_Audit.md
+    015172_Overview_Audit_Trail_Evidence_Packet_Model.md
+    015173_Matrix_Audit_Trail_Evidence_Field_Map.md
+    015174_Checklist_Audit_Trail_Evidence_Packet_Check.md
+    015175_Report_Audit_Trail_Evidence_Packet_Closeout_Report.md
+    015176_Overview_Customer_Support_Dispute_Handling_Model.md
+    015177_Matrix_Customer_Dispute_To_Evidence_Map.md
+    015178_Checklist_Customer_Support_Dispute_Handling_Check.md
   17000_ui_screen_composition/
-    0017000_Readme_Ui_Screen_Composition.md
-    0017010_Customer_Webapp_UI_Composition.md
-    0017020_Mini_Kiosk_UI_Composition.md
-    0017030_Store_Console_UI_Composition.md
-    0017040_Admin_Console_UI_Composition.md
-    0017050_Support_Console_UI_Composition.md
-    0017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md
-    0017070_Boundary_Wireframe_Prototype.md
-    0017080_UI_Surface_To_Authority_Composition_Model.md
-    0017090_Integration_Status_UI_Wording_Model.md
-    0017100_Governance_Action_Button_And_Status_Badge.md
-    0017110_Customer_MiniKiosk_State_Wording_Consolidation.md
-    0017120_Admin_Support_UI_Authority_And_Recovery_Model.md
-    0017130_Boundary_Future_UI_Surface_Non_MVP.md
+    017000_Readme_Ui_Screen_Composition.md
+    017010_Customer_Webapp_UI_Composition.md
+    017020_Mini_Kiosk_UI_Composition.md
+    017030_Store_Console_UI_Composition.md
+    017040_Admin_Console_UI_Composition.md
+    017050_Support_Console_UI_Composition.md
+    017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md
+    017070_Boundary_Wireframe_Prototype.md
+    017080_UI_Surface_To_Authority_Composition_Model.md
+    017090_Integration_Status_UI_Wording_Model.md
+    017100_Governance_Action_Button_And_Status_Badge.md
+    017110_Customer_MiniKiosk_State_Wording_Consolidation.md
+    017120_Admin_Support_UI_Authority_And_Recovery_Model.md
+    017130_Boundary_Future_UI_Surface_Non_MVP.md
   20000_validation_security_audit/
     20400_foundation_security/
       020400_Readme_Foundation_Security.md
@@ -1401,153 +1113,153 @@ docs/
     020350_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md
     020360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md
   21000_financial_security_monitoring_catalog/
-    0021000_Readme_Financial_Security_Monitoring_Catalog.md
-    0021500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md
-    0021510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md
-    0021520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md
-    0021530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md
-    0021540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md
-    0021550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md
-    0021560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md
-    0021570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md
-    0021580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md
-    0021590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md
-    0021600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md
-    0021610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md
-    0021620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md
-    0021630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md
-    0021631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md
-    0021632_Index_Containment_Status_And_Trigger_Map_Catalog.md
-    0021633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md
-    0021634_Index_Security_Control_Records_And_Security_Class_Catalog.md
-    0021635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md
-    0021636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md
-    0021637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md
-    0021638_Spec_Monitoring_View_And_Risk_Projection_Contract.md
-    0021639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md
-    0021640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md
-    0021641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md
-    0021642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md
-    0021643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md
-    0021644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md
-    0021645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md
-    0021646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md
-    0021650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md
+    021000_Readme_Financial_Security_Monitoring_Catalog.md
+    021500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md
+    021510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md
+    021520_Policy_Universal_Integration_Event_Alert_Logging_And_Evidence.md
+    021530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md
+    021540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md
+    021550_Policy_Universal_Alert_Routing_Severity_Escalation_And_Acknowledgement.md
+    021560_Policy_Financial_Grade_Foundation_Security_Bulkhead_Alert_Log_And_pgvector_Observability.md
+    021570_Policy_Financial_Grade_Security_Foundation_Control_Catalog_And_Bulkhead_Readiness.md
+    021580_Policy_AI_Daemon_Security_Monitoring_Agent_And_Autonomous_Containment.md
+    021590_Policy_Trigger_View_Agent_Monitoring_Pipeline_And_Audit_Projection.md
+    021600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md
+    021610_Policy_Financial_Grade_Security_Monitoring_Foundation_Package_Index_And_Runtime_Entry_Deferral.md
+    021620_Policy_Financial_Grade_Security_Monitoring_Catalog_Work_Order_And_Implementation_Handoff.md
+    021630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md
+    021631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md
+    021632_Index_Containment_Status_And_Trigger_Map_Catalog.md
+    021633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md
+    021634_Index_Security_Control_Records_And_Security_Class_Catalog.md
+    021635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md
+    021636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md
+    021637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md
+    021638_Spec_Monitoring_View_And_Risk_Projection_Contract.md
+    021639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md
+    021640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md
+    021641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md
+    021642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md
+    021643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md
+    021644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md
+    021645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md
+    021646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md
+    021650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md
   22000_implementation_planning/
-    0022000_Implementation_Planning_Readme.md
-    0022001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register.md
-    0022002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register.md
-    0022003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction.md
-    0022004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md
-    0022005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register.md
-    0022006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline.md
-    0022007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register.md
-    0022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md
-    0022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md
-    0022010_Implementation_Readiness_Gate.md
-    0022011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md
-    0022012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md
-    0022013_Policy_Error_Message_Code_Namespace_I18n_And_Recovery_Traceability.md
-    0022014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md
-    0022015_Policy_Security_Legal_Provider_Review_Gate.md
-    0022016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md
-    0022017_Policy_I18n_Library_First_Development_And_External_Menu_Translation_Integration.md
-    0022018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md
-    0022019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md
-    0022020_Boundary_Build_Sequence_And_Phase.md
-    0022021_Policy_Redtable_Type_Global_Menu_Translation_Payment_Partner_Module.md
-    0022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md
-    0022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md
-    0022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md
-    0022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md
-    0022030_Checklist_Schema_Design_Readiness.md
-    0022040_Checklist_Api_App_Implementation_Readiness.md
-    0022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md
-    0022060_Boundary_Mvp_Implementation_Non_Goals.md
-    0022330_Policy_API_RPC_Event_Contract_Planning_Boundary.md
-    0022340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md
-    0022350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md
-    0022360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md
-    0022370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md
-    0022380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md
-    0022390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md
-    0022400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md
-    0022410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md
-    0022420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md
-    0022430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md
-    0022440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md
-    0022450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md
-    0022460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md
-    0022470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md
-    0022480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md
-    0022490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md
+    022000_Implementation_Planning_Readme.md
+    022001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register.md
+    022002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register.md
+    022003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction.md
+    022004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md
+    022005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register.md
+    022006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline.md
+    022007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register.md
+    022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md
+    022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md
+    022010_Implementation_Readiness_Gate.md
+    022011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md
+    022012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md
+    022013_Policy_Error_Message_Code_Namespace_I18n_And_Recovery_Traceability.md
+    022014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md
+    022015_Policy_Security_Legal_Provider_Review_Gate.md
+    022016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md
+    022017_Policy_I18n_Library_First_Development_And_External_Menu_Translation_Integration.md
+    022018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md
+    022019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md
+    022020_Boundary_Build_Sequence_And_Phase.md
+    022021_Policy_Redtable_Type_Global_Menu_Translation_Payment_Partner_Module.md
+    022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md
+    022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md
+    022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md
+    022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md
+    022030_Checklist_Schema_Design_Readiness.md
+    022040_Checklist_Api_App_Implementation_Readiness.md
+    022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md
+    022060_Boundary_Mvp_Implementation_Non_Goals.md
+    022330_Policy_API_RPC_Event_Contract_Planning_Boundary.md
+    022340_Policy_UI_Implementation_Package_Planning_And_I18n_Surface_Mapping.md
+    022350_Policy_Payment_KDS_Provider_Adapter_Package_Planning.md
+    022360_Policy_Support_Admin_Evidence_Audit_Package_Planning.md
+    022370_Policy_AI_Support_Gateway_pgvector_RAG_Package_Planning.md
+    022380_Policy_External_Menu_Projection_Redtable_Partner_Package_Planning.md
+    022390_Policy_Controlled_Implementation_Planning_Closure_And_Coding_Entry_Deferral.md
+    022400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md
+    022410_Policy_Controlled_Coding_Entry_Candidate_Package_Selection.md
+    022420_Policy_Foundation_First_Coding_Entry_Gate_And_Guardrail_Package.md
+    022430_Policy_Controlled_Foundation_Coding_Entry_Decision_And_Limited_Allowance.md
+    022440_Policy_Controlled_Foundation_Implementation_Handoff_And_Work_Order.md
+    022450_Policy_Foundation_Catalog_Implementation_Order_And_Dependency.md
+    022460_Policy_Foundation_Catalog_File_Layout_And_Naming_Convention.md
+    022470_Policy_Foundation_Catalog_Header_Schema_And_Required_Metadata.md
+    022480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md
+    022490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md
   24000_deployment_operations/
-    0024000_Readme_Deployment_Operations.md
-    0024010_Governance_Deployment_Readiness_And_Release.md
-    0024020_Boundary_Runtime_Operations_And_Support.md
-    0024030_Boundary_Incident_Response_And_Degraded_Operation.md
-    0024040_Boundary_Operational_Runbook.md
-    0024050_Boundary_Environment_And_Config_Non_Implementation.md
-    0024060_Policy_First_7_Days_Activation_Check.md
-    0024070_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
-    0024080_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md
-    0024090_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md
-    0024100_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md
-    0024110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md
-    0024120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md
-    0024130_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md
-    0024140_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md
-    0024150_Readme_Merchant_Success_Troubleshooting.md
-    0024160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness.md
-    0024170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization.md
-    0024180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md
-    0024190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md
+    024000_Readme_Deployment_Operations.md
+    024010_Governance_Deployment_Readiness_And_Release.md
+    024020_Boundary_Runtime_Operations_And_Support.md
+    024030_Boundary_Incident_Response_And_Degraded_Operation.md
+    024040_Boundary_Operational_Runbook.md
+    024050_Boundary_Environment_And_Config_Non_Implementation.md
+    024060_Policy_First_7_Days_Activation_Check.md
+    024070_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
+    024080_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md
+    024090_Policy_Store_Vendor_Quote_Comparison_And_Adoption_Decision_Record.md
+    024100_Policy_Small_Kiosk_Vendor_Evaluation_And_Integration_Transparency.md
+    024110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md
+    024120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md
+    024130_Policy_Pilot_Evidence_Packet_Template_And_Store_Test_Result_Recording.md
+    024140_Policy_Pilot_Incident_Retrospective_Blocker_Conversion_And_Next_Store_Learning.md
+    024150_Readme_Merchant_Success_Troubleshooting.md
+    024160_Policy_First_30_Days_Troubleshooting_And_Conversion_Readiness.md
+    024170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization.md
+    024180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md
+    024190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md
   26000_analytics_reporting_bi/
-    0026000_Readme_Analytics_Reporting_Bi.md
-    0026010_Boundary_Analytics_Product.md
-    0026020_Index_Operational_Metrics_Catalog.md
-    0026030_Report_And_Dashboard_Boundary.md
-    0026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md
-    0026050_Governance_Analytics_To_Action.md
+    026000_Readme_Analytics_Reporting_Bi.md
+    026010_Boundary_Analytics_Product.md
+    026020_Index_Operational_Metrics_Catalog.md
+    026030_Report_And_Dashboard_Boundary.md
+    026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md
+    026050_Governance_Analytics_To_Action.md
   28000_future_expansion/
-    0028000_Readme_Future_Expansion.md
-    0028020_Membership_Loyalty_Point_Future_Model.md
-    0028030_Boundary_Point_Bridge_And_Exchange_Future.md
-    0028040_Data_Ad_CRM_AI_Future_Expansion_Model.md
-    0028050_Boundary_Franchise_OS_Data_Handoff_Future.md
-    0028060_Franchise_Intelligence_Feedback_Loop_Model.md
+    028000_Readme_Future_Expansion.md
+    028020_Membership_Loyalty_Point_Future_Model.md
+    028030_Boundary_Point_Bridge_And_Exchange_Future.md
+    028040_Data_Ad_CRM_AI_Future_Expansion_Model.md
+    028050_Boundary_Franchise_OS_Data_Handoff_Future.md
+    028060_Franchise_Intelligence_Feedback_Loop_Model.md
   30000_future_saas_modules/
-    0030000_Readme_Future_Saas_Modules.md
-    0030010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md
-    0030020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md
-    0030030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md
-    0030040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md
-    0030050_Readme_Ad_Promotion_CMS.md
-    0030060_Readme_Billing_Plan_Settlement.md
-    0030070_Readme_Sales_Partner_Field_Growth.md
-    0030080_Readme_Native_All_In_One_Service_Runtime.md
-    0030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
+    030000_Readme_Future_Saas_Modules.md
+    030010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md
+    030020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md
+    030030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md
+    030040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md
+    030050_Readme_Ad_Promotion_CMS.md
+    030060_Readme_Billing_Plan_Settlement.md
+    030070_Readme_Sales_Partner_Field_Growth.md
+    030080_Readme_Native_All_In_One_Service_Runtime.md
+    030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
   40000_menu_taxonomy_and_ai_classification/
-    0040000_Readme_Menu_Taxonomy_And_AI_Classification.md
-    0040003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md
-    0040004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md
-    0040005_Report_Menu_Taxonomy_Wave_5_Review.md
-    0040006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
-    0040016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md
-    0040017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md
-    0040018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md
-    0040019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md
-    0040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md
-    0040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md
+    040000_Readme_Menu_Taxonomy_And_AI_Classification.md
+    040003_Policy_AI_Menu_Intake_Parsing_Interactive_Editor_Fast_Track_Attribute_And_Live_Deployment_Boundary.md
+    040004_Policy_AI_Menu_Category_Context_Two_Level_Taxonomy_And_Classification.md
+    040005_Report_Menu_Taxonomy_Wave_5_Review.md
+    040006_Policy_Korean_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040007_Policy_Korean_Meat_Grill_BBQ_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040008_Policy_Japanese_Seafood_Sushi_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040009_Policy_Chinese_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040010_Policy_Western_Asian_Global_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040011_Policy_Chicken_Pizza_Fast_Food_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040012_Policy_Bunsik_Gimbap_Tteokbokki_Snack_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040013_Policy_Cafe_Dessert_Beverage_Bakery_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040014_Policy_Salad_Healthy_Food_Poke_Yogurt_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040015_Policy_Pub_Pocha_Late_Night_Delivery_Alcohol_Anju_Menu_Taxonomy_Seed_Registry_And_AI_Classification_Dictionary.md
+    040016_Policy_AI_Menu_Review_Option_Builder_Set_Combo_Course_And_Special_Sales_Pattern_Governance.md
+    040017_Policy_Legal_Notice_Master_Toggle_Disclosure_Consent_And_Compliance_Governance.md
+    040018_Policy_Legal_Notice_Master_Data_Usage_Flow_And_Runtime_Retrieval_Governance.md
+    040019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md
+    040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md
+    040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md
   700000_runtime_flow/
     700100_readme_governance/
       064000_Index_Runtime_Flow_Bundle_Registry.md
@@ -1586,13 +1298,104 @@ docs/
   000005_Document_Number_Index.md
   000006_Plan_Top_Level_Folder_Consolidation.md
   000007_Full_Directory_Map.md
+  000008_Report_Docs_Directory_Redesign_v0_2_Audit_And_Move_Plan.md
+  000009_Report_Root_Governance_Rules_Correction_Readme_Index_And_Overview_Logic_Module_Model.md
+  000010_Report_Six_Digit_Documentation_Numbering_Governance_Update.md
   000010_Wait_Order_Project_Overview.md
+  000011_Report_Six_Digit_Documentation_Numbering_Dry_Run_Manifest.md
+  000012_Register_Six_Digit_Rename_Dry_Run_Manifest.md
+  000013_Register_Six_Digit_Rename_Anomaly_And_Manual_Review.md
+  000014_Report_Six_Digit_Migration_Batch_1_Root_Governance_Rename.md
   000015_Korean_Document_And_Encoding_Safety_Rules.md
+  000015_Report_Six_Digit_Migration_Batch_2_Folder_Zero_Padding.md
+  000016_Report_Docs_Folder_File_Count_And_Number_Density_Audit.md
+  000017_Report_Docs_Six_Digit_Domain_Band_Redesign_v0_4_Plan.md
+  000018_Matrix_Current_To_Proposed_Domain_Folder_Mapping_v0_4.md
+  000019_Report_Batch_3A_High_Range_Implementation_Lifecycle_Planning_Manifest.md
+  000020_Matrix_Batch_3A_Implementation_Lifecycle_Move_Manifest.md
   000020_Store_Capability_Stage_0_To_5_Module_Policy.md
+  000021_Report_Batch_3B_High_Range_Implementation_Lifecycle_POS_Gateway_Package_Move.md
+  000022_Report_Batch_3B_1_Implementation_Lifecycle_Long_Path_Mitigation_Manifest.md
+  000023_Matrix_Batch_3B_1_Long_Path_Mitigation_Rename_Manifest.md
+  000024_Report_Batch_3B_2_Implementation_Lifecycle_Folder_Shortening.md
+  000025_Report_Batch_3C_Runtime_Flow_700000_Planning_Manifest.md
+  000026_Matrix_Batch_3C_Runtime_Flow_700000_Move_Manifest.md
+  000027_Report_Batch_3D_Runtime_Flow_700000_Move.md
+  000028_Report_Batch_3D_1_Remaining_Runtime_Flow_Review_Packet_Move.md
+  000029_Report_Batch_3E_Runtime_Flow_Internal_Folder_Alignment.md
+  000030_Report_Batch_3F_POS_Gateway_Package_Internal_Folder_Renumbering.md
   000030_Runtime_Boundary.md
+  000031_Report_Batch_4A_High_Range_File_Basename_Migration_Planning.md
+  000032_Matrix_Batch_4A_High_Range_File_Basename_Rename_Manifest.md
+  000033_Report_Batch_4B_High_Range_File_Basename_Rename.md
+  000034_Report_Batch_4C_High_Range_Internal_Link_Integrity_Scan.md
+  000035_Matrix_Batch_4C_High_Range_Internal_Link_Update_Manifest.md
+  000036_Report_Batch_4D_High_Range_H1_And_Manual_Review_Closure.md
+  000037_Matrix_Batch_4D_High_Range_Manual_Review_Closure.md
+  000038_Report_Batch_5A_Global_Docs_File_Basename_Migration_Planning.md
+  000039_Matrix_Batch_5A_Global_Docs_File_Basename_Rename_Manifest.md
   000040_Operation_Patterns_For_KDS_And_Mini_Runtime.md
+  000040_Report_Batch_5B_Root_Governance_File_Basename_Rename.md
+  000041_Report_Batch_5C_Low_Density_Domain_File_Basename_Rename.md
+  000042_Report_Batch_5D_Medium_Density_Domain_File_Basename_Rename.md
+  000043_Report_Batch_5E_Dense_Domain_File_Basename_Rename.md
+  000044_Report_Batch_5F_Manual_Review_Exclusion_Closeout_Plan.md
+  000045_Matrix_Batch_5F_Manual_Review_Exclusion_Action_Manifest.md
+  000046_Report_Batch_5G_Global_Internal_Link_Integrity_Scan.md
+  000047_Matrix_Batch_5G_Global_Internal_Link_Update_Manifest.md
+  000048_Report_Batch_5H_Global_H1_And_Six_Digit_Basename_Migration_Closeout.md
+  000049_Matrix_Batch_5H_Global_H1_Mismatch_Closeout.md
   000050_Deployment_Mode_Model.md
+  000050_Plan_Batch_6A_Staged_Commit_Planning_For_Completed_Six_Digit_Migration_Batches.md
+  000051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification.md
+  000051_Report_Batch_6C_Untracked_Legacy_Five_Digit_Tree_Cleanup_Approval_And_Safety_Gate.md
+  000052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest.md
+  000052_Plan_Batch_6C_Untracked_Legacy_Five_Digit_Tree_Cleanup_Approval_And_Safety_Gate.md
+  000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md
+  000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md
+  000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md
+  000059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition.md
+  000060_Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan.md
+  000061_Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap.md
+  000062_Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan.md
+  000063_Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate.md
+  000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout.md
+  000065_Report_Batch_7R_Untracked_Migration_And_Leftover_Docs_Disposition_Review.md
+  000066_Report_Batch_8A_Development_Entry_Candidate_WorkPackage_Selection.md
+  000067_Overview_WP_8A_001_Read_Only_Codebase_Hydration_Foundation_And_Source_To_Module_Mapping.md
+  000068_Matrix_WP_8A_001_Dependency_Graph_And_Source_To_Module_Map.md
+  000069_Diagram_WP_8A_001_Runtime_Flow_Read_Only_Hydration_Diagram.md
+  000070_Matrix_WP_8A_001_Module_Impact_Map.md
+  000071_Matrix_WP_8A_001_Test_Coverage_Map.md
+  000072_Plan_WP_8A_001_Pre_Implementation_Test_Plan.md
+  000073_Checklist_WP_8A_001_Code_Handoff_Readiness_Checklist.md
+  000074_Report_Batch_8B_Read_Only_Hydration_Foundation_WorkPackage_Artifact_Pack_Closeout.md
+  000075_Report_WP_8A_001_Read_Only_Repository_Hydration_Evidence_Capture.md
+  000076_Matrix_WP_8A_001_Source_File_Inventory_By_Module_And_Extension.md
+  000077_Matrix_WP_8A_001_Allowed_And_Forbidden_File_Boundary_Map.md
+  000078_Report_Batch_8C_Read_Only_Repository_Hydration_Execution_Closeout.md
+  000079_Report_Batch_8D_Read_Only_Hydration_Review_And_First_Implementation_Gate_Decision.md
   000080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
+  000080_Report_Batch_8E_First_Implementation_Skeleton_Path_Approval_And_Allowed_File_Boundary.md
+  000081_Report_Batch_8F_First_Skeleton_Creation_Authorization_Packet.md
+  000082_Report_Batch_8H_Neutral_Skeleton_Validation_And_Commit_Readiness_Gate.md
+  000083_Report_Batch_8J_Post_Commit_Verification_And_WP_8A_001_Closeout.md
+  000084_Report_Batch_8K_Directory_Only_Tree_Disposition_Review.md
+  000085_Report_Batch_9A_Next_WorkPackage_Candidate_Selection.md
+  000086_Overview_WP_9A_001_Hydration_Registry_Schema_Validation_And_Static_Evidence_Gate.md
+  000087_Logic_WP_9A_001_Hydration_Registry_Schema_Validation_Rules_And_Evidence_Gate.md
+  000088_Plan_WP_9A_001_Hydration_Registry_Schema_Validation_Test_Plan.md
+  000089_Matrix_WP_9A_001_HR_001_To_HR_009_Validation_Case_Coverage_Map.md
+  000090_Checklist_WP_9A_001_Hydration_Registry_Static_Evidence_Gate_Readiness_Checklist.md
+  000091_Report_Batch_9B_WP_9A_001_Artifact_Pack_Closeout.md
+  000092_Evidence_WP_9A_001_HR_001_To_HR_009_Static_Validation_Result_Packet.md
+  000093_Matrix_WP_9A_001_Hydration_Registry_Static_Validation_Findings_Map.md
+  000094_Report_Batch_9D_WP_9A_001_Static_Validation_Execution_Closeout.md
+  000095_Overview_WP_9B_001_Source_Module_Map_Static_Validation_And_Evidence_Gate.md
+  000096_Logic_WP_9B_001_Source_Module_Map_Static_Validation_Rules_And_Boundary_Checks.md
+  000097_Plan_WP_9B_001_Source_Module_Map_Static_Validation_Test_Plan.md
+  000098_Matrix_WP_9B_001_SMM_001_To_SMM_009_Validation_Case_Coverage_Map.md
+  000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist.md
   000099_Docs_Governance_Checklist.md
 ```
 
