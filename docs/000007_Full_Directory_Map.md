@@ -58,6 +58,33 @@ docs/
       000478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md
       000479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
       000480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
+      000640_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md
+      000650_Index_Development_Foundation_Overview_Logic_Module_Registry.md
+      000660_Template_Development_Foundation_Overview_Document.md
+      000670_Template_Development_Foundation_Logic_Document.md
+      000680_Template_Development_Foundation_Module_Document.md
+      000690_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md
+      000700_Checklist_Development_Foundation_Code_Handoff_Readiness.md
+      000710_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md
+      000720_Template_Development_Foundation_Read_Only_Inspection_Report.md
+      000730_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md
+      000740_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md
+      000750_Register_Development_Foundation_Restricted_File_And_Zone_Control.md
+      000760_Audit_Development_Foundation_AI_Assisted_Change_Control.md
+      000770_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md
+      000780_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md
+      000790_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md
+      000800_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md
+      000810_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md
+      000820_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md
+      000830_Register_Development_Foundation_Repository_Module_Owner_Map.md
+      000840_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md
+      000850_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md
+      000860_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md
+      000870_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md
+      000880_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md
+      000890_Index_Development_Foundation_First_Codebase_Entry_Closeout.md
+      000900_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md
     000100_Readme_Project_Foundation.md
     000110_Project_Identity_And_Overview.md
     000120_BM_Patent_Linkage.md
@@ -701,6 +728,12 @@ docs/
     750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md
     750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md
   600000_implementation_lifecycle/
+    000100_Report_Batch_9F_WP_9B_001_Artifact_Pack_Closeout.md
+    000101_Evidence_WP_9B_001_SMM_001_To_SMM_009_Static_Validation_Result_Packet.md
+    000102_Matrix_WP_9B_001_Source_Module_Map_Static_Validation_Findings_Map.md
+    000103_Report_Batch_9F_Combined_WP_9B_001_Static_Validation_Full_Closeout.md
+    000104_Report_Batch_10A_Runtime_Stack_Decision_And_First_Real_Implementation_Lane_Selection.md
+    000105_Report_Batch_10B_WP_10A_001_Implementation_Authorization_Packet.md
     051355_Guide_AI_Assisted_Financial_Grade_Development_Pipeline_Cursor_Claude_Codex_Automated_Gate_And_Human_Merge.md
     600100_readme_governance/
     601000_olm_model/
