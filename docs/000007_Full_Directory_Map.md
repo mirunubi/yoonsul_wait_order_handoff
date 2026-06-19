@@ -202,42 +202,42 @@ docs/
       004390_Index_POS_Integration_Governance_And_Readiness_Check.md
     004000_Readme_Store_Runtime_POS_KDS_Operations.md
   04900_security_runtime_test_catalog/
-    04999_archive_duplicate_review/
+    004999_archive_duplicate_review/
       005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
       005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md
       005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md
       005131_Evidence_Packet_Template_And_Test_Result_Recording.md
       005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md
-    0004900_Readme_Security_Runtime_Test_Catalog.md
-    0004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md
-    0004971_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md
-    0004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md
-    0004981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md
-    0004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md
-    0004991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md
-    0005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md
-    0005001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md
-    0005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md
-    0005011_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md
-    0005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md
-    0005021_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md
-    0005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md
-    0005031_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md
-    0005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md
-    0005041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md
-    0005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md
-    0005051_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md
-    0005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md
-    0005061_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md
-    0005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md
-    0005071_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md
-    0005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md
-    0005081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md
-    0005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
-    0005091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
-    0005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md
-    0005096_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md
-    0005100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
+    004900_Readme_Security_Runtime_Test_Catalog.md
+    004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md
+    004971_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md
+    004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md
+    004981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md
+    004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md
+    004991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md
+    005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md
+    005001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md
+    005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md
+    005011_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md
+    005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md
+    005021_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md
+    005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md
+    005031_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md
+    005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md
+    005041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md
+    005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md
+    005051_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md
+    005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md
+    005061_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md
+    005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md
+    005071_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md
+    005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md
+    005081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md
+    005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
+    005091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md
+    005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md
+    005096_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md
+    005100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
   05000_customer_handoff_and_implementation_readiness/
     05000_customer_handoff_flow/
       005000_Readme_Customer_Handoff_Flow.md
@@ -639,6 +639,87 @@ docs/
     004960_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff_Policy.md
     004961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff.md
     012000_Implementation_Mapping_Readme.md
+  12000_pos_gateway_runtime_flow_implementation_package/
+    012000_Index_POS_Gateway_Runtime_Flow_Implementation_Package_Expansion_Wave_1.md
+    012100_Governance_POS_Gateway_Implementation_Package_Master_Control.md
+    012101_Overview_POS_Gateway_Implementation_Package_Readiness_Model.md
+    012102_Boundary_POS_Gateway_Implementation_Package_No_Runtime_Change_Boundary.md
+    012103_Register_POS_Gateway_Implementation_Package_Owner_Register.md
+    012104_Checklist_POS_Gateway_Implementation_Package_Governance_Preflight.md
+    012105_Matrix_POS_Gateway_Implementation_Package_Document_Type_Map.md
+    012106_Report_POS_Gateway_Implementation_Package_Readiness_Status.md
+    012107_Template_POS_Gateway_Implementation_Package_Handoff_Cover_Sheet.md
+    012108_Overview_POS_Runtime_Flow_Approval_To_Audit_Overview.md
+    012109_Overview_POS_Runtime_Flow_Cancel_Refund_Overview.md
+    012110_Overview_POS_Runtime_Flow_Retry_Replay_Overview.md
+    012111_Overview_POS_Runtime_Flow_Settlement_Reconciliation_Overview.md
+    012112_Logic_POS_Runtime_Flow_State_Transition_Logic.md
+    012113_Logic_POS_Runtime_Flow_Exception_Handling_Logic.md
+    012114_Logic_POS_Runtime_Flow_Idempotency_Logic.md
+    012115_Logic_POS_Runtime_Flow_Reconciliation_Logic.md
+    012116_Module_POS_Runtime_Flow_Module_Surface_Map.md
+    012117_Matrix_POS_Runtime_Flow_Module_To_Document_Matrix.md
+    012118_Checklist_POS_Runtime_Flow_Module_Impact_Checklist.md
+    012119_Report_POS_Runtime_Flow_Module_Gap_Report.md
+    012120_Evidence_POS_Dependency_Graph_Source_Evidence.md
+    012121_Matrix_POS_Dependency_Graph_Node_Edge_Matrix.md
+    012122_Checklist_POS_Dependency_Graph_Completeness_Check.md
+    012123_Audit_POS_Dependency_Graph_Review_Audit.md
+    012124_Boundary_POS_Provider_Boundary_Master_Evidence.md
+    012125_Matrix_POS_Provider_Boundary_Field_And_Event_Map.md
+    012126_Checklist_POS_Provider_Boundary_Verification_Check.md
+    012127_Report_POS_Provider_Boundary_Risk_Report.md
+    012128_Overview_POS_Order_Event_Intake_Flow.md
+    012129_Matrix_POS_Order_Event_To_State_Matrix.md
+    012130_Checklist_POS_Order_Event_Intake_Verification_Check.md
+    012131_Evidence_POS_Order_Event_Intake_Evidence_Packet.md
+    012132_Overview_POS_Payment_Authorization_Event_Flow.md
+    012133_Matrix_POS_Payment_Authorization_State_Matrix.md
+    012134_Checklist_POS_Payment_Authorization_Verification_Check.md
+    012135_Evidence_POS_Payment_Authorization_Evidence_Packet.md
+    012136_Overview_POS_Cancel_Refund_Runtime_Flow.md
+    012137_Matrix_POS_Cancel_Refund_State_And_Evidence_Matrix.md
+    012138_Checklist_POS_Cancel_Refund_Verification_Check.md
+    012139_Evidence_POS_Cancel_Refund_Evidence_Packet.md
+    012140_Governance_POS_Idempotency_Duplicate_Prevention_Control.md
+    012141_Matrix_POS_Idempotency_Key_To_Event_Matrix.md
+    012142_Checklist_POS_Idempotency_Verification_Check.md
+    012143_Report_POS_Duplicate_Prevention_Risk_Report.md
+    012144_Runbook_POS_Retry_Replay_Dead_Letter_Runbook.md
+    012145_Matrix_POS_Dead_Letter_To_Recovery_Action_Matrix.md
+    012146_Checklist_POS_Retry_Replay_Verification_Check.md
+    012147_Evidence_POS_Retry_Replay_Evidence_Packet.md
+    012148_Runbook_POS_Timeout_Partial_Failure_Recovery_Runbook.md
+    012149_Matrix_POS_Timeout_To_Recovery_Decision_Matrix.md
+    012150_Checklist_POS_Partial_Failure_Verification_Check.md
+    012151_Report_POS_Timeout_Partial_Failure_Risk_Report.md
+    012152_Runbook_POS_Provider_Outage_Fallback_Runbook.md
+    012153_Matrix_POS_Provider_Outage_To_Degraded_Mode_Matrix.md
+    012154_Checklist_POS_Provider_Outage_Fallback_Check.md
+    012155_Evidence_POS_Provider_Outage_Evidence_Packet.md
+    012156_Evidence_POS_Settlement_Reconciliation_Evidence_Packet.md
+    012157_Matrix_POS_Settlement_File_To_Ledger_Matrix.md
+    012158_Checklist_POS_Settlement_Reconciliation_Check.md
+    012159_Report_POS_Settlement_Exception_Report.md
+    012160_Evidence_POS_Consumer_Protection_Evidence_Packet.md
+    012161_Checklist_POS_Consumer_Protection_Verification_Check.md
+    012162_Matrix_POS_Consumer_Notice_To_Evidence_Matrix.md
+    012163_Report_POS_Consumer_Protection_Risk_Report.md
+    012164_Boundary_POS_Security_Signature_Verification_Boundary.md
+    012165_Checklist_POS_Security_Signature_Verification_Check.md
+    012166_Evidence_POS_Security_Signature_Evidence_Packet.md
+    012167_Audit_POS_Security_Signature_Audit.md
+    012168_Evidence_POS_Audit_Trail_Evidence_Packet.md
+    012169_Matrix_POS_Audit_Trail_Event_To_Record_Matrix.md
+    012170_Checklist_POS_Audit_Trail_Verification_Check.md
+    012171_Report_POS_Audit_Trail_Gap_Report.md
+    012172_Checklist_POS_Local_Verification_Gate_Check.md
+    012173_Runbook_POS_Local_Verification_Gate_Runbook.md
+    012174_Audit_POS_Claude_Audit_Review_Gate.md
+    012175_Checklist_POS_Claude_Audit_Review_Check.md
+    012176_Governance_POS_Human_Release_Approval_Gate.md
+    012177_Template_POS_Human_Release_Approval_Record_Template.md
+    012178_Handoff_POS_Runtime_Flow_Implementation_Package_Closeout_Handoff.md
   13000_app_api_projection/
     013000_Readme_App_Api_Projection.md
     013010_App_Surface_And_Channel_Projection.md
