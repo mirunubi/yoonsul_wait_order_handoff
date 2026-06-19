@@ -147,7 +147,6 @@ docs/
     04200_kds_operation_payment_recovery_boundary/
       0004200_Readme_KDS_Operation_Payment_Recovery_Boundary.md
       0004210_Policy_KDS_Station_Routing.md
-      0004220_SOP_Kitchen_Display_Staff_Role_And_Training.md
       0004230_Boundary_KDS_Bridge_Vendor_Integration.md
       0004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md
       0004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md
@@ -235,7 +234,6 @@ docs/
       005030_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
       005040_Policy_Stage_0B_Send_To_Store_Request_Flow.md
       005050_Readme_Reservation_Preorder_Governance.md
-      005060_SOP_Entrance_Waiting_Assist_Device_Operation.md
       005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md
       006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md
       006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md
@@ -247,9 +245,6 @@ docs/
       006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md
       006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md
       006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md
-      006710_SOP_Customer_Runtime_Waiting_Call_No_Show_Recovery_And_Staff_Correction_Operation.md
-      006720_SOP_Customer_Runtime_Table_Matching_Preorder_Link_And_Service_Context_Operation.md
-      006730_SOP_Customer_Runtime_Support_Dispute_Compensation_And_Privacy_Escalation_Operation.md
       006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md
       006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md
       006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix.md
@@ -264,13 +259,11 @@ docs/
       006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md
       006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md
       006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md
-      006880_SOP_Customer_Runtime_Display_Incident_Response_And_Emergency_Message_Disable_Operation.md
       006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check.md
       006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md
       006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md
       006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec.md
       006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec.md
-      006940_SOP_Customer_Runtime_Display_Registry_Change_Review_Approval_And_Version_Operation.md
     05100_implementation_readiness_and_provider_verification/
       005100_Implementation_Readiness_And_Provider_Verification_Readme.md
       005105_Plan_10807_Root_File_Rename_And_Move.md
@@ -1574,7 +1567,6 @@ docs/
   000050_Deployment_Mode_Model.md
   000080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
   000099_Docs_Governance_Checklist.md
-  Foundation I18n Content Registry SOP Parsing And Multilingual Runtime Policy.md
 ```
 
 Folder `docs/000999_conflicts/000999_root_conflict_review/` contains preserved root conflict review files moved from the legacy unnumbered conflict review folder in `migration_root_conflict_review_numbered_archive_report.md`; final domain destinations are deferred.
