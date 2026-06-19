@@ -1762,6 +1762,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\070000_external_integration_control_plane_validation_correction_log_and_process_governance\070560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md | 70560. Audit External Cancel Refund Reversal Evidence Manager Approval And Customer Notice Log. | moved |
 | docs\070000_external_integration_control_plane_validation_correction_log_and_process_governance\070570_Register_External_Cancel_Refund_Reversal_Exception_Gap_And_Open_Issue.md | 70570. Register External Cancel Refund Reversal Exception Gap And Open Issue. | moved |
 | docs\070000_external_integration_control_plane_validation_correction_log_and_process_governance\070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md | 70590. Index External Cancel Refund Reversal And Compensation Closeout And Handoff. | moved |
+| docs\070000_external_integration_control_plane_validation_correction_log_and_process_governance\070650_Matrix_External_Settlement_Reconciliation_Exception_Type_Action_And_Escalation_Map.md | 70650. Matrix External Settlement Reconciliation Exception Type Action And Escalation Map. | moved |
 
 ## docs/750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime
 
