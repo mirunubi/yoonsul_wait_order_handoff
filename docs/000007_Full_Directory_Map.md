@@ -1578,12 +1578,6 @@ docs/
     708000_release_gate/
       064390_Checklist_Flow_Bundle_Pre_Merge_And_Release_Gate.md
     709000_archive_review/
-  00999_conflicts/
-    00999_root_conflict_review/
-      0003540_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md
-      0003910_Policy_First_7_Days_Activation_Check.md
-      005170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md
-      005180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md
   000000_Project_Overview.md
   000001_Md_Rules.md
   000002_Naming_Rules.md
@@ -1601,7 +1595,5 @@ docs/
   000080_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
   000099_Docs_Governance_Checklist.md
 ```
-
-Folder `docs/000999_conflicts/000999_root_conflict_review/` contains preserved root conflict review files moved from the legacy unnumbered conflict review folder in `migration_root_conflict_review_numbered_archive_report.md`; final domain destinations are deferred.
 
 Remaining repo-wide Markdown paths over 240 chars were shortened in-place in `migration_final_long_path_240_cleanup_report.md`; folders were not moved.

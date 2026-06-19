@@ -1344,15 +1344,6 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\040000_menu_taxonomy_and_ai_classification\0040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md | 40020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping. | active |
 | docs\040000_menu_taxonomy_and_ai_classification\0040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md | 40021_Policy_Privacy_Consent_Evidence_Packet_And_Retention. | active |
 
-## 54 docs/000999_conflicts/000999_root_conflict_review
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\000999_conflicts\000999_root_conflict_review\0003540_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence.md | 03540_Policy_POS_Callback_Replay_Manual_Fallback_And_Evidence. | active |
-| docs\000999_conflicts\000999_root_conflict_review\0003910_Policy_First_7_Days_Activation_Check.md | 03910_Policy_First_7_Days_Activation_Check. | active |
-| docs\000999_conflicts\000999_root_conflict_review\0005170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification.md | 05170_Policy_PAYCO_POS_Integration_Implementation_Approach_And_Official_Verification. | active |
-| docs\000999_conflicts\000999_root_conflict_review\0005180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment.md | 05180_Policy_POS_Payment_Provider_Integration_Priority_Matrix_And_Openness_Assessment. | active |
-
 ## 55 docs/020000_validation_security_audit/020400_foundation_security
 
 | file path | purpose | current status |
@@ -1722,13 +1713,6 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\605000_pos_gateway_package\605900_final_closeout_archive\004070_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Archive_Index.md | 04070_Index_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Control_Archive_Index. | active |
 | docs\600000_implementation_lifecycle\605000_pos_gateway_package\605900_final_closeout_archive\004080_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Readiness_Reference_Closeout.md | 04080_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_Readiness_Reference_Closeout. | active |
 | docs\600000_implementation_lifecycle\605000_pos_gateway_package\605900_final_closeout_archive\004090_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_System_Handoff.md | 04090_Report_POS_GW_Runtime_Flow_Post_Repair_Monitoring_Final_System_Handoff. | active |
-
-
-## 51 Migration Pass Notes - Numbered Conflict Archive
-
-| report | scope | summary |
-| --- | --- | --- |
-| migration_root_conflict_review_numbered_archive_report.md | docs/000999_conflicts/000999_root_conflict_review | Moved root conflict review files from unnumbered `_conflicts` into numbered conflict archive folder; filenames preserved and final destinations deferred. |
 
 
 ## 52 Migration Pass Notes - Final Long Path 240 Cleanup
