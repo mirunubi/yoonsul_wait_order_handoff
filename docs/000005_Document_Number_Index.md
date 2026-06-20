@@ -1,4 +1,4 @@
-# 000005_Document_Number_Index
+# 000005_Document_Number_Index.md
 
 ## 1 Purpose
 
@@ -129,106 +129,142 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\_migration_history\000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist.md | 000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist. | active |
 | docs\000099_Docs_Governance_Checklist.md | 000099_Docs_Governance_Checklist. | active |
 
-## 3 docs/000500_ai_agent_prelearning_and_project_context
+## 1 docs/000700_ai_agent_prelearning_and_project_context
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\000500_ai_agent_prelearning_and_project_context\000500_Readme_AI_Agent_Prelearning_And_Project_Context.md | Folder-level Readme. Defines folder purpose, placement rules, file roles, and non-authorization boundary. | initial |
-| docs\000500_ai_agent_prelearning_and_project_context\000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Project-wide onboarding guide and reusable prompt set for Claude Cowork, Codex, Cursor, and human approval review. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Phase roadmap and project-wide AI prelearning context for phases 0 through 7. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md | Phase 1 prelearning guide for Catch Menu as customer-facing store-runtime projection. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md | Phase 2 prelearning guide for Yoonsul OS store runtime, staff operation, membership, inventory subset, availability, and handoff foundation. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md | Phase 3 prelearning guide for kiosk, KDS, DID, CMS, POS, Toss, OKPOS, POS Gateway, payment recovery, and financial-grade hardening. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md | Phase 4 prelearning guide for Franchise OS as headquarters, branch, approval, evidence, compliance, rollout, and rollback control room. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md | Phase 5 prelearning guide for controlled AI customer center, Digital SOP, approved knowledge base, RAG, pgvector, unresolved inquiry, and SOP evolution. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md | Phase 6 prelearning guide for SaaS-grade integration of Catch Menu, Franchise OS, admin console, store runtime, tenant/store isolation, monitoring, audit, release, and rollback. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md | Phase 7 prelearning guide for Physical AI Gateway as safety, permission, evidence, and actuation boundary for IoT, robot, vision, voice KDS, and kitchen device events. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000700_Readme_AI_Agent_Prelearning_And_Project_Context.md | Defines the AI agent prelearning folder boundary, owned number range, file roles, and non-implementation rule. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Provides ready-to-copy onboarding instructions for Claude, Codex, Cursor, and human approval review. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Defines the project-wide phase roadmap and AI prelearning context across phases 1 through 7. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md | Defines Phase 1 Catch Menu MVP context for customer entry, waiting, takeout order request, and basic handoff. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md | Defines Phase 2 yoonsul_os store runtime context as a separate project and Franchise_OS precursor. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md | Defines Phase 3 kiosk, KDS, DID, CMS, and POS integration prelearning context. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md | Defines Phase 4 Franchise_OS no-outage restaurant operations prelearning context. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md | Defines Phase 5 AI customer center and integrated support prelearning context. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md | Defines Phase 6 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md | Defines Phase 7 AI readiness and physical AI gateway prelearning context. | active |
 
-## 4 docs/000100_project_foundation
+## 1.1 docs/000800_pos_gateway_and_provider_integration_foundation
 
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs 100_project_foundation 100_Readme_Project_Foundation.md | Readme for Project Foundation. | initial |
-| docs 100_project_foundation 110_Guide_Project_Identity_And_Overview.md | Guide for Project Identity And Overview. | active |
-| docs 100_project_foundation 120_Policy_BM_Patent_Linkage.md | Policy for BM Patent Linkage. | active |
-| docs 100_project_foundation 130_Boundary_Non_Implementation.md | Boundary for Non Implementation. | active |
-| docs 100_project_foundation 140_Guide_Organization_Core.md | Guide for Organization Core. | active |
-| docs 100_project_foundation 150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md | Policy for CatchMenu Company Business Unit And Legal Entity. | active |
-| docs 100_project_foundation 160_Policy_Internal_Team_Role_And_Responsibility.md | Policy for Internal Team Role And Responsibility. | active |
-| docs 100_project_foundation 170_Policy_Merchant_Account_Company_And_Store_Context.md | Policy for Merchant Account Company And Store Context. | active |
-| docs 100_project_foundation 180_Policy_Operator_Assignment_And_Backup_Responsibility.md | Policy for Operator Assignment And Backup Responsibility. | active |
-| docs 100_project_foundation 190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md | Policy for Cross Business Franchise OS And CatchMenu Boundary. | active |
-| docs 100_project_foundation 200_Boundary_Organization_Core_MVP_Cutline.md | Boundary for Organization Core MVP Cutline. | active |
-| docs 100_project_foundation 210_Index_Organization_Core_And_Readiness_Check.md | Index for Organization Core And Readiness Check. | active |
-
-## 5 docs/000100_project_foundation/000300_documentation_governance
+Internal POS Gateway, provider adapter, authority, state machine, retry/recovery, evidence, and readiness foundation. Not an outsourcing package; upstream standard for `000900`.
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs 100_project_foundation 300_documentation_governance 300_Readme_Documentation_Governance.md | Readme for Documentation Governance. | initial |
-| docs 100_project_foundation 300_documentation_governance 301_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md | Index for Cross Range Foundation Planning Closure README And PC Import Handoff. | active |
-| docs 100_project_foundation 300_documentation_governance 302_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md | Policy for Documentation Range Map Numbering Reservation And Lane Boundary. | active |
-| docs 100_project_foundation 300_documentation_governance 303_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md | Policy for PC Import Folder Normalization README Index And File Movement. | active |
-| docs 100_project_foundation 300_documentation_governance 304_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md | Policy for Cross Range Open Gap Register Blocker And Deferred Scope. | active |
-| docs 100_project_foundation 300_documentation_governance 305_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md | Policy for Backlog Extraction Source Traceability And Policy To Work Item Mapping. | active |
-| docs 100_project_foundation 300_documentation_governance 306_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md | Policy for Test Extraction Evidence Packet And Verification Case Mapping. | active |
-| docs 100_project_foundation 300_documentation_governance 307_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md | Policy for UI Wireframe Handoff Surface Role Context And Field Boundary. | active |
-| docs 100_project_foundation 300_documentation_governance 308_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md | Policy for Mobile Draft Archive Git Source Of Truth And Google Docs Fallback. | active |
-| docs 100_project_foundation 300_documentation_governance 309_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
-| docs 100_project_foundation 300_documentation_governance 310_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
-| docs 100_project_foundation 300_documentation_governance 311_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
-| docs 100_project_foundation 300_documentation_governance 312_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
-| docs 100_project_foundation 300_documentation_governance 313_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
-| docs 100_project_foundation 300_documentation_governance 314_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
-| docs 100_project_foundation 300_documentation_governance 315_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
-| docs 100_project_foundation 300_documentation_governance 316_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
-| docs 100_project_foundation 300_documentation_governance 317_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
-| docs 100_project_foundation 300_documentation_governance 318_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
-| docs 100_project_foundation 300_documentation_governance 319_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
-| docs 100_project_foundation 300_documentation_governance 320_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
-| docs 100_project_foundation 300_documentation_governance 321_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
-| docs 100_project_foundation 300_documentation_governance 322_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
-| docs 100_project_foundation 300_documentation_governance 323_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
-| docs 100_project_foundation 300_documentation_governance 324_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
-| docs 100_project_foundation 300_documentation_governance 325_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
-| docs 100_project_foundation 300_documentation_governance 326_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
-| docs 100_project_foundation 300_documentation_governance 327_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
-| docs 100_project_foundation 300_documentation_governance 328_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
-| docs 100_project_foundation 300_documentation_governance 329_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
-| docs 100_project_foundation 300_documentation_governance 330_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000800_Readme_POS_Gateway_And_Provider_Integration_Foundation.md | Folder Readme: internal foundation purpose, reading order, 000900 relationship, implementation prohibition. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000801_Boundary_POS_Gateway_Order_Payment_Provider_And_Runtime_Authority.md | POS Gateway order/payment/provider/runtime authority boundary. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000802_Spec_POS_Gateway_Core_Interface_And_Provider_Adapter_Contract.md | Gateway core interface and provider adapter contract (spec only). | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000803_Logic_POS_Order_Payment_Cancel_Refund_And_Status_State_Machine.md | Order/payment/cancel/refund/status state machine logic. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000804_Matrix_POS_Provider_Capability_Readiness_And_Support_Status.md | Provider capability, readiness, and support status matrix. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000805_Policy_POS_Official_API_No_Scraping_And_Provider_Boundary.md | Official API, no-scraping, and provider boundary policy. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000806_Logic_POS_Idempotency_Retry_Timeout_Duplicate_Prevention_And_Unknown_State.md | Idempotency, retry, timeout, duplicate prevention, unknown state logic. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000807_Runbook_POS_Reconciliation_Recovery_Manual_Operation_And_Degraded_Mode.md | Reconciliation, recovery, manual operation, degraded mode runbook. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000808_Template_POS_Transaction_Evidence_Event_Log_And_Diagnostic_Record.md | Transaction evidence, event log, and diagnostic record template. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000809_Checklist_POS_Gateway_Internal_Readiness_Before_Outsourcing_Or_Implementation.md | Internal readiness checklist before outsourcing or implementation. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000810_Guide_POS_Integration_Test_Sandbox_Mock_And_Field_Verification_Context.md | Sandbox, mock, and field verification test guide. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000811_Governance_POS_Provider_Support_Status_Versioning_Release_And_Deprecation.md | Provider support status, versioning, release, deprecation governance. | active |
+| docs\000800_pos_gateway_and_provider_integration_foundation\000812_Audit_POS_Gateway_Foundation_Closeout_And_900_Handoff_Readiness.md | Foundation closeout and 000900 handoff readiness audit. | active |
 
-## 6 docs/000100_project_foundation/000400_development_foundation
+## 1.2 docs/000900_outsourcing_vendor_handoff_and_acceptance
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs 100_project_foundation 400_development_foundation 400_Readme_Development_Foundation.md | Readme for Development Foundation. | initial |
-| docs 100_project_foundation 400_development_foundation 401_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md | Policy for Development Foundation Overview Logic Module Documentation Model. | active |
-| docs 100_project_foundation 400_development_foundation 402_Index_Development_Foundation_Overview_Logic_Module_Registry.md | Index for Development Foundation Overview Logic Module Registry. | active |
-| docs 100_project_foundation 400_development_foundation 403_Template_Development_Foundation_Overview_Document.md | Template for Development Foundation Overview Document. | active |
-| docs 100_project_foundation 400_development_foundation 404_Template_Development_Foundation_Logic_Document.md | Template for Development Foundation Logic Document. | active |
-| docs 100_project_foundation 400_development_foundation 405_Template_Development_Foundation_Module_Document.md | Template for Development Foundation Module Document. | active |
-| docs 100_project_foundation 400_development_foundation 406_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md | Matrix for Development Foundation Overview Logic Module Traceability. | active |
-| docs 100_project_foundation 400_development_foundation 407_Checklist_Development_Foundation_Code_Handoff_Readiness.md | Checklist for Development Foundation Code Handoff Readiness. | active |
-| docs 100_project_foundation 400_development_foundation 408_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md | Runbook for Development Foundation Codebase Read Only Inspection. | active |
-| docs 100_project_foundation 400_development_foundation 409_Template_Development_Foundation_Read_Only_Inspection_Report.md | Template for Development Foundation Read Only Inspection Report. | active |
-| docs 100_project_foundation 400_development_foundation 410_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md | Guide for Development Foundation Claude Cursor Role Separation. | active |
-| docs 100_project_foundation 400_development_foundation 411_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md | Template for Development Foundation AI Handoff Prompt Pack. | active |
-| docs 100_project_foundation 400_development_foundation 412_Register_Development_Foundation_Restricted_File_And_Zone_Control.md | Register for Development Foundation Restricted File And Zone Control. | active |
-| docs 100_project_foundation 400_development_foundation 413_Audit_Development_Foundation_AI_Assisted_Change_Control.md | Audit for Development Foundation AI Assisted Change Control. | active |
-| docs 100_project_foundation 400_development_foundation 414_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md | Register for Development Foundation AI Assisted Change Exception And Waiver Log. | active |
-| docs 100_project_foundation 400_development_foundation 415_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md | Checklist for Development Foundation Pre Merge And Release Gate. | active |
-| docs 100_project_foundation 400_development_foundation 416_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md | Index for Development Foundation Closeout And Runtime Flow Linkage. | active |
-| docs 100_project_foundation 400_development_foundation 417_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md | Guide for Development Foundation First Codebase Hydration And Module Discovery. | active |
-| docs 100_project_foundation 400_development_foundation 418_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md | Template for Development Foundation First Flow Bundle Implementation Ticket. | active |
-| docs 100_project_foundation 400_development_foundation 419_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md | Matrix for Development Foundation Source Tree To Module Document Map. | active |
-| docs 100_project_foundation 400_development_foundation 420_Register_Development_Foundation_Repository_Module_Owner_Map.md | Register for Development Foundation Repository Module Owner Map. | active |
-| docs 100_project_foundation 400_development_foundation 421_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md | Evidence for Development Foundation First Codebase Hydration Report. | active |
-| docs 100_project_foundation 400_development_foundation 422_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md | Checklist for Development Foundation First Runtime Code Change Gate. | active |
-| docs 100_project_foundation 400_development_foundation 423_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md | Template for Development Foundation First Runtime Code Change Handoff Prompt. | active |
-| docs 100_project_foundation 400_development_foundation 424_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md | Runbook for Development Foundation First Runtime Diff Review And Rollback. | active |
-| docs 100_project_foundation 400_development_foundation 425_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md | Evidence for Development Foundation First Runtime Change Review Packet. | active |
-| docs 100_project_foundation 400_development_foundation 426_Index_Development_Foundation_First_Codebase_Entry_Closeout.md | Index for Development Foundation First Codebase Entry Closeout. | active |
-| docs 100_project_foundation 400_development_foundation 427_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md | Template for Development Foundation First Codebase Hydration Command Pack. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000900_Readme_Outsourcing_Vendor_Handoff_And_Acceptance.md | Defines the outsourcing/vendor handoff folder boundary, owned number range, and active deliverable roles. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000901_Guide_POS_Integration_Outsourcing_Overview_And_Vendor_Boundary.md | Defines POS integration outsourcing overview, vendor boundary, and delivery responsibility framing. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000902_Boundary_POS_Gateway_Provider_Adapter_Responsibility_And_Authority.md | Defines responsibility and authority boundaries for POS Gateway and provider adapter work. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000903_Matrix_POS_Provider_Capability_And_Integration_Readiness.md | Maps POS provider capability and integration readiness evidence for vendor review. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000904_Spec_POS_Adapter_Interface_Order_Payment_Cancel_Refund_And_Status_Contract.md | Specifies POS adapter interface expectations for order, payment, cancel, refund, and status contracts. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000905_Logic_POS_Order_Payment_State_Machine_Reconciliation_And_Recovery.md | Defines POS order/payment state machine logic, reconciliation expectations, and recovery boundaries. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000906_Policy_POS_Outsourcing_Security_Access_IP_Credential_And_Data_Control.md | Defines outsourcing security, access, IP, credential, and data-control policy for POS integration work. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000907_Checklist_POS_Outsourcing_RFP_SOW_And_Vendor_Selection_Readiness.md | Provides RFP, SOW, and vendor selection readiness checklist for POS outsourcing. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000908_Template_POS_Provider_Integration_Evidence_Packet.md | Provides an evidence packet template for POS provider integration delivery and acceptance. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000909_Runbook_POS_Integration_Failure_Recovery_Reconciliation_And_Manual_Operation.md | Defines failure recovery, reconciliation, and manual operation runbook for POS integration delivery. | active |
+| docs\000900_outsourcing_vendor_handoff_and_acceptance\000910_Audit_POS_Outsourcing_Deliverable_Acceptance_And_Test_Verification.md | Defines audit criteria for outsourcing deliverable acceptance and test verification. | active |
+
+## 2 docs/000100_project_foundation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/000100_project_foundation/000100_Readme_Project_Foundation.md | Readme for Project Foundation. | initial |
+| docs/000100_project_foundation/000110_Guide_Project_Identity_And_Overview.md | Guide for Project Identity And Overview. | active |
+| docs/000100_project_foundation/000120_Policy_BM_Patent_Linkage.md | Policy for BM Patent Linkage. | active |
+| docs/000100_project_foundation/000130_Boundary_Non_Implementation.md | Boundary for Non Implementation. | active |
+| docs/000100_project_foundation/000140_Guide_Organization_Core.md | Guide for Organization Core. | active |
+| docs/000100_project_foundation/000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md | Policy for CatchMenu Company Business Unit And Legal Entity. | active |
+| docs/000100_project_foundation/000160_Policy_Internal_Team_Role_And_Responsibility.md | Policy for Internal Team Role And Responsibility. | active |
+| docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md | Policy for Merchant Account Company And Store Context. | active |
+| docs/000100_project_foundation/000180_Policy_Operator_Assignment_And_Backup_Responsibility.md | Policy for Operator Assignment And Backup Responsibility. | active |
+| docs/000100_project_foundation/000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md | Policy for Cross Business Franchise OS And CatchMenu Boundary. | active |
+| docs/000100_project_foundation/000200_Boundary_Organization_Core_MVP_Cutline.md | Boundary for Organization Core MVP Cutline. | active |
+| docs/000100_project_foundation/000210_Index_Organization_Core_And_Readiness_Check.md | Index for Organization Core And Readiness Check. | active |
+
+## 3 docs/000100_project_foundation/000300_documentation_governance
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md | Readme for Documentation Governance. | initial |
+| docs/000100_project_foundation/000300_documentation_governance/000301_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md | Index for Cross Range Foundation Planning Closure README And PC Import Handoff. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000302_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md | Policy for Documentation Range Map Numbering Reservation And Lane Boundary. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000303_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md | Policy for PC Import Folder Normalization README Index And File Movement. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000304_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md | Policy for Cross Range Open Gap Register Blocker And Deferred Scope. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000305_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md | Policy for Backlog Extraction Source Traceability And Policy To Work Item Mapping. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000306_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md | Policy for Test Extraction Evidence Packet And Verification Case Mapping. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000307_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md | Policy for UI Wireframe Handoff Surface Role Context And Field Boundary. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000308_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md | Policy for Mobile Draft Archive Git Source Of Truth And Google Docs Fallback. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000309_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000310_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000311_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000312_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000313_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000314_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000315_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000316_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000317_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000318_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000319_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000320_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000321_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000322_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000323_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000324_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000325_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000326_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000327_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000328_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000329_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
+| docs/000100_project_foundation/000300_documentation_governance/000330_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
+
+## 4 docs/000100_project_foundation/000400_development_foundation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs/000100_project_foundation/000400_development_foundation/000400_Readme_Development_Foundation.md | Readme for Development Foundation. | initial |
+| docs/000100_project_foundation/000400_development_foundation/000401_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md | Policy for Development Foundation Overview Logic Module Documentation Model. | active |
+| docs/000100_project_foundation/000400_development_foundation/000402_Index_Development_Foundation_Overview_Logic_Module_Registry.md | Index for Development Foundation Overview Logic Module Registry. | active |
+| docs/000100_project_foundation/000400_development_foundation/000403_Template_Development_Foundation_Overview_Document.md | Template for Development Foundation Overview Document. | active |
+| docs/000100_project_foundation/000400_development_foundation/000404_Template_Development_Foundation_Logic_Document.md | Template for Development Foundation Logic Document. | active |
+| docs/000100_project_foundation/000400_development_foundation/000405_Template_Development_Foundation_Module_Document.md | Template for Development Foundation Module Document. | active |
+| docs/000100_project_foundation/000400_development_foundation/000406_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md | Matrix for Development Foundation Overview Logic Module Traceability. | active |
+| docs/000100_project_foundation/000400_development_foundation/000407_Checklist_Development_Foundation_Code_Handoff_Readiness.md | Checklist for Development Foundation Code Handoff Readiness. | active |
+| docs/000100_project_foundation/000400_development_foundation/000408_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md | Runbook for Development Foundation Codebase Read Only Inspection. | active |
+| docs/000100_project_foundation/000400_development_foundation/000409_Template_Development_Foundation_Read_Only_Inspection_Report.md | Template for Development Foundation Read Only Inspection Report. | active |
+| docs/000100_project_foundation/000400_development_foundation/000410_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md | Guide for Development Foundation Claude Cursor Role Separation. | active |
+| docs/000100_project_foundation/000400_development_foundation/000411_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md | Template for Development Foundation AI Handoff Prompt Pack. | active |
+| docs/000100_project_foundation/000400_development_foundation/000412_Register_Development_Foundation_Restricted_File_And_Zone_Control.md | Register for Development Foundation Restricted File And Zone Control. | active |
+| docs/000100_project_foundation/000400_development_foundation/000413_Audit_Development_Foundation_AI_Assisted_Change_Control.md | Audit for Development Foundation AI Assisted Change Control. | active |
+| docs/000100_project_foundation/000400_development_foundation/000414_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md | Register for Development Foundation AI Assisted Change Exception And Waiver Log. | active |
+| docs/000100_project_foundation/000400_development_foundation/000415_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md | Checklist for Development Foundation Pre Merge And Release Gate. | active |
+| docs/000100_project_foundation/000400_development_foundation/000416_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md | Index for Development Foundation Closeout And Runtime Flow Linkage. | active |
+| docs/000100_project_foundation/000400_development_foundation/000417_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md | Guide for Development Foundation First Codebase Hydration And Module Discovery. | active |
+| docs/000100_project_foundation/000400_development_foundation/000418_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md | Template for Development Foundation First Flow Bundle Implementation Ticket. | active |
+| docs/000100_project_foundation/000400_development_foundation/000419_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md | Matrix for Development Foundation Source Tree To Module Document Map. | active |
+| docs/000100_project_foundation/000400_development_foundation/000420_Register_Development_Foundation_Repository_Module_Owner_Map.md | Register for Development Foundation Repository Module Owner Map. | active |
+| docs/000100_project_foundation/000400_development_foundation/000421_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md | Evidence for Development Foundation First Codebase Hydration Report. | active |
+| docs/000100_project_foundation/000400_development_foundation/000422_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md | Checklist for Development Foundation First Runtime Code Change Gate. | active |
+| docs/000100_project_foundation/000400_development_foundation/000423_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md | Template for Development Foundation First Runtime Code Change Handoff Prompt. | active |
+| docs/000100_project_foundation/000400_development_foundation/000424_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md | Runbook for Development Foundation First Runtime Diff Review And Rollback. | active |
+| docs/000100_project_foundation/000400_development_foundation/000425_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md | Evidence for Development Foundation First Runtime Change Review Packet. | active |
+| docs/000100_project_foundation/000400_development_foundation/000426_Index_Development_Foundation_First_Codebase_Entry_Closeout.md | Index for Development Foundation First Codebase Entry Closeout. | active |
+| docs/000100_project_foundation/000400_development_foundation/000427_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md | Template for Development Foundation First Codebase Hydration Command Pack. | active |
 
 ## docs/600000_implementation_lifecycle
 
@@ -323,7 +359,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600178_Matrix_Cross_Document_Traceability_Matrix.md | 600178_Matrix_Cross_Document_Traceability_Matrix. | active |
 
 
-## 6 docs/001000_mvp_scope
+## 5 docs/001000_mvp_scope
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -361,421 +397,462 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\001000_mvp_scope\001290_Implementation_Stage_0_MVP_Cutline.md | 01290_Implementation_Stage_0_MVP_Cutline. | active |
 | docs\001000_mvp_scope\001299_Index_Stage_0_And_Readiness_Check.md | 01299_Index_Stage_0_And_Readiness_Check. | active |
 
-## 7 docs/003000_saas_runtime
+## 6 docs/003000_saas_runtime
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\003000_saas_runtime\003000_Readme_SaaS_Runtime.md | 003000_Readme_SaaS_Runtime. | initial |
-| docs\003000_saas_runtime\003010_Tenant_Store_Runtime_And_Package_Model.md | 003010_Tenant_Store_Runtime_And_Package_Model. | active |
-| docs\003000_saas_runtime\003020_Tenant_Company_Legal_Operating_Group_Context_Model.md | 003020_Tenant_Company_Legal_Operating_Group_Context_Model. | active |
-| docs\003000_saas_runtime\003030_Store_Runtime_Profile_Model.md | 003030_Store_Runtime_Profile_Model. | active |
-| docs\003000_saas_runtime\003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md | 003040_Governance_Package_Plan_And_Feature_Flag_Runtime. | active |
-| docs\003000_saas_runtime\003050_Governance_Runtime_Profile_Change_And_Audit.md | 003050_Governance_Runtime_Profile_Change_And_Audit. | active |
-| docs\003000_saas_runtime\003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md | 003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag. | active |
-| docs\003000_saas_runtime\003100_Readme_Entry_Media_Inventory.md | 003100_Readme_Entry_Media_Inventory. | initial |
-| docs\003000_saas_runtime\003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md | 003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation. | active |
-| docs\003000_saas_runtime\003130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md | 003130_Policy_Entry_Media_Status_Lifecycle_And_Audit. | active |
-| docs\003000_saas_runtime\003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md | 003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation. | active |
-| docs\003000_saas_runtime\003150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md | 003150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset. | active |
-| docs\003000_saas_runtime\003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md | 003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution. | active |
-| docs\003000_saas_runtime\003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md | 003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation. | active |
-| docs\003000_saas_runtime\003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md | 003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link. | active |
-| docs\003000_saas_runtime\003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md | 003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control. | active |
-| docs\003000_saas_runtime\003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md | 003199_Index_Entry_Media_Inventory_And_MVP_Cutline. | active |
+| docs000_saas_runtime000_Readme_SaaS_Runtime.md | Folder-level Readme for SaaS runtime scope, tenant/store runtime ownership, package governance, and local document roles. | initial |
+| docs000_saas_runtime010_Guide_Tenant_Store_Runtime_And_Package_Model.md | Guide for tenant, store runtime, package model, and SaaS operating context axes. | active |
+| docs000_saas_runtime020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md | Guide for tenant, company, legal entity, and operating group context modeling. | active |
+| docs000_saas_runtime030_Guide_Store_Runtime_Profile_Model.md | Guide for store runtime profile modeling and profile-based capability configuration. | active |
+| docs000_saas_runtime040_Governance_Package_Plan_And_Feature_Flag_Runtime.md | Governance for package plans, feature flags, and runtime feature exposure. | active |
+| docs000_saas_runtime050_Governance_Runtime_Profile_Change_And_Audit.md | Governance for runtime profile changes, approval, history, and audit trail. | active |
+| docs000_saas_runtime060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md | Boundary for non-MVP runtime profile behavior and future feature flags. | active |
+| docs000_saas_runtime100_Readme_Entry_Media_Inventory.md | Local Readme for Entry Media Inventory ownership, QR/NFC asset lifecycle, and non-ownership boundaries. | initial |
+| docs000_saas_runtime110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md | Policy for QR/NFC entry plate assignment, recovery, and reallocation. | active |
+| docs000_saas_runtime130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md | Policy for entry media status lifecycle and audit trail. | active |
+| docs000_saas_runtime140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md | Policy separating test, field sample, and production entry media assets. | active |
+| docs000_saas_runtime150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md | Policy for lost, damaged, retired, and replaced entry media assets. | active |
+| docs000_saas_runtime160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md | Policy for entry media identifier encoding, lookup, and resolution. | active |
+| docs000_saas_runtime170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md | Policy for scan usage observation, trial monitoring, and usage evidence. | active |
+| docs000_saas_runtime180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md | Policy linking entry media admin access, suspension, and service termination. | active |
+| docs000_saas_runtime190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md | Policy for production batch, stock, and inventory control of entry media assets. | active |
+| docs000_saas_runtime199_Index_Entry_Media_Inventory_And_MVP_Cutline.md | Index for Entry Media Inventory documents and MVP cutline alignment. | active |
 
-## 8 docs/004000_store_runtime_pos_kds_operations
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\004000_store_runtime_pos_kds_operations\004000_Readme_Store_Runtime_POS_KDS_Operations.md | 004000_Readme_Store_Runtime_POS_KDS_Operations. | initial |
-
-## 9 docs/004000_store_runtime_pos_kds_operations/004000_kds_integration_kitchen_continuity
+## 7 docs/0004000_store_runtime_pos_kds_operations
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004000_Readme_KDS_Integration_Kitchen_Continuity.md | 004000_Readme_KDS_Integration_Kitchen_Continuity. | initial |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md | 004001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md | 004002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md | 004003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md | 004004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md | 004005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md | 004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md | 004010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md | 004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md | 004030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md | 004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004090_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md | 004090_KDS_Integration_Kitchen_Continuity_MVP_Cutline. | active |
-| docs\004000_store_runtime_pos_kds_operations\004000_kds_integration_kitchen_continuity\004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md | 004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004000_Readme_Store_Runtime_POS_KDS_Operations.md | 004000_Readme_Store_Runtime_POS_KDS_Operations. | initial |
 
-## 10 docs/004000_store_runtime_pos_kds_operations/004100_menu_availability_soldout_runtime
+## 8 docs/0004000_store_runtime_pos_kds_operations/004010_kds_integration_kitchen_continuity
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004100_Readme_Menu_Availability_Soldout_Runtime.md | 004100_Readme_Menu_Availability_Soldout_Runtime. | initial |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md | 004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking. | active |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md | 004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control. | active |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004130_Policy_POS_KDS_Inventory_Availability_Sync.md | 004130_Policy_POS_KDS_Inventory_Availability_Sync. | active |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004190_Menu_Availability_Soldout_MVP_Cutline.md | 004190_Menu_Availability_Soldout_MVP_Cutline. | active |
-| docs\004000_store_runtime_pos_kds_operations\004100_menu_availability_soldout_runtime\004199_Index_Menu_Availability_Soldout_And_Readiness_Check.md | 004199_Index_Menu_Availability_Soldout_And_Readiness_Check. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004010_Readme_KDS_Integration_Kitchen_Continuity.md | 004000_Readme_KDS_Integration_Kitchen_Continuity. | initial |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004011_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md | 004001_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004012_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md | 004002_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004013_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md | 004003_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004014_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md | 004004_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004015_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md | 004005_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004016_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md | 004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004020_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md | 004010_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004030_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md | 004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004040_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md | 004030_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004050_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md | 004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004090_Boundary_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md | 004090_KDS_Integration_Kitchen_Continuity_MVP_Cutline. | active |
+| docs\0004000_store_runtime_pos_kds_operations\004010_kds_integration_kitchen_continuity\004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md | 004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check. | active |
 
-## 11 docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004200_Readme_KDS_Operation_Payment_Recovery_Boundary.md | 004200_Readme_KDS_Operation_Payment_Recovery_Boundary. | initial |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004210_Policy_KDS_Station_Routing.md | 004210_Policy_KDS_Station_Routing. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004230_Boundary_KDS_Bridge_Vendor_Integration.md | 004230_Boundary_KDS_Bridge_Vendor_Integration. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md | 004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md | 004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md | 004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md | 004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md | 004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX. | active |
-| docs\004000_store_runtime_pos_kds_operations\004200_kds_operation_payment_recovery_boundary\004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md | 004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction. | active |
-
-## 12 docs/004000_store_runtime_pos_kds_operations/004300_pos_provider_adapter_governance
+## 9 docs/0004000_store_runtime_pos_kds_operations/0004100_menu_availability_soldout_runtime
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004300_Readme_POS_Provider_Adapter_Governance.md | 004300_Readme_POS_Provider_Adapter_Governance. | initial |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004301_Policy_Toss_Payments_MVP_Integration_Boundary.md | 004301_Policy_Toss_Payments_MVP_Integration_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md | 004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md | 004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md | 004304_Policy_OKPOS_And_Major_POS_Integration_Candidate. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md | 004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md | 004306_Policy_Major_POS_API_Discovery_And_Technical_Spike. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md | 004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md | 004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization.md | 004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md | 004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md | 004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md | 004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md | 004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md | 004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md | 004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md | 004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication. | active |
-| docs\004000_store_runtime_pos_kds_operations\004300_pos_provider_adapter_governance\004390_Index_POS_Integration_Governance_And_Readiness_Check.md | 004390_Index_POS_Integration_Governance_And_Readiness_Check. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004100_Readme_Menu_Availability_Soldout_Runtime.md | 004100_Readme_Menu_Availability_Soldout_Runtime. | initial |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking.md | 004110_Policy_Menu_Availability_Soldout_And_Preorder_Blocking. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md | 004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004130_Policy_POS_KDS_Inventory_Availability_Sync.md | 004130_Policy_POS_KDS_Inventory_Availability_Sync. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004190_Menu_Availability_Soldout_MVP_Cutline.md | 004190_Menu_Availability_Soldout_MVP_Cutline. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004100_menu_availability_soldout_runtime\004199_Index_Menu_Availability_Soldout_And_Readiness_Check.md | 004199_Index_Menu_Availability_Soldout_And_Readiness_Check. | active |
 
-## 13 docs/004900_security_runtime_test_catalog
+## 10 docs/0004000_store_runtime_pos_kds_operations/0004200_kds_operation_payment_recovery_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\004900_security_runtime_test_catalog\004900_Readme_Security_Runtime_Test_Catalog.md | 004900_Readme_Security_Runtime_Test_Catalog. | initial |
-| docs\004900_security_runtime_test_catalog\004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md | 004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance. | active |
-| docs\004900_security_runtime_test_catalog\004971_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md | 004971_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance. | active |
-| docs\004900_security_runtime_test_catalog\004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md | 004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\004981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md | 004981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy. | active |
-| docs\004900_security_runtime_test_catalog\004991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md | 004991_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md | 005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md | 005001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md | 005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005011_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md | 005011_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md | 005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005021_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md | 005021_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md | 005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005031_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md | 005031_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md | 005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md | 005041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md | 005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005051_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md | 005051_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md | 005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005061_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md | 005061_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md | 005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005071_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md | 005071_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md | 005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md | 005081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md | 005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md | 005091_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog. | active |
-| docs\004900_security_runtime_test_catalog\005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md | 005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping. | active |
-| docs\004900_security_runtime_test_catalog\005096_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md | 005096_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping. | active |
-| docs\004900_security_runtime_test_catalog\005100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 005100_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004200_Readme_KDS_Operation_Payment_Recovery_Boundary.md | 004200_Readme_KDS_Operation_Payment_Recovery_Boundary. | initial |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004210_Policy_KDS_Station_Routing.md | 004210_Policy_KDS_Station_Routing. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004230_Boundary_KDS_Bridge_Vendor_Integration.md | 004230_Boundary_KDS_Bridge_Vendor_Integration. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md | 004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md | 004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md | 004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md | 004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md | 004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004200_kds_operation_payment_recovery_boundary\004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md | 004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction. | active |
 
-## 14 docs/004900_security_runtime_test_catalog/004999_archive_duplicate_review
+## 11 docs/0004000_store_runtime_pos_kds_operations/0004300_pos_provider_adapter_governance
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\004900_security_runtime_test_catalog\004999_archive_duplicate_review\005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | conflict-review |
-| docs\004900_security_runtime_test_catalog\004999_archive_duplicate_review\005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md | 005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning. | conflict-review |
-| docs\004900_security_runtime_test_catalog\004999_archive_duplicate_review\005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md | 005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix. | conflict-review |
-| docs\004900_security_runtime_test_catalog\004999_archive_duplicate_review\005131_Evidence_Packet_Template_And_Test_Result_Recording.md | 005131_Evidence_Packet_Template_And_Test_Result_Recording. | conflict-review |
-| docs\004900_security_runtime_test_catalog\004999_archive_duplicate_review\005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md | 005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance. | conflict-review |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004300_Readme_POS_Provider_Adapter_Governance.md | 004300_Readme_POS_Provider_Adapter_Governance. | initial |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004301_Policy_Toss_Payments_MVP_Integration_Boundary.md | 004301_Policy_Toss_Payments_MVP_Integration_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md | 004302_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md | 004303_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md | 004304_Policy_OKPOS_And_Major_POS_Integration_Candidate. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md | 004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md | 004306_Policy_Major_POS_API_Discovery_And_Technical_Spike. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md | 004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md | 004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization.md | 004310_Policy_Canonical_Order_Model_And_POS_Event_Normalization. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md | 004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md | 004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md | 004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md | 004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md | 004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook.md | 004370_Policy_POS_Integration_Monitoring_Replay_And_Incident_Runbook. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md | 004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication. | active |
+| docs\0004000_store_runtime_pos_kds_operations\0004300_pos_provider_adapter_governance\004390_Index_POS_Integration_Governance_And_Readiness_Check.md | 004390_Index_POS_Integration_Governance_And_Readiness_Check. | active |
+
+## 12 docs/004900_security_runtime_test_catalog
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\004900_security_runtime_test_catalog\004900_Readme_Security_Runtime_Test_Catalog.md | 004900_Readme_Security_Runtime_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004910_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md | 004910_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance. | active |
+| docs\004900_security_runtime_test_catalog\004920_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md | 004920_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004930_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog.md | 004930_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004940_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md | 004940_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004950_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md | 004950_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004960_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md | 004960_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004970_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md | 004970_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004980_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md | 004980_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004990_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md | 004990_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004991_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md | 004991_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004992_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md | 004992_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004993_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md | 004993_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004994_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md | 004994_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog. | active |
+| docs\004900_security_runtime_test_catalog\004995_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md | 004995_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping. | active |
+| docs\004900_security_runtime_test_catalog\004999_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 004999_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | active |
+
+## 13 docs/_migration_history/004900_security_runtime_test_catalog_duplicate_review
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance.md | 004970_Policy_Security_And_Runtime_Test_Catalog_Lane_Start_And_Verification_Governance. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md | 004980_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy.md | 004990_Audit_Append_Only_Evidence_And_Tamper_Resistance_Test_Catalog_Policy. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004999_archive_duplicate_review\005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004999_archive_duplicate_review\005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md | 005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004999_archive_duplicate_review\005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md | 005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004999_archive_duplicate_review\005131_Evidence_Packet_Template_And_Test_Result_Recording.md | 005131_Evidence_Packet_Template_And_Test_Result_Recording. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\004999_archive_duplicate_review\005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md | 005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md | 005000_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog.md | 005010_Policy_Payment_Webhook_Refund_Settlement_Reconciliation_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog.md | 005020_Policy_CI_DI_Identity_Callback_Masking_Leakage_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog.md | 005030_Policy_Support_Access_Masking_Break_Glass_Scoped_Session_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md | 005040_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog.md | 005050_Policy_Local_Agent_Degraded_Recovery_Sync_Conflict_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog.md | 005060_Policy_Export_Report_Benchmark_External_Sharing_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog.md | 005070_Policy_AI_Analytics_Dataset_Minimization_Recommendation_Boundary_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md | 005080_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog.md | 005090_Policy_Secure_Deployment_Release_Gate_Rollback_Test_Catalog. | migration-history |
+| docs\_migration_history\004900_security_runtime_test_catalog_duplicate_review\005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping.md | 005095_Policy_Toss_POS_Integration_Implementation_Approach_And_Test_Mapping. | migration-history |
+
+## 14 docs/005000_customer_handoff_and_implementation_readiness
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\005000_customer_handoff_and_implementation_readiness\005000_Readme_Customer_Handoff_And_Implementation_Readiness.md | 005000_Readme_Customer_Handoff_And_Implementation_Readiness. | active |
 
 ## 15 docs/005000_customer_handoff_and_implementation_readiness
 
-| file path | purpose | current status |
+| Path | Title | Status |
 | --- | --- | --- |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_Readme_Customer_Handoff_And_Implementation_Readiness.md | 005000_Readme_Customer_Handoff_And_Implementation_Readiness. | initial |
+| docs\005000_customer_handoff_and_implementation_readiness\005000_Readme_Customer_Handoff_And_Implementation_Readiness.md | 005000_Readme_Customer_Handoff_And_Implementation_Readiness. | active |
 
-## 16 docs/005000_customer_handoff_and_implementation_readiness/005000_customer_handoff_flow
+## 16 docs/005000_customer_handoff_and_implementation_readiness/005010_customer_handoff_flow
 
-| file path | purpose | current status |
+| Path | Title | Status |
 | --- | --- | --- |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005000_Readme_Customer_Handoff_Flow.md | 005000_Readme_Customer_Handoff_Flow. | initial |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005001_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance.md | 005001_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005002_Policy_Customer_Link_Token_QR_NFC_Session_Expiration_Abuse_Prevention_And_Security_Boundary.md | 005002_Policy_Customer_Link_Token_QR_NFC_Session_Expiration_Abuse_Prevention_And_Security_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005003_Policy_Customer_Web_App_Guest_Session_App_Native_Continuity_Order_Surface_And_Runtime_Control.md | 005003_Policy_Customer_Web_App_Guest_Session_App_Native_Continuity_Order_Surface_And_Runtime_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005004_Policy_Customer_Native_App_Deep_Link_Push_Account_Continuity_Web_App_Coexistence_And_Runtime_Control.md | 005004_Policy_Customer_Native_App_Deep_Link_Push_Account_Continuity_Web_App_Coexistence_And_Runtime_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005005_Policy_Customer_Account_Guest_Merge_Identity_Continuity_Membership_Ready_And_Runtime_Authority_Boundary.md | 005005_Policy_Customer_Account_Guest_Merge_Identity_Continuity_Membership_Ready_And_Runtime_Authority_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005006_Policy_Customer_Membership_Loyalty_Coupon_Visit_Count_Store_Benefit_And_Runtime_Control.md | 005006_Policy_Customer_Membership_Loyalty_Coupon_Visit_Count_Store_Benefit_And_Runtime_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005007_Policy_Customer_Support_Case_Dispute_Resolution_Compensation_Refund_Cancel_Handoff_And_Evidence_Control.md | 005007_Policy_Customer_Support_Case_Dispute_Resolution_Compensation_Refund_Cancel_Handoff_And_Evidence_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005008_Policy_Customer_Privacy_Consent_Data_Retention_Evidence_Access_Support_Visibility_And_Runtime_Governance.md | 005008_Policy_Customer_Privacy_Consent_Data_Retention_Evidence_Access_Support_Visibility_And_Runtime_Governance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005009_Policy_Customer_Runtime_Pilot_Readiness_Closeout_Rollout_Acceptance_And_Governance.md | 005009_Policy_Customer_Runtime_Pilot_Readiness_Closeout_Rollout_Acceptance_And_Governance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005010_Guide_User_Flow.md | 005010_Guide_User_Flow. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005011_Checklist_Customer_Runtime_Pilot_Readiness_Entry_Closeout_Rollout_And_Evidence_Acceptance.md | 005011_Checklist_Customer_Runtime_Pilot_Readiness_Entry_Closeout_Rollout_And_Evidence_Acceptance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005012_Runbook_Customer_Runtime_Pilot_Execution_Observation_Closeout_Incident_And_Rollout_Decision.md | 005012_Runbook_Customer_Runtime_Pilot_Execution_Observation_Closeout_Incident_And_Rollout_Decision. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005013_Template_Customer_Runtime_Pilot_Evidence_Packet_Closeout_Record_Rollout_Decision_And_Risk_Handoff.md | 005013_Template_Customer_Runtime_Pilot_Evidence_Packet_Closeout_Record_Rollout_Decision_And_Risk_Handoff. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005014_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control.md | 005014_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005015_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance.md | 005015_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005016_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md | 005016_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005020_Readme_Stage_0.md | 005020_Readme_Stage_0. | initial |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005030_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md | 005030_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005040_Policy_Stage_0B_Send_To_Store_Request_Flow.md | 005040_Policy_Stage_0B_Send_To_Store_Request_Flow. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005050_Readme_Reservation_Preorder_Governance.md | 005050_Readme_Reservation_Preorder_Governance. | initial |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md | 005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md | 006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md | 006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md | 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md | 006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md | 006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md | 006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control.md | 006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md | 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md | 006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md | 006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md | 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md | 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix.md | 006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template.md | 006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance.md | 006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff.md | 006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record.md | 006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control.md | 006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance.md | 006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec.md | 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec.md | 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md | 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md | 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md | 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check.md | 006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md | 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md | 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec.md | 006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005000_customer_handoff_flow\006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec.md | 006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005010_Readme_Customer_Handoff_Flow.md | 005010_Readme_Customer_Handoff_Flow. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005011_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance.md | 005011_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005012_Policy_Customer_Link_Token_QR_NFC_Session_Expiration_Abuse_Prevention_And_Security_Boundary.md | 005012_Policy_Customer_Link_Token_QR_NFC_Session_Expiration_Abuse_Prevention_And_Security_Boundary. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005013_Policy_Customer_Web_App_Guest_Session_App_Native_Continuity_Order_Surface_And_Runtime_Control.md | 005013_Policy_Customer_Web_App_Guest_Session_App_Native_Continuity_Order_Surface_And_Runtime_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005014_Policy_Customer_Native_App_Deep_Link_Push_Account_Continuity_Web_App_Coexistence_And_Runtime_Control.md | 005014_Policy_Customer_Native_App_Deep_Link_Push_Account_Continuity_Web_App_Coexistence_And_Runtime_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005015_Policy_Customer_Account_Guest_Merge_Identity_Continuity_Membership_Ready_And_Runtime_Authority_Boundary.md | 005015_Policy_Customer_Account_Guest_Merge_Identity_Continuity_Membership_Ready_And_Runtime_Authority_Boundary. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005016_Policy_Customer_Membership_Loyalty_Coupon_Visit_Count_Store_Benefit_And_Runtime_Control.md | 005016_Policy_Customer_Membership_Loyalty_Coupon_Visit_Count_Store_Benefit_And_Runtime_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005017_Policy_Customer_Support_Case_Dispute_Resolution_Compensation_Refund_Cancel_Handoff_And_Evidence_Control.md | 005017_Policy_Customer_Support_Case_Dispute_Resolution_Compensation_Refund_Cancel_Handoff_And_Evidence_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005018_Policy_Customer_Privacy_Consent_Data_Retention_Evidence_Access_Support_Visibility_And_Runtime_Governance.md | 005018_Policy_Customer_Privacy_Consent_Data_Retention_Evidence_Access_Support_Visibility_And_Runtime_Governance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005019_Policy_Customer_Runtime_Pilot_Readiness_Closeout_Rollout_Acceptance_And_Governance.md | 005019_Policy_Customer_Runtime_Pilot_Readiness_Closeout_Rollout_Acceptance_And_Governance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005020_Guide_User_Flow.md | 005020_Guide_User_Flow. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005021_Checklist_Customer_Runtime_Pilot_Readiness_Entry_Closeout_Rollout_And_Evidence_Acceptance.md | 005021_Checklist_Customer_Runtime_Pilot_Readiness_Entry_Closeout_Rollout_And_Evidence_Acceptance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005022_Runbook_Customer_Runtime_Pilot_Execution_Observation_Closeout_Incident_And_Rollout_Decision.md | 005022_Runbook_Customer_Runtime_Pilot_Execution_Observation_Closeout_Incident_And_Rollout_Decision. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005023_Template_Customer_Runtime_Pilot_Evidence_Packet_Closeout_Record_Rollout_Decision_And_Risk_Handoff.md | 005023_Template_Customer_Runtime_Pilot_Evidence_Packet_Closeout_Record_Rollout_Decision_And_Risk_Handoff. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005024_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control.md | 005024_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005025_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance.md | 005025_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005026_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md | 005026_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005030_Readme_Stage_0.md | 005030_Readme_Stage_0. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005040_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md | 005040_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005050_Policy_Stage_0B_Send_To_Store_Request_Flow.md | 005050_Policy_Stage_0B_Send_To_Store_Request_Flow. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005010_customer_handoff_flow\005060_Readme_Reservation_Preorder_Governance.md | 005060_Readme_Reservation_Preorder_Governance. | active |
 
 ## 17 docs/005000_customer_handoff_and_implementation_readiness/005100_implementation_readiness_and_provider_verification
 
-| file path | purpose | current status |
+| Path | Title | Status |
 | --- | --- | --- |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005100_Implementation_Readiness_And_Provider_Verification_Readme.md | 005100_Implementation_Readiness_And_Provider_Verification_Readme. | initial |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005105_Plan_10807_Root_File_Rename_And_Move.md | 005105_Plan_10807_Root_File_Rename_And_Move. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 005110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md | 005111_Implementation_Readiness_Backlog_And_Test_Execution_Planning. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md | 005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005100_Readme_Implementation_Readiness_And_Provider_Verification.md | 005100_Readme_Implementation_Readiness_And_Provider_Verification. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005111_Policy_Implementation_Readiness_Backlog_And_Test_Execution_Planning.md | 005111_Policy_Implementation_Readiness_Backlog_And_Test_Execution_Planning. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md | 005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 005130_Evidence_Packet_Template_And_Test_Result_Recording_Policy. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005131_Evidence_Packet_Template_And_Test_Result_Recording.md | 005131_Evidence_Packet_Template_And_Test_Result_Recording. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md | 005140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md | 005141_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md | 005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md | 005151_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md | 005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md | 005161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005170_Policy_PAYCO_POS_Verification.md | 005170_Policy_PAYCO_POS_Verification. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005180_Policy_Provider_Priority_Openness.md | 005180_Policy_Provider_Priority_Openness. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md | 005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005100_implementation_readiness_and_provider_verification\005191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md | 005191_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral. | active |
 
 ## 18 docs/005000_customer_handoff_and_implementation_readiness/005200_pos_payment_provider_and_kiosk_reuse
 
-| file path | purpose | current status |
+| Path | Title | Status |
 | --- | --- | --- |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md | 005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse. | initial |
+| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md | 005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md | 005201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md | 005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md | 005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md | 005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md | 005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md | 005221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md | 005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md | 005231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md | 005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md | 005241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel. | active |
-| docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md | 005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping. | active |
 | docs\005000_customer_handoff_and_implementation_readiness\005200_pos_payment_provider_and_kiosk_reuse\005251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md | 005251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping. | active |
 
-## 19 docs/007000_admin_console
+## 19 docs/005000_customer_handoff_and_implementation_readiness/005400_pos_waiting_entry_sync
 
-| file path | purpose | current status |
+| Path | Title | Status |
 | --- | --- | --- |
-| docs\007000_admin_console\007000_Readme_Admin_Console.md | 007000_Readme_Admin_Console. | initial |
-| docs\007000_admin_console\007010_Admin_Console_Context_And_Role_Model.md | 007010_Admin_Console_Context_And_Role_Model. | active |
-| docs\007000_admin_console\007020_Admin_Store_Runtime_Configuration_Model.md | 007020_Admin_Store_Runtime_Configuration_Model. | active |
-| docs\007000_admin_console\007030_Admin_Operational_Monitoring_And_Recovery_Model.md | 007030_Admin_Operational_Monitoring_And_Recovery_Model. | active |
-| docs\007000_admin_console\007040_Admin_Screen_Inventory_And_Navigation_Model.md | 007040_Admin_Screen_Inventory_And_Navigation_Model. | active |
-| docs\007000_admin_console\007050_Admin_Approval_Workflow_Model.md | 007050_Admin_Approval_Workflow_Model. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005400_pos_waiting_entry_sync\005400_Readme_POS_Waiting_Entry_Sync.md | 005400_Readme_POS_Waiting_Entry_Sync. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\005400_pos_waiting_entry_sync\005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md | 005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync. | active |
+
+## 20 docs/005000_customer_handoff_and_implementation_readiness/006400_store_runtime_workpackage_control
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\005000_customer_handoff_and_implementation_readiness\006400_store_runtime_workpackage_control\006400_Readme_Store_Runtime_WorkPackage_Control.md | 006400_Readme_Store_Runtime_WorkPackage_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006400_store_runtime_workpackage_control\006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md | 006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006400_store_runtime_workpackage_control\006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md | 006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006400_store_runtime_workpackage_control\006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md | 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control. | active |
+
+## 21 docs/005000_customer_handoff_and_implementation_readiness/006500_entrance_customer_runtime_boundary
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\005000_customer_handoff_and_implementation_readiness\006500_entrance_customer_runtime_boundary\006500_Readme_Entrance_Customer_Runtime_Boundary.md | 006500_Readme_Entrance_Customer_Runtime_Boundary. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006500_entrance_customer_runtime_boundary\006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md | 006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006500_entrance_customer_runtime_boundary\006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md | 006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006500_entrance_customer_runtime_boundary\006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control.md | 006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006500_entrance_customer_runtime_boundary\006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md | 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance. | active |
+
+## 22 docs/005000_customer_handoff_and_implementation_readiness/006600_customer_runtime_evidence_handoff
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\005000_customer_handoff_and_implementation_readiness\006600_customer_runtime_evidence_handoff\006600_Readme_Customer_Runtime_Evidence_Handoff.md | 006600_Readme_Customer_Runtime_Evidence_Handoff. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006600_customer_runtime_evidence_handoff\006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md | 006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff. | active |
+
+## 23 docs/005000_customer_handoff_and_implementation_readiness/006700_customer_runtime_display_control
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006700_Readme_Customer_Runtime_Display_Control.md | 006700_Readme_Customer_Runtime_Display_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md | 006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md | 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md | 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix.md | 006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template.md | 006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance.md | 006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff.md | 006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record.md | 006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control.md | 006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance.md | 006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec.md | 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec.md | 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md | 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md | 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md | 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check.md | 006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md | 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md | 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec.md | 006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec. | active |
+| docs\005000_customer_handoff_and_implementation_readiness\006700_customer_runtime_display_control\006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec.md | 006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec. | active |
+
+## 24 docs/_migration_history/005000_customer_handoff_and_implementation_readiness_duplicate_review
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005105_Plan_10807_Root_File_Rename_And_Move.md | 005105_Plan_10807_Root_File_Rename_And_Move. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff.md | 005106_Policy_Test_Catalog_Lane_Index_Readiness_Check_And_Evidence_Handoff. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy.md | 005110_Implementation_Readiness_Backlog_And_Test_Execution_Planning_Policy. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md | 005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005130_Evidence_Packet_Template_And_Test_Result_Recording_Policy.md | 005130_Evidence_Packet_Template_And_Test_Result_Recording_Policy. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance.md | 005140_Policy_Blocker_Register_Waiver_Deferred_Scope_And_Risk_Acceptance. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence.md | 005150_Policy_Toss_POS_Official_Verification_Checklist_And_Integration_Evidence. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md | 005160_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005170_Policy_PAYCO_POS_Verification.md | 005170_Policy_PAYCO_POS_Verification. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005180_Policy_Provider_Priority_Openness.md | 005180_Policy_Provider_Priority_Openness. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral.md | 005190_Policy_MVP_Provider_Cutline_And_Phase_2_POS_Expansion_Deferral. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md | 005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md | 005210_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md | 005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md | 005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md | 005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md | 005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping. | migration-history |
+| docs\_migration_history\005000_customer_handoff_and_implementation_readiness_duplicate_review\006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md | 006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary. | migration-history |
+
+## 25 docs/007000_admin_console
+
+| Path | Title | Status |
+| --- | --- | --- |
+| docs\007000_admin_console\007000_Readme_Admin_Console.md | 007000_Readme_Admin_Console. | active |
+| docs\007000_admin_console\007010_Policy_Admin_Console_Context_And_Role_Model.md | 007010_Policy_Admin_Console_Context_And_Role_Model. | active |
+| docs\007000_admin_console\007020_Policy_Admin_Store_Runtime_Configuration_Model.md | 007020_Policy_Admin_Store_Runtime_Configuration_Model. | active |
+| docs\007000_admin_console\007030_Policy_Admin_Operational_Monitoring_And_Recovery_Model.md | 007030_Policy_Admin_Operational_Monitoring_And_Recovery_Model. | active |
+| docs\007000_admin_console\007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md | 007040_Policy_Admin_Screen_Inventory_And_Navigation_Model. | active |
+| docs\007000_admin_console\007050_Policy_Admin_Approval_Workflow_Model.md | 007050_Policy_Admin_Approval_Workflow_Model. | active |
 | docs\007000_admin_console\007060_Governance_Admin_Audit_And_Recovery_Queue.md | 007060_Governance_Admin_Audit_And_Recovery_Queue. | active |
-| docs\007000_admin_console\007070_Admin_Context_Navigation_And_Scope_Model.md | 007070_Admin_Context_Navigation_And_Scope_Model. | active |
+| docs\007000_admin_console\007070_Policy_Admin_Context_Navigation_And_Scope_Model.md | 007070_Policy_Admin_Context_Navigation_And_Scope_Model. | active |
 | docs\007000_admin_console\007080_Governance_Admin_Runtime_Profile_Configuration.md | 007080_Governance_Admin_Runtime_Profile_Configuration. | active |
-| docs\007000_admin_console\007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md | 007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model. | active |
-| docs\007000_admin_console\007100_Admin_Audit_Review_And_Change_History_Model.md | 007100_Admin_Audit_Review_And_Change_History_Model. | active |
+| docs\007000_admin_console\007090_Policy_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md | 007090_Policy_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model. | active |
+| docs\007000_admin_console\007100_Policy_Admin_Audit_Review_And_Change_History_Model.md | 007100_Policy_Admin_Audit_Review_And_Change_History_Model. | active |
 | docs\007000_admin_console\007110_Boundary_Admin_Support_And_BreakGlass.md | 007110_Boundary_Admin_Support_And_BreakGlass. | active |
 
-## 20 docs/008000_ai_customer_center
+## 26 docs/008000_ai_customer_center
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\008000_ai_customer_center\008000_Readme_AI_Customer_Center.md | 008000_Readme_AI_Customer_Center. | initial |
-| docs\008000_ai_customer_center\008001_AI_Customer_Center_Foundation.md | 008001_AI_Customer_Center_Foundation. | active |
-| docs\008000_ai_customer_center\008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md | 008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution. | active |
-| docs\008000_ai_customer_center\008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary.md | 008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary. | active |
-| docs\008000_ai_customer_center\008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence.md | 008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence. | active |
-| docs\008000_ai_customer_center\008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment.md | 008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment. | active |
-| docs\008000_ai_customer_center\008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention.md | 008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention. | active |
-| docs\008000_ai_customer_center\008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization.md | 008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization. | active |
-| docs\008000_ai_customer_center\008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence.md | 008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence. | active |
-| docs\008000_ai_customer_center\008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response.md | 008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response. | active |
-| docs\008000_ai_customer_center\008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary.md | 008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary. | active |
-| docs\008000_ai_customer_center\008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md | 008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff. | active |
-| docs\008000_ai_customer_center\008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md | 008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff. | active |
-| docs\008000_ai_customer_center\008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway.md | 008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway. | active |
-| docs\008000_ai_customer_center\008300_Boundary_AI_Response.md | 008300_Boundary_AI_Response. | active |
-| docs\008000_ai_customer_center\008400_CatchMenu_Troubleshooting_Foundation.md | 008400_CatchMenu_Troubleshooting_Foundation. | active |
-| docs\008000_ai_customer_center\008500_Evidence_Packet_Foundation.md | 008500_Evidence_Packet_Foundation. | active |
-| docs\008000_ai_customer_center\008600_Support_Server_Strategy.md | 008600_Support_Server_Strategy. | active |
-| docs\008000_ai_customer_center\008700_Scale_Out_Strategy.md | 008700_Scale_Out_Strategy. | active |
-| docs\008000_ai_customer_center\008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access.md | 008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access. | active |
+| docs\008000_ai_customer_center\008000_Readme_AI_Customer_Center.md | Defines the AI Customer Center folder boundary, owned number range, and active document roles. | active |
+| docs\008000_ai_customer_center\008001_Overview_AI_Customer_Center_Foundation.md | Defines the foundation and separation between CatchMenu operational runtime and the AI customer center support intelligence layer. | active |
+| docs\008000_ai_customer_center\008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md | Indexes high-risk store operation edge cases and the governing constitution for support-safe handling. | active |
+| docs\008000_ai_customer_center\008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary.md | Defines adult verification and legal sale boundaries for alcohol-related customer support scenarios. | active |
+| docs\008000_ai_customer_center\008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence.md | Defines identity, privacy, CI/DI, and verification evidence requirements for alcohol order support. | active |
+| docs\008000_ai_customer_center\008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment.md | Defines table-session alcohol add-on, partial settlement, and mid-meal payment support boundaries. | active |
+| docs\008000_ai_customer_center\008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention.md | Defines customer mistake, misoperation, intoxication, confirmation, and staff intervention handling boundaries. | active |
+| docs\008000_ai_customer_center\008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization.md | Defines night operation and delivery-platform concurrent order synchronization support boundaries. | active |
+| docs\008000_ai_customer_center\008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence.md | Defines alcohol payment, refund, dispute, chargeback, and recovery evidence requirements. | active |
+| docs\008000_ai_customer_center\008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response.md | Defines minor-access prevention, verification failure, and incident response support rules. | active |
+| docs\008000_ai_customer_center\008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary.md | Defines night safety, staff escalation, abuse prevention, and store closure support boundaries. | active |
+| docs\008000_ai_customer_center\008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md | Defines CatchMenu support signal generation and case handoff boundaries for AI-assisted support. | active |
+| docs\008000_ai_customer_center\008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md | Defines readiness and cross-runtime handoff checks for high-risk store operation support. | active |
+| docs\008000_ai_customer_center\008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway.md | Defines pgvector knowledge retrieval and support gateway access boundaries for AI support. | active |
+| docs\008000_ai_customer_center\008300_Boundary_AI_Response.md | Defines AI response boundaries, unsupported-answer limits, and customer-safe response constraints. | active |
+| docs\008000_ai_customer_center\008400_Guide_CatchMenu_Troubleshooting_Foundation.md | Guides troubleshooting classification, source order, escalation, and evidence use for CatchMenu support. | active |
+| docs\008000_ai_customer_center\008500_Evidence_Packet_Foundation.md | Defines evidence packet foundations for support review and AI-assisted case explanation. | active |
+| docs\008000_ai_customer_center\008600_Plan_Support_Server_Strategy.md | Plans support server separation, gateway access, and database separation for future AI customer center operation. | active |
+| docs\008000_ai_customer_center\008700_Plan_Scale_Out_Strategy.md | Plans scale-out layers for knowledge retrieval, support signals, evidence packets, support views, and limited runtime reads. | active |
+| docs\008000_ai_customer_center\008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access.md | Defines AI gateway runtime query and cross-project access rules for support-safe integration. | active |
 
-## 21 docs/009000_data_model_state_machine
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\009000_data_model_state_machine\009000_Readme_Data_Model_State_Machine.md | 009000_Readme_Data_Model_State_Machine. | initial |
-| docs\009000_data_model_state_machine\009010_Data_Model_Draft.md | 009010_Data_Model_Draft. | active |
-| docs\009000_data_model_state_machine\009020_Handoff_State_Machine.md | 009020_Handoff_State_Machine. | active |
-| docs\009000_data_model_state_machine\009030_Conceptual_Entity_Master.md | 009030_Conceptual_Entity_Master. | active |
-| docs\009000_data_model_state_machine\009040_State_And_Event_Ownership_Model.md | 009040_State_And_Event_Ownership_Model. | active |
-| docs\009000_data_model_state_machine\009050_Audit_Recovery_Event_Lineage_Model.md | 009050_Audit_Recovery_Event_Lineage_Model. | active |
-| docs\009000_data_model_state_machine\009060_Implementation_Deferred_Data_Model_Boundary.md | 009060_Implementation_Deferred_Data_Model_Boundary. | active |
-| docs\009000_data_model_state_machine\009070_Context_Entity_Alignment_Model.md | 009070_Context_Entity_Alignment_Model. | active |
-| docs\009000_data_model_state_machine\009080_Runtime_Profile_And_Change_Request_Entity_Model.md | 009080_Runtime_Profile_And_Change_Request_Entity_Model. | active |
-| docs\009000_data_model_state_machine\009090_Order_Candidate_And_Confirmation_State_Refinement.md | 009090_Order_Candidate_And_Confirmation_State_Refinement. | active |
-| docs\009000_data_model_state_machine\009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md | 009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate. | active |
-| docs\009000_data_model_state_machine\009100_Admin_Support_Audit_Entity_Lineage_Model.md | 009100_Admin_Support_Audit_Entity_Lineage_Model. | active |
-| docs\009000_data_model_state_machine\009110_Boundary_Future_Profile_And_Analytics_State.md | 009110_Boundary_Future_Profile_And_Analytics_State. | active |
-
-## 22 docs/010000_runtime_foundation_and_cross_room_architecture
+## 27 docs/009000_data_model_state_machine
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md | 010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md | 010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification. | active |
+| docs\009000_data_model_state_machine\009000_Readme_Data_Model_State_Machine.md | Defines the data model/state machine folder boundary, owned number range, and active document roles. | active |
+| docs\009000_data_model_state_machine\009010_Overview_Data_Model_Draft.md | Provides the conceptual data model draft for tenant, store, session, waiting, handoff, order, and audit domains. | active |
+| docs\009000_data_model_state_machine\009020_Spec_Handoff_State_Machine.md | Specifies the conceptual handoff state machine and state ownership principles without implementation approval. | active |
+| docs\009000_data_model_state_machine\009030_Register_Conceptual_Entity_Master.md | Registers conceptual entity candidates and relationships before physical schema design. | active |
+| docs\009000_data_model_state_machine\009040_Policy_State_And_Event_Ownership_Model.md | Defines state and event ownership rules across customer, store, POS, payment, audit, and future intelligence truth families. | active |
+| docs\009000_data_model_state_machine\009050_Audit_Recovery_Event_Lineage_Model.md | Defines append-only audit and recovery lineage rules for correction, rollback, support, and retry events. | active |
+| docs\009000_data_model_state_machine\009060_Boundary_Implementation_Deferred_Data_Model.md | Defines the boundary that keeps conceptual data modeling separate from SQL, schema, RPC, and runtime implementation. | active |
+| docs\009000_data_model_state_machine\009070_Matrix_Context_Entity_Alignment_Model.md | Maps context entities such as tenant, company, legal entity, operating group, store, admin, support, and audit contexts. | active |
+| docs\009000_data_model_state_machine\009080_Spec_Runtime_Profile_And_Change_Request_Entity_Model.md | Specifies conceptual runtime profile, feature flag, integration profile, and change request entity families. | active |
+| docs\009000_data_model_state_machine\009090_Spec_Order_Candidate_And_Confirmation_State_Refinement.md | Specifies order candidate, staff confirmation, print, POS attempt, and payment state refinement boundaries. | active |
+| docs\009000_data_model_state_machine\009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md | Defines cross-range closure readiness and next documentation phase gate policy. | active |
+| docs\009000_data_model_state_machine\009100_Audit_Admin_Support_Entity_Lineage_Model.md | Defines admin/support audit entity lineage for context switches, approvals, emergency disable, rollback, and support sessions. | active |
+| docs\009000_data_model_state_machine\009110_Boundary_Future_Profile_And_Analytics_State.md | Defines future profile and analytics state boundaries that must not become active MVP runtime by accident. | active |
 
-## 23 docs/010000_runtime_foundation_and_cross_room_architecture/010010_foundation_static_catalog_package
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010000_Readme_Foundation_Static_Catalog_Package.md | 010000_Readme_Foundation_Static_Catalog_Package. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010005_Plan_10712_Root_File_Rename_And_Move.md | 010005_Plan_10712_Root_File_Rename_And_Move. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010006_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral.md | 010006_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md | 010010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010020_Policy_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle.md | 010020_Policy_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010030_Policy_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture.md | 010030_Policy_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010040_Policy_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly.md | 010040_Policy_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010041_Policy_Windows_Installer_Option_Package_And_Local_Runtime_Configuration.md | 010041_Policy_Windows_Installer_Option_Package_And_Local_Runtime_Configuration. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010042_Policy_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode.md | 010042_Policy_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010043_Policy_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path.md | 010043_Policy_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010044_Policy_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion.md | 010044_Policy_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010045_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md | 010045_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010046_Policy_Surface_Evolution_Roadmap_And_Product_Line_Continuity.md | 010046_Policy_Surface_Evolution_Roadmap_And_Product_Line_Continuity. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md | 010047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md | 010048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md | 010049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010050_Policy_Product_Line_Static_Registry_Closure_And_Coding_Deferral.md | 010050_Policy_Product_Line_Static_Registry_Closure_And_Coding_Deferral. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md | 010051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010052_Policy_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff.md | 010052_Policy_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010053_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet.md | 010053_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010054_Policy_Catch_Menu_Static_Target_Map.md | 010054_Policy_Catch_Menu_Static_Target_Map. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010055_Policy_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft.md | 010055_Policy_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010056_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate.md | 010056_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010010_foundation_static_catalog_package\010057_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral.md | 010057_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral. | active |
-
-## 24 docs/010000_runtime_foundation_and_cross_room_architecture/010020_static_catalog_runtime_planning
+## 28 docs/010000_runtime_foundation_and_cross_room_architecture
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md | 009660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009670_Policy_Catch_Menu_Customer_Surface_Projection_And_I18n_Naming.md | 009670_Policy_Catch_Menu_Customer_Surface_Projection_And_I18n_Naming. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review.md | 009680_Policy_Provider_Evidence_Collection_Template_And_Capability_Review. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch.md | 009690_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009700_Policy_Controlled_Non_Runtime_Catalog_Schema_Planning.md | 009700_Policy_Controlled_Non_Runtime_Catalog_Schema_Planning. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009710_Policy_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package.md | 009710_Policy_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009720_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet.md | 009720_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix.md | 009730_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009740_Policy_I18n_Message_Key_Registry_And_Customer_Visible_Text_Review.md | 009740_Policy_I18n_Message_Key_Registry_And_Customer_Visible_Text_Review. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009750_Policy_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping.md | 009750_Policy_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009760_Policy_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping.md | 009760_Policy_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping.md | 009770_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary.md | 009780_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control.md | 009790_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet.md | 009800_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009810_Policy_Value_Recovery_Reconciliation_And_Partial_Execution_Closure.md | 009810_Policy_Value_Recovery_Reconciliation_And_Partial_Execution_Closure. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009820_Policy_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice.md | 009820_Policy_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009830_Policy_Non_Reversible_Value_Action_And_Preventive_Control_Escalation.md | 009830_Policy_Non_Reversible_Value_Action_And_Preventive_Control_Escalation. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009840_Policy_High_Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md | 009840_Policy_High_Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009850_Policy_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control.md | 009850_Policy_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention.md | 009860_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009870_Policy_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff.md | 009870_Policy_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009880_Boundary_Incident_Learning_Test_Matrix_Update_And_Policy_Patch_Handoff.md | 009880_Boundary_Incident_Learning_Test_Matrix_Update_And_Policy_Patch_Handoff. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009890_Policy_Post_Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md | 009890_Policy_Post_Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md | 009900_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009910_Policy_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft.md | 009910_Policy_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009920_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping.md | 009920_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md | 009930_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009940_Policy_I18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review.md | 009940_Policy_I18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009950_Policy_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface.md | 009950_Policy_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009960_Policy_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State.md | 009960_Policy_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md | 009970_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009980_Policy_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping.md | 009980_Policy_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\009990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md | 009990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010020_static_catalog_runtime_planning\010000_Readme_Static_Catalog_Runtime_Planning.md | 010000_Readme_Static_Catalog_Runtime_Planning. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md | Readme for Runtime Foundation And Cross Room Architecture. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md | Policy for SaaS Tenant Isolation And Cross Tenant Data Containment Beam. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md | Report for Runtime Foundation Wave 3A Preapply Verification. | active |
 
-## 25 docs/010000_runtime_foundation_and_cross_room_architecture/010000_store_runtime_room_framing
+## 29 docs/010000_runtime_foundation_and_cross_room_architecture/010010_store_runtime_room_framing
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010000_Readme_Store_Runtime_Room_Framing.md | 010000_Readme_Store_Runtime_Room_Framing. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010141_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md | 010141_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md | 010200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010210_Policy_Order_Intake_Room_Boundary.md | 010210_Policy_Order_Intake_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010220_Policy_Order_Validation_Room_Boundary.md | 010220_Policy_Order_Validation_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010230_Policy_POS_Handoff_Room_Boundary.md | 010230_Policy_POS_Handoff_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010240_Policy_KDS_Ticket_Room_Boundary.md | 010240_Policy_KDS_Ticket_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010250_Policy_Kitchen_Execution_Room_Boundary.md | 010250_Policy_Kitchen_Execution_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010260_Policy_Staff_Assist_Room_Boundary.md | 010260_Policy_Staff_Assist_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010270_Policy_Device_Runtime_Room_Boundary.md | 010270_Policy_Device_Runtime_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010280_Policy_Printer_Peripheral_Room_Boundary.md | 010280_Policy_Printer_Peripheral_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010290_Policy_Degraded_Operation_Room_Boundary.md | 010290_Policy_Degraded_Operation_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010300_Policy_Manual_Fallback_Room_Boundary.md | 010300_Policy_Manual_Fallback_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010310_Policy_Store_Incident_Room_Boundary.md | 010310_Policy_Store_Incident_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010320_Policy_Operational_Evidence_Room_Boundary.md | 010320_Policy_Operational_Evidence_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010330_Policy_Fulfillment_Visibility_Room_Boundary.md | 010330_Policy_Fulfillment_Visibility_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010340_Policy_Store_Recovery_Route_Room_Boundary.md | 010340_Policy_Store_Recovery_Route_Room_Boundary. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010000_store_runtime_room_framing\010350_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md | 010350_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010010_Readme_Store_Runtime_Room_Framing.md | Readme for Store Runtime Room Framing. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010020_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md | Index for Store Room Framing And Runtime Domain Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010030_Policy_Order_Intake_Room_Boundary.md | Policy for Order Intake Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010035_Policy_Order_Validation_Room_Boundary.md | Policy for Order Validation Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010040_Policy_POS_Handoff_Room_Boundary.md | Policy for POS Handoff Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010045_Policy_KDS_Ticket_Room_Boundary.md | Policy for KDS Ticket Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010050_Policy_Kitchen_Execution_Room_Boundary.md | Policy for Kitchen Execution Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010055_Policy_Staff_Assist_Room_Boundary.md | Policy for Staff Assist Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010060_Policy_Device_Runtime_Room_Boundary.md | Policy for Device Runtime Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010065_Policy_Printer_Peripheral_Room_Boundary.md | Policy for Printer Peripheral Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010070_Policy_Degraded_Operation_Room_Boundary.md | Policy for Degraded Operation Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010075_Policy_Manual_Fallback_Room_Boundary.md | Policy for Manual Fallback Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010080_Policy_Store_Incident_Room_Boundary.md | Policy for Store Incident Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010085_Policy_Operational_Evidence_Room_Boundary.md | Policy for Operational Evidence Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010090_Policy_Fulfillment_Visibility_Room_Boundary.md | Policy for Fulfillment Visibility Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010095_Policy_Store_Recovery_Route_Room_Boundary.md | Policy for Store Recovery Route Room Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010010_store_runtime_room_framing\010099_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md | Policy for Store Runtime Room Framing Closure And Next Axis Handoff. | active |
 
-## 26 docs/010000_runtime_foundation_and_cross_room_architecture/010100_four_side_platform_skeleton
+## 30 docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010100_Readme_Four_Side_Platform_Skeleton.md | 010100_Readme_Four_Side_Platform_Skeleton. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md | 010105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010110_Policy_Store_Runtime_POS_KDS_Kitchen_Execution_Skeleton.md | 010110_Policy_Store_Runtime_POS_KDS_Kitchen_Execution_Skeleton. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010120_Policy_Payment_Settlement_Refund_Wallet_Financial_Trust_Skeleton.md | 010120_Policy_Payment_Settlement_Refund_Wallet_Financial_Trust_Skeleton. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010130_Policy_CMS_i18n_AI_pgvector_Data_Governance_Skeleton.md | 010130_Policy_CMS_i18n_AI_pgvector_Data_Governance_Skeleton. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010140_Policy_Cross_Axis_Authority_Evidence_Audit_And_Fallback_Beam.md | 010140_Policy_Cross_Axis_Authority_Evidence_Audit_And_Fallback_Beam. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010100_four_side_platform_skeleton\010150_Policy_Four_Side_Skeleton_Closure_And_Runtime_Deferral.md | 010150_Policy_Four_Side_Skeleton_Closure_And_Runtime_Deferral. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010100_Readme_Foundation_Static_Catalog_Package.md | Readme for Foundation Static Catalog Package. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010105_Plan_10712_Root_File_Rename_And_Move.md | Plan for 10712 Root File Rename And Move. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010106_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral.md | Policy for Foundation Static Catalog Package Closure Runtime Entry Deferral. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010110_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md | Policy for Explicit Static Catalog Coding Authorization Packet Template And Approval Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010120_Policy_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle.md | Policy for Modular SaaS Core And Future Kiosk Reuse Principle. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010130_Policy_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture.md | Policy for Domain Object Core Use Case API And Safe Projection Architecture. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010140_Policy_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly.md | Policy for Domain Capability Control Plane And Runtime Feature Assembly. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010141_Policy_Windows_Installer_Option_Package_And_Local_Runtime_Configuration.md | Policy for Windows Installer Option Package And Local Runtime Configuration. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010142_Policy_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode.md | Policy for Android Device Provisioning Runtime Configuration And Kiosk Mode. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010143_Policy_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path.md | Policy for Catch Menu Mini Kiosk Admin Surface Reuse And Franchise OS Upgrade Path. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010144_Policy_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion.md | Policy for Mini Kiosk To Full Kiosk CMS Payment And Device Expansion. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010145_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md | Policy for Franchise OS Capability Inheritance And Tenant Store Assembly. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010146_Policy_Surface_Evolution_Roadmap_And_Product_Line_Continuity.md | Policy for Surface Evolution Roadmap And Product Line Continuity. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010147_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md | Policy for Product Line Capability Matrix And Surface Reuse Registry. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010148_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md | Boundary for SaaS Packaging Pricing Boundary And Feature Entitlement. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010149_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md | Policy for Product Line Runtime Entry Candidate And Implementation Priority. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010150_Policy_Product_Line_Static_Registry_Closure_And_Coding_Deferral.md | Policy for Product Line Static Registry Closure And Coding Deferral. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010151_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md | Policy for First Implementation Candidate Selection Catch Menu And Mini Kiosk Foundation. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010152_Policy_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff.md | Policy for Admin Surface Reuse Candidate And Franchise OS Future Handoff. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010153_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet.md | Policy for Catch Menu Mini Kiosk Foundation Static Specification Packet. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010154_Policy_Catch_Menu_Static_Target_Map.md | Policy for Catch Menu Static Target Map. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010155_Policy_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft.md | Policy for Catch Menu Mini Kiosk Foundation Explicit Static Coding Authorization Packet Draft. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010156_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate.md | Policy for Static Artifact Authorization Readiness Review And User Approval Gate. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010100_foundation_static_catalog_package\010157_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral.md | Policy for Catch Menu Mini Kiosk Foundation Static Authorization Closure And Next Step Deferral. | active |
 
-## 27 docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room
+## 31 docs/010000_runtime_foundation_and_cross_room_architecture/010200_static_catalog_runtime_planning
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010200_Readme_Static_Catalog_Runtime_Planning.md | Readme for Static Catalog Runtime Planning. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010201_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md | Boundary for Catch And Order SaaS Runtime Boundary And Module Naming. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010202_Policy_Catch_Menu_Customer_Surface_Projection_And_I18n_Naming.md | Policy for Catch Menu Customer Surface Projection And I18n Naming. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010203_Policy_Provider_Evidence_Collection_Template_And_Capability_Review.md | Policy for Provider Evidence Collection Template And Capability Review. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010204_Policy_Security_Monitoring_Foundation_README_Insert_And_Index_Patch.md | Index for Security Monitoring Foundation README Insert And Index Patch. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010205_Policy_Controlled_Non_Runtime_Catalog_Schema_Planning.md | Policy for Controlled Non Runtime Catalog Schema Planning. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010206_Policy_Controlled_Catalog_Registry_Handoff_And_Static_Reference_Package.md | Policy for Controlled Catalog Registry Handoff And Static Reference Package. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010207_Boundary_Test_Matrix_Artifact_Planning_And_Review_Packet.md | Boundary for Test Matrix Artifact Planning And Review Packet. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010208_Policy_Provider_Evidence_Review_Packet_And_Capability_Acceptance_Matrix.md | Policy for Provider Evidence Review Packet And Capability Acceptance Matrix. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010209_Policy_I18n_Message_Key_Registry_And_Customer_Visible_Text_Review.md | Policy for I18n Message Key Registry And Customer Visible Text Review. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010210_Policy_Catch_And_Order_Status_Message_Catalog_And_Customer_Safe_State_Mapping.md | Policy for Catch And Order Status Message Catalog And Customer Safe State Mapping. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010211_Policy_Catch_Menu_Status_Surface_And_Order_Handoff_Message_Mapping.md | Policy for Catch Menu Status Surface And Order Handoff Message Mapping. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010212_Policy_Support_Admin_Visible_Message_Boundary_And_Review_Surface_Mapping.md | Boundary for Support Admin Visible Message Boundary And Review Surface Mapping. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010213_Policy_Customer_Recovery_Message_Catalog_And_Compensation_Review_Boundary.md | Policy for Customer Recovery Message Catalog And Compensation Review Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010214_Policy_Compensation_Review_Authority_Matrix_And_Value_Recovery_Control.md | Policy for Compensation Review Authority Matrix And Value Recovery Control. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010215_Policy_Value_Recovery_Evidence_Audit_And_Idempotency_Review_Packet.md | Audit for Value Recovery Evidence Audit And Idempotency Review Packet. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010216_Policy_Value_Recovery_Reconciliation_And_Partial_Execution_Closure.md | Policy for Value Recovery Reconciliation And Partial Execution Closure. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010217_Policy_Value_Recovery_Rollback_Reversal_And_Customer_Correction_Notice.md | Policy for Value Recovery Rollback Reversal And Customer Correction Notice. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010218_Policy_Non_Reversible_Value_Action_And_Preventive_Control_Escalation.md | Policy for Non Reversible Value Action And Preventive Control Escalation. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010219_Policy_High_Risk_Compensation_Escalation_And_Franchise_Policy_Inheritance_Boundary.md | Policy for High Risk Compensation Escalation And Franchise Policy Inheritance Boundary. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010220_Policy_Mass_Recovery_Event_Grouping_And_Customer_Communication_Control.md | Policy for Mass Recovery Event Grouping And Customer Communication Control. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010221_Policy_Mass_Recovery_Root_Cause_Evidence_Packet_And_Recurrence_Prevention.md | Policy for Mass Recovery Root Cause Evidence Packet And Recurrence Prevention. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010222_Policy_Mass_Recovery_Closure_Decision_And_Incident_Learning_Handoff.md | Policy for Mass Recovery Closure Decision And Incident Learning Handoff. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010223_Boundary_Incident_Learning_Test_Matrix_Update_And_Policy_Patch_Handoff.md | Boundary for Incident Learning Test Matrix Update And Policy Patch Handoff. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010224_Policy_Post_Incident_Coding_Readiness_Review_And_Controlled_Implementation_Gate.md | Policy for Post Incident Coding Readiness Review And Controlled Implementation Gate. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010225_Policy_Controlled_Implementation_Candidate_Template_And_First_Package_Selection.md | Policy for Controlled Implementation Candidate Template And First Package Selection. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010226_Policy_Static_Security_Monitoring_Catalog_Registry_Handoff_And_Coding_Authorization_Draft.md | Policy for Static Security Monitoring Catalog Registry Handoff And Coding Authorization Draft. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010227_Boundary_Test_Matrix_Static_Package_Handoff_And_Validation_Mapping.md | Boundary for Test Matrix Static Package Handoff And Validation Mapping. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010228_Policy_Provider_Evidence_Registry_Static_Package_Handoff_And_Capability_Traceability.md | Policy for Provider Evidence Registry Static Package Handoff And Capability Traceability. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010229_Policy_I18n_Message_Key_Registry_Static_Package_Handoff_And_Locale_Review.md | Policy for I18n Message Key Registry Static Package Handoff And Locale Review. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010230_Policy_Catch_Menu_Status_Catalog_Static_Package_Handoff_And_Customer_Safe_Surface.md | Policy for Catch Menu Status Catalog Static Package Handoff And Customer Safe Surface. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010231_Policy_Catch_And_Order_Status_Catalog_Static_Package_Handoff_And_Order_Handoff_Safe_State.md | Policy for Catch And Order Status Catalog Static Package Handoff And Order Handoff Safe State. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010232_Policy_Support_Admin_Boundary_Catalog_Static_Package_Handoff_And_Review_Surface.md | Boundary for Support Admin Boundary Catalog Static Package Handoff And Review Surface. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010233_Policy_Recovery_Compensation_Catalog_Static_Package_Handoff_And_Value_Authority_Mapping.md | Policy for Recovery Compensation Catalog Static Package Handoff And Value Authority Mapping. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010200_static_catalog_runtime_planning\010234_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md | Policy for AI pgvector Governance Catalog Static Package Handoff And Non Authority Boundary. | active |
+
+## 32 docs/010000_runtime_foundation_and_cross_room_architecture/010300_four_side_platform_skeleton
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010300_Readme_Four_Side_Platform_Skeleton.md | Readme for Four Side Platform Skeleton. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010305_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md | Policy for Four Side Platform Skeleton Cross Axis Construction. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010310_Policy_Store_Runtime_POS_KDS_Kitchen_Execution_Skeleton.md | Policy for Store Runtime POS KDS Kitchen Execution Skeleton. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010320_Policy_Payment_Settlement_Refund_Wallet_Financial_Trust_Skeleton.md | Policy for Payment Settlement Refund Wallet Financial Trust Skeleton. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010330_Policy_CMS_i18n_AI_pgvector_Data_Governance_Skeleton.md | Policy for CMS i18n AI pgvector Data Governance Skeleton. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010340_Policy_Cross_Axis_Authority_Evidence_Audit_And_Fallback_Beam.md | Audit for Cross Axis Authority Evidence Audit And Fallback Beam. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010300_four_side_platform_skeleton\010350_Policy_Four_Side_Skeleton_Closure_And_Runtime_Deferral.md | Policy for Four Side Skeleton Closure And Runtime Deferral. | active |
+
+## 33 docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -790,7 +867,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\010000_runtime_foundation_and_cross_room_architecture\010400_financial_trust_room\010470_Policy_Financial_Evidence_Audit_And_Export_Boundary.md | 010470_Policy_Financial_Evidence_Audit_And_Export_Boundary. | active |
 | docs\010000_runtime_foundation_and_cross_room_architecture\010400_financial_trust_room\010480_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff.md | 010480_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff. | active |
 
-## 28 docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room
+## 34 docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -809,7 +886,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\010000_runtime_foundation_and_cross_room_architecture\010500_data_governance_room\010570_Policy_Retention_Export_And_Compliance_Data_Boundary.md | 010570_Policy_Retention_Export_And_Compliance_Data_Boundary. | active |
 | docs\010000_runtime_foundation_and_cross_room_architecture\010500_data_governance_room\010580_Policy_Data_Governance_Closure_And_Cross_Room_Handoff.md | 010580_Policy_Data_Governance_Closure_And_Cross_Room_Handoff. | active |
 
-## 29 docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation
+## 35 docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -836,7 +913,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\010000_runtime_foundation_and_cross_room_architecture\010600_cross_room_plumbing_wiring_insulation\010680_Audit_Correlation_Nightly_Batch.md | 010680_Audit_Correlation_Nightly_Batch. | active |
 | docs\010000_runtime_foundation_and_cross_room_architecture\010600_cross_room_plumbing_wiring_insulation\010690_Policy_Cross_Room_Plumbing_Closure.md | 010690_Policy_Cross_Room_Plumbing_Closure. | active |
 
-## 30 docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010609_financial_regulation_risk_expansion
+## 36 docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010609_financial_regulation_risk_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -858,7 +935,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\010000_runtime_foundation_and_cross_room_architecture\010600_cross_room_plumbing_wiring_insulation\010609_financial_regulation_risk_expansion\010624_Policy_Kitchen_IoT_Automation.md | 010624_Policy_Kitchen_IoT_Automation. | active |
 | docs\010000_runtime_foundation_and_cross_room_architecture\010600_cross_room_plumbing_wiring_insulation\010609_financial_regulation_risk_expansion\010625_Policy_Vision_AI_Store_Infrastructure.md | 010625_Policy_Vision_AI_Store_Infrastructure. | active |
 
-## 31 docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control
+## 37 docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -867,43 +944,43 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\010000_runtime_foundation_and_cross_room_architecture\010700_security_trust_and_smart_order_control\010702_Policy_Fast_Track_Store_Ops.md | 010702_Policy_Fast_Track_Store_Ops. | active |
 | docs\010000_runtime_foundation_and_cross_room_architecture\010700_security_trust_and_smart_order_control\010705_Index_Security_And_Trust_Foundation.md | 010705_Index_Security_And_Trust_Foundation. | active |
 
-## 32 docs/010000_runtime_foundation_and_cross_room_architecture/010720_legal_notice_sop_and_regulatory_control
+## 38 docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010720_Readme_Legal_Notice_SOP_And_Regulatory_Control.md | 010720_Readme_Legal_Notice_SOP_And_Regulatory_Control. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010721_Policy_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP.md | 010721_Policy_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010722_Policy_Refund_Cancellation_No_Show_Notice_And_Dispute_Evidence_SOP.md | 010722_Policy_Refund_Cancellation_No_Show_Notice_And_Dispute_Evidence_SOP. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010723_Policy_Legal_Notice_I18n_Review_And_Controlled_Translation.md | 010723_Policy_Legal_Notice_I18n_Review_And_Controlled_Translation. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010724_Policy_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock.md | 010724_Policy_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010725_Policy_Legal_Notice_Static_Seed_Review_And_Approval_Workflow.md | 010725_Policy_Legal_Notice_Static_Seed_Review_And_Approval_Workflow. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010726_Policy_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet.md | 010726_Policy_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010727_Policy_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control.md | 010727_Policy_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010728_Policy_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response.md | 010728_Policy_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010729_Policy_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral.md | 010729_Policy_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010730_Policy_Legal_Notice_Evidence_Packet_Static_Field_Map.md | 010730_Policy_Legal_Notice_Evidence_Packet_Static_Field_Map. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010731_Policy_Customer_Notice_Center_UX_Static_Surface_Index.md | 010731_Policy_Customer_Notice_Center_UX_Static_Surface_Index. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010732_Policy_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue.md | 010732_Policy_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010733_Policy_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review.md | 010733_Policy_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010734_Policy_Legal_Notice_Support_Playbook_And_Case_Reason_Code.md | 010734_Policy_Legal_Notice_Support_Playbook_And_Case_Reason_Code. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010735_Policy_Legal_Notice_Static_Registry_Readiness_Check.md | 010735_Policy_Legal_Notice_Static_Registry_Readiness_Check. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010720_legal_notice_sop_and_regulatory_control\010736_Policy_Legal_Notice_Implementation_Authorization_Draft.md | 010736_Policy_Legal_Notice_Implementation_Authorization_Draft. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md | Readme for Legal Notice SOP And Regulatory Control. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010801_Policy_Alcohol_Age_Gate_Legal_Notice_And_Staff_Verification_SOP.md | Policy for Alcohol Age Gate Legal Notice And Staff Verification SOP. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010802_Policy_Refund_Cancellation_No_Show_Notice_And_Dispute_Evidence_SOP.md | Policy for Refund Cancellation No Show Notice And Dispute Evidence SOP. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010803_Policy_Legal_Notice_I18n_Review_And_Controlled_Translation.md | Policy for Legal Notice I18n Review And Controlled Translation. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010804_Policy_Legal_Notice_Admin_Toggle_Permission_And_HQ_Lock.md | Policy for Legal Notice Admin Toggle Permission And HQ Lock. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010805_Policy_Legal_Notice_Static_Seed_Review_And_Approval_Workflow.md | Policy for Legal Notice Static Seed Review And Approval Workflow. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010806_Policy_Legal_Notice_Evidence_Export_Support_And_Dispute_Packet.md | Policy for Legal Notice Evidence Export Support And Dispute Packet. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010807_Policy_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control.md | Policy for Legal Notice Customer Display UX And Popup Fatigue Control. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010808_Policy_Legal_Notice_Emergency_Lock_And_Regulatory_Change_Response.md | Policy for Legal Notice Emergency Lock And Regulatory Change Response. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010809_Policy_Legal_Notice_Static_Registry_Closure_And_Runtime_Deferral.md | Policy for Legal Notice Static Registry Closure And Runtime Deferral. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010810_Policy_Legal_Notice_Evidence_Packet_Static_Field_Map.md | Policy for Legal Notice Evidence Packet Static Field Map. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010811_Policy_Customer_Notice_Center_UX_Static_Surface_Index.md | Policy for Customer Notice Center UX Static Surface Index. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010812_Policy_Regulatory_Change_Watchlist_And_Legal_Notice_Review_Queue.md | Policy for Regulatory Change Watchlist And Legal Notice Review Queue. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010813_Policy_Legal_Notice_Admin_Checklist_And_Store_Onboarding_Review.md | Policy for Legal Notice Admin Checklist And Store Onboarding Review. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010814_Policy_Legal_Notice_Support_Playbook_And_Case_Reason_Code.md | Policy for Legal Notice Support Playbook And Case Reason Code. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010815_Policy_Legal_Notice_Static_Registry_Readiness_Check.md | Policy for Legal Notice Static Registry Readiness Check. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010800_legal_notice_sop_and_regulatory_control\010816_Policy_Legal_Notice_Implementation_Authorization_Draft.md | Policy for Legal Notice Implementation Authorization Draft. | active |
 
-## 33 docs/010000_runtime_foundation_and_cross_room_architecture/010800_store_onboarding_and_sales_setup_axis
+## 39 docs/010000_runtime_foundation_and_cross_room_architecture/010900_store_onboarding_and_sales_setup_axis
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md | 010800_Readme_Store_Onboarding_And_Sales_Setup_Axis. | initial |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010801_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md | 010801_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010802_Policy_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export.md | 010802_Policy_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010803_Policy_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow.md | 010803_Policy_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010804_Policy_Menu_Category_Option_Set_Combo_Course_Review.md | 010804_Policy_Menu_Category_Option_Set_Combo_Course_Review. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010805_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff.md | 010805_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010806_Policy_Store_Service_Mode_Selection_And_Feature_Readiness.md | 010806_Policy_Store_Service_Mode_Selection_And_Feature_Readiness. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010807_Policy_POS_Payment_KDS_Integration_Readiness_Intake.md | 010807_Policy_POS_Payment_KDS_Integration_Readiness_Intake. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010808_Policy_Ingredient_Master_Pool_Namul_Seed_Registry.md | 010808_Policy_Ingredient_Master_Pool_Namul_Seed_Registry. | active |
-| docs\010000_runtime_foundation_and_cross_room_architecture\010800_store_onboarding_and_sales_setup_axis\010809_Index_Store_Onboarding_And_Sales_Setup_Axis.md | 010809_Index_Store_Onboarding_And_Sales_Setup_Axis. | active |
-## 34 docs/011000_integration_boundary
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010900_Readme_Store_Onboarding_And_Sales_Setup_Axis.md | Readme for Store Onboarding And Sales Setup Axis. | initial |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md | Policy for Store Sales Intake And Tenant Store Profile Setup. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010902_Policy_Menu_Material_Intake_Photo_PDF_Text_And_POS_Export.md | Policy for Menu Material Intake Photo PDF Text And POS Export. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010903_Policy_AI_Menu_Parsing_Correction_And_Owner_Review_Workflow.md | Policy for AI Menu Parsing Correction And Owner Review Workflow. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010904_Policy_Menu_Category_Option_Set_Combo_Course_Review.md | Policy for Menu Category Option Set Combo Course Review. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010905_Policy_Allergen_Alcohol_Raw_Food_Market_Price_Detection_Handoff.md | Policy for Allergen Alcohol Raw Food Market Price Detection Handoff. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010906_Policy_Store_Service_Mode_Selection_And_Feature_Readiness.md | Policy for Store Service Mode Selection And Feature Readiness. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010907_Policy_POS_Payment_KDS_Integration_Readiness_Intake.md | Policy for POS Payment KDS Integration Readiness Intake. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010908_Policy_Ingredient_Master_Pool_Namul_Seed_Registry.md | Policy for Ingredient Master Pool Namul Seed Registry. | active |
+| docs\010000_runtime_foundation_and_cross_room_architecture\010900_store_onboarding_and_sales_setup_axis\010909_Index_Store_Onboarding_And_Sales_Setup_Axis.md | Index for Store Onboarding And Sales Setup Axis. | active |
+## 40 docs/011000_integration_boundary
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -950,7 +1027,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\011000_integration_boundary\011260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration.md | 011260_Policy_POS_Provider_Adapter_Contract_And_Capability_Declaration. | active |
 | docs\011000_integration_boundary\011270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency.md | 011270_Policy_POS_Menu_Table_Order_Mapping_And_Idempotency. | active |
 
-## 35 docs/012000_implementation_mapping
+## 41 docs/012000_implementation_mapping
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -984,7 +1061,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\012000_implementation_mapping\004961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff.md | 004961_Implementation_Mapping_Lane_Index_Readiness_Check_And_Next_Phase_Handoff. | active |
 | docs\012000_implementation_mapping\012000_Implementation_Mapping_Readme.md | 012000_Implementation_Mapping_Readme. | initial |
 
-## 36 docs/013000_app_api_projection
+## 42 docs/013000_app_api_projection
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1003,7 +1080,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\013000_app_api_projection\013120_Boundary_Integration_Status_Projection.md | 013120_Boundary_Integration_Status_Projection. | active |
 | docs\013000_app_api_projection\013130_Boundary_Future_Surface_And_Api_Non_MVP.md | 013130_Boundary_Future_Surface_And_Api_Non_MVP. | active |
 
-## 37 docs/014000_pos_provider_integration_strategy
+## 43 docs/014000_pos_provider_integration_strategy
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1247,7 +1324,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\014000_pos_provider_integration_strategy\014550_Template_AI_Customer_Center_Approved_Answer_Map_And_Escalation_Rule.md | 014550_Template_AI_Customer_Center_Approved_Answer_Map_And_Escalation_Rule. | active |
 | docs\014000_pos_provider_integration_strategy\014570_Index_AI_Customer_Center_Manual_Fallback_Knowledge_Closeout_And_Handoff.md | 014570_Index_AI_Customer_Center_Manual_Fallback_Knowledge_Closeout_And_Handoff. | active |
 
-## 38 docs/014000_pos_provider_integration_strategy/archive_duplicate_review
+## 44 docs/014000_pos_provider_integration_strategy/archive_duplicate_review
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1262,7 +1339,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\014000_pos_provider_integration_strategy\archive_duplicate_review\005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md | 005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary. | conflict-review |
 | docs\014000_pos_provider_integration_strategy\archive_duplicate_review\005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md | 005240_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel. | conflict-review |
 | docs\014000_pos_provider_integration_strategy\archive_duplicate_review\005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md | 005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping. | conflict-review |
-## 39 docs/015000_membership_loyalty
+## 45 docs/015000_membership_loyalty
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1353,7 +1430,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\015000_membership_loyalty\015177_Matrix_Customer_Dispute_To_Evidence_Map.md | 015177_Matrix_Customer_Dispute_To_Evidence_Map. | active |
 | docs\015000_membership_loyalty\015178_Checklist_Customer_Support_Dispute_Handling_Check.md | 015178_Checklist_Customer_Support_Dispute_Handling_Check. | active |
 
-## 40 docs/017000_ui_screen_composition
+## 46 docs/017000_ui_screen_composition
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1372,7 +1449,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\017000_ui_screen_composition\017120_Admin_Support_UI_Authority_And_Recovery_Model.md | 017120_Admin_Support_UI_Authority_And_Recovery_Model. | active |
 | docs\017000_ui_screen_composition\017130_Boundary_Future_UI_Surface_Non_MVP.md | 017130_Boundary_Future_UI_Surface_Non_MVP. | active |
 
-## 41 docs/020000_validation_security_audit
+## 47 docs/020000_validation_security_audit
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1408,7 +1485,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020340_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md | 020340_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation. | active |
 | docs\020000_validation_security_audit\020350_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md | 020350_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data. | active |
 | docs\020000_validation_security_audit\020360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping.md | 020360_Audit_Event_Taxonomy_Append_Only_And_Evidence_Implementation_Mapping. | active |
-## 42 docs/020000_validation_security_audit/020999_archive_duplicate_review/020992_superseded_by_20000_root_active
+## 48 docs/020000_validation_security_audit/020999_archive_duplicate_review/020992_superseded_by_20000_root_active
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1417,7 +1494,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020992_superseded_by_20000_root_active\004550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security.md | 004550_Policy_Payment_Boundary_Refund_Correction_And_Settlement_Security. | superseded_by_20000_root_active |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020992_superseded_by_20000_root_active\004560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access.md | 004560_Policy_Tenant_Store_Boundary_Isolation_And_Cross_Context_Access. | superseded_by_20000_root_active |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020992_superseded_by_20000_root_active\004580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data.md | 004580_Policy_Log_Masking_Error_Disclosure_And_Diagnostic_Data. | superseded_by_20000_root_active |
-## 43 docs/020000_validation_security_audit/020999_archive_duplicate_review/020993_duplicate_copy_xx01
+## 49 docs/020000_validation_security_audit/020999_archive_duplicate_review/020993_duplicate_copy_xx01
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1446,7 +1523,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020993_duplicate_copy_xx01\004691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md | 004691_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review. | duplicate_copy_xx01 |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020993_duplicate_copy_xx01\004701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md | 004701_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff. | duplicate_copy_xx01 |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020993_duplicate_copy_xx01\004711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md | 004711_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking. | duplicate_copy_xx01 |
-## 44 docs/020000_validation_security_audit/020999_archive_duplicate_review/020994_deferred_merge_review
+## 50 docs/020000_validation_security_audit/020999_archive_duplicate_review/020994_deferred_merge_review
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1460,7 +1537,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020994_deferred_merge_review\004620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance.md | 004620_Policy_Security_Incident_Response_Severity_Classification_And_Recovery_Governance. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020994_deferred_merge_review\004630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review.md | 004630_Policy_Compliance_Readiness_Evidence_Control_And_Financial_Grade_Security_Review. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020994_deferred_merge_review\004670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking.md | 004670_Policy_Vulnerability_Disclosure_Patch_Prioritization_And_Remediation_Tracking. | deferred |
-## 45 docs/020000_validation_security_audit/020999_archive_duplicate_review/020995_deferred_move_review
+## 51 docs/020000_validation_security_audit/020999_archive_duplicate_review/020995_deferred_move_review
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1468,7 +1545,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020995_deferred_move_review\004480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary.md | 004480_Policy_POS_KDS_RPC_Security_And_Trust_Boundary. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020995_deferred_move_review\004490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary.md | 004490_Policy_Degraded_Security_Recovery_And_Evidence_Boundary. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020995_deferred_move_review\004690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review.md | 004690_Policy_Vendor_Partner_Access_Third_Party_Risk_And_Integration_Review. | deferred |
-## 46 docs/020000_validation_security_audit/020999_archive_duplicate_review/020996_keep_archive_only
+## 52 docs/020000_validation_security_audit/020999_archive_duplicate_review/020996_keep_archive_only
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1478,7 +1555,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020996_keep_archive_only\004660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification.md | 004660_Policy_Security_Testing_Abuse_Case_Threat_Modeling_And_Verification. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020996_keep_archive_only\004680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline.md | 004680_Policy_Security_Training_Role_Awareness_And_Operational_Discipline. | deferred |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020996_keep_archive_only\004710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking.md | 004710_Policy_Security_Foundation_Continuation_Register_And_Open_Gap_Tracking. | deferred |
-## 47 docs/021000_financial_security_monitoring_catalog
+## 53 docs/021000_financial_security_monitoring_catalog
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1515,7 +1592,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\021000_financial_security_monitoring_catalog\021646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction.md | 021646_Policy_Foundation_Closure_Index_Update_And_Post_Closure_Handoff_Direction. | active |
 | docs\021000_financial_security_monitoring_catalog\021650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization.md | 021650_Policy_Controlled_Implementation_Candidate_Selection_And_Package_Prioritization. | active |
 
-## 48 docs/022000_implementation_planning
+## 54 docs/022000_implementation_planning
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1567,7 +1644,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\022000_implementation_planning\022480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate.md | 022480_Policy_Foundation_Catalog_Validation_Checklist_And_Review_Gate. | active |
 | docs\022000_implementation_planning\022490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement.md | 022490_Policy_External_POS_Third_Party_Financial_Security_Ledger_And_Settlement_Isolation_Reinforcement. | active |
 
-## 49 docs/024000_deployment_operations
+## 55 docs/024000_deployment_operations
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1592,7 +1669,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\024000_deployment_operations\024180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md | 024180_Policy_Request_Board_Staff_Adoption_And_Operation_Check. | active |
 | docs\024000_deployment_operations\024190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md | 024190_Policy_POS_Manual_Fallback_Training_And_Store_Usage. | active |
 
-## 50 docs/026000_analytics_reporting_bi
+## 56 docs/026000_analytics_reporting_bi
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1603,7 +1680,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\026000_analytics_reporting_bi\026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md | 026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing. | active |
 | docs\026000_analytics_reporting_bi\026050_Governance_Analytics_To_Action.md | 026050_Governance_Analytics_To_Action. | active |
 
-## 51 docs/028000_future_expansion
+## 57 docs/028000_future_expansion
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1614,7 +1691,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\028000_future_expansion\028050_Boundary_Franchise_OS_Data_Handoff_Future.md | 028050_Boundary_Franchise_OS_Data_Handoff_Future. | active |
 | docs\028000_future_expansion\028060_Franchise_Intelligence_Feedback_Loop_Model.md | 028060_Franchise_Intelligence_Feedback_Loop_Model. | active |
 
-## 52 docs/030000_future_saas_modules
+## 58 docs/030000_future_saas_modules
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1629,7 +1706,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\030000_future_saas_modules\030080_Readme_Native_All_In_One_Service_Runtime.md | 030080_Readme_Native_All_In_One_Service_Runtime. | initial |
 | docs\030000_future_saas_modules\030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md | 030090_Dual_Track_External_Alliance_And_Native_Service_Strategy. | active |
 
-## 53 docs/040000_menu_taxonomy_and_ai_classification
+## 59 docs/040000_menu_taxonomy_and_ai_classification
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1654,7 +1731,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\040000_menu_taxonomy_and_ai_classification\040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md | 040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping. | active |
 | docs\040000_menu_taxonomy_and_ai_classification\040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md | 040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention. | active |
 
-## 54 docs/011500_pos_gateway_runtime_flow_implementation_package
+## 60 docs/011500_pos_gateway_runtime_flow_implementation_package
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1739,7 +1816,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\011500_pos_gateway_runtime_flow_implementation_package\012177_Template_POS_Human_Release_Approval_Record_Template.md | 012177_Template_POS_Human_Release_Approval_Record_Template. | active |
 | docs\011500_pos_gateway_runtime_flow_implementation_package\012178_Handoff_POS_Runtime_Flow_Implementation_Package_Closeout_Handoff.md | 012178_Handoff_POS_Runtime_Flow_Implementation_Package_Closeout_Handoff. | active |
 
-## 55 docs/020000_validation_security_audit/020400_foundation_security
+## 61 docs/020000_validation_security_audit/020400_foundation_security
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1753,14 +1830,14 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\020000_validation_security_audit\020400_foundation_security\020470_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response.md | 020470_Policy_Foundation_Security_Vulnerability_Patch_Dependency_And_Incident_Response. | active |
 | docs\020000_validation_security_audit\020400_foundation_security\020480_Policy_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response.md | 020480_Policy_Foundation_Security_Data_Retention_Deletion_Export_And_Privacy_Response. | active |
 | docs\020000_validation_security_audit\020400_foundation_security\020490_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check.md | 020490_Index_Foundation_Security_Governance_And_Financial_Grade_Readiness_Check. | active |
-## 56 docs/020000_validation_security_audit/020999_archive_duplicate_review/020991_superseded_by_foundation_security
+## 62 docs/020000_validation_security_audit/020999_archive_duplicate_review/020991_superseded_by_foundation_security
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020991_superseded_by_foundation_security\004440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection.md | 004440_Policy_Customer_Identifier_CI_DI_And_Sensitive_Identity_Protection. | superseded_by_foundation_security |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020991_superseded_by_foundation_security\004640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate.md | 004640_Policy_Security_Index_Readiness_Check_And_Implementation_Gate. | superseded_by_foundation_security |
 | docs\020000_validation_security_audit\020999_archive_duplicate_review\020991_superseded_by_foundation_security\004700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff.md | 004700_Policy_Security_Foundation_Final_Index_And_Next_Phase_Handoff. | superseded_by_foundation_security |
-## 57 docs/700000_runtime_flow and docs/600000_implementation_lifecycle/606000_evidence_diff
+## 63 docs/700000_runtime_flow and docs/600000_implementation_lifecycle/606000_evidence_diff
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -1785,7 +1862,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\700000_runtime_flow\707000_human_approval\064380_Register_Flow_Bundle_No_AI_Solo_Zone_Owner_And_Approval_Matrix.md | 064380_Register_Flow_Bundle_No_AI_Solo_Zone_Owner_And_Approval_Matrix. | active |
 | docs\700000_runtime_flow\708000_release_gate\064390_Checklist_Flow_Bundle_Pre_Merge_And_Release_Gate.md | 064390_Checklist_Flow_Bundle_Pre_Merge_And_Release_Gate. | active |
 
-## 58 docs/012000_implementation_mapping/012090_pos_gateway_runtime_flow_implementation_package
+## 64 docs/012000_implementation_mapping/012090_pos_gateway_runtime_flow_implementation_package
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -2308,7 +2385,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime\750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md | 750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness. | moved |
 | docs\750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime\750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md | 750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout. | moved |
 
-## docs/000500_ai_agent_prelearning_and_project_context
+## docs/000700_ai_agent_prelearning_and_project_context
 
 AI agent prelearning, project-wide onboarding, Claude/Codex/Cursor instruction entry point.
 
@@ -2318,5 +2395,5 @@ Cross-references: 000160 project-wide master context; 051355 AI-assisted financi
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\000500_ai_agent_prelearning_and_project_context\000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Ready-to-copy project-wide Claude, Codex, Cursor onboarding instruction guide. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Project development phase roadmap and AI prelearning context. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Ready-to-copy project-wide Claude, Codex, Cursor onboarding instruction guide. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Project development phase roadmap and AI prelearning context. | active |
