@@ -1,6 +1,6 @@
-# 008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization
+# 008050_Policy_Night_Operation_Delivery_Platform_Concurrent_Order_Synchronization.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the night operation delivery platform concurrency, Baemin/Coupang Eats order synchronization, hall order coexistence, table order coexistence, Mini Kiosk coexistence, POS order boundary, KDS priority, sold-out synchronization, cancellation propagation, provider event validation, staff intervention, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

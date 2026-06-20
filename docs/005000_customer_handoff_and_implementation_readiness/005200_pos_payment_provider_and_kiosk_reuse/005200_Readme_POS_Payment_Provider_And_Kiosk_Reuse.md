@@ -1,39 +1,25 @@
-# 005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse
+# 005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md
 
 ## 1 Purpose
 
-This folder defines the `05200` POS Payment Provider and Kiosk Reuse package for provider document grouping, mini-kiosk module boundaries, payment flow recovery, session identity, MVP provider cutline revisions, and OKPOS OKDC integration mapping.
+This folder defines POS/payment provider grouping, kiosk reuse, mini kiosk provider boundaries, payment flow recovery, session identity, provider cutline, and OKPOS/OKDC integration test mapping.
 
-## 2 In Scope
+## 2 Folder-Owned Number Range
 
-- POS payment provider document folder grouping and kiosk reuse policy.
-- Mini-kiosk and kiosk provider integration module boundaries.
-- Mini-kiosk payment flow state and recovery boundaries.
-- Mini-kiosk session identity, device trust, and customer context boundaries.
-- MVP provider cutline revision for Toss, OKPOS first phase, and PAYCO payment channel.
-- OKPOS OKDC integration implementation approach and test mapping.
+This folder owns `005200~005399` until the next sibling folder, `005400_pos_waiting_entry_sync/`, begins.
 
-## 3 Relationship Notes
+## 3 Active File Roles
 
-- `05200` owns POS provider grouping and mini-kiosk reuse boundaries adjacent to `17020` UI composition.
-- `05100` owns implementation readiness gates and provider verification evidence.
-- `11000` owns integration boundary projections including kiosk provider module boundaries.
-- `14000` retains extended POS adoption strategy documents (`05255`, `05260`, and above).
-- `10807` owns store onboarding POS/KDS integration readiness intake.
-
-Detailed child documents retain their own five-digit numbers.
-
-## 4 Document List
-
-| document | description |
+| File | Role |
 | --- | --- |
-| `05201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md` | POS payment provider document folder grouping and kiosk reuse policy. |
-| `05211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md` | Mini-kiosk and kiosk provider integration module boundary policy. |
-| `05221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md` | Mini-kiosk payment flow state and recovery boundary policy. |
-| `05231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md` | Mini-kiosk session identity, device trust, and customer context boundary policy. |
-| `05241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md` | MVP provider cutline revision for Toss, OKPOS first phase, and PAYCO payment channel. |
-| `05251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md` | OKPOS OKDC integration implementation approach and test mapping policy. |
+| `005200_Readme_POS_Payment_Provider_And_Kiosk_Reuse.md` | Defines POS/payment provider and kiosk reuse folder purpose, range, and local file map. |
+| `005201_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md` | Defines POS/payment provider document grouping and kiosk reuse policy. |
+| `005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md` | Defines mini kiosk and kiosk provider integration module boundaries. |
+| `005221_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md` | Defines mini kiosk payment flow, state, and recovery boundaries. |
+| `005231_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md` | Defines mini kiosk session identity, device trust, and customer context boundaries. |
+| `005241_Policy_MVP_Provider_Cutline_Revision_Toss_OKPOS_First_Phase_And_PAYCO_Payment_Channel.md` | Defines MVP provider cutline revision for Toss, OKPOS first phase, and PAYCO payment channel. |
+| `005251_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md` | Defines OKPOS/OKDC integration implementation approach and test mapping. |
 
-## 5 Current Status
+## 4 Boundary
 
-Status: Package consolidation wave complete. Governance only. Not implementation approval.
+This folder defines provider and kiosk reuse policy only. It does not implement payment, POS, kiosk, or provider runtime code.

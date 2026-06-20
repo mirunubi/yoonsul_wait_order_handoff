@@ -1,6 +1,6 @@
-# 008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution
+# 008002_Index_High_Risk_Store_Operation_Foundation_README_And_Edge_Case_Constitution.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the README, index, lane boundary, operating principle, and readiness structure for the High Risk Store Operation Foundation lane of the Yoonsul Wait/Order Handoff documentation project.
 

@@ -1,6 +1,6 @@
-# 010701_Policy_Fast_Track_Abuse_Control
+# 010701_Policy_Fast_Track_Abuse_Control.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Five-Minute Smart Order Fast Track, KDS Load Throttling, No-Show Penalty, and Abuse Control Boundary Policy.
 

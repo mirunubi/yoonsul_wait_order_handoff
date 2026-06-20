@@ -1,4 +1,4 @@
-# 004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario
+# 004350_Policy_POS_Adapter_Test_Harness_And_Certification_Scenario.md
 
 ## **1\. Purpose**
 

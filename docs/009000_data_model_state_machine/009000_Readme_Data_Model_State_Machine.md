@@ -1,89 +1,53 @@
-# 009000_Readme_Data_Model_State_Machine
+# 009000_Readme_Data_Model_State_Machine.md
 
-## 1 Purpose
+## Purpose
 
-This folder defines the `09000` Data Model / State Machine package at conceptual design level only.
+This folder defines the conceptual data model, state machine, event ownership, audit lineage, and future-state boundary for `yoonsul_wait_order_handoff`.
 
-This wave consolidates the conceptual model after MVP scope, SaaS runtime, and Admin Console consolidation waves.
+It is a documentation-only model lane. It does not authorize SQL, schema, migration, Supabase function, app code, POS/payment implementation, or runtime behavior.
 
-## 2 In Scope
+## Folder-Owned Number Range
 
-- Data object definitions.
-- State machines.
-- Order state.
-- Wait state.
-- Handoff state.
-- Session state.
-- Payment/KDS projection state.
-- Provider event state.
-- Recovery state.
-- Idempotency state.
-- Audit/evidence state.
-- Conceptual entities.
-- State names and transitions.
-- Data ownership boundaries.
-- Draft table/entity naming at design level.
-- Entity master consolidation.
-- State/event ownership and truth boundaries.
-- Audit/recovery event lineage.
-- Context entity alignment with SaaS runtime.
-- Runtime profile and change request entities.
-- Order candidate and confirmation state refinement.
-- Admin/support/audit entity lineage.
+- Folder: `docs/009000_data_model_state_machine/`
+- Owned range: `009000~009999`
+- Next sibling folder: `docs/010000_runtime_foundation_and_cross_room_architecture/`
+- Files in this folder should remain within `009000~009999` unless a future sibling folder changes the boundary.
+
+## Scope
+
+- Conceptual data objects.
+- State machines and state transitions.
+- Event ownership and truth families.
+- Audit and recovery lineage.
+- Context entity alignment.
+- Runtime profile and change request model boundaries.
 - Future profile and analytics state boundaries.
-- Implementation-deferred data model boundary.
 
-## 3 Relationship Notes
+## Out Of Scope
 
-- `09000` owns canonical data/state model policy.
-- `03000` owns SaaS runtime/session authority.
-- `04000`/`04100`/`04200`/`04300` consume state models for KDS, menu availability, recovery, and POS adapter integration.
-- `05000` consumes customer-safe state projections.
-- `07000` consumes admin/support state surfaces.
-- `08000` consumes AI support-safe summaries and non-authoritative state references.
-- Foundation Security governs sensitive identity, secrets, access, audit, retention, and incident response for all state models.
+- SQL, migrations, schema, RLS, RPC, and Supabase runtime.
+- Flutter/Dart, frontend, backend, or production implementation.
+- POS/payment/KDS execution logic.
+- Runtime mutation authority.
 
-## 4 Document List
+## Active File Roles
 
-| document | description |
+| File | Role |
 | --- | --- |
-| `09010_Data_Model_Draft.md` | Remains draft/candidate notes for conceptual entities and table naming ideas. |
-| `09020_Handoff_State_Machine.md` | Remains the conceptual customer, waiting, handoff, Mini Kiosk, and store runtime visibility state machine. |
-| `09030_Conceptual_Entity_Master.md` | Consolidates conceptual entity candidates across SaaS context, runtime configuration, customer/session runtime, menu/order intent, store operation, admin/governance, recovery/audit/compliance, and future intelligence. |
-| `09040_State_And_Event_Ownership_Model.md` | Defines truth families, event authority types, state ownership, and forbidden ownership collapses. |
-| `09050_Audit_Recovery_Event_Lineage_Model.md` | Defines append-only audit/recovery lineage, recovery item rules, evidence rules, and example lineages. |
-| `09060_Implementation_Deferred_Data_Model_Boundary.md` | Defines what 5000 docs may contain and explicitly blocks premature SQL, schema, RPC, RLS, API, UI, POS, payment, printer, loyalty, Franchise OS, and AI/CRM/ad implementation. |
-| `09070_Context_Entity_Alignment_Model.md` | Aligns conceptual context entities with `03020`; parallel context axes without schema collapse. |
-| `09080_Runtime_Profile_And_Change_Request_Entity_Model.md` | Conceptual entities for runtime profiles, change requests, approvals, activation, emergency disable, and rollback. |
-| `09090_Order_Candidate_And_Confirmation_State_Refinement.md` | Refines order candidate through POS-confirmed and recovery states without overstating truth. |
-| `09100_Admin_Support_Audit_Entity_Lineage_Model.md` | Conceptual event lineage for admin, support, runtime changes, audit review, recovery, and export. |
-| `09110_Boundary_Future_Profile_And_Analytics_State.md` | Future membership, analytics, AI/CRM/ad, and Franchise OS state boundaries. |
+| `009000_Readme_Data_Model_State_Machine.md` | Defines the data model/state machine folder boundary, owned number range, and active document roles. |
+| `009010_Overview_Data_Model_Draft.md` | Provides the conceptual data model draft for tenant, store, session, waiting, handoff, order, and audit domains. |
+| `009020_Spec_Handoff_State_Machine.md` | Specifies the conceptual handoff state machine and state ownership principles without implementation approval. |
+| `009030_Register_Conceptual_Entity_Master.md` | Registers conceptual entity candidates and relationships before physical schema design. |
+| `009040_Policy_State_And_Event_Ownership_Model.md` | Defines state and event ownership rules across customer, store, POS, payment, audit, and future intelligence truth families. |
+| `009050_Audit_Recovery_Event_Lineage_Model.md` | Defines append-only audit and recovery lineage rules for correction, rollback, support, and retry events. |
+| `009060_Boundary_Implementation_Deferred_Data_Model.md` | Defines the boundary that keeps conceptual data modeling separate from SQL, schema, RPC, and runtime implementation. |
+| `009070_Matrix_Context_Entity_Alignment_Model.md` | Maps context entities such as tenant, company, legal entity, operating group, store, admin, support, and audit contexts. |
+| `009080_Spec_Runtime_Profile_And_Change_Request_Entity_Model.md` | Specifies conceptual runtime profile, feature flag, integration profile, and change request entity families. |
+| `009090_Spec_Order_Candidate_And_Confirmation_State_Refinement.md` | Specifies order candidate, staff confirmation, print, POS attempt, and payment state refinement boundaries. |
+| `009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md` | Defines cross-range closure readiness and next documentation phase gate policy. |
+| `009100_Audit_Admin_Support_Entity_Lineage_Model.md` | Defines admin/support audit entity lineage for context switches, approvals, emergency disable, rollback, and support sessions. |
+| `009110_Boundary_Future_Profile_And_Analytics_State.md` | Defines future profile and analytics state boundaries that must not become active MVP runtime by accident. |
 
-`09010`~`09060` are existing conceptual data/state foundations.
+## Governance Notes
 
-`09070`~`09110` align the state/data model with `03000` SaaS runtime and `07000` Admin Console consolidation.
-
-This domain remains conceptual and does not approve schema.
-
-## 5 Consolidation Notes
-
-`09010` remains draft/candidate notes.
-
-`09020` remains the handoff state machine.
-
-`09030`~`09060` consolidate entity, ownership, lineage, and implementation-deferred boundaries.
-
-`09070`~`09110` align context, runtime profile, order confirmation, admin/support audit lineage, and future state boundaries.
-
-The `09000_data_model_state_machine` namespace stays flat with no subfolders for now.
-
-Subfolders may be introduced later if the project expands.
-
-## 6 Out Of Scope
-
-- SQL, migrations, production schema, Supabase functions, RPC, and generated types.
-- Physical table definitions, columns, RLS, Edge Functions, and app code.
-
-## 7 Current Status
-
-Status: conceptual data model consolidation wave complete. No SQL. No migration. Not schema approval.
+The `009000` lane is conceptual and pre-implementation. It may define names, relationships, state boundaries, and ownership rules, but implementation remains blocked until separate approved work packages provide impact scope, overview, logic, test plan, change contract, and human approval.

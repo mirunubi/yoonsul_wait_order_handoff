@@ -1,4 +1,4 @@
-# 000051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification.md
+# 000051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification
 
 ## 1. Purpose
 

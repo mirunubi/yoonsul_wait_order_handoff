@@ -1,6 +1,6 @@
-# 010553_Policy_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary
+# 010553_Policy_Catch_Menu_Fintech_Immune_Security_Patent_Candidate_And_Implementation_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Catch Menu Fintech Immune Security Patent Candidate and Implementation Boundary Policy.
 

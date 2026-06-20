@@ -1,4 +1,4 @@
-# 004040_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note
+# 004050_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md
 
 1\. Purpose
 

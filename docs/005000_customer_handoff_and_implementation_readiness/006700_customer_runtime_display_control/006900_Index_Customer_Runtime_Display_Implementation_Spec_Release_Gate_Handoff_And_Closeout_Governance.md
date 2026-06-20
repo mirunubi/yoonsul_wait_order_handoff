@@ -1,4 +1,4 @@
-# 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance
+# 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md
 
 ## 1. Purpose
 

@@ -1,4 +1,4 @@
-# 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control
+# 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md
 
 ## 1. Purpose
 

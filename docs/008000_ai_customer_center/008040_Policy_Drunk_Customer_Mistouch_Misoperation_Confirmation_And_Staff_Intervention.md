@@ -1,6 +1,6 @@
-# 008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention
+# 008040_Policy_Drunk_Customer_Mistouch_Misoperation_Confirmation_And_Staff_Intervention.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the drunk customer mistouch, misoperation, repeated tap, wrong item selection, wrong quantity, unclear payment intent, staff confirmation, staff intervention, service refusal review, customer recovery, evidence, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

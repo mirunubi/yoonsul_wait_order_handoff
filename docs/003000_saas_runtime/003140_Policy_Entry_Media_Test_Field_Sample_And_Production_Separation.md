@@ -1,4 +1,8 @@
-# 003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation
+# 003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
 
 Legacy path: $old.
 

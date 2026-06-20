@@ -1,4 +1,4 @@
-# 004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication
+# 004380_Policy_POS_Integration_Support_Escalation_And_Vendor_Communication.md
 
 ## **1\. Purpose**
 

@@ -1,31 +1,49 @@
-# 010000_Readme_Store_Runtime_Room_Framing
+# 010010_Readme_Store_Runtime_Room_Framing.md
 
-## 1 Purpose
+## Purpose
 
-This folder contains the Store Runtime Room Framing and Boundary Policy package.
+This folder defines store runtime room framing and room-level boundaries for order intake, validation, POS handoff, KDS, kitchen execution, devices, fallback, incident, evidence, visibility, and recovery.
 
-## 2 Scope
+## Folder-Owned Number Range
 
-This package covers SaaS tenant isolation beam, order intake, validation, POS handoff, KDS ticket, kitchen execution, staff assist, device runtime, printer/peripheral, degraded operation, manual fallback, incident, evidence, visibility, recovery route, and closure.
+- Folder: `docs/010000_runtime_foundation_and_cross_room_architecture/010010_store_runtime_room_framing/`
+- Owned range: `010010~010099`
+- Next sibling: `010100_foundation_static_catalog_package/`
 
-## 3 File List
+## Scope
 
-| document | role |
+- Store runtime room framing.
+- Room-level operational boundaries.
+- POS/KDS/kitchen/device/fallback/evidence/recovery room boundaries.
+
+## Out Of Scope
+
+- Static catalog package governance.
+- Financial trust room governance.
+- Runtime implementation.
+
+## Active File Roles
+
+| File | Role |
 | --- | --- |
-| `10141_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` | SaaS tenant isolation and cross-tenant data containment beam policy. |
-| `10200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md` | Store room framing and runtime domain boundary index. |
-| `10210_Policy_Order_Intake_Room_Boundary.md` | Order intake room boundary policy. |
-| `10220_Policy_Order_Validation_Room_Boundary.md` | Order validation room boundary policy. |
-| `10230_Policy_POS_Handoff_Room_Boundary.md` | POS handoff room boundary policy. |
-| `10240_Policy_KDS_Ticket_Room_Boundary.md` | KDS ticket room boundary policy. |
-| `10250_Policy_Kitchen_Execution_Room_Boundary.md` | Kitchen execution room boundary policy. |
-| `10260_Policy_Staff_Assist_Room_Boundary.md` | Staff assist room boundary policy. |
-| `10270_Policy_Device_Runtime_Room_Boundary.md` | Device runtime room boundary policy. |
-| `10280_Policy_Printer_Peripheral_Room_Boundary.md` | Printer peripheral room boundary policy. |
-| `10290_Policy_Degraded_Operation_Room_Boundary.md` | Degraded operation room boundary policy. |
-| `10300_Policy_Manual_Fallback_Room_Boundary.md` | Manual fallback room boundary policy. |
-| `10310_Policy_Store_Incident_Room_Boundary.md` | Store incident room boundary policy. |
-| `10320_Policy_Operational_Evidence_Room_Boundary.md` | Operational evidence room boundary policy. |
-| `10330_Policy_Fulfillment_Visibility_Room_Boundary.md` | Fulfillment visibility room boundary policy. |
-| `10340_Policy_Store_Recovery_Route_Room_Boundary.md` | Store recovery route room boundary policy. |
-| `10350_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md` | Store runtime room framing closure and next axis handoff policy. |
+| `010010_Readme_Store_Runtime_Room_Framing.md` | Defines the folder boundary, owned number range, and active file roles for Store Runtime Room Framing. |
+| `010020_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md` | Indexes the governed documents and boundary references for Store Room Framing And Runtime Domain Boundary. |
+| `010030_Policy_Order_Intake_Room_Boundary.md` | Defines the governed policy scope for Order Intake Room Boundary. |
+| `010035_Policy_Order_Validation_Room_Boundary.md` | Defines the governed policy scope for Order Validation Room Boundary. |
+| `010040_Policy_POS_Handoff_Room_Boundary.md` | Defines the governed policy scope for POS Handoff Room Boundary. |
+| `010045_Policy_KDS_Ticket_Room_Boundary.md` | Defines the governed policy scope for KDS Ticket Room Boundary. |
+| `010050_Policy_Kitchen_Execution_Room_Boundary.md` | Defines the governed policy scope for Kitchen Execution Room Boundary. |
+| `010055_Policy_Staff_Assist_Room_Boundary.md` | Defines the governed policy scope for Staff Assist Room Boundary. |
+| `010060_Policy_Device_Runtime_Room_Boundary.md` | Defines the governed policy scope for Device Runtime Room Boundary. |
+| `010065_Policy_Printer_Peripheral_Room_Boundary.md` | Defines the governed policy scope for Printer Peripheral Room Boundary. |
+| `010070_Policy_Degraded_Operation_Room_Boundary.md` | Defines the governed policy scope for Degraded Operation Room Boundary. |
+| `010075_Policy_Manual_Fallback_Room_Boundary.md` | Defines the governed policy scope for Manual Fallback Room Boundary. |
+| `010080_Policy_Store_Incident_Room_Boundary.md` | Defines the governed policy scope for Store Incident Room Boundary. |
+| `010085_Policy_Operational_Evidence_Room_Boundary.md` | Defines the governed policy scope for Operational Evidence Room Boundary. |
+| `010090_Policy_Fulfillment_Visibility_Room_Boundary.md` | Defines the governed policy scope for Fulfillment Visibility Room Boundary. |
+| `010095_Policy_Store_Recovery_Route_Room_Boundary.md` | Defines the governed policy scope for Store Recovery Route Room Boundary. |
+| `010099_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md` | Defines the governed policy scope for Store Runtime Room Framing Closure And Next Axis Handoff. |
+
+## Governance Notes
+
+This folder is documentation-only. Runtime implementation, SQL, app code, Supabase changes, and production behavior require a separate approved work package.

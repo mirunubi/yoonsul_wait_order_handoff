@@ -1,6 +1,6 @@
-# 010560_Policy_Analytics_Read_Model_And_Benchmark_Boundary
+# 010560_Policy_Analytics_Read_Model_And_Benchmark_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Analytics, Read Model, and Benchmark Boundary Policy.
 

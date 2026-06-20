@@ -1,4 +1,4 @@
-# 004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control
+# 004120_Policy_Limited_Quantity_Menu_And_Waiting_Preorder_Control.md
 
 1\. Purpose
 

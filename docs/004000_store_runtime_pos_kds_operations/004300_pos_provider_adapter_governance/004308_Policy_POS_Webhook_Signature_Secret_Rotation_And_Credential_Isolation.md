@@ -1,4 +1,4 @@
-# 004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation
+# 004308_Policy_POS_Webhook_Signature_Secret_Rotation_And_Credential_Isolation.md
 
 ## 1. Purpose
 

@@ -36,7 +36,7 @@ Related prelearning documents:
 
 | document | description |
 | --- | --- |
-| `../000500_ai_agent_prelearning_and_project_context/000501_Readme_AI_Agent_Prelearning_And_Project_Context.md` | AI agent prelearning, project-wide onboarding, Claude/Codex/Cursor instruction entry point. |
+| `../000500_ai_agent_prelearning_and_project_context/000500_Readme_AI_Agent_Prelearning_And_Project_Context.md` | AI agent prelearning folder Readme, project-wide onboarding entry point, Claude/Codex/Cursor instruction boundary. |
 | `../000500_ai_agent_prelearning_and_project_context/000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Project development phase roadmap and AI prelearning context. |
 
 ## 4 Out Of Scope

@@ -1,4 +1,8 @@
-# 003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation
+# 003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
 
 Legacy path: $old.
 

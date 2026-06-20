@@ -480,13 +480,13 @@ docs/
       010400_Readme_Financial_Trust_Room.md
       010405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md
       010410_Policy_Payment_Intent_And_Authorization_Boundary.md
-      010420_Policy_Payment_Confirmation_And_Provider_Callback_Boundary.md
-      010430_Policy_Refund_Cancellation_And_Void_Boundary.md
-      010440_Policy_Coupon_Point_Wallet_And_Stored_Value_Boundary.md
-      010450_Policy_Settlement_Allocation_And_Reconciliation_Boundary.md
-      010460_Policy_Compensation_And_Customer_Recovery_Value_Boundary.md
-      010470_Policy_Financial_Evidence_Audit_And_Export_Boundary.md
-      010480_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff.md
+      010411_Policy_Payment_Confirmation_And_Provider_Callback_Boundary.md
+      010412_Policy_Refund_Cancellation_And_Void_Boundary.md
+      010413_Policy_Coupon_Point_Wallet_And_Stored_Value_Boundary.md
+      010414_Policy_Settlement_Allocation_And_Reconciliation_Boundary.md
+      010415_Policy_Compensation_And_Customer_Recovery_Value_Boundary.md
+      010416_Policy_Financial_Evidence_Audit_And_Export_Boundary.md
+      010417_Policy_Financial_Trust_Closure_And_Data_Governance_Handoff.md
     010500_data_governance_room/
       010500_Readme_Data_Governance_Room.md
       010505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md
@@ -525,24 +525,23 @@ docs/
       010670_Policy_Safe_Projection_I18n_Routing.md
       010680_Audit_Correlation_Nightly_Batch.md
       010690_Policy_Cross_Room_Plumbing_Closure.md
-      010609_financial_regulation_risk_expansion/
-        010609_Readme_Financial_Regulation_Risk_Expansion.md
-        010610_Policy_Financial_Risk_Boundary.md
-        010611_Policy_Refund_WORM_Ledger.md
-        010612_Policy_Platform_Benchmark_Boundary.md
-        010613_Policy_Double_Entry_Integrity_Kernel.md
-        010614_Policy_Acquiring_Ledger_Kernel.md
-        010615_Policy_Chargeback_Adjustment_Governance.md
-        010616_Policy_Fixed_Point_Hash_Monitoring.md
-        010617_Policy_External_Network_KYC.md
-        010618_Policy_Fast_Payout_Governance.md
-        010619_Policy_Disaster_Regulatory_Heritage.md
-        010620_Policy_Multi_Tenant_Finance_SaaS.md
-        010621_Policy_Remote_Wait_Peak_Control.md
-        010622_Policy_No_Show_Financial_Control.md
-        010623_Policy_Realtime_AI_Field_Control.md
-        010624_Policy_Kitchen_IoT_Automation.md
-        010625_Policy_Vision_AI_Store_Infrastructure.md
+      010400_financial_trust_room/
+        010451_Policy_Financial_Risk_Boundary.md
+        010452_Policy_Refund_WORM_Ledger.md
+        010453_Policy_Platform_Benchmark_Boundary.md
+        010454_Policy_Double_Entry_Integrity_Kernel.md
+        010455_Policy_Acquiring_Ledger_Kernel.md
+        010456_Policy_Chargeback_Adjustment_Governance.md
+        010457_Policy_Fixed_Point_Hash_Monitoring.md
+        010458_Policy_External_Network_KYC.md
+        010459_Policy_Fast_Payout_Governance.md
+        010460_Policy_Disaster_Regulatory_Heritage.md
+        010461_Policy_Multi_Tenant_Finance_SaaS.md
+        010462_Policy_Remote_Wait_Peak_Control.md
+        010463_Policy_No_Show_Financial_Control.md
+        010464_Policy_Realtime_AI_Field_Control.md
+        010465_Policy_Kitchen_IoT_Automation.md
+        010466_Policy_Vision_AI_Store_Infrastructure.md
     010700_security_trust_and_smart_order_control/
       010700_Readme_Security_Trust_And_Smart_Order_Control.md
       010701_Policy_Fast_Track_Abuse_Control.md

@@ -1,4 +1,4 @@
-# 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance
+# 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md
 
 ## 1. Purpose
 

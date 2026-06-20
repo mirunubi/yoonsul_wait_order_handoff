@@ -1,6 +1,6 @@
-# 008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff
+# 008100_Policy_CatchMenu_Support_Signal_And_Case_Handoff.md
 
-1\. Purpose
+## Purpose
 
 This document defines how CatchMenu hands off support-related signals, evidence, and read access to a future AI Customer Center.
 

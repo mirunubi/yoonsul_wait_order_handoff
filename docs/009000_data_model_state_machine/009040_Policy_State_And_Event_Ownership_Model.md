@@ -1,6 +1,6 @@
-# 009040_State_And_Event_Ownership_Model
+# 009040_Policy_State_And_Event_Ownership_Model.md
 
-## 1 Purpose
+## Purpose
 
 State changes must be owned by explicit authority.
 

@@ -1,4 +1,4 @@
-# 000077_Matrix_WP_8A_001_Allowed_And_Forbidden_File_Boundary_Map.md
+# 000077_Matrix_WP_8A_001_Allowed_And_Forbidden_File_Boundary_Map
 
 ## Purpose
 

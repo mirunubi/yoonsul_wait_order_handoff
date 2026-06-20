@@ -1,4 +1,4 @@
-# 000078_Report_Batch_8C_Read_Only_Repository_Hydration_Execution_Closeout.md
+# 000078_Report_Batch_8C_Read_Only_Repository_Hydration_Execution_Closeout
 
 ## Purpose
 

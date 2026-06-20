@@ -1,6 +1,6 @@
-# 010702_Policy_Fast_Track_Store_Ops
+# 010702_Policy_Fast_Track_Store_Ops.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Fast Track Admin Console Control Tower, KDS Load Monitoring, Dynamic Valve Control, Penalty Governance, Loss Analytics, and Admin Security Policy.
 

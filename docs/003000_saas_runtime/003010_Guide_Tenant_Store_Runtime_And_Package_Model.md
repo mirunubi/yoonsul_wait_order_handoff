@@ -1,4 +1,4 @@
-# 003010_Tenant_Store_Runtime_And_Package_Model
+# 003010_Guide_Tenant_Store_Runtime_And_Package_Model.md
 
 ## 1 Purpose
 

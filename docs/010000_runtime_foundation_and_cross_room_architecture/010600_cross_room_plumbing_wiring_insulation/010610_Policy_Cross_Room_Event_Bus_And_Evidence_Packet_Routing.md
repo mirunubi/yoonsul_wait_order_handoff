@@ -1,6 +1,6 @@
-# 010610_Policy_Cross_Room_Event_Bus_And_Evidence_Packet_Routing
+# 010610_Policy_Cross_Room_Event_Bus_And_Evidence_Packet_Routing.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Cross-Room Event Bus and Evidence Packet Routing Policy.
 

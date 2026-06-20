@@ -1,4 +1,4 @@
-# 000062_Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan.md
+# 000062_Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan
 
 ## Purpose
 This report reconciles the Batch 7C through Batch 7L documentation expansion waves against the Batch 7B target of exceeding 2320 tracked docs Markdown files.

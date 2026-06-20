@@ -1,4 +1,4 @@
-# 000035_Matrix_Batch_4C_High_Range_Internal_Link_Update_Manifest.md
+# 000035_Matrix_Batch_4C_High_Range_Internal_Link_Update_Manifest
 
 | SourceFile | OldReference | NewReference | ReferenceType | UpdateApplied | UpdateSkipped | SkipReason | BasedOnBatch4BManifest | RequiresManualReview | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

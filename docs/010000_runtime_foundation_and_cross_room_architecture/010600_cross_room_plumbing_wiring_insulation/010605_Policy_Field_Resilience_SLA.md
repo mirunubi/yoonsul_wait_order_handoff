@@ -1,6 +1,6 @@
-# 010605_Policy_Field_Resilience_SLA
+# 010605_Policy_Field_Resilience_SLA.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the SaaS Field Resilience, Network Constraint, Provider Fragmentation, SLA Availability, and Policy-Based Customization Constraint Policy.
 

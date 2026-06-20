@@ -1,4 +1,4 @@
-# 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec
+# 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md
 
 ## 1. Purpose
 

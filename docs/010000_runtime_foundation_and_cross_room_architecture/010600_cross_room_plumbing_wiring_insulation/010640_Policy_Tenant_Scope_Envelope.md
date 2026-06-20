@@ -1,6 +1,6 @@
-# 010640_Policy_Tenant_Scope_Envelope
+# 010640_Policy_Tenant_Scope_Envelope.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Tenant Scope Envelope Policy.
 

@@ -1,4 +1,4 @@
-# 004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap
+# 004340_Policy_POS_Vendor_Priority_And_Integration_Roadmap.md
 
 ## **1\. Purpose**
 

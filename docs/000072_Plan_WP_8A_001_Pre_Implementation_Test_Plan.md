@@ -1,4 +1,4 @@
-# 000072_Plan_WP_8A_001_Pre_Implementation_Test_Plan.md
+# 000072_Plan_WP_8A_001_Pre_Implementation_Test_Plan
 
 ## Purpose
 

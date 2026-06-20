@@ -1,6 +1,6 @@
-# 010660_Policy_Idempotency_Retry_Replay_Reconciliation
+# 010660_Policy_Idempotency_Retry_Replay_Reconciliation.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Idempotency, Retry, Replay, and Reconciliation Policy.
 

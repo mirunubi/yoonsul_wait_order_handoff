@@ -1,4 +1,4 @@
-# 000075_Report_WP_8A_001_Read_Only_Repository_Hydration_Evidence_Capture.md
+# 000075_Report_WP_8A_001_Read_Only_Repository_Hydration_Evidence_Capture
 
 ## Purpose
 

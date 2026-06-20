@@ -1,6 +1,6 @@
-# 008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway
+# 008200_Policy_CatchMenu_Knowledge_Retrieval_pgvector_Gateway.md
 
-1\. Purpose
+## Purpose
 
 This document defines how CatchMenu knowledge retrieval should be exposed to a future AI Customer Center through the Support Gateway.
 

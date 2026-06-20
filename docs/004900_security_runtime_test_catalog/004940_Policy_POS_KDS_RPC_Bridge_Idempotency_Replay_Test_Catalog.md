@@ -1,4 +1,4 @@
-# 005001_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog
+# 004940_Policy_POS_KDS_RPC_Bridge_Idempotency_Replay_Test_Catalog.md
 
 ## 1. Purpose
 

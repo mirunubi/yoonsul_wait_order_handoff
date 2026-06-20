@@ -1,4 +1,4 @@
-# 000033_Report_Batch_4B_High_Range_File_Basename_Rename.md
+# 000033_Report_Batch_4B_High_Range_File_Basename_Rename
 
 ## Scope
 

@@ -1,4 +1,4 @@
-# 004981_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog
+# 004920_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md
 
 ## 1. Purpose
 

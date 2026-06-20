@@ -1,4 +1,4 @@
-# 005170_Policy_PAYCO_POS_Verification
+# 005170_Policy_PAYCO_POS_Verification.md
 
 \#\# 1\. Purpose
 

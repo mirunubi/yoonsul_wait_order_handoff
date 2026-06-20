@@ -1,6 +1,6 @@
-# 008001_AI_Customer_Center_Foundation
+# 008001_Overview_AI_Customer_Center_Foundation.md
 
-1\. Purpose
+## Purpose
 
 This document defines the foundation for future AI Customer Center integration with CatchMenu.
 

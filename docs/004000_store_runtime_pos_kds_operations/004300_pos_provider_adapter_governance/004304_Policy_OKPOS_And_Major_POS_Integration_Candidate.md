@@ -1,4 +1,4 @@
-# 004304_Policy_OKPOS_And_Major_POS_Integration_Candidate
+# 004304_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
 
 ## 1. Purpose
 

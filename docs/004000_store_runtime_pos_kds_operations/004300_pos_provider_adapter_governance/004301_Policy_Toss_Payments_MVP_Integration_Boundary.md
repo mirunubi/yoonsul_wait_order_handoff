@@ -1,4 +1,4 @@
-# 004301_Policy_Toss_Payments_MVP_Integration_Boundary
+# 004301_Policy_Toss_Payments_MVP_Integration_Boundary.md
 
 ## 1. Purpose
 

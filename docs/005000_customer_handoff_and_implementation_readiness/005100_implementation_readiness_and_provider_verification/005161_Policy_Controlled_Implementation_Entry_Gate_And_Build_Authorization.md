@@ -1,4 +1,4 @@
-# 005161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization
+# 005161_Policy_Controlled_Implementation_Entry_Gate_And_Build_Authorization.md
 
 ## 1. Purpose
 

@@ -1,4 +1,4 @@
-# 000091_Report_Batch_9B_WP_9A_001_Artifact_Pack_Closeout.md
+# 000091_Report_Batch_9B_WP_9A_001_Artifact_Pack_Closeout
 
 ## 1. Purpose
 

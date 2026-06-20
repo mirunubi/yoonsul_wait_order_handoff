@@ -1,4 +1,4 @@
-# 000070_Matrix_WP_8A_001_Module_Impact_Map.md
+# 000070_Matrix_WP_8A_001_Module_Impact_Map
 
 ## Purpose
 

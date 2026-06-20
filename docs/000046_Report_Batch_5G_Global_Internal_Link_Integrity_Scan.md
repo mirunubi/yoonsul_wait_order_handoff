@@ -1,4 +1,4 @@
-# 000046_Report_Batch_5G_Global_Internal_Link_Integrity_Scan.md
+# 000046_Report_Batch_5G_Global_Internal_Link_Integrity_Scan
 
 ## Scope
 

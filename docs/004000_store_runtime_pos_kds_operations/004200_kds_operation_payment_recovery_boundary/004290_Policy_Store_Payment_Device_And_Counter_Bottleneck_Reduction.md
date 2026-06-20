@@ -1,4 +1,4 @@
-# 004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction
+# 004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md
 
 ## **1\. Purpose**
 

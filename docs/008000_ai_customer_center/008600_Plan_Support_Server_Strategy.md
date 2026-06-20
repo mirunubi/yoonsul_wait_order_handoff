@@ -1,6 +1,6 @@
-# 008600_Support_Server_Strategy
+# 008600_Plan_Support_Server_Strategy.md
 
-1\. Purpose
+## Purpose
 
 This document defines the support server strategy for future AI Customer Center integration with CatchMenu.
 

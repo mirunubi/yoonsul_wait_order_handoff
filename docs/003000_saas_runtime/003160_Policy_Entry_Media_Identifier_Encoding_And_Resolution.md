@@ -1,4 +1,8 @@
-# 003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution
+# 003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
 
 Legacy path: $old.
 

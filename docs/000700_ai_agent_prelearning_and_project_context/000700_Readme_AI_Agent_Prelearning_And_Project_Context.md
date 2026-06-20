@@ -1,65 +1,48 @@
-# 000500_Readme_AI_Agent_Prelearning_And_Project_Context.md
+# 000700_Readme_AI_Agent_Prelearning_And_Project_Context.md
 
 ## Purpose
 
-This folder is the AI agent prelearning and project context entry point for `yoonsul_wait_order_handoff`.
+This folder is the onboarding and prelearning entry point for Claude, Codex, Cursor, and future AI agents.
 
-It explains the documents that Claude Cowork, Codex, Cursor, and future AI agents must read before proposing or performing project work.
+It provides project-wide context slicing, phase-by-phase project understanding, and safe AI collaboration rules. It does not authorize implementation.
 
-This Readme is the folder-level 0-number document. Every folder-level 0-number document is a Readme. This folder's 0-number Readme explains the folder purpose, file roles, and placement rules.
+## Folder-Owned Number Range
 
-## Folder Role
+- Folder: `docs/000700_ai_agent_prelearning_and_project_context/`
+- Owned range: `000700~000799`
+- Next sibling folder: `docs/000900_outsourcing_vendor_handoff_and_acceptance/`
+- Files in this folder should remain AI prelearning, project context, and agent onboarding documents.
 
-This folder provides onboarding, phase context, AI role boundaries, and implementation-gate warnings.
+## Scope
 
-It is not an implementation plan, not a roadmap, and not a work package. It does not authorize runtime implementation.
+- AI agent prelearning.
+- Project-wide onboarding prompts.
+- Claude, Codex, Cursor, and human approval roles.
+- Phase 1 through Phase 7 project context.
+- Context slicing rules before implementation.
 
-Guide files after the Readme are onboarding, prelearning, and instruction documents.
+## Out Of Scope
 
-## Placement Rules
+- Runtime implementation.
+- POS Gateway/provider adapter design authority.
+- Outsourcing RFP/SOW/vendor acceptance evidence.
+- SQL, Flutter/Dart, Supabase, app code, or production logic.
 
-- The folder-level 0-number document must be a Readme.
-- This folder's 0-number Readme is `000500_Readme_AI_Agent_Prelearning_And_Project_Context.md`.
-- Guide documents in this folder must remain Guide documents, not Readme documents.
-- A Readme is not an implementation plan, not a roadmap, and not a work package.
-- Roadmap content belongs in a Guide or Roadmap-labeled document, not in this Readme.
-- Temporary drafts, scratch files, diagrams, and implementation plans must not be created in this folder without explicit approval.
+## Active File Roles
 
-## Local File Roles
-
-| file | role |
+| File | Role |
 | --- | --- |
-| `000500_Readme_AI_Agent_Prelearning_And_Project_Context.md` | Folder-level Readme. Defines folder purpose, placement rules, file roles, and non-authorization boundary. |
-| `000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md` | Project-wide onboarding guide and reusable prompt set for Claude Cowork, Codex, Cursor, and human approval review. |
-| `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Phase roadmap and project-wide AI prelearning context for phases 0 through 7. |
-| `000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Phase 1 prelearning guide for Catch Menu as customer-facing store-runtime projection. |
-| `000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` | Phase 2 prelearning guide for Yoonsul OS store runtime, staff operation, membership, inventory subset, availability, and handoff foundation. |
-| `000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Phase 3 prelearning guide for kiosk, KDS, DID, CMS, POS, Toss, OKPOS, POS Gateway, payment recovery, and financial-grade hardening. |
-| `000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | Phase 4 prelearning guide for Franchise OS as headquarters, branch, approval, evidence, compliance, rollout, and rollback control room. |
-| `000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md` | Phase 5 prelearning guide for controlled AI customer center, Digital SOP, approved knowledge base, RAG, pgvector, unresolved inquiry, and SOP evolution. |
-| `000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md` | Phase 6 prelearning guide for SaaS-grade integration of Catch Menu, Franchise OS, admin console, store runtime, tenant/store isolation, monitoring, audit, release, and rollback. |
-| `000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md` | Phase 7 prelearning guide for Physical AI Gateway as safety, permission, evidence, and actuation boundary for IoT, robot, vision, voice KDS, and kitchen device events. |
-
-## Agent Role Boundary
-
-Cursor is only an optional inspection helper for related-file discovery, impact search, and raw evidence collection.
-
-Claude Cowork is responsible for design, audit, document classification, risk review, and pre-implementation reasoning.
-
-Codex is responsible only for limited implementation or document generation inside approved files and approved operations.
-
-Human is responsible for final approval, merge, and release.
-
-## Implementation Gate
-
-These documents are AI prelearning context documents, not implementation authorization.
-
-Actual implementation must pass through the 51355 pipeline.
-
-Implementation is forbidden unless `impact_scope`, `context_snapshot`, `overview`, `logic`, `test_plan`, `change_contract`, and human approval exist.
-
-Allowed files are not enough. Allowed operations must also be specified.
+| `000700_Readme_AI_Agent_Prelearning_And_Project_Context.md` | Defines the AI agent prelearning folder boundary, owned number range, file roles, and non-implementation rule. |
+| `000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md` | Provides ready-to-copy onboarding instructions for Claude, Codex, Cursor, and human approval review. |
+| `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Defines the project-wide phase roadmap and AI prelearning context across phases 1 through 7. |
+| `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Defines Phase 1 Catch Menu MVP context for customer entry, waiting, takeout order request, and basic handoff. |
+| `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` | Defines Phase 2 yoonsul_os store runtime context as a separate project and Franchise_OS precursor. |
+| `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Defines Phase 3 kiosk, KDS, DID, CMS, and POS integration prelearning context. |
+| `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | Defines Phase 4 Franchise_OS no-outage restaurant operations prelearning context. |
+| `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Defines Phase 5 AI customer center and integrated support prelearning context. |
+| `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Defines Phase 6 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. |
+| `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Defines Phase 7 AI readiness and physical AI gateway prelearning context. |
 
 ## Final Rule
 
-This folder teaches AI agents the project context before work begins. It does not permit runtime implementation, SQL changes, migrations, release changes, or production behavior changes.
+No AI edits without scope.

@@ -1,4 +1,4 @@
-# 004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message
+# 004330_Policy_POS_Adapter_Error_Code_And_Diagnostic_Message.md
 
 ## **1\. Purpose**
 

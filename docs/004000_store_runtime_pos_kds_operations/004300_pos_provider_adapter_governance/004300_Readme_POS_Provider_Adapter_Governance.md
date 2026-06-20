@@ -1,4 +1,4 @@
-# 004300_Readme_POS_Provider_Adapter_Governance
+# 004300_Readme_POS_Provider_Adapter_Governance.md
 
 ## 1 Purpose
 

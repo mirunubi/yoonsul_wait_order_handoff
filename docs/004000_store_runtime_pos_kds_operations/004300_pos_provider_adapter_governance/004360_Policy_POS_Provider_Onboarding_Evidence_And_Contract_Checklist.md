@@ -1,4 +1,4 @@
-# 004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist
+# 004360_Policy_POS_Provider_Onboarding_Evidence_And_Contract_Checklist.md
 
 ## **1\. Purpose**
 

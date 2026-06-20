@@ -1,4 +1,4 @@
-# 005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary
+# 005211_Policy_Mini_Kiosk_And_Kiosk_Provider_Integration_Module_Boundary.md
 
 ## 1. Purpose
 

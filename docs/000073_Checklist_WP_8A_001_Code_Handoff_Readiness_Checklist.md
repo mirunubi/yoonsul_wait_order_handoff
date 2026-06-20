@@ -1,4 +1,4 @@
-# 000073_Checklist_WP_8A_001_Code_Handoff_Readiness_Checklist.md
+# 000073_Checklist_WP_8A_001_Code_Handoff_Readiness_Checklist
 
 ## Purpose
 

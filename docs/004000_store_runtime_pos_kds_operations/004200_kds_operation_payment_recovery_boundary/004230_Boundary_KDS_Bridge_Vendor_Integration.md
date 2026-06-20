@@ -1,4 +1,4 @@
-# 004230_Boundary_KDS_Bridge_Vendor_Integration
+# 004230_Boundary_KDS_Bridge_Vendor_Integration.md
 
 1\. Purpose
 

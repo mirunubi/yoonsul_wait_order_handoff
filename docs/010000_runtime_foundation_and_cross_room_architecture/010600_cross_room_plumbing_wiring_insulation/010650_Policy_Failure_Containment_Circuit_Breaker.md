@@ -1,6 +1,6 @@
-# 010650_Policy_Failure_Containment_Circuit_Breaker
+# 010650_Policy_Failure_Containment_Circuit_Breaker.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Failure Containment and Circuit Breaker Policy.
 

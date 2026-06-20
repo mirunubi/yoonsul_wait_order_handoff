@@ -1,6 +1,6 @@
-# 009110_Boundary_Future_Profile_And_Analytics_State
+# 009110_Boundary_Future_Profile_And_Analytics_State.md
 
-## 1 Purpose
+## Purpose
 
 Future profiles and analytics-related states must not become active MVP runtime accidentally.
 

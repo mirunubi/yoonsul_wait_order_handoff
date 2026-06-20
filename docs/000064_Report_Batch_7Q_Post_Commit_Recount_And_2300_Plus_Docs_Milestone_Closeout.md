@@ -1,4 +1,4 @@
-# 000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout.md
+# 000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout
 
 ## Purpose
 This report closes out the Batch 7 documentation expansion after commit and confirms the 2300+ tracked docs Markdown milestone.

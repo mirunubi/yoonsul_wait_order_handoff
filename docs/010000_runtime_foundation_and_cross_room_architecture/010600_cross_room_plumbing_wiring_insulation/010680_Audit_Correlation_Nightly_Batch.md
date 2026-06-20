@@ -1,6 +1,6 @@
-# 010680_Audit_Correlation_Nightly_Batch
+# 010680_Audit_Correlation_Nightly_Batch.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Audit Correlation and Nightly Batch Policy.
 

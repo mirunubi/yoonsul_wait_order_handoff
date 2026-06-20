@@ -1,4 +1,4 @@
-# 004190_Menu_Availability_Soldout_MVP_Cutline
+# 004190_Menu_Availability_Soldout_MVP_Cutline.md
 
 1\. Purpose
 

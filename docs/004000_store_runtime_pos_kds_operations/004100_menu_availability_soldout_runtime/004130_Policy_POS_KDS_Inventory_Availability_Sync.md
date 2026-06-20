@@ -1,4 +1,4 @@
-# 004130_Policy_POS_KDS_Inventory_Availability_Sync
+# 004130_Policy_POS_KDS_Inventory_Availability_Sync.md
 
 1\. Purpose
 

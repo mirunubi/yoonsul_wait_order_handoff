@@ -1,4 +1,4 @@
-# 004000_Readme_KDS_Integration_Kitchen_Continuity
+# 004010_Readme_KDS_Integration_Kitchen_Continuity.md
 
 1\. Purpose
 
@@ -731,3 +731,23 @@ Record delay, remake, retry, ready, and fulfillment separately.
 Do not expose unreliable kitchen status to guests.
 Preserve evidence.
 Audit every KDS handoff.
+
+## Local File Roles
+
+This folder owns the `004010~004099` KDS integration and kitchen continuity range inside the parent `004000~004999` store runtime POS/KDS operations band.
+
+| File | Role |
+| --- | --- |
+| `004010_Readme_KDS_Integration_Kitchen_Continuity.md` | Defines the KDS integration and kitchen continuity folder purpose, scope, authority boundary, and local file map. |
+| `004011_Policy_POS_Kitchen_Printer_Delegation_And_Direct_Printing_Boundary.md` | Defines the boundary for POS kitchen printer delegation and direct printing behavior. |
+| `004012_WorkPackage_POS_Gateway_POS_KDS_Adapter_Interface_Routing_Error_Normalization_And_Provider_Contract.md` | Defines the POS Gateway POS/KDS adapter interface, routing, error normalization, and provider contract work package. |
+| `004013_Policy_Alcohol_KDS_Hold_Staff_Approval_Cancel_And_Service_Refusal_Boundary.md` | Defines alcohol-related KDS hold, staff approval, cancellation, and service refusal boundaries. |
+| `004014_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet.md` | Defines provider legal, security, payment, and KDS review handoff packet requirements. |
+| `004015_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary.md` | Defines payment/KDS provider backlog extraction and runtime boundary governance. |
+| `004016_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md` | Defines the implementation entry gate for payment/KDS provider work. |
+| `004020_Policy_KDS_Handoff_Candidate_And_Kitchen_Ticket.md` | Defines the KDS handoff candidate and kitchen ticket distinction. |
+| `004030_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md` | Defines the boundary from POS accepted order to KDS ticket creation. |
+| `004040_Policy_KDS_Retry_Remake_Delay_And_Fulfillment_Status.md` | Defines KDS retry, remake, delay, and fulfillment status policy. |
+| `004050_Policy_KDS_Degraded_Operation_Manual_Kitchen_Note.md` | Defines degraded KDS operation and manual kitchen note fallback. |
+| `004090_Boundary_KDS_Integration_Kitchen_Continuity_MVP_Cutline.md` | Defines the MVP cutline and non-MVP boundary for KDS integration and kitchen continuity. |
+| `004099_Index_KDS_Integration_Kitchen_Continuity_And_Readiness_Check.md` | Indexes KDS integration readiness and continuity checks. |

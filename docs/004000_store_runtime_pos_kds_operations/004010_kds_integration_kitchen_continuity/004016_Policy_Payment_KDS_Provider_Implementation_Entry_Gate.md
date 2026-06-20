@@ -1,4 +1,4 @@
-# 004006_Policy_Payment_KDS_Provider_Implementation_Entry_Gate
+# 004016_Policy_Payment_KDS_Provider_Implementation_Entry_Gate.md
 
 ## 1. Purpose
 

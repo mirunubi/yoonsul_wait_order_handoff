@@ -1,6 +1,6 @@
-# 009100_Admin_Support_Audit_Entity_Lineage_Model
+# 009100_Audit_Admin_Support_Entity_Lineage_Model.md
 
-## 1 Purpose
+## Purpose
 
 Admin/support actions must preserve lineage and cannot silently mutate runtime.
 

@@ -1,4 +1,4 @@
-# 005041_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog
+# 004980_Policy_Device_Trust_Session_Revocation_Lost_Device_Test_Catalog.md
 
 ## 1. Purpose
 

@@ -1,4 +1,4 @@
-# 004390_Index_POS_Integration_Governance_And_Readiness_Check
+# 004390_Index_POS_Integration_Governance_And_Readiness_Check.md
 
 ## **1\. Purpose**
 

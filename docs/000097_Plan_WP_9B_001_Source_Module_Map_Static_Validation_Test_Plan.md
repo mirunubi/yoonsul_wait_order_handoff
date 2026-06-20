@@ -1,4 +1,4 @@
-# 000097_Plan_WP_9B_001_Source_Module_Map_Static_Validation_Test_Plan.md
+# 000097_Plan_WP_9B_001_Source_Module_Map_Static_Validation_Test_Plan
 
 ## Purpose
 

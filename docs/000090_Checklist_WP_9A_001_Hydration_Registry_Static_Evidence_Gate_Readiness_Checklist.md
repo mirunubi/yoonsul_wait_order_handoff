@@ -1,4 +1,4 @@
-# 000090_Checklist_WP_9A_001_Hydration_Registry_Static_Evidence_Gate_Readiness_Checklist.md
+# 000090_Checklist_WP_9A_001_Hydration_Registry_Static_Evidence_Gate_Readiness_Checklist
 
 ## Purpose
 

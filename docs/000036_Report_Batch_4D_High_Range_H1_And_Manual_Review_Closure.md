@@ -1,4 +1,4 @@
-# 000036_Report_Batch_4D_High_Range_H1_And_Manual_Review_Closure.md
+# 000036_Report_Batch_4D_High_Range_H1_And_Manual_Review_Closure
 
 ## Scope
 

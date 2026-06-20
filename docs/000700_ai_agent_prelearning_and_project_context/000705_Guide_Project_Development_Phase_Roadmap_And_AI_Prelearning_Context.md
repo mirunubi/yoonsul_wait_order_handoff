@@ -1,4 +1,4 @@
-# 000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
+# 000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
 
 ## 1. Purpose
 
@@ -13,14 +13,14 @@ This guide explains the development phases, cross-cutting layers, and agent warn
 | phase | summary |
 | --- | --- |
 | Phase 0 | Foundation, documentation system, AI prelearning, and 51355 development pipeline. |
-| Phase 1 | Catch Menu customer entry, menu, and order handoff MVP. |
-| Phase 2 | `yoonsul_os` store operation, staff, membership, inventory, and store runtime foundation. |
-| Phase 3 | Kiosk, KDS, DID, CMS, POS integration, Toss, OKPOS, and financial-grade hardening. |
+| Phase 1 | Catch Menu real-store MVP: menu, waiting, takeout request, pickup, Mini Kiosk, basic KDS, OKPOS/Toss POS handoff. |
+| Phase 2 | Separate `yoonsul_os` project: staff, membership, partial inventory; not Catch Menu backend; Franchise_OS precursor. |
+| Phase 3 | Full Kiosk / KDS / DID / CMS / POS integration; reuses Phase 1 OKPOS/Toss; foundation for Phase 1-C and Phase 4. |
 | Phase 3-B | Delivery app, external order channel, and KDS-DID omnichannel expansion. |
-| Phase 4 | Franchise OS headquarters and branch operation control system. |
-| Phase 5 | AI customer center, digital SOP, RAG, pgvector, and self-evolving SOP knowledge. |
-| Phase 6 | Full Catch Menu and Franchise OS SaaS integration. |
-| Phase 7 | Physical AI Gateway, IoT, robot, vision, voice, and real-world actuation boundary. |
+| Phase 4 | Franchise_OS no-outage restaurant operations system; Agent + SOP Runtime; builds on Phase 3. |
+| Phase 5 | Franchise_OS AI customer center + integrated support; extends 1-C; uses Phase 4 events; prerequisite for Phase 6. |
+| Phase 6 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement; builds on Phase 4/5. |
+| Phase 7 | AI readiness + Physical AI Gateway; safety gate, human override, actuation evidence. |
 
 ## 3. Phase Detail Format
 
@@ -37,13 +37,13 @@ Each phase must be understood through these lenses:
 
 | phase | document |
 | --- | --- |
-| Phase 1 | `000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` |
-| Phase 2 | `000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` |
-| Phase 3 | `000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` |
-| Phase 4 | `000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` |
-| Phase 5 | `000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md` |
-| Phase 6 | `000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md` |
-| Phase 7 | `000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md` |
+| Phase 1 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` |
+| Phase 2 | `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` |
+| Phase 3 | `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` |
+| Phase 4 | `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` |
+| Phase 5 | `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` |
+| Phase 6 | `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` |
+| Phase 7 | `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` |
 
 ## 4. Phase 0 Foundation
 
@@ -83,11 +83,11 @@ Phase 0 never authorizes runtime implementation by itself. Implementation requir
 
 ### Purpose
 
-Phase 1 defines Catch Menu as the customer-facing menu and order-entry projection.
+Phase 1 defines Catch Menu as the first real-store MVP connecting customer entry, waiting, takeout order request, pickup status, Mini Kiosk, basic KDS, and basic OKPOS/Toss POS handoff. See `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` for full boundaries.
 
 ### Scope
 
-Catch Menu is not a simple menu page. It is a store-runtime projection that connects menu, option, sold-out status, store status, order handoff, and customer request flow.
+Catch Menu is not a simple menu page and not the final public SaaS service. It is a bounded store-runtime projection for field validation. Phase 1-B expands SaaS and equipment integration; Phase 6 owns full POS coverage planning.
 
 ### Key Runtime Domains
 
@@ -115,25 +115,26 @@ Implementation requires a scoped customer-entry WorkPackage and approved runtime
 
 ### Purpose
 
-Phase 2 defines `yoonsul_os` as the store operation foundation for staff, membership, inventory, order handoff, and store operating state.
+Phase 2 defines `yoonsul_os` as a **separate project** from Catch Menu: single-store internal operations for staff, membership, and partial inventory. It is **not** Catch Menu backend runtime and has **no waiting handoff**. See `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md`.
 
 ### Scope
 
-This phase is not simple CRUD. It becomes the operation base that later POS, KDS, payment, admin, and AI customer center workflows depend on.
+Phase 2 builds Franchise_OS precursor capabilities at single-store scope. Membership packaging/delivery request and minimum payment tracking are in scope; full POS/KDS/DID/CMS, Catch Menu integration, and Franchise_OS full implementation are not.
 
 ### Key Runtime Domains
 
-- Store operation state
 - Staff and role management
 - Membership and customer identity
-- Inventory and availability
-- Order handoff
+- Partial inventory and menu sellability link
+- Membership packaging/delivery request and minimum payment tracking
+- Single-store operation audit trail
 
 ### Key Risks
 
-- Building isolated CRUD screens with no runtime state model.
-- Missing tenant/store ownership boundaries.
-- Creating data without future POS/KDS/payment compatibility.
+- Treating Phase 2 as Catch Menu backend or adding waiting handoff.
+- Mixing membership packaging/delivery with Catch Menu takeout request.
+- Expanding payment or inventory beyond Phase 2 minimum scope.
+- Pulling Franchise_OS implementation forward into Phase 2.
 
 ### AI Agent Warning
 
@@ -147,29 +148,28 @@ Implementation requires approved data model, state boundary, ownership boundary,
 
 ### Purpose
 
-Phase 3 brings kiosk, KDS, DID, CMS, POS integration, Toss, OKPOS, and payment-adjacent runtime into the system.
+Phase 3 is the **full Kiosk / KDS / DID / CMS / POS integration phase**. It stabilizes store equipment, kitchen display, customer display, content, and POS order/payment consistency. See `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md`.
 
 ### Scope
 
-POS, payment, and KDS can create financial accidents and operating accidents, so financial-grade hardening is required.
+Phase 3 reuses Phase 1 OKPOS and Toss POS foundation and may expand to additional major POS providers with evidence. Output becomes infrastructure for Phase 1-C SaaS productization and Phase 4 Franchise_OS—not Franchise_OS or SaaS launch itself.
 
 ### Key Runtime Domains
 
-- Kiosk order submission
-- KDS projection and ticket state
-- DID callout and customer display
-- CMS and menu synchronization
-- POS provider integration
-- Toss and OKPOS integration
-- Payment authorization, cancel, refund, and settlement evidence
+- Kiosk and Mini Kiosk enhancement
+- KDS kitchen display and station routing
+- DID pickup callout and customer display
+- CMS content and menu synchronization
+- POS integration (Phase 1 OKPOS/Toss reuse; controlled provider expansion)
+- Order, payment, cancel/refund state consistency
+- Retry, idempotency, degraded mode, audit, and evidence
 
 ### Key Risks
 
-- Duplicate payment or duplicate order creation
-- Unknown provider state
-- Missing audit trail
-- Missing rollback or replay evidence
-- Payment state mutation without authority
+- Treating Phase 3 as Franchise_OS preparation or SaaS market launch.
+- Payment success conflated with order success; KDS/DID/POS state divergence.
+- CMS/POS menu mismatch; duplicate order/payment on retry.
+- Broad POS readiness claims without provider-specific evidence.
 
 ### AI Agent Warning
 
@@ -218,30 +218,28 @@ Implementation requires provider evidence, security boundary, event contract, re
 
 ### Purpose
 
-Phase 4 defines the headquarters and branch operation control system.
+Phase 4 Franchise_OS is a **no-outage restaurant operations system**. See `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md`.
 
 ### Scope
 
-Franchise OS includes store onboarding, menu distribution, policy distribution, branch/store management, approval workflow, evidence review, and compliance control.
+Core differentiator: No-Outage Store Operations Agent + SOP Runtime. Required supporting modules: SCM, CRM, menu/policy distribution, role/approval, audit/evidence. Builds on Phase 3 integration foundation.
 
 ### Key Runtime Domains
 
-- Headquarters control
-- Branch and store governance
-- Menu and policy distribution
-- Approval workflow
-- Evidence review
-- Compliance control
+- Agent + SOP Runtime, Human Authority Runtime
+- Observation/Input Federation, Runtime Federation, Recovery/SOP Federation
+- Failure classification, resource judgment, fallback/degraded operation, safe closure
+- SCM, CRM, menu/policy distribution, approval workflow, franchise dashboard
 
 ### Key Risks
 
-- Treating admin as CRUD instead of a control room.
-- Missing branch/store authorization.
-- Allowing policy changes without evidence.
+- Reducing Franchise_OS to common SCM/CRM admin software.
+- Agent treated as final authority; human approval bypassed.
+- Missing Runtime Federation or recovery reconciliation.
 
 ### AI Agent Warning
 
-Admin is a control room, not a generic settings panel.
+Continue if safe. Limit if necessary. Close safely if unsafe. Agent recommends; humans decide.
 
 ### Implementation Authorization Rule
 
@@ -251,38 +249,29 @@ Implementation requires approval workflow, ownership boundary, evidence trail, a
 
 ### Purpose
 
-Phase 5 defines the AI customer center as a controlled knowledge gateway.
+Phase 5 is **Franchise_OS AI customer center and integrated support enhancement**. See `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md`.
 
 ### Scope
 
-The AI customer center is not free chat. It uses approved SOP, policy, runbook, and checklist context. `pgvector` is not the final authority; it is a vector search layer for retrieving approved documents.
+Extends Phase 1-C launch AI customer center using Phase 4 no-outage events, SOP Runtime, and recovery evidence. Not a FAQ chatbot; RAG/pgvector are search layers, not final authority.
 
 ### Key Runtime Domains
 
-- Question intake
-- Question normalization
-- Embedding generation
-- pgvector document search
-- Tenant, store, RLS, and document-status filtering
-- Approved SOP, policy, and runbook context injection
-- AI answer generation
-- Evidence recording
-- Unresolved inquiry logging
-- SOP candidate workflow
-- Human approval
-- Versioning and rollback
+- Franchise_OS + integrated support center enhancement
+- Digital SOP evolution from operation and inquiry events
+- RAG/pgvector search, unresolved/repeated inquiry, SOP candidate workflow
+- Role-based answer isolation (HQ/franchisee/staff/agent/customer)
+- Human approval for official SOP, refund, policy, and closure decisions
 
 ### Key Risks
 
-- Hallucinated answers
-- Unauthorized document context
-- Tenant/store data leakage
-- SOP auto-publish without approval
-- Missing version and rollback evidence
+- Reducing Phase 5 to generic FAQ chatbot; disconnect from Phase 4 events.
+- Auto-deploying SOP without human approval; RAG-only answers.
+- Missing role isolation or tenant-safe support design for Phase 6.
 
 ### AI Agent Warning
 
-AI answers must be grounded in approved documents and recorded evidence.
+AI explains and recommends; humans approve. Unresolved inquiries feed SOP evolution.
 
 ### Implementation Authorization Rule
 
@@ -321,31 +310,28 @@ Implementation requires knowledge boundary, RLS boundary, evidence plan, unresol
 
 ### Purpose
 
-Phase 6 integrates Catch Menu and Franchise OS into a complete SaaS-grade operating system.
+Phase 6 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**. See `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md`.
 
 ### Scope
 
-This phase includes multi-tenant SaaS, RLS, tenant/store isolation, admin console, customer surface, store runtime, evidence, and deployment/release governance.
+Dual center: Franchise_OS SaaS productization (Phase 4 output) and Phase 1-C SaaS operational enhancement. Common SaaS foundation with separated product boundaries. Phase 5 is prerequisite.
 
 ### Key Runtime Domains
 
-- Multi-tenant SaaS
-- Tenant and store isolation
-- Customer surface
-- Store runtime
-- Franchise control
-- Security and evidence
-- Deployment and release governance
+- Tenant isolation (HQ/franchisee/store/branch)
+- Billing/subscription/plan model linked to permissions and support scope
+- SaaS admin console, onboarding/migration, release governance
+- Provider support policy, audit/evidence, AI customer center linkage
 
 ### Key Risks
 
-- Calling the product complete because the UI exists.
-- Missing security, evidence, release, or rollback maturity.
-- Weak tenant isolation.
+- Treating Phase 6 as UI completion or first Franchise_OS implementation.
+- Weak tenant isolation; AI/RAG crossing tenant boundaries.
+- Official provider support or SaaS claims without billing/evidence/support readiness.
 
 ### AI Agent Warning
 
-Phase 6 is SaaS-grade integration, not UI completion.
+Phase 6 productizes and operates SaaS; it does not re-implement Phase 4/5 core or Phase 7 Physical AI control.
 
 ### Implementation Authorization Rule
 
@@ -355,34 +341,27 @@ Implementation requires tenant isolation proof, release gate, rollback plan, and
 
 ### Purpose
 
-Phase 7 defines the physical AI gateway for safe real-world device control.
+Phase 7 is **AI readiness and Physical AI Gateway**. See `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md`.
 
 ### Scope
 
-Physical AI Gateway is not just model integration. It is a safety, permission, evidence, and actuation boundary for real-world devices.
+Prepares safety gate, authority boundary, human override, and actuation evidence before AI connects to sensors, robots, voice, vision, IoT, and devices. Builds on Phase 4/5/6—not direct device control.
 
 ### Key Runtime Domains
 
-- IoT
-- Robot
-- Camera vision
-- Voice KDS
-- Kitchen device event
-- Human override
-- Replay prevention
-- Fallback
-- Audit evidence
+- AI readiness, Physical AI Gateway, sensor/device event intake
+- Voice/vision/robot/IoT preparation (observation vs controllable)
+- Safety gate, human override, actuation evidence, tenant-safe AI judgment
 
 ### Key Risks
 
-- AI directly controlling devices without a gateway.
-- Missing human override.
-- Missing replay prevention.
-- Missing actuation audit evidence.
+- AI directly controlling devices; missing safety gate or human override.
+- Sensor/voice/vision treated as certain truth; actuation without evidence.
+- Bypassing Phase 4 no-outage principles or Phase 6 tenant isolation.
 
 ### AI Agent Warning
 
-If AI controls a real-world device, it must pass through a gateway.
+AI proposes; Gateway gates; humans approve. No uncontrolled physical actuation.
 
 ### Implementation Authorization Rule
 

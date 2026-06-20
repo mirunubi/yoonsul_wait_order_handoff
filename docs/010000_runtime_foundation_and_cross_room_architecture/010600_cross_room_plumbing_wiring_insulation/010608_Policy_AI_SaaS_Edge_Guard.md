@@ -1,6 +1,6 @@
-# 010608_Policy_AI_SaaS_Edge_Guard
+# 010608_Policy_AI_SaaS_Edge_Guard.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Pseudonymized AI Analysis, Noisy Neighbor Control, Nonce Idempotency, and Final SaaS Edge Guard Policy.
 

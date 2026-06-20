@@ -1,4 +1,4 @@
-# 007020_Admin_Store_Runtime_Configuration_Model
+# 007020_Policy_Admin_Store_Runtime_Configuration_Model.md
 
 ## 1 Purpose
 

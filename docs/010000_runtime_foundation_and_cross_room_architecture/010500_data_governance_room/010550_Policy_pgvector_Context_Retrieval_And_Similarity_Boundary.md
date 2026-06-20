@@ -1,6 +1,6 @@
-# 010550_Policy_pgvector_Context_Retrieval_And_Similarity_Boundary
+# 010550_Policy_pgvector_Context_Retrieval_And_Similarity_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the pgvector Context Retrieval and Similarity Boundary Policy.
 

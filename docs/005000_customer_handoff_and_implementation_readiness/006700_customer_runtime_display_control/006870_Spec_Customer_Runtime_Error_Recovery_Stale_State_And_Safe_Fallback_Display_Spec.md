@@ -1,4 +1,4 @@
-# 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec
+# 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md
 
 ## 1. Purpose
 

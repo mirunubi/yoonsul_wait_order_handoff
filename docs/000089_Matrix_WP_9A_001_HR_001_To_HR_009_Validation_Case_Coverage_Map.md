@@ -1,4 +1,4 @@
-# 000089_Matrix_WP_9A_001_HR_001_To_HR_009_Validation_Case_Coverage_Map.md
+# 000089_Matrix_WP_9A_001_HR_001_To_HR_009_Validation_Case_Coverage_Map
 
 ## Purpose
 

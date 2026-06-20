@@ -1,4 +1,8 @@
-# 009010_Data_Model_Draft
+# 009010_Overview_Data_Model_Draft.md
+
+## Purpose
+
+Provides the conceptual data model draft for tenant, store, session, waiting, handoff, order, and audit domains.
 
 ## Domain Model
 

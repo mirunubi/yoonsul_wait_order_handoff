@@ -1,6 +1,6 @@
-# 010505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary
+# 010505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Data Governance Room Framing and Intelligence Boundary Index.
 

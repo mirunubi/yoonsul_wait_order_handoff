@@ -1,4 +1,4 @@
-# 007040_Admin_Screen_Inventory_And_Navigation_Model
+# 007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md
 
 ## 1 Purpose
 

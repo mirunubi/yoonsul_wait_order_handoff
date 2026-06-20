@@ -1,6 +1,6 @@
-# 010643_Policy_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion
+# 010643_Policy_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Zero Trust, Machine-to-Machine, Queue, Database, DevSecOps, and Security Checklist Completion Policy.
 

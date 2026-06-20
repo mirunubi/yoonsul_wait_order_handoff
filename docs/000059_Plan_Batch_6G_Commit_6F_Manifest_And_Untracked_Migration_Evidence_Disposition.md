@@ -1,4 +1,4 @@
-# 000059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition.md
+# 000059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition
 
 ## 1. Purpose
 

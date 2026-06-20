@@ -1,4 +1,8 @@
-# 003199_Index_Entry_Media_Inventory_And_MVP_Cutline
+# 003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
 
 Legacy path: $old.
 

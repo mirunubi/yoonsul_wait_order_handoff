@@ -1,4 +1,4 @@
-# 000037_Matrix_Batch_4D_High_Range_Manual_Review_Closure.md
+# 000037_Matrix_Batch_4D_High_Range_Manual_Review_Closure
 
 Batch 4D manual-review closure matrix for Batch 4C skipped references.
 

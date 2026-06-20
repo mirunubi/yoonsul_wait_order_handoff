@@ -1,4 +1,4 @@
-# 004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX
+# 004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md
 
 ## **1\. Purpose**
 

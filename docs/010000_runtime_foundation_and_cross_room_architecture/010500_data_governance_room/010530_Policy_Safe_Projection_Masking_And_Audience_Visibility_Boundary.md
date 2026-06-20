@@ -1,6 +1,6 @@
-# 010530_Policy_Safe_Projection_Masking_And_Audience_Visibility_Boundary
+# 010530_Policy_Safe_Projection_Masking_And_Audience_Visibility_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Safe Projection, Masking, and Audience Visibility Boundary Policy.
 

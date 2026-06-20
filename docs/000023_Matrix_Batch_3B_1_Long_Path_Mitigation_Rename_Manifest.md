@@ -1,4 +1,4 @@
-# Matrix: Batch 3B-1 Long Path Mitigation Rename Manifest
+# 000023_Matrix_Batch_3B_1_Long_Path_Mitigation_Rename_Manifest
 
 This matrix is a planning manifest only. It does not execute folder renames, file moves, file renames, deletes, H1 edits, body edits, internal link edits, or runtime implementation.
 

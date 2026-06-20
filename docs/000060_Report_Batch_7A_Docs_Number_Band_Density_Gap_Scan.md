@@ -1,4 +1,4 @@
-# 000060_Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan.md
+# 000060_Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan
 
 ## Scope
 

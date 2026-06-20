@@ -1,4 +1,4 @@
-# 004199_Index_Menu_Availability_Soldout_And_Readiness_Check
+# 004199_Index_Menu_Availability_Soldout_And_Readiness_Check.md
 
 1\. Purpose
 

@@ -1,4 +1,4 @@
-# 000086_Overview_WP_9A_001_Hydration_Registry_Schema_Validation_And_Static_Evidence_Gate.md
+# 000086_Overview_WP_9A_001_Hydration_Registry_Schema_Validation_And_Static_Evidence_Gate
 
 ## Purpose
 

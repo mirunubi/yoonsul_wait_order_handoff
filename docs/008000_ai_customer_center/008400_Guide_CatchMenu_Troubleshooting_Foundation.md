@@ -1,6 +1,6 @@
-# 008400_CatchMenu_Troubleshooting_Foundation
+# 008400_Guide_CatchMenu_Troubleshooting_Foundation.md
 
-1\. Purpose
+## Purpose
 
 This document defines the troubleshooting foundation for CatchMenu AI Customer Center integration.
 

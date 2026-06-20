@@ -1,6 +1,6 @@
-# 010606_Policy_Extreme_Edge_Operations
+# 010606_Policy_Extreme_Edge_Operations.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Extreme Edge Case, Power Cut, Twenty-Four-Hour Store, Hardware Peripheral, and Human CS Operations Policy.
 

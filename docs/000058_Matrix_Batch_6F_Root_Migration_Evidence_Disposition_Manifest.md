@@ -1,4 +1,4 @@
-# 000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md
+# 000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest
 
 Root migration evidence and worktree noise disposition manifest after six-digit docs migration closeout.
 Planning and approval gate only. No staging, commit, delete, revert, rename, move, or content edit executed.

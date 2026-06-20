@@ -1,4 +1,4 @@
-# 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec
+# 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md
 
 ## 1. Purpose
 

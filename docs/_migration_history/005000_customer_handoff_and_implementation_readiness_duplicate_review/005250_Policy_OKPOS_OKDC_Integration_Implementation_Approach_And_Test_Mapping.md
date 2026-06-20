@@ -1,4 +1,4 @@
-# 005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping
+# 005250_Policy_OKPOS_OKDC_Integration_Implementation_Approach_And_Test_Mapping.md
 
 \#\# 1\. Purpose
 

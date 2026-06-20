@@ -1,4 +1,4 @@
-# 000088_Plan_WP_9A_001_Hydration_Registry_Schema_Validation_Test_Plan.md
+# 000088_Plan_WP_9A_001_Hydration_Registry_Schema_Validation_Test_Plan
 
 ## Purpose
 

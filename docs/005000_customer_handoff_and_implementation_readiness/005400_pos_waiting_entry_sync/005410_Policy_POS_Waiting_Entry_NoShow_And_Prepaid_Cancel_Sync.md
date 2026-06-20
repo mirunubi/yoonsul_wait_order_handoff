@@ -1,4 +1,4 @@
-# 005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync
+# 005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md
 
 ## 1. Purpose
 

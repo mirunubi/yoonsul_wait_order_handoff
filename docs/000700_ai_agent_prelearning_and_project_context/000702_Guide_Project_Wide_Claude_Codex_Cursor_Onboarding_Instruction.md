@@ -1,20 +1,20 @@
-# 000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md
+# 000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md
 
 ## Purpose
 
 This guide is a ready-to-copy onboarding instruction set for briefing Claude Cowork, Codex, and Cursor before project work begins.
 
-First read: `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md`.
+First read: `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md`.
 
 Phase-specific prelearning:
 
-- `000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md`
-- `000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md`
-- `000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md`
-- `000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md`
-- `000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md`
-- `000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md`
-- `000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md`
+- `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md`
+- `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md`
+- `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md`
+- `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md`
+- `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md`
+- `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md`
+- `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md`
 
 The project is not just Catch Menu. Catch Menu is the customer-facing projection of a broader store-runtime and franchise SaaS operating system. Catch & Order is the integrated SaaS/service layer that connects customer entry, store operations, POS/KDS/payment runtime, admin operations, AI customer center, delivery channels, analytics, and future franchise intelligence.
 
@@ -154,7 +154,7 @@ Before any runtime implementation, the human owner must confirm:
 ```text
 You are Claude onboarding to the yoonsul_wait_order_handoff project.
 
-First read `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md`.
+First read `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md`.
 
 This project is not just Catch Menu. Catch Menu is the customer-facing projection of a broader store-runtime and franchise SaaS operating system. Catch & Order is the integrated SaaS/service layer.
 

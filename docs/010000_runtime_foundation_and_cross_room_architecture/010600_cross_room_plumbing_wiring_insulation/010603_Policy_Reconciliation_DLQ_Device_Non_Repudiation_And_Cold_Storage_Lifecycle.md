@@ -1,6 +1,6 @@
-# 010603_Policy_Reconciliation_DLQ_Device_Non_Repudiation_And_Cold_Storage_Lifecycle
+# 010603_Policy_Reconciliation_DLQ_Device_Non_Repudiation_And_Cold_Storage_Lifecycle.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Reconciliation DLQ, Device Non-Repudiation, and Cold Storage Lifecycle Policy.
 

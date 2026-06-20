@@ -1,4 +1,4 @@
-# 000043_Report_Batch_5E_Dense_Domain_File_Basename_Rename.md
+# 000043_Report_Batch_5E_Dense_Domain_File_Basename_Rename
 
 ## Scope
 

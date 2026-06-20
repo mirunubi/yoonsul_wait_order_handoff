@@ -1,4 +1,4 @@
-# 000068_Matrix_WP_8A_001_Dependency_Graph_And_Source_To_Module_Map.md
+# 000068_Matrix_WP_8A_001_Dependency_Graph_And_Source_To_Module_Map
 
 ## Purpose
 

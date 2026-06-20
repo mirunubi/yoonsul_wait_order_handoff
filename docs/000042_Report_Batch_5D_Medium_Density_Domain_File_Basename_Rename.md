@@ -1,4 +1,4 @@
-# 000042_Report_Batch_5D_Medium_Density_Domain_File_Basename_Rename.md
+# 000042_Report_Batch_5D_Medium_Density_Domain_File_Basename_Rename
 
 ## Scope
 

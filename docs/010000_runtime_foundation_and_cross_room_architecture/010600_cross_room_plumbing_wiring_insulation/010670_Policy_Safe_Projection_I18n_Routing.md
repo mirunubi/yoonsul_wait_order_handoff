@@ -1,6 +1,6 @@
-# 010670_Policy_Safe_Projection_I18n_Routing
+# 010670_Policy_Safe_Projection_I18n_Routing.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Safe Projection and i18n Routing Policy.
 

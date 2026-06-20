@@ -1,36 +1,34 @@
-# 005000_Readme_Customer_Handoff_And_Implementation_Readiness
+# 005000_Readme_Customer_Handoff_And_Implementation_Readiness.md
 
 ## 1 Purpose
 
-This band groups customer handoff flow, implementation readiness, provider verification, POS payment provider readiness, and mini kiosk reuse policies.
+This band groups customer handoff flow, implementation readiness, provider verification, POS/payment provider readiness, mini kiosk reuse, store runtime handoff WorkPackages, customer runtime evidence, and customer runtime display control.
 
-## 2 Scope
+## 2 Folder-Owned Number Range
 
-- customer wait/order/handoff flow
-- customer-safe handoff state
-- implementation readiness and execution backlog
-- provider verification and evidence handoff
-- Toss/PAYCO/OKPOS readiness policy
-- POS payment provider and kiosk reuse boundary
-- mini kiosk integration reuse and payment flow readiness
+This folder owns `005000~006999` until the next top-level sibling folder, `007000_admin_console/`, begins.
 
-## 3 Subfolder List
+## 3 Subfolder Roles
 
-| subfolder | description |
+| Subfolder | Role |
 | --- | --- |
-| `05000_customer_handoff_flow/` | Customer wait/order/handoff flow package |
-| `05100_implementation_readiness_and_provider_verification/` | Implementation readiness and provider verification package |
-| `05200_pos_payment_provider_and_kiosk_reuse/` | POS payment provider and kiosk reuse package |
+| `005010_customer_handoff_flow/` | Defines customer-facing waiting, order, Stage 0, reservation, preorder, and handoff flow documents. |
+| `005100_implementation_readiness_and_provider_verification/` | Defines implementation readiness, provider verification, evidence handoff, and controlled implementation gate documents. |
+| `005200_pos_payment_provider_and_kiosk_reuse/` | Defines POS/payment provider grouping, kiosk reuse, mini kiosk boundaries, and provider cutline documents. |
+| `005400_pos_waiting_entry_sync/` | Defines POS waiting entry, no-show, prepaid cancel, and customer handoff synchronization policy. |
+| `006400_store_runtime_workpackage_control/` | Defines store runtime WorkPackages that connect customer handoff readiness to store operational truth. |
+| `006500_entrance_customer_runtime_boundary/` | Defines entrance, waiting, table matching, notification, and customer runtime boundary policies. |
+| `006600_customer_runtime_evidence_handoff/` | Defines customer runtime evidence, audit trail, traceability, closeout, and handoff policy. |
+| `006700_customer_runtime_display_control/` | Defines customer runtime display control, QA, release gate, registry spec, and rollback governance. |
 
-## 4 Relationship Notes
+## 4 Migration History Note
 
-- `03000` SaaS Runtime owns session/runtime authority.
-- `04000` Store Runtime POS/KDS Operations provides store execution, KDS/POS, recovery, and provider adapter operational boundaries.
-- `05000` band owns customer-facing handoff flow and the readiness bridge into implementation/provider verification.
-- `07000` Admin Console consumes support/operator-facing surfaces.
-- `13000` POS Provider Integration Strategy may own longer-term provider strategy, while `05200` remains the near-term readiness and reuse package.
-- Foundation Security governs identity, access, audit/evidence, incident response, and data retention across all subfolders.
+Escaped Markdown duplicates and stale duplicate review copies were moved out of active subfolders into `docs/_migration_history/005000_customer_handoff_and_implementation_readiness_duplicate_review/`.
 
-## 5 Document Numbering Note
+Those files are not canonical active policy locations for this band.
 
-Detailed documents keep their original document numbers inside subfolders.
+## 5 Boundary
+
+These documents define customer handoff and readiness governance only.
+
+They do not approve implementation, production rollout, payment mutation, POS automation, SQL changes, Flutter/Dart changes, or runtime enforcement.

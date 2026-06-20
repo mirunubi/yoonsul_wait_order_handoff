@@ -1,6 +1,6 @@
-# 010540_Policy_AI_Advisory_Runtime_And_Non_Authority_Boundary
+# 010540_Policy_AI_Advisory_Runtime_And_Non_Authority_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the AI Advisory Runtime and Non-Authority Boundary Policy.
 

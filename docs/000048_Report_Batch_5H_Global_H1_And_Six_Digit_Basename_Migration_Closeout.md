@@ -1,4 +1,4 @@
-# 000048_Report_Batch_5H_Global_H1_And_Six_Digit_Basename_Migration_Closeout.md
+# 000048_Report_Batch_5H_Global_H1_And_Six_Digit_Basename_Migration_Closeout
 
 ## Scope
 

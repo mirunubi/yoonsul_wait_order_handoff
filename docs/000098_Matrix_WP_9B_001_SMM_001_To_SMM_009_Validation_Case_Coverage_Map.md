@@ -1,4 +1,4 @@
-# 000098_Matrix_WP_9B_001_SMM_001_To_SMM_009_Validation_Case_Coverage_Map.md
+# 000098_Matrix_WP_9B_001_SMM_001_To_SMM_009_Validation_Case_Coverage_Map
 
 ## Purpose
 

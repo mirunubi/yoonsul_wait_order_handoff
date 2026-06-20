@@ -1,4 +1,4 @@
-# 000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md
+# 000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate
 
 ## 1. Purpose
 

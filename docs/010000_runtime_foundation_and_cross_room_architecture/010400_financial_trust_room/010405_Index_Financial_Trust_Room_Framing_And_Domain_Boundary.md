@@ -1,6 +1,6 @@
-# 010405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary
+# 010405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Financial Trust Room Framing and Domain Boundary Index.
 

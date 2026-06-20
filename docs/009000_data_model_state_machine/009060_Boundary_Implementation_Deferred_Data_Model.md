@@ -1,6 +1,6 @@
-# 009060_Implementation_Deferred_Data_Model_Boundary
+# 009060_Boundary_Implementation_Deferred_Data_Model.md
 
-## 1 Purpose
+## Purpose
 
 5000 docs define conceptual models only.
 

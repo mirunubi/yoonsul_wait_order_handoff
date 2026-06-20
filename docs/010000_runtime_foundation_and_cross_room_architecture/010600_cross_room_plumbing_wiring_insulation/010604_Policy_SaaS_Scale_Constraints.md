@@ -1,6 +1,6 @@
-# 010604_Policy_SaaS_Scale_Constraints
+# 010604_Policy_SaaS_Scale_Constraints.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the SaaS Scale Constraint, Multi-Tenancy, Hardware, Regulation, Noise, and Distributed Batch Policy.
 

@@ -1,6 +1,6 @@
-# 009080_Runtime_Profile_And_Change_Request_Entity_Model
+# 009080_Spec_Runtime_Profile_And_Change_Request_Entity_Model.md
 
-## 1 Purpose
+## Purpose
 
 Runtime profiles and feature flags must have conceptual entities before implementation planning.
 

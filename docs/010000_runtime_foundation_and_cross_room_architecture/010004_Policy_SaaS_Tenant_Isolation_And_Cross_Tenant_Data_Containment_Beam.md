@@ -1,6 +1,6 @@
-# 010141_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam
+# 010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the SaaS Tenant Isolation and Cross-Tenant Data Containment Beam Policy.
 

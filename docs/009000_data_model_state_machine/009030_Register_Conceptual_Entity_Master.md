@@ -1,6 +1,6 @@
-# 009030_Conceptual_Entity_Master
+# 009030_Register_Conceptual_Entity_Master.md
 
-## 1 Purpose
+## Purpose
 
 This is a conceptual entity master, not a physical schema.
 

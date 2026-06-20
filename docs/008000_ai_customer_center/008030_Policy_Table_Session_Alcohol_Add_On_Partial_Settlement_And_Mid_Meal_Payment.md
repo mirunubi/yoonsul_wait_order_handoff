@@ -1,6 +1,6 @@
-# 008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment
+# 008030_Policy_Table_Session_Alcohol_Add_On_Partial_Settlement_And_Mid_Meal_Payment.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the table session alcohol add-on, partial settlement, mid-meal payment, split payment, table participant boundary, alcohol re-order, payment/KDS hold, staff confirmation, dispute evidence, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

@@ -1,4 +1,4 @@
-# 000067_Overview_WP_8A_001_Read_Only_Codebase_Hydration_Foundation_And_Source_To_Module_Mapping.md
+# 000067_Overview_WP_8A_001_Read_Only_Codebase_Hydration_Foundation_And_Source_To_Module_Mapping
 
 ## WorkPackage Purpose
 

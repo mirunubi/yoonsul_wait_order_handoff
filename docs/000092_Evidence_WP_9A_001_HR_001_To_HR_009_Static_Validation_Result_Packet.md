@@ -1,4 +1,4 @@
-# 000092_Evidence_WP_9A_001_HR_001_To_HR_009_Static_Validation_Result_Packet.md
+# 000092_Evidence_WP_9A_001_HR_001_To_HR_009_Static_Validation_Result_Packet
 
 ## Purpose
 

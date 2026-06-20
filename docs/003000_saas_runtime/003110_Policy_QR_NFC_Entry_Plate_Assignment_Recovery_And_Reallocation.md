@@ -1,4 +1,8 @@
-# 003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation
+# 003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
 
 Legacy path: $old.
 

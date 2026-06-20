@@ -1,6 +1,6 @@
-# 010554_Policy_Four_Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation
+# 010554_Policy_Four_Layer_Audit_Capture_Trigger_View_OS_Log_And_Nightly_Batch_Reconciliation.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Four-Layer Audit Capture, Trigger, View, OS Log, and Nightly Batch Reconciliation Policy.
 

@@ -1,30 +1,23 @@
-# 010700_Readme_Security_Trust_And_Smart_Order_Control
+# 010700_Readme_Security_Trust_And_Smart_Order_Control.md
 
-## 1 Purpose
+## Purpose
 
-This folder defines the `10700` security trust and smart order control package.
+Defines the security, trust, and smart-order control foundation before legal notice and store onboarding domains begin.
 
-## 2 In Scope
+## Folder-Owned Number Range
 
-- Security and trust foundation index.
-- Five-minute smart order fast track.
-- KDS throttling, no-show penalty, and abuse control.
-- Fast track admin console control tower and store operations governance.
+- This folder owns `010700~010799` within `docs/010000_runtime_foundation_and_cross_room_architecture/`.
+- Files in this folder should stay inside the folder-owned range unless a later governance batch explicitly moves them.
 
-## 3 Relationship Notes
+## File Role Index
 
-- `07000` owns admin/support operator surfaces.
-- `40000_menu_taxonomy_and_ai_classification/` owns menu taxonomy and AI menu classification documents.
-- Foundation Security governs trust, abuse control, and audit evidence.
-
-## 4 Document List
-
-| document | description |
+| File | Role |
 | --- | --- |
-| `10705_Index_Security_And_Trust_Foundation.md` | 10700_Security_And_Trust_Foundation_Index. |
-| `10701_Policy_Fast_Track_Abuse_Control.md` | 10701_Five-Minute_Smart_Order_Fast_Track_KDS_Throttling_No-Show_Penalty_And_Abuse_Control_Boundary_Policy. |
-| `10702_Policy_Fast_Track_Store_Ops.md` | 10702_Fast_Track_Admin_Console_Control_Tower_KDS_Load_Penalty_Governance_And_Store_Operations_Policy. |
+| `010700_Readme_Security_Trust_And_Smart_Order_Control.md` | Security Trust And Smart Order Control folder Readme, owned number range, and file role index. |
+| `010701_Policy_Fast_Track_Abuse_Control.md` | Policy Fast Track Abuse Control. |
+| `010702_Policy_Fast_Track_Store_Ops.md` | Policy Fast Track Store Ops. |
+| `010705_Index_Security_And_Trust_Foundation.md` | Index Security And Trust Foundation. |
 
-## 5 Current Status
+## Closeout
 
-Status: package organized by root markdown rename/move apply wave. Governance only.
+This Readme keeps the physical folder, filename number band, and document role map aligned.

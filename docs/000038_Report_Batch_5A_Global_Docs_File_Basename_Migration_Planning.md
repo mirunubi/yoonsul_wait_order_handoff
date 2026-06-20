@@ -1,4 +1,4 @@
-# 000038_Report_Batch_5A_Global_Docs_File_Basename_Migration_Planning.md
+# 000038_Report_Batch_5A_Global_Docs_File_Basename_Migration_Planning
 
 ## Scope
 

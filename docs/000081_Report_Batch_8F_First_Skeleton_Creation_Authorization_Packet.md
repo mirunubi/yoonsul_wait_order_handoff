@@ -1,4 +1,4 @@
-# 000081_Report_Batch_8F_First_Skeleton_Creation_Authorization_Packet.md
+# 000081_Report_Batch_8F_First_Skeleton_Creation_Authorization_Packet
 
 ## Purpose
 

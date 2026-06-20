@@ -1,4 +1,4 @@
-# 003020_Tenant_Company_Legal_Operating_Group_Context_Model
+# 003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md
 
 ## 1 Purpose
 

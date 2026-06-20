@@ -1,4 +1,4 @@
-# 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec
+# 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec.md
 
 ## 1. Purpose
 

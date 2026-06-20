@@ -1,4 +1,4 @@
-# 000063_Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate.md
+# 000063_Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate
 
 ## Purpose
 This report validates the Batch 7C through Batch 7N expansion waves for staging and commit readiness without staging or committing files.

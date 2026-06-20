@@ -1,4 +1,4 @@
-# 000069_Diagram_WP_8A_001_Runtime_Flow_Read_Only_Hydration_Diagram.md
+# 000069_Diagram_WP_8A_001_Runtime_Flow_Read_Only_Hydration_Diagram
 
 ## Purpose
 

@@ -1,6 +1,6 @@
-# 010641_Policy_Web_App_RPC_Session_Redirect_URL_And_Parameter_Exposure_Security
+# 010641_Policy_Web_App_RPC_Session_Redirect_URL_And_Parameter_Exposure_Security.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Web App RPC Session, Redirect, URL, and Parameter Exposure Security Policy.
 

@@ -1,6 +1,6 @@
-# 009020_Handoff_State_Machine
+# 009020_Spec_Handoff_State_Machine.md
 
-## 1 Purpose
+## Purpose
 
 This document defines the first conceptual handoff state machine for `yoonsul_wait_order_handoff`.
 

@@ -1,6 +1,6 @@
-# 008700_Scale_Out_Strategy
+# 008700_Plan_Scale_Out_Strategy.md
 
-1\. Purpose
+## Purpose
 
 This document defines the scale-out strategy for CatchMenu AI Customer Center integration.
 

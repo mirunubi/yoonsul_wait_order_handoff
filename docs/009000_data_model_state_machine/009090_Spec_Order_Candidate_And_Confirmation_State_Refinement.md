@@ -1,6 +1,6 @@
-# 009090_Order_Candidate_And_Confirmation_State_Refinement
+# 009090_Spec_Order_Candidate_And_Confirmation_State_Refinement.md
 
-## 1 Purpose
+## Purpose
 
 Customer-facing and store-facing states must not imply stronger confirmation than the system actually has.
 

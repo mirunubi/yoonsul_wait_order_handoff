@@ -1,4 +1,4 @@
-# 004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter
+# 004305_Policy_POS_Provider_Abstraction_And_Multi_POS_Adapter.md
 
 ## **1\. Purpose**
 

@@ -1,4 +1,4 @@
-# 000093_Matrix_WP_9A_001_Hydration_Registry_Static_Validation_Findings_Map.md
+# 000093_Matrix_WP_9A_001_Hydration_Registry_Static_Validation_Findings_Map
 
 ## Purpose
 

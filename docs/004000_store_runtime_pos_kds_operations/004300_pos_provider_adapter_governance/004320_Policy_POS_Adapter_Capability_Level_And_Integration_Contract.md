@@ -1,4 +1,4 @@
-# 004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract
+# 004320_Policy_POS_Adapter_Capability_Level_And_Integration_Contract.md
 
 ## **1\. Purpose**
 

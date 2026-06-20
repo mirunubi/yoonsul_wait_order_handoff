@@ -1,6 +1,6 @@
-# 010611_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning
+# 010611_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Cross-Room Plumbing, Wiring, and Insulation Planning Index.
 

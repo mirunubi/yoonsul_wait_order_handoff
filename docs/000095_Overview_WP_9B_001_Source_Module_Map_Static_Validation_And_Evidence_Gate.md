@@ -1,4 +1,4 @@
-# 000095_Overview_WP_9B_001_Source_Module_Map_Static_Validation_And_Evidence_Gate.md
+# 000095_Overview_WP_9B_001_Source_Module_Map_Static_Validation_And_Evidence_Gate
 
 ## Purpose
 

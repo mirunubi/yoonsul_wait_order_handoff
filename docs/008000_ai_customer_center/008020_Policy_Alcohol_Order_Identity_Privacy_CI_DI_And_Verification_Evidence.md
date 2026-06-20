@@ -1,6 +1,6 @@
-# 008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence
+# 008020_Policy_Alcohol_Order_Identity_Privacy_CI_DI_And_Verification_Evidence.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the alcohol order identity privacy, CI/DI handling, adult verification evidence, identity data minimization, masking, storage boundary, support visibility, Admin Console visibility, audit evidence, and leakage prevention policy for the Yoonsul Wait/Order Handoff documentation project.
 

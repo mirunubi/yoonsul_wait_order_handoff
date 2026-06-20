@@ -1,99 +1,460 @@
-# 000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md
+# 000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
 
 ## 1. Purpose
 
-Phase 6 explains the full SaaS integration of Catch Menu and Franchise_OS.
+This document is the Phase 6 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to **Franchise_OS SaaS conversion and Phase 1 SaaS enhancement**.
 
-This document is prelearning for Claude, Codex, Cursor, and future AI agents before they work on this phase.
+It teaches agents that Phase 6 is **not** simple feature addition. Phase 6 converts Franchise_OS into a **SaaS product** that external headquarters, franchisees, and branches can use, while **enhancing** the Phase 1-C market-launched Catch Menu SaaS in parallel.
 
-It helps agents understand the phase before implementation planning. It does not authorize implementation.
+This document helps agents classify scope, define tenant boundaries, and plan billing, onboarding, release governance, and evidence. It does **not** authorize runtime implementation, SQL changes, migrations, or production rollout.
 
-## 2. Phase Position
+## 2. Core Identity
 
-Phase 6 is SaaS-grade integration across customer surface, store runtime, franchise control, security, evidence, and release governance.
+Phase 6 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**.
 
-## 3. Core Scope
+| Phase | Role |
+| --- | --- |
+| Phase 1-C | Phase 1 SaaS **market launch** |
+| Phase 4 | Franchise_OS **function implementation** |
+| Phase 5 | AI customer center / Digital SOP / RAG / pgvector / integrated support foundation |
+| **Phase 6** | **Franchise_OS SaaS conversion + Phase 1 SaaS operational enhancement** |
 
-- Multi-tenant SaaS
-- Tenant/store isolation
-- RLS
-- Admin console
-- Customer-facing Catch Menu
-- Store runtime
-- Franchise policy/config distribution
-- Monitoring
-- Audit/evidence
-- Release governance
-- Rollback
-- Production readiness
+After Phase 4 implements Franchise_OS and Phase 5 strengthens AI customer center and Digital SOP foundations, Phase 6 makes Franchise_OS usable as a **SaaS product** for external HQ/franchisee/branch operators. At the same time, Phase 6 **enhances** the Catch Menu SaaS launched in Phase 1-C.
 
-## 4. Non-Scope
+**Phase 6 core includes:**
 
-- UI-only completion claim
-- Tenant isolation bypass
-- Unapproved RLS changes
-- Unscoped admin action
-- Release without evidence
+- Franchise_OS SaaS conversion
+- Phase 1 SaaS enhancement
+- common SaaS operating foundation integration
+- multi-tenant isolation hardening
+- HQ tenant / franchisee tenant / store tenant structure
+- SaaS billing / subscription / plan model
+- SaaS admin console
+- HQ administrator console
+- franchisee administrator console
+- store administrator console
+- integrated AI customer center linkage
+- Digital SOP operational reflection
+- POS / KDS / DID / CMS / SCM / CRM / membership / payment SaaS operational stabilization
+- audit / evidence / release governance
+- onboarding / migration / support system
+- externally sellable SaaS operating model
 
-## 5. Key Runtime Concepts
+**Core principle:** Phase 6 is **not** where Franchise_OS core functions are first built (Phase 4) or where AI customer center foundations are first built (Phase 5). Phase 6 makes those capabilities **SaaS-operable**.
 
-- SaaS-grade integration
-- Tenant boundary
-- Store boundary
-- RLS
-- Release governance
-- Audit evidence
-- Rollback readiness
+## 3. Phase Position
 
-## 6. Key Risks
+Current roadmap context:
 
-- Tenant isolation failure
-- RLS misconfiguration
-- Franchise/store role confusion
-- Customer data leakage
-- Config rollout accident
-- Incomplete release evidence
-- Admin action without audit
+| Phase | Summary |
+| --- | --- |
+| Phase 0 | Foundation, documentation system, development constitution |
+| Phase 1 | Catch Menu MVP with OKPOS + Toss POS, KDS, waiting, Mini Kiosk; first-store testbed around **September 2027** (planning context) |
+| Phase 1-B | SaaS transition preparation (planning context) |
+| Phase 2 | `yoonsul_os` store operation foundation: staff, membership, partial inventory (**separate project**) |
+| Phase 3 | Kiosk / KDS / DID / CMS / POS integration |
+| Phase 1-C | Complete SaaS productization and **market launch** |
+| Phase 4 | Franchise_OS no-outage restaurant operations system |
+| Phase 5 | Franchise_OS AI customer center and integrated support enhancement |
+| **Phase 6** | **Franchise_OS SaaS conversion + Phase 1 SaaS enhancement** |
+| Phase 7 | AI readiness and Physical AI Gateway preparation |
 
-## 7. Required Pre-Implementation Documents
+## 4. Phase 6 Dual Center
 
-- impact_scope for Catch Menu, Franchise OS, admin console, store runtime, tenant/store isolation, RLS, monitoring, audit/evidence, release, and rollback
-- context_snapshot covering customer-facing surface, admin console, franchise policy/config distribution, store runtime, and SaaS tenancy boundaries
-- overview of SaaS-grade integration across Catch Menu and Franchise OS
-- logic for multi-tenant isolation, RLS, policy/config distribution, monitoring, audit/evidence, release governance, and rollback
-- test_plan for tenant leakage, RLS bypass, bad franchise rollout, monitoring gaps, audit gaps, and rollback
-- change_contract that names allowed SaaS integration operations and forbidden cross-tenant actions
-- human approval before any implementation activity
+Phase 6 has **two centers**:
 
-## 8. Implementation Gate
+1. **Franchise_OS SaaS conversion** — external HQ/franchisee/branch productization
+2. **Phase 1 SaaS enhancement** — operational maturity for market-launched Catch Menu SaaS
 
-This document is not an implementation authorization.
+Both share a **common SaaS foundation** while keeping product responsibility boundaries separate.
 
-Actual implementation must pass through the 51355 pipeline. Implementation is forbidden unless impact_scope, context_snapshot, overview, logic, test_plan, change_contract, and human approval exist.
+## 5. Franchise_OS SaaS Conversion
 
-Allowed files are not enough. Allowed operations must also be specified.
+Phase 6’s first center is converting Franchise_OS into a SaaS product.
 
-Cursor is only an optional inspection helper for related-file discovery and raw evidence collection.
+**Phase 4 Franchise_OS includes:**
 
-Claude Cowork is responsible for design, audit, and document classification.
+- no-outage Store Operations Agent + SOP Runtime
+- Human Authority Runtime
+- SCM, CRM
+- menu and policy distribution
+- role/permission and approval workflow
+- audit/evidence and recovery history
+- HQ/franchisee/branch operating model
 
-Codex is responsible only for limited implementation or document generation inside approved files and approved operations.
+**Phase 6 SaaS conversion requires:**
 
-Human is responsible for final approval, merge, and release.
+- tenant separation
+- HQ-level data isolation
+- franchisee-level data isolation
+- branch/store-level data isolation
+- user permission isolation
+- policy/menu/SCM/CRM data isolation
+- AI customer center knowledge isolation
+- billing / subscription
+- onboarding and migration
+- support system
+- release governance
+- audit/evidence retention
+- failure-response operating model for SaaS scale
 
-## 9. Related Folders And Documents
+## 6. Phase 1 SaaS Enhancement
 
-Cross-references:
+Phase 6’s second center is enhancing Catch Menu SaaS launched in Phase 1-C.
 
-- `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md`
-- `051355` AI-assisted financial-grade development pipeline
-- `600000` implementation lifecycle
-- `700000` runtime flow bundle
-- `000500` AI agent prelearning folder
+Phase 1-C is **market launch**. It absorbs common modules from Phase 2 and Phase 3, launch-grade AI customer center, pgvector, RAG, Digital SOP, multi-tenant isolation, and SaaS launch foundation—but **post-launch operational maturity** is still required.
 
+**Phase 6 Phase 1 SaaS enhancement items:**
 
-Phase 6 integrates Phase 1 customer projection, Phase 2 store runtime, Phase 4 franchise control, and Phase 5 knowledge systems.
+- tenant isolation hardening
+- per-store configuration enhancement
+- POS provider support policy clarification
+- KDS/DID/CMS operational stabilization
+- takeout/delivery/membership enhancement
+- customer-center linkage enhancement
+- SaaS admin console strengthening
+- plan/subscription model refinement
+- failure/recovery/evidence system strengthening
+- store onboarding automation
+- customer-support cost reduction
+- operational statistics and reporting enhancement
 
-## 10. Final Rule
+## 7. Common SaaS Foundation
 
-Phase 6 is SaaS-grade integration of Catch Menu, Franchise OS, and store runtime, not UI completion.
+Franchise_OS SaaS and Phase 1 SaaS must share a **common SaaS foundation** to avoid duplicated operating cost.
+
+**Common foundation:**
+
+- tenant model
+- organization model
+- store model
+- franchise model
+- user / role / permission model
+- subscription model
+- billing model
+- support model
+- audit model
+- evidence model
+- release model
+- onboarding model
+- migration model
+- provider support policy
+- AI customer center integration
+- Digital SOP integration
+
+**Important:** Build shared foundation, but **separate product responsibility boundaries**.
+
+## 8. Tenant Isolation
+
+Multi-tenant isolation is one of Phase 6’s **most critical** technical and operational conditions.
+
+**Tenant scopes to separate:**
+
+- platform tenant
+- headquarters tenant
+- franchise tenant
+- franchisee tenant
+- store tenant
+- branch tenant
+- customer-facing tenant context
+- support tenant context
+
+**Isolation targets:**
+
+- users and permissions
+- store, menu, price, policy data
+- membership data
+- order/payment history
+- SCM and CRM data
+- customer-center inquiries
+- Digital SOP access scope
+- RAG search scope
+- evidence packets and audit logs
+- billing data
+
+**Core principle:** Data from different HQ, franchisee, or store must **not mix**. AI customer center and RAG search must remain **tenant-safe**.
+
+## 9. Billing / Subscription / Plan Model
+
+Phase 6 requires billing structure for SaaS productization.
+
+**Plan types to consider:**
+
+- free trial
+- Phase 1 SaaS base plan
+- takeout/delivery/membership plans
+- POS integration add-on
+- DID/CMS add-on
+- AI customer center add-on
+- Franchise_OS HQ plan
+- branch-count-based plan
+- user-count-based plan
+- order-volume-based plan
+- customer-center usage-based plan
+- enterprise contract plan
+
+**Warning:** Plans are not simple price tables. Plans must connect to **feature permissions, tenant scope, support scope, SLA, data retention, and customer-center support boundaries**.
+
+## 10. SaaS Admin Console
+
+Phase 6 requires an admin console for SaaS operations.
+
+**Console scopes:**
+
+- platform admin
+- headquarters admin
+- franchisee admin
+- store admin
+- support admin
+- billing admin
+- audit reviewer
+
+**Key functions:**
+
+- tenant creation and status management
+- plan management
+- user invite and permission grant
+- store/branch creation and linkage
+- POS provider configuration
+- KDS/DID/CMS configuration
+- AI customer center configuration
+- Digital SOP access scope configuration
+- failure/evidence review
+- release status review
+- support ticket review
+
+## 11. AI Customer Center Integration
+
+Phase 5 AI customer center and Digital SOP must connect to Phase 6 SaaS operations.
+
+**Required linkages:**
+
+- tenant-separated customer center
+- HQ/franchisee/staff/customer answer-scope separation
+- SaaS onboarding Q&A
+- POS integration Q&A
+- failure-response Q&A
+- Franchise_OS operation Q&A
+- plan/subscription inquiries
+- Digital SOP search
+- unresolved inquiry event collection
+- repeated-inquiry SOP enhancement
+- support escalation
+
+**Warning:** AI customer center **supports** SaaS operations but is **not** final authority. Refund, compensation, policy change, permission change, safe closure, limited operation, and official SOP deployment require **human approval**.
+
+## 12. Release Governance
+
+SaaS release governance becomes critical in Phase 6.
+
+**Required:**
+
+- release channel
+- tenant staged rollout
+- feature flags
+- rollback plan
+- provider-specific release policy
+- POS provider support scope
+- failure notice
+- support readiness
+- migration readiness
+- evidence packet and audit record
+- release approval
+
+In SaaS, one defect can affect **many tenants simultaneously**. Deployment must be **controlled release**.
+
+## 13. Provider Support Policy
+
+Phase 6 must clarify support policy for POS, KDS, DID, CMS, and payment providers.
+
+**Items to define:**
+
+- officially supported provider
+- limited support provider
+- beta support provider
+- unsupported provider
+- provider capability matrix
+- provider risk notes
+- provider onboarding guide
+- provider recovery guide
+- provider-specific SOP
+- provider support cost
+- provider release policy
+
+**Important:** Integration capability ≠ official SaaS product support. Official support scope must be based on **evidence and support readiness**.
+
+## 14. Migration / Onboarding
+
+Phase 6 must onboard external HQ/franchisee/stores into SaaS.
+
+**Required procedures:**
+
+- tenant creation
+- HQ registration
+- franchisee registration
+- branch registration
+- menu import
+- POS provider connection
+- KDS/DID/CMS setup
+- user invite and permission setup
+- AI customer center setup
+- Digital SOP linkage
+- trial operation
+- go-live approval
+- support handoff
+
+**Migration risks:**
+
+- menu/price mismatch
+- POS provider misconfiguration
+- excessive user permissions
+- branch data mixing
+- customer data migration errors
+- AI customer center searching wrong tenant knowledge
+- insufficient evidence before go-live
+
+## 15. Audit / Evidence / Compliance
+
+Audit/evidence becomes **core product operations** in Phase 6 SaaS.
+
+**Must preserve:**
+
+- tenant creation history
+- user permission change history
+- plan change history
+- POS connection change history
+- menu/policy deployment history
+- AI customer center answer basis
+- SOP change history
+- failure-response history
+- recovery evidence
+- release evidence
+- billing evidence
+- support ticket evidence
+
+As SaaS customers grow, the system must explain **who changed what, when, and why** when incidents occur.
+
+## 16. Relationship To Phase 1-C
+
+| Phase | Role |
+| --- | --- |
+| Phase 1-C | Phase 1 SaaS **market launch** |
+| Phase 6 | Phase 1 SaaS **operational enhancement** |
+
+Phase 1-C does not solve all SaaS operating problems. Phase 6 strengthens plans, tenant management, provider support policy, release governance, AI customer center linkage, admin console, and audit/evidence.
+
+## 17. Relationship To Phase 4
+
+| Phase | Role |
+| --- | --- |
+| Phase 4 | Franchise_OS **function completion** |
+| Phase 6 | Franchise_OS **SaaS productization** |
+
+Phase 4 implements the no-outage restaurant operations system. Phase 6 makes it usable by external HQ/franchisee/branches as SaaS.
+
+## 18. Relationship To Phase 5
+
+| Phase | Role |
+| --- | --- |
+| Phase 5 | Customer-support **knowledge foundation** |
+| Phase 6 | **SaaS product operations** |
+
+Without Phase 5, selling Franchise_OS SaaS is risky—HQ/franchisee/staff/customer-center inquiries lack structured knowledge support.
+
+## 19. Relationship To Phase 7
+
+Phase 7 is AI readiness and Physical AI Gateway preparation. Phase 6 stabilizes SaaS operating foundation.
+
+Phase 7 AI/Physical AI integration requires stable tenant, permission, support, audit, evidence, and release governance from Phase 6.
+
+Phase 6 must **not** implement physical device control directly—that is Phase 7 scope.
+
+## 20. Non-Scope
+
+Phase 6 is **not**:
+
+- first implementation of Phase 4 Franchise_OS core functions
+- first implementation of Phase 5 AI customer center foundations
+- Phase 7 Physical AI device control
+- robot / IoT / sensor / vision direct control
+- automatic policy change without human approval
+- automatic refund/compensation without human approval
+- integration that ignores tenant boundaries
+- official provider support declaration without evidence
+- claiming all providers are production-supported
+- claiming SaaS productization complete without billing
+- market expansion without support readiness
+
+## 21. Key Risks
+
+| Risk | Impact |
+| --- | --- |
+| Phase 6 reduced to simple UI enhancement | Misses SaaS productization |
+| Franchise_OS SaaS and Phase 1 SaaS enhancement not separated | Scope confusion, duplicated work |
+| External sales with weak tenant isolation | Data leakage, legal liability |
+| AI customer center crossing tenant boundaries | Wrong answers, compliance failure |
+| Official POS/KDS/DID/CMS support without provider policy | Unsupported customer incidents |
+| Multi-tenant deploy without release governance | Wide blast-radius failures |
+| SaaS claim without billing/subscription model | Non-viable product |
+| External store onboarding without procedure | Migration incidents |
+| Customer incidents without audit/evidence | No accountability |
+| Pulling Phase 7 Physical AI into Phase 6 | Safety and scope violation |
+
+## 22. Required Design Outputs Before Implementation
+
+No Phase 6 implementation may begin without:
+
+| Output | Requirement |
+| --- | --- |
+| `impact_scope` | Franchise_OS SaaS, Phase 1 enhancement, shared foundation boundaries |
+| `context_snapshot` | Tenant model, Phase 4/5 dependencies, product separation |
+| `overview` | Dual-center Phase 6 purpose and boundaries |
+| `logic` | Isolation, billing/plan linkage, onboarding, release, evidence |
+| `test_plan` | Tenant leakage, cross-product bleed, release rollback, onboarding gaps |
+| `change_contract` | Allowed files **and** operations; tenant/support boundaries |
+| `human approval` | Final merge and release authority |
+
+## 23. Implementation Rules
+
+- No implementation without the **51355** pipeline.
+- Allowed files are not enough; **allowed operations** must also be specified.
+- Separate **Franchise_OS function implementation** from **Franchise_OS SaaS conversion**.
+- Separate **Phase 1-C market launch** from **Phase 6 SaaS enhancement**.
+- **Tenant isolation** is a top-priority design condition.
+- AI customer center and RAG/pgvector search must be **tenant-safe**.
+- Official provider support requires **evidence and support readiness**.
+- Billing/subscription/plan model must link to permissions, features, and support scope.
+- No SaaS deployment without **release governance and rollback**.
+- Do **not** pull Phase 7 Physical AI device control into Phase 6.
+
+## 24. Tool Roles
+
+| Actor | Role in Phase 6 |
+| --- | --- |
+| Claude Cowork | Context classification, design, documentation reasoning, audit |
+| Codex | Restricted file creation or implementation **only after approval** |
+| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Human | Final approval, merge, release |
+
+## 25. Relationship To Other Documents
+
+| Document / area | Relationship |
+| --- | --- |
+| `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Project-wide phase roadmap |
+| `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Phase 1 MVP; Phase 1-C launch context |
+| `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Integration foundation for SaaS operations |
+| `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | Phase 4 functions Phase 6 productizes |
+| `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Phase 5 prerequisite for Phase 6 support linkage |
+| `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Phase 7; no device control in Phase 6 |
+| `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
+| **51355 development pipeline** | Mandatory gate before implementation |
+| `000500` AI agent prelearning folder | Shared onboarding entry point |
+
+## 26. Final Rule
+
+Phase 6 is Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement.
+Phase 4 implements Franchise_OS; Phase 6 converts it into a SaaS product. Phase 1-C launches Catch Menu SaaS; Phase 6 enhances it to operational maturity.
+Phase 5 AI customer center and Digital SOP foundation is a prerequisite for Phase 6 SaaS operations.
+Phase 6 core is tenant isolation, billing/subscription, SaaS admin console, provider support policy, onboarding, release governance, audit/evidence, and AI customer center linkage.
+Phase 6 is not Physical AI device control; distinguish it from Phase 7 AI readiness and Physical AI Gateway.
+No implementation may start without scope, context, logic, test plan, change contract, and human approval.

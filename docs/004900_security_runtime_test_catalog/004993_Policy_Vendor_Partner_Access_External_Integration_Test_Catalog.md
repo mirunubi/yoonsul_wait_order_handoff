@@ -1,4 +1,4 @@
-# 005081_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog
+# 004993_Policy_Vendor_Partner_Access_External_Integration_Test_Catalog.md
 
 ## 1. Purpose
 

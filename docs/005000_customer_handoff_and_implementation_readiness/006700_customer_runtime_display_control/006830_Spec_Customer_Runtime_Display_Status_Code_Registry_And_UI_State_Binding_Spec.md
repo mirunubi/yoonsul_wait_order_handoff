@@ -1,4 +1,4 @@
-# 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec
+# 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec.md
 
 ## 1. Purpose
 

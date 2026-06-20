@@ -1,4 +1,4 @@
-# 000094_Report_Batch_9D_WP_9A_001_Static_Validation_Execution_Closeout.md
+# 000094_Report_Batch_9D_WP_9A_001_Static_Validation_Execution_Closeout
 
 ## 1. Purpose
 

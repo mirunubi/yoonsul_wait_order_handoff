@@ -1,6 +1,6 @@
-# 010601_Policy_Financial_Grade_Ledger_Reconciliation_And_Four_Source_Closing_Audit
+# 010601_Policy_Financial_Grade_Ledger_Reconciliation_And_Four_Source_Closing_Audit.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Financial-Grade Ledger Reconciliation and Four-Source Closing Audit Policy.
 

@@ -1,4 +1,4 @@
-# 000082_Report_Batch_8H_Neutral_Skeleton_Validation_And_Commit_Readiness_Gate.md
+# 000082_Report_Batch_8H_Neutral_Skeleton_Validation_And_Commit_Readiness_Gate
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# 000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md
+# 000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest
 
 Batch 5F-1 manual-review hold resolution manifest for five untracked legacy mobile-draft policy duplicates.
 Planning and approval gate only. No deletion, staging, commit, rename, move, H1, internal link edit, or runtime implementation executed.

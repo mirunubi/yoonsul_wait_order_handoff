@@ -1,6 +1,6 @@
-# 010410_Policy_Payment_Intent_And_Authorization_Boundary
+# 010410_Policy_Payment_Intent_And_Authorization_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Payment Intent and Authorization Boundary Policy.
 

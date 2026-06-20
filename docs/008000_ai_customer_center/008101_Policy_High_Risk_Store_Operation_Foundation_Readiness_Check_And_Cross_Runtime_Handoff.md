@@ -1,6 +1,6 @@
-# 008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff
+# 008101_Policy_High_Risk_Store_Operation_Foundation_Readiness_Check_And_Cross_Runtime_Handoff.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the readiness check, cross-runtime handoff, open gap register, implementation deferral boundary, pilot restriction, commercial boundary, legal/compliance handoff, and final index for the High Risk Store Operation Foundation lane of the Yoonsul Wait/Order Handoff documentation project.
 

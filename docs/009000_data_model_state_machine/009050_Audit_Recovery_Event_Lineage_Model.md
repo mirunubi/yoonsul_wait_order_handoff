@@ -1,6 +1,6 @@
-# 009050_Audit_Recovery_Event_Lineage_Model
+# 009050_Audit_Recovery_Event_Lineage_Model.md
 
-## 1 Purpose
+## Purpose
 
 Recovery must not overwrite original events.
 

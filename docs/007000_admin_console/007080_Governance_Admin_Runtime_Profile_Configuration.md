@@ -1,4 +1,4 @@
-# 007080_Governance_Admin_Runtime_Profile_Configuration
+# 007080_Governance_Admin_Runtime_Profile_Configuration.md
 
 ## 1 Purpose
 

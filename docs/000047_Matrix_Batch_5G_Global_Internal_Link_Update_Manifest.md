@@ -1,4 +1,4 @@
-# 000047_Matrix_Batch_5G_Global_Internal_Link_Update_Manifest.md
+# 000047_Matrix_Batch_5G_Global_Internal_Link_Update_Manifest
 
 Global internal link update manifest after Batch 5B~5E six-digit basename migration.
 

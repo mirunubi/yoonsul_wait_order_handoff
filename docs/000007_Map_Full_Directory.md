@@ -27,16 +27,15 @@ Governance markdown files live under `docs/`, not at the project root.
 docs/
   000500_ai_agent_prelearning_and_project_context/
     000500_Readme_AI_Agent_Prelearning_And_Project_Context.md
-    000501_Readme_AI_Agent_Prelearning_And_Project_Context.md
     000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md
     000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
     000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md
     000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md
     000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md
     000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md
-    000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md
-    000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md
-    000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md
+    000510_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
+    000511_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
+    000512_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
   00100_project_foundation/
     00450_documentation_governance/
       000450_Readme_Documentation_Governance.md

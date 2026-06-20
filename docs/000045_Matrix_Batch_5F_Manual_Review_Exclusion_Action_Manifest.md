@@ -1,4 +1,4 @@
-# 000045_Matrix_Batch_5F_Manual_Review_Exclusion_Action_Manifest.md
+# 000045_Matrix_Batch_5F_Manual_Review_Exclusion_Action_Manifest
 
 Manual-review closeout action manifest derived from Batch 5A matrix.
 Planning only. No rename, move, delete, H1, body, internal link edit, or runtime implementation executed.

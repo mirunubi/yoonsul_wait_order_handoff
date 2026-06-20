@@ -1,4 +1,4 @@
-# 000085_Report_Batch_9A_Next_WorkPackage_Candidate_Selection.md
+# 000085_Report_Batch_9A_Next_WorkPackage_Candidate_Selection
 
 ## 1. Purpose
 

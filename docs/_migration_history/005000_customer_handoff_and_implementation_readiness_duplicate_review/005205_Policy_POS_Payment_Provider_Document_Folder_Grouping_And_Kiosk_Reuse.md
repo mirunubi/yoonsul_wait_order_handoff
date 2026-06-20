@@ -1,4 +1,4 @@
-# 005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse
+# 005205_Policy_POS_Payment_Provider_Document_Folder_Grouping_And_Kiosk_Reuse.md
 
 \#\# 1\. Purpose
 

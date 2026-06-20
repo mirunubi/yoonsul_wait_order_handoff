@@ -1,4 +1,8 @@
-# 010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification
+# 010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md
+
+## Purpose
+
+This document defines the governed scope indicated by its filename within the 010000 runtime foundation and cross-room architecture domain.
 
 << docs-only · Wave 3-A pre-apply verification · no moves performed >>
 
@@ -65,46 +69,46 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 
 ### 3.1 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/` (24 files)
 
-- `010005_Plan_10712_Root_File_Rename_And_Move.md`
-- `010006_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral.md`
-- `010000_Readme_Foundation_Static_Catalog_Package.md`
-- `010010_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md`
-- `010020_Policy_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle.md`
-- `010030_Policy_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture.md`
-- `010040_Policy_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly.md`
-- `010041_Policy_Windows_Installer_Option_Package_And_Local_Runtime_Configuration.md`
-- `010042_Policy_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode.md`
-- `010043_Policy_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path.md`
-- `010044_Policy_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion.md`
-- `010045_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md`
-- `010046_Policy_Surface_Evolution_Roadmap_And_Product_Line_Continuity.md`
-- `010047_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md`
-- `010048_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md`
-- `010049_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md`
-- `010050_Policy_Product_Line_Static_Registry_Closure_And_Coding_Deferral.md`
-- `010051_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md`
-- `010052_Policy_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff.md`
-- `010053_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet.md`
-- `010054_Policy_Catch_Menu_Static_Target_Map.md`
-- `010055_Policy_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft.md`
-- `010056_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate.md`
-- `010057_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral.md`
+- `010105_Plan_10712_Root_File_Rename_And_Move.md`
+- `010106_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral.md`
+- `010100_Readme_Foundation_Static_Catalog_Package.md`
+- `010110_Policy_Explicit_Static_Catalog_Coding_Authorization_Packet_Template_And_Approval_Boundary.md`
+- `010120_Policy_Modular_SaaS_Core_And_Future_Kiosk_Reuse_Principle.md`
+- `010130_Policy_Domain_Object_Core_Use_Case_API_And_Safe_Projection_Architecture.md`
+- `010140_Policy_Domain_Capability_Control_Plane_And_Runtime_Feature_Assembly.md`
+- `010141_Policy_Windows_Installer_Option_Package_And_Local_Runtime_Configuration.md`
+- `010142_Policy_Android_Device_Provisioning_Runtime_Configuration_And_Kiosk_Mode.md`
+- `010143_Policy_Catch_Menu_Mini_Kiosk_Admin_Surface_Reuse_And_Franchise_OS_Upgrade_Path.md`
+- `010144_Policy_Mini_Kiosk_To_Full_Kiosk_CMS_Payment_And_Device_Expansion.md`
+- `010145_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md`
+- `010146_Policy_Surface_Evolution_Roadmap_And_Product_Line_Continuity.md`
+- `010147_Policy_Product_Line_Capability_Matrix_And_Surface_Reuse_Registry.md`
+- `010148_Policy_SaaS_Packaging_Pricing_Boundary_And_Feature_Entitlement.md`
+- `010149_Policy_Product_Line_Runtime_Entry_Candidate_And_Implementation_Priority.md`
+- `010150_Policy_Product_Line_Static_Registry_Closure_And_Coding_Deferral.md`
+- `010151_Policy_First_Implementation_Candidate_Selection_Catch_Menu_And_Mini_Kiosk_Foundation.md`
+- `010152_Policy_Admin_Surface_Reuse_Candidate_And_Franchise_OS_Future_Handoff.md`
+- `010153_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Specification_Packet.md`
+- `010154_Policy_Catch_Menu_Static_Target_Map.md`
+- `010155_Policy_Catch_Menu_Mini_Kiosk_Foundation_Explicit_Static_Coding_Authorization_Packet_Draft.md`
+- `010156_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate.md`
+- `010157_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral.md`
 
 ### 3.2 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` (35 files)
 
-- `009660_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md` through `009990_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md` (33 policy files)
-- `010000_Readme_Static_Catalog_Runtime_Planning.md`
+- `010201_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md` through `010234_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md` (33 policy files)
+- `010200_Readme_Static_Catalog_Runtime_Planning.md`
 
 ### 3.3 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` (18 files)
 
-- `010141_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` *(101xx doc in 102xx framing package — see §15)*
-- `010200_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md` through `010350_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md` (16 files)
+- `010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` *(101xx doc in 102xx framing package — see §15)*
+- `010020_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md` through `010099_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md` (16 files)
 - `README.md` *(non-canonical — see §5)*
 
 ### 3.4 `docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/` (7 files)
 
-- `010100_Readme_Four_Side_Platform_Skeleton.md`
-- `010105_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md`
+- `010300_Readme_Four_Side_Platform_Skeleton.md`
+- `010305_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md`
 - `10110_` through `10150_` (5 policy files)
 
 ### 3.5 `docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/` (10 files)
@@ -133,15 +137,15 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 
 ### 3.9 `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` (17 files)
 
-- `010720_Readme_Legal_Notice_SOP_And_Regulatory_Control.md`
+- `010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md`
 - `10721_` through `10736_` (16 policy files)
 
 ### 3.10 `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` (10 files)
 
-- `010800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md`
-- `010809_Index_Store_Onboarding_And_Sales_Setup_Axis.md`
+- `010900_Readme_Store_Onboarding_And_Sales_Setup_Axis.md`
+- `010909_Index_Store_Onboarding_And_Sales_Setup_Axis.md`
 - `10801_` through `10807_` (7 policy files)
-- `010808_Policy_Ingredient_Master_Pool_Namul_Seed_Registry.md`
+- `010908_Policy_Ingredient_Master_Pool_Namul_Seed_Registry.md`
 
 ---
 
@@ -214,7 +218,6 @@ Every filename is unique across the band. Moving folders as units will not cause
 **Status: CONFIRMED**
 
 - Path exists: `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/`
-- Contains **17** markdown files (`010609_Readme_Financial_Regulation_Risk_Expansion.md`, `010610_Policy_Financial_Risk_Boundary.md`, `10609_01`~`10609_15`)
 - Indexed separately in `00005` as section **40** (`docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion`)
 - **Apply rule:** `git mv` the parent `10600_cross_room_plumbing_wiring_insulation` folder only; do not flatten `10609`.
 
@@ -254,7 +257,7 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 **Stale-reference hotspot files (non-index):**
 
-- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/010005_Plan_10712_Root_File_Rename_And_Move.md` (~100+ historical path strings)
+- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/010105_Plan_10712_Root_File_Rename_And_Move.md` (~100+ historical path strings)
 - `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/005105_Plan_10807_Root_File_Rename_And_Move.md` (cross-wave plan references)
 
 **`README.md` index entry:** `00005` line references `docs\10000_runtime_foundation_and_cross_room_architecture\10000_store_runtime_room_framingREADME.md` — must update when readme renamed during apply.
@@ -314,7 +317,7 @@ docs/
 
 1. Create parent folder + parent README.
 2. `git mv` ten subfolders into parent (single mv per subfolder; `10600` mv carries `10609` automatically).
-3. Rename `10000_store_runtime_room_framing/README.md` → `010000_Readme_Store_Runtime_Room_Framing.md` (update first title `# 10000_Readme_Store_Runtime_Room_Framing` during apply).
+3. Rename `10000_store_runtime_room_framing/README.md` → `010010_Readme_Store_Runtime_Room_Framing.md` (update first title `# 10000_Readme_Store_Runtime_Room_Framing` during apply).
 4. Update `00005`, `00007`, affected README relationship notes, plan audit header.
 5. Grep stale top-level paths; validate; commit.
 

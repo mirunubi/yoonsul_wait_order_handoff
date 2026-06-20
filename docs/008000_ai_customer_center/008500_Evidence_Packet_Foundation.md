@@ -1,6 +1,6 @@
-# 008500_Evidence_Packet_Foundation
+# 008500_Evidence_Packet_Foundation.md
 
-1\. Purpose
+## Purpose
 
 This document defines the Evidence Packet foundation for CatchMenu AI Customer Center integration.
 

@@ -1,4 +1,4 @@
-# 000096_Logic_WP_9B_001_Source_Module_Map_Static_Validation_Rules_And_Boundary_Checks.md
+# 000096_Logic_WP_9B_001_Source_Module_Map_Static_Validation_Rules_And_Boundary_Checks
 
 ## Purpose
 

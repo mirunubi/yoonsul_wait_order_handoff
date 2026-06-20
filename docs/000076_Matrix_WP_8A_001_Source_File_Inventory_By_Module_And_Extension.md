@@ -1,4 +1,4 @@
-# 000076_Matrix_WP_8A_001_Source_File_Inventory_By_Module_And_Extension.md
+# 000076_Matrix_WP_8A_001_Source_File_Inventory_By_Module_And_Extension
 
 ## Purpose
 

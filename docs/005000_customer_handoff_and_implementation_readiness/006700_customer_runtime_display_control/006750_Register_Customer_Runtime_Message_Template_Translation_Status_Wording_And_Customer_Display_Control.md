@@ -1,4 +1,4 @@
-# 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control
+# 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md
 
 ## 1. Purpose
 

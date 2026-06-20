@@ -1,6 +1,6 @@
-# 010552_Policy_Layered_Immune_Security_Agent_Architecture_And_Cross_Check_Boundary
+# 010552_Policy_Layered_Immune_Security_Agent_Architecture_And_Cross_Check_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Layered Immune Security Agent Architecture and Cross-Check Boundary Policy.
 

@@ -1,6 +1,6 @@
-# 009070_Context_Entity_Alignment_Model
+# 009070_Matrix_Context_Entity_Alignment_Model.md
 
-## 1 Purpose
+## Purpose
 
 Conceptual entities must reflect tenant, company, legal_entity, operating_group, and store as distinct context axes.
 

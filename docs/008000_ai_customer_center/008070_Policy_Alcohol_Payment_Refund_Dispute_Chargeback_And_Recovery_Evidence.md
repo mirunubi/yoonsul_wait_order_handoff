@@ -1,6 +1,6 @@
-# 008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence
+# 008070_Policy_Alcohol_Payment_Refund_Dispute_Chargeback_And_Recovery_Evidence.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the alcohol payment, refund, cancellation, dispute, chargeback, customer recovery, evidence packet, payment/KDS timeline, verification dependency, service refusal dependency, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

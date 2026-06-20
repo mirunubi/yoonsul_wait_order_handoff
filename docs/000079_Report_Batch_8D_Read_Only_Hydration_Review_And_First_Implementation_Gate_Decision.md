@@ -1,4 +1,4 @@
-# 000079_Report_Batch_8D_Read_Only_Hydration_Review_And_First_Implementation_Gate_Decision.md
+# 000079_Report_Batch_8D_Read_Only_Hydration_Review_And_First_Implementation_Gate_Decision
 
 ## Purpose
 

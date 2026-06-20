@@ -1,6 +1,6 @@
-# 010620_Policy_Command_Query_Projection_Separation
+# 010620_Policy_Command_Query_Projection_Separation.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Command, Query, and Projection Separation Policy.
 

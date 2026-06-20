@@ -1,6 +1,6 @@
-# 010500_Readme_Data_Governance_Room
+# 010500_Readme_Data_Governance_Room.md
 
-## 1 Purpose
+## Purpose
 
 This folder defines the data governance room framing and intelligence boundary package.
 

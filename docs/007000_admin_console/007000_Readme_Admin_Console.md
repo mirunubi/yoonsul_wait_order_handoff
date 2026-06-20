@@ -1,12 +1,16 @@
-# 007000_Readme_Admin_Console
+# 007000_Readme_Admin_Console.md
 
 ## 1 Purpose
 
-This folder defines the `07000` Admin Console package for SaaS operator, store owner, store manager, HQ/operator, support, and audit roles.
+This folder defines the `007000~007999` Admin Console package for SaaS operator, store owner, store manager, HQ/operator, support, and audit roles.
 
-This wave consolidates Admin Console governance after the `03000` SaaS runtime consolidation.
+This folder consolidates Admin Console governance after the SaaS runtime consolidation.
 
-## 2 In Scope
+## 2 Folder-Owned Number Range
+
+This folder owns `007000~007999` until the next sibling folder, `008000_ai_customer_center/`, begins.
+
+## 3 In Scope
 
 - Admin console surfaces.
 - Support console surfaces.
@@ -26,47 +30,43 @@ This wave consolidates Admin Console governance after the `03000` SaaS runtime c
 - Support and break-glass boundary.
 - Operational monitoring and recovery visibility.
 
-## 3 Relationship Notes
+## 4 Active File Roles
 
-- `07000` owns admin/operator/support-facing UI and control surfaces.
-- `03000` owns SaaS runtime/session authority.
-- `05000` owns customer handoff flow.
-- `06000`, if present later, owns common web app auth and UI shell.
-- `08000` owns AI customer center.
-- `07000` must inherit Foundation Security, especially access control, audit/evidence, sensitive identity masking, credential non-reveal, export control, incident response, and retention rules.
+| File | Role |
+| --- | --- |
+| `007000_Readme_Admin_Console.md` | Defines the Admin Console folder purpose, range, scope, and active file map. |
+| `007010_Policy_Admin_Console_Context_And_Role_Model.md` | Defines admin context axes, role types, authority principles, role boundary examples, and open role decisions. |
+| `007020_Policy_Admin_Store_Runtime_Configuration_Model.md` | Defines Admin Console handling for store runtime configuration, package plans, feature flags, integration profiles, payment profiles, and change control. |
+| `007030_Policy_Admin_Operational_Monitoring_And_Recovery_Model.md` | Defines operational monitoring and recovery visibility for order candidates, handoff sessions, Store Agent/printer/POS status, manual recovery, and audit. |
+| `007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md` | Defines conceptual Admin Console screens, navigation groups, role-based navigation, and future membership/point placeholder limits. |
+| `007050_Policy_Admin_Approval_Workflow_Model.md` | Defines request, validation, approval, activation, emergency disable, and rollback workflow for runtime changes. |
+| `007060_Governance_Admin_Audit_And_Recovery_Queue.md` | Defines audit event categories, recovery queue item types, recovery lifecycle, recovery action rules, role visibility, and export/report governance. |
+| `007070_Policy_Admin_Context_Navigation_And_Scope_Model.md` | Defines context navigation levels and scope rules aligned with SaaS runtime; view authority does not equal mutation authority. |
+| `007080_Governance_Admin_Runtime_Profile_Configuration.md` | Defines Admin governance for runtime profile configuration aligned with runtime profile policies. |
+| `007090_Policy_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md` | Defines feature flag risk levels, approval rules, and emergency disable boundary. |
+| `007100_Policy_Admin_Audit_Review_And_Change_History_Model.md` | Defines audit review areas, change history rules, and admin review actions. |
+| `007110_Boundary_Admin_Support_And_BreakGlass.md` | Defines support modes, boundary rules, and future break-glass candidate boundary. |
+
+## 5 Relationship Notes
+
+- `007000` owns admin/operator/support-facing UI and control surfaces.
+- SaaS runtime owns session/runtime authority.
+- Customer handoff owns customer-facing handoff flow.
+- `008000_ai_customer_center/` owns AI customer center documents.
+- Admin Console must inherit Foundation Security, especially access control, audit/evidence, sensitive identity masking, credential non-reveal, export control, incident response, and retention rules.
 - Support/admin screens must not mutate payment truth, KDS release truth, or reconciliation conclusion unless explicitly authorized by lower runtime authority policies.
 
-## 4 Document List
+## 6 Folder Structure Rule
 
-| document | description |
-| --- | --- |
-| `07010_Admin_Console_Context_And_Role_Model.md` | Defines admin context axes, role types, authority principles, role boundary examples, and open role decisions. |
-| `07020_Admin_Store_Runtime_Configuration_Model.md` | Defines Admin Console handling for store runtime configuration, package plans, feature flags, integration profiles, payment profiles, and change control. |
-| `07030_Admin_Operational_Monitoring_And_Recovery_Model.md` | Defines operational monitoring and recovery visibility for order candidates, handoff sessions, Store Agent/printer/POS status, manual recovery, and audit. |
-| `07040_Admin_Screen_Inventory_And_Navigation_Model.md` | Defines conceptual Admin Console screens, navigation groups, role-based navigation, and future membership/point placeholder limits. |
-| `07050_Admin_Approval_Workflow_Model.md` | Defines request, validation, approval, activation, emergency disable, and rollback workflow for runtime changes. |
-| `07060_Governance_Admin_Audit_And_Recovery_Queue.md` | Defines audit event categories, recovery queue item types, recovery lifecycle, recovery action rules, role visibility, and export/report governance. |
-| `07070_Admin_Context_Navigation_And_Scope_Model.md` | Context navigation levels and scope rules aligned with `03020`; view authority does not equal mutation authority. |
-| `07080_Governance_Admin_Runtime_Profile_Configuration.md` | Admin governance for runtime profile configuration aligned with `03030`~`03050`. |
-| `07090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md` | Feature flag risk levels, approval rules, and emergency disable boundary. |
-| `07100_Admin_Audit_Review_And_Change_History_Model.md` | Audit review areas, change history rules, and admin review actions. |
-| `07110_Boundary_Admin_Support_And_BreakGlass.md` | Support modes, boundary rules, and future break-glass candidate boundary. |
-
-`07010`~`07060` are existing admin governance foundations.
-
-`07070`~`07110` consolidate runtime context navigation, runtime profile configuration, feature flag approval, audit review, and support/break-glass boundaries.
-
-## 5 Folder Structure Rule
-
-The `07000_admin_console` namespace currently stays flat with no subfolders.
+The `007000_admin_console/` namespace currently stays flat with no subfolders.
 
 Subfolders should be introduced only when the number of docs grows or separate admin domains become large.
 
-## 6 Out Of Scope
+## 7 Out Of Scope
 
 - UI implementation, Flutter, web app code, RPC, auth/RLS, and final permission schema.
 - Active membership/point ledger operations, analytics runtime, and support tooling implementation.
 
-## 7 Current Status
+## 8 Current Status
 
 Status: Admin Console consolidation wave complete. Governance only. Not implementation approval.

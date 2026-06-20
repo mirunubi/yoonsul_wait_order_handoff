@@ -1,4 +1,4 @@
-# 005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary
+# 005220_Policy_Mini_Kiosk_Payment_Flow_State_And_Recovery_Boundary.md
 
 \#\# 1\. Purpose
 

@@ -1,4 +1,4 @@
-# 004306_Policy_Major_POS_API_Discovery_And_Technical_Spike
+# 004306_Policy_Major_POS_API_Discovery_And_Technical_Spike.md
 
 ## 1. Purpose
 

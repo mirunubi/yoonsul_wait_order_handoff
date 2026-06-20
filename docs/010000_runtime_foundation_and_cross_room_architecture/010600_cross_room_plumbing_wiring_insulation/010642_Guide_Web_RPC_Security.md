@@ -1,6 +1,6 @@
-# 010642_Guide_Web_RPC_Security
+# 010642_Guide_Web_RPC_Security.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Web RPC Redirect, Session, Infrastructure, Mobile, and Deep Security Implementation Guide Policy.
 

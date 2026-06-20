@@ -1,6 +1,6 @@
-# 010580_Policy_Data_Governance_Closure_And_Cross_Room_Handoff
+# 010580_Policy_Data_Governance_Closure_And_Cross_Room_Handoff.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Data Governance Closure and Cross-Room Handoff Policy.
 

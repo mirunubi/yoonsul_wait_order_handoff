@@ -1,4 +1,4 @@
-# 005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix
+# 005120_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md
 
 \#\# 1\. Purpose
 

@@ -1,6 +1,6 @@
-# 010602_Policy_Reconciliation_Blind_Spot
+# 010602_Policy_Reconciliation_Blind_Spot.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Financial Reconciliation Blind Spot Control, Time Synchronization, State Machine, Offline Log Integrity, and Auditor Security Policy.
 

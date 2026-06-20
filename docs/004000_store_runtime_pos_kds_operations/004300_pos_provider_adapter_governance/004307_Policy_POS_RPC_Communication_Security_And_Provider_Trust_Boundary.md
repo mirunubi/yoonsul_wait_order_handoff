@@ -1,4 +1,4 @@
-# 004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary
+# 004307_Policy_POS_RPC_Communication_Security_And_Provider_Trust_Boundary.md
 
 ## 1. Purpose
 

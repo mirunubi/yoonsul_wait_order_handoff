@@ -1,4 +1,4 @@
-# 000084_Report_Batch_8K_Directory_Only_Tree_Disposition_Review.md
+# 000084_Report_Batch_8K_Directory_Only_Tree_Disposition_Review
 
 ## 1. Purpose
 

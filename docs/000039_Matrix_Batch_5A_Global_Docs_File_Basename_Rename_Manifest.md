@@ -1,4 +1,4 @@
-# 000039_Matrix_Batch_5A_Global_Docs_File_Basename_Rename_Manifest.md
+# 000039_Matrix_Batch_5A_Global_Docs_File_Basename_Rename_Manifest
 
 Global dry-run manifest for six-digit basename migration across docs/.
 Planning only. No rename, move, delete, H1, body, or internal link edit executed.

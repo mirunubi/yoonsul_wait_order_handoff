@@ -1,4 +1,4 @@
-# 004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation
+# 004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md
 
 ## **1\. Purpose**
 

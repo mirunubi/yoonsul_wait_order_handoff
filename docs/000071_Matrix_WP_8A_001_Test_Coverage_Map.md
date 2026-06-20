@@ -1,4 +1,4 @@
-# 000071_Matrix_WP_8A_001_Test_Coverage_Map.md
+# 000071_Matrix_WP_8A_001_Test_Coverage_Map
 
 ## Purpose
 

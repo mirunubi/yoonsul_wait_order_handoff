@@ -1,4 +1,4 @@
-# 000041_Report_Batch_5C_Low_Density_Domain_File_Basename_Rename.md
+# 000041_Report_Batch_5C_Low_Density_Domain_File_Basename_Rename
 
 ## Scope
 

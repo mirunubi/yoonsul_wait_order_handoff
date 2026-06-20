@@ -1,6 +1,6 @@
-# 008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access
+# 008800_Policy_CatchMenu_AI_Gateway_Runtime_Query_And_Cross_Project_Access.md
 
-1\. Purpose
+## Purpose
 
 This document defines how a future AI Customer Center or AI Gateway may request CatchMenu runtime data across project boundaries.
 

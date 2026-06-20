@@ -1,6 +1,6 @@
-# 009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate
+# 009095_Policy_Cross_Range_Closure_Readiness_Check_And_Next_Documentation_Phase_Gate.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the final readiness check, closure gate, cross-range validation, import readiness, backlog extraction readiness, test extraction readiness, evidence extraction readiness, UI handoff readiness, review packet readiness, source-of-truth readiness, and next documentation phase gate for the Yoonsul Wait/Order Handoff documentation project.
 

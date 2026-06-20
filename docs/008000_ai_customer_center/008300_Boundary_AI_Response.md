@@ -1,6 +1,6 @@
-# 008300_Boundary_AI_Response
+# 008300_Boundary_AI_Response.md
 
-1\. Purpose
+## Purpose
 
 This document defines the response boundary for the AI Customer Center when handling CatchMenu-related support inquiries.
 

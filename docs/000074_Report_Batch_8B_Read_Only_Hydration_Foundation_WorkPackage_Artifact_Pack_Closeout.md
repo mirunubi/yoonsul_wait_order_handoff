@@ -1,4 +1,4 @@
-# 000074_Report_Batch_8B_Read_Only_Hydration_Foundation_WorkPackage_Artifact_Pack_Closeout.md
+# 000074_Report_Batch_8B_Read_Only_Hydration_Foundation_WorkPackage_Artifact_Pack_Closeout
 
 ## Purpose
 

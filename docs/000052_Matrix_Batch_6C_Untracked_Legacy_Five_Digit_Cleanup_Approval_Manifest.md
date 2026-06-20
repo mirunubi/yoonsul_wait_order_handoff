@@ -1,4 +1,4 @@
-# 000052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest.md
+# 000052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest
 
 Untracked legacy five-digit cleanup approval manifest after Batch 6B commit `c7663736`.
 Planning and approval gate only. No deletion executed.

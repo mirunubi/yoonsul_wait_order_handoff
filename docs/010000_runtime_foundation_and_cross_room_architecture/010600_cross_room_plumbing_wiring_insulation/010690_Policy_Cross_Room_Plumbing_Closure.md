@@ -1,6 +1,6 @@
-# 010690_Policy_Cross_Room_Plumbing_Closure
+# 010690_Policy_Cross_Room_Plumbing_Closure.md
 
-## 1. Purpose
+## Purpose
 
 This document closes the Cross-Room Plumbing, Wiring, Insulation, Routing, Containment, Reconciliation, Projection, and Audit Planning Sequence.
 

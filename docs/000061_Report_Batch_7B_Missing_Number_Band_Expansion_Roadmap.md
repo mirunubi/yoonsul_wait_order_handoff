@@ -1,4 +1,4 @@
-# 000061_Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap.md
+# 000061_Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap
 
 ## 1. Purpose
 

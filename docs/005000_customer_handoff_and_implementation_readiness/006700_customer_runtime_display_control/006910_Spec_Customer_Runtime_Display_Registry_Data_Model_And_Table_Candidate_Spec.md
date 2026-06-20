@@ -1,4 +1,4 @@
-# 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec
+# 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md
 
 ## 1. Purpose
 

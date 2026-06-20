@@ -1,4 +1,4 @@
-# 004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary
+# 004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md
 
 ## **1\. Purpose**
 

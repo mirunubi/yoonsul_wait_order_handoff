@@ -1,4 +1,4 @@
-# 000087_Logic_WP_9A_001_Hydration_Registry_Schema_Validation_Rules_And_Evidence_Gate.md
+# 000087_Logic_WP_9A_001_Hydration_Registry_Schema_Validation_Rules_And_Evidence_Gate
 
 ## Purpose
 

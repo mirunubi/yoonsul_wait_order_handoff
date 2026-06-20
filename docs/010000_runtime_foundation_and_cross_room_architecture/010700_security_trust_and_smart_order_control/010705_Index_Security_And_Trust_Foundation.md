@@ -1,6 +1,6 @@
-# 010705_Index_Security_And_Trust_Foundation
+# 010705_Index_Security_And_Trust_Foundation.md
 
-## 1. Purpose
+## Purpose
 
 This document opens the Security and Trust Foundation axis.
 

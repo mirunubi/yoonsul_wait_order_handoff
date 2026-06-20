@@ -1,4 +1,23 @@
-# 003100_Readme_Entry_Media_Inventory
+# 003100_Readme_Entry_Media_Inventory.md
+
+## Purpose
+
+This document defines the SaaS runtime or entry media inventory topic indicated by its filename and preserves its governed documentation role within `docs/003000_saas_runtime/`.
+
+## Local File Roles
+
+| document | role |
+| --- | --- |
+| `003100_Readme_Entry_Media_Inventory.md` | Local Readme for Entry Media Inventory ownership, QR/NFC asset lifecycle, and non-ownership boundaries. |
+| `003110_Policy_QR_NFC_Entry_Plate_Assignment_Recovery_And_Reallocation.md` | Policy for QR/NFC entry plate assignment, recovery, and reallocation. |
+| `003130_Policy_Entry_Media_Status_Lifecycle_And_Audit.md` | Policy for entry media status lifecycle and audit trail. |
+| `003140_Policy_Entry_Media_Test_Field_Sample_And_Production_Separation.md` | Policy separating test, field sample, and production entry media assets. |
+| `003150_Policy_Entry_Media_Lost_Damaged_And_Retired_Asset.md` | Policy for lost, damaged, retired, and replaced entry media assets. |
+| `003160_Policy_Entry_Media_Identifier_Encoding_And_Resolution.md` | Policy for entry media identifier encoding, lookup, and resolution. |
+| `003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md` | Policy for scan usage observation, trial monitoring, and usage evidence. |
+| `003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md` | Policy linking entry media admin access, suspension, and service termination. |
+| `003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md` | Policy for production batch, stock, and inventory control of entry media assets. |
+| `003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md` | Index for Entry Media Inventory documents and MVP cutline alignment. |
 
 Legacy path: $old.
 

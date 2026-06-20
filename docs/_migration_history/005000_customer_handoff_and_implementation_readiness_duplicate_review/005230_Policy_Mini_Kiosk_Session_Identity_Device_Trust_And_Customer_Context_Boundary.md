@@ -1,4 +1,4 @@
-# 005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary
+# 005230_Policy_Mini_Kiosk_Session_Identity_Device_Trust_And_Customer_Context_Boundary.md
 
 \#\# 1\. Purpose
 

@@ -1,4 +1,4 @@
-# 006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template
+# 006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md
 
 ## 1. Purpose
 

@@ -1,6 +1,6 @@
-# 010510_Policy_CMS_Content_Publication_And_Targeting_Boundary
+# 010510_Policy_CMS_Content_Publication_And_Targeting_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the CMS Content Publication and Targeting Boundary Policy.
 

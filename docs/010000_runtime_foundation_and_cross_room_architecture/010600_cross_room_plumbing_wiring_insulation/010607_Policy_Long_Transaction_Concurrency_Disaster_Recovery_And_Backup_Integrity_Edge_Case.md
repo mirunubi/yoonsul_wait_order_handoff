@@ -1,6 +1,6 @@
-# 010607_Policy_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case
+# 010607_Policy_Long_Transaction_Concurrency_Disaster_Recovery_And_Backup_Integrity_Edge_Case.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Long Transaction, Concurrency, Disaster Recovery, and Backup Integrity Edge Case Policy.
 

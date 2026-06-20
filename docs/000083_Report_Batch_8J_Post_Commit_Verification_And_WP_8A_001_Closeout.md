@@ -1,4 +1,4 @@
-# 000083_Report_Batch_8J_Post_Commit_Verification_And_WP_8A_001_Closeout.md
+# 000083_Report_Batch_8J_Post_Commit_Verification_And_WP_8A_001_Closeout
 
 ## 1. Purpose
 

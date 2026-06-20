@@ -1,6 +1,6 @@
-# 008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary
+# 008010_Policy_Alcohol_Sales_Adult_Verification_And_Legal_Sale_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the alcohol sales adult verification, legal sale boundary, verification trigger, verification failure handling, verification uncertainty handling, staff confirmation, sale hold, service refusal, evidence, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

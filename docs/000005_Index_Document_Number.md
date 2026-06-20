@@ -2298,13 +2298,12 @@ Cross-references: 000160 project-wide master context; 051355 AI-assisted financi
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\000500_ai_agent_prelearning_and_project_context\000500_Readme_AI_Agent_Prelearning_And_Project_Context.md | Folder-level Readme for AI agent prelearning and project context; defines folder purpose, file roles, placement rules, and non-authorization boundary. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000501_Readme_AI_Agent_Prelearning_And_Project_Context.md | Existing supplemental onboarding note retained for continuity; not the folder-level 0-number Readme. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Ready-to-copy project-wide Claude, Codex, Cursor onboarding instruction guide. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Project development phase roadmap and AI prelearning context. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md | Phase 1 Catch Menu prelearning context. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md | Phase 2 yoonsul_os store runtime prelearning context. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md | Phase 3 Kiosk/KDS/DID/CMS/POS integration prelearning context. | active |
 | docs\000500_ai_agent_prelearning_and_project_context\000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md | Phase 4 Franchise_OS prelearning context. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md | Phase 5 AI customer center, digital SOP, RAG, and pgvector prelearning context. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md | Phase 6 Catch Menu and Franchise_OS SaaS prelearning context. | active |
-| docs\000500_ai_agent_prelearning_and_project_context\000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md | Phase 7 Physical AI Gateway prelearning context. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000510_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md | Phase 5 AI customer center, digital SOP, RAG, and pgvector prelearning context. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000511_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md | Phase 6 prelearning: Franchise_OS SaaS conversion + Phase 1 SaaS enhancement; tenant isolation, billing, admin console; builds on Phase 4/5. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000512_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md | Phase 7 prelearning: AI readiness + Physical AI Gateway; safety gate, human override, actuation evidence; builds on Phase 4/5/6. | active |

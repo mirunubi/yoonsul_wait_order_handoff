@@ -1,6 +1,6 @@
-# 010570_Policy_Retention_Export_And_Compliance_Data_Boundary
+# 010570_Policy_Retention_Export_And_Compliance_Data_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Retention, Export, and Compliance Data Boundary Policy.
 

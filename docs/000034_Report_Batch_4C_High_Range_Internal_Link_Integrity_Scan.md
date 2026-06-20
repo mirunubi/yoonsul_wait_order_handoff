@@ -1,4 +1,4 @@
-# 000034_Report_Batch_4C_High_Range_Internal_Link_Integrity_Scan.md
+# 000034_Report_Batch_4C_High_Range_Internal_Link_Integrity_Scan
 
 ## Scope
 

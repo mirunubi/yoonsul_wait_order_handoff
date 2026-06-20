@@ -1,6 +1,6 @@
-# 010551_Policy_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary
+# 010551_Policy_AI_Security_Agent_Threat_Detection_Isolation_And_Playbook_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the AI Security Agent Threat Detection, Isolation, and Playbook Boundary Policy.
 

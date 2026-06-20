@@ -1,4 +1,4 @@
-# 000044_Report_Batch_5F_Manual_Review_Exclusion_Closeout_Plan.md
+# 000044_Report_Batch_5F_Manual_Review_Exclusion_Closeout_Plan
 
 ## Scope
 

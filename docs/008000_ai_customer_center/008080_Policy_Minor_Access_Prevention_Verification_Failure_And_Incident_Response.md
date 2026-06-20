@@ -1,6 +1,6 @@
-# 008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response
+# 008080_Policy_Minor_Access_Prevention_Verification_Failure_And_Incident_Response.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the minor access prevention, adult verification failure, suspected underage access, verification bypass attempt, staff intervention, service refusal, incident response, evidence, customer recovery, support escalation, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

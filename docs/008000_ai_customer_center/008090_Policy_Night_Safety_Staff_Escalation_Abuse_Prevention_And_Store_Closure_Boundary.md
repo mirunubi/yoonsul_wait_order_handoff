@@ -1,6 +1,6 @@
-# 008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary
+# 008090_Policy_Night_Safety_Staff_Escalation_Abuse_Prevention_And_Store_Closure_Boundary.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the night safety, staff escalation, customer abuse prevention, drunk customer conflict handling, rider conflict handling, service refusal escalation, manager intervention, emergency hold, store closure boundary, evidence, support escalation, and implementation deferral policy for the Yoonsul Wait/Order Handoff documentation project.
 

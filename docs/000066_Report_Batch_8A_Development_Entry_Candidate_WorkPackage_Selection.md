@@ -1,4 +1,4 @@
-# 000066_Report_Batch_8A_Development_Entry_Candidate_WorkPackage_Selection.md
+# 000066_Report_Batch_8A_Development_Entry_Candidate_WorkPackage_Selection
 
 ## Purpose
 

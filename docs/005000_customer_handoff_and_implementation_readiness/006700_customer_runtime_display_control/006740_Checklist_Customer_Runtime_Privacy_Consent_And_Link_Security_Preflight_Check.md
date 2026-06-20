@@ -1,4 +1,4 @@
-# 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check
+# 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md
 
 ## 1. Purpose
 

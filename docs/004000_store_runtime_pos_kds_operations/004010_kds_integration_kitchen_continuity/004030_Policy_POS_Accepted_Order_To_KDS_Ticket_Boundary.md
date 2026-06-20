@@ -1,4 +1,4 @@
-# 004020_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary
+# 004030_Policy_POS_Accepted_Order_To_KDS_Ticket_Boundary.md
 
 1\. Purpose
 

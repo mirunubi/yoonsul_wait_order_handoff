@@ -1,6 +1,6 @@
-# 010630_Policy_Authority_Capability_Gate
+# 010630_Policy_Authority_Capability_Gate.md
 
-## 1. Purpose
+## Purpose
 
 This document defines the Authority Capability Gate Policy.
 
