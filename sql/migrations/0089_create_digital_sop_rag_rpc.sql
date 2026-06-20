@@ -1,0 +1,1440 @@
+-- 0089_create_digital_sop_rag_rpc.sql
+-- Purpose: Digital SOP management and RAG pipeline RPCs.
+--          SOP document lifecycle, pgvector embedding management,
+--          RAG query with grounding verification,
+--          knowledge gap → SOP auto-draft pipeline.
+--          1-C차 Digital SOP + pgvector RAG 핵심.
+--          특허2: KDS Late Binding + SOP.
+--          특허3: AI 자가진화 운영 지식 시스템.
+--          i18n: 모든 메시지 = message_catalog 참조.
+-- Depends on: 0088_create_ai_customer_center_rpc.sql
+-- Creates:
+--   catchmenu_knowledge.document_embeddings (table)
+--   catchmenu_knowledge.rag_query_contexts (table)
+--   function catchmenu_knowledge.publish_sop_document(...)
+--   function catchmenu_knowledge.register_embedding(...)
+--   function catchmenu_knowledge.search_knowledge(...)
+--   function catchmenu_knowledge.verify_answer_grounding(...)
+--   function catchmenu_knowledge.get_rag_context(...)
+--   function catchmenu_knowledge.draft_sop_from_candidate(...)
+--   function catchmenu_knowledge.get_sop_library(...)
+
+-- =============================================
+-- i18n 메시지 등록
+-- =============================================
+insert into catchmenu_common.message_catalog (
+  message_key, locale, message_text
+) values
+('sop_published', 'ko',
+  'SOP 문서가 발행되었습니다'),
+('sop_published', 'en',
+  'SOP document published'),
+('sop_not_found', 'ko',
+  'SOP 문서를 찾을 수 없습니다'),
+('sop_not_found', 'en',
+  'SOP document not found'),
+('embedding_registered', 'ko',
+  '임베딩이 등록되었습니다'),
+('embedding_registered', 'en',
+  'Embedding registered'),
+('knowledge_search_completed', 'ko',
+  '지식 검색이 완료되었습니다'),
+('knowledge_search_completed', 'en',
+  'Knowledge search completed'),
+('grounding_verified', 'ko',
+  '답변 근거가 검증되었습니다'),
+('grounding_verified', 'en',
+  'Answer grounding verified'),
+('grounding_failed', 'ko',
+  '승인된 문서에서 근거를 찾을 수 없습니다'),
+('grounding_failed', 'en',
+  'No grounding found in approved documents'),
+('rag_context_loaded', 'ko',
+  'RAG 컨텍스트가 로드되었습니다'),
+('rag_context_loaded', 'en',
+  'RAG context loaded'),
+('sop_draft_generated', 'ko',
+  'SOP 초안이 생성되었습니다'),
+('sop_draft_generated', 'en',
+  'SOP draft generated'),
+('sop_library_loaded', 'ko',
+  'SOP 라이브러리가 로드되었습니다'),
+('sop_library_loaded', 'en',
+  'SOP library loaded'),
+('embedding_not_found', 'ko',
+  '임베딩을 찾을 수 없습니다'),
+('embedding_not_found', 'en',
+  'Embedding not found'),
+('document_not_approved', 'ko',
+  '승인되지 않은 문서입니다'),
+('document_not_approved', 'en',
+  'Document not approved')
+on conflict (message_key, locale) do nothing;
+
+insert into catchmenu_common.error_codes (
+  code, error_key, error_domain,
+  error_category, http_status, severity
+) values
+(8011, 'sop_not_found',
+  'KNOWLEDGE', 'NOT_FOUND', 404, 'WARNING'),
+(8012, 'embedding_not_found',
+  'KNOWLEDGE', 'NOT_FOUND', 404, 'WARNING'),
+(8013, 'document_not_approved',
+  'KNOWLEDGE', 'BUSINESS_RULE', 422, 'WARNING'),
+(8014, 'grounding_failed',
+  'KNOWLEDGE', 'BUSINESS_RULE', 422, 'WARNING')
+on conflict (code) do nothing;
+
+
+-- =============================================
+-- document_embeddings table
+-- pgvector 임베딩 저장
+-- pgvector = 검색 레이어 전용
+-- 권위 없음: 승인 문서만 AI 답변 근거
+-- =============================================
+create table if not exists
+  catchmenu_knowledge.document_embeddings (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null
+    references catchmenu_hq.tenants(id),
+  store_id uuid,
+
+  -- 문서 연결
+  document_id uuid not null
+    references catchmenu_knowledge.documents(id),
+  document_code text not null,
+  document_version int not null,
+  document_status text not null,
+
+  -- 청크 정보
+  chunk_index int not null default 0,
+  chunk_text text not null,
+  chunk_token_count int,
+
+  -- 임베딩 벡터
+  embedding vector(1536),
+
+  -- 메타데이터
+  embedding_model text
+    not null default 'text-embedding-3-small',
+  embedding_created_at timestamptz
+    not null default now(),
+
+  -- 검색 통계
+  search_hit_count int not null default 0,
+  last_searched_at timestamptz,
+
+  is_active boolean not null default true,
+  created_at timestamptz not null default now(),
+
+  constraint uq_doc_chunk unique (
+    document_id, chunk_index
+  )
+);
+
+create index if not exists idx_embeddings_tenant
+  on catchmenu_knowledge.document_embeddings(
+    tenant_id, document_status
+  ) where is_active = true;
+
+-- pgvector HNSW 인덱스 (코사인 유사도)
+create index if not exists idx_embeddings_vector
+  on catchmenu_knowledge.document_embeddings
+  using hnsw (embedding vector_cosine_ops)
+  with (m = 16, ef_construction = 64);
+
+alter table catchmenu_knowledge.document_embeddings
+  enable row level security;
+alter table catchmenu_knowledge.document_embeddings
+  force row level security;
+
+drop policy if exists embeddings_isolation
+  on catchmenu_knowledge.document_embeddings;
+create policy embeddings_isolation
+  on catchmenu_knowledge.document_embeddings
+  for all to authenticated
+  using (
+    tenant_id = catchmenu_common.current_tenant_id()
+  );
+
+comment on table
+  catchmenu_knowledge.document_embeddings is
+  'pgvector 임베딩 저장.
+   !! 검색 레이어 전용 - 권위 없음 !!
+   AI 답변 근거 = documents 테이블의
+   PUBLISHED + approved 문서만 인정.
+   embedding: vector(1536) = text-embedding-3-small.
+   HNSW 인덱스: 코사인 유사도 근사 검색.
+   chunk_index: 긴 문서 청킹 순서.
+   search_hit_count: 검색 활용 빈도 추적.
+   특허3: pgvector = 지식 검색 레이어.
+   pgvector 원칙:
+   - 검색 결과는 후보 목록일 뿐
+   - 실제 근거 확인은 verify_answer_grounding()
+   - 승인 문서 필터링 필수 (RLS + status 체크)';
+
+
+-- =============================================
+-- rag_query_contexts table
+-- RAG 쿼리 컨텍스트 캐시
+-- Phase 2: Firebase Firestore 마이그레이션
+-- =============================================
+create table if not exists
+  catchmenu_knowledge.rag_query_contexts (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null
+    references catchmenu_hq.tenants(id),
+  store_id uuid,
+
+  -- 쿼리 정보
+  query_hash text not null,
+  query_text text not null,
+  query_locale text not null default 'ko',
+  query_type text not null,
+
+  -- 검색 결과 (상위 K개)
+  retrieved_chunks jsonb
+    not null default '[]'::jsonb,
+  retrieved_count int not null default 0,
+  top_similarity_score numeric(5,4),
+
+  -- 필터 조건 (적용된 필터)
+  filters_applied jsonb default '{}'::jsonb,
+
+  -- 유효 기간 (캐시)
+  expires_at timestamptz
+    not null default now() + interval '1 hour',
+  cache_hit_count int not null default 0,
+
+  created_at timestamptz not null default now(),
+
+  constraint uq_rag_context unique (
+    tenant_id, query_hash, query_locale
+  )
+);
+
+create index if not exists idx_rag_contexts_tenant
+  on catchmenu_knowledge.rag_query_contexts(
+    tenant_id, query_type, expires_at
+  ) where expires_at > now();
+create index if not exists idx_rag_contexts_hash
+  on catchmenu_knowledge.rag_query_contexts(
+    query_hash, tenant_id
+  );
+
+alter table catchmenu_knowledge.rag_query_contexts
+  enable row level security;
+alter table catchmenu_knowledge.rag_query_contexts
+  force row level security;
+
+drop policy if exists rag_contexts_isolation
+  on catchmenu_knowledge.rag_query_contexts;
+create policy rag_contexts_isolation
+  on catchmenu_knowledge.rag_query_contexts
+  for all to authenticated
+  using (
+    tenant_id = catchmenu_common.current_tenant_id()
+  );
+
+comment on table
+  catchmenu_knowledge.rag_query_contexts is
+  'RAG 쿼리 컨텍스트 캐시.
+   동일 쿼리 반복 시 pgvector 재검색 생략.
+   expires_at: 1시간 (메뉴/SOP 변경 반영).
+   Phase 2: Firebase Firestore 마이그레이션 대상.
+   (AI 대화 세션과 함께 이동)
+   query_hash: sha256(query_text + locale).
+   특허3: RAG 컨텍스트 캐시로 응답 속도 향상.';
+
+
+-- =============================================
+-- RPCs
+-- =============================================
+create or replace function
+  catchmenu_knowledge.publish_sop_document(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_document_code text,
+  p_document_title text,
+  p_document_type text,
+  p_domain text,
+  p_content_ko text,
+  p_content_en text default null,
+  p_content_zh text default null,
+  p_content_ja text default null,
+  p_sop_candidate_id uuid default null,
+  p_effective_from date default null,
+  p_locale text default 'ko',
+  p_actor_id uuid default null,
+  p_correlation_id text default null
+)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_ledger,
+                  catchmenu_audit,
+                  catchmenu_common
+as $$
+declare
+  v_document_id uuid;
+  v_old_document_id uuid;
+  v_version_number int := 1;
+  v_audit_id uuid;
+  v_business_day date;
+begin
+  v_business_day := (timezone(
+    'Asia/Seoul', now()
+  ))::date;
+
+  -- 기존 버전 확인
+  select id, version_number
+  into v_old_document_id, v_version_number
+  from catchmenu_knowledge.documents
+  where tenant_id = p_tenant_id
+    and (
+      store_id = p_store_id
+      or store_id is null
+    )
+    and document_code = p_document_code
+    and document_status = 'PUBLISHED'
+    and is_active = true
+  order by version_number desc
+  limit 1;
+
+  if v_old_document_id is not null then
+    v_version_number := v_version_number + 1;
+
+    -- 기존 버전 SUPERSEDED
+    update catchmenu_knowledge.documents
+    set
+      document_status = 'SUPERSEDED',
+      updated_at = now()
+    where id = v_old_document_id;
+
+    -- 기존 임베딩 비활성화
+    update catchmenu_knowledge.document_embeddings
+    set is_active = false
+    where document_id = v_old_document_id;
+  end if;
+
+  -- 새 문서 생성
+  insert into catchmenu_knowledge.documents (
+    tenant_id, store_id,
+    document_code, document_title,
+    document_type, domain,
+    content_ko, content_en,
+    content_zh, content_ja,
+    version_number,
+    document_status,
+    is_tenant_approved,
+    approved_by, approved_at,
+    effective_from,
+    created_by
+  ) values (
+    p_tenant_id, p_store_id,
+    p_document_code, p_document_title,
+    p_document_type, p_domain,
+    p_content_ko, p_content_en,
+    p_content_zh, p_content_ja,
+    v_version_number,
+    'PUBLISHED',
+    true,
+    p_actor_id, now(),
+    coalesce(
+      p_effective_from, v_business_day
+    ),
+    p_actor_id
+  )
+  returning id into v_document_id;
+
+  -- SOP 후보 연결 + 상태 업데이트
+  if p_sop_candidate_id is not null then
+    update catchmenu_knowledge.sop_candidates
+    set
+      candidate_status = 'PUBLISHED',
+      generated_document_id = v_document_id,
+      approved_at = now(),
+      approved_by = p_actor_id,
+      updated_at = now()
+    where id = p_sop_candidate_id
+      and tenant_id = p_tenant_id;
+  end if;
+
+  -- audit
+  v_audit_id := catchmenu_audit.append_audit_record(
+    p_tenant_id := p_tenant_id,
+    p_store_id := p_store_id,
+    p_audit_domain := 'knowledge',
+    p_audit_type := 'sop_document_published',
+    p_audit_category := 'KNOWLEDGE',
+    p_actor_type := 'STAFF',
+    p_actor_id := p_actor_id,
+    p_subject_type := 'document',
+    p_subject_id := v_document_id,
+    p_decision := 'PUBLISHED',
+    p_decision_payload := jsonb_build_object(
+      'document_code', p_document_code,
+      'document_type', p_document_type,
+      'version', v_version_number,
+      'from_sop_candidate',
+        p_sop_candidate_id is not null
+    ),
+    p_correlation_id := p_correlation_id,
+    p_business_day := v_business_day,
+    p_business_timezone := 'Asia/Seoul'
+  );
+
+  -- ledger event
+  insert into catchmenu_ledger.events (
+    tenant_id, store_id,
+    event_domain, event_type, event_version,
+    subject_type, subject_id,
+    from_state, to_state,
+    caused_by_type, caused_by_id,
+    event_payload, correlation_id,
+    business_day, business_timezone, occurred_at
+  ) values (
+    p_tenant_id, p_store_id,
+    'knowledge', 'sop_document_published', 1,
+    'document', v_document_id,
+    null, 'PUBLISHED',
+    'STAFF', p_actor_id,
+    jsonb_build_object(
+      'document_code', p_document_code,
+      'document_type', p_document_type,
+      'domain', p_domain,
+      'version', v_version_number,
+      'supersedes', v_old_document_id,
+      'from_sop_candidate',
+        p_sop_candidate_id is not null
+    ),
+    p_correlation_id,
+    v_business_day, 'Asia/Seoul', now()
+  );
+
+  -- 임베딩 생성 요청
+  -- Edge Function이 실제 벡터 생성
+  perform catchmenu_common.notify_channel(
+    p_tenant_id := p_tenant_id,
+    p_store_id := p_store_id,
+    p_channel_type := 'SYSTEM_EVENTS',
+    p_event_type := 'document_embedding_requested',
+    p_payload := jsonb_build_object(
+      'document_id', v_document_id,
+      'document_code', p_document_code,
+      'document_type', p_document_type,
+      'locales', jsonb_build_array(
+        'ko',
+        case when p_content_en is not null
+          then 'en' else null end,
+        case when p_content_zh is not null
+          then 'zh' else null end,
+        case when p_content_ja is not null
+          then 'ja' else null end
+      )
+    )
+  );
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'sop_published',
+    p_data := jsonb_build_object(
+      'document_id', v_document_id,
+      'document_code', p_document_code,
+      'document_type', p_document_type,
+      'version_number', v_version_number,
+      'supersedes', v_old_document_id,
+      'audit_id', v_audit_id,
+      'embedding_status', 'REQUESTED',
+      'embedding_note',
+        'Edge Function이 비동기 임베딩 생성'
+    ),
+    p_locale := p_locale,
+    p_correlation_id := p_correlation_id
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.register_embedding(
+  p_tenant_id uuid,
+  p_document_id uuid,
+  p_chunk_index int,
+  p_chunk_text text,
+  p_embedding vector(1536),
+  p_embedding_model text
+    default 'text-embedding-3-small',
+  p_chunk_token_count int default null
+)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_embedding_id uuid;
+  v_document record;
+begin
+  -- 문서 확인 + 상태 체크
+  select id, document_code,
+         version_number, document_status
+  into v_document
+  from catchmenu_knowledge.documents
+  where id = p_document_id
+    and tenant_id = p_tenant_id
+    and is_active = true;
+
+  if v_document.id is null then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'sop_not_found',
+      p_locale := 'ko',
+      p_tenant_id := p_tenant_id,
+      p_rpc_name := 'register_embedding'
+    );
+  end if;
+
+  if v_document.document_status
+    not in ('PUBLISHED', 'APPROVED')
+  then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'document_not_approved',
+      p_locale := 'ko',
+      p_params := jsonb_build_object(
+        'status', v_document.document_status
+      ),
+      p_tenant_id := p_tenant_id,
+      p_rpc_name := 'register_embedding'
+    );
+  end if;
+
+  insert into
+    catchmenu_knowledge.document_embeddings (
+    tenant_id, document_id, document_code,
+    document_version, document_status,
+    chunk_index, chunk_text,
+    chunk_token_count, embedding,
+    embedding_model
+  ) values (
+    p_tenant_id, p_document_id,
+    v_document.document_code,
+    v_document.version_number,
+    v_document.document_status,
+    p_chunk_index, p_chunk_text,
+    p_chunk_token_count, p_embedding,
+    p_embedding_model
+  )
+  on conflict (document_id, chunk_index)
+  do update set
+    chunk_text = excluded.chunk_text,
+    chunk_token_count = excluded.chunk_token_count,
+    embedding = excluded.embedding,
+    embedding_model = excluded.embedding_model,
+    embedding_created_at = now(),
+    is_active = true;
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'embedding_registered',
+    p_data := jsonb_build_object(
+      'document_id', p_document_id,
+      'document_code', v_document.document_code,
+      'chunk_index', p_chunk_index,
+      'embedding_model', p_embedding_model
+    ),
+    p_locale := 'ko'
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.search_knowledge(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_query_embedding vector(1536),
+  p_query_text text,
+  p_query_locale text default 'ko',
+  p_top_k int default 5,
+  p_similarity_threshold numeric default 0.7,
+  p_domain text default null,
+  p_document_type text default null
+)
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_results jsonb;
+  v_result_count int;
+  v_top_score numeric;
+  v_query_hash text;
+  v_cached_context record;
+begin
+  -- 쿼리 해시 생성
+  v_query_hash := encode(
+    digest(
+      p_query_text || p_query_locale,
+      'sha256'
+    ),
+    'hex'
+  );
+
+  -- 캐시 확인
+  select id, retrieved_chunks, retrieved_count,
+         top_similarity_score
+  into v_cached_context
+  from catchmenu_knowledge.rag_query_contexts
+  where tenant_id = p_tenant_id
+    and query_hash = v_query_hash
+    and query_locale = p_query_locale
+    and expires_at > now();
+
+  if v_cached_context.id is not null then
+    -- 캐시 히트
+    update catchmenu_knowledge.rag_query_contexts
+    set
+      cache_hit_count = cache_hit_count + 1
+    where id = v_cached_context.id;
+
+    return catchmenu_common.build_success_response(
+      p_message_key := 'knowledge_search_completed',
+      p_data := jsonb_build_object(
+        'from_cache', true,
+        'query_hash', v_query_hash,
+        'results', v_cached_context.retrieved_chunks,
+        'result_count',
+          v_cached_context.retrieved_count,
+        'top_similarity_score',
+          v_cached_context.top_similarity_score
+      ),
+      p_locale := p_query_locale
+    );
+  end if;
+
+  -- pgvector 코사인 유사도 검색
+  -- 핵심 원칙:
+  -- 1. tenant_id 격리 (RLS)
+  -- 2. PUBLISHED 문서만 검색
+  -- 3. is_tenant_approved = true 필수
+  -- 4. store_id 필터 (매장별 + 공통 문서)
+  select coalesce(
+    jsonb_agg(
+      jsonb_build_object(
+        'embedding_id', de.id,
+        'document_id', de.document_id,
+        'document_code', de.document_code,
+        'document_title', d.document_title,
+        'document_type', d.document_type,
+        'domain', d.domain,
+        'chunk_index', de.chunk_index,
+        'chunk_text', de.chunk_text,
+        'similarity_score', (
+          1 - (de.embedding
+            <=> p_query_embedding)
+        ),
+        'version_number', de.document_version,
+        'approved_at', d.approved_at,
+        'locale', p_query_locale
+      )
+      order by
+        de.embedding <=> p_query_embedding
+    ),
+    '[]'::jsonb
+  )
+  into v_results
+  from catchmenu_knowledge.document_embeddings de
+  join catchmenu_knowledge.documents d
+    on d.id = de.document_id
+  where de.tenant_id = p_tenant_id
+    and de.is_active = true
+    and de.document_status = 'PUBLISHED'
+    and d.document_status = 'PUBLISHED'
+    and d.is_tenant_approved = true
+    and (
+      de.store_id = p_store_id
+      or de.store_id is null
+    )
+    and (
+      p_domain is null
+      or d.domain = p_domain
+    )
+    and (
+      p_document_type is null
+      or d.document_type = p_document_type
+    )
+    and (
+      1 - (de.embedding <=> p_query_embedding)
+    ) >= p_similarity_threshold
+  limit p_top_k;
+
+  v_result_count := jsonb_array_length(
+    coalesce(v_results, '[]'::jsonb)
+  );
+
+  -- 상위 유사도 점수
+  if v_result_count > 0 then
+    v_top_score := (
+      v_results->0->>'similarity_score'
+    )::numeric;
+  end if;
+
+  -- 검색 통계 업데이트
+  update catchmenu_knowledge.document_embeddings
+  set
+    search_hit_count = search_hit_count + 1,
+    last_searched_at = now()
+  where id in (
+    select (r->>'embedding_id')::uuid
+    from jsonb_array_elements(
+      coalesce(v_results, '[]'::jsonb)
+    ) r
+  );
+
+  -- RAG 컨텍스트 캐시 저장
+  if v_result_count > 0 then
+    insert into
+      catchmenu_knowledge.rag_query_contexts (
+      tenant_id, store_id,
+      query_hash, query_text, query_locale,
+      query_type,
+      retrieved_chunks, retrieved_count,
+      top_similarity_score,
+      filters_applied
+    ) values (
+      p_tenant_id, p_store_id,
+      v_query_hash, p_query_text, p_query_locale,
+      coalesce(p_document_type, 'ANY'),
+      v_results, v_result_count,
+      v_top_score,
+      jsonb_build_object(
+        'domain', p_domain,
+        'document_type', p_document_type,
+        'threshold', p_similarity_threshold
+      )
+    )
+    on conflict (tenant_id, query_hash, query_locale)
+    do update set
+      retrieved_chunks = excluded.retrieved_chunks,
+      retrieved_count = excluded.retrieved_count,
+      top_similarity_score =
+        excluded.top_similarity_score,
+      expires_at = now() + interval '1 hour',
+      cache_hit_count = 0;
+  end if;
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'knowledge_search_completed',
+    p_data := jsonb_build_object(
+      'from_cache', false,
+      'query_hash', v_query_hash,
+      'results', coalesce(v_results, '[]'::jsonb),
+      'result_count', v_result_count,
+      'top_similarity_score', v_top_score,
+      'has_results', v_result_count > 0,
+      'grounding_possible', v_result_count > 0
+        and v_top_score >= p_similarity_threshold,
+      'search_principle',
+        'PUBLISHED + approved docs only'
+    ),
+    p_locale := p_query_locale
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.verify_answer_grounding(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_ai_answer text,
+  p_cited_document_ids jsonb,
+  p_query_locale text default 'ko',
+  p_min_citation_count int default 1
+)
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_cited_count int;
+  v_verified_count int := 0;
+  v_rejected_count int := 0;
+  v_verdict text;
+  v_verified_citations jsonb := '[]'::jsonb;
+  v_rejected_citations jsonb := '[]'::jsonb;
+  v_doc_id uuid;
+  v_doc record;
+begin
+  -- pgvector 원칙:
+  -- AI 답변은 반드시 PUBLISHED + approved 문서
+  -- 에서 인용된 내용만 근거로 인정
+  -- 인용 없는 답변 = 거부 (hallucination 방지)
+
+  v_cited_count := jsonb_array_length(
+    coalesce(p_cited_document_ids, '[]'::jsonb)
+  );
+
+  if v_cited_count < p_min_citation_count then
+    return catchmenu_common.build_success_response(
+      p_message_key := 'grounding_failed',
+      p_data := jsonb_build_object(
+        'is_grounded', false,
+        'verdict', 'REJECTED_NO_CITATIONS',
+        'cited_count', v_cited_count,
+        'required_count', p_min_citation_count,
+        'fallback_message',
+          catchmenu_common.get_message(
+            'ai_answer_not_grounded',
+            p_query_locale, null
+          )
+      ),
+      p_locale := p_query_locale
+    );
+  end if;
+
+  -- 각 인용 문서 유효성 검증
+  -- 필수 조건:
+  -- 1. 해당 tenant 소유 문서
+  -- 2. document_status = 'PUBLISHED'
+  -- 3. is_tenant_approved = true
+  -- 4. store_id 범위 (매장별 + 공통)
+  -- 5. 유효 기간 내
+  for v_doc_id in
+    select jsonb_array_elements_text(
+      p_cited_document_ids
+    )::uuid
+  loop
+    select id, document_code, document_title,
+           document_type, document_status,
+           is_tenant_approved, approved_at,
+           effective_from
+    into v_doc
+    from catchmenu_knowledge.documents
+    where id = v_doc_id
+      and tenant_id = p_tenant_id
+      and (
+        store_id = p_store_id
+        or store_id is null
+      )
+      and document_status = 'PUBLISHED'
+      and is_tenant_approved = true
+      and is_active = true
+      and effective_from <= current_date;
+
+    if v_doc.id is not null then
+      v_verified_count := v_verified_count + 1;
+      v_verified_citations :=
+        v_verified_citations
+        || jsonb_build_array(
+          jsonb_build_object(
+            'document_id', v_doc_id,
+            'document_code', v_doc.document_code,
+            'document_title', v_doc.document_title,
+            'document_type', v_doc.document_type,
+            'approved_at', v_doc.approved_at,
+            'is_valid', true
+          )
+        );
+    else
+      v_rejected_count := v_rejected_count + 1;
+      v_rejected_citations :=
+        v_rejected_citations
+        || jsonb_build_array(
+          jsonb_build_object(
+            'document_id', v_doc_id,
+            'reason',
+              'NOT_PUBLISHED_OR_NOT_APPROVED',
+            'is_valid', false
+          )
+        );
+    end if;
+  end loop;
+
+  -- 최종 verdict 결정
+  v_verdict := case
+    when v_verified_count >= p_min_citation_count
+      then 'VERIFIED_GROUNDED'
+    when v_verified_count > 0
+      then 'PARTIALLY_GROUNDED'
+    when v_rejected_count > 0
+      then 'REJECTED_STALE_CITATIONS'
+    else 'REJECTED_NO_CITATIONS'
+  end;
+
+  return catchmenu_common.build_success_response(
+    p_message_key := case
+      when v_verdict = 'VERIFIED_GROUNDED'
+        then 'grounding_verified'
+      else 'grounding_failed'
+    end,
+    p_data := jsonb_build_object(
+      'is_grounded',
+        v_verdict = 'VERIFIED_GROUNDED',
+      'verdict', v_verdict,
+      'cited_count', v_cited_count,
+      'verified_count', v_verified_count,
+      'rejected_count', v_rejected_count,
+      'verified_citations', v_verified_citations,
+      'rejected_citations', v_rejected_citations,
+      'can_publish_answer',
+        v_verdict = 'VERIFIED_GROUNDED',
+      'fallback_message', case
+        when v_verdict <> 'VERIFIED_GROUNDED'
+        then catchmenu_common.get_message(
+          'ai_answer_not_grounded',
+          p_query_locale, null
+        )
+        else null
+      end
+    ),
+    p_locale := p_query_locale
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.get_rag_context(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_query_embedding vector(1536),
+  p_query_text text,
+  p_query_locale text default 'ko',
+  p_query_type text default 'FAQ_LOOKUP',
+  p_top_k int default 5,
+  p_similarity_threshold numeric default 0.7,
+  p_domain text default null
+)
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_search_result jsonb;
+  v_chunks jsonb;
+  v_context_text text := '';
+  v_doc_ids jsonb := '[]'::jsonb;
+  v_doc_codes jsonb := '[]'::jsonb;
+  v_chunk record;
+begin
+  -- pgvector 검색 실행
+  v_search_result :=
+    catchmenu_knowledge.search_knowledge(
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_query_embedding := p_query_embedding,
+      p_query_text := p_query_text,
+      p_query_locale := p_query_locale,
+      p_top_k := p_top_k,
+      p_similarity_threshold :=
+        p_similarity_threshold,
+      p_domain := p_domain
+    );
+
+  v_chunks := coalesce(
+    v_search_result->'data'->'results',
+    '[]'::jsonb
+  );
+
+  -- 컨텍스트 텍스트 구성
+  for v_chunk in
+    select *
+    from jsonb_array_elements(v_chunks)
+  loop
+    -- 컨텍스트 조립
+    v_context_text := v_context_text
+      || E'\n---\n'
+      || '[출처: '
+      || (v_chunk.value->>'document_code')
+      || ' v'
+      || (v_chunk.value->>'version_number')
+      || ']\n'
+      || (v_chunk.value->>'chunk_text');
+
+    -- 인용 문서 ID 수집
+    v_doc_ids := v_doc_ids
+      || to_jsonb(
+        (v_chunk.value->>'document_id')::uuid
+      );
+    v_doc_codes := v_doc_codes
+      || to_jsonb(
+        v_chunk.value->>'document_code'
+      );
+  end loop;
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'rag_context_loaded',
+    p_data := jsonb_build_object(
+      'query_text', p_query_text,
+      'query_locale', p_query_locale,
+      'query_type', p_query_type,
+      'context_text', v_context_text,
+      'retrieved_chunks', v_chunks,
+      'chunk_count',
+        jsonb_array_length(v_chunks),
+      'cited_document_ids', v_doc_ids,
+      'cited_document_codes', v_doc_codes,
+      'has_context',
+        jsonb_array_length(v_chunks) > 0,
+      'rag_principle', jsonb_build_object(
+        'grounding_required', true,
+        'approved_docs_only', true,
+        'hallucination_prevention',
+          'verify_answer_grounding() 필수',
+        'fallback_on_no_context',
+          catchmenu_common.get_message(
+            'ai_answer_not_grounded',
+            p_query_locale, null
+          )
+      )
+    ),
+    p_locale := p_query_locale
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.draft_sop_from_candidate(
+  p_tenant_id uuid,
+  p_candidate_id uuid,
+  p_draft_model text
+    default 'claude-sonnet-4-6',
+  p_locale text default 'ko',
+  p_actor_id uuid default null
+)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_candidate record;
+  v_related_inquiries jsonb;
+  v_draft_prompt text;
+  v_draft_outline text;
+begin
+  select id, candidate_code, candidate_title,
+         candidate_domain, trigger_type,
+         trigger_count, source_inquiry_ids,
+         candidate_status
+  into v_candidate
+  from catchmenu_knowledge.sop_candidates
+  where id = p_candidate_id
+    and tenant_id = p_tenant_id
+    and is_active = true;
+
+  if v_candidate.id is null then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'sop_not_found',
+      p_locale := p_locale,
+      p_tenant_id := p_tenant_id,
+      p_rpc_name := 'draft_sop_from_candidate'
+    );
+  end if;
+
+  -- 관련 문의 내용 수집
+  select coalesce(
+    jsonb_agg(
+      jsonb_build_object(
+        'inquiry_body', inquiry_body,
+        'resolution_note', resolution_note,
+        'ai_answer', ai_answer
+      )
+    ),
+    '[]'::jsonb
+  )
+  into v_related_inquiries
+  from catchmenu_knowledge.customer_inquiries
+  where id::text = any (
+    select jsonb_array_elements_text(
+      v_candidate.source_inquiry_ids
+    )
+  )
+  and tenant_id = p_tenant_id
+  limit 10;
+
+  -- SOP 초안 아웃라인 생성
+  -- 실제 AI 생성은 Edge Function이 담당
+  -- 여기서는 구조화된 프롬프트 + 아웃라인 생성
+  v_draft_outline := '# ' || v_candidate.candidate_title
+    || E'\n\n'
+    || '## 1. 목적\n'
+    || '이 SOP는 ['
+    || v_candidate.candidate_domain
+    || '] 관련 반복 문의 처리를 위한 표준 절차입니다.'
+    || E'\n\n'
+    || '## 2. 적용 범위\n'
+    || '- 관련 문의 유형: '
+    || v_candidate.candidate_domain
+    || E'\n'
+    || '- 발생 빈도: ' || v_candidate.trigger_count
+    || E'회\n\n'
+    || '## 3. 처리 절차\n'
+    || '1. [절차 1]\n'
+    || '2. [절차 2]\n'
+    || '3. [절차 3]\n\n'
+    || '## 4. 주의사항\n'
+    || '- [주의사항 1]\n\n'
+    || '## 5. 관련 문서\n'
+    || '- [관련 문서 코드]';
+
+  -- 드래프트 저장
+  update catchmenu_knowledge.sop_candidates
+  set
+    draft_content := v_draft_outline,
+    draft_generated_at := now(),
+    draft_model := p_draft_model,
+    candidate_status := 'DRAFT_GENERATED',
+    updated_at := now()
+  where id = p_candidate_id;
+
+  -- Edge Function 임베딩 요청
+  perform catchmenu_common.notify_channel(
+    p_tenant_id := p_tenant_id,
+    p_store_id := null,
+    p_channel_type := 'SYSTEM_EVENTS',
+    p_event_type := 'sop_draft_ai_requested',
+    p_payload := jsonb_build_object(
+      'candidate_id', p_candidate_id,
+      'candidate_code', v_candidate.candidate_code,
+      'candidate_title', v_candidate.candidate_title,
+      'candidate_domain', v_candidate.candidate_domain,
+      'trigger_count', v_candidate.trigger_count,
+      'related_inquiries', v_related_inquiries,
+      'draft_outline', v_draft_outline,
+      'model', p_draft_model,
+      'locale', p_locale,
+      'instruction',
+        'Human review required before publish. '
+        || 'Do NOT auto-publish.'
+    )
+  );
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'sop_draft_generated',
+    p_data := jsonb_build_object(
+      'candidate_id', p_candidate_id,
+      'candidate_code', v_candidate.candidate_code,
+      'candidate_title', v_candidate.candidate_title,
+      'draft_outline', v_draft_outline,
+      'candidate_status', 'DRAFT_GENERATED',
+      'ai_generation_status', 'REQUESTED',
+      'human_review_required', true,
+      'next_step',
+        'Edge Function AI 초안 생성 → Human 검토 → publish_sop_document()'
+    ),
+    p_locale := p_locale
+  );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_knowledge.get_sop_library(
+  p_tenant_id uuid,
+  p_store_id uuid default null,
+  p_domain text default null,
+  p_document_type text default null,
+  p_locale text default 'ko',
+  p_include_superseded boolean default false
+)
+returns jsonb
+language plpgsql
+stable
+security definer
+set search_path = catchmenu_knowledge,
+                  catchmenu_common
+as $$
+declare
+  v_documents jsonb;
+  v_candidates jsonb;
+  v_doc_count int;
+  v_candidate_count int;
+begin
+  -- 발행된 SOP 문서 목록
+  select coalesce(
+    jsonb_agg(
+      jsonb_build_object(
+        'document_id', d.id,
+        'document_code', d.document_code,
+        'document_title', d.document_title,
+        'document_type', d.document_type,
+        'domain', d.domain,
+        'version_number', d.version_number,
+        'document_status', d.document_status,
+        'effective_from', d.effective_from,
+        'approved_at', d.approved_at,
+        'has_embedding', exists (
+          select 1
+          from catchmenu_knowledge
+            .document_embeddings de
+          where de.document_id = d.id
+            and de.is_active = true
+        ),
+        'chunk_count', (
+          select count(*)
+          from catchmenu_knowledge
+            .document_embeddings de
+          where de.document_id = d.id
+            and de.is_active = true
+        ),
+        'content_preview', left(
+          coalesce(
+            case p_locale
+              when 'en' then d.content_en
+              when 'zh' then d.content_zh
+              when 'ja' then d.content_ja
+              else null
+            end,
+            d.content_ko
+          ), 200
+        )
+      )
+      order by d.domain, d.document_code
+    ),
+    '[]'::jsonb
+  )
+  into v_documents
+  from catchmenu_knowledge.documents d
+  where d.tenant_id = p_tenant_id
+    and (
+      d.store_id = p_store_id
+      or d.store_id is null
+    )
+    and d.is_tenant_approved = true
+    and d.is_active = true
+    and d.document_status in (
+      'PUBLISHED',
+      case when p_include_superseded
+        then 'SUPERSEDED'
+        else 'PUBLISHED'
+      end
+    )
+    and (
+      p_domain is null
+      or d.domain = p_domain
+    )
+    and (
+      p_document_type is null
+      or d.document_type = p_document_type
+    );
+
+  v_doc_count := jsonb_array_length(
+    coalesce(v_documents, '[]'::jsonb)
+  );
+
+  -- 검토 대기 SOP 후보
+  select coalesce(
+    jsonb_agg(
+      jsonb_build_object(
+        'candidate_id', id,
+        'candidate_code', candidate_code,
+        'candidate_title', candidate_title,
+        'candidate_domain', candidate_domain,
+        'trigger_type', trigger_type,
+        'trigger_count', trigger_count,
+        'priority_score', priority_score,
+        'candidate_status', candidate_status,
+        'has_draft', draft_content is not null,
+        'created_at', created_at
+      )
+      order by priority_score desc
+    ),
+    '[]'::jsonb
+  )
+  into v_candidates
+  from catchmenu_knowledge.sop_candidates
+  where tenant_id = p_tenant_id
+    and candidate_status in (
+      'DETECTED', 'DRAFT_GENERATED',
+      'UNDER_REVIEW'
+    )
+    and is_active = true
+    and (
+      p_domain is null
+      or candidate_domain = p_domain
+    );
+
+  v_candidate_count := jsonb_array_length(
+    coalesce(v_candidates, '[]'::jsonb)
+  );
+
+  return catchmenu_common.build_success_response(
+    p_message_key := 'sop_library_loaded',
+    p_data := jsonb_build_object(
+      'locale', p_locale,
+      'domain_filter', p_domain,
+      'type_filter', p_document_type,
+      'documents', v_documents,
+      'document_count', v_doc_count,
+      'pending_candidates', v_candidates,
+      'candidate_count', v_candidate_count,
+      'rag_ready_count', (
+        select count(distinct de.document_id)
+        from catchmenu_knowledge.document_embeddings de
+        join catchmenu_knowledge.documents d
+          on d.id = de.document_id
+        where d.tenant_id = p_tenant_id
+          and de.is_active = true
+          and d.document_status = 'PUBLISHED'
+          and d.is_tenant_approved = true
+      ),
+      'principle', jsonb_build_object(
+        'pgvector_role',
+          'retrieval_only_no_authority',
+        'grounding_required', true,
+        'human_approval_required', true
+      )
+    ),
+    p_locale := p_locale
+  );
+end;
+$$;
+
+
+-- grants
+do $$
+begin
+  revoke all on function
+    catchmenu_knowledge.publish_sop_document(
+      uuid, uuid, text, text, text, text,
+      text, text, text, text, uuid,
+      date, text, uuid, text
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.publish_sop_document(
+      uuid, uuid, text, text, text, text,
+      text, text, text, text, uuid,
+      date, text, uuid, text
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.register_embedding(
+      uuid, uuid, int, text,
+      vector, text, int
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.register_embedding(
+      uuid, uuid, int, text,
+      vector, text, int
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.search_knowledge(
+      uuid, uuid, vector, text,
+      text, int, numeric, text, text
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.search_knowledge(
+      uuid, uuid, vector, text,
+      text, int, numeric, text, text
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.verify_answer_grounding(
+      uuid, uuid, text, jsonb, text, int
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.verify_answer_grounding(
+      uuid, uuid, text, jsonb, text, int
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.get_rag_context(
+      uuid, uuid, vector, text,
+      text, text, int, numeric, text
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.get_rag_context(
+      uuid, uuid, vector, text,
+      text, text, int, numeric, text
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.draft_sop_from_candidate(
+      uuid, uuid, text, text, uuid
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.draft_sop_from_candidate(
+      uuid, uuid, text, text, uuid
+    ) to authenticated;
+
+  revoke all on function
+    catchmenu_knowledge.get_sop_library(
+      uuid, uuid, text, text, text, boolean
+    ) from public;
+  grant execute on function
+    catchmenu_knowledge.get_sop_library(
+      uuid, uuid, text, text, text, boolean
+    ) to authenticated;
+end;
+$$;
+
+comment on function
+  catchmenu_knowledge.verify_answer_grounding(
+    uuid, uuid, text, jsonb, text, int
+  ) is
+  'AI 답변 근거 검증 (Hallucination 방지).
+   pgvector 원칙 핵심 함수.
+
+   검증 조건 (ALL 필수):
+   1. 인용 문서 = 해당 tenant 소유
+   2. document_status = PUBLISHED
+   3. is_tenant_approved = true
+   4. store_id 범위 (매장 + 공통)
+   5. effective_from <= 오늘
+
+   verdict:
+   VERIFIED_GROUNDED: 발행 가능
+   PARTIALLY_GROUNDED: 인용 부족
+   REJECTED_STALE_CITATIONS: 만료 문서
+   REJECTED_NO_CITATIONS: 인용 없음
+
+   VERIFIED_GROUNDED가 아니면
+   → ai_answer_not_grounded 메시지 반환
+   → 직원에게 에스컬레이션
+
+   특허3: pgvector = 검색 레이어만.
+   권위 = PUBLISHED + approved 문서.
+   1-C차 AI 고객센터 핵심 안전장치.';
+
+comment on function
+  catchmenu_knowledge.search_knowledge(
+    uuid, uuid, vector, text,
+    text, int, numeric, text, text
+  ) is
+  'pgvector 코사인 유사도 지식 검색.
+
+   !! 검색 결과 = 후보 목록 (권위 없음) !!
+   AI 답변 전 verify_answer_grounding() 필수.
+
+   필터 체계 (순서):
+   1. tenant_id (RLS)
+   2. store_id (매장 + 공통 문서)
+   3. document_status = PUBLISHED
+   4. is_tenant_approved = true
+   5. similarity >= threshold (기본 0.7)
+   6. domain / document_type (선택)
+
+   결과 캐시: rag_query_contexts 1시간.
+   동일 쿼리 재검색 시 캐시 반환.
+
+   HNSW 인덱스: 근사 최근접 이웃 검색.
+   정확도 vs 속도 트레이드오프:
+   m=16, ef_construction=64 (기본값).
+   1-C차 RAG 파이프라인 핵심.';
