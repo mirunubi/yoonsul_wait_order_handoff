@@ -1,4 +1,4 @@
-# 001085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request
+# 001085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md
 
 Legacy path: $old.
 

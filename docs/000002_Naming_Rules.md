@@ -54,64 +54,81 @@ Wrong:
 
 ## 1.2 Approved DocumentType Prefix Values
 
-Approved DocumentType Prefix values:
+DocumentType values are divided into three groups. See `000001_Md_Rules.md` Section 5.4 for full definitions.
 
-- `Policy`
-- `SOP`
-- `Checklist`
+**Group A — General Documents**
+
 - `Readme`
 - `Index`
+- `Guide`
+- `Policy`
+- `Spec`
+- `Implementation`
+- `Boundary`
+- `Governance`
+- `Diagram`
+- `Map`
+- `Matrix`
+- `Register`
+- `Template`
+- `Assessment`
+
+**Group B — Execution / Work Documents**
+
+- `Plan`
+- `Checklist`
+- `SOP`
 - `Runbook`
+- `Report`
 - `Evidence`
 - `Audit`
-- `Governance`
-- `Boundary`
-- `Matrix`
-- `Template`
-- `Register`
-- `Report`
-- `Assessment`
+- `ADR`
 - `WorkPackage`
-- `Implementation`
-- `Guide`
-- `Spec`
+- `Closeout`
+
+**Group C — Implementation Lifecycle Only (600000 band)**
+
 - `Overview`
 - `Logic`
 - `Module`
-- `ADR`
 
 Definitions:
 
-| DocumentType | Definition |
-| --- | --- |
-| `Policy` | Business rule, operational rule, compliance rule, architecture rule, or decision boundary. |
-| `SOP` | Step-by-step operating procedure for staff, owner, operator, or system operator execution. |
-| `Checklist` | Verification list, readiness list, procurement list, setup list, or review checklist. |
-| `Readme` | Folder-level overview, purpose, scope, numbering map, and local authority note. |
-| `Index` | Numbered list or controlled catalog of documents, files, sections, or references. |
-| `Runbook` | Incident, recovery, failover, operation, or troubleshooting execution playbook. |
-| `Evidence` | Proof packet, test evidence, validation evidence, audit evidence, or recorded result artifact. |
-| `Audit` | Audit rule, audit trail definition, audit event policy, or inspection scenario. |
-| `Governance` | Ownership, authority, approval, lifecycle, responsibility, or control model. |
-| `Boundary` | Scope boundary, runtime boundary, integration boundary, channel boundary, or responsibility boundary. |
-| `Matrix` | Mapping table, responsibility matrix, priority matrix, compatibility matrix, or decision matrix. |
-| `Template` | Reusable document structure, evidence form, report form, or standard packet format. |
-| `Register` | Controlled list of risks, blockers, exceptions, waivers, decisions, incidents, or records. |
-| `Report` | Investigation report, assessment result, field report, analysis report, or final finding. |
-| `Assessment` | Evaluation, comparison, readiness assessment, provider assessment, or feasibility assessment. |
-| `WorkPackage` | Implementation work unit, delivery package, milestone package, or grouped execution scope. |
-| `Implementation` | Technical design, API behavior, runtime model, data model, interface design, or build-level detail. |
-| `Guide` | Instructional guide, usage guide, setup guide, migration guide, or operator guide. |
-| `Spec` | Formal specification, protocol specification, interface specification, schema specification, or contract detail. |
-| `Overview` | Implementation context map that connects related Markdown, Flutter, SQL, RPC, API, test, evidence, and source files before implementation or correction work. |
-| `Logic` | Implementation design and change logic that defines affected tables, fields, states, events, exceptions, permissions, fallback paths, audit behavior, and reconciliation behavior. |
-| `Module` | Implemented module result and maintenance record covering source files, Flutter files, SQL, RPC, API, classes, functions, test result, evidence, known risk, and rollback notes. |
-| `ADR` | Architecture Decision Record. |
+| Group | DocumentType | 판정 기준 |
+| --- | --- | --- |
+| A | `Readme` | 폴더 진입점. 폴더 역할, 소유 경계, 번호 밴드 설명. 폴더당 1개. |
+| A | `Index` | 번호/문서/항목 목록. 중앙 등록 카탈로그. |
+| A | `Guide` | 프로젝트/시스템 설명, 온보딩, 선행학습, 사용 지침. 절차 없음. |
+| A | `Policy` | 반드시 지켜야 할 규칙, 금지사항, 운영 정책. must/must not 언어 중심. |
+| A | `Spec` | 공식 계약, 인터페이스 스펙, 스키마 스펙, 프로토콜 스펙, 이벤트 페이로드 계약. |
+| A | `Implementation` | 코드 작성 전 기술 설계. API 행동, 런타임 모델, 데이터 모델, 인터페이스 설계. |
+| A | `Boundary` | 시스템 소유권 경계, 통합 경계, 책임 분리. |
+| A | `Governance` | 문서 체계, 번호 체계, 명명 표준, 메타 규칙. 체계 자체를 정의. |
+| A | `Diagram` | 구조도, 흐름도, 관계도 (텍스트 기반 포함). |
+| A | `Map` | 디렉토리 구조, 파일 트리, 시스템 배치 구조. Diagram보다 공간/위치 중심. |
+| A | `Matrix` | 매핑 표, 상태 표, 책임 표, 호환성 표. 셀 기반 대응 관계. |
+| A | `Register` | 공식 등록부. 코드, 이벤트, 결정, 예외 목록. 인스턴스 등록. |
+| A | `Template` | 반복 작성 양식. |
+| A | `Assessment` | 평가, 위험 분석, 적합성 분석, 비교 검토. |
+| B | `Plan` | 실행 전 계획. 작업 계획, 테스트 계획, 배치 계획. |
+| B | `Checklist` | 실행 전후 확인 항목 목록. |
+| B | `SOP` | 반복 가능한 운영/시스템 절차. 순서 있는 절차. |
+| B | `Runbook` | 장애, 예외, 복구, 운영 대응 절차. |
+| B | `Report` | 실행 후 결과, 검증 결과, 배치 closeout 보고. |
+| B | `Evidence` | 검증 증거, raw log, 증거 패킷. |
+| B | `Audit` | 감사, 독립 리뷰, 컴플라이언스 검토 결과. |
+| B | `ADR` | 아키텍처 결정 기록. 결정 시점의 맥락, 선택지, 결정 이유를 보존. |
+| B | `WorkPackage` | 구현/검증 작업 묶음 게이트. Plan+Checklist+Evidence 컨테이너. |
+| B | `Closeout` | 묶음 종료, 승인, 닫힘 기록. |
+| C | `Overview` | 구현 WorkPackage 전 맥락. 어떤 파일을 함께 봐야 하는지. **구현 전용.** |
+| C | `Logic` | 구현 변경 로직. 상태 전이, 예외 처리, 권한, 감사 로직. **구현 전용.** |
+| C | `Module` | 구현 결과 기록. 소스 파일, 테스트 결과, 롤백 노트. **구현 후 기록.** |
 
-### 1.2.1 Spec And Implementation Lifecycle Distinction
+### 1.2.1 Group C Usage Rule
 
-- `Spec` is reserved for formal contracts and specifications such as API contracts, schemas, event payloads, state contracts, protocols, interface details, or interoperability requirements.
-- `Overview` is an implementation context map. It answers: what must be reviewed together before changing or fixing the implementation?
+- `Overview`, `Logic`, `Module`은 코드 구현 WorkPackage 전용입니다.
+- 프로젝트 설명, 온보딩, 시스템 설명 문서에는 `Guide`를 사용합니다.
+- `Overview`를 일반 설명 문서나 계획 문서에 사용하지 않습니다.
 - `Logic` is implementation change logic. It answers: what control logic, data logic, exception logic, permission logic, fallback logic, audit logic, or reconciliation logic will be changed?
 - `Module` is an implemented result record. It answers: what was actually implemented, where, with what evidence, tests, risks, and rollback notes?
 - `Overview`, `Logic`, and `Module` are independent approved DocumentType values. They must not be treated as subtypes of `Spec`.
@@ -208,6 +225,31 @@ This naming-rule update does not rename existing files. Large filename migration
 - New governed folders should use six-digit prefixes.
 - Existing five-digit-prefixed folders are migration targets.
 - Current folders remain flat unless a domain grows large enough to require subfolders.
+
+## 2.1 Folder Number Range Ownership Rule
+
+- A governed docs folder owns the numeric document range from its own folder prefix up to, but not including, the next sibling folder prefix.
+- Files inside a governed docs folder should use numbers within that folder-owned range.
+- This rule exists so that the document number, physical folder location, directory map, and folder Readme remain aligned.
+- A file whose number belongs to another folder band should not be placed in the wrong folder.
+- A folder Readme should state or imply the folder-owned number range when practical.
+
+Example:
+
+If these sibling folders exist:
+
+```text
+docs/000100_project_foundation/
+docs/000500_ai_agent_prelearning_and_project_context/
+```
+
+Then `docs/000100_project_foundation/` owns `000100~000499`, and `docs/000500_ai_agent_prelearning_and_project_context/` owns `000500` up to the next sibling folder prefix.
+
+Therefore:
+
+- `000160_Policy_Internal_Team_Role_And_Responsibility.md` belongs under `docs/000100_project_foundation/`.
+- `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` belongs under `docs/000500_ai_agent_prelearning_and_project_context/`.
+- `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` should not be placed under `docs/000100_project_foundation/`.
 
 ## 3 Root Governance Reservation
 

@@ -1,4 +1,4 @@
-# 001000_Readme_MVP_Scope
+# 001000_Readme_MVP_Scope.md
 
 ## 1 Purpose
 
@@ -26,38 +26,40 @@ This folder defines MVP scope, service scenario, and initial market-facing scope
 
 | document | description |
 | --- | --- |
-| `01010_MVP_Scope.md` | 01010 MVP Scope. |
-| `01020_Store_Type_And_Product_Package_Strategy.md` | 01020 Store Type And Product Package Strategy. |
-| `01030_Competitive_Positioning_And_Market_Context.md` | 01030 Competitive Positioning And Market Context. |
-| `01040_Matrix_MVP_Active_Optional_Future_NonGoal.md` | 01040 Mvp Active Optional Future Non Goal Matrix. |
-| `01050_Boundary_MVP_Package_And_Feature_Flag.md` | 01050 Mvp Package And Feature Flag Boundary. |
-| `01060_MVP_Store_Type_Adoption_Sequence.md` | 01060 Mvp Store Type Adoption Sequence. |
-| `01070_CatchMenu_Service_Concept.md` | 01010 CatchMenu Service Concept. |
-| `01080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md` | 01080 CatchMenu Guest Request Lifecycle And State Policy. |
-| `01085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md` | 01020 CatchMenu Stage 0 POS-less Menu Request Policy. |
-| `01092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md` | 01030 CatchMenu Guest And Merchant Positioning. |
-| `01090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md` | 01090 CatchMenu Request Order Payment And Benefit Authority Boundary. |
-| `01095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md` | 01100 CatchMenu Guest Identity Session And Context Continuity Policy. |
-| `01100_Policy_CatchMenu_I18n_Order_Request_Translation.md` | 01040 CatchMenu I18n Order Request Translation Policy. |
-| `01110_Policy_CatchMenu_Module_Option_And_Product_Package.md` | 01050 CatchMenu Module Option And Product Package Policy. |
-| `01120_Policy_CatchMenu_Adoption_And_Expansion_Path.md` | 01060_CatchMenu_Adoption_And_Expansion_Path_Policy.md. |
-| `01130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md` | 01070 CatchMenu Merchant Onboarding And Readiness Policy. |
-| `01140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md` | 01080 CatchMenu Guest Request Lifecycle And State Policy. |
-| `01150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md` | 01090 CatchMenu Request Order Payment And Benefit Authority Boundary. |
-| `01160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md` | 01100 CatchMenu Guest Identity Session And Context Continuity Policy. |
-| `01170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md` | 01170 Stage 0 Unconfirmed Request Warning And Forced Cleanup. |
-| `01180_Stage_0_Translation_And_Critical_Request_Handling.md` | 01180 Stage 0 Translation And Critical Request Handling. |
-| `01190_Evidence_Stage_0_Support_Signal_And_Packet.md` | 01190 Stage 0 Support Signal And Evidence Packet. |
-| `01205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md` | 01100 Stage 0 Readme. |
-| `01200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md` | 01200 Stage 0 QR Menu Store Context And Versioning Policy. |
-| `01210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md` | 01110 Stage 0A QR Menu And Show To Staff Flow. |
-| `01220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md` | 01120 Stage 0B Send To Store Request Flow. |
-| `01230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md` | 01130 Stage 0C POS Less Request Confirmation Board. |
-| `01240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md` | 01140 Stage 0 Guest Web Screen Policy. |
-| `01250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md` | 01150 Stage 0 Owner Web Console Policy. |
-| `01260_CatchMenu_POS_Less_Request_State_Transition_Guard.md` | 01160 Stage 0 Request State Transition Guard. |
-| `01290_Implementation_Stage_0_MVP_Cutline.md` | 01290 Stage 0 MVP Implementation Cutline. |
-| `01299_Index_Stage_0_And_Readiness_Check.md` | 01299 Stage 0 Index And Readiness Check. |
+| `001000_Readme_MVP_Scope.md` | Folder-level Readme for MVP scope ownership, local file roles, and non-implementation boundary. |
+| `001010_Guide_MVP_Scope.md` | Core MVP scope baseline covering included MVP capabilities, exclusions, and early operating mode principles. |
+| `001020_Store_Type_And_Product_Package_Strategy.md` | Store type and product package strategy for MVP adoption depth and packaged feature boundaries. |
+| `001030_Competitive_Positioning_And_Market_Context.md` | Market and competitive positioning context for the MVP wedge and early differentiation. |
+| `001040_Matrix_MVP_Active_Optional_Future_NonGoal.md` | Matrix separating active MVP scope, optional scope, future scope, and explicit non-goals. |
+| `001050_Boundary_MVP_Package_And_Feature_Flag.md` | Boundary for MVP package composition and feature flag control. |
+| `001060_MVP_Store_Type_Adoption_Sequence.md` | Adoption sequence for store types and progressive MVP rollout depth. |
+| `001070_CatchMenu_Service_Concept.md` | CatchMenu service concept and customer-facing MVP service framing. |
+| `001080_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md` | Policy for guest request lifecycle and state handling in CatchMenu MVP scope. |
+| `001085_Policy_CatchMenu_Stage_0_POS_Less_Menu_Request.md` | Policy for Stage 0 POS-less menu request behavior and operating boundary. |
+| `001090_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md` | Boundary separating request, order, payment, and benefit authority in CatchMenu MVP scope. |
+| `001092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md` | Policy for guest and merchant positioning within the CatchMenu MVP experience. |
+| `001095_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md` | Policy for guest identity, session continuity, and store context continuity. |
+| `001100_Policy_CatchMenu_I18n_Order_Request_Translation.md` | Policy for internationalization and order request translation within MVP limits. |
+| `001110_Policy_CatchMenu_Module_Option_And_Product_Package.md` | Policy for module options and product package definition in CatchMenu MVP scope. |
+| `001120_Policy_CatchMenu_Adoption_And_Expansion_Path.md` | Policy for CatchMenu adoption path and later expansion sequence. |
+| `001130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md` | Policy for merchant onboarding and readiness before MVP use. |
+| `001140_Policy_CatchMenu_Guest_Request_Lifecycle_And_State.md` | Supplemental policy for guest request lifecycle and state handling. |
+| `001150_Boundary_CatchMenu_Request_Order_Payment_And_Benefit_Authority.md` | Supplemental boundary for request, order, payment, and benefit authority separation. |
+| `001160_Policy_CatchMenu_Guest_Identity_Session_And_Context_Continuity.md` | Supplemental policy for guest identity, session continuity, and context continuity. |
+| `001170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md` | Stage 0 warning and forced cleanup rules for unconfirmed requests. |
+| `001180_Stage_0_Translation_And_Critical_Request_Handling.md` | Stage 0 handling rules for translation and critical request cases. |
+| `001190_Evidence_Stage_0_Support_Signal_And_Packet.md` | Evidence packet definition for Stage 0 support signals and support handoff. |
+| `001200_Policy_Stage_0_QR_Menu_Store_Context_And_Versioning.md` | Policy for Stage 0 QR menu, store context, and versioning. |
+| `001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md` | Local Readme for CatchMenu POS-less entry runtime, QR request, and MVP flow documents. |
+| `001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md` | Stage 0A flow for QR menu access and show-to-staff request handling. |
+| `001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md` | Stage 0B flow for sending guest requests to the store. |
+| `001230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md` | Policy for Stage 0C POS-less request confirmation board behavior. |
+| `001240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md` | Policy for the POS-less guest web screen in MVP scope. |
+| `001250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md` | Policy for the POS-less owner web console in MVP scope. |
+| `001260_CatchMenu_POS_Less_Request_State_Transition_Guard.md` | State transition guard for POS-less CatchMenu requests. |
+| `001290_Implementation_Stage_0_MVP_Cutline.md` | Pre-implementation cutline defining what Stage 0 MVP may and may not implement later. |
+| `001299_Index_Stage_0_And_Readiness_Check.md` | Index and readiness check for Stage 0 MVP documents. |
+
 ## 4 Out Of Scope
 
 - Full SaaS implementation, POS integration, payment, membership, KDS automation, and production app code.

@@ -30,7 +30,6 @@ Guide files after the Readme are onboarding, prelearning, and instruction docume
 | file | role |
 | --- | --- |
 | `000500_Readme_AI_Agent_Prelearning_And_Project_Context.md` | Folder-level Readme. Defines folder purpose, placement rules, file roles, and non-authorization boundary. |
-| `000501_Readme_AI_Agent_Prelearning_And_Project_Context.md` | Existing supplemental onboarding note retained for continuity. It is not the folder-level 0-number Readme. |
 | `000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md` | Project-wide onboarding guide and reusable prompt set for Claude Cowork, Codex, Cursor, and human approval review. |
 | `000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Phase roadmap and project-wide AI prelearning context for phases 0 through 7. |
 | `000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Phase 1 prelearning guide for Catch Menu as customer-facing store-runtime projection. |

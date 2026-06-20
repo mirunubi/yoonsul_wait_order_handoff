@@ -1,4 +1,4 @@
-# 001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP
+# 001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md
 
 1\. Purpose
 

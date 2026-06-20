@@ -1,4 +1,9 @@
-# 000210_Index_Organization_Core_And_Readiness_Check
+# 000210_Index_Organization_Core_And_Readiness_Check.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 

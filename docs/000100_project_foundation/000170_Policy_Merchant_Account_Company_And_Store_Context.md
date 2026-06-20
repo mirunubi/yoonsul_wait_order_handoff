@@ -1,4 +1,9 @@
-# 000170_Policy_Merchant_Account_Company_And_Store_Context
+# 000170_Policy_Merchant_Account_Company_And_Store_Context.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 

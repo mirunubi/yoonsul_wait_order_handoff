@@ -1,4 +1,9 @@
-# 000160_Policy_Internal_Team_Role_And_Responsibility
+# 000160_Policy_Internal_Team_Role_And_Responsibility.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 

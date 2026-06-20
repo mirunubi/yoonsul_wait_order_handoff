@@ -1,4 +1,9 @@
-# 000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity
+# 000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 

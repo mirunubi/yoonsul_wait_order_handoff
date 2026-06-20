@@ -1,4 +1,4 @@
-# 001230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board
+# 001230_Policy_CatchMenu_Stage_0C_POS_Less_Request_Confirmation_Board.md
 
 1\. Purpose
 

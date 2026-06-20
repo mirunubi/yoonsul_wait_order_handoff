@@ -129,85 +129,106 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\_migration_history\000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist.md | 000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist. | active |
 | docs\000099_Docs_Governance_Checklist.md | 000099_Docs_Governance_Checklist. | active |
 
+## 3 docs/000500_ai_agent_prelearning_and_project_context
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\000500_ai_agent_prelearning_and_project_context\000500_Readme_AI_Agent_Prelearning_And_Project_Context.md | Folder-level Readme. Defines folder purpose, placement rules, file roles, and non-authorization boundary. | initial |
+| docs\000500_ai_agent_prelearning_and_project_context\000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Project-wide onboarding guide and reusable prompt set for Claude Cowork, Codex, Cursor, and human approval review. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Phase roadmap and project-wide AI prelearning context for phases 0 through 7. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md | Phase 1 prelearning guide for Catch Menu as customer-facing store-runtime projection. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md | Phase 2 prelearning guide for Yoonsul OS store runtime, staff operation, membership, inventory subset, availability, and handoff foundation. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md | Phase 3 prelearning guide for kiosk, KDS, DID, CMS, POS, Toss, OKPOS, POS Gateway, payment recovery, and financial-grade hardening. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md | Phase 4 prelearning guide for Franchise OS as headquarters, branch, approval, evidence, compliance, rollout, and rollback control room. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md | Phase 5 prelearning guide for controlled AI customer center, Digital SOP, approved knowledge base, RAG, pgvector, unresolved inquiry, and SOP evolution. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md | Phase 6 prelearning guide for SaaS-grade integration of Catch Menu, Franchise OS, admin console, store runtime, tenant/store isolation, monitoring, audit, release, and rollback. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md | Phase 7 prelearning guide for Physical AI Gateway as safety, permission, evidence, and actuation boundary for IoT, robot, vision, voice KDS, and kitchen device events. | active |
+
 ## 4 docs/000100_project_foundation
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\000100_project_foundation\000100_Readme_Project_Foundation.md | 00100_Readme_Project_Foundation. | initial |
-| docs\000100_project_foundation\000110_Project_Identity_And_Overview.md | 00110_Project_Identity_And_Overview. | active |
-| docs\000100_project_foundation\000120_BM_Patent_Linkage.md | 00120_BM_Patent_Linkage. | active |
-| docs\000100_project_foundation\000130_Boundary_Non_Implementation.md | 00130_Boundary_Non_Implementation. | active |
-| docs\000100_project_foundation\000140_Readme_Organization_Core.md | 00140_Readme_Organization_Core. | initial |
-| docs\000100_project_foundation\000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md | 00150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity. | active |
-| docs\000100_project_foundation\000160_Policy_Internal_Team_Role_And_Responsibility.md | 00160_Policy_Internal_Team_Role_And_Responsibility. | active |
-| docs\000100_project_foundation\000170_Policy_Merchant_Account_Company_And_Store_Context.md | 00170_Policy_Merchant_Account_Company_And_Store_Context. | active |
-| docs\000100_project_foundation\000180_Policy_Operator_Assignment_And_Backup_Responsibility.md | 00180_Policy_Operator_Assignment_And_Backup_Responsibility. | active |
-| docs\000100_project_foundation\000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md | 00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary. | active |
-| docs\000100_project_foundation\000200_Organization_Core_MVP_Cutline.md | 00200_Organization_Core_MVP_Cutline. | active |
-| docs\000100_project_foundation\000210_Index_Organization_Core_And_Readiness_Check.md | 00210_Index_Organization_Core_And_Readiness_Check. | active |
+| docs 100_project_foundation 100_Readme_Project_Foundation.md | Readme for Project Foundation. | initial |
+| docs 100_project_foundation 110_Guide_Project_Identity_And_Overview.md | Guide for Project Identity And Overview. | active |
+| docs 100_project_foundation 120_Policy_BM_Patent_Linkage.md | Policy for BM Patent Linkage. | active |
+| docs 100_project_foundation 130_Boundary_Non_Implementation.md | Boundary for Non Implementation. | active |
+| docs 100_project_foundation 140_Guide_Organization_Core.md | Guide for Organization Core. | active |
+| docs 100_project_foundation 150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md | Policy for CatchMenu Company Business Unit And Legal Entity. | active |
+| docs 100_project_foundation 160_Policy_Internal_Team_Role_And_Responsibility.md | Policy for Internal Team Role And Responsibility. | active |
+| docs 100_project_foundation 170_Policy_Merchant_Account_Company_And_Store_Context.md | Policy for Merchant Account Company And Store Context. | active |
+| docs 100_project_foundation 180_Policy_Operator_Assignment_And_Backup_Responsibility.md | Policy for Operator Assignment And Backup Responsibility. | active |
+| docs 100_project_foundation 190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md | Policy for Cross Business Franchise OS And CatchMenu Boundary. | active |
+| docs 100_project_foundation 200_Boundary_Organization_Core_MVP_Cutline.md | Boundary for Organization Core MVP Cutline. | active |
+| docs 100_project_foundation 210_Index_Organization_Core_And_Readiness_Check.md | Index for Organization Core And Readiness Check. | active |
 
-## 5 docs/000100_project_foundation/000450_documentation_governance
+## 5 docs/000100_project_foundation/000300_documentation_governance
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\000100_project_foundation\000450_documentation_governance\000450_Readme_Documentation_Governance.md | 00450_Readme_Documentation_Governance. | initial |
-| docs\000100_project_foundation\000450_documentation_governance\000451_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md | 00451_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000452_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md | 00452_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000453_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md | 00453_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000454_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md | 00454_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000455_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md | 00455_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000456_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md | 00456_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000457_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md | 00457_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary. | active |
-| docs\000100_project_foundation\000450_documentation_governance\00458_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md | 00458_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback. | active |
-| docs\000100_project_foundation\000450_documentation_governance\00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | 00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow. | active |
-| docs\000100_project_foundation\000450_documentation_governance\00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | 00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | 00461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | 00462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | 00463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | 00464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | 00465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | 00466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | 00467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | 00468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | 00469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | 00470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | 00471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | 00472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline. | active |
-| docs\000100_project_foundation\000450_documentation_governance\00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | 00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety. | active |
-| docs\000100_project_foundation\000450_documentation_governance\00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | 00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | 00475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | 00476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | 00477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | 00478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | 00479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | 00480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation. | active |
-| docs\000100_project_foundation\000450_documentation_governance\000640_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md | 00640_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000650_Index_Development_Foundation_Overview_Logic_Module_Registry.md | 00650_Index_Development_Foundation_Overview_Logic_Module_Registry. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000660_Template_Development_Foundation_Overview_Document.md | 00660_Template_Development_Foundation_Overview_Document. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000670_Template_Development_Foundation_Logic_Document.md | 00670_Template_Development_Foundation_Logic_Document. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000680_Template_Development_Foundation_Module_Document.md | 00680_Template_Development_Foundation_Module_Document. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000690_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md | 00690_Matrix_Development_Foundation_Overview_Logic_Module_Traceability. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000700_Checklist_Development_Foundation_Code_Handoff_Readiness.md | 00700_Checklist_Development_Foundation_Code_Handoff_Readiness. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000710_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md | 00710_Runbook_Development_Foundation_Codebase_Read_Only_Inspection. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000720_Template_Development_Foundation_Read_Only_Inspection_Report.md | 00720_Template_Development_Foundation_Read_Only_Inspection_Report. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000730_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md | 00730_Guide_Development_Foundation_Claude_Cursor_Role_Separation. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000740_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md | 00740_Template_Development_Foundation_AI_Handoff_Prompt_Pack. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000750_Register_Development_Foundation_Restricted_File_And_Zone_Control.md | 00750_Register_Development_Foundation_Restricted_File_And_Zone_Control. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000760_Audit_Development_Foundation_AI_Assisted_Change_Control.md | 00760_Audit_Development_Foundation_AI_Assisted_Change_Control. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000770_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md | 00770_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000780_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md | 00780_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000790_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md | 00790_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000800_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md | 00800_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000810_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md | 00810_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000820_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md | 00820_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000830_Register_Development_Foundation_Repository_Module_Owner_Map.md | 00830_Register_Development_Foundation_Repository_Module_Owner_Map. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000840_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md | 00840_Evidence_Development_Foundation_First_Codebase_Hydration_Report. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000850_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md | 00850_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000860_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md | 00860_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000870_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md | 00870_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000880_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md | 00880_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000890_Index_Development_Foundation_First_Codebase_Entry_Closeout.md | 00890_Index_Development_Foundation_First_Codebase_Entry_Closeout. | moved |
-| docs\000100_project_foundation\000450_documentation_governance\000900_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md | 00900_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack. | moved |
+| docs 100_project_foundation 300_documentation_governance 300_Readme_Documentation_Governance.md | Readme for Documentation Governance. | initial |
+| docs 100_project_foundation 300_documentation_governance 301_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md | Index for Cross Range Foundation Planning Closure README And PC Import Handoff. | active |
+| docs 100_project_foundation 300_documentation_governance 302_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md | Policy for Documentation Range Map Numbering Reservation And Lane Boundary. | active |
+| docs 100_project_foundation 300_documentation_governance 303_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md | Policy for PC Import Folder Normalization README Index And File Movement. | active |
+| docs 100_project_foundation 300_documentation_governance 304_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md | Policy for Cross Range Open Gap Register Blocker And Deferred Scope. | active |
+| docs 100_project_foundation 300_documentation_governance 305_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md | Policy for Backlog Extraction Source Traceability And Policy To Work Item Mapping. | active |
+| docs 100_project_foundation 300_documentation_governance 306_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md | Policy for Test Extraction Evidence Packet And Verification Case Mapping. | active |
+| docs 100_project_foundation 300_documentation_governance 307_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md | Policy for UI Wireframe Handoff Surface Role Context And Field Boundary. | active |
+| docs 100_project_foundation 300_documentation_governance 308_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md | Policy for Mobile Draft Archive Git Source Of Truth And Google Docs Fallback. | active |
+| docs 100_project_foundation 300_documentation_governance 309_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
+| docs 100_project_foundation 300_documentation_governance 310_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md | Policy for Mobile Draft Google Docs Handoff And PC Directory Import Workflow. | active |
+| docs 100_project_foundation 300_documentation_governance 311_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
+| docs 100_project_foundation 300_documentation_governance 312_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md | Policy for Documentation Completion Roadmap And Implementation Deferral Governance. | active |
+| docs 100_project_foundation 300_documentation_governance 313_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
+| docs 100_project_foundation 300_documentation_governance 314_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md | Policy for Documentation Lane Coverage Matrix And Missing Document Detection. | active |
+| docs 100_project_foundation 300_documentation_governance 315_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
+| docs 100_project_foundation 300_documentation_governance 316_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md | Policy for Documentation File Naming Folder Path And Import Normalization. | active |
+| docs 100_project_foundation 300_documentation_governance 317_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
+| docs 100_project_foundation 300_documentation_governance 318_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md | Policy for Documentation Index Directory Map And Cross Reference Synchronization. | active |
+| docs 100_project_foundation 300_documentation_governance 319_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
+| docs 100_project_foundation 300_documentation_governance 320_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md | Policy for Documentation Duplicate Merge Obsolete Archive And Version Lineage. | active |
+| docs 100_project_foundation 300_documentation_governance 321_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
+| docs 100_project_foundation 300_documentation_governance 322_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md | Policy for Documentation Batch Import Review Report And Commit Discipline. | active |
+| docs 100_project_foundation 300_documentation_governance 323_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
+| docs 100_project_foundation 300_documentation_governance 324_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md | Policy for Documentation Mobile Draft Quality Control And Markdown Copy Safety. | active |
+| docs 100_project_foundation 300_documentation_governance 325_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
+| docs 100_project_foundation 300_documentation_governance 326_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md | Policy for Documentation AI Prompt Library Review Boundary And No Implementation Instruction. | active |
+| docs 100_project_foundation 300_documentation_governance 327_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
+| docs 100_project_foundation 300_documentation_governance 328_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md | Policy for Documentation Readiness Dashboard Status Register And Progress Tracking. | active |
+| docs 100_project_foundation 300_documentation_governance 329_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
+| docs 100_project_foundation 300_documentation_governance 330_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md | Checklist for Documentation Governance Final Index And PC Import Preparation. | active |
+
+## 6 docs/000100_project_foundation/000400_development_foundation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs 100_project_foundation 400_development_foundation 400_Readme_Development_Foundation.md | Readme for Development Foundation. | initial |
+| docs 100_project_foundation 400_development_foundation 401_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md | Policy for Development Foundation Overview Logic Module Documentation Model. | active |
+| docs 100_project_foundation 400_development_foundation 402_Index_Development_Foundation_Overview_Logic_Module_Registry.md | Index for Development Foundation Overview Logic Module Registry. | active |
+| docs 100_project_foundation 400_development_foundation 403_Template_Development_Foundation_Overview_Document.md | Template for Development Foundation Overview Document. | active |
+| docs 100_project_foundation 400_development_foundation 404_Template_Development_Foundation_Logic_Document.md | Template for Development Foundation Logic Document. | active |
+| docs 100_project_foundation 400_development_foundation 405_Template_Development_Foundation_Module_Document.md | Template for Development Foundation Module Document. | active |
+| docs 100_project_foundation 400_development_foundation 406_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md | Matrix for Development Foundation Overview Logic Module Traceability. | active |
+| docs 100_project_foundation 400_development_foundation 407_Checklist_Development_Foundation_Code_Handoff_Readiness.md | Checklist for Development Foundation Code Handoff Readiness. | active |
+| docs 100_project_foundation 400_development_foundation 408_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md | Runbook for Development Foundation Codebase Read Only Inspection. | active |
+| docs 100_project_foundation 400_development_foundation 409_Template_Development_Foundation_Read_Only_Inspection_Report.md | Template for Development Foundation Read Only Inspection Report. | active |
+| docs 100_project_foundation 400_development_foundation 410_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md | Guide for Development Foundation Claude Cursor Role Separation. | active |
+| docs 100_project_foundation 400_development_foundation 411_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md | Template for Development Foundation AI Handoff Prompt Pack. | active |
+| docs 100_project_foundation 400_development_foundation 412_Register_Development_Foundation_Restricted_File_And_Zone_Control.md | Register for Development Foundation Restricted File And Zone Control. | active |
+| docs 100_project_foundation 400_development_foundation 413_Audit_Development_Foundation_AI_Assisted_Change_Control.md | Audit for Development Foundation AI Assisted Change Control. | active |
+| docs 100_project_foundation 400_development_foundation 414_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md | Register for Development Foundation AI Assisted Change Exception And Waiver Log. | active |
+| docs 100_project_foundation 400_development_foundation 415_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md | Checklist for Development Foundation Pre Merge And Release Gate. | active |
+| docs 100_project_foundation 400_development_foundation 416_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md | Index for Development Foundation Closeout And Runtime Flow Linkage. | active |
+| docs 100_project_foundation 400_development_foundation 417_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md | Guide for Development Foundation First Codebase Hydration And Module Discovery. | active |
+| docs 100_project_foundation 400_development_foundation 418_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md | Template for Development Foundation First Flow Bundle Implementation Ticket. | active |
+| docs 100_project_foundation 400_development_foundation 419_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md | Matrix for Development Foundation Source Tree To Module Document Map. | active |
+| docs 100_project_foundation 400_development_foundation 420_Register_Development_Foundation_Repository_Module_Owner_Map.md | Register for Development Foundation Repository Module Owner Map. | active |
+| docs 100_project_foundation 400_development_foundation 421_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md | Evidence for Development Foundation First Codebase Hydration Report. | active |
+| docs 100_project_foundation 400_development_foundation 422_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md | Checklist for Development Foundation First Runtime Code Change Gate. | active |
+| docs 100_project_foundation 400_development_foundation 423_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md | Template for Development Foundation First Runtime Code Change Handoff Prompt. | active |
+| docs 100_project_foundation 400_development_foundation 424_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md | Runbook for Development Foundation First Runtime Diff Review And Rollback. | active |
+| docs 100_project_foundation 400_development_foundation 425_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md | Evidence for Development Foundation First Runtime Change Review Packet. | active |
+| docs 100_project_foundation 400_development_foundation 426_Index_Development_Foundation_First_Codebase_Entry_Closeout.md | Index for Development Foundation First Codebase Entry Closeout. | active |
+| docs 100_project_foundation 400_development_foundation 427_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md | Template for Development Foundation First Codebase Hydration Command Pack. | active |
 
 ## docs/600000_implementation_lifecycle
 
@@ -307,7 +328,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\001000_mvp_scope\001000_Readme_MVP_Scope.md | 01000_Readme_MVP_Scope. | initial |
-| docs\001000_mvp_scope\001010_MVP_Scope.md | 01010_MVP_Scope. | active |
+| docs\001000_mvp_scope\001010_Guide_MVP_Scope.md | 01010_MVP_Scope. | active |
 | docs\001000_mvp_scope\001020_Store_Type_And_Product_Package_Strategy.md | 01020_Store_Type_And_Product_Package_Strategy. | active |
 | docs\001000_mvp_scope\001030_Competitive_Positioning_And_Market_Context.md | 01030_Competitive_Positioning_And_Market_Context. | active |
 | docs\001000_mvp_scope\001040_Matrix_MVP_Active_Optional_Future_NonGoal.md | 01040_Matrix_MVP_Active_Optional_Future_NonGoal. | active |
@@ -2286,3 +2307,16 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime\750170_Template_Delivery_App_KDS_DID_Module_Impact_Scope_And_Context_Slicing_Packet.md | 750170_Template_Delivery_App_KDS_DID_Module_Impact_Scope_And_Context_Slicing_Packet. | moved |
 | docs\750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime\750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md | 750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness. | moved |
 | docs\750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime\750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md | 750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout. | moved |
+
+## docs/000500_ai_agent_prelearning_and_project_context
+
+AI agent prelearning, project-wide onboarding, Claude/Codex/Cursor instruction entry point.
+
+This folder does not authorize runtime implementation. All implementation must still pass through the 51355 pipeline.
+
+Cross-references: 000160 project-wide master context; 051355 AI-assisted financial-grade development pipeline; 600000 implementation lifecycle; 700000 runtime flow bundle; 750000 delivery app channel integration.
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\000500_ai_agent_prelearning_and_project_context\000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md | Ready-to-copy project-wide Claude, Codex, Cursor onboarding instruction guide. | active |
+| docs\000500_ai_agent_prelearning_and_project_context\000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md | Project development phase roadmap and AI prelearning context. | active |

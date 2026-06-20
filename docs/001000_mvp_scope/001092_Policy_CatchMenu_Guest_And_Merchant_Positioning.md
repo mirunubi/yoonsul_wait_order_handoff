@@ -1,4 +1,4 @@
-# 001092_Policy_CatchMenu_Guest_And_Merchant_Positioning
+# 001092_Policy_CatchMenu_Guest_And_Merchant_Positioning.md
 
 Legacy path: $old.
 

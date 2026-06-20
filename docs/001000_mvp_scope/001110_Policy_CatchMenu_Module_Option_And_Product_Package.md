@@ -1,4 +1,4 @@
-# 001110_Policy_CatchMenu_Module_Option_And_Product_Package
+# 001110_Policy_CatchMenu_Module_Option_And_Product_Package.md
 
 Legacy path: $old.
 

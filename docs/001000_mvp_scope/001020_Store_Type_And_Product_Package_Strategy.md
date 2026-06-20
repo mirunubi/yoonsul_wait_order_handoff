@@ -1,4 +1,4 @@
-# 001020_Store_Type_And_Product_Package_Strategy
+# 001020_Store_Type_And_Product_Package_Strategy.md
 
 ## 1 Overall Direction
 

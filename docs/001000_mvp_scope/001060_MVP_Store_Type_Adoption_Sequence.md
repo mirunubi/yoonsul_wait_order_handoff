@@ -1,4 +1,4 @@
-# 001060_MVP_Store_Type_Adoption_Sequence
+# 001060_MVP_Store_Type_Adoption_Sequence.md
 
 ## 1 Purpose
 

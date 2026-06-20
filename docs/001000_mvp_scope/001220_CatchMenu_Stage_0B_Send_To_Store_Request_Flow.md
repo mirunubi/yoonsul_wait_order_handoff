@@ -1,4 +1,4 @@
-# 001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow
+# 001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md
 
 1\. Purpose
 

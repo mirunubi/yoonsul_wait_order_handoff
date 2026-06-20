@@ -1,4 +1,4 @@
-# 001250_Policy_CatchMenu_POS_Less_Owner_Web_Console
+# 001250_Policy_CatchMenu_POS_Less_Owner_Web_Console.md
 
 1\. Purpose
 

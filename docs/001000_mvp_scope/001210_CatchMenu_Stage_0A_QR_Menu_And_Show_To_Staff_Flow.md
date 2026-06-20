@@ -1,4 +1,4 @@
-# 001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow
+# 001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
 
 1\. Purpose
 

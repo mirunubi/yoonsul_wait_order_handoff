@@ -1,4 +1,9 @@
-# 000180_Policy_Operator_Assignment_And_Backup_Responsibility
+# 000180_Policy_Operator_Assignment_And_Backup_Responsibility.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 

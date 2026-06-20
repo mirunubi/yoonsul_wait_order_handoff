@@ -1,4 +1,4 @@
-# 001100_Policy_CatchMenu_I18n_Order_Request_Translation
+# 001100_Policy_CatchMenu_I18n_Order_Request_Translation.md
 
 Legacy path: $old.
 

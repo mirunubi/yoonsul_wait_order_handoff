@@ -25,81 +25,94 @@ Governance markdown files live under `docs/`, not at the project root.
 
 ```text
 docs/
-  00100_project_foundation/
-    00450_documentation_governance/
-      000450_Readme_Documentation_Governance.md
-      000451_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md
-      000452_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md
-      000453_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md
-      000454_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md
-      000455_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md
-      000456_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md
-      000457_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md
-      00458_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md
-      00459_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md
-      00460_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md
-      000461_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md
-      000462_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md
-      000463_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md
-      000464_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md
-      000465_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md
-      000466_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md
-      000467_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md
-      000468_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md
-      000469_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md
-      000470_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md
-      000471_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md
-      000472_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md
-      00473_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md
-      00474_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md
-      000475_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md
-      000476_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md
-      000477_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md
-      000478_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md
-      000479_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
-      000480_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
-      000640_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md
-      000650_Index_Development_Foundation_Overview_Logic_Module_Registry.md
-      000660_Template_Development_Foundation_Overview_Document.md
-      000670_Template_Development_Foundation_Logic_Document.md
-      000680_Template_Development_Foundation_Module_Document.md
-      000690_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md
-      000700_Checklist_Development_Foundation_Code_Handoff_Readiness.md
-      000710_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md
-      000720_Template_Development_Foundation_Read_Only_Inspection_Report.md
-      000730_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md
-      000740_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md
-      000750_Register_Development_Foundation_Restricted_File_And_Zone_Control.md
-      000760_Audit_Development_Foundation_AI_Assisted_Change_Control.md
-      000770_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md
-      000780_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md
-      000790_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md
-      000800_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md
-      000810_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md
-      000820_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md
-      000830_Register_Development_Foundation_Repository_Module_Owner_Map.md
-      000840_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md
-      000850_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md
-      000860_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md
-      000870_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md
-      000880_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md
-      000890_Index_Development_Foundation_First_Codebase_Entry_Closeout.md
-      000900_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md
+  000500_ai_agent_prelearning_and_project_context/
+    000500_Readme_AI_Agent_Prelearning_And_Project_Context.md
+    000502_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md
+    000505_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
+    000506_Guide_Phase_1_Catch_Menu_Prelearning_Context.md
+    000507_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md
+    000508_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md
+    000509_Guide_Phase_4_Franchise_OS_Prelearning_Context.md
+    000510_Guide_Phase_5_AI_Customer_Center_Digital_SOP_RAG_Pgvector_Prelearning_Context.md
+    000511_Guide_Phase_6_Catch_Menu_Franchise_OS_SaaS_Prelearning_Context.md
+    000512_Guide_Phase_7_Physical_AI_Gateway_Prelearning_Context.md
+  000100_project_foundation/
+    000300_documentation_governance/
+      000300_Readme_Documentation_Governance.md
+      000301_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md
+      000302_Policy_Documentation_Range_Map_Numbering_Reservation_And_Lane_Boundary.md
+      000303_Policy_PC_Import_Folder_Normalization_README_Index_And_File_Movement.md
+      000304_Policy_Cross_Range_Open_Gap_Register_Blocker_And_Deferred_Scope.md
+      000305_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping.md
+      000306_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping.md
+      000307_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary.md
+      000308_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback.md
+      000309_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md
+      000310_Policy_Mobile_Draft_Google_Docs_Handoff_And_PC_Directory_Import_Workflow.md
+      000311_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md
+      000312_Policy_Documentation_Completion_Roadmap_And_Implementation_Deferral_Governance.md
+      000313_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md
+      000314_Policy_Documentation_Lane_Coverage_Matrix_And_Missing_Document_Detection.md
+      000315_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md
+      000316_Policy_Documentation_File_Naming_Folder_Path_And_Import_Normalization.md
+      000317_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md
+      000318_Policy_Documentation_Index_Directory_Map_And_Cross_Reference_Synchronization.md
+      000319_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md
+      000320_Policy_Documentation_Duplicate_Merge_Obsolete_Archive_And_Version_Lineage.md
+      000321_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md
+      000322_Policy_Documentation_Batch_Import_Review_Report_And_Commit_Discipline.md
+      000323_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md
+      000324_Policy_Documentation_Mobile_Draft_Quality_Control_And_Markdown_Copy_Safety.md
+      000325_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md
+      000326_Policy_Documentation_AI_Prompt_Library_Review_Boundary_And_No_Implementation_Instruction.md
+      000327_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md
+      000328_Policy_Documentation_Readiness_Dashboard_Status_Register_And_Progress_Tracking.md
+      000329_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
+      000330_Checklist_Documentation_Governance_Final_Index_And_PC_Import_Preparation.md
+    000400_development_foundation/
+      000400_Readme_Development_Foundation.md
+      000401_Policy_Development_Foundation_Overview_Logic_Module_Documentation_Model.md
+      000402_Index_Development_Foundation_Overview_Logic_Module_Registry.md
+      000403_Template_Development_Foundation_Overview_Document.md
+      000404_Template_Development_Foundation_Logic_Document.md
+      000405_Template_Development_Foundation_Module_Document.md
+      000406_Matrix_Development_Foundation_Overview_Logic_Module_Traceability.md
+      000407_Checklist_Development_Foundation_Code_Handoff_Readiness.md
+      000408_Runbook_Development_Foundation_Codebase_Read_Only_Inspection.md
+      000409_Template_Development_Foundation_Read_Only_Inspection_Report.md
+      000410_Guide_Development_Foundation_Claude_Cursor_Role_Separation.md
+      000411_Template_Development_Foundation_AI_Handoff_Prompt_Pack.md
+      000412_Register_Development_Foundation_Restricted_File_And_Zone_Control.md
+      000413_Audit_Development_Foundation_AI_Assisted_Change_Control.md
+      000414_Register_Development_Foundation_AI_Assisted_Change_Exception_And_Waiver_Log.md
+      000415_Checklist_Development_Foundation_Pre_Merge_And_Release_Gate.md
+      000416_Index_Development_Foundation_Closeout_And_Runtime_Flow_Linkage.md
+      000417_Guide_Development_Foundation_First_Codebase_Hydration_And_Module_Discovery.md
+      000418_Template_Development_Foundation_First_Flow_Bundle_Implementation_Ticket.md
+      000419_Matrix_Development_Foundation_Source_Tree_To_Module_Document_Map.md
+      000420_Register_Development_Foundation_Repository_Module_Owner_Map.md
+      000421_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md
+      000422_Checklist_Development_Foundation_First_Runtime_Code_Change_Gate.md
+      000423_Template_Development_Foundation_First_Runtime_Code_Change_Handoff_Prompt.md
+      000424_Runbook_Development_Foundation_First_Runtime_Diff_Review_And_Rollback.md
+      000425_Evidence_Development_Foundation_First_Runtime_Change_Review_Packet.md
+      000426_Index_Development_Foundation_First_Codebase_Entry_Closeout.md
+      000427_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md
     000100_Readme_Project_Foundation.md
-    000110_Project_Identity_And_Overview.md
-    000120_BM_Patent_Linkage.md
+    000110_Guide_Project_Identity_And_Overview.md
+    000120_Policy_BM_Patent_Linkage.md
     000130_Boundary_Non_Implementation.md
-    000140_Readme_Organization_Core.md
+    000140_Guide_Organization_Core.md
     000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md
     000160_Policy_Internal_Team_Role_And_Responsibility.md
     000170_Policy_Merchant_Account_Company_And_Store_Context.md
     000180_Policy_Operator_Assignment_And_Backup_Responsibility.md
     000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md
-    000200_Organization_Core_MVP_Cutline.md
+    000200_Boundary_Organization_Core_MVP_Cutline.md
     000210_Index_Organization_Core_And_Readiness_Check.md
   01000_mvp_scope/
     001000_Readme_MVP_Scope.md
-    001010_MVP_Scope.md
+    001010_Guide_MVP_Scope.md
     001020_Store_Type_And_Product_Package_Strategy.md
     001030_Competitive_Positioning_And_Market_Context.md
     001040_Matrix_MVP_Active_Optional_Future_NonGoal.md

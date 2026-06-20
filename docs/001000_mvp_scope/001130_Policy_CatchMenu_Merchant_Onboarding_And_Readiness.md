@@ -1,4 +1,4 @@
-# 001130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness
+# 001130_Policy_CatchMenu_Merchant_Onboarding_And_Readiness.md
 
 Legacy path: $old.
 

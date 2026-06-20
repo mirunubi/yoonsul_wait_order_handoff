@@ -1,4 +1,4 @@
-# 001030_Competitive_Positioning_And_Market_Context
+# 001030_Competitive_Positioning_And_Market_Context.md
 
 ## 1 Purpose
 

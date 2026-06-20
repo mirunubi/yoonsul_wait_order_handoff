@@ -1,4 +1,4 @@
-# 001240_Policy_CatchMenu_POS_Less_Guest_Web_Screen
+# 001240_Policy_CatchMenu_POS_Less_Guest_Web_Screen.md
 
 1\. Purpose
 

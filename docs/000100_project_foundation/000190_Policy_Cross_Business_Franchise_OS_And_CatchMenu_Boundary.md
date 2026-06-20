@@ -1,4 +1,9 @@
-# 000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary
+# 000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md
+
+## Purpose
+
+This document defines the project foundation topic indicated by its filename and preserves its governed documentation role within `docs/000100_project_foundation/`.
+
 
 Legacy path: $old.
 
