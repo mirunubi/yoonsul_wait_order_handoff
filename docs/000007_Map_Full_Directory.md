@@ -2238,7 +2238,31 @@ docs/
   |   |   |   +--- 604370_Approval_Gate_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md
   |   |   |   +--- 604371_Implementation_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md
   |   |   |   +--- 604372_Verification_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md
-  |   |   |   \--- 604373_Audit_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md
+  |   |   |   +--- 604373_Audit_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md
+  |   |   |   +--- 604374_Approval_Gate_Post_Audit_Closeout_Metadata_Drift_Correction.md
+  |   |   |   +--- 604375_Implementation_Post_Audit_Closeout_Metadata_Drift_Correction.md
+  |   |   |   +--- 604376_Verification_Post_Audit_Closeout_Metadata_Drift_Correction.md
+  |   |   |   +--- 604377_Audit_Post_Audit_Closeout_Metadata_Drift_Correction.md
+  |   |   |   +--- 604378_Analysis_Workpackets_NavigationMap_Coverage_Gap.md
+  |   |   |   +--- 604379_Approval_Gate_Workpackets_NavigationMap_Coverage_Gap.md
+  |   |   |   +--- 604380_Implementation_Workpackets_NavigationMap_Coverage_Gap.md
+  |   |   |   +--- 604381_Verification_Workpackets_NavigationMap_Coverage_Gap.md
+  |   |   |   +--- 604382_Audit_Workpackets_NavigationMap_Coverage_Gap.md
+  |   |   |   +--- 604391_Analysis_SQL_Migration_Replay_Blocker_Group_Disposition.md
+  |   |   |   +--- 604392_Approval_Gate_SQL_Migration_Replay_Blocker_Group_Disposition.md
+  |   |   |   +--- 604393_Implementation_SQL_Migration_Replay_Blocker_A1_Micro_Fix_Disposition.md
+  |   |   |   +--- 604394_Verification_SQL_Migration_Replay_Blocker_A1_Micro_Fix_Disposition.md
+  |   |   |   +--- 604395_Audit_SQL_Migration_Replay_Blocker_A1_Micro_Fix_Disposition.md
+  |   |   |   +--- 604398_Analysis_SQL_Migration_Replay_Blocker_A2_0035_Verification_Rewrite_Disposition.md
+  |   |   |   +--- 604399_Approval_Gate_SQL_Migration_Replay_Blocker_A2_0035_Verification_Rewrite_Disposition.md
+  |   |   |   +--- 604400_Implementation_SQL_Migration_Replay_Blocker_A2_0035_Verification_Rewrite_Disposition.md
+  |   |   |   +--- 604401_Verification_SQL_Migration_Replay_Blocker_A2_0035_Verification_Rewrite_Disposition.md
+  |   |   |   +--- 604402_Audit_SQL_Migration_Replay_Blocker_A2_0035_Verification_Rewrite_Disposition.md
+  |   |   |   +--- 604500_Analysis_Wait_Order_POS_KDS_No_Payment_Manual_Fallback_Runtime_Blocker.md
+  |   |   |   +--- 604501_Approval_Gate_Wait_Order_POS_KDS_No_Payment_Manual_Fallback_Runtime_Path.md
+  |   |   |   +--- 604502_Implementation_Wait_Order_POS_KDS_No_Payment_Store_Level_Release_Policy.md
+  |   |   |   +--- 604503_Verification_Wait_Order_POS_KDS_No_Payment_Store_Level_Release_Policy.md
+  |   |   |   \--- 604504_Audit_Wait_Order_POS_KDS_No_Payment_Store_Level_Release_Policy.md
   |   |   \--- 604400_scope_d_01_payment_confirm_idempotency/
   |   |       +--- 604310_Index_Scope_D_01_Payment_Confirm_Idempotency.md
   |   |       +--- 604311_ImpactScope_Scope_D_01_Payment_Confirm_Idempotency.md

@@ -53,8 +53,40 @@ This map connects the Scope D master pack with these active lanes:
 
 ```text
 604374 Approval Gate -> 604375 Codex Implementation
-  -> 604376 Verification next -> 604377 independent Audit pending
+  -> 604376 Verification PASS -> 604377 independent Audit CLOSED
 ```
+- Parent NavigationMap coverage is CLOSED and committed:
+
+```text
+604378 Analysis -> 604379 Approval -> 604380 Implementation
+  -> 604381 Verification -> 604382 Audit CLOSED
+```
+- A1 SQL residue disposition is CLOSED and committed:
+
+```text
+604391 Analysis -> 604392 Approval -> 604393 Implementation
+  -> 604394 Verification -> 604395 Audit CLOSED -> A1 SQL commit
+```
+
+  The committed A1 files are 0038, 0042, 0063, and 0068.
+- A2 0035 verification rewrite disposition documentation is CLOSED and committed:
+
+```text
+604398 Analysis -> 604399 Approval -> 604400 Implementation
+  -> 604401 Verification -> 604402 Audit CLOSED
+```
+
+  `sql/migrations/0035_verify_schema.sql` remains modified and unstaged; its
+  staging or commit requires a separate Human decision.
+- The no-payment KDS release policy track is CLOSED and committed:
+
+```text
+604500 Analysis -> 604501 corrected Approval -> 604502 Implementation
+  -> 604503 Verification -> 604504 Audit CLOSED -> 0143 committed
+```
+
+  The associated local SQL cross-reference is
+  `sql/migrations/0143_add_no_payment_kds_release_policy.sql`.
 - Residual 604290-origin documents are canonicalized as 604350-604359 with
   intentional gaps at 604351 and 604355. Collision-resolution records remain
   604341-604344.

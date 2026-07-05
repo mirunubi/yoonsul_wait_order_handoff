@@ -17,13 +17,21 @@ impact analysis, approval, implementation, verification, and audit records occup
 `604329-604339`. The approved stale-folder-path repair lineage occupies
 `604370-604373`; 604373 is the completed independent Audit that accepted and
 closed that correction track. The post-audit closeout metadata repair lane uses
-`604374-604377`.
+`604374-604377` and is CLOSED. The parent NavigationMap coverage track
+`604378-604382`, A1 disposition track `604391-604395`, A2 disposition track
+`604398-604402`, and no-payment KDS release policy track `604500-604504` are
+also CLOSED and committed.
 
 Status:
 - Master documentation pack completed
 - Pre-0142 replay recovery active; blockers through 0068 accepted
 - Stale-folder-path repair implemented under 604371, verified PASS under 604372,
   and accepted/CLOSED by the completed 604373 independent Audit
+- A1 SQL micro-fixes for 0038, 0042, 0063, and 0068 are committed
+- A2 0035 disposition documentation is CLOSED and committed; the 0035 SQL rewrite
+  remains modified and unstaged pending a separate Human decision
+- Store-level no-payment KDS release policy and migration
+  `sql/migrations/0143_add_no_payment_kds_release_policy.sql` are committed
 - 0069 Analysis remains deferred pending a separate explicit Human resume decision
 - 0142 not yet reached because replay is currently blocked at 0069
 - Runtime implementation not authorized
@@ -54,8 +62,18 @@ Directory governance lineage:
 - 604373_Audit_Workpacket_Directory_Stale_Folder_Path_Repair_And_Approval_Traceability_Correction.md (completed; CLOSED)
 - 604374_Approval_Gate_Post_Audit_Closeout_Metadata_Drift_Correction.md
 - 604375_Implementation_Post_Audit_Closeout_Metadata_Drift_Correction.md
-- 604376_Verification_Post_Audit_Closeout_Metadata_Drift_Correction.md (next; not yet created)
-- 604377_Audit_Post_Audit_Closeout_Metadata_Drift_Correction.md (pending verification; not yet created)
+- 604376_Verification_Post_Audit_Closeout_Metadata_Drift_Correction.md (completed; PASS)
+- 604377_Audit_Post_Audit_Closeout_Metadata_Drift_Correction.md (completed; CLOSED)
+
+Completed follow-on tracks:
+- 604378~604382 — parent NavigationMap coverage track (CLOSED; committed)
+- 604391~604395 — A1 SQL residue disposition documentation track (CLOSED; committed)
+- 604398~604402 — A2 0035 verification rewrite disposition documentation track (CLOSED; committed)
+- 604500~604504 — store-level no-payment KDS release policy track (CLOSED; committed)
+
+SQL cross-reference:
+- `sql/migrations/0143_add_no_payment_kds_release_policy.sql` — committed policy migration associated with 604500~604504
+- `sql/migrations/0035_verify_schema.sql` — still tracked modified and unstaged; separate Human staging/commit decision required
 
 Boundary:
 - 604301~604304 are the Scope D master documentation pack only.

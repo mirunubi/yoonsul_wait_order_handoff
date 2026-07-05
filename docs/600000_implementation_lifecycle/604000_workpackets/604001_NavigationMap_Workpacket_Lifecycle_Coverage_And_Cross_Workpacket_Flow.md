@@ -85,6 +85,20 @@ The existing workpacket records continue to control state:
 This map makes no new judgment about 0069, 0142, migration replay completion,
 or runtime readiness.
 
+### 5.1 604300 Completed Supporting Tracks
+
+The 604300 workpacket now includes these closed and committed supporting tracks:
+
+- `604374-604377` — post-audit closeout metadata drift correction: CLOSED.
+- `604378-604382` — parent NavigationMap coverage: CLOSED and committed.
+- `604391-604395` — A1 SQL residue disposition documentation: CLOSED and committed; the A1 SQL files were committed separately.
+- `604398-604402` — A2 0035 verification rewrite disposition documentation: CLOSED and committed.
+- `604500-604504` — store-level no-payment KDS release policy: CLOSED and committed.
+
+These closures do not resume the Scope D mainline. 0069 Analysis remains deferred,
+and the working-tree 0035 SQL rewrite remains subject to a separate Human staging
+and commit decision.
+
 ## 6. Reading Route For Humans
 
 1. Start at `600000_Index_Implementation_Lifecycle.md` for domain context.
