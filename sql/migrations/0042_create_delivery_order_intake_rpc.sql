@@ -393,7 +393,7 @@ begin
   set
     processing_status = 'COMPLETED',
     completed_at = now(),
-    result_payload := jsonb_build_object(
+    result_payload = jsonb_build_object(
       'order_id', v_order_id,
       'session_id', v_session_id,
       'order_number', v_order_number

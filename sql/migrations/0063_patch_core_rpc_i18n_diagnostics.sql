@@ -365,10 +365,10 @@ begin
   update catchmenu_payment.payment_intents
   set
     intent_status = 'CONFIRMED',
-    provider_payment_key := p_provider_payment_key,
-    confirmed_amount := p_approved_amount,
-    confirmed_at := now(),
-    updated_at := now()
+    provider_payment_key = p_provider_payment_key,
+    confirmed_amount = p_approved_amount,
+    confirmed_at = now(),
+    updated_at = now()
   where id = p_intent_id;
 
   -- create payment ledger entry
@@ -402,15 +402,15 @@ begin
   update catchmenu_pos.orders
   set
     order_status = 'PAID',
-    payment_completed_at := now(),
-    updated_at := now()
+    payment_completed_at = now(),
+    updated_at = now()
   where id = v_intent.order_id;
 
   -- update session
   update catchmenu_pos.order_sessions
   set
-    payment_completed_at := now(),
-    updated_at := now()
+    payment_completed_at = now(),
+    updated_at = now()
   where id = v_intent.session_id;
 
   -- update KDS conditions: payment_confirmed = true
@@ -419,7 +419,7 @@ begin
   set
     conditions_met = conditions_met
       || jsonb_build_object('payment_confirmed', true),
-    updated_at := now()
+    updated_at = now()
   where order_id = v_intent.order_id
     and store_id = p_store_id
     and kds_status in ('HOLD', 'CAPACITY_CHECKING');
@@ -621,7 +621,7 @@ begin
   update catchmenu_payment.payment_intents
   set
     intent_status = 'UNCERTAIN',
-    updated_at := now()
+    updated_at = now()
   where id = p_intent_id;
 
   -- CRITICAL: HOLD all KDS tickets
@@ -632,7 +632,7 @@ begin
     hold_reason = 'PAYMENT_UNCERTAIN',
     conditions_met = conditions_met
       || jsonb_build_object('payment_confirmed', false),
-    updated_at := now()
+    updated_at = now()
   where order_id = v_intent.order_id
     and store_id = p_store_id
     and kds_status not in (
@@ -868,9 +868,9 @@ begin
   update catchmenu_payment.payment_ledger
   set
     kds_release_authorized = true,
-    kds_release_authorized_by := p_authorized_by_id,
-    kds_release_authorized_at := now(),
-    updated_at := now()
+    kds_release_authorized_by = p_authorized_by_id,
+    kds_release_authorized_at = now(),
+    updated_at = now()
   where id = v_ledger.id;
 
   -- update KDS conditions: payment_confirmed = true
@@ -878,7 +878,7 @@ begin
   set
     conditions_met = conditions_met
       || jsonb_build_object('payment_confirmed', true),
-    updated_at := now()
+    updated_at = now()
   where order_id = p_order_id
     and store_id = p_store_id
     and tenant_id = p_tenant_id

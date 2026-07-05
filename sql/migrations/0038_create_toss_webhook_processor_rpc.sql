@@ -394,7 +394,7 @@ begin
 
       update catchmenu_integrations.toss_webhooks
       set processing_status = 'FAILED',
-          processing_error := 'unknown_toss_status: ' || v_status,
+          processing_error = 'unknown_toss_status: ' || v_status,
           processed_at = now()
       where id = v_webhook_id;
 

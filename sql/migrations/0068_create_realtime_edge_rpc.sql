@@ -293,8 +293,8 @@ create table if not exists
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
 
-  constraint uq_function_code unique (
-    coalesce(tenant_id::text, 'GLOBAL'),
+  constraint uq_function_code unique nulls not distinct (
+    tenant_id,
     function_code
   ),
   constraint chk_trigger_type check (
