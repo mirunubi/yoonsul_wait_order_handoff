@@ -90,42 +90,48 @@ begin
       order by
         d.effectiveness_score desc nulls last,
         d.published_at desc
-      limit p_max_documents
     ),
     '[]'::jsonb
   )
   into v_context_documents
-  from catchmenu_knowledge.documents d
-  where d.tenant_id = p_tenant_id
-    and d.document_status = 'PUBLISHED'
-    and d.is_ai_retrievable = true
-    and d.is_active = true
-    and (
-      p_audience = 'INTERNAL_ONLY'
-      or d.ai_retrieval_scope = p_audience
-      or d.ai_retrieval_scope is null
-    )
-    and (
-      -- query type to document type mapping
-      p_query_type = 'SOP_LOOKUP'
-        and d.document_type = 'SOP'
-      or p_query_type = 'POLICY_CHECK'
-        and d.document_type = 'POLICY'
-      or p_query_type = 'INCIDENT_RESPONSE'
-        and d.document_type in ('RUNBOOK', 'INCIDENT_GUIDE')
-      or p_query_type = 'CUSTOMER_SUPPORT'
-        and d.document_type in ('FAQ', 'SOP')
-      or p_query_type = 'TRAINING_GUIDE'
-        and d.document_type = 'TRAINING_GUIDE'
-      or p_query_type = 'RUNBOOK_LOOKUP'
-        and d.document_type = 'RUNBOOK'
-      or p_query_type = 'EXCEPTION_GUIDANCE'
-        and d.document_type in (
-          'SOP', 'RUNBOOK', 'INCIDENT_GUIDE'
-        )
-      or p_query_type = 'FAQ_LOOKUP'
-        and d.document_type = 'FAQ'
-    );
+  from (
+    select d.*
+    from catchmenu_knowledge.documents d
+    where d.tenant_id = p_tenant_id
+      and d.document_status = 'PUBLISHED'
+      and d.is_ai_retrievable = true
+      and d.is_active = true
+      and (
+        p_audience = 'INTERNAL_ONLY'
+        or d.ai_retrieval_scope = p_audience
+        or d.ai_retrieval_scope is null
+      )
+      and (
+        -- query type to document type mapping
+        p_query_type = 'SOP_LOOKUP'
+          and d.document_type = 'SOP'
+        or p_query_type = 'POLICY_CHECK'
+          and d.document_type = 'POLICY'
+        or p_query_type = 'INCIDENT_RESPONSE'
+          and d.document_type in ('RUNBOOK', 'INCIDENT_GUIDE')
+        or p_query_type = 'CUSTOMER_SUPPORT'
+          and d.document_type in ('FAQ', 'SOP')
+        or p_query_type = 'TRAINING_GUIDE'
+          and d.document_type = 'TRAINING_GUIDE'
+        or p_query_type = 'RUNBOOK_LOOKUP'
+          and d.document_type = 'RUNBOOK'
+        or p_query_type = 'EXCEPTION_GUIDANCE'
+          and d.document_type in (
+            'SOP', 'RUNBOOK', 'INCIDENT_GUIDE'
+          )
+        or p_query_type = 'FAQ_LOOKUP'
+          and d.document_type = 'FAQ'
+      )
+    order by
+      d.effectiveness_score desc nulls last,
+      d.published_at desc
+    limit p_max_documents
+  ) d;
 
   v_doc_count := jsonb_array_length(v_context_documents);
 
@@ -137,37 +143,38 @@ begin
     )
   then
     select coalesce(
-      jsonb_agg(
-        jsonb_build_object(
-          'exception_domain', e.exception_domain,
-          'exception_type', e.exception_type,
-          'exception_severity', e.exception_severity,
-          'exception_status', e.exception_status,
-          'occurrence_count', e.occurrence_count,
-          'detected_at', e.detected_at,
-          -- mask sensitive payload for non-internal
-          'summary', case
-            when p_audience = 'INTERNAL_ONLY'
-            then e.exception_payload
-            else jsonb_build_object(
-              'domain', e.exception_domain,
-              'type', e.exception_type
-            )
-          end
-        )
-        order by e.detected_at desc
-        limit 5
-      ),
+      jsonb_agg(related_exception.doc),
       '[]'::jsonb
     )
     into v_related_exceptions
-    from catchmenu_ledger.exceptions e
-    where e.store_id = p_store_id
-      and e.tenant_id = p_tenant_id
-      and e.exception_status in (
-        'OPEN', 'ACKNOWLEDGED', 'IN_RECOVERY'
-      )
-      and e.detected_at >= now() - interval '24 hours';
+    from (
+      select jsonb_build_object(
+        'exception_domain', e.exception_domain,
+        'exception_type', e.exception_type,
+        'exception_severity', e.exception_severity,
+        'exception_status', e.exception_status,
+        'occurrence_count', e.occurrence_count,
+        'detected_at', e.detected_at,
+        -- mask sensitive payload for non-internal
+        'summary', case
+          when p_audience = 'INTERNAL_ONLY'
+          then e.exception_payload
+          else jsonb_build_object(
+            'domain', e.exception_domain,
+            'type', e.exception_type
+          )
+        end
+      ) as doc
+      from catchmenu_ledger.exceptions e
+      where e.store_id = p_store_id
+        and e.tenant_id = p_tenant_id
+        and e.exception_status in (
+          'OPEN', 'ACKNOWLEDGED', 'IN_RECOVERY'
+        )
+        and e.detected_at >= now() - interval '24 hours'
+      order by e.detected_at desc
+      limit 5
+    ) related_exception;
   end if;
 
   -- 3. operational state snapshot (safe fields only)
