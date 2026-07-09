@@ -1,7 +1,7 @@
 # 000000_Readme_Root
 
 Status: Active
-Last Updated: 2026-06-20
+Last Updated: 2026-07-10
 
 ## 1 이 폴더의 역할
 
@@ -148,8 +148,14 @@ WP 8A-001(코드베이스 수화 기반), WP 9A-001(수화 레지스트리 스�
 ### 000100_project_foundation
 프로젝트 기반 정의. 프로젝트 정체성, BM 특허 경계, 핵심 개념, 외부 시스템 분리 원칙.
 
-### 000500_ai_agent_prelearning_and_project_context
+### 000700_ai_agent_prelearning_and_project_context
 AI 에이전트 선행학습 및 프로젝트 컨텍스트. 에이전트가 작업 전 숙지해야 할 프로젝트 구조, 규칙, 맥락 문서.
+
+### 000800_pos_gateway_and_provider_integration_foundation
+POS 게이트웨이 및 프로바이더 통합 내부 기반. 아웃소싱/구현 이전 단계의 권한 경계, 어댑터 계약, 주문/결제/취소/환불 상태 머신, 재시도/조정/증거 정의.
+
+### 000900_outsourcing_vendor_handoff_and_acceptance
+아웃소싱 벤더 핸드오프 및 인수. RFP/SOW, 벤더 보안·접근·IP 규칙, 인수 증거·검증, 000800 기반 위에서의 벤더 납품 통제.
 
 ### 001000_mvp_scope
 MVP 범위 정의. 1차 출시 포함/제외 기능 경계, MVP 단계별 기능 목록, 우선순위.
@@ -244,23 +250,20 @@ AI 고객센터 SOP 및 지식 자동화. SOP 연동, 지식 자동화 파이프
 ### 040000_menu_taxonomy_and_ai_classification
 메뉴 분류 체계 및 AI 분류. 메뉴 카테고리 설계, AI 기반 메뉴 분류 로직.
 
-### 064000_runtime_flow_bundle
-런타임 플로우 번들 (보조). 특정 런타임 플로우 묶음 문서.
-
 ### 070000_external_integration_control_plane_validation_correction_log_and_process_governance
 외부 통합 통제 플레인 검증 및 프로세스 거버넌스. 외부 연동 통제, 검증 로그, 프로세스 관리.
 
-### 600000_implementation_lifecycle
-구현 라이프사이클. Overview / Logic / Module / WorkPackage / Evidence 문서 묶음. 코드 핸드오프 패킷.
+### 700000_runtime_flow_bundle
+런타임 플로우 번들. 문서 전용(코드 아님) 외부 통합 증거 및 릴리즈 준비성 번들.
 
-### 700000_runtime_flow
-런타임 플로우. 주문 흐름, 핸드오프 흐름, KDS 흐름 등 런타임 실행 흐름 문서.
-
-### 710000_runtime_flow_bundle
-런타임 플로우 번들. 700000 밴드 내 묶음 단위 플로우 패키지.
+### 700900_runtime_flow
+POS 게이트웨이 금융 트랜잭션 Flow Bundle(승인/환불/타임아웃/웹훅/정산) 및 AI 구현 거버넌스 통제 인프라(레지스트리, 의존성 그래프, 모듈 맵, Claude Code/Cursor용 코드 핸드오프 템플릿, 예외 거버넌스, 인간 승인, 릴리즈 게이트). 고객향 주문/KDS 흐름이 아니며, 해당 내용은 `004000_store_runtime_pos_kds_operations`에 있음.
 
 ### 750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime
 배달앱 채널 통합, KDS DID, 주문 수신 런타임. 배달앱 연동 흐름, KDS 표시 연동, 주문 수신 처리.
+
+### 900000_patent_and_handoff_package
+특허 및 핸드오프 패키지. 고객 대기/핸드오프/late-binding 파이프라인, 채널별(웹/네이티브앱/화이트라벨/임베디드) 핸드오프, 키오스크·DID 자동 제어, 특허 회피 전략, 멀티브랜드 SaaS 비전 정책 문서.
 
 ### Temp
 임시 파일 보관. 정식 번호 미부여 작업 중 임시 문서. 정리 후 이동 또는 삭제 대상.

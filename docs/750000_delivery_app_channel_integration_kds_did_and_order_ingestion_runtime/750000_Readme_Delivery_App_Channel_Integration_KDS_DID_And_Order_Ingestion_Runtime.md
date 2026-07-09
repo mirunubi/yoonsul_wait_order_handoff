@@ -1,4 +1,4 @@
-# 750000_Index_Delivery_App_Channel_Integration_KDS_DID_And_Order_Ingestion_Runtime.md
+# 750000_Readme_Delivery_App_Channel_Integration_KDS_DID_And_Order_Ingestion_Runtime.md
 
 ## 1. Purpose
 
@@ -172,23 +172,27 @@ The relationship is:
 750000 = delivery-app channel runtime integration
 ```
 
-### 6.3 Relationship To `700000_runtime_flow_bundle`
+### 6.3 Relationship To `700000_runtime_flow_bundle` And `700900_runtime_flow`
 
-`700000_runtime_flow_bundle` is the parent flow-bundle domain.
+`700000_runtime_flow_bundle` is the parent flow-bundle governance domain: 80 flat files (`700000`-`700178`), no subfolders.
+
+`700900_runtime_flow` is the separate runtime-flow infrastructure folder that holds the registry, dependency-graph, module-map, and code-handoff machinery.
 
 This `750000` folder is a specialized child bundle for delivery-app channel integration.
 
-It should later connect to:
+It should later connect to `700900_runtime_flow`'s subfolders:
 
 ```text
+700900_readme_governance/
 701000_registry_core_flows/
-702000_md_dependency_graph/
-703000_module_map/
-704000_test_coverage/
-705000_code_handoff/
-706000_exception_governance/
-707000_human_approval/
-708000_release_gate/
+701100_md_dependency_graph/
+701110_module_map/
+701120_test_coverage/
+701200_code_handoff/
+701250_exception_governance/
+701270_human_approval/
+701290_release_gate/
+701300_archive_review/
 ```
 
 ### 6.4 Relationship To `51355` Pipeline Guide
