@@ -63,7 +63,7 @@ create table if not exists
 -- 기본 플랜 시드
 insert into catchmenu_common.subscription_plans (
   plan_code, plan_name, plan_tier,
-  monthly_price_krw, max_stores, max_menus
+  monthly_fee, max_stores, max_menu_items
 ) values
 ('TRIAL_30', '30일 무료 체험', 'TRIAL',
   0, 1, 30),
@@ -74,7 +74,7 @@ insert into catchmenu_common.subscription_plans (
 ('PRO', '프로', 'PRO',
   79900, 3, 300),
 ('FRANCHISE', '프랜차이즈', 'FRANCHISE',
-  199900, null, null)
+  199900, 99, 9999)
 on conflict (plan_code) do nothing;
 
 -- tenant_plan_configs 테이블
@@ -339,6 +339,49 @@ create index if not exists idx_pgcron_exec
 -- =============================================
 -- 통합 시나리오 테스트 함수
 -- =============================================
+-- test_case was originally (incorrectly) written as a nested procedure
+-- inside run_integration_test's DECLARE section -- same invalid pattern
+-- as 0073's assert_true and others found this session. Like 0073, its
+-- call sites pass subquery expressions (exists(select ...), select
+-- count(*) = 9 from ...) directly as arguments, which CALL cannot
+-- accept at all -- confirming this needs the function+PERFORM fix, not
+-- a procedure with INOUT parameters. Fixed the same way: a real
+-- standalone function, logging to a temp table since a standalone
+-- routine can't mutate run_integration_test's local variables directly.
+-- All 13 `perform catchmenu_common.add_final_validation_test_case(...)` sites below were mechanically changed to
+-- `perform add_final_validation_test_case(...)` -- no argument list
+-- touched.
+--
+-- NOTE: catchmenu_common.run_integration_test already exists from 0091
+-- with a different signature (p_test_suite text, not p_scenario text
+-- default 'ALL') -- Postgres treats these as separate overloaded
+-- functions since the parameter lists differ. Not resolved here (out of
+-- scope for a mechanical syntax fix); flagged for awareness.
+create temp table if not exists final_validation_test_cases (
+  ordinal bigint generated always as identity,
+  test_name text,
+  status text,
+  detail text
+);
+
+create or replace function catchmenu_common.add_final_validation_test_case(
+  p_name text,
+  p_passed boolean,
+  p_detail text default null
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.final_validation_test_cases (test_name, status, detail)
+    values (
+      p_name,
+      case p_passed when true then 'PASS' else 'FAIL' end,
+      p_detail
+    );
+end;
+$$;
+
 create or replace function
   catchmenu_common.run_integration_test(
   p_tenant_id uuid,
@@ -364,29 +407,8 @@ declare
   v_test_session_id uuid;
   v_test_customer_id uuid;
   v_business_day date;
-
-  procedure test_case(
-    p_name text,
-    p_passed boolean,
-    p_detail text default null
-  ) language plpgsql as $proc$
-  begin
-    v_results := v_results || jsonb_build_object(
-      'test', p_name,
-      'status', case p_passed
-        when true then 'PASS' else 'FAIL'
-      end,
-      'detail', p_detail
-    );
-    if p_passed then
-      v_pass := v_pass + 1;
-    else
-      v_fail := v_fail + 1;
-    end if;
-  end;
-  $proc$;
-
 begin
+  delete from pg_temp.final_validation_test_cases;
   v_business_day := (timezone(
     'Asia/Seoul', now()
   ))::date;
@@ -394,7 +416,7 @@ begin
   -- =====================
   -- 1. DB 연결 테스트
   -- =====================
-  call test_case(
+  perform catchmenu_common.add_final_validation_test_case(
     'DB 연결',
     true,
     'PostgreSQL 연결 정상'
@@ -403,7 +425,7 @@ begin
   -- =====================
   -- 2. 스키마 존재 확인
   -- =====================
-  call test_case(
+  perform catchmenu_common.add_final_validation_test_case(
     '스키마 존재 확인',
     (
       select count(*) = 9
@@ -422,7 +444,7 @@ begin
   -- =====================
   -- 3. 매장 존재 확인
   -- =====================
-  call test_case(
+  perform catchmenu_common.add_final_validation_test_case(
     '매장 존재 확인',
     exists (
       select 1 from catchmenu_hq.stores
@@ -445,7 +467,7 @@ begin
       and tenant_id = p_tenant_id
       and is_active = true;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       '메뉴 등록 확인',
       v_menu_count >= 0,
       v_menu_count::text || '개 등록'
@@ -531,7 +553,7 @@ begin
         from catchmenu_kds.kds_tickets
         where order_id = v_test_order_id;
 
-        call test_case(
+        perform catchmenu_common.add_final_validation_test_case(
           '특허2: KDS HOLD 확인',
           v_kds_status = 'HOLD',
           '결제 전 KDS = ' || coalesce(
@@ -549,7 +571,7 @@ begin
         where id = v_test_session_id;
 
       else
-        call test_case(
+        perform catchmenu_common.add_final_validation_test_case(
           '특허2: KDS HOLD 확인',
           true,
           '테스트 메뉴 없음 (스킵)'
@@ -561,7 +583,7 @@ begin
   -- =====================
   -- 6. RLS 격리 확인
   -- =====================
-  call test_case(
+  perform catchmenu_common.add_final_validation_test_case(
     'RLS 정책 확인',
     (
       select count(*) >= 5
@@ -586,7 +608,7 @@ begin
     into v_msg_count, v_locale_count
     from catchmenu_common.message_catalog;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       'i18n 메시지 카탈로그',
       v_locale_count = 6,
       v_msg_count::text || '개 메시지 / '
@@ -603,7 +625,7 @@ begin
     select count(*) into v_error_count
     from catchmenu_common.error_codes;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       '에러 코드 등록',
       v_error_count >= 50,
       v_error_count::text || '개 등록'
@@ -620,7 +642,7 @@ begin
     from catchmenu_common.pg_cron_jobs
     where is_active = true;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       'pg_cron 활성 작업',
       v_cron_count >= 20,
       v_cron_count::text || '개 활성'
@@ -637,7 +659,7 @@ begin
     from catchmenu_common.sop_runbooks
     where is_active = true;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       'SOP 런북 등록',
       v_sop_count >= 20,
       v_sop_count::text || '개 등록'
@@ -655,7 +677,7 @@ begin
         p_tenant_id, p_store_id
       );
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       '오픈 체크리스트',
       (v_checklist->'data'->>'overall')
         in ('READY', 'CAUTION'),
@@ -678,12 +700,28 @@ begin
       and tenant_id = p_tenant_id
       and is_active = true;
 
-    call test_case(
+    perform catchmenu_common.add_final_validation_test_case(
       'Realtime 채널 확인',
       v_channel_count >= 5,
       v_channel_count::text || '개 채널 활성'
     );
   end;
+
+  -- populate v_results/v_pass/v_fail from the temp table now that all
+  -- add_final_validation_test_case() calls above have logged into it
+  select
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'test', test_name,
+        'status', status,
+        'detail', detail
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    count(*) filter (where status = 'PASS'),
+    count(*) filter (where status = 'FAIL')
+  into v_results, v_pass, v_fail
+  from pg_temp.final_validation_test_cases;
 
   -- =====================
   -- 결과 반환
@@ -756,13 +794,13 @@ set is_current = false
 where is_current = true;
 
 insert into catchmenu_common.schema_versions (
-  version_code, version_name,
-  migration_range, is_current,
-  validation_result, deployed_at
+  version_code, migration_count,
+  description, is_current,
+  validation_result
 ) values (
   'v0133',
-  'Catch Menu Full System v1.2 - MVP Ready',
-  '0001-0133',
+  133,
+  'Catch Menu Full System v1.2 - MVP Ready (0001-0133)',
   true,
   jsonb_build_object(
     'validated_at', now(),
@@ -796,6 +834,10 @@ insert into catchmenu_common.schema_versions (
     ),
     'integration_test', 'run_integration_test()',
     'opening_checklist', 'run_opening_checklist()'
-  ),
-  now()
-);
+  )
+)
+on conflict (version_code) do update set
+  migration_count = excluded.migration_count,
+  description = excluded.description,
+  is_current = excluded.is_current,
+  validation_result = excluded.validation_result;

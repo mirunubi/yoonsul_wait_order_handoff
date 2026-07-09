@@ -775,10 +775,10 @@ $$;
 
 -- SOP 런북 (오픈 당일)
 insert into catchmenu_common.sop_runbooks (
-  runbook_code, runbook_title,
-  target_domain, trigger_condition,
-  steps, escalation_path,
-  estimated_resolution_minutes,
+  runbook_code, runbook_name,
+  runbook_domain, symptom_description,
+  recovery_steps, escalation_contact,
+  escalation_threshold_minutes,
   is_active
 ) values
 (
@@ -798,11 +798,7 @@ insert into catchmenu_common.sop_runbooks (
     '9. 키오스크 부트스트랩 확인',
     '10. 오픈 준비 완료 메모 전송 (STAFF 전체)'
   ),
-  jsonb_build_array(
-    '시스템 장애 → SOP-SYS-002',
-    '결제 장애 → SOP-PAY-001',
-    '기술 지원 → 캐치메뉴 기술지원팀'
-  ),
+  '시스템 장애 → SOP-SYS-002 / 결제 장애 → SOP-PAY-001 / 기술 지원 → 캐치메뉴 기술지원팀',
   30, true
 ),
 (
@@ -822,10 +818,7 @@ insert into catchmenu_common.sop_runbooks (
     '9. 교대 인수인계 send_staff_memo(SHIFT_HANDOFF)',
     '10. 마감 완료'
   ),
-  jsonb_build_array(
-    '정산 이상 → SOP-PAY-002',
-    '재고 부족 → 납품업체 연락'
-  ),
+  '정산 이상 → SOP-PAY-002 / 재고 부족 → 납품업체 연락',
   45, true
 ),
 (
@@ -845,10 +838,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. 대기 호출 시 DID + 푸시 알림',
     '7. 사전 주문 안내 (착석 즉시 음식 제공)'
   ),
-  jsonb_build_array(
-    '언어 지원 불가 → 번역 앱 활용',
-    '알레르겐 심각 → 음식 제공 거부 가능'
-  ),
+  '언어 지원 불가 → 번역 앱 활용 / 알레르겐 심각 → 음식 제공 거부 가능',
   5, true
 ),
 (
@@ -867,10 +857,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. 피크 종료 후 재고 재확인',
     '7. 피크 메트릭 확인 (get_daily_report)'
   ),
-  jsonb_build_array(
-    'KDS 과부하 → change_store_mode(BUSY)',
-    '재고 소진 → 자동 품절 또는 수동 처리'
-  ),
+  'KDS 과부하 → change_store_mode(BUSY) / 재고 소진 → 자동 품절 또는 수동 처리',
   0, true
 )
 on conflict (runbook_code) do nothing;
@@ -880,7 +867,7 @@ on conflict (runbook_code) do nothing;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'HOURLY_METRICS',

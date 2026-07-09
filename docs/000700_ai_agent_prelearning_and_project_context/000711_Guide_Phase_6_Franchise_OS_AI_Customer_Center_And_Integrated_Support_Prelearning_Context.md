@@ -1,25 +1,27 @@
-# 000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
+# 000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
 
 ## 1. Purpose
 
-This document is the Phase 5 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to **Franchise_OS AI customer center and integrated support enhancement**.
+This document is the Phase 6 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to **Franchise_OS AI customer center and integrated support enhancement**.
 
-It teaches agents that Phase 5 is **not** a simple chatbot or generic FAQ layer. Phase 5 is the stage that **enhances the entire customer support system** using Phase 4 Franchise_OS no-outage operations, Agent + SOP Runtime, and structured failure/recovery/evidence logs.
+It teaches agents that Phase 6 is **not** a simple chatbot or generic FAQ layer. Extends the Phase 4 Catch Menu AI Customer Center module using Phase 5 no-outage events, SOP Runtime, and recovery evidence.
 
 This document helps agents classify scope, define human approval boundaries, and plan knowledge evolution workflows. It does **not** authorize runtime implementation, SQL changes, migrations, or production rollout.
 
 ## 2. Core Identity
 
-Phase 5 is **Franchise_OS AI customer center and integrated support enhancement**.
+Phase 6 is **Franchise_OS AI customer center and integrated support enhancement**.
 
 | Phase | AI customer center role |
 | --- | --- |
 | Phase 1-C | Launch-grade AI customer center **core** for Catch Menu SaaS market launch |
-| **Phase 5** | **Post–Phase 4 enhancement**: Franchise_OS + full support center for complex HQ/franchisee/store/staff/operator inquiries and failure response |
+| **Phase 6** | **Post–Phase 5 enhancement**: Franchise_OS + full support center for complex HQ/franchisee/store/staff/operator inquiries and failure response |
 
-Phase 5 is **different from** the Phase 1-C launch AI customer center. Phase 1-C provides the **minimum customer-support foundation for SaaS market launch**. Phase 5 comes **after Phase 4 Franchise_OS** and supports the complex inquiries and failure responses that headquarters, franchisees, branches, staff, customer-center agents, and operators actually encounter.
+Phase 6 is **different from** the Phase 1-C launch AI customer center. Phase 1-C provides the **minimum customer-support foundation for SaaS market launch**. Phase 6 comes **after Phase 5 Franchise_OS** and supports the complex inquiries and failure responses that headquarters, franchisees, branches, staff, customer-center agents, and operators actually encounter.
 
-**Phase 5 core includes:**
+**Phase 6 does not rebuild the AI customer center module.** It extends the standalone module first built in `000709_Guide_Phase_4_Catch_Menu_AI_Customer_Center_Prelearning_Context.md` by attaching Franchise_OS no-outage events, SOP Runtime, and recovery evidence (all Phase 5 outputs) onto that same reusable module.
+
+**Phase 6 core includes:**
 
 - Franchise_OS dedicated AI customer center
 - integrated support center enhancement
@@ -48,14 +50,14 @@ Current roadmap context:
 | Phase 2 | `yoonsul_os` store operation foundation: staff, membership, partial inventory (**separate project**) |
 | Phase 3 | Kiosk / KDS / DID / CMS / POS integration |
 | Phase 1-C | Complete SaaS productization and market launch; **launch-grade AI customer center core** |
-| Phase 4 | Franchise_OS no-outage restaurant operations system |
-| **Phase 5** | **Franchise_OS AI customer center and integrated support enhancement** |
-| Phase 6 | Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement |
-| Phase 7 | AI readiness and Physical AI Gateway preparation |
+| Phase 5 | Franchise_OS no-outage restaurant operations system |
+| **Phase 6** | **Franchise_OS AI customer center and integrated support enhancement** |
+| Phase 7 | Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement |
+| Phase 8 | AI readiness and Physical AI Gateway preparation |
 
-## 4. Phase 5 Central Role
+## 4. Phase 6 Central Role
 
-Phase 5 **must**:
+Phase 6 **must**:
 
 - customer-centerize Franchise_OS operational knowledge
 - convert no-outage Agent + SOP Runtime events into customer-support knowledge
@@ -68,7 +70,7 @@ Phase 5 **must**:
 - turn repeated inquiries into SOP creation candidates
 - reflect SOP changes only after human approval
 - enhance overall customer-center quality
-- build support infrastructure for Phase 6 Franchise_OS SaaS conversion
+- build support infrastructure for Phase 7 Franchise_OS SaaS conversion
 
 ## 5. Franchise_OS AI Customer Center
 
@@ -100,7 +102,7 @@ The Franchise_OS AI customer center is **not** a chatbot that handles only end-c
 
 ## 6. Integrated Support Center
 
-Phase 5 is **not** only a Franchise_OS customer center. It is **integrated support center enhancement**.
+Phase 6 is **not** only a Franchise_OS customer center. It is **integrated support center enhancement**.
 
 **Full support center scope includes:**
 
@@ -115,11 +117,11 @@ Phase 5 is **not** only a Franchise_OS customer center. It is **integrated suppo
 - payment/order/cancel/refund state inquiries
 - operating policy inquiries
 
-The Phase 1-C launch AI customer center is the **basic support foundation**. Phase 5 **extends** it to include Franchise_OS and no-outage operation runtime—not replace it.
+The Phase 1-C launch AI customer center is the **basic support foundation**. Phase 6 **extends** it to include Franchise_OS and no-outage operation runtime—not replace it.
 
 ## 7. Digital SOP Enhancement
 
-Phase 5 Digital SOP is **not** static document search. It is an operational knowledge system that evolves from real operation events and inquiry events.
+Phase 6 Digital SOP is **not** static document search. It is an operational knowledge system that evolves from real operation events and inquiry events.
 
 **Digital SOP must cover:**
 
@@ -197,7 +199,7 @@ Repeated inquiries are **not** customer-center quality failure—they are signal
 
 ## 11. SOP Creation Candidate Workflow
 
-Phase 5 requires an **SOP creation candidate workflow**:
+Phase 6 requires an **SOP creation candidate workflow**:
 
 1. new inquiry occurs
 2. existing SOP/RAG search fails
@@ -245,7 +247,7 @@ The AI customer center must **not** finalize without human approval:
 
 ## 13. Role-Based Answer Isolation
 
-Phase 5 AI customer center must vary answer scope by user type.
+Phase 6 AI customer center must vary answer scope by user type.
 
 | User type | Answer scope |
 | --- | --- |
@@ -257,7 +259,7 @@ Phase 5 AI customer center must vary answer scope by user type.
 
 ## 14. Franchise_OS Operational Event Utilization
 
-Phase 5 must use operational events produced by Phase 4 Franchise_OS.
+Phase 6 must use operational events produced by Phase 5 Franchise_OS.
 
 **Events to utilize:**
 
@@ -282,7 +284,7 @@ These events must be **structured** for accurate AI customer-center answers.
 
 ## 15. Integrated Support Center Enhancement
 
-Phase 5 must enhance customer-center **operations** itself.
+Phase 6 must enhance customer-center **operations** itself.
 
 **Enhancement items:**
 
@@ -305,31 +307,31 @@ Phase 5 must enhance customer-center **operations** itself.
 
 Phase 1-C includes **launch-grade AI customer center core** for market launch. Its purpose is Catch Menu SaaS launch and initial customer-support foundation.
 
-Phase 5 **extends**—does not discard—the Phase 1-C AI customer center to cover Franchise_OS and the full support center.
+Phase 6 **extends**—does not discard—the Phase 1-C AI customer center to cover Franchise_OS and the full support center.
 
 | Phase | Role |
 | --- | --- |
 | Phase 1-C | Launch-grade AI customer center core |
-| Phase 5 | Franchise_OS + full support center enhancement |
+| Phase 6 | Franchise_OS + full support center enhancement |
 
-## 17. Relationship To Phase 4
+## 17. Relationship To Phase 5
 
-Phase 4 implements Franchise_OS as the no-outage restaurant operations system: failure events, SOP Runtime, Human Authority Runtime, recovery evidence, SCM, CRM, policy, and approval workflow.
+Phase 5 implements Franchise_OS as the no-outage restaurant operations system: failure events, SOP Runtime, Human Authority Runtime, recovery evidence, SCM, CRM, policy, and approval workflow.
 
-Phase 5 **converts** Phase 4 operational knowledge and events into customer-center knowledge.
+Phase 6 **converts** Phase 5 operational knowledge and events into customer-center knowledge.
 
 | Phase | Role |
 | --- | --- |
-| Phase 4 | Operations runtime |
-| Phase 5 | AI customer center that explains and supports the operations runtime |
+| Phase 5 | Operations runtime |
+| Phase 6 | AI customer center that explains and supports the operations runtime |
 
-## 18. Relationship To Phase 6
+## 18. Relationship To Phase 7
 
-Phase 6 is Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement. Franchise_OS cannot be sold as SaaS without a customer-support system in place.
+Phase 7 is Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement. Franchise_OS cannot be sold as SaaS without a customer-support system in place.
 
-Phase 5 is a **prerequisite** for Phase 6.
+Phase 6 is a **prerequisite** for Phase 7.
 
-**Without Phase 5:**
+**Without Phase 6:**
 
 - SaaS onboarding is difficult
 - HQ/franchisee inquiry response is difficult
@@ -338,20 +340,20 @@ Phase 5 is a **prerequisite** for Phase 6.
 - operational knowledge stays in people's heads
 - customer-center cost explodes during SaaS expansion
 
-## 19. Relationship To Phase 7
+## 19. Relationship To Phase 8
 
-Phase 7 is AI readiness and Physical AI Gateway preparation. Phase 5 Digital SOP, operation events, failure/recovery history, and customer-center inquiry data become the foundation for Phase 7 AI integration.
+Phase 8 is AI readiness and Physical AI Gateway preparation. Phase 6 Digital SOP, operation events, failure/recovery history, and customer-center inquiry data become the foundation for Phase 8 AI integration.
 
-However, Phase 5 AI customer center must **not** directly control physical devices. In Phase 7, Physical AI must still pass through safety gate, human override, authority boundary, and evidence.
+However, Phase 6 AI customer center must **not** directly control physical devices. In Phase 8, Physical AI must still pass through safety gate, human override, authority boundary, and evidence.
 
 ## 20. Non-Scope
 
-Phase 5 is **not**:
+Phase 6 is **not**:
 
 - Phase 1-C market launch itself
-- Phase 4 Franchise_OS core implementation
-- Phase 6 Franchise_OS SaaS conversion
-- Phase 7 Physical AI device control
+- Phase 5 Franchise_OS core implementation
+- Phase 7 Franchise_OS SaaS conversion
+- Phase 8 Physical AI device control
 - automatic official SOP deployment without human approval
 - refund/compensation/policy change without human approval
 - safe-closure or continued limited-operation decision without human approval
@@ -364,7 +366,7 @@ Phase 5 is **not**:
 | Risk | Impact |
 | --- | --- |
 | AI customer center reduced to simple FAQ chatbot | Misses Franchise_OS operational support value |
-| Not connected to Phase 4 operation events | Answers disconnected from real store state |
+| Not connected to Phase 5 operation events | Answers disconnected from real store state |
 | SOP candidates deployed without human approval | Unsafe official procedures |
 | Over-trusting RAG search as final answer | Wrong policy/SOP guidance |
 | Missing role-based answer isolation | Data leakage, wrong authority exposure |
@@ -373,17 +375,17 @@ Phase 5 is **not**:
 | Not logging unresolved inquiries | Knowledge system cannot evolve |
 | Ignoring repeated inquiries as SOP enhancement signal | Same failures repeat |
 | Missing answer basis / evidence links | No audit or review |
-| No support system before Phase 6 SaaS | SaaS launch support collapse |
-| Customer center assumed to control devices (Phase 7) | Safety and authority violation |
+| No support system before Phase 7 SaaS | SaaS launch support collapse |
+| Customer center assumed to control devices (Phase 8) | Safety and authority violation |
 
 ## 22. Required Design Outputs Before Implementation
 
-No Phase 5 implementation may begin without:
+No Phase 6 implementation may begin without:
 
 | Output | Requirement |
 | --- | --- |
 | `impact_scope` | AI customer center, Digital SOP, RAG/pgvector, role isolation, event ingestion |
-| `context_snapshot` | Phase 4 events, Phase 1-C foundation, tenant/permission boundaries |
+| `context_snapshot` | Phase 5 events, Phase 1-C foundation, tenant/permission boundaries |
 | `overview` | Integrated support enhancement purpose and boundaries |
 | `logic` | Inquiry flow, unresolved/repeated inquiry, SOP candidate, human approval |
 | `test_plan` | Wrong authority, leakage, auto-SOP deploy, RAG-only answers, event gaps |
@@ -392,7 +394,7 @@ No Phase 5 implementation may begin without:
 
 ## 23. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - AI customer center is **not** the final authority.
 - Digital SOP official reflection requires **human approval**.
@@ -401,15 +403,14 @@ No Phase 5 implementation may begin without:
 - Unresolved inquiries must be recorded as **unresolved inquiry events**.
 - Repeated inquiries must convert to **SOP creation candidates**.
 - Answer scope must be separated for HQ / franchisee / staff / customer center / end customer.
-- Support events and knowledge structure must be designed **tenant-safe** for Phase 6 SaaS.
+- Support events and knowledge structure must be designed **tenant-safe** for Phase 7 SaaS.
 
 ## 24. Tool Roles
 
-| Actor | Role in Phase 5 |
+| Actor | Role in Phase 6 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 25. Relationship To Other Documents
@@ -420,17 +421,17 @@ No Phase 5 implementation may begin without:
 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Phase 1 MVP; Phase 1-C launch context |
 | `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` | Separate Phase 2 project |
 | `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Phase 3 integration events for support Q&A |
-| `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | Phase 4 operation events and SOP Runtime source |
-| `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Phase 6 SaaS; Phase 5 is prerequisite |
-| `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Phase 7; no direct device control from Phase 5 |
+| `000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md` | Phase 5 operation events and SOP Runtime source |
+| `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Phase 7 SaaS; Phase 6 is prerequisite |
+| `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Phase 8; no direct device control from Phase 6 |
 | `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 
 ## 26. Final Rule
 
-Phase 5 is Franchise_OS AI customer center and integrated support enhancement.
-It extends the Phase 1-C launch-grade AI customer center to convert Phase 4 Franchise_OS no-outage operation events, SOP Runtime, recovery evidence, SCM, CRM, policy, and approval workflow into customer-support knowledge.
+Phase 6 is Franchise_OS AI customer center and integrated support enhancement.
+It extends the Phase 1-C launch-grade AI customer center to convert Phase 5 Franchise_OS no-outage operation events, SOP Runtime, recovery evidence, SCM, CRM, policy, and approval workflow into customer-support knowledge.
 The AI customer center is not the final authority.
 RAG and pgvector are search/recommendation layers, not official policy authorities.
 Unresolved and repeated inquiries must feed Digital SOP evolution; official SOP reflection is allowed only after human approval.

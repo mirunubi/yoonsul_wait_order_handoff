@@ -199,15 +199,18 @@ docs/
   |       \--- 000427_Template_Development_Foundation_First_Codebase_Hydration_Command_Pack.md
   +--- 000700_ai_agent_prelearning_and_project_context/
   |   +--- 000700_Readme_AI_Agent_Prelearning_And_Project_Context.md
-  |   +--- 000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md
+  |   +--- 000701_Guide_Controlled_AI_Development_Pipeline.md
+  |   +--- 000702_Guide_Project_Wide_Claude_And_Claude_Code_Onboarding_Instruction.md
   |   +--- 000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
   |   +--- 000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md
   |   +--- 000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md
   |   +--- 000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md
-  |   +--- 000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md
-  |   +--- 000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
-  |   +--- 000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
-  |   \--- 000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
+  |   +--- 000709_Guide_Phase_4_Catch_Menu_AI_Customer_Center_Prelearning_Context.md
+  |   +--- 000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md
+  |   +--- 000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
+  |   +--- 000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
+  |   +--- 000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
+  |   \--- 000714_Readme_Implementation_Lifecycle_Governance.md
   +--- 000800_pos_gateway_and_provider_integration_foundation/
   |   +--- 000800_Readme_POS_Gateway_And_Provider_Integration_Foundation.md
   |   +--- 000801_Boundary_POS_Gateway_Order_Payment_Provider_And_Runtime_Authority.md
@@ -285,7 +288,7 @@ docs/
   |   +--- 003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md
   |   +--- 003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md
   |   +--- 003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md
-  |   \--- 003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md
+  |   \--- 003199_Overview_Entry_Media_Inventory_And_MVP_Cutline.md
   +--- 004000_store_runtime_pos_kds_operations/
   |   +--- 004000_Readme_Store_Runtime_POS_KDS_Operations.md
   |   +--- 004010_kds_integration_kitchen_continuity/
@@ -1963,7 +1966,7 @@ docs/
   |   +--- 030050_Readme_Ad_Promotion_CMS.md
   |   +--- 030060_Readme_Billing_Plan_Settlement.md
   |   +--- 030070_Readme_Sales_Partner_Field_Growth.md
-  |   +--- 030080_Readme_Native_All_In_One_Service_Runtime.md
+  |   +--- 030080_Policy_Native_All_In_One_Service_Runtime.md
   |   \--- 030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
   +--- 040000_menu_taxonomy_and_ai_classification/
   |   +--- 040000_Readme_Menu_Taxonomy_And_AI_Classification.md
@@ -1986,10 +1989,6 @@ docs/
   |   +--- 040019_Policy_Legal_Notice_Master_Data_Table_Static_Specification.md
   |   +--- 040020_Policy_Legal_Notice_Trigger_Matrix_And_UI_Surface_Mapping.md
   |   \--- 040021_Policy_Privacy_Consent_Evidence_Packet_And_Retention.md
-  +--- 064000_runtime_flow_bundle/
-  |   +--- 064000_runtime_flow_bundle_registry_and_core_flows/
-  |   +--- 064200_runtime_flow_bundle_mapping_and_test_coverage/
-  |   \--- 064300_runtime_flow_bundle_code_handoff_and_governance/
   +--- 070000_external_integration_control_plane_validation_correction_log_and_process_governance/
   |   +--- 070000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md
   |   +--- 070005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md
@@ -2043,11 +2042,174 @@ docs/
   |   +--- 070570_Register_External_Cancel_Refund_Reversal_Exception_Gap_And_Open_Issue.md
   |   +--- 070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md
   |   \--- 070650_Matrix_External_Settlement_Reconciliation_Exception_Type_Action_And_Escalation_Map.md
-  +--- 600000_implementation_lifecycle/
+  +--- 700000_runtime_flow_bundle/
+  |   +--- 700000_Index_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md
+  |   +--- 700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md
+  |   +--- 700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md
+  |   +--- 700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md
+  |   +--- 700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md
+  |   +--- 700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check.md
+  |   +--- 700105_Matrix_Runtime_Flow_Bundle_Document_Type_To_Evidence_Map.md
+  |   +--- 700106_Report_Runtime_Flow_Bundle_Readiness_Status_Report.md
+  |   +--- 700107_Template_Runtime_Flow_Bundle_Controlled_Evidence_Cover_Sheet.md
+  |   +--- 700108_Audit_Runtime_Flow_Bundle_Governance_Compliance_Audit.md
+  |   +--- 700109_Plan_Runtime_Flow_Bundle_Evidence_Expansion_Sequencing.md
+  |   +--- 700110_Boundary_External_Integration_Boundary_Master_Control.md
+  |   +--- 700111_Matrix_External_Integration_System_To_Flow_Map.md
+  |   +--- 700112_Checklist_External_Integration_Boundary_Readiness_Check.md
+  |   +--- 700113_Register_External_Integration_Provider_Contact_And_Owner_Register.md
+  |   +--- 700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet.md
+  |   +--- 700115_Audit_External_Integration_Boundary_Compliance_Audit.md
+  |   +--- 700116_Report_External_Integration_Open_Risk_Report.md
+  |   +--- 700117_Template_External_Integration_Evidence_Request_Template.md
+  |   +--- 700118_Runbook_External_Integration_Evidence_Collection_Runbook.md
+  |   +--- 700119_Handoff_External_Integration_To_Runtime_Flow_Handoff.md
+  |   +--- 700120_Overview_POS_Provider_Runtime_Flow_Overview.md
+  |   +--- 700121_Matrix_POS_Provider_Request_Response_State_Matrix.md
+  |   +--- 700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist.md
+  |   +--- 700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet.md
+  |   +--- 700124_Report_POS_Provider_Runtime_Flow_Exception_Report.md
+  |   +--- 700125_Overview_VAN_PG_Runtime_Evidence_Model.md
+  |   +--- 700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix.md
+  |   +--- 700127_Checklist_VAN_PG_Runtime_Evidence_Checklist.md
+  |   +--- 700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet.md
+  |   +--- 700129_Audit_VAN_PG_Runtime_Evidence_Audit.md
+  |   +--- 700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow.md
+  |   +--- 700131_Matrix_Payment_State_Transition_To_Evidence_Matrix.md
+  |   +--- 700132_Checklist_Payment_Flow_Verification_Checklist.md
+  |   +--- 700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet.md
+  |   +--- 700134_Report_Payment_Flow_Exception_And_Reconciliation_Report.md
+  |   +--- 700135_Overview_KDS_Event_Projection_Flow_Overview.md
+  |   +--- 700136_Matrix_KDS_Event_To_Kitchen_Ticket_Matrix.md
+  |   +--- 700137_Checklist_KDS_Event_Projection_Verification_Checklist.md
+  |   +--- 700138_Overview_Kiosk_Order_Submission_Flow_Overview.md
+  |   +--- 700139_Matrix_Kiosk_Order_To_POS_And_KDS_Map.md
+  |   +--- 700140_Checklist_Kiosk_Order_Submission_Verification_Checklist.md
+  |   +--- 700141_Overview_External_Order_App_Intake_Flow_Overview.md
+  |   +--- 700142_Matrix_External_Order_App_To_Store_Runtime_Map.md
+  |   +--- 700143_Checklist_External_Order_App_Intake_Verification_Checklist.md
+  |   +--- 700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow.md
+  |   +--- 700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix.md
+  |   +--- 700146_Checklist_Webhook_Verification_And_Replay_Checklist.md
+  |   +--- 700147_Evidence_Webhook_Retry_Replay_Evidence_Packet.md
+  |   +--- 700148_Report_Webhook_Failure_And_Replay_Report.md
+  |   +--- 700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow.md
+  |   +--- 700150_Matrix_Settlement_File_Field_To_Ledger_Map.md
+  |   +--- 700151_Checklist_Settlement_Reconciliation_Verification_Checklist.md
+  |   +--- 700152_Evidence_Settlement_File_Intake_Evidence_Packet.md
+  |   +--- 700153_Report_Settlement_Reconciliation_Exception_Report.md
+  |   +--- 700154_Governance_Idempotency_Duplicate_Prevention_Control.md
+  |   +--- 700155_Matrix_Duplicate_Prevention_Key_And_State_Matrix.md
+  |   +--- 700156_Checklist_Idempotency_Verification_Checklist.md
+  |   +--- 700157_Runbook_Dead_Letter_Replay_Recovery_Runbook.md
+  |   +--- 700158_Matrix_Dead_Letter_To_Recovery_Action_Matrix.md
+  |   +--- 700159_Evidence_Dead_Letter_Replay_Evidence_Packet.md
+  |   +--- 700160_Runbook_Partial_Failure_Timeout_Provider_Outage_Runbook.md
+  |   +--- 700161_Matrix_Provider_Outage_To_Degraded_Mode_Matrix.md
+  |   +--- 700162_Report_Timeout_And_Provider_Outage_Exception_Report.md
+  |   +--- 700163_Evidence_Financial_Audit_Trail_Evidence_Packet.md
+  |   +--- 700164_Matrix_Financial_Audit_Trail_Event_To_Ledger_Matrix.md
+  |   +--- 700165_Audit_Financial_Audit_Trail_Completeness_Audit.md
+  |   +--- 700166_Evidence_Consumer_Protection_Evidence_Packet.md
+  |   +--- 700167_Checklist_Consumer_Protection_Verification_Checklist.md
+  |   +--- 700168_Boundary_Security_Signature_Verification_Boundary.md
+  |   +--- 700169_Checklist_Security_Signature_Verification_Checklist.md
+  |   +--- 700170_Register_Runtime_Owner_And_Escalation_Matrix.md
+  |   +--- 700171_Matrix_Runtime_Escalation_Severity_And_Action_Matrix.md
+  |   +--- 700172_Evidence_Test_Coverage_Evidence_Packet.md
+  |   +--- 700173_Matrix_Test_Coverage_To_Runtime_Flow_Matrix.md
+  |   +--- 700174_Checklist_Release_Gate_And_Rollback_Gate_Checklist.md
+  |   +--- 700175_Template_Release_Gate_Decision_Record_Template.md
+  |   +--- 700176_Runbook_Rollback_Gate_Runtime_Flow_Runbook.md
+  |   +--- 700177_Evidence_Post_Incident_Evidence_Packet.md
+  |   \--- 700178_Report_Post_Incident_Runtime_Flow_Closeout_Report.md
+  +--- 700900_runtime_flow/
+  |   +--- 700900_readme_governance/
+  |   |   \--- 700900_Index_Runtime_Flow_Bundle_Registry.md
+  |   +--- 701000_registry_core_flows/
+  |   |   +--- 701000_Flow_POS_Gateway_Approval_To_Audit_Ledger_And_Reconciliation.md
+  |   |   +--- 701010_Flow_POS_Gateway_Cancel_Refund_Recovery_And_Audit.md
+  |   |   +--- 701020_Flow_POS_Gateway_Timeout_Retry_DLQ_And_Replay.md
+  |   |   +--- 701030_Flow_POS_Gateway_Store_Offline_Local_Ledger_And_Resync.md
+  |   |   +--- 701040_Flow_POS_Gateway_Webhook_Inbound_Verification_And_Event_Normalization.md
+  |   |   \--- 701050_Flow_POS_Gateway_Settlement_Dispute_And_Evidence_Export.md
+  |   +--- 701100_md_dependency_graph/
+  |   |   \--- 701100_Matrix_Flow_To_MD_Dependency_Graph.md
+  |   +--- 701110_module_map/
+  |   |   \--- 701110_Matrix_Flow_To_Module_Implementation_Map.md
+  |   +--- 701120_test_coverage/
+  |   |   \--- 701120_Matrix_Flow_To_Test_Coverage_Map.md
+  |   +--- 701200_code_handoff/
+  |   |   +--- 701200_Checklist_Flow_Bundle_Code_Handoff_Readiness_Gate.md
+  |   |   +--- 701210_Template_Flow_Bundle_Claude_Code_Handoff_Prompt.md
+  |   |   +--- 701220_Template_Flow_Bundle_Cursor_IDE_Assist_Prompt.md
+  |   |   \--- 701230_Runbook_Flow_Bundle_Code_Review_And_Diff_Control.md
+  |   +--- 701250_exception_governance/
+  |   |   +--- 701250_Register_Flow_Bundle_Implementation_Exception_And_Waiver_Log.md
+  |   |   \--- 701260_Audit_Flow_Bundle_AI_Assisted_Implementation_Governance.md
+  |   +--- 701270_human_approval/
+  |   |   +--- 701270_Governance_Flow_Bundle_Human_Approval_And_No_AI_Solo_Zone_Control.md
+  |   |   \--- 701280_Register_Flow_Bundle_No_AI_Solo_Zone_Owner_And_Approval_Matrix.md
+  |   +--- 701290_release_gate/
+  |   |   \--- 701290_Checklist_Flow_Bundle_Pre_Merge_And_Release_Gate.md
+  |   \--- 701300_archive_review/
+  +--- 750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/
+  |   +--- 750000_Index_Delivery_App_Channel_Integration_KDS_DID_And_Order_Ingestion_Runtime.md
+  |   +--- 750010_Assessment_Delivery_App_Channel_API_KDS_DID_And_Omnichannel_Order_Ingestion_Architecture.md
+  |   +--- 750020_Guide_Delivery_App_API_KDS_DID_Integration_Context_Summary.md
+  |   +--- 750030_Policy_Delivery_App_Official_API_Integration_And_No_Scraping_Boundary.md
+  |   +--- 750040_Boundary_POS_API_Gateway_KDS_DID_And_Kitchen_Runtime_Responsibility.md
+  |   +--- 750050_Matrix_Delivery_App_POS_KDS_DID_Channel_Integration_Map.md
+  |   +--- 750060_Policy_Delivery_App_Customer_Privacy_Masking_Tokenization_And_Data_Retention.md
+  |   +--- 750080_Logic_Delivery_App_KDS_Smart_Routing_Station_Splitting_BOM_And_Assembly_State_Machine.md
+  |   +--- 750090_Checklist_Delivery_App_KDS_DID_Hardware_Environmental_Durability_And_Installation_Readiness.md
+  |   +--- 750100_Assessment_Delivery_App_KDS_DID_Vendor_Ecosystem_Smartcast_Foodtech_Toss_Mate_OKPOS_And_Loyverse.md
+  |   +--- 750110_Matrix_Delivery_App_KDS_DID_Vendor_Capability_API_Channel_Hardware_And_Target_Market.md
+  |   +--- 750120_Policy_Delivery_App_Webhook_Polling_HMAC_OAuth_And_IP_Whitelist_Security.md
+  |   +--- 750130_Runbook_Delivery_App_KDS_DID_Order_Channel_Failure_Degraded_Mode_And_Manual_Fallback.md
+  |   +--- 750140_Evidence_Delivery_App_KDS_DID_Channel_Integration_Verification_And_Field_Test_Packet.md
+  |   +--- 750150_Report_Delivery_App_KDS_DID_Kitchen_Runtime_Bottleneck_KPI_And_Operational_Intelligence.md
+  |   +--- 750160_Guide_Delivery_App_KDS_DID_Context_Snapshot_Rules_Summary_For_51355_Pipeline.md
+  |   +--- 750170_Template_Delivery_App_KDS_DID_Module_Impact_Scope_And_Context_Slicing_Packet.md
+  |   +--- 750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md
+  |   \--- 750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md
+  +--- 900000_patent_and_handoff_package/
+  |   +--- 900000_Executive_Summary_CatchMenu_YoonsulOS_Asia_FnB_Platform.md
+  |   +--- 900100_Overview_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
+  |   +--- 900101_Logic_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
+  |   +--- 900102_ChangeContract_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+  |   +--- 900103_TestPlan_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+  |   +--- 900110_Overview_Channel_1_Web_App_Customer_Handoff_And_Session.md
+  |   +--- 900111_Logic_Channel_1_Web_App_Customer_Handoff_And_Session.md
+  |   +--- 900120_Overview_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
+  |   +--- 900121_Logic_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
+  |   +--- 900130_Overview_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
+  |   +--- 900131_Logic_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
+  |   +--- 900140_Overview_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
+  |   +--- 900141_Logic_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
+  |   +--- 900150_Logic_Phase_Validation_Plan_Catch_Menu_To_Yoonsul_Embedded.md
+  |   +--- 900160_Overview_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
+  |   +--- 900161_Logic_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
+  |   +--- 900162_Logic_POS_Integration_Level_Based_Mode_Transition_System.md
+  |   +--- 900163_Assessment_Prior_Patent_Risk_And_Avoidance_Strategy_Global_Late_Binding.md
+  |   +--- 900164_Overview_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
+  |   +--- 900165_Logic_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
+  |   +--- 900170_Policy_Payment_Regulatory_Compliance_And_Table_Order_Design.md
+  |   +--- 900171_Policy_Slot_Container_Agent_Platform_Support_Android_And_Windows.md
+  |   +--- 900172_Policy_Coupon_Business_Model_And_CMS_Integration.md
+  |   +--- 900173_Policy_Yoonsul_OS_Multi_Brand_AI_FnB_OS_SaaS_Vision.md
+  |   +--- 900174_Policy_Multi_Brand_Expansion_Roadmap_And_OS_Architecture.md
+  |   +--- 900175_Policy_Workforce_Platform_And_Asia_FnB_Expansion_Vision.md
+  |   +--- 900176_Policy_CCP_Mini_HACCP_Food_Safety_Auto_Management.md
+  |   +--- 900177_Policy_AI_Multi_Engine_Gateway_And_Inference_Audit_Log.md
+  |   +--- 900178_Policy_Hyper_Personalization_Menu_Customization_And_Pricing.md
+  |   +--- 900179_Assessment_Prior_Patent_Risk_And_Avoidance_Strategy_POS_Late_Binding.md
+  |   +--- 906000_TestPlan_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+  |   \--- 906010_ChangeContract_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+  +--- 990000_legacy_quarantine/
   |   +--- 600000_Index_Implementation_Lifecycle.md
   |   +--- 600100_readme_governance/
   |   |   +--- 600100_Governance_Implementation_Lifecycle_Master_Control_Policy.md
-  |   |   +--- 600100_Readme_Implementation_Lifecycle_Governance.md
   |   |   +--- 600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model.md
   |   |   +--- 600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control.md
   |   |   +--- 600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map.md
@@ -2125,8 +2287,7 @@ docs/
   |   |   +--- 600175_Evidence_Post_Implementation_Evidence_Packet.md
   |   |   +--- 600176_Matrix_Diff_Review_Matrix.md
   |   |   +--- 600177_Governance_Safety_No_Runtime_Without_Approval_Guardrail.md
-  |   |   +--- 600178_Matrix_Cross_Document_Traceability_Matrix.md
-  |   |   \--- 600179_Guide_Controlled_AI_Development_Pipeline.md
+  |   |   \--- 600178_Matrix_Cross_Document_Traceability_Matrix.md
   |   +--- 601000_olm_model/
   |   |   +--- 601001_Template_Overview.md
   |   |   +--- 601002_Template_Logic.md
@@ -2264,12 +2425,12 @@ docs/
   |   |   |   +--- 604503_Verification_Wait_Order_POS_KDS_No_Payment_Store_Level_Release_Policy.md
   |   |   |   \--- 604504_Audit_Wait_Order_POS_KDS_No_Payment_Store_Level_Release_Policy.md
   |   |   \--- 604400_scope_d_01_payment_confirm_idempotency/
-  |   |       +--- 604310_Index_Scope_D_01_Payment_Confirm_Idempotency.md
-  |   |       +--- 604311_ImpactScope_Scope_D_01_Payment_Confirm_Idempotency.md
-  |   |       +--- 604312_Overview_Scope_D_01_Payment_Confirm_Idempotency.md
-  |   |       +--- 604313_Logic_Scope_D_01_Payment_Confirm_Idempotency.md
-  |   |       +--- 604314_TestPlan_Scope_D_01_Payment_Confirm_Idempotency.md
-  |   |       \--- 604315_ChangeContract_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       +--- 604404_Index_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       +--- 604405_ImpactScope_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       +--- 604406_Overview_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       +--- 604407_Logic_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       +--- 604408_TestPlan_Scope_D_01_Payment_Confirm_Idempotency.md
+  |   |       \--- 604409_ChangeContract_Scope_D_01_Payment_Confirm_Idempotency.md
   |   +--- 605000_pos_gateway_package/
   |   |   +--- 605100_core_flows/
   |   |   |   +--- 000910_Spec_Overview_POS_Gateway_Approval_Main_Flow.md
@@ -2717,169 +2878,5 @@ docs/
   |   +--- 608000_release_gate/
   |   \--- 609000_archive_review/
   |       \--- 609001_Archive_Implementation_Lifecycle_Expansion_Wave_1_Manifest.md
-  +--- 700000_runtime_flow/
-  |   +--- 700100_readme_governance/
-  |   |   \--- 064000_Index_Runtime_Flow_Bundle_Registry.md
-  |   +--- 701000_registry_core_flows/
-  |   |   +--- 064100_Flow_POS_Gateway_Approval_To_Audit_Ledger_And_Reconciliation.md
-  |   |   +--- 064110_Flow_POS_Gateway_Cancel_Refund_Recovery_And_Audit.md
-  |   |   +--- 064120_Flow_POS_Gateway_Timeout_Retry_DLQ_And_Replay.md
-  |   |   +--- 064130_Flow_POS_Gateway_Store_Offline_Local_Ledger_And_Resync.md
-  |   |   +--- 064140_Flow_POS_Gateway_Webhook_Inbound_Verification_And_Event_Normalization.md
-  |   |   \--- 064150_Flow_POS_Gateway_Settlement_Dispute_And_Evidence_Export.md
-  |   +--- 702000_md_dependency_graph/
-  |   |   \--- 064200_Matrix_Flow_To_MD_Dependency_Graph.md
-  |   +--- 703000_module_map/
-  |   |   \--- 064210_Matrix_Flow_To_Module_Implementation_Map.md
-  |   +--- 704000_test_coverage/
-  |   |   \--- 064220_Matrix_Flow_To_Test_Coverage_Map.md
-  |   +--- 705000_code_handoff/
-  |   |   +--- 064300_Checklist_Flow_Bundle_Code_Handoff_Readiness_Gate.md
-  |   |   +--- 064310_Template_Flow_Bundle_Claude_Code_Handoff_Prompt.md
-  |   |   +--- 064320_Template_Flow_Bundle_Cursor_IDE_Assist_Prompt.md
-  |   |   \--- 064330_Runbook_Flow_Bundle_Code_Review_And_Diff_Control.md
-  |   +--- 706000_exception_governance/
-  |   |   +--- 064350_Register_Flow_Bundle_Implementation_Exception_And_Waiver_Log.md
-  |   |   \--- 064360_Audit_Flow_Bundle_AI_Assisted_Implementation_Governance.md
-  |   +--- 707000_human_approval/
-  |   |   +--- 064370_Governance_Flow_Bundle_Human_Approval_And_No_AI_Solo_Zone_Control.md
-  |   |   \--- 064380_Register_Flow_Bundle_No_AI_Solo_Zone_Owner_And_Approval_Matrix.md
-  |   +--- 708000_release_gate/
-  |   |   \--- 064390_Checklist_Flow_Bundle_Pre_Merge_And_Release_Gate.md
-  |   \--- 709000_archive_review/
-  +--- 710000_runtime_flow_bundle/
-  |   +--- 700000_Index_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md
-  |   +--- 700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md
-  |   +--- 700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md
-  |   +--- 700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md
-  |   +--- 700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md
-  |   +--- 700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check.md
-  |   +--- 700105_Matrix_Runtime_Flow_Bundle_Document_Type_To_Evidence_Map.md
-  |   +--- 700106_Report_Runtime_Flow_Bundle_Readiness_Status_Report.md
-  |   +--- 700107_Template_Runtime_Flow_Bundle_Controlled_Evidence_Cover_Sheet.md
-  |   +--- 700108_Audit_Runtime_Flow_Bundle_Governance_Compliance_Audit.md
-  |   +--- 700109_Plan_Runtime_Flow_Bundle_Evidence_Expansion_Sequencing.md
-  |   +--- 700110_Boundary_External_Integration_Boundary_Master_Control.md
-  |   +--- 700111_Matrix_External_Integration_System_To_Flow_Map.md
-  |   +--- 700112_Checklist_External_Integration_Boundary_Readiness_Check.md
-  |   +--- 700113_Register_External_Integration_Provider_Contact_And_Owner_Register.md
-  |   +--- 700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet.md
-  |   +--- 700115_Audit_External_Integration_Boundary_Compliance_Audit.md
-  |   +--- 700116_Report_External_Integration_Open_Risk_Report.md
-  |   +--- 700117_Template_External_Integration_Evidence_Request_Template.md
-  |   +--- 700118_Runbook_External_Integration_Evidence_Collection_Runbook.md
-  |   +--- 700119_Handoff_External_Integration_To_Runtime_Flow_Handoff.md
-  |   +--- 700120_Overview_POS_Provider_Runtime_Flow_Overview.md
-  |   +--- 700121_Matrix_POS_Provider_Request_Response_State_Matrix.md
-  |   +--- 700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist.md
-  |   +--- 700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet.md
-  |   +--- 700124_Report_POS_Provider_Runtime_Flow_Exception_Report.md
-  |   +--- 700125_Overview_VAN_PG_Runtime_Evidence_Model.md
-  |   +--- 700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix.md
-  |   +--- 700127_Checklist_VAN_PG_Runtime_Evidence_Checklist.md
-  |   +--- 700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet.md
-  |   +--- 700129_Audit_VAN_PG_Runtime_Evidence_Audit.md
-  |   +--- 700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow.md
-  |   +--- 700131_Matrix_Payment_State_Transition_To_Evidence_Matrix.md
-  |   +--- 700132_Checklist_Payment_Flow_Verification_Checklist.md
-  |   +--- 700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet.md
-  |   +--- 700134_Report_Payment_Flow_Exception_And_Reconciliation_Report.md
-  |   +--- 700135_Overview_KDS_Event_Projection_Flow_Overview.md
-  |   +--- 700136_Matrix_KDS_Event_To_Kitchen_Ticket_Matrix.md
-  |   +--- 700137_Checklist_KDS_Event_Projection_Verification_Checklist.md
-  |   +--- 700138_Overview_Kiosk_Order_Submission_Flow_Overview.md
-  |   +--- 700139_Matrix_Kiosk_Order_To_POS_And_KDS_Map.md
-  |   +--- 700140_Checklist_Kiosk_Order_Submission_Verification_Checklist.md
-  |   +--- 700141_Overview_External_Order_App_Intake_Flow_Overview.md
-  |   +--- 700142_Matrix_External_Order_App_To_Store_Runtime_Map.md
-  |   +--- 700143_Checklist_External_Order_App_Intake_Verification_Checklist.md
-  |   +--- 700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow.md
-  |   +--- 700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix.md
-  |   +--- 700146_Checklist_Webhook_Verification_And_Replay_Checklist.md
-  |   +--- 700147_Evidence_Webhook_Retry_Replay_Evidence_Packet.md
-  |   +--- 700148_Report_Webhook_Failure_And_Replay_Report.md
-  |   +--- 700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow.md
-  |   +--- 700150_Matrix_Settlement_File_Field_To_Ledger_Map.md
-  |   +--- 700151_Checklist_Settlement_Reconciliation_Verification_Checklist.md
-  |   +--- 700152_Evidence_Settlement_File_Intake_Evidence_Packet.md
-  |   +--- 700153_Report_Settlement_Reconciliation_Exception_Report.md
-  |   +--- 700154_Governance_Idempotency_Duplicate_Prevention_Control.md
-  |   +--- 700155_Matrix_Duplicate_Prevention_Key_And_State_Matrix.md
-  |   +--- 700156_Checklist_Idempotency_Verification_Checklist.md
-  |   +--- 700157_Runbook_Dead_Letter_Replay_Recovery_Runbook.md
-  |   +--- 700158_Matrix_Dead_Letter_To_Recovery_Action_Matrix.md
-  |   +--- 700159_Evidence_Dead_Letter_Replay_Evidence_Packet.md
-  |   +--- 700160_Runbook_Partial_Failure_Timeout_Provider_Outage_Runbook.md
-  |   +--- 700161_Matrix_Provider_Outage_To_Degraded_Mode_Matrix.md
-  |   +--- 700162_Report_Timeout_And_Provider_Outage_Exception_Report.md
-  |   +--- 700163_Evidence_Financial_Audit_Trail_Evidence_Packet.md
-  |   +--- 700164_Matrix_Financial_Audit_Trail_Event_To_Ledger_Matrix.md
-  |   +--- 700165_Audit_Financial_Audit_Trail_Completeness_Audit.md
-  |   +--- 700166_Evidence_Consumer_Protection_Evidence_Packet.md
-  |   +--- 700167_Checklist_Consumer_Protection_Verification_Checklist.md
-  |   +--- 700168_Boundary_Security_Signature_Verification_Boundary.md
-  |   +--- 700169_Checklist_Security_Signature_Verification_Checklist.md
-  |   +--- 700170_Register_Runtime_Owner_And_Escalation_Matrix.md
-  |   +--- 700171_Matrix_Runtime_Escalation_Severity_And_Action_Matrix.md
-  |   +--- 700172_Evidence_Test_Coverage_Evidence_Packet.md
-  |   +--- 700173_Matrix_Test_Coverage_To_Runtime_Flow_Matrix.md
-  |   +--- 700174_Checklist_Release_Gate_And_Rollback_Gate_Checklist.md
-  |   +--- 700175_Template_Release_Gate_Decision_Record_Template.md
-  |   +--- 700176_Runbook_Rollback_Gate_Runtime_Flow_Runbook.md
-  |   +--- 700177_Evidence_Post_Incident_Evidence_Packet.md
-  |   \--- 700178_Report_Post_Incident_Runtime_Flow_Closeout_Report.md
-  +--- 750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/
-  |   +--- 750000_Index_Delivery_App_Channel_Integration_KDS_DID_And_Order_Ingestion_Runtime.md
-  |   +--- 750010_Assessment_Delivery_App_Channel_API_KDS_DID_And_Omnichannel_Order_Ingestion_Architecture.md
-  |   +--- 750020_Guide_Delivery_App_API_KDS_DID_Integration_Context_Summary.md
-  |   +--- 750030_Policy_Delivery_App_Official_API_Integration_And_No_Scraping_Boundary.md
-  |   +--- 750040_Boundary_POS_API_Gateway_KDS_DID_And_Kitchen_Runtime_Responsibility.md
-  |   +--- 750050_Matrix_Delivery_App_POS_KDS_DID_Channel_Integration_Map.md
-  |   +--- 750060_Policy_Delivery_App_Customer_Privacy_Masking_Tokenization_And_Data_Retention.md
-  |   +--- 750080_Logic_Delivery_App_KDS_Smart_Routing_Station_Splitting_BOM_And_Assembly_State_Machine.md
-  |   +--- 750090_Checklist_Delivery_App_KDS_DID_Hardware_Environmental_Durability_And_Installation_Readiness.md
-  |   +--- 750100_Assessment_Delivery_App_KDS_DID_Vendor_Ecosystem_Smartcast_Foodtech_Toss_Mate_OKPOS_And_Loyverse.md
-  |   +--- 750110_Matrix_Delivery_App_KDS_DID_Vendor_Capability_API_Channel_Hardware_And_Target_Market.md
-  |   +--- 750120_Policy_Delivery_App_Webhook_Polling_HMAC_OAuth_And_IP_Whitelist_Security.md
-  |   +--- 750130_Runbook_Delivery_App_KDS_DID_Order_Channel_Failure_Degraded_Mode_And_Manual_Fallback.md
-  |   +--- 750140_Evidence_Delivery_App_KDS_DID_Channel_Integration_Verification_And_Field_Test_Packet.md
-  |   +--- 750150_Report_Delivery_App_KDS_DID_Kitchen_Runtime_Bottleneck_KPI_And_Operational_Intelligence.md
-  |   +--- 750160_Guide_Delivery_App_KDS_DID_Context_Snapshot_Rules_Summary_For_51355_Pipeline.md
-  |   +--- 750170_Template_Delivery_App_KDS_DID_Module_Impact_Scope_And_Context_Slicing_Packet.md
-  |   +--- 750180_Checklist_Delivery_App_KDS_DID_Pre_Implementation_Claude_Codex_Handoff_Readiness.md
-  |   \--- 750190_Governance_Delivery_App_KDS_DID_Omnichannel_Runtime_Master_Closeout.md
-  +--- 900000_patent_and_handoff_package/
-  |   +--- 900000_Executive_Summary_CatchMenu_YoonsulOS_Asia_FnB_Platform.md
-  |   +--- 900100_Overview_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
-  |   +--- 900101_Logic_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
-  |   +--- 900102_ChangeContract_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
-  |   +--- 900103_TestPlan_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
-  |   +--- 900110_Overview_Channel_1_Web_App_Customer_Handoff_And_Session.md
-  |   +--- 900111_Logic_Channel_1_Web_App_Customer_Handoff_And_Session.md
-  |   +--- 900120_Overview_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
-  |   +--- 900121_Logic_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
-  |   +--- 900130_Overview_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
-  |   +--- 900131_Logic_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
-  |   +--- 900140_Overview_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
-  |   +--- 900141_Logic_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
-  |   +--- 900150_Logic_Phase_Validation_Plan_Catch_Menu_To_Yoonsul_Embedded.md
-  |   +--- 900160_Overview_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
-  |   +--- 900161_Logic_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
-  |   +--- 900162_Logic_POS_Integration_Level_Based_Mode_Transition_System.md
-  |   +--- 900163_Assessment_Prior_Patent_Risk_And_Avoidance_Strategy_Global_Late_Binding.md
-  |   +--- 900163_Assessment_Prior_Patent_Risk_And_Avoidance_Strategy_POS_Late_Binding.md
-  |   +--- 900164_Overview_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
-  |   +--- 900165_Logic_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
-  |   +--- 900170_Policy_Payment_Regulatory_Compliance_And_Table_Order_Design.md
-  |   +--- 900171_Policy_Slot_Container_Agent_Platform_Support_Android_And_Windows.md
-  |   +--- 900172_Policy_Coupon_Business_Model_And_CMS_Integration.md
-  |   +--- 900173_Policy_Yoonsul_OS_Multi_Brand_AI_FnB_OS_SaaS_Vision.md
-  |   +--- 900174_Policy_Multi_Brand_Expansion_Roadmap_And_OS_Architecture.md
-  |   +--- 900175_Policy_Workforce_Platform_And_Asia_FnB_Expansion_Vision.md
-  |   +--- 900176_Policy_CCP_Mini_HACCP_Food_Safety_Auto_Management.md
-  |   +--- 900177_Policy_AI_Multi_Engine_Gateway_And_Inference_Audit_Log.md
-  |   +--- 900178_Policy_Hyper_Personalization_Menu_Customization_And_Pricing.md
-  |   +--- 906000_TestPlan_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
-  |   \--- 906010_ChangeContract_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
   \--- Temp/
 ```

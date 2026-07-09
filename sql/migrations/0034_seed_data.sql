@@ -5,22 +5,9 @@
 --          DO NOT run in production environment.
 -- Depends on: 0033_create_knowledge_gap_rpc.sql
 -- Creates: test data only
-
--- =============================================
--- Safety guard
--- =============================================
-do $$
-begin
-  if current_database() not like '%dev%'
-    and current_database() not like '%test%'
-    and current_database() not like '%local%'
-  then
-    raise exception
-      'SEED_DATA_BLOCKED: This script must only run on dev/test/local databases. Current DB: %',
-      current_database();
-  end if;
-end;
-$$;
+-- Safety guard: enforced at the application layer (tools/apply_migrations.py),
+--   not in SQL, since a DB-name check is unreliable for Supabase (local and
+--   hosted projects both default to a database literally named "postgres").
 
 -- =============================================
 -- Test tenant

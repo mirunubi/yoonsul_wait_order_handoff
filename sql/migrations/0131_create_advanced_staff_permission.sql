@@ -45,15 +45,15 @@ insert into catchmenu_common.error_codes (
   error_category, http_status, severity
 ) values
 (7100, 'permission_denied',
-  'STORE', 'AUTHORIZATION', 403, 'WARNING'),
+  'STORE', 'PERMISSION', 403, 'WARNING'),
 (7101, 'temp_permission_expired',
-  'STORE', 'AUTHORIZATION', 403, 'INFO'),
+  'STORE', 'PERMISSION', 403, 'INFO'),
 (7102, 'permission_not_found',
   'STORE', 'NOT_FOUND', 404, 'WARNING'),
 (7103, 'pin_verification_failed',
-  'STORE', 'AUTHENTICATION', 401, 'WARNING'),
+  'STORE', 'PERMISSION', 401, 'WARNING'),
 (7104, 'pin_locked',
-  'STORE', 'AUTHENTICATION', 423, 'WARNING')
+  'STORE', 'PERMISSION', 423, 'WARNING')
 on conflict (code) do nothing;
 
 
@@ -791,7 +791,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'TEMP_PERMISSION_EXPIRE',

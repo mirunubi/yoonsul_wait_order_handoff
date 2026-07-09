@@ -60,7 +60,7 @@ insert into catchmenu_common.error_codes (
   error_category, http_status, severity
 ) values
 (3040, 'hq_admin_permission_required',
-  'SYSTEM', 'AUTHORIZATION', 403, 'ERROR'),
+  'SYSTEM', 'PERMISSION', 403, 'ERROR'),
 (3041, 'tenant_already_exists',
   'SYSTEM', 'CONFLICT', 409, 'WARNING'),
 (3042, 'subscription_not_found',
@@ -462,6 +462,7 @@ begin
   -- 온보딩 진단 로그
   perform catchmenu_common.log_diagnostic(
     p_tenant_id := v_tenant_id,
+    p_store_id := v_store_id,
     p_log_level := 'INFO',
     p_log_domain := 'SYSTEM',
     p_log_event := 'tenant_onboarded',

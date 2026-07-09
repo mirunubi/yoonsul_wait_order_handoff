@@ -120,12 +120,12 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (4015, 'payment_already_confirmed',
   'PAYMENT', 'CONFLICT', 409, 'INFO', null),
 (4016, 'refund_amount_invalid',
-  'PAYMENT', 'VALIDATION', 400, 'WARNING', null),
+  'PAYMENT', 'INVALID_INPUT', 400, 'WARNING', null),
 (4017, 'net_cancel_required',
   'PAYMENT', 'TECHNICAL', 500, 'CRITICAL',
   'SOP-PAY-001'),

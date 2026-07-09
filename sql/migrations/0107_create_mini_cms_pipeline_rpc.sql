@@ -102,7 +102,7 @@ insert into catchmenu_common.error_codes (
 (7032, 'cms_banner_not_found',
   'STORE', 'NOT_FOUND', 404, 'WARNING'),
 (7033, 'cms_display_limit_exceeded',
-  'STORE', 'QUOTA', 429, 'WARNING')
+  'STORE', 'CAPACITY', 429, 'WARNING')
 on conflict (code) do nothing;
 
 
@@ -1465,7 +1465,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'CMS_CONTENT_EXPIRE',

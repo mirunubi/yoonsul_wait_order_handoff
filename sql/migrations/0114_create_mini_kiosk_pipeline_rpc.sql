@@ -163,7 +163,7 @@ insert into catchmenu_common.error_codes (
 (7051, 'kiosk_store_closed',
   'STORE', 'BUSINESS_RULE', 503, 'INFO'),
 (7052, 'kiosk_order_amount_invalid',
-  'STORE', 'VALIDATION', 400, 'WARNING'),
+  'STORE', 'INVALID_INPUT', 400, 'WARNING'),
 (7053, 'kiosk_session_expired',
   'STORE', 'BUSINESS_RULE', 410, 'INFO')
 on conflict (code) do nothing;

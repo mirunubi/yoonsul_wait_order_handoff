@@ -69,37 +69,37 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (9001, 'security_token_invalid',
-  'SECURITY', 'AUTHENTICATION', 401,
+  'SECURITY', 'PERMISSION', 401,
   'ERROR', 'SOP-SEC-001'),
 (9002, 'security_token_expired',
-  'SECURITY', 'AUTHENTICATION', 401,
+  'SECURITY', 'PERMISSION', 401,
   'ERROR', 'SOP-SEC-001'),
 (9003, 'security_token_already_used',
-  'SECURITY', 'AUTHENTICATION', 401,
+  'SECURITY', 'PERMISSION', 401,
   'ERROR', 'SOP-SEC-001'),
 (9004, 'access_blocked_threat',
-  'SECURITY', 'AUTHORIZATION', 403,
+  'SECURITY', 'PERMISSION', 403,
   'CRITICAL', 'SOP-SEC-002'),
 (9005, 'sandbox_boundary_violated',
-  'SECURITY', 'AUTHORIZATION', 403,
+  'SECURITY', 'PERMISSION', 403,
   'CRITICAL', 'SOP-SEC-003'),
 (9006, 'gateway_bypass_detected',
-  'SECURITY', 'AUTHORIZATION', 403,
+  'SECURITY', 'PERMISSION', 403,
   'FATAL', 'SOP-SEC-003'),
 (9007, 'external_contamination_detected',
-  'SECURITY', 'INTEGRITY', 403,
+  'SECURITY', 'SECURITY', 403,
   'FATAL', 'SOP-SEC-004'),
 (9008, 'secret_exposure_detected',
-  'SECURITY', 'INTEGRITY', 500,
+  'SECURITY', 'SECURITY', 500,
   'FATAL', 'SOP-SEC-004'),
 (9009, 'threat_auto_blocked',
-  'SECURITY', 'AUTHORIZATION', 403,
+  'SECURITY', 'PERMISSION', 403,
   'ERROR', 'SOP-SEC-002'),
 (9010, 'rate_limit_exceeded',
-  'SECURITY', 'RATE_LIMIT', 429,
+  'SECURITY', 'CAPACITY', 429,
   'WARNING', 'SOP-SEC-001')
 on conflict (code) do nothing;
 
@@ -1137,6 +1137,7 @@ begin
   -- 결과 로그
   perform catchmenu_common.log_diagnostic(
     p_tenant_id := p_tenant_id,
+    p_store_id := null,
     p_log_level := case v_overall
       when 'CRITICAL' then 'ERROR'
       when 'WARNING' then 'WARN'
@@ -1385,10 +1386,10 @@ $$;
 -- SOP 런북 (보안)
 -- =============================================
 insert into catchmenu_common.sop_runbooks (
-  runbook_code, runbook_title,
-  target_domain, trigger_condition,
-  steps, escalation_path,
-  estimated_resolution_minutes,
+  runbook_code, runbook_name,
+  runbook_domain, symptom_description,
+  recovery_steps, escalation_contact,
+  escalation_threshold_minutes,
   is_active
 ) values
 (
@@ -1405,10 +1406,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. 고객사에 보안 알림 발송',
     '7. gateway_audit_log 패턴 분석'
   ),
-  jsonb_build_array(
-    '15분 내 미해결 → HQ 에스컬레이션',
-    '30분 내 미해결 → 테넌트 일시 정지 검토'
-  ),
+  '15분 내 미해결 → HQ 에스컬레이션 / 30분 내 미해결 → 테넌트 일시 정지 검토',
   15, true
 ),
 (
@@ -1426,11 +1424,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. 법적 보존 증빙 패킷 생성',
     '7. 테넌트에 보안 사고 통보'
   ),
-  jsonb_build_array(
-    '즉시 자동 차단 적용',
-    '5분 내 → HQ 긴급 대응',
-    '법적 조치 필요 시 → 증빙 패킷 내보내기'
-  ),
+  '즉시 자동 차단 적용 / 5분 내 → HQ 긴급 대응 / 법적 조치 필요 시 → 증빙 패킷 내보내기',
   5, true
 ),
 (
@@ -1447,11 +1441,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. 보안 스캔 재실행: run_security_scan()',
     '7. 외부 보안 감사 요청 검토'
   ),
-  jsonb_build_array(
-    '즉시 FATAL → 자동 테넌트 격리',
-    '즉시 → HQ 보안팀 연락',
-    '외부 침해 확인 시 → 법적 대응 절차'
-  ),
+  '즉시 FATAL → 자동 테넌트 격리 / 즉시 → HQ 보안팀 연락 / 외부 침해 확인 시 → 법적 대응 절차',
   0, true
 ),
 (
@@ -1469,11 +1459,7 @@ insert into catchmenu_common.sop_runbooks (
     '6. DB 무결성 검증 실행',
     '7. 개인정보 침해 여부 확인 → 72시간 내 신고'
   ),
-  jsonb_build_array(
-    '즉시 자동 격리',
-    '개인정보 침해 → GDPR/개인정보보호법 72시간 신고',
-    '외부 감사 필수'
-  ),
+  '즉시 자동 격리 / 개인정보 침해 → GDPR/개인정보보호법 72시간 신고 / 외부 감사 필수',
   0, true
 )
 on conflict (runbook_code) do nothing;
@@ -1485,7 +1471,7 @@ on conflict (runbook_code) do nothing;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'SECURITY_SCAN',

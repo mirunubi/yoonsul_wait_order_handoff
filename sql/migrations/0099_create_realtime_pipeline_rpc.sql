@@ -68,289 +68,300 @@ insert into catchmenu_common.message_catalog (
 on conflict (message_key, locale) do nothing;
 
 
--- =============================================
--- realtime_channels table
--- Realtime 채널 설정 레지스트리
--- =============================================
-create table if not exists
-  catchmenu_common.realtime_channels (
-  id uuid primary key default gen_random_uuid(),
-  tenant_id uuid not null
-    references catchmenu_hq.tenants(id),
-  store_id uuid not null
-    references catchmenu_hq.stores(id),
+-- DEFERRED: 0068 (already applied, live) established realtime_channels
+-- with a Postgres-CDC + role-based-access model (channel_pattern,
+-- allowed_roles, requires_store_match), already validated by 0073's
+-- passing seed-count assertion. This file's incompatible broadcast-based
+-- redesign (subscriber_device_types, subscriber_roles) never took effect
+-- because CREATE TABLE IF NOT EXISTS silently kept 0068's version. If
+-- device-type targeting is genuinely needed, it requires a new forward
+-- migration that extends 0068's actual live schema, not a competing
+-- table definition. Not resolved here -- pending future design decision.
+-- Commented out below: the redundant table/seed and get_realtime_config
+-- (the only function depending on the incompatible columns).
+-- -- =============================================
+-- -- realtime_channels table
+-- -- Realtime 채널 설정 레지스트리
+-- -- =============================================
+-- create table if not exists
+--   catchmenu_common.realtime_channels (
+--   id uuid primary key default gen_random_uuid(),
+--   tenant_id uuid not null
+--     references catchmenu_hq.tenants(id),
+--   store_id uuid not null
+--     references catchmenu_hq.stores(id),
 
-  -- 채널 정보
-  channel_code text not null,
-  channel_name text not null,
-  channel_type text not null,
+--   -- 채널 정보
+--   channel_code text not null,
+--   channel_name text not null,
+--   channel_type text not null,
 
-  -- 구독자 정보
-  subscriber_device_types jsonb
-    not null default '[]'::jsonb,
-  subscriber_roles jsonb
-    not null default '[]'::jsonb,
+--   -- 구독자 정보
+--   subscriber_device_types jsonb
+--     not null default '[]'::jsonb,
+--   subscriber_roles jsonb
+--     not null default '[]'::jsonb,
 
-  -- 이벤트 목록
-  subscribed_events jsonb
-    not null default '[]'::jsonb,
+--   -- 이벤트 목록
+--   subscribed_events jsonb
+--     not null default '[]'::jsonb,
 
-  -- 상태
-  is_active boolean not null default true,
-  last_broadcast_at timestamptz,
-  broadcast_count int not null default 0,
+--   -- 상태
+--   is_active boolean not null default true,
+--   last_broadcast_at timestamptz,
+--   broadcast_count int not null default 0,
 
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
+--   created_at timestamptz not null default now(),
+--   updated_at timestamptz not null default now(),
 
-  constraint uq_realtime_channel unique (
-    store_id, channel_code
-  ),
-  constraint chk_channel_type check (
-    channel_type in (
-      'KDS_TICKETS',
-      'STAFF_ALERTS',
-      'WAITING_QUEUE',
-      'STORE_MODE',
-      'DID_DISPLAY',
-      'MENU_STATUS',
-      'SYSTEM_EVENTS',
-      'CUSTOMER_APP'
-    )
-  )
-);
+--   constraint uq_realtime_channel unique (
+--     store_id, channel_code
+--   ),
+--   constraint chk_channel_type check (
+--     channel_type in (
+--       'KDS_TICKETS',
+--       'STAFF_ALERTS',
+--       'WAITING_QUEUE',
+--       'STORE_MODE',
+--       'DID_DISPLAY',
+--       'MENU_STATUS',
+--       'SYSTEM_EVENTS',
+--       'CUSTOMER_APP'
+--     )
+--   )
+-- );
 
-create index if not exists idx_realtime_channels
-  on catchmenu_common.realtime_channels(
-    store_id, channel_type
-  ) where is_active = true;
+-- create index if not exists idx_realtime_channels
+--   on catchmenu_common.realtime_channels(
+--     store_id, channel_type
+--   ) where is_active = true;
 
-alter table catchmenu_common.realtime_channels
-  enable row level security;
-alter table catchmenu_common.realtime_channels
-  force row level security;
+-- alter table catchmenu_common.realtime_channels
+--   enable row level security;
+-- alter table catchmenu_common.realtime_channels
+--   force row level security;
 
-drop policy if exists realtime_channels_isolation
-  on catchmenu_common.realtime_channels;
-create policy realtime_channels_isolation
-  on catchmenu_common.realtime_channels
-  for all to authenticated
-  using (
-    tenant_id = catchmenu_common.current_tenant_id()
-    and store_id =
-      catchmenu_common.current_store_id()
-  );
+-- drop policy if exists realtime_channels_isolation
+--   on catchmenu_common.realtime_channels;
+-- create policy realtime_channels_isolation
+--   on catchmenu_common.realtime_channels
+--   for all to authenticated
+--   using (
+--     tenant_id = catchmenu_common.current_tenant_id()
+--     and store_id =
+--       catchmenu_common.current_store_id()
+--   );
 
-drop trigger if exists trg_realtime_channels_updated
-  on catchmenu_common.realtime_channels;
-create trigger trg_realtime_channels_updated
-  before update on
-    catchmenu_common.realtime_channels
-  for each row execute function
-    catchmenu_common.set_updated_at();
+-- drop trigger if exists trg_realtime_channels_updated
+--   on catchmenu_common.realtime_channels;
+-- create trigger trg_realtime_channels_updated
+--   before update on
+--     catchmenu_common.realtime_channels
+--   for each row execute function
+--     catchmenu_common.set_updated_at();
 
-comment on table
-  catchmenu_common.realtime_channels is
-  'Supabase Realtime 채널 레지스트리.
-   채널 목록:
-   KDS_TICKETS: 주방 디스플레이
-   STAFF_ALERTS: 직원 앱 알림
-   WAITING_QUEUE: 대기 현황
-   STORE_MODE: 매장 모드 변경
-   DID_DISPLAY: DID 호출
-   MENU_STATUS: 메뉴 상태 변경
-   SYSTEM_EVENTS: Edge Function 트리거
-   CUSTOMER_APP: 고객 앱 알림
-   Flutter subscribe:
-   supabase.channel(channel_code)
-     .onBroadcast(event, callback)
-     .subscribe()';
-
-
--- 채널 시드
-insert into catchmenu_common.realtime_channels (
-  tenant_id, store_id,
-  channel_code, channel_name, channel_type,
-  subscriber_device_types, subscriber_roles,
-  subscribed_events
-) values
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'kds:00000000-0000-0000-0000-000000000002',
-  'KDS 채널',
-  'KDS_TICKETS',
-  '["KDS_DISPLAY","STAFF_APP"]'::jsonb,
-  '["KITCHEN","MANAGER","OWNER"]'::jsonb,
-  '["kds_ticket_created","kds_ticket_updated",'
-  || '"kds_tickets_released","kds_capacity_changed",'
-  || '"kds_ticket_late"]'::jsonb
-),
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'staff:00000000-0000-0000-0000-000000000002',
-  '직원 알림 채널',
-  'STAFF_ALERTS',
-  '["STAFF_APP","POS_TERMINAL"]'::jsonb,
-  '["STAFF","MANAGER","OWNER"]'::jsonb,
-  '["takeout_order_received","payment_confirmed",'
-  || '"waiting_session_created",'
-  || '"delivery_order_cancelled",'
-  || '"kds_overloaded_alert"]'::jsonb
-),
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'waiting:00000000-0000-0000-0000-000000000002',
-  '대기 현황 채널',
-  'WAITING_QUEUE',
-  '["MINI_KIOSK","STAFF_APP","DID_DISPLAY"]'::jsonb,
-  '["STAFF","MANAGER","CUSTOMER"]'::jsonb,
-  '["waiting_session_created",'
-  || '"waiting_session_seated",'
-  || '"waiting_session_cancelled",'
-  || '"waiting_called"]'::jsonb
-),
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'store:00000000-0000-0000-0000-000000000002',
-  '매장 모드 채널',
-  'STORE_MODE',
-  '["STAFF_APP","MINI_KIOSK","KDS_DISPLAY",'
-  || '"DID_DISPLAY"]'::jsonb,
-  '["STAFF","MANAGER","OWNER","SYSTEM"]'::jsonb,
-  '["store_mode_changed","holiday_mode_changed",'
-  || '"waiting_enabled_changed",'
-  || '"notice_created","cms_content_published"]'::jsonb
-),
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'did:00000000-0000-0000-0000-000000000002',
-  'DID 디스플레이 채널',
-  'DID_DISPLAY',
-  '["DID_DISPLAY"]'::jsonb,
-  '["SYSTEM"]'::jsonb,
-  '["PICKUP_READY","TABLE_READY","WAITING_CALL",'
-  || '"call_dismissed","content_updated"]'::jsonb
-),
-(
-  '00000000-0000-0000-0000-000000000001',
-  '00000000-0000-0000-0000-000000000002',
-  'system:00000000-0000-0000-0000-000000000001',
-  '시스템 이벤트 채널',
-  'SYSTEM_EVENTS',
-  '[]'::jsonb,
-  '["SYSTEM"]'::jsonb,
-  '["pg_cancel_requested","sms_verify_code_requested",'
-  || '"document_embedding_requested",'
-  || '"sop_draft_ai_requested",'
-  || '"push_notification_queued"]'::jsonb
-)
-on conflict (store_id, channel_code) do nothing;
+-- comment on table
+--   catchmenu_common.realtime_channels is
+--   'Supabase Realtime 채널 레지스트리.
+--    채널 목록:
+--    KDS_TICKETS: 주방 디스플레이
+--    STAFF_ALERTS: 직원 앱 알림
+--    WAITING_QUEUE: 대기 현황
+--    STORE_MODE: 매장 모드 변경
+--    DID_DISPLAY: DID 호출
+--    MENU_STATUS: 메뉴 상태 변경
+--    SYSTEM_EVENTS: Edge Function 트리거
+--    CUSTOMER_APP: 고객 앱 알림
+--    Flutter subscribe:
+--    supabase.channel(channel_code)
+--      .onBroadcast(event, callback)
+--      .subscribe()';
 
 
--- =============================================
--- RPCs
--- =============================================
-create or replace function
-  catchmenu_common.get_realtime_config(
-  p_tenant_id uuid,
-  p_store_id uuid,
-  p_device_type text,
-  p_staff_role text default null,
-  p_locale text default 'ko'
-)
-returns jsonb
-language plpgsql
-stable
-security definer
-set search_path = catchmenu_common,
-                  catchmenu_hq
-as $$
-declare
-  v_channels jsonb;
-  v_store record;
-begin
-  select id, store_name, timezone
-  into v_store
-  from catchmenu_hq.stores
-  where id = p_store_id
-    and tenant_id = p_tenant_id
-    and is_active = true;
+-- -- 채널 시드
+-- insert into catchmenu_common.realtime_channels (
+--   tenant_id, store_id,
+--   channel_code, channel_name, channel_type,
+--   subscriber_device_types, subscriber_roles,
+--   subscribed_events
+-- ) values
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'kds:00000000-0000-0000-0000-000000000002',
+--   'KDS 채널',
+--   'KDS_TICKETS',
+--   '["KDS_DISPLAY","STAFF_APP"]'::jsonb,
+--   '["KITCHEN","MANAGER","OWNER"]'::jsonb,
+--   ('["kds_ticket_created","kds_ticket_updated",'
+--   || '"kds_tickets_released","kds_capacity_changed",'
+--   || '"kds_ticket_late"]')::jsonb
+-- ),
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'staff:00000000-0000-0000-0000-000000000002',
+--   '직원 알림 채널',
+--   'STAFF_ALERTS',
+--   '["STAFF_APP","POS_TERMINAL"]'::jsonb,
+--   '["STAFF","MANAGER","OWNER"]'::jsonb,
+--   ('["takeout_order_received","payment_confirmed",'
+--   || '"waiting_session_created",'
+--   || '"delivery_order_cancelled",'
+--   || '"kds_overloaded_alert"]')::jsonb
+-- ),
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'waiting:00000000-0000-0000-0000-000000000002',
+--   '대기 현황 채널',
+--   'WAITING_QUEUE',
+--   '["MINI_KIOSK","STAFF_APP","DID_DISPLAY"]'::jsonb,
+--   '["STAFF","MANAGER","CUSTOMER"]'::jsonb,
+--   ('["waiting_session_created",'
+--   || '"waiting_session_seated",'
+--   || '"waiting_session_cancelled",'
+--   || '"waiting_called"]')::jsonb
+-- ),
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'store:00000000-0000-0000-0000-000000000002',
+--   '매장 모드 채널',
+--   'STORE_MODE',
+--   ('["STAFF_APP","MINI_KIOSK","KDS_DISPLAY",'
+--   || '"DID_DISPLAY"]')::jsonb,
+--   '["STAFF","MANAGER","OWNER","SYSTEM"]'::jsonb,
+--   ('["store_mode_changed","holiday_mode_changed",'
+--   || '"waiting_enabled_changed",'
+--   || '"notice_created","cms_content_published"]')::jsonb
+-- ),
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'did:00000000-0000-0000-0000-000000000002',
+--   'DID 디스플레이 채널',
+--   'DID_DISPLAY',
+--   '["DID_DISPLAY"]'::jsonb,
+--   '["SYSTEM"]'::jsonb,
+--   ('["PICKUP_READY","TABLE_READY","WAITING_CALL",'
+--   || '"call_dismissed","content_updated"]')::jsonb
+-- ),
+-- (
+--   '00000000-0000-0000-0000-000000000001',
+--   '00000000-0000-0000-0000-000000000002',
+--   'system:00000000-0000-0000-0000-000000000001',
+--   '시스템 이벤트 채널',
+--   'SYSTEM_EVENTS',
+--   '[]'::jsonb,
+--   '["SYSTEM"]'::jsonb,
+--   ('["pg_cancel_requested","sms_verify_code_requested",'
+--   || '"document_embedding_requested",'
+--   || '"sop_draft_ai_requested",'
+--   || '"push_notification_queued"]')::jsonb
+-- )
+-- on conflict (store_id, channel_code) do nothing;
 
-  if v_store.id is null then
-    return catchmenu_common.build_error_response(
-      p_error_key := 'store_not_found',
-      p_locale := p_locale,
-      p_tenant_id := p_tenant_id,
-      p_store_id := p_store_id,
-      p_rpc_name := 'get_realtime_config'
-    );
-  end if;
 
-  -- 디바이스 타입 + 역할 기반 채널 필터
-  select coalesce(
-    jsonb_agg(
-      jsonb_build_object(
-        'channel_code', channel_code,
-        'channel_name', channel_name,
-        'channel_type', channel_type,
-        'subscribed_events', subscribed_events
-      )
-      order by channel_type
-    ),
-    '[]'::jsonb
-  )
-  into v_channels
-  from catchmenu_common.realtime_channels
-  where store_id = p_store_id
-    and tenant_id = p_tenant_id
-    and is_active = true
-    and (
-      -- 디바이스 타입 매칭
-      subscriber_device_types
-        @> to_jsonb(p_device_type)
-      -- 또는 구독자 제한 없음
-      or jsonb_array_length(
-        subscriber_device_types
-      ) = 0
-      -- 또는 SYSTEM 채널
-      or subscriber_roles
-        @> to_jsonb('SYSTEM'::text)
-    );
+-- -- =============================================
+-- -- RPCs
+-- -- =============================================
+-- create or replace function
+--   catchmenu_common.get_realtime_config(
+--   p_tenant_id uuid,
+--   p_store_id uuid,
+--   p_device_type text,
+--   p_staff_role text default null,
+--   p_locale text default 'ko'
+-- )
+-- returns jsonb
+-- language plpgsql
+-- stable
+-- security definer
+-- set search_path = catchmenu_common,
+--                   catchmenu_hq
+-- as $$
+-- declare
+--   v_channels jsonb;
+--   v_store record;
+-- begin
+--   select id, store_name, timezone
+--   into v_store
+--   from catchmenu_hq.stores
+--   where id = p_store_id
+--     and tenant_id = p_tenant_id
+--     and is_active = true;
 
-  return catchmenu_common.build_success_response(
-    p_message_key := 'realtime_config_loaded',
-    p_data := jsonb_build_object(
-      'store_id', p_store_id,
-      'store_name', v_store.store_name,
-      'timezone', v_store.timezone,
-      'device_type', p_device_type,
-      'channels', v_channels,
-      'channel_count',
-        jsonb_array_length(v_channels),
-      'flutter_pattern', jsonb_build_object(
-        'subscribe_template',
-          'supabase.channel({channel_code})'
-          || '.onBroadcast('
-          || 'event: {event},'
-          || 'callback: handler'
-          || ').subscribe()',
-        'broadcast_template',
-          'supabase.channel({channel_code})'
-          || '.sendBroadcastMessage('
-          || 'event: {event},'
-          || 'payload: {data}'
-          || ')'
-      )
-    ),
-    p_locale := p_locale
-  );
-end;
-$$;
+--   if v_store.id is null then
+--     return catchmenu_common.build_error_response(
+--       p_error_key := 'store_not_found',
+--       p_locale := p_locale,
+--       p_tenant_id := p_tenant_id,
+--       p_store_id := p_store_id,
+--       p_rpc_name := 'get_realtime_config'
+--     );
+--   end if;
+
+--   -- 디바이스 타입 + 역할 기반 채널 필터
+--   select coalesce(
+--     jsonb_agg(
+--       jsonb_build_object(
+--         'channel_code', channel_code,
+--         'channel_name', channel_name,
+--         'channel_type', channel_type,
+--         'subscribed_events', subscribed_events
+--       )
+--       order by channel_type
+--     ),
+--     '[]'::jsonb
+--   )
+--   into v_channels
+--   from catchmenu_common.realtime_channels
+--   where store_id = p_store_id
+--     and tenant_id = p_tenant_id
+--     and is_active = true
+--     and (
+--       -- 디바이스 타입 매칭
+--       subscriber_device_types
+--         @> to_jsonb(p_device_type)
+--       -- 또는 구독자 제한 없음
+--       or jsonb_array_length(
+--         subscriber_device_types
+--       ) = 0
+--       -- 또는 SYSTEM 채널
+--       or subscriber_roles
+--         @> to_jsonb('SYSTEM'::text)
+--     );
+
+--   return catchmenu_common.build_success_response(
+--     p_message_key := 'realtime_config_loaded',
+--     p_data := jsonb_build_object(
+--       'store_id', p_store_id,
+--       'store_name', v_store.store_name,
+--       'timezone', v_store.timezone,
+--       'device_type', p_device_type,
+--       'channels', v_channels,
+--       'channel_count',
+--         jsonb_array_length(v_channels),
+--       'flutter_pattern', jsonb_build_object(
+--         'subscribe_template',
+--           'supabase.channel({channel_code})'
+--           || '.onBroadcast('
+--           || 'event: {event},'
+--           || 'callback: handler'
+--           || ').subscribe()',
+--         'broadcast_template',
+--           'supabase.channel({channel_code})'
+--           || '.sendBroadcastMessage('
+--           || 'event: {event},'
+--           || 'payload: {data}'
+--           || ')'
+--       )
+--     ),
+--     p_locale := p_locale
+--   );
+-- end;
+-- $$;
 
 
 create or replace function
@@ -1182,14 +1193,7 @@ on conflict (pattern_code) do update set
 -- grants
 do $$
 begin
-  revoke all on function
-    catchmenu_common.get_realtime_config(
-      uuid, uuid, text, text, text
-    ) from public;
-  grant execute on function
-    catchmenu_common.get_realtime_config(
-      uuid, uuid, text, text, text
-    ) to authenticated;
+  -- get_realtime_config grants removed: function deferred (see header note)
 
   revoke all on function
     catchmenu_kds.get_kds_realtime_state(

@@ -104,8 +104,8 @@ insert into catchmenu_common.subscription_plans (
   'TRIAL', 'FREE',
   0, null,
   1, 3, 5, 50, 500,
-  '["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
-  || '"MENU_MANAGEMENT","OKPOS_INTEGRATION"]'::jsonb,
+  ('["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
+  || '"MENU_MANAGEMENT","OKPOS_INTEGRATION"]')::jsonb,
   false, 'PHASE_1',
   0, false,
   '30일 무료 체험. 1호점 테스트베드 전용.'
@@ -116,9 +116,9 @@ insert into catchmenu_common.subscription_plans (
   'STARTER', 'RECURRING',
   10000, null,
   1, 5, 10, 100, null,
-  '["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
+  ('["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
   || '"MENU_MANAGEMENT","OKPOS_INTEGRATION",'
-  || '"TOSS_POS_INTEGRATION"]'::jsonb,
+  || '"TOSS_POS_INTEGRATION"]')::jsonb,
   false, 'PHASE_1',
   1, false,
   '월 1만원. 포장주문 + KDS + 대기. '
@@ -130,13 +130,13 @@ insert into catchmenu_common.subscription_plans (
   'PRO', 'RECURRING',
   50000, null,
   3, 10, 20, 300, null,
-  '["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
+  ('["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
   || '"MENU_MANAGEMENT","OKPOS_INTEGRATION",'
   || '"TOSS_POS_INTEGRATION",'
   || '"CUSTOMER_MEMBERSHIP_APP",'
   || '"DELIVERY_INTEGRATION",'
   || '"DID_CMS","MAJOR_POS_INTEGRATION",'
-  || '"AI_CUSTOMER_CENTER","DIGITAL_SOP"]'::jsonb,
+  || '"AI_CUSTOMER_CENTER","DIGITAL_SOP"]')::jsonb,
   false, 'PHASE_5',
   2, true,
   'SaaS 판매 핵심 플랜. '
@@ -149,14 +149,14 @@ insert into catchmenu_common.subscription_plans (
   'ENTERPRISE', 'CUSTOM',
   0, null,
   99, 20, 50, 9999, null,
-  '["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
+  ('["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
   || '"MENU_MANAGEMENT","OKPOS_INTEGRATION",'
   || '"TOSS_POS_INTEGRATION",'
   || '"CUSTOMER_MEMBERSHIP_APP",'
   || '"DELIVERY_INTEGRATION","DID_CMS",'
   || '"ALL_POS_INTEGRATION","WHITE_LABEL",'
   || '"AI_CUSTOMER_CENTER","DIGITAL_SOP",'
-  || '"MULTI_TENANT_SAAS"]'::jsonb,
+  || '"MULTI_TENANT_SAAS"]')::jsonb,
   false, 'PHASE_6',
   3, false,
   '가맹점 본사 화이트라벨 협상. '
@@ -1017,6 +1017,39 @@ end;
 $$;
 
 
+-- add_check was originally (incorrectly) written as a nested procedure
+-- inside check_saas_readiness's DECLARE section -- same invalid pattern
+-- as 0073's assert_true (PL/pgSQL has no nested-subprogram syntax).
+-- Fixed the same way: a real standalone function (not a procedure --
+-- CALL cannot reliably take arbitrary expression arguments the way this
+-- function's is_feature_enabled(...) or ... conditions do), logging to
+-- a temp table since a standalone routine can't mutate
+-- check_saas_readiness's local variables directly. All 10
+-- `perform add_saas_check(...)` sites below were mechanically changed to
+-- `perform add_saas_check(...)` -- no argument list touched.
+create temp table if not exists saas_readiness_checks (
+  ordinal bigint generated always as identity,
+  check_name text,
+  passed boolean,
+  category text,
+  note text
+);
+
+create or replace function catchmenu_common.add_saas_check(
+  p_check text,
+  p_passed boolean,
+  p_category text,
+  p_note text default null
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.saas_readiness_checks (check_name, passed, category, note)
+    values (p_check, p_passed, p_category, p_note);
+end;
+$$;
+
 create or replace function
   catchmenu_common.check_saas_readiness(
   p_tenant_id uuid
@@ -1038,34 +1071,9 @@ declare
   v_store_count int;
   v_menu_count int;
   v_device_count int;
-
-  procedure add_check(
-    p_check text,
-    p_passed boolean,
-    p_category text,
-    p_note text default null
-  ) as
-  $inner$
-  begin
-    if p_passed then
-      v_passed := v_passed + 1;
-    else
-      v_failed := v_failed + 1;
-    end if;
-    v_checks := v_checks || jsonb_build_array(
-      jsonb_build_object(
-        'check', p_check,
-        'category', p_category,
-        'status', case p_passed
-          when true then 'PASS' else 'FAIL'
-        end,
-        'note', p_note
-      )
-    );
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.saas_readiness_checks;
+
   -- 플랜 정보
   select plan_tier, plan_status,
          enabled_features
@@ -1074,7 +1082,7 @@ begin
   where tenant_id = p_tenant_id;
 
   -- CHECK 1: 플랜 설정
-  call add_check(
+  perform add_saas_check(
     '플랜 구성 완료',
     v_plan.plan_tier is not null,
     'BILLING',
@@ -1088,7 +1096,7 @@ begin
   where tenant_id = p_tenant_id
     and is_active = true;
 
-  call add_check(
+  perform add_saas_check(
     '매장 1개 이상 등록',
     v_store_count >= 1,
     'SETUP',
@@ -1103,7 +1111,7 @@ begin
   where s.tenant_id = p_tenant_id
     and m.is_active = true;
 
-  call add_check(
+  perform add_saas_check(
     '메뉴 5개 이상 등록',
     v_menu_count >= 5,
     'SETUP',
@@ -1119,7 +1127,7 @@ begin
     and d.trust_level = 'TRUSTED'
     and d.is_active = true;
 
-  call add_check(
+  perform add_saas_check(
     'TRUSTED 디바이스 1개 이상',
     v_device_count >= 1,
     'SETUP',
@@ -1127,7 +1135,7 @@ begin
   );
 
   -- CHECK 5: POS 연동
-  call add_check(
+  perform add_saas_check(
     'OKpos 또는 토스POS 연동',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'OKPOS_INTEGRATION'
@@ -1139,7 +1147,7 @@ begin
   );
 
   -- CHECK 6: 포장 주문 기능
-  call add_check(
+  perform add_saas_check(
     '포장 주문 기능 활성화',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'TAKEOUT_ORDER'
@@ -1149,7 +1157,7 @@ begin
   );
 
   -- CHECK 7: 고객 앱 (PRO 요건)
-  call add_check(
+  perform add_saas_check(
     '고객 멤버십 앱 (PRO 필수)',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'CUSTOMER_MEMBERSHIP_APP'
@@ -1159,7 +1167,7 @@ begin
   );
 
   -- CHECK 8: 배달 연동 (PRO 요건)
-  call add_check(
+  perform add_saas_check(
     '배달앱 연동 (PRO 필수)',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'DELIVERY_INTEGRATION'
@@ -1169,7 +1177,7 @@ begin
   );
 
   -- CHECK 9: AI 고객센터 (SaaS 핵심 요건)
-  call add_check(
+  perform add_saas_check(
     'AI 고객센터 (SaaS 판매 핵심 필수)',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'AI_CUSTOMER_CENTER'
@@ -1180,7 +1188,7 @@ begin
   );
 
   -- CHECK 10: 디지털 SOP
-  call add_check(
+  perform add_saas_check(
     '디지털 SOP (PRO 필수)',
     catchmenu_common.is_feature_enabled(
       p_tenant_id, 'DIGITAL_SOP'
@@ -1188,6 +1196,23 @@ begin
     'SAAS_REQUIRED',
     'SaaS 판매 필수 기능 (5차)'
   );
+
+  -- populate v_checks/v_passed/v_failed from the temp table now that
+  -- all add_saas_check() calls above have logged into it
+  select
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'check', check_name,
+        'category', category,
+        'status', case passed when true then 'PASS' else 'FAIL' end,
+        'note', note
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    count(*) filter (where passed),
+    count(*) filter (where not passed)
+  into v_checks, v_passed, v_failed
+  from pg_temp.saas_readiness_checks;
 
   -- SaaS 준비 완료 여부
   declare

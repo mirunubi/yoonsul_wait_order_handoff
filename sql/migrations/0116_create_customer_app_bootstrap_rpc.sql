@@ -789,6 +789,15 @@ end;
 $$;
 
 
+-- 0081's original get_customer_home used a different parameter
+-- order/defaults (p_customer_id before p_store_id, p_store_id
+-- optional). This file supersedes it with a more complete, dedicated
+-- implementation; no already-applied code depends on the old
+-- signature, so the old function is dropped first.
+drop function if exists catchmenu_store.get_customer_home(
+  uuid, uuid, uuid, text
+);
+
 create or replace function
   catchmenu_store.get_customer_home(
   p_tenant_id uuid,

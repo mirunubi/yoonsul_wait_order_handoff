@@ -238,6 +238,15 @@ comment on table
 -- =============================================
 -- RPCs
 -- =============================================
+-- 0036's original run_layer1_reconciliation had p_correlation_id as
+-- its 4th param; this file supersedes it with p_business_day/p_locale.
+-- Already-applied callers (0072, 0095 cron jobs) only pass p_tenant_id/
+-- p_store_id by name, so no already-applied code depends on the old
+-- 4th param name -- safe to drop and recreate.
+drop function if exists catchmenu_payment.run_layer1_reconciliation(
+  uuid, uuid, date, text
+);
+
 create or replace function
   catchmenu_payment.run_layer1_reconciliation(
   p_tenant_id uuid,
@@ -871,7 +880,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'RECONCILIATION_LAYER1',

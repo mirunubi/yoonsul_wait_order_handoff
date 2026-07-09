@@ -64,13 +64,22 @@ insert into catchmenu_common.error_codes (
 (7021, 'store_already_closed',
   'STORE', 'CONFLICT', 409, 'INFO'),
 (7022, 'invalid_store_mode',
-  'STORE', 'VALIDATION', 400, 'WARNING')
+  'STORE', 'INVALID_INPUT', 400, 'WARNING')
 on conflict (code) do nothing;
 
 
 -- =============================================
 -- RPCs
 -- =============================================
+-- 0070's original bootstrap_staff_app used a different parameter
+-- order/defaults (p_device_id before p_staff_id, no p_device_type).
+-- This file supersedes it with a more complete, dedicated
+-- implementation; no already-applied code depends on the old
+-- signature, so the old function is dropped first.
+drop function if exists catchmenu_common.bootstrap_staff_app(
+  uuid, uuid, uuid, uuid, text, text, text
+);
+
 create or replace function
   catchmenu_common.bootstrap_staff_app(
   p_tenant_id uuid,

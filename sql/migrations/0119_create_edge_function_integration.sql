@@ -374,18 +374,15 @@ grant execute on function
 -- =============================================
 insert into catchmenu_knowledge.documents (
   tenant_id, store_id,
-  document_code, document_title,
+  document_code, title,
   document_type, domain,
-  content_ko, content_en,
-  version_number, document_status,
-  is_tenant_approved,
-  approved_at, effective_from
+  content, content_locale,
+  document_status, approved_at, published_at
 ) values (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'FLUTTER_BOOTSTRAP_MAP_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'FLUTTER_BOOTSTRAP_MAP_001_KO',
   'Flutter 앱별 부트스트랩 매핑표',
-  'GUIDE', 'FLUTTER',
+  'GUIDE', 'flutter',
   $ko$
 # Flutter 앱별 부트스트랩 매핑표
 
@@ -426,6 +423,14 @@ register_waiting → pre_order_while_waiting
 → confirm_payment → release_kds_after_payment
 → KDS COMMITTED → 조리 시작
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'FLUTTER_BOOTSTRAP_MAP_001_EN',
+  'Flutter 앱별 부트스트랩 매핑표',
+  'GUIDE', 'flutter',
   $en$
 # Flutter App Bootstrap Mapping
 
@@ -433,12 +438,12 @@ See Korean version for full table.
 Key: each app type has one bootstrap RPC.
 Patent 1+2 combined in pre_order_while_waiting.
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 )
 on conflict (tenant_id, document_code)
 do update set
-  content_ko = excluded.content_ko,
-  updated_at = now();
+  content = excluded.content;
 
 comment on function
   catchmenu_common.get_realtime_channel_guide(uuid)

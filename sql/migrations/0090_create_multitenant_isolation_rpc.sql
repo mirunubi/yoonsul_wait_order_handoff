@@ -70,9 +70,9 @@ insert into catchmenu_common.error_codes (
   error_category, http_status, severity
 ) values
 (3010, 'quota_exceeded',
-  'SYSTEM', 'QUOTA', 429, 'WARNING'),
+  'SYSTEM', 'CAPACITY', 429, 'WARNING'),
 (3011, 'rate_limit_exceeded',
-  'SYSTEM', 'RATE_LIMIT', 429, 'WARNING'),
+  'SYSTEM', 'CAPACITY', 429, 'WARNING'),
 (3012, 'cross_tenant_access_blocked',
   'SYSTEM', 'SECURITY', 403, 'CRITICAL'),
 (3013, 'tenant_isolated',
@@ -753,6 +753,35 @@ end;
 $$;
 
 
+-- add_audit_item was originally (incorrectly) written as a nested
+-- procedure inside run_security_audit's DECLARE section -- same
+-- invalid pattern as 0073's assert_true / 0082's add_check / 0087's
+-- add_check_item. Fixed the same way: a real standalone function,
+-- logging to a temp table since a standalone routine can't mutate
+-- run_security_audit's local variables directly. All
+-- `perform add_security_audit_item(...)` sites below were mechanically changed to
+-- `perform add_security_audit_item(...)` -- no argument list touched.
+create temp table if not exists security_audit_items (
+  ordinal bigint generated always as identity,
+  check_name text,
+  status text,
+  detail jsonb
+);
+
+create or replace function catchmenu_common.add_security_audit_item(
+  p_check_name text,
+  p_status text,
+  p_detail jsonb default null
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.security_audit_items (check_name, status, detail)
+    values (p_check_name, p_status, p_detail);
+end;
+$$;
+
 create or replace function
   catchmenu_common.run_security_audit(
   p_tenant_id uuid,
@@ -775,35 +804,9 @@ declare
   v_critical int := 0;
   v_business_day date;
   v_audit_id uuid;
-
-  procedure add_audit_item(
-    p_check_name text,
-    p_status text,
-    p_detail jsonb default null
-  ) as
-  $inner$
-  begin
-    v_checks := v_checks
-      || jsonb_build_array(
-        jsonb_build_object(
-          'check', p_check_name,
-          'status', p_status,
-          'detail', p_detail
-        )
-      );
-    case p_status
-      when 'PASS' then
-        v_passed := v_passed + 1;
-      when 'WARNING' then
-        v_warnings := v_warnings + 1;
-      when 'CRITICAL' then
-        v_critical := v_critical + 1;
-      else null;
-    end case;
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.security_audit_items;
+
   v_business_day := (timezone(
     'Asia/Seoul', now()
   ))::date;
@@ -841,7 +844,7 @@ begin
       where c.relrowsecurity = true
     );
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'rls_enabled_all_tables',
       case jsonb_array_length(v_rls_disabled_tables)
         when 0 then 'PASS'
@@ -869,7 +872,7 @@ begin
       not in ('TRUSTED', 'REGISTERED')
     and is_active = true;
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'device_trust_verification',
       case v_untrusted_count
         when 0 then 'PASS'
@@ -894,7 +897,7 @@ begin
       and created_at > now()
         - interval '24 hours';
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'recent_security_violations',
       case
         when v_violation_count = 0 then 'PASS'
@@ -919,7 +922,7 @@ begin
       and last_violation_at
         > now() - interval '1 hour';
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'rate_limit_violations',
       case
         when v_rate_violation_count = 0
@@ -946,7 +949,7 @@ begin
       and current_usage > quota_limit
       and overage_policy = 'BLOCK';
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'quota_compliance',
       case v_quota_exceeded_count
         when 0 then 'PASS'
@@ -970,7 +973,7 @@ begin
     from catchmenu_common.tenant_plan_configs
     where tenant_id = p_tenant_id;
 
-    call add_audit_item(
+    perform add_security_audit_item(
       'subscription_valid',
       case
         when v_plan_status = 'ACTIVE'
@@ -1004,7 +1007,7 @@ begin
         and query_date > v_business_day
           - interval '7 days';
 
-      call add_audit_item(
+      perform add_security_audit_item(
         'pgvector_grounding_compliance',
         case
           when v_ungrounded_rate < 20
@@ -1020,6 +1023,24 @@ begin
       );
     end;
   end if;
+
+  -- populate v_checks/v_passed/v_warnings/v_critical from the temp
+  -- table now that all add_security_audit_item() calls above have
+  -- logged into it
+  select
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'check', check_name,
+        'status', status,
+        'detail', detail
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    count(*) filter (where status = 'PASS'),
+    count(*) filter (where status = 'WARNING'),
+    count(*) filter (where status = 'CRITICAL')
+  into v_checks, v_passed, v_warnings, v_critical
+  from pg_temp.security_audit_items;
 
   -- 감사 결과 기록
   v_audit_id := gen_random_uuid();

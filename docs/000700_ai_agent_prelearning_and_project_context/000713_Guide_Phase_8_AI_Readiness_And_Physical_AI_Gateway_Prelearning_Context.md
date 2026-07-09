@@ -1,20 +1,20 @@
-# 000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
+# 000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
 
 ## 1. Purpose
 
-This document is the Phase 7 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to **AI readiness and Physical AI Gateway**.
+This document is the Phase 8 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to **AI readiness and Physical AI Gateway**.
 
-It teaches agents that Phase 7 is **not** simple AI feature addition or direct robot/IoT device control. Phase 7 prepares the **safety gate, authority boundary, human override, and evidence system** that must exist before AI connects to real store operations and physical devices.
+It teaches agents that Phase 8 is **not** simple AI feature addition or direct robot/IoT device control. Phase 8 prepares the **safety gate, authority boundary, human override, and evidence system** that must exist before AI connects to real store operations and physical devices.
 
 This document helps agents classify scope and define actuation boundaries. It does **not** authorize runtime implementation, SQL changes, migrations, or production rollout.
 
 ## 2. Core Identity
 
-Phase 7 is **AI readiness and Physical AI Gateway**.
+Phase 8 is **AI readiness and Physical AI Gateway**.
 
-Phase 7 builds the **safety gateway structure** that AI must pass through when connecting to store operations, kitchen, devices, sensors, robots, voice, vision, and IoT.
+Phase 8 builds the **safety gateway structure** that AI must pass through when connecting to store operations, kitchen, devices, sensors, robots, voice, vision, and IoT.
 
-**Phase 7 core includes:**
+**Phase 8 core includes:**
 
 - AI readiness
 - Physical AI Gateway
@@ -27,7 +27,7 @@ Phase 7 builds the **safety gateway structure** that AI must pass through when c
 - actuation evidence
 - no direct uncontrolled AI actuation
 - safe connection between no-outage operations runtime and the physical world
-- AI integration preparation on top of Phase 4 Franchise_OS, Phase 5 AI customer center, and Phase 6 SaaS operations
+- AI integration preparation on top of Phase 5 Franchise_OS, Phase 6 AI customer center, and Phase 7 SaaS operations
 
 **Core principle:** AI must **not** control physical devices directly at will. Any AI intervention in store operations or physical devices must pass through **Physical AI Gateway**. Every physical control must have **safety gate, authority boundary, human override, evidence**, and rollback or recovery path.
 
@@ -43,14 +43,14 @@ Current roadmap context:
 | Phase 2 | `yoonsul_os` store operation foundation (**separate project**) |
 | Phase 3 | Kiosk / KDS / DID / CMS / POS integration |
 | Phase 1-C | Complete SaaS productization and market launch |
-| Phase 4 | Franchise_OS no-outage restaurant operations system |
-| Phase 5 | AI customer center / Digital SOP / RAG / pgvector / integrated support |
-| Phase 6 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement |
-| **Phase 7** | **AI readiness and Physical AI Gateway** |
+| Phase 5 | Franchise_OS no-outage restaurant operations system |
+| Phase 6 | AI customer center / Digital SOP / RAG / pgvector / integrated support |
+| Phase 7 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement |
+| **Phase 8** | **AI readiness and Physical AI Gateway** |
 
 ## 4. AI Readiness
 
-Phase 7’s first purpose is **AI readiness**.
+Phase 8’s first purpose is **AI readiness**.
 
 AI readiness is **not** simply attaching an LLM. If AI cannot understand operational events, SOP, failure history, customer-center inquiries, store state, and device state—and still act safely—it must **not** be integrated.
 
@@ -110,7 +110,7 @@ Physical AI Gateway is the **safe intermediate layer** between AI and the physic
 
 ## 6. Sensor / Device Event Intake
 
-Phase 7 must prepare to collect sensor and device events.
+Phase 8 must prepare to collect sensor and device events.
 
 **Collectible events include:**
 
@@ -137,7 +137,7 @@ Phase 7 must prepare to collect sensor and device events.
 
 ## 7. Voice / Vision / Robot / IoT Preparation
 
-Phase 7 prepares voice, vision, robot, and IoT integration.
+Phase 8 prepares voice, vision, robot, and IoT integration.
 
 **Voice:** staff voice commands, kitchen voice KDS, failure voice reporting, customer callout assist — requires confirmation due to misrecognition risk.
 
@@ -149,7 +149,7 @@ Phase 7 prepares voice, vision, robot, and IoT integration.
 
 ## 8. Human Override
 
-Human override is one of Phase 7’s **most important** principles.
+Human override is one of Phase 8’s **most important** principles.
 
 Every AI integration and physical control must allow **human interruption**.
 
@@ -187,7 +187,7 @@ Physical AI Gateway must include a **safety gate**.
 
 ## 10. Authority Boundary
 
-Phase 7 must define clear authority boundaries.
+Phase 8 must define clear authority boundaries.
 
 **Authority subjects:** AI Agent, store staff, manager, franchisee owner, HQ administrator, technical support, customer-center agent, platform administrator.
 
@@ -215,41 +215,41 @@ Physical control or operational intervention must leave **evidence**.
 - customer/staff impact
 - follow-up action need
 
-Actuation evidence must be usable across Phase 4 Franchise_OS, Phase 5 AI customer center, and Phase 6 SaaS operations.
+Actuation evidence must be usable across Phase 5 Franchise_OS, Phase 6 AI customer center, and Phase 7 SaaS operations.
 
-## 12. Relationship To Phase 4
+## 12. Relationship To Phase 5
 
-Phase 4 Franchise_OS is the no-outage restaurant operations system: detect failure, select SOP, hand off to humans, support limited operation or safe closure.
+Phase 5 Franchise_OS is the no-outage restaurant operations system: detect failure, select SOP, hand off to humans, support limited operation or safe closure.
 
-Phase 7 prepares AI and physical device integration **on top of** that runtime.
+Phase 8 prepares AI and physical device integration **on top of** that runtime.
 
-Phase 7 must **not** break Phase 4 principles: human authority, SOP selection, recovery evidence, and safe-closure boundary remain mandatory.
+Phase 8 must **not** break Phase 5 principles: human authority, SOP selection, recovery evidence, and safe-closure boundary remain mandatory.
 
-## 13. Relationship To Phase 5
+## 13. Relationship To Phase 6
 
-Phase 5 provides AI customer center, Digital SOP, RAG, pgvector, and integrated support enhancement.
+Phase 6 provides AI customer center, Digital SOP, RAG, pgvector, and integrated support enhancement.
 
-Phase 7 uses Phase 5 Digital SOP and operational knowledge as the basis for AI/Physical AI integration.
+Phase 8 uses Phase 6 Digital SOP and operational knowledge as the basis for AI/Physical AI integration.
 
-However, Phase 5 AI customer center must **not** directly control physical devices. In Phase 7, AI customer center may recommend and guide—but physical control must pass through **Physical AI Gateway**.
+However, Phase 6 AI customer center must **not** directly control physical devices. In Phase 8, AI customer center may recommend and guide—but physical control must pass through **Physical AI Gateway**.
 
-## 14. Relationship To Phase 6
+## 14. Relationship To Phase 7
 
-Phase 6 is Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement.
+Phase 7 is Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement.
 
-Phase 7 AI/Physical AI expansion is safe only on Phase 6 SaaS operating foundation.
+Phase 8 AI/Physical AI expansion is safe only on Phase 7 SaaS operating foundation.
 
-**Phase 6 must provide:** tenant isolation, SaaS admin console, billing/subscription, AI customer center linkage, audit/evidence, release governance, provider support policy, onboarding/support system.
+**Phase 7 must provide:** tenant isolation, SaaS admin console, billing/subscription, AI customer center linkage, audit/evidence, release governance, provider support policy, onboarding/support system.
 
-Phase 7 uses this SaaS foundation to prepare AI integration.
+Phase 8 uses this SaaS foundation to prepare AI integration.
 
 ## 15. Non-Scope
 
-Phase 7 is **not**:
+Phase 8 is **not**:
 
-- first implementation of Phase 4 Franchise_OS core
-- first implementation of Phase 5 AI customer center core
-- first implementation of Phase 6 Franchise_OS SaaS conversion
+- first implementation of Phase 5 Franchise_OS core
+- first implementation of Phase 6 AI customer center core
+- first implementation of Phase 7 Franchise_OS SaaS conversion
 - robot control without human approval
 - device control without human approval
 - gas/electricity control without human approval
@@ -276,18 +276,18 @@ Phase 7 is **not**:
 | Treating kitchen equipment control lightly | Fire/safety incident |
 | Actuation without evidence | No audit or recovery |
 | AI auto-decides safe closure during failure | Unsafe or wrong closure |
-| Bypassing Phase 4 no-outage principles | Operational chaos |
-| Phase 5 customer center as physical controller | Authority violation |
-| Phase 6 tenant isolation missing; cross-store AI reference | Data leakage |
+| Bypassing Phase 5 no-outage principles | Operational chaos |
+| Phase 6 customer center as physical controller | Authority violation |
+| Phase 7 tenant isolation missing; cross-store AI reference | Data leakage |
 
 ## 17. Required Design Outputs Before Implementation
 
-No Phase 7 implementation may begin without:
+No Phase 8 implementation may begin without:
 
 | Output | Requirement |
 | --- | --- |
 | `impact_scope` | Gateway, intake domains, actuation boundaries |
-| `context_snapshot` | Phase 4/5/6 dependencies, permission and tenant map |
+| `context_snapshot` | Phase 5/6/7 dependencies, permission and tenant map |
 | `overview` | AI readiness and Gateway purpose |
 | `logic` | Safety gate, override, proposal vs actuation, evidence |
 | `test_plan` | False sensor/voice/vision, missing override, unsafe actuation |
@@ -296,7 +296,7 @@ No Phase 7 implementation may begin without:
 
 ## 18. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - AI is **not** the final authority.
 - No physical device control without **Physical AI Gateway**.
@@ -305,17 +305,16 @@ No Phase 7 implementation may begin without:
 - Every actuation must leave **evidence**.
 - Sensor/voice/vision input must be treated as **uncertain**.
 - AI judgment must be **tenant-safe**.
-- Do **not** bypass Phase 4 no-outage operating principles.
-- Separate Phase 5 knowledge search from Phase 7 physical control.
-- Expand AI integration only on Phase 6 SaaS operating foundation.
+- Do **not** bypass Phase 5 no-outage operating principles.
+- Separate Phase 6 knowledge search from Phase 8 physical control.
+- Expand AI integration only on Phase 7 SaaS operating foundation.
 
 ## 19. Tool Roles
 
-| Actor | Role in Phase 7 |
+| Actor | Role in Phase 8 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 20. Relationship To Other Documents
@@ -323,18 +322,18 @@ No Phase 7 implementation may begin without:
 | Document / area | Relationship |
 | --- | --- |
 | `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Project-wide phase roadmap |
-| `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | No-outage runtime principles to preserve |
-| `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Digital SOP knowledge; not physical controller |
-| `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | SaaS foundation for safe AI expansion |
+| `000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md` | No-outage runtime principles to preserve |
+| `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Digital SOP knowledge; not physical controller |
+| `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | SaaS foundation for safe AI expansion |
 | `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 
 ## 21. Final Rule
 
-Phase 7 is AI readiness and Physical AI Gateway.
+Phase 8 is AI readiness and Physical AI Gateway.
 Before AI connects to store operations, sensors, robots, voice, vision, IoT, or device control, safety gate, authority boundary, human override, and actuation evidence must be in place.
 AI is not the final authority.
 Physical control must pass through Physical AI Gateway and must not execute without human approval and safety conditions.
-Phase 7 prepares AI integration on top of Phase 4 no-outage operating principles, Phase 5 Digital SOP knowledge foundation, and Phase 6 SaaS operating foundation.
+Phase 8 prepares AI integration on top of Phase 5 no-outage operating principles, Phase 6 Digital SOP knowledge foundation, and Phase 7 SaaS operating foundation.
 No implementation may start without scope, context, logic, test plan, change contract, and human approval.

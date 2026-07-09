@@ -15,13 +15,13 @@ set is_current = false
 where is_current = true;
 
 insert into catchmenu_common.schema_versions (
-  version_code, version_name,
-  migration_range, is_current,
-  validation_result, deployed_at
+  version_code, migration_count,
+  description, is_current,
+  validation_result
 ) values (
   'v0118',
-  'Catch Menu Full System v1.0',
-  '0001-0118',
+  118,
+  'Catch Menu Full System v1.0 (0001-0118)',
   true,
   jsonb_build_object(
     'validated_at', now(),
@@ -94,9 +94,13 @@ insert into catchmenu_common.schema_versions (
       'CMS event/banner/popup',
       'Membership 4 modes'
     )
-  ),
-  now()
-);
+  )
+)
+on conflict (version_code) do update set
+  migration_count = excluded.migration_count,
+  description = excluded.description,
+  is_current = excluded.is_current,
+  validation_result = excluded.validation_result;
 
 
 -- =============================================
@@ -106,34 +110,12 @@ insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity
 ) values
-(7060, 'did_device_not_found',
-  'STORE', 'NOT_FOUND', 404, 'WARNING'),
-(7061, 'coupon_not_found',
-  'STORE', 'NOT_FOUND', 404, 'WARNING'),
 (7062, 'coupon_already_used',
   'STORE', 'CONFLICT', 409, 'INFO'),
-(7063, 'coupon_expired',
-  'STORE', 'BUSINESS_RULE', 410, 'INFO'),
-(7064, 'order_not_found',
-  'ORDER', 'NOT_FOUND', 404, 'WARNING'),
-(7065, 'menu_not_found',
-  'ORDER', 'NOT_FOUND', 404, 'WARNING'),
-(7066, 'menu_sold_out',
-  'ORDER', 'BUSINESS_RULE', 409, 'INFO'),
-(7067, 'store_not_found',
-  'STORE', 'NOT_FOUND', 404, 'WARNING'),
-(7068, 'customer_not_found',
-  'STORE', 'NOT_FOUND', 404, 'WARNING'),
-(7069, 'wait_queue_full',
-  'ORDER', 'CAPACITY', 503, 'WARNING'),
-(7070, 'order_amount_below_minimum',
-  'ORDER', 'VALIDATION', 400, 'WARNING'),
 (7071, 'order_confirmed',
-  'ORDER', 'INFO', 200, 'INFO'),
+  'ORDER', 'RECOVERABLE', 200, 'INFO'),
 (7072, 'order_ready',
-  'ORDER', 'INFO', 200, 'INFO'),
-(7073, 'invalid_input',
-  'SYSTEM', 'VALIDATION', 400, 'WARNING')
+  'ORDER', 'RECOVERABLE', 200, 'INFO')
 on conflict (code) do nothing;
 
 
@@ -143,7 +125,7 @@ on conflict (code) do nothing;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'KIOSK_SESSION_EXPIRE',
@@ -287,10 +269,10 @@ on conflict (message_key, locale) do nothing;
 -- SOP 런북 보완 (대기/키오스크/DID)
 -- =============================================
 insert into catchmenu_common.sop_runbooks (
-  runbook_code, runbook_title,
-  target_domain, trigger_condition,
-  steps, escalation_path,
-  estimated_resolution_minutes,
+  runbook_code, runbook_name,
+  runbook_domain, symptom_description,
+  recovery_steps, escalation_contact,
+  escalation_threshold_minutes,
   is_active
 ) values
 (
@@ -307,10 +289,7 @@ insert into catchmenu_common.sop_runbooks (
     '5. 복구 후 수기 대기 데이터 입력',
     '6. register_waiting(source=STAFF)로 복구'
   ),
-  jsonb_build_array(
-    '15분 내 미해결 → 매장 관리자 연락',
-    '30분 내 미해결 → HQ 에스컬레이션'
-  ),
+  '15분 내 미해결 → 매장 관리자 연락 / 30분 내 미해결 → HQ 에스컬레이션',
   15, true
 ),
 (
@@ -327,10 +306,7 @@ insert into catchmenu_common.sop_runbooks (
     '5. 직원이 직접 주문 받기로 전환',
     '6. 복구 후 kiosk_configs 재설정'
   ),
-  jsonb_build_array(
-    '10분 내 미해결 → 직원 수동 주문 운영',
-    '1시간 내 미해결 → 기술 지원 연락'
-  ),
+  '10분 내 미해결 → 직원 수동 주문 운영 / 1시간 내 미해결 → 기술 지원 연락',
   10, true
 ),
 (
@@ -347,10 +323,7 @@ insert into catchmenu_common.sop_runbooks (
     '5. did_devices.last_seen_at 확인',
     '6. 복구 후 did_display_queue 초기화'
   ),
-  jsonb_build_array(
-    '즉시 음성 호출로 전환',
-    '30분 내 미해결 → 기술 지원 연락'
-  ),
+  '즉시 음성 호출로 전환 / 30분 내 미해결 → 기술 지원 연락',
   5, true
 )
 on conflict (runbook_code) do nothing;

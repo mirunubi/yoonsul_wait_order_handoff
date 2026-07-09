@@ -39,12 +39,52 @@ insert into catchmenu_common.schema_versions (
   || 'AI고객센터/Digital SOP/Franchise_OS/'
   || '멀티테넌트격리/i18n/SOP런북 포함.',
   true
-);
+)
+on conflict (version_code) do update set
+  migration_count = excluded.migration_count,
+  description = excluded.description,
+  is_current = excluded.is_current;
 
 
 -- =============================================
 -- 전체 스키마 검증
 -- =============================================
+
+-- add_check was originally (incorrectly) written as a nested procedure
+-- inside this section's `do $$ ... $$` block's DECLARE section -- same
+-- invalid pattern as 0073's assert_true and others found this session.
+-- Fixed the same way: a real standalone function, logging to a temp
+-- table since a standalone routine can't mutate the DO block's local
+-- variables directly. All 13 `perform add_schema_validation_check(...)` sites below were
+-- mechanically changed to `perform add_schema_validation_check(...)` --
+-- no argument list touched.
+create temp table if not exists schema_validation_checks (
+  ordinal bigint generated always as identity,
+  check_name text,
+  status text,
+  value text
+);
+
+create or replace function catchmenu_common.add_schema_validation_check(
+  p_check text,
+  p_status text,
+  p_value text default null
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.schema_validation_checks (check_name, status, value)
+    values (p_check, p_status, p_value);
+end;
+$$;
+
+-- an anonymous DO block can't carry its own SET search_path the way a
+-- named function can, and all 13 `perform add_schema_validation_check(
+-- ...)` sites below are unqualified, so the session search_path is set
+-- explicitly here, for the remainder of this script.
+set search_path = catchmenu_common, public;
+
 do $$
 declare
   -- 스키마 현황
@@ -137,7 +177,12 @@ declare
     'catchmenu_integrations.delivery_platform_rules',
     -- catchmenu_knowledge
     'catchmenu_knowledge.documents',
-    'catchmenu_knowledge.document_embeddings',
+    -- document_embeddings was split into per-dimension tables during
+    -- the 0069 pgvector redesign (0089's own single-table duplicate of
+    -- this was deferred and dropped -- see 0089's header) -- checking
+    -- the 1536 table (the seeded default model's storage) as the
+    -- representative required table for this validation.
+    'catchmenu_knowledge.document_embeddings_1536',
     'catchmenu_knowledge.ai_query_logs',
     'catchmenu_knowledge.customer_inquiries',
     'catchmenu_knowledge.inquiry_categories',
@@ -188,7 +233,9 @@ declare
     'catchmenu_hq.distribute_menu_to_stores',
     'catchmenu_hq.run_compliance_check',
     -- knowledge
-    'catchmenu_knowledge.search_knowledge',
+    -- search_knowledge (0089, deferred) -> search_knowledge_vector is
+    -- the real, applied 0069 function this validation should check for.
+    'catchmenu_knowledge.search_knowledge_vector',
     'catchmenu_knowledge.verify_answer_grounding',
     'catchmenu_knowledge.publish_sop_document',
     'catchmenu_knowledge.submit_customer_inquiry',
@@ -214,37 +261,14 @@ declare
   v_tbl text;
   v_func text;
   v_exists boolean;
-
-  procedure add_check(
-    p_check text,
-    p_status text,
-    p_value text default null
-  ) as
-  $inner$
-  begin
-    v_checks := v_checks || jsonb_build_array(
-      jsonb_build_object(
-        'check', p_check,
-        'status', p_status,
-        'value', p_value
-      )
-    );
-    case p_status
-      when 'PASS' then v_passed := v_passed + 1;
-      when 'FAIL' then v_failed := v_failed + 1;
-      when 'WARN' then v_warnings := v_warnings + 1;
-      else null;
-    end case;
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.schema_validation_checks;
   -- 스키마 수 확인
   select count(*) into v_schema_count
   from information_schema.schemata
   where schema_name like 'catchmenu_%';
 
-  call add_check(
+  perform add_schema_validation_check(
     '스키마 수 (9개 이상)',
     case when v_schema_count >= 9
       then 'PASS' else 'FAIL' end,
@@ -257,7 +281,7 @@ begin
   where table_schema like 'catchmenu_%'
     and table_type = 'BASE TABLE';
 
-  call add_check(
+  perform add_schema_validation_check(
     '테이블 수 (80개 이상)',
     case when v_table_count >= 80
       then 'PASS' else 'WARN' end,
@@ -270,7 +294,7 @@ begin
   join pg_namespace n on n.oid = p.pronamespace
   where n.nspname like 'catchmenu_%';
 
-  call add_check(
+  perform add_schema_validation_check(
     '함수 수 (150개 이상)',
     case when v_function_count >= 150
       then 'PASS' else 'WARN' end,
@@ -287,7 +311,7 @@ begin
   where n.nspname like 'catchmenu_%'
     and c.relkind = 'r';
 
-  call add_check(
+  perform add_schema_validation_check(
     'RLS 비활성화 테이블 0개',
     case when v_rls_disabled_count = 0
       then 'PASS' else 'FAIL' end,
@@ -312,7 +336,7 @@ begin
     end if;
   end loop;
 
-  call add_check(
+  perform add_schema_validation_check(
     '필수 테이블 존재 ('
       || array_length(v_required_tables, 1)
       || '개)',
@@ -352,7 +376,7 @@ begin
     end if;
   end loop;
 
-  call add_check(
+  perform add_schema_validation_check(
     '필수 함수 존재 ('
       || array_length(v_required_functions, 1)
       || '개)',
@@ -379,7 +403,7 @@ begin
   select count(*) into v_message_count
   from catchmenu_common.message_catalog;
 
-  call add_check(
+  perform add_schema_validation_check(
     '메시지 카탈로그 (200개 이상)',
     case when v_message_count >= 200
       then 'PASS' else 'WARN' end,
@@ -390,7 +414,7 @@ begin
   select count(*) into v_error_code_count
   from catchmenu_common.error_codes;
 
-  call add_check(
+  perform add_schema_validation_check(
     '에러 코드 (60개 이상)',
     case when v_error_code_count >= 60
       then 'PASS' else 'WARN' end,
@@ -402,7 +426,7 @@ begin
   from catchmenu_common.sop_runbooks
   where is_active = true;
 
-  call add_check(
+  perform add_schema_validation_check(
     'SOP 런북 (10개 이상)',
     case when v_runbook_count >= 10
       then 'PASS' else 'WARN' end,
@@ -412,9 +436,9 @@ begin
   -- pg_cron 스케줄 확인
   select count(*) into v_pgcron_count
   from catchmenu_common.pg_cron_jobs
-  where is_active = true;
+  where is_registered = true;
 
-  call add_check(
+  perform add_schema_validation_check(
     'pg_cron 스케줄 (15개 이상)',
     case when v_pgcron_count >= 15
       then 'PASS' else 'WARN' end,
@@ -423,10 +447,9 @@ begin
 
   -- Flutter 패턴 확인
   select count(*) into v_flutter_pattern_count
-  from catchmenu_common.flutter_sdk_patterns
-  where is_active = true;
+  from catchmenu_common.flutter_sdk_patterns;
 
-  call add_check(
+  perform add_schema_validation_check(
     'Flutter SDK 패턴 (10개 이상)',
     case when v_flutter_pattern_count >= 10
       then 'PASS' else 'WARN' end,
@@ -434,20 +457,24 @@ begin
   );
 
   -- pgvector 인덱스 확인
-  call add_check(
-    'pgvector HNSW 인덱스',
+  -- idx_embeddings_vector (0089, deferred, hnsw) -> the real, applied
+  -- 0069 index is idx_doc_embeddings_1536_vector (ivfflat; 3072/4096
+  -- have no ANN index at all -- pgvector's 2000-dim index limit, see
+  -- 0069's own comments).
+  perform add_schema_validation_check(
+    'pgvector ivfflat 인덱스',
     case when exists (
       select 1
       from pg_indexes
       where indexname
-        = 'idx_embeddings_vector'
+        = 'idx_doc_embeddings_1536_vector'
     ) then 'PASS' else 'WARN' end,
-    'idx_embeddings_vector'
+    'idx_doc_embeddings_1536_vector'
   );
 
   -- i18n 원칙 준수 확인
   -- (vi, th 로케일 메시지 존재 여부)
-  call add_check(
+  perform add_schema_validation_check(
     'i18n vi/th 로케일 메시지',
     case when exists (
       select 1
@@ -460,6 +487,24 @@ begin
     ) then 'PASS' else 'WARN' end,
     'vi+th 로케일 확인'
   );
+
+  -- populate v_checks/v_passed/v_failed/v_warnings from the temp table
+  -- now that all add_schema_validation_check() calls above have logged
+  -- into it
+  select
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'check', check_name,
+        'status', status,
+        'value', value
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    count(*) filter (where status = 'PASS'),
+    count(*) filter (where status = 'FAIL'),
+    count(*) filter (where status = 'WARN')
+  into v_checks, v_passed, v_failed, v_warnings
+  from pg_temp.schema_validation_checks;
 
   -- 결과 업데이트
   update catchmenu_common.schema_versions
@@ -494,6 +539,7 @@ begin
   perform catchmenu_common.log_diagnostic(
     p_tenant_id :=
       '00000000-0000-0000-0000-000000000001'::uuid,
+    p_store_id := null,
     p_log_level := case
       when v_failed > 0 then 'ERROR'
       when v_warnings > 0 then 'WARNING'

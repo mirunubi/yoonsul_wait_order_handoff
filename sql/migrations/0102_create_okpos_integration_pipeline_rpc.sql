@@ -66,7 +66,7 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (9010, 'okpos_connection_failed',
   'INTEGRATION', 'TECHNICAL', 503, 'ERROR',
@@ -1336,7 +1336,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'OKPOS_HEARTBEAT',

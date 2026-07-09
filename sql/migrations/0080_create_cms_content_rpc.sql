@@ -620,7 +620,7 @@ begin
     p_tenant_id, p_store_id,
     'store', 'cms_content_published', 1,
     'cms_content', v_content_id,
-    case v_is_new then null else 'PUBLISHED' end,
+    case when v_is_new then null else 'PUBLISHED' end,
     'PUBLISHED',
     'STAFF', p_actor_id,
     jsonb_build_object(

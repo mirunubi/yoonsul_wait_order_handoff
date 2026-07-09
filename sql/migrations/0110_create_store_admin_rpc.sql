@@ -88,11 +88,11 @@ insert into catchmenu_common.error_codes (
 (7041, 'staff_phone_duplicate',
   'STORE', 'CONFLICT', 409, 'WARNING'),
 (7042, 'invalid_business_hours',
-  'STORE', 'VALIDATION', 400, 'WARNING'),
+  'STORE', 'INVALID_INPUT', 400, 'WARNING'),
 (7043, 'pos_config_duplicate',
   'STORE', 'CONFLICT', 409, 'WARNING'),
 (7044, 'owner_permission_required',
-  'STORE', 'AUTHORIZATION', 403, 'WARNING')
+  'STORE', 'PERMISSION', 403, 'WARNING')
 on conflict (code) do nothing;
 
 
@@ -214,7 +214,7 @@ create table if not exists
 create index if not exists idx_store_holidays
   on catchmenu_store.store_holidays(
     store_id, holiday_date
-  ) where holiday_date >= current_date;
+  );
 
 alter table catchmenu_store.store_holidays
   enable row level security;
@@ -833,8 +833,8 @@ begin
           when 'OWNER' then
             '["ALL"]'::jsonb
           else
-            '["VIEW_ORDERS","PLACE_ORDER",'
-            || '"VIEW_KDS","UPDATE_KDS"]'::jsonb
+            ('["VIEW_ORDERS","PLACE_ORDER",'
+            || '"VIEW_KDS","UPDATE_KDS"]')::jsonb
         end
       ),
       'ACTIVE'

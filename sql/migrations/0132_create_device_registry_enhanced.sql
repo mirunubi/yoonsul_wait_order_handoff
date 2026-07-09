@@ -558,11 +558,8 @@ begin
     store_mode = 'NORMAL',
     waiting_enabled = true,
     pre_order_enabled = true,
-    max_waiting_count = 30,
+    max_wait_number = 30,
     kds_capacity_threshold_total = 30,
-    min_order_amount = 0,
-    receipt_print_enabled = true,
-    cash_receipt_auto = true,
     did_refresh_interval_seconds = 5,
     updated_at = now()
   where store_id = v_store_id
@@ -623,17 +620,15 @@ begin
   -- 지식 문서: 설치 가이드
   insert into catchmenu_knowledge.documents (
     tenant_id, store_id,
-    document_code, document_title,
+    document_code, title,
     document_type, domain,
-    content_ko, content_en,
-    version_number, document_status,
-    is_tenant_approved,
-    approved_at, effective_from
+    content, content_locale,
+    document_status, approved_at, published_at
   ) values (
     v_tenant_id, null,
-    'INSTALL_GUIDE_001',
+    'INSTALL_GUIDE_001_KO',
     '1호점 설치 및 초기 설정 가이드',
-    'GUIDE', 'OPERATION',
+    'GUIDE', 'operation',
     $ko$
 # 1호점 설치 및 초기 설정 가이드
 
@@ -701,16 +696,24 @@ P1 필수:
   수동 VAN 단말기 결제 병행 운영 가능
   RECORD_MANUAL_PAYMENT 오프라인 큐 활용
 $ko$,
+    'ko',
+    'PUBLISHED', now(), current_date
+  ),
+  (
+    v_tenant_id, null,
+    'INSTALL_GUIDE_001_EN',
+    '1호점 설치 및 초기 설정 가이드',
+    'GUIDE', 'operation',
     $en$
 # First Store Installation Guide
 See Korean version for full guide.
 $en$,
-    1, 'PUBLISHED', true, now(), current_date
+    'en',
+    'PUBLISHED', now(), current_date
   )
   on conflict (tenant_id, document_code)
   do update set
-    content_ko = excluded.content_ko,
-    updated_at = now();
+    content = excluded.content;
 
 end;
 $$;
@@ -742,7 +745,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'DEVICE_CMD_EXPIRE',

@@ -1,4 +1,19 @@
 -- 0081_create_customer_app_rpc.sql
+--
+-- DEFERRED: customer_id/customer_token relationship undesigned as of
+-- 2026-07-09 -- see 604000 SQL verification log. Do not re-enable until
+-- order_sessions <-> customers linkage is explicitly designed (new
+-- forward migration required).
+--
+-- catchmenu_pos.order_sessions (already applied, 0012) has no
+-- customer_id column -- only an unused customer_token text field with
+-- no established relationship to catchmenu_store.customers anywhere in
+-- the codebase. The customer_order_history view and every function
+-- below that depended on it (or on writing customer_id into
+-- order_sessions) have had that specific dependency commented out, not
+-- deleted. customer_app_sessions.customer_id (this file's own new
+-- table) is unaffected -- it has a real, valid FK to customers(id).
+--
 -- Purpose: Customer app session and takeout order flow RPCs.
 --          Customer app bootstrap, takeout order placement,
 --          order tracking, loyalty integration.
@@ -114,67 +129,70 @@ comment on table
    특허1: 고객 세션 = Handoff 시작점.';
 
 
--- =============================================
--- customer_order_history view
--- 고객 주문 이력 (앱 표시용)
--- =============================================
-create or replace view
-  catchmenu_store.customer_order_history as
-select
-  o.id as order_id,
-  o.tenant_id,
-  o.store_id,
-  s.store_name,
-  o.order_number,
-  o.order_type,
-  o.order_status,
-  o.final_amount,
-  o.ordered_at,
-  o.completed_at,
-  o.cancelled_at,
-  os.id as session_id,
-  c.id as customer_id,
-  c.phone_hash,
-  -- 주문 항목 요약
-  (
-    select coalesce(
-      jsonb_agg(
-        jsonb_build_object(
-          'menu_name', oi.menu_name_snapshot,
-          'quantity', oi.quantity,
-          'unit_price', oi.unit_price
-        )
-        order by oi.display_order
-      ),
-      '[]'::jsonb
-    )
-    from catchmenu_pos.order_items oi
-    where oi.order_id = o.id
-  ) as items,
-  -- 포인트 정산
-  (
-    select coalesce(sum(point_amount), 0)
-    from catchmenu_store.point_ledger pl
-    where pl.order_id = o.id
-      and pl.point_type = 'EARN'
-  ) as earned_points
-from catchmenu_pos.orders o
-join catchmenu_pos.order_sessions os
-  on os.id = o.session_id
-join catchmenu_hq.stores s
-  on s.id = o.store_id
-left join catchmenu_store.customers c
-  on c.id = os.customer_id
-where o.order_type in (
-  'TAKEOUT', 'DELIVERY', 'ONLINE'
-);
-
-comment on view
-  catchmenu_store.customer_order_history is
-  '고객 앱 주문 이력 뷰.
-   포장/배달/온라인 주문만 포함.
-   earned_points: 주문당 적립 포인트.
-   1-B차 고객 멤버십 앱 주문 이력 화면.';
+-- DEFERRED (see file header): customer_order_history view depends on
+-- the undesigned order_sessions.customer_id relationship. Original SQL
+-- preserved below, commented out.
+-- -- =============================================
+-- -- customer_order_history view
+-- -- 고객 주문 이력 (앱 표시용)
+-- -- =============================================
+-- create or replace view
+--   catchmenu_store.customer_order_history as
+-- select
+--   o.id as order_id,
+--   o.tenant_id,
+--   o.store_id,
+--   s.store_name,
+--   o.order_number,
+--   o.order_type,
+--   o.order_status,
+--   o.final_amount,
+--   o.ordered_at,
+--   o.completed_at,
+--   o.cancelled_at,
+--   os.id as session_id,
+--   c.id as customer_id,
+--   c.phone_hash,
+--   -- 주문 항목 요약
+--   (
+--     select coalesce(
+--       jsonb_agg(
+--         jsonb_build_object(
+--           'menu_name', oi.menu_name_snapshot,
+--           'quantity', oi.quantity,
+--           'unit_price', oi.unit_price
+--         )
+--         order by oi.display_order
+--       ),
+--       '[]'::jsonb
+--     )
+--     from catchmenu_pos.order_items oi
+--     where oi.order_id = o.id
+--   ) as items,
+--   -- 포인트 정산
+--   (
+--     select coalesce(sum(point_amount), 0)
+--     from catchmenu_store.point_ledger pl
+--     where pl.order_id = o.id
+--       and pl.point_type = 'EARN'
+--   ) as earned_points
+-- from catchmenu_pos.orders o
+-- join catchmenu_pos.order_sessions os
+--   on os.id = o.session_id
+-- join catchmenu_hq.stores s
+--   on s.id = o.store_id
+-- left join catchmenu_store.customers c
+--   on c.id = os.customer_id
+-- where o.order_type in (
+--   'TAKEOUT', 'DELIVERY', 'ONLINE'
+-- );
+--
+-- comment on view
+--   catchmenu_store.customer_order_history is
+--   '고객 앱 주문 이력 뷰.
+--    포장/배달/온라인 주문만 포함.
+--    earned_points: 주문당 적립 포인트.
+--    1-B차 고객 멤버십 앱 주문 이력 화면.';
 
 
 -- =============================================
@@ -284,28 +302,32 @@ begin
           or ci.expires_at >= now()
         );
 
-      -- 최근 주문 3개
-      select coalesce(
-        jsonb_agg(
-          jsonb_build_object(
-            'order_id', order_id,
-            'order_number', order_number,
-            'order_status', order_status,
-            'final_amount', final_amount,
-            'ordered_at', ordered_at,
-            'store_name', store_name,
-            'item_count',
-              jsonb_array_length(items)
-          )
-          order by ordered_at desc
-        ),
-        '[]'::jsonb
-      )
-      into v_recent_orders
-      from catchmenu_store.customer_order_history
-      where customer_id = v_customer.id
-        and tenant_id = p_tenant_id
-      limit 3;
+      -- DEFERRED (see file header): customer_order_history depends on
+      -- the undesigned order_sessions.customer_id relationship.
+      -- Original query preserved below, commented out.
+      -- -- 최근 주문 3개
+      -- select coalesce(
+      --   jsonb_agg(
+      --     jsonb_build_object(
+      --       'order_id', order_id,
+      --       'order_number', order_number,
+      --       'order_status', order_status,
+      --       'final_amount', final_amount,
+      --       'ordered_at', ordered_at,
+      --       'store_name', store_name,
+      --       'item_count',
+      --         jsonb_array_length(items)
+      --     )
+      --     order by ordered_at desc
+      --   ),
+      --   '[]'::jsonb
+      -- )
+      -- into v_recent_orders
+      -- from catchmenu_store.customer_order_history
+      -- where customer_id = v_customer.id
+      --   and tenant_id = p_tenant_id
+      -- limit 3;
+      v_recent_orders := '[]'::jsonb;
     end if;
   end if;
 
@@ -473,9 +495,9 @@ create or replace function
   catchmenu_store.place_takeout_order(
   p_tenant_id uuid,
   p_store_id uuid,
+  p_items jsonb,
   p_customer_id uuid default null,
   p_phone_hash text default null,
-  p_items jsonb,
   p_locale text default 'ko',
   p_request_memo text default null,
   p_coupon_issue_id uuid default null,
@@ -732,17 +754,23 @@ begin
     || lpad(v_order_seq::text, 3, '0');
 
   -- 세션 생성
+  -- DEFERRED (see file header): order_sessions has no customer_id
+  -- column (only unused customer_token, no designed relationship to
+  -- catchmenu_store.customers). customer_id removed from this INSERT's
+  -- column/value list below -- original values were:
+  --   customer_id, guest_count, guest_locale
+  --   v_customer.id, 1, p_locale
   insert into catchmenu_pos.order_sessions (
     tenant_id, store_id,
     session_type, session_status,
-    customer_id, guest_count, guest_locale,
+    guest_count, guest_locale,
     session_started_at,
     correlation_id,
     business_day, business_timezone
   ) values (
     p_tenant_id, p_store_id,
     'ONLINE', 'ORDER_CONFIRMED',
-    v_customer.id, 1, p_locale,
+    1, p_locale,
     now(),
     p_correlation_id,
     v_business_day, v_timezone
@@ -750,9 +778,12 @@ begin
   returning id into v_session_id;
 
   -- 주문 생성
+  -- DEFERRED (see file header): catchmenu_pos.orders has no
+  -- customer_id column either (same undesigned relationship).
+  -- customer_id removed from this INSERT's column/value list below --
+  -- original values were: customer_id / v_customer.id
   insert into catchmenu_pos.orders (
     tenant_id, store_id, session_id,
-    customer_id,
     order_number, order_type, order_status,
     total_amount, discount_amount,
     final_amount,
@@ -762,7 +793,6 @@ begin
     business_day, business_timezone
   ) values (
     p_tenant_id, p_store_id, v_session_id,
-    v_customer.id,
     v_order_number, 'TAKEOUT', 'CONFIRMED',
     v_total_amount, v_discount_amount,
     v_final_amount,
@@ -1194,65 +1224,73 @@ begin
       or ci.expires_at >= now()
     );
 
-  -- 진행 중 주문
-  select coalesce(
-    jsonb_agg(
-      jsonb_build_object(
-        'order_id', order_id,
-        'order_number', order_number,
-        'order_status', order_status,
-        'order_type', order_type,
-        'final_amount', final_amount,
-        'ordered_at', ordered_at,
-        'store_name', store_name
-      )
-      order by ordered_at desc
-    ),
-    '[]'::jsonb
-  )
-  into v_active_orders
-  from catchmenu_store.customer_order_history
-  where customer_id = p_customer_id
-    and tenant_id = p_tenant_id
-    and order_status not in (
-      'COMPLETED', 'CANCELLED',
-      'PICKED_UP'
-    )
-    and (
-      p_store_id is null
-      or store_id = p_store_id
-    );
+-- DEFERRED (see file header): customer_order_history depends on
+-- the undesigned order_sessions.customer_id relationship.
+-- Original query preserved below, commented out.
+--   -- 진행 중 주문
+--   select coalesce(
+--     jsonb_agg(
+--       jsonb_build_object(
+--         'order_id', order_id,
+--         'order_number', order_number,
+--         'order_status', order_status,
+--         'order_type', order_type,
+--         'final_amount', final_amount,
+--         'ordered_at', ordered_at,
+--         'store_name', store_name
+--       )
+--       order by ordered_at desc
+--     ),
+--     '[]'::jsonb
+--   )
+--   into v_active_orders
+--   from catchmenu_store.customer_order_history
+--   where customer_id = p_customer_id
+--     and tenant_id = p_tenant_id
+--     and order_status not in (
+--       'COMPLETED', 'CANCELLED',
+--       'PICKED_UP'
+--     )
+--     and (
+--       p_store_id is null
+--       or store_id = p_store_id
+--     );
+  v_active_orders := '[]'::jsonb;
 
-  -- 최근 주문 5개
-  select coalesce(
-    jsonb_agg(
-      jsonb_build_object(
-        'order_id', order_id,
-        'order_number', order_number,
-        'order_status', order_status,
-        'final_amount', final_amount,
-        'ordered_at', ordered_at,
-        'store_name', store_name,
-        'item_count',
-          jsonb_array_length(items),
-        'earned_points', earned_points
-      )
-      order by ordered_at desc
-    ),
-    '[]'::jsonb
-  )
-  into v_recent_orders
-  from catchmenu_store.customer_order_history
-  where customer_id = p_customer_id
-    and tenant_id = p_tenant_id
-    and order_status in (
-      'COMPLETED', 'PICKED_UP'
-    )
-    and (
-      p_store_id is null
-      or store_id = p_store_id
-    )
-  limit 5;
+-- DEFERRED (see file header): customer_order_history depends on
+-- the undesigned order_sessions.customer_id relationship.
+-- Original query preserved below, commented out.
+--   -- 최근 주문 5개
+--   select coalesce(
+--     jsonb_agg(
+--       jsonb_build_object(
+--         'order_id', order_id,
+--         'order_number', order_number,
+--         'order_status', order_status,
+--         'final_amount', final_amount,
+--         'ordered_at', ordered_at,
+--         'store_name', store_name,
+--         'item_count',
+--           jsonb_array_length(items),
+--         'earned_points', earned_points
+--       )
+--       order by ordered_at desc
+--     ),
+--     '[]'::jsonb
+--   )
+--   into v_recent_orders
+--   from catchmenu_store.customer_order_history
+--   where customer_id = p_customer_id
+--     and tenant_id = p_tenant_id
+--     and order_status in (
+--       'COMPLETED', 'PICKED_UP'
+--     )
+--     and (
+--       p_store_id is null
+--       or store_id = p_store_id
+--     )
+--   limit 5;
+  v_recent_orders := '[]'::jsonb;
 
   -- 사용 가능한 프로모션
   if p_store_id is not null then
@@ -1386,12 +1424,12 @@ begin
 
   revoke all on function
     catchmenu_store.place_takeout_order(
-      uuid, uuid, uuid, text, jsonb, text,
+      uuid, uuid, jsonb, uuid, text, text,
       text, uuid, int, timestamptz, text
     ) from public;
   grant execute on function
     catchmenu_store.place_takeout_order(
-      uuid, uuid, uuid, text, jsonb, text,
+      uuid, uuid, jsonb, uuid, text, text,
       text, uuid, int, timestamptz, text
     ) to authenticated;
 
@@ -1442,7 +1480,7 @@ comment on function
 
 comment on function
   catchmenu_store.place_takeout_order(
-    uuid, uuid, uuid, text, jsonb, text,
+    uuid, uuid, jsonb, uuid, text, text,
     text, uuid, int, timestamptz, text
   ) is
   '포장 주문 접수.

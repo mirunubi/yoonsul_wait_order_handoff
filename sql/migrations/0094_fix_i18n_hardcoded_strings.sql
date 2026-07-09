@@ -878,6 +878,7 @@ begin
   perform catchmenu_common.log_diagnostic(
     p_tenant_id :=
       '00000000-0000-0000-0000-000000000001'::uuid,
+    p_store_id := null,
     p_log_level := 'INFO',
     p_log_domain := 'SYSTEM',
     p_log_event := 'i18n_fix_completed',

@@ -1,12 +1,12 @@
-# 000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md
+# 000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md
 
 ## 1. Purpose
 
-This document is the Phase 4 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to **Franchise_OS**.
+This document is the Phase 5 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to **Franchise_OS**.
 
-It teaches agents what Phase 4 Franchise_OS means, why it exists, and which runtime and governance layers are in scope—without authorizing implementation.
+It teaches agents what Phase 5 Franchise_OS means, why it exists, and which runtime and governance layers are in scope—without authorizing implementation.
 
-Phase 4 Franchise_OS must be understood as a **no-outage restaurant operations system**, not merely as a common franchise administration tool. This document helps agents classify scope, define human authority boundaries, and plan failure response, recovery, and evidence. It does **not** authorize runtime implementation, SQL changes, migrations, or production rollout.
+Phase 5 Franchise_OS must be understood as a **no-outage restaurant operations system**, not merely as a common franchise administration tool. This document helps agents classify scope, define human authority boundaries, and plan failure response, recovery, and evidence. It does **not** authorize runtime implementation, SQL changes, migrations, or production rollout.
 
 ## 2. Core Identity
 
@@ -39,16 +39,16 @@ Current roadmap context:
 | Phase 2 | `yoonsul_os` store operation foundation: staff, membership, partial inventory (**separate project**) |
 | Phase 3 | Kiosk / KDS / DID / CMS / POS integration |
 | Phase 1-C | Complete SaaS productization; absorbs common modules from Phase 2 and Phase 3; AI customer center, pgvector, RAG, Digital SOP, full multi-tenant isolation, market launch |
-| **Phase 4** | **Franchise_OS** |
-| Phase 5 | Franchise_OS AI customer center and integrated support enhancement |
-| Phase 6 | Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement |
-| Phase 7 | AI readiness and Physical AI Gateway preparation |
+| **Phase 5** | **Franchise_OS** |
+| Phase 6 | Franchise_OS AI customer center and integrated support enhancement |
+| Phase 7 | Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement |
+| Phase 8 | AI readiness and Physical AI Gateway preparation |
 
-Phase 4 builds on Phase 3 store equipment and POS integration. It prepares structured failure, recovery, and authority evidence for Phase 5 and Phase 6; it does not replace them.
+Phase 5 builds on Phase 3 store equipment and POS integration. It prepares structured failure, recovery, and authority evidence for Phase 6 and Phase 7; it does not replace them.
 
-## 4. Phase 4 Scope
+## 4. Phase 5 Scope
 
-Phase 4 **must include**:
+Phase 5 **must include**:
 
 - No-Outage Store Operations Agent + SOP Runtime
 - Human Authority Runtime
@@ -489,9 +489,9 @@ Phase 3 is the **Kiosk / KDS / DID / CMS / POS integration phase**.
 
 Phase 3 creates the store equipment, kitchen display, customer display, content management, POS integration, order/payment consistency, reliability, recovery, audit, and evidence foundation.
 
-Phase 4 Franchise_OS **uses** the Phase 3 integration foundation.
+Phase 5 Franchise_OS **uses** the Phase 3 integration foundation.
 
-However, Phase 4 is **not** just a continuation of Phase 3. Phase 4 adds the **no-outage store operations runtime** and **franchise-level governance**.
+However, Phase 5 is **not** just a continuation of Phase 3. Phase 5 adds the **no-outage store operations runtime** and **franchise-level governance**.
 
 ## 15. Relationship To Phase 1-C
 
@@ -499,17 +499,17 @@ Phase 1-C is **complete SaaS productization and market launch**.
 
 Phase 1-C absorbs common modules from Phase 2 and Phase 3, AI customer center, pgvector, RAG, Digital SOP, full multi-tenant isolation, and market launch.
 
-Phase 4 does **not** repeat Phase 1-C market launch.
+Phase 5 does **not** repeat Phase 1-C market launch.
 
-Phase 4 builds Franchise_OS after the Phase 1-C SaaS productization path is established.
+Phase 5 builds Franchise_OS after the Phase 1-C SaaS productization path is established.
 
-## 16. Relationship To Phase 5
+## 16. Relationship To Phase 6
 
-Phase 5 is **Franchise_OS AI customer center and integrated support enhancement**.
+Phase 6 is **Franchise_OS AI customer center and integrated support enhancement**.
 
-Phase 4 must produce structured events, SOP usage records, recovery records, failure categories, customer notice events, approval events, and audit/evidence records.
+Phase 5 must produce structured events, SOP usage records, recovery records, failure categories, customer notice events, approval events, and audit/evidence records.
 
-Phase 5 uses those records to improve:
+Phase 6 uses those records to improve:
 
 - headquarters Q&A
 - franchisee Q&A
@@ -522,15 +522,15 @@ Phase 5 uses those records to improve:
 - human approval for SOP updates
 - versioning and rollback
 
-## 17. Relationship To Phase 6
+## 17. Relationship To Phase 7
 
-Phase 6 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**.
+Phase 7 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**.
 
-Phase 4 builds Franchise_OS capability.
+Phase 5 builds Franchise_OS capability.
 
-Phase 6 turns Franchise_OS into a SaaS product and enhances the earlier Phase 1 SaaS path.
+Phase 7 turns Franchise_OS into a SaaS product and enhances the earlier Phase 1 SaaS path.
 
-Phase 6 **may include**:
+Phase 7 **may include**:
 
 - Franchise_OS SaaS productization
 - Phase 1 SaaS enhancement
@@ -543,17 +543,17 @@ Phase 6 **may include**:
 - SaaS-level audit and evidence
 - long-term operations model
 
-Phase 4 must prepare clean domain boundaries and evidence, but it must **not** claim Phase 6 SaaS maturity.
+Phase 5 must prepare clean domain boundaries and evidence, but it must **not** claim Phase 7 SaaS maturity.
 
-## 18. Relationship To Phase 7
+## 18. Relationship To Phase 8
 
-Phase 7 is **AI readiness and Physical AI Gateway preparation**.
+Phase 8 is **AI readiness and Physical AI Gateway preparation**.
 
-Phase 7 may connect AI, IoT, robot, vision, voice, sensor events, and device control.
+Phase 8 may connect AI, IoT, robot, vision, voice, sensor events, and device control.
 
-Phase 4 must **not** directly implement Physical AI control.
+Phase 5 must **not** directly implement Physical AI control.
 
-However, Phase 4 must preserve the principle that any future AI or physical device action must pass through:
+However, Phase 5 must preserve the principle that any future AI or physical device action must pass through:
 
 - safety gate
 - human override
@@ -563,14 +563,14 @@ However, Phase 4 must preserve the principle that any future AI or physical devi
 
 ## 19. Non-Scope
 
-Phase 4 is **not**:
+Phase 5 is **not**:
 
 - Phase 1 Catch Menu MVP
 - Phase 1-C SaaS market launch itself
 - Phase 3 Kiosk/KDS/DID/CMS/POS implementation itself
-- Phase 5 full AI customer center enhancement
-- Phase 6 Franchise_OS SaaS conversion
-- Phase 7 Physical AI device control
+- Phase 6 full AI customer center enhancement
+- Phase 7 Franchise_OS SaaS conversion
+- Phase 8 Physical AI device control
 - robot / IoT / sensor / vision direct control
 - fully autonomous store operation without human authority
 - automatic safe closure without human authority
@@ -585,7 +585,7 @@ Phase 4 is **not**:
 | Agent treated as final authority | Unsafe operation, legal/operational liability |
 | Human approval bypassed | Unauthorized continuation or closure |
 | SOP treated only as static documentation | Staff cannot transition to fallback modes |
-| Failure response does not produce recovery evidence | No post-incident review or Phase 5 input |
+| Failure response does not produce recovery evidence | No post-incident review or Phase 6 input |
 | Recovery does not reconcile orders, payments, display states | Hidden duplicates, lost orders |
 | System recommends continued operation when unsafe | Customer/staff safety risk |
 | Safe closure conditions too weak | Store continues in untrackable state |
@@ -594,12 +594,12 @@ Phase 4 is **not**:
 | Customer notice omitted | Trust loss, dispute |
 | Staff cannot understand fallback mode | Operational chaos |
 | Headquarters cannot review what happened | No franchise governance |
-| Phase 5 AI customer center cannot use logs (unstructured) | RAG/SOP evolution blocked |
-| Phase 6 SaaS conversion difficult (authority/tenant boundaries undefined) | Multi-tenant isolation failure |
+| Phase 6 AI customer center cannot use logs (unstructured) | RAG/SOP evolution blocked |
+| Phase 7 SaaS conversion difficult (authority/tenant boundaries undefined) | Multi-tenant isolation failure |
 
 ## 21. Required Design Outputs Before Implementation
 
-No Phase 4 implementation may begin without:
+No Phase 5 implementation may begin without:
 
 | Output | Requirement |
 | --- | --- |
@@ -613,7 +613,7 @@ No Phase 4 implementation may begin without:
 
 ## 22. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - Franchise_OS must be centered on **no-outage store operations**.
 - SCM and CRM must be designed as **supporting modules** for no-outage operations.
@@ -624,17 +624,16 @@ No Phase 4 implementation may begin without:
 - Runtime Federation is **mandatory**.
 - SOP selection is **mandatory**.
 - Manual recovery path is **mandatory**.
-- Future Phase 5 AI customer center must be able to use structured failure and recovery events.
-- Future Phase 6 SaaS conversion must be able to use authority, tenant, and audit boundaries.
-- Future Phase 7 Physical AI must not bypass human authority, safety gate, or evidence.
+- Future Phase 6 AI customer center must be able to use structured failure and recovery events.
+- Future Phase 7 SaaS conversion must be able to use authority, tenant, and audit boundaries.
+- Future Phase 8 Physical AI must not bypass human authority, safety gate, or evidence.
 
 ## 23. Tool Roles
 
-| Actor | Role in Phase 4 |
+| Actor | Role in Phase 5 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 24. Relationship To Other Documents
@@ -645,16 +644,16 @@ No Phase 4 implementation may begin without:
 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Phase 1 MVP foundation |
 | `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` | Separate Phase 2 project |
 | `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Phase 3 integration foundation Franchise_OS builds on |
-| `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Phase 5 AI customer center enhancement |
-| `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Phase 6 SaaS conversion |
-| `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Phase 7 Physical AI readiness |
+| `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Phase 6 AI customer center enhancement |
+| `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Phase 7 SaaS conversion |
+| `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Phase 8 Physical AI readiness |
 | `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 
 ## 25. Final Rule
 
-Phase 4 Franchise_OS is a no-outage restaurant operations system.
+Phase 5 Franchise_OS is a no-outage restaurant operations system.
 SCM, CRM, menu distribution, policy distribution, role management, approval workflow, audit, and evidence are required modules, but they are not the core differentiator.
 The core differentiator is the Agent + SOP Runtime that helps the store continue operating during partial failures, supports fallback or degraded operation when safe, records recovery evidence, and guides controlled safe closure when operation is unsafe.
 The Agent is not the final authority.

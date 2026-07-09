@@ -39,10 +39,6 @@ insert into catchmenu_common.error_codes (
 ) values
 (13001, 'knowledge_doc_not_found',
   'AI', 'NOT_FOUND', 404, 'WARNING'),
-(13002, 'ai_answer_not_grounded',
-  'AI', 'INTEGRITY', 200, 'WARNING'),
-(13003, 'inquiry_not_found',
-  'AI', 'NOT_FOUND', 404, 'WARNING'),
 (13004, 'sop_evolution_failed',
   'AI', 'TECHNICAL', 500, 'WARNING')
 on conflict (code) do nothing;
@@ -170,12 +166,23 @@ comment on table
 -- =============================================
 -- RPCs
 -- =============================================
+-- 0088's original submit_customer_inquiry used a different signature
+-- (p_inquiry_type/p_category_code/p_inquiry_body required params,
+-- different defaults). This file supersedes it with a more complete,
+-- dedicated implementation. p_inquiry_text is moved before
+-- p_customer_id since PL/pgSQL requires all params after the first
+-- default-bearing one to also have defaults.
+drop function if exists catchmenu_knowledge.submit_customer_inquiry(
+  uuid, uuid, text, text, text, text, uuid, uuid, text, text,
+  uuid, text, boolean, text
+);
+
 create or replace function
   catchmenu_knowledge.submit_customer_inquiry(
   p_tenant_id uuid,
   p_store_id uuid,
-  p_customer_id uuid default null,
   p_inquiry_text text,
+  p_customer_id uuid default null,
   p_inquiry_locale text default 'ko',
   p_inquiry_channel text default 'APP',
   p_order_id uuid default null,
@@ -287,7 +294,7 @@ begin
   then
     update catchmenu_knowledge.customer_inquiries
     set
-      ai_confidence := (
+      ai_confidence = (
         v_ai_answer->'data'
           ->'results'->0->>'similarity_score'
       )::numeric,
@@ -613,7 +620,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'RECURRING_INQUIRY_DETECT',
@@ -656,7 +663,7 @@ do $$
 begin
   grant execute on function
     catchmenu_knowledge.submit_customer_inquiry(
-      uuid, uuid, uuid, text, text,
+      uuid, uuid, text, uuid, text,
       text, uuid, uuid, text
     ) to authenticated;
 

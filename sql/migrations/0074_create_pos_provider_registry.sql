@@ -265,7 +265,7 @@ insert into catchmenu_integrations.pos_provider_registry (
   'CUSTOM', 'CUSTOM',
   false, false,
   'TIER_2', 'PLANNED',
-  false, false, false, false,
+  false, false, false, false, false, false,
   '1-B차에서 순차 추가 예정 (20여개).'
 ),
 -- =============================================
@@ -279,7 +279,7 @@ insert into catchmenu_integrations.pos_provider_registry (
   'CUSTOM', 'CUSTOM',
   false, false,
   'TIER_3', 'PLANNED',
-  false, false, false, false,
+  false, false, false, false, false, false,
   '6차 SaaS 완전판에서 전체 POS 업체 연동. '
   || 'SaaS 판매 = 1-B 완성 + AI 고객센터 동시 요건.'
 )
@@ -798,9 +798,9 @@ insert into catchmenu_common.tenant_plan_configs (
   '00000000-0000-0000-0000-000000000001',
   'STARTER', 'TRIAL',
   10000, 1,
-  '["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
+  ('["WAITING_QUEUE","KDS_BASIC","TAKEOUT_ORDER",'
   || '"MENU_MANAGEMENT","OKPOS_INTEGRATION",'
-  || '"TOSS_POS_INTEGRATION"]'::jsonb,
+  || '"TOSS_POS_INTEGRATION"]')::jsonb,
   'DIRECT_1ST_STORE'
 )
 on conflict (tenant_id) do nothing;

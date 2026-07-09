@@ -76,7 +76,7 @@ on conflict (code) do nothing;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 
 -- 세션 정리 (15분마다)
@@ -416,7 +416,7 @@ on conflict (job_code) do update set
   schedule_cron_kst = excluded.schedule_cron_kst,
   sql_command = excluded.sql_command,
   notes = excluded.notes,
-  is_active = excluded.is_active;
+  is_registered = excluded.is_registered;
 
 
 -- =============================================
@@ -1146,6 +1146,7 @@ begin
     -- 진단 로그
     perform catchmenu_common.log_diagnostic(
       p_tenant_id := p_tenant_id,
+      p_store_id := null,
       p_log_level := 'ERROR',
       p_log_domain := 'SYSTEM',
       p_log_event := 'pgcron_job_failed',

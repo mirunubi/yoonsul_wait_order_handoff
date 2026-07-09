@@ -59,7 +59,7 @@ insert into catchmenu_common.error_codes (
 (11001, 'franchise_brand_not_found',
   'FRANCHISE', 'NOT_FOUND', 404, 'WARNING'),
 (11002, 'franchise_admin_permission_required',
-  'FRANCHISE', 'AUTHORIZATION', 403, 'WARNING'),
+  'FRANCHISE', 'PERMISSION', 403, 'WARNING'),
 (11003, 'brand_cms_broadcast_partial',
   'FRANCHISE', 'TECHNICAL', 206, 'WARNING')
 on conflict (code) do nothing;

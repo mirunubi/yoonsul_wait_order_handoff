@@ -96,13 +96,13 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (3030, 'network_primary_down',
-  'SYSTEM', 'NETWORK', 503, 'ERROR',
+  'SYSTEM', 'TECHNICAL', 503, 'ERROR',
   'SOP-SYS-002'),
 (3031, 'network_all_down',
-  'SYSTEM', 'NETWORK', 503, 'CRITICAL',
+  'SYSTEM', 'TECHNICAL', 503, 'CRITICAL',
   'SOP-SYS-002'),
 (3032, 'offline_queue_overflow',
   'SYSTEM', 'CAPACITY', 507, 'WARNING', null),
@@ -999,7 +999,7 @@ begin
       update catchmenu_common.offline_queue
       set
         queue_status = 'COMPLETED',
-        server_result_id := case
+        server_result_id = case
           when v_result->>'order_id' is not null
           then (v_result->>'order_id')::uuid
           when v_result->>'ledger_id' is not null
@@ -1337,7 +1337,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'OFFLINE_QUEUE_EXPIRE',

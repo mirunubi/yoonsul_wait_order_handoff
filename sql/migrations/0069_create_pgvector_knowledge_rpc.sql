@@ -6,12 +6,31 @@
 --          Tenant/store/RLS/document-status filtering enforced.
 -- Depends on: 0068_create_realtime_edge_rpc.sql
 -- Creates:
---   catchmenu_knowledge.document_embeddings (table)
 --   catchmenu_knowledge.embedding_models (table)
+--   catchmenu_knowledge.document_embeddings_1536 (table)
+--   catchmenu_knowledge.document_embeddings_3072 (table)
+--   catchmenu_knowledge.document_embeddings_4096 (table)
 --   function catchmenu_knowledge.upsert_document_embedding(...)
 --   function catchmenu_knowledge.search_knowledge_vector(...)
 --   function catchmenu_knowledge.build_grounded_ai_context(...)
 --   function catchmenu_knowledge.verify_answer_grounding(...)
+--
+-- DESIGN NOTE (dimension generalization):
+--   pgvector's vector(N) is a fixed-size column type — a single
+--   document_embeddings table hardcoded to vector(1536) can only ever
+--   store 1536-dimension vectors, regardless of what embedding_models
+--   claims to support. Since different models produce genuinely
+--   different, non-comparable vector spaces anyway, this file uses one
+--   physical table PER embedding dimension currently in use by a seeded
+--   model (1536 = OpenAI text-embedding-3-small, 3072 = OpenAI
+--   text-embedding-3-large, 4096 = Upstage solar-embedding-1-large).
+--   RPCs dispatch to the correct table via IF/ELSIF on the caller's
+--   actual vector_dims(), not dynamic SQL — every branch is a plain,
+--   auditable, statically-known statement.
+--   Cross-dimension search (query a 3072 model's vector against 1536
+--   stored embeddings) is intentionally NOT supported — this is
+--   correct behavior, not a gap: embeddings from different models are
+--   not in the same vector space and are not comparable.
 
 -- =============================================
 -- Enable pgvector extension
@@ -61,12 +80,32 @@ create table if not exists
       'UPSTAGE', 'CLOVA', 'CUSTOM'
     )
   ),
+  -- 256/512/768/1024 are reserved for future/smaller models: no physical
+  -- document_embeddings_* table exists for them yet. 1536/3072/4096 are
+  -- backed by real storage tables below. upsert_document_embedding
+  -- returns a clear error if a model registers with an allowed-but-
+  -- unbacked dimension.
   constraint chk_dimensions check (
     embedding_dimensions in (
-      256, 512, 768, 1024, 1536, 3072
+      256, 512, 768, 1024, 1536, 3072, 4096
     )
   )
 );
+
+-- CREATE TABLE IF NOT EXISTS above is a no-op if embedding_models
+-- already exists from an earlier, partially-applied run of this same
+-- migration (e.g. an attempt that failed after creating the table but
+-- before the seed INSERT) — it would silently keep the table's
+-- original chk_dimensions definition. Explicitly drop and re-add it so
+-- this migration is self-healing regardless of prior partial state.
+alter table catchmenu_knowledge.embedding_models
+  drop constraint if exists chk_dimensions;
+alter table catchmenu_knowledge.embedding_models
+  add constraint chk_dimensions check (
+    embedding_dimensions in (
+      256, 512, 768, 1024, 1536, 3072, 4096
+    )
+  );
 
 drop trigger if exists trg_embedding_models_updated
   on catchmenu_knowledge.embedding_models;
@@ -111,17 +150,21 @@ on conflict (model_code) do nothing;
 comment on table catchmenu_knowledge.embedding_models is
   'Embedding model registry.
    supports_korean = true: 한국어 SOP/Policy 임베딩 권장.
-   Upstage Solar: 한국어 특화 임베딩.
-   OpenAI text-embedding-3-small: 기본값 (비용 효율).
-   RETRIEVAL 목적 전용 — 답변 생성은 별도 LLM.';
+   Upstage Solar: 한국어 특화 임베딩. embedding_dimensions = 4096.
+   OpenAI text-embedding-3-small: 기본값 (비용 효율). embedding_dimensions = 1536.
+   OpenAI text-embedding-3-large: embedding_dimensions = 3072.
+   RETRIEVAL 목적 전용 — 답변 생성은 별도 LLM.
+   Each embedding_dimensions value backed by a dedicated
+   document_embeddings_<dimension> table — see that table''s comment.';
 
 
 -- =============================================
--- document_embeddings table
--- 문서 임베딩 저장 (검색 레이어)
+-- document_embeddings_<dimension> tables
+-- 문서 임베딩 저장 (검색 레이어) — 차원별 물리 테이블 분리
 -- =============================================
+
 create table if not exists
-  catchmenu_knowledge.document_embeddings (
+  catchmenu_knowledge.document_embeddings_1536 (
   id uuid primary key default gen_random_uuid(),
   tenant_id uuid not null
     references catchmenu_hq.tenants(id),
@@ -166,56 +209,229 @@ create table if not exists
 
   created_at timestamptz not null default now(),
 
-  constraint uq_doc_version_chunk unique (
+  constraint uq_doc_version_chunk_1536 unique (
     version_id, chunk_index, model_code
   ),
-  constraint chk_embedding_dimensions check (
+  -- kept as the same allow-list used across all dimension tables per
+  -- the migration decision to extend chk_embedding_dimensions
+  -- consistently rather than narrow it per table; the vector(1536)
+  -- column type is what actually pins storage to 1536 in practice.
+  constraint chk_embedding_dimensions_1536 check (
     embedding_dimensions in (
-      256, 512, 768, 1024, 1536, 3072
+      256, 512, 768, 1024, 1536, 3072, 4096
     )
   ),
-  constraint chk_doc_status_snapshot check (
+  constraint chk_doc_status_snapshot_1536 check (
     -- only PUBLISHED documents should have embeddings
     document_status_snapshot = 'PUBLISHED'
   )
 );
 
--- pgvector IVFFlat index for approximate search
+create table if not exists
+  catchmenu_knowledge.document_embeddings_3072 (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null
+    references catchmenu_hq.tenants(id),
+  document_id uuid not null
+    references catchmenu_knowledge.documents(id),
+  version_id uuid not null
+    references catchmenu_knowledge.document_versions(id),
+
+  chunk_index int not null default 0,
+  chunk_total int not null default 1,
+  chunk_text text not null,
+  chunk_char_count int,
+
+  model_code text not null
+    references catchmenu_knowledge.embedding_models(model_code),
+  embedding_dimensions int not null,
+  embedding extensions.vector(3072),
+
+  document_type_snapshot text not null,
+  document_status_snapshot text not null,
+  domain_snapshot text,
+  locale_snapshot text not null default 'ko',
+  is_ai_retrievable_snapshot boolean
+    not null default false,
+
+  is_valid boolean not null default true,
+  invalidated_at timestamptz,
+  invalidated_reason text,
+
+  embedded_at timestamptz not null default now(),
+  embedded_by_type text not null default 'SYSTEM',
+
+  created_at timestamptz not null default now(),
+
+  constraint uq_doc_version_chunk_3072 unique (
+    version_id, chunk_index, model_code
+  ),
+  constraint chk_embedding_dimensions_3072 check (
+    embedding_dimensions in (
+      256, 512, 768, 1024, 1536, 3072, 4096
+    )
+  ),
+  constraint chk_doc_status_snapshot_3072 check (
+    document_status_snapshot = 'PUBLISHED'
+  )
+);
+
+create table if not exists
+  catchmenu_knowledge.document_embeddings_4096 (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null
+    references catchmenu_hq.tenants(id),
+  document_id uuid not null
+    references catchmenu_knowledge.documents(id),
+  version_id uuid not null
+    references catchmenu_knowledge.document_versions(id),
+
+  chunk_index int not null default 0,
+  chunk_total int not null default 1,
+  chunk_text text not null,
+  chunk_char_count int,
+
+  model_code text not null
+    references catchmenu_knowledge.embedding_models(model_code),
+  embedding_dimensions int not null,
+  embedding extensions.vector(4096),
+
+  document_type_snapshot text not null,
+  document_status_snapshot text not null,
+  domain_snapshot text,
+  locale_snapshot text not null default 'ko',
+  is_ai_retrievable_snapshot boolean
+    not null default false,
+
+  is_valid boolean not null default true,
+  invalidated_at timestamptz,
+  invalidated_reason text,
+
+  embedded_at timestamptz not null default now(),
+  embedded_by_type text not null default 'SYSTEM',
+
+  created_at timestamptz not null default now(),
+
+  constraint uq_doc_version_chunk_4096 unique (
+    version_id, chunk_index, model_code
+  ),
+  constraint chk_embedding_dimensions_4096 check (
+    embedding_dimensions in (
+      256, 512, 768, 1024, 1536, 3072, 4096
+    )
+  ),
+  constraint chk_doc_status_snapshot_4096 check (
+    document_status_snapshot = 'PUBLISHED'
+  )
+);
+
+-- pgvector IVFFlat indexes for approximate search
 -- lists = sqrt(row_count) is a good starting point
 -- probes = lists/10 for search accuracy
+--
+-- IMPORTANT: pgvector's ivfflat (and hnsw) index types cannot index a
+-- vector column wider than 2000 dimensions — this is a hard pgvector
+-- limitation, not a config choice. 1536 fits; 3072 and 4096 do not.
+-- document_embeddings_3072 and document_embeddings_4096 therefore have
+-- NO approximate-nearest-neighbor index: similarity search on them still
+-- works correctly via the <=> operator, just as a sequential scan
+-- instead of an indexed approximate search. For this project's current
+-- (dev/local, near-zero-row) scale that has no practical performance
+-- effect. If/when either table needs real ANN acceleration at
+-- production scale, revisit using pgvector's halfvec type (raises the
+-- indexable limit to 4000 dimensions, at half-precision) rather than
+-- attempting to force an index pgvector cannot build on plain vector.
 create index if not exists
-  idx_doc_embeddings_vector
-  on catchmenu_knowledge.document_embeddings
+  idx_doc_embeddings_1536_vector
+  on catchmenu_knowledge.document_embeddings_1536
   using ivfflat (embedding extensions.vector_cosine_ops)
   with (lists = 100)
   where is_valid = true
     and is_ai_retrievable_snapshot = true;
 
--- tenant isolation index
+-- tenant isolation indexes
 create index if not exists
-  idx_doc_embeddings_tenant
-  on catchmenu_knowledge.document_embeddings(
+  idx_doc_embeddings_1536_tenant
+  on catchmenu_knowledge.document_embeddings_1536(
     tenant_id, document_type_snapshot,
     domain_snapshot
   )
   where is_valid = true;
 
--- version index for invalidation
 create index if not exists
-  idx_doc_embeddings_version
-  on catchmenu_knowledge.document_embeddings(
+  idx_doc_embeddings_3072_tenant
+  on catchmenu_knowledge.document_embeddings_3072(
+    tenant_id, document_type_snapshot,
+    domain_snapshot
+  )
+  where is_valid = true;
+
+create index if not exists
+  idx_doc_embeddings_4096_tenant
+  on catchmenu_knowledge.document_embeddings_4096(
+    tenant_id, document_type_snapshot,
+    domain_snapshot
+  )
+  where is_valid = true;
+
+-- version indexes for invalidation
+create index if not exists
+  idx_doc_embeddings_1536_version
+  on catchmenu_knowledge.document_embeddings_1536(
     version_id, is_valid
   );
 
-alter table catchmenu_knowledge.document_embeddings
+create index if not exists
+  idx_doc_embeddings_3072_version
+  on catchmenu_knowledge.document_embeddings_3072(
+    version_id, is_valid
+  );
+
+create index if not exists
+  idx_doc_embeddings_4096_version
+  on catchmenu_knowledge.document_embeddings_4096(
+    version_id, is_valid
+  );
+
+alter table catchmenu_knowledge.document_embeddings_1536
   enable row level security;
-alter table catchmenu_knowledge.document_embeddings
+alter table catchmenu_knowledge.document_embeddings_1536
+  force row level security;
+alter table catchmenu_knowledge.document_embeddings_3072
+  enable row level security;
+alter table catchmenu_knowledge.document_embeddings_3072
+  force row level security;
+alter table catchmenu_knowledge.document_embeddings_4096
+  enable row level security;
+alter table catchmenu_knowledge.document_embeddings_4096
   force row level security;
 
 drop policy if exists embeddings_isolation
-  on catchmenu_knowledge.document_embeddings;
+  on catchmenu_knowledge.document_embeddings_1536;
 create policy embeddings_isolation
-  on catchmenu_knowledge.document_embeddings
+  on catchmenu_knowledge.document_embeddings_1536
+  for all to authenticated
+  using (
+    tenant_id = catchmenu_common.current_tenant_id()
+    and is_ai_retrievable_snapshot = true
+    and document_status_snapshot = 'PUBLISHED'
+  );
+
+drop policy if exists embeddings_isolation
+  on catchmenu_knowledge.document_embeddings_3072;
+create policy embeddings_isolation
+  on catchmenu_knowledge.document_embeddings_3072
+  for all to authenticated
+  using (
+    tenant_id = catchmenu_common.current_tenant_id()
+    and is_ai_retrievable_snapshot = true
+    and document_status_snapshot = 'PUBLISHED'
+  );
+
+drop policy if exists embeddings_isolation
+  on catchmenu_knowledge.document_embeddings_4096;
+create policy embeddings_isolation
+  on catchmenu_knowledge.document_embeddings_4096
   for all to authenticated
   using (
     tenant_id = catchmenu_common.current_tenant_id()
@@ -224,8 +440,9 @@ create policy embeddings_isolation
   );
 
 comment on table
-  catchmenu_knowledge.document_embeddings is
-  'pgvector embedding store. RETRIEVAL LAYER ONLY.
+  catchmenu_knowledge.document_embeddings_1536 is
+  'pgvector embedding store (1536-dim, e.g. OpenAI text-embedding-3-small).
+   RETRIEVAL LAYER ONLY.
 
    핵심 설계 원칙:
    1. embedding은 PUBLISHED 문서만 생성
@@ -235,15 +452,33 @@ comment on table
    5. AI 답변 생성 전 document_id + version_id로
       실제 문서 상태 재확인 필수
    6. chunk_text는 검색용 — 권위 원문은 documents.content
+   7. 이 테이블은 1536차원 모델 전용. 다른 차원 모델은
+      document_embeddings_3072 / document_embeddings_4096 사용.
 
    Authority chain:
-   document_embeddings (검색) → document_versions (원문)
+   document_embeddings_1536 (검색) → document_versions (원문)
    → documents (승인 상태) → AI answer (출처 인용 필수)';
+
+comment on table
+  catchmenu_knowledge.document_embeddings_3072 is
+  'pgvector embedding store (3072-dim, e.g. OpenAI text-embedding-3-large).
+   RETRIEVAL LAYER ONLY. Same design principles as document_embeddings_1536.';
+
+comment on table
+  catchmenu_knowledge.document_embeddings_4096 is
+  'pgvector embedding store (4096-dim, e.g. Upstage solar-embedding-1-large).
+   RETRIEVAL LAYER ONLY. Same design principles as document_embeddings_1536.';
 
 
 -- =============================================
 -- RPCs
 -- =============================================
+
+-- upsert_document_embedding: p_embedding is deliberately typed as the
+-- untyped `vector` (no fixed dimension) so callers of any registered
+-- model's dimension can call this one function; the actual dimension is
+-- checked at runtime against embedding_models and routed to the correct
+-- physical table via IF/ELSIF (no dynamic SQL).
 create or replace function
   catchmenu_knowledge.upsert_document_embedding(
   p_tenant_id uuid,
@@ -252,7 +487,7 @@ create or replace function
   p_chunk_index int,
   p_chunk_total int,
   p_chunk_text text,
-  p_embedding vector(1536),
+  p_embedding extensions.vector,
   p_model_code text default 'TEXT_EMBEDDING_3_SMALL',
   p_locale text default 'ko'
 )
@@ -261,11 +496,14 @@ language plpgsql
 volatile
 security definer
 set search_path = catchmenu_knowledge,
-                  catchmenu_common
+                  catchmenu_common,
+                  extensions
 as $$
 declare
   v_doc record;
   v_version record;
+  v_model record;
+  v_actual_dims int;
   v_embedding_id uuid;
 begin
   -- CRITICAL: validate document is PUBLISHED
@@ -328,44 +566,151 @@ begin
     );
   end if;
 
-  -- invalidate existing chunks for this version
-  -- (re-embedding = full invalidation first)
-  update catchmenu_knowledge.document_embeddings
-  set
-    is_valid = false,
-    invalidated_at = now(),
-    invalidated_reason = 'RE_EMBEDDING'
-  where version_id = p_version_id
-    and chunk_index = p_chunk_index
-    and model_code = p_model_code
-    and is_valid = true;
+  -- look up the model's registered dimension — never trust a
+  -- caller-supplied dimension literal
+  select model_code, embedding_dimensions, is_active
+  into v_model
+  from catchmenu_knowledge.embedding_models
+  where model_code = p_model_code;
 
-  -- insert new embedding
-  insert into catchmenu_knowledge.document_embeddings (
-    tenant_id, document_id, version_id,
-    chunk_index, chunk_total,
-    chunk_text, chunk_char_count,
-    model_code, embedding_dimensions,
-    embedding,
-    document_type_snapshot,
-    document_status_snapshot,
-    domain_snapshot, locale_snapshot,
-    is_ai_retrievable_snapshot,
-    embedded_at
-  ) values (
-    p_tenant_id, p_document_id, p_version_id,
-    p_chunk_index, p_chunk_total,
-    p_chunk_text, length(p_chunk_text),
-    p_model_code, 1536,
-    p_embedding,
-    v_doc.document_type,
-    'PUBLISHED',
-    v_doc.domain,
-    p_locale,
-    true,
-    now()
-  )
-  returning id into v_embedding_id;
+  if v_model.model_code is null then
+    return jsonb_build_object(
+      'success', false,
+      'error_key', 'embedding_model_not_registered',
+      'message', 'Unknown model_code: ' || p_model_code
+    );
+  end if;
+
+  if not v_model.is_active then
+    return jsonb_build_object(
+      'success', false,
+      'error_key', 'embedding_model_inactive',
+      'message', 'Model is not active: ' || p_model_code
+    );
+  end if;
+
+  -- verify the caller's actual vector matches the model's registered
+  -- dimension (catches wrong-model / wrong-vector mistakes early,
+  -- before hitting a raw pgvector dimension-mismatch error)
+  v_actual_dims := extensions.vector_dims(p_embedding);
+  if v_actual_dims <> v_model.embedding_dimensions then
+    return jsonb_build_object(
+      'success', false,
+      'error_key', 'embedding_dimension_mismatch',
+      'message',
+        'Model ' || p_model_code || ' is registered for '
+        || v_model.embedding_dimensions || ' dimensions, '
+        || 'but the supplied embedding has '
+        || v_actual_dims || ' dimensions.'
+    );
+  end if;
+
+  -- dispatch to the correctly-sized physical table
+  -- (IF/ELSIF, not dynamic SQL — every branch is a static, auditable statement)
+  if v_model.embedding_dimensions = 1536 then
+
+    update catchmenu_knowledge.document_embeddings_1536
+    set is_valid = false, invalidated_at = now(),
+        invalidated_reason = 'RE_EMBEDDING'
+    where version_id = p_version_id
+      and chunk_index = p_chunk_index
+      and model_code = p_model_code
+      and is_valid = true;
+
+    insert into catchmenu_knowledge.document_embeddings_1536 (
+      tenant_id, document_id, version_id,
+      chunk_index, chunk_total,
+      chunk_text, chunk_char_count,
+      model_code, embedding_dimensions,
+      embedding,
+      document_type_snapshot, document_status_snapshot,
+      domain_snapshot, locale_snapshot,
+      is_ai_retrievable_snapshot, embedded_at
+    ) values (
+      p_tenant_id, p_document_id, p_version_id,
+      p_chunk_index, p_chunk_total,
+      p_chunk_text, length(p_chunk_text),
+      p_model_code, v_model.embedding_dimensions,
+      p_embedding,
+      v_doc.document_type, 'PUBLISHED',
+      v_doc.domain, p_locale,
+      true, now()
+    )
+    returning id into v_embedding_id;
+
+  elsif v_model.embedding_dimensions = 3072 then
+
+    update catchmenu_knowledge.document_embeddings_3072
+    set is_valid = false, invalidated_at = now(),
+        invalidated_reason = 'RE_EMBEDDING'
+    where version_id = p_version_id
+      and chunk_index = p_chunk_index
+      and model_code = p_model_code
+      and is_valid = true;
+
+    insert into catchmenu_knowledge.document_embeddings_3072 (
+      tenant_id, document_id, version_id,
+      chunk_index, chunk_total,
+      chunk_text, chunk_char_count,
+      model_code, embedding_dimensions,
+      embedding,
+      document_type_snapshot, document_status_snapshot,
+      domain_snapshot, locale_snapshot,
+      is_ai_retrievable_snapshot, embedded_at
+    ) values (
+      p_tenant_id, p_document_id, p_version_id,
+      p_chunk_index, p_chunk_total,
+      p_chunk_text, length(p_chunk_text),
+      p_model_code, v_model.embedding_dimensions,
+      p_embedding,
+      v_doc.document_type, 'PUBLISHED',
+      v_doc.domain, p_locale,
+      true, now()
+    )
+    returning id into v_embedding_id;
+
+  elsif v_model.embedding_dimensions = 4096 then
+
+    update catchmenu_knowledge.document_embeddings_4096
+    set is_valid = false, invalidated_at = now(),
+        invalidated_reason = 'RE_EMBEDDING'
+    where version_id = p_version_id
+      and chunk_index = p_chunk_index
+      and model_code = p_model_code
+      and is_valid = true;
+
+    insert into catchmenu_knowledge.document_embeddings_4096 (
+      tenant_id, document_id, version_id,
+      chunk_index, chunk_total,
+      chunk_text, chunk_char_count,
+      model_code, embedding_dimensions,
+      embedding,
+      document_type_snapshot, document_status_snapshot,
+      domain_snapshot, locale_snapshot,
+      is_ai_retrievable_snapshot, embedded_at
+    ) values (
+      p_tenant_id, p_document_id, p_version_id,
+      p_chunk_index, p_chunk_total,
+      p_chunk_text, length(p_chunk_text),
+      p_model_code, v_model.embedding_dimensions,
+      p_embedding,
+      v_doc.document_type, 'PUBLISHED',
+      v_doc.domain, p_locale,
+      true, now()
+    )
+    returning id into v_embedding_id;
+
+  else
+    return jsonb_build_object(
+      'success', false,
+      'error_key', 'embedding_dimension_unsupported',
+      'message',
+        'Model ' || p_model_code || ' is registered for '
+        || v_model.embedding_dimensions || ' dimensions, but no '
+        || 'document_embeddings_' || v_model.embedding_dimensions
+        || ' storage table exists yet.'
+    );
+  end if;
 
   return jsonb_build_object(
     'success', true,
@@ -375,16 +720,21 @@ begin
     'chunk_index', p_chunk_index,
     'chunk_total', p_chunk_total,
     'model_code', p_model_code,
+    'embedding_dimensions', v_model.embedding_dimensions,
     'message_code', 'embedding_stored'
   );
 end;
 $$;
 
 
+-- search_knowledge_vector: p_query_embedding is untyped `vector`; the
+-- query only ever searches the ONE table matching its own actual
+-- dimension. Searching across dimensions is not supported by design —
+-- embeddings from different models are not comparable vector spaces.
 create or replace function
   catchmenu_knowledge.search_knowledge_vector(
   p_tenant_id uuid,
-  p_query_embedding vector(1536),
+  p_query_embedding extensions.vector,
   p_query_text text,
   p_document_types jsonb default null,
   p_domain text default null,
@@ -399,12 +749,14 @@ language plpgsql
 stable
 security definer
 set search_path = catchmenu_knowledge,
-                  catchmenu_common
+                  catchmenu_common,
+                  extensions
 as $$
 declare
   v_results jsonb;
   v_result_count int;
   v_search_id uuid;
+  v_query_dims int;
 begin
   -- enforce limits
   if p_limit > 10 then
@@ -416,102 +768,205 @@ begin
   end if;
 
   v_search_id := gen_random_uuid();
+  v_query_dims := extensions.vector_dims(p_query_embedding);
 
   -- RETRIEVAL with mandatory authority filters
   -- 특허3: pgvector 검색 → 권위 문서 필터 → AI 컨텍스트
-  select coalesce(
-    jsonb_agg(
-      jsonb_build_object(
-        -- retrieval metadata
-        'embedding_id', de.id,
-        'similarity_score',
-          1 - (
-            de.embedding
-            <=> p_query_embedding
-          ),
+  -- dimension dispatch: only the table matching the query's own
+  -- dimension is ever searched (IF/ELSIF, not dynamic SQL)
+  if v_query_dims = 1536 then
 
-        -- authority source reference
-        -- AI must cite these fields
-        'document_id', de.document_id,
-        'version_id', de.version_id,
-        'chunk_index', de.chunk_index,
-
-        -- document authority info
-        'document_type', d.document_type,
-        'document_code', d.document_code,
-        'title', d.title,
-        'summary', d.summary,
-        'domain', d.domain,
-        'current_version', d.current_version,
-        'published_at', d.published_at,
-        'effectiveness_score',
-          d.effectiveness_score,
-
-        -- retrieved chunk text
-        -- this is what AI uses to answer
-        'chunk_text', de.chunk_text,
-        'chunk_index', de.chunk_index,
-        'chunk_total', de.chunk_total,
-
-        -- authority confirmation fields
-        -- AI answer MUST be grounded in these
-        'is_published',
-          d.document_status = 'PUBLISHED',
-        'is_ai_retrievable', d.is_ai_retrievable,
-        'authority_confirmed',
-          d.document_status = 'PUBLISHED'
-          and d.is_ai_retrievable = true
-          and de.is_valid = true,
-
-        -- citation reference for AI answer
-        'citation', jsonb_build_object(
-          'document_code', d.document_code,
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'embedding_id', de.id,
+          'similarity_score', 1 - (de.embedding <=> p_query_embedding),
+          'document_id', de.document_id,
+          'version_id', de.version_id,
+          'chunk_index', de.chunk_index,
           'document_type', d.document_type,
+          'document_code', d.document_code,
           'title', d.title,
-          'version', d.current_version,
-          'published_at', d.published_at
+          'summary', d.summary,
+          'domain', d.domain,
+          'current_version', d.current_version,
+          'published_at', d.published_at,
+          'effectiveness_score', d.effectiveness_score,
+          'chunk_text', de.chunk_text,
+          'chunk_total', de.chunk_total,
+          'is_published', d.document_status = 'PUBLISHED',
+          'is_ai_retrievable', d.is_ai_retrievable,
+          'authority_confirmed',
+            d.document_status = 'PUBLISHED'
+            and d.is_ai_retrievable = true
+            and de.is_valid = true,
+          'citation', jsonb_build_object(
+            'document_code', d.document_code,
+            'document_type', d.document_type,
+            'title', d.title,
+            'version', d.current_version,
+            'published_at', d.published_at
+          )
+        )
+        order by de.embedding <=> p_query_embedding asc
+      ),
+      '[]'::jsonb
+    )
+    into v_results
+    from catchmenu_knowledge.document_embeddings_1536 de
+    join catchmenu_knowledge.documents d
+      on d.id = de.document_id
+      and d.tenant_id = p_tenant_id
+    where de.tenant_id = p_tenant_id
+      and de.is_valid = true
+      and de.is_ai_retrievable_snapshot = true
+      and de.document_status_snapshot = 'PUBLISHED'
+      and de.model_code = p_model_code
+      and d.document_status = 'PUBLISHED'
+      and d.is_ai_retrievable = true
+      and 1 - (de.embedding <=> p_query_embedding) >= p_similarity_threshold
+      and (
+        p_document_types is null
+        or d.document_type = any(
+          select jsonb_array_elements_text(p_document_types)
         )
       )
-      order by
-        de.embedding <=> p_query_embedding asc
-    ),
-    '[]'::jsonb
-  )
-  into v_results
-  from catchmenu_knowledge.document_embeddings de
-  join catchmenu_knowledge.documents d
-    on d.id = de.document_id
-    and d.tenant_id = p_tenant_id
-  where de.tenant_id = p_tenant_id
-    -- MANDATORY: vector retrieval filters
-    and de.is_valid = true
-    and de.is_ai_retrievable_snapshot = true
-    and de.document_status_snapshot = 'PUBLISHED'
-    and de.model_code = p_model_code
-    -- MANDATORY: re-verify authority at query time
-    and d.document_status = 'PUBLISHED'
-    and d.is_ai_retrievable = true
-    -- similarity threshold
-    and 1 - (de.embedding <=> p_query_embedding)
-      >= p_similarity_threshold
-    -- optional filters
-    and (
-      p_document_types is null
-      or d.document_type = any(
-        select jsonb_array_elements_text(
-          p_document_types
+      and (p_domain is null or de.domain_snapshot = p_domain)
+      and (de.locale_snapshot = p_locale or de.locale_snapshot = 'ko')
+    limit p_limit;
+
+  elsif v_query_dims = 3072 then
+
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'embedding_id', de.id,
+          'similarity_score', 1 - (de.embedding <=> p_query_embedding),
+          'document_id', de.document_id,
+          'version_id', de.version_id,
+          'chunk_index', de.chunk_index,
+          'document_type', d.document_type,
+          'document_code', d.document_code,
+          'title', d.title,
+          'summary', d.summary,
+          'domain', d.domain,
+          'current_version', d.current_version,
+          'published_at', d.published_at,
+          'effectiveness_score', d.effectiveness_score,
+          'chunk_text', de.chunk_text,
+          'chunk_total', de.chunk_total,
+          'is_published', d.document_status = 'PUBLISHED',
+          'is_ai_retrievable', d.is_ai_retrievable,
+          'authority_confirmed',
+            d.document_status = 'PUBLISHED'
+            and d.is_ai_retrievable = true
+            and de.is_valid = true,
+          'citation', jsonb_build_object(
+            'document_code', d.document_code,
+            'document_type', d.document_type,
+            'title', d.title,
+            'version', d.current_version,
+            'published_at', d.published_at
+          )
+        )
+        order by de.embedding <=> p_query_embedding asc
+      ),
+      '[]'::jsonb
+    )
+    into v_results
+    from catchmenu_knowledge.document_embeddings_3072 de
+    join catchmenu_knowledge.documents d
+      on d.id = de.document_id
+      and d.tenant_id = p_tenant_id
+    where de.tenant_id = p_tenant_id
+      and de.is_valid = true
+      and de.is_ai_retrievable_snapshot = true
+      and de.document_status_snapshot = 'PUBLISHED'
+      and de.model_code = p_model_code
+      and d.document_status = 'PUBLISHED'
+      and d.is_ai_retrievable = true
+      and 1 - (de.embedding <=> p_query_embedding) >= p_similarity_threshold
+      and (
+        p_document_types is null
+        or d.document_type = any(
+          select jsonb_array_elements_text(p_document_types)
         )
       )
+      and (p_domain is null or de.domain_snapshot = p_domain)
+      and (de.locale_snapshot = p_locale or de.locale_snapshot = 'ko')
+    limit p_limit;
+
+  elsif v_query_dims = 4096 then
+
+    select coalesce(
+      jsonb_agg(
+        jsonb_build_object(
+          'embedding_id', de.id,
+          'similarity_score', 1 - (de.embedding <=> p_query_embedding),
+          'document_id', de.document_id,
+          'version_id', de.version_id,
+          'chunk_index', de.chunk_index,
+          'document_type', d.document_type,
+          'document_code', d.document_code,
+          'title', d.title,
+          'summary', d.summary,
+          'domain', d.domain,
+          'current_version', d.current_version,
+          'published_at', d.published_at,
+          'effectiveness_score', d.effectiveness_score,
+          'chunk_text', de.chunk_text,
+          'chunk_total', de.chunk_total,
+          'is_published', d.document_status = 'PUBLISHED',
+          'is_ai_retrievable', d.is_ai_retrievable,
+          'authority_confirmed',
+            d.document_status = 'PUBLISHED'
+            and d.is_ai_retrievable = true
+            and de.is_valid = true,
+          'citation', jsonb_build_object(
+            'document_code', d.document_code,
+            'document_type', d.document_type,
+            'title', d.title,
+            'version', d.current_version,
+            'published_at', d.published_at
+          )
+        )
+        order by de.embedding <=> p_query_embedding asc
+      ),
+      '[]'::jsonb
     )
-    and (
-      p_domain is null
-      or de.domain_snapshot = p_domain
-    )
-    and (
-      de.locale_snapshot = p_locale
-      or de.locale_snapshot = 'ko'
-    )
-  limit p_limit;
+    into v_results
+    from catchmenu_knowledge.document_embeddings_4096 de
+    join catchmenu_knowledge.documents d
+      on d.id = de.document_id
+      and d.tenant_id = p_tenant_id
+    where de.tenant_id = p_tenant_id
+      and de.is_valid = true
+      and de.is_ai_retrievable_snapshot = true
+      and de.document_status_snapshot = 'PUBLISHED'
+      and de.model_code = p_model_code
+      and d.document_status = 'PUBLISHED'
+      and d.is_ai_retrievable = true
+      and 1 - (de.embedding <=> p_query_embedding) >= p_similarity_threshold
+      and (
+        p_document_types is null
+        or d.document_type = any(
+          select jsonb_array_elements_text(p_document_types)
+        )
+      )
+      and (p_domain is null or de.domain_snapshot = p_domain)
+      and (de.locale_snapshot = p_locale or de.locale_snapshot = 'ko')
+    limit p_limit;
+
+  else
+    return jsonb_build_object(
+      'success', false,
+      'error_key', 'embedding_dimension_unsupported',
+      'message',
+        'Query embedding has ' || v_query_dims || ' dimensions, but no '
+        || 'document_embeddings_' || v_query_dims || ' storage table '
+        || 'exists. Supported dimensions: 1536, 3072, 4096.'
+    );
+  end if;
 
   v_result_count := jsonb_array_length(
     coalesce(v_results, '[]'::jsonb)
@@ -533,6 +988,7 @@ begin
     p_details := jsonb_build_object(
       'search_id', v_search_id,
       'query_length', length(p_query_text),
+      'query_dimensions', v_query_dims,
       'result_count', v_result_count,
       'document_types', p_document_types,
       'domain', p_domain,
@@ -546,6 +1002,7 @@ begin
     'success', true,
     'search_id', v_search_id,
     'query_text', p_query_text,
+    'query_dimensions', v_query_dims,
     'result_count', v_result_count,
     'similarity_threshold', p_similarity_threshold,
     'model_code', p_model_code,
@@ -574,12 +1031,15 @@ end;
 $$;
 
 
+-- build_grounded_ai_context: dimension routing lives entirely inside
+-- search_knowledge_vector, called below — this function just needs to
+-- accept and forward an untyped vector.
 create or replace function
   catchmenu_knowledge.build_grounded_ai_context(
   p_tenant_id uuid,
   p_store_id uuid,
   p_query_text text,
-  p_query_embedding vector(1536),
+  p_query_embedding extensions.vector,
   p_query_type text,
   p_audience text default 'STAFF_FACING',
   p_locale text default 'ko',
@@ -593,7 +1053,8 @@ language plpgsql
 stable
 security definer
 set search_path = catchmenu_knowledge,
-                  catchmenu_common
+                  catchmenu_common,
+                  extensions
 as $$
 declare
   v_context_id uuid;
@@ -609,6 +1070,11 @@ begin
 
   -- STEP 1: Vector search for relevant documents
   -- similarity threshold: 0.72 (high precision)
+  -- NOTE: search_knowledge_vector determines the query embedding's own
+  -- dimension and only searches the matching document_embeddings_<dim>
+  -- table. If p_query_embedding's model doesn't match p_document_types'
+  -- expected model, results legitimately come back empty — that is
+  -- correct behavior for cross-dimension queries, not a bug.
   v_vector_results :=
     catchmenu_knowledge.search_knowledge_vector(
       p_tenant_id := p_tenant_id,
@@ -985,6 +1451,8 @@ $$;
 
 
 -- invalidate embeddings when document superseded
+-- must touch all dimension-specific tables — a superseded version may
+-- have embeddings in any of them depending on which model(s) embedded it
 create or replace function
   catchmenu_knowledge.invalidate_embeddings_on_supersede()
 returns trigger
@@ -994,11 +1462,29 @@ set search_path = catchmenu_knowledge
 as $$
 begin
   -- when version is SUPERSEDED,
-  -- invalidate its embeddings
+  -- invalidate its embeddings across every dimension table
   if new.version_status = 'SUPERSEDED'
     and old.version_status = 'PUBLISHED'
   then
-    update catchmenu_knowledge.document_embeddings
+    update catchmenu_knowledge.document_embeddings_1536
+    set
+      is_valid = false,
+      invalidated_at = now(),
+      invalidated_reason =
+        'DOCUMENT_VERSION_SUPERSEDED'
+    where version_id = new.id
+      and is_valid = true;
+
+    update catchmenu_knowledge.document_embeddings_3072
+    set
+      is_valid = false,
+      invalidated_at = now(),
+      invalidated_reason =
+        'DOCUMENT_VERSION_SUPERSEDED'
+    where version_id = new.id
+      and is_valid = true;
+
+    update catchmenu_knowledge.document_embeddings_4096
     set
       is_valid = false,
       invalidated_at = now(),
@@ -1030,7 +1516,8 @@ comment on trigger
   trg_invalidate_embeddings_on_supersede
   on catchmenu_knowledge.document_versions is
   'Auto-invalidates pgvector embeddings when
-   document version is superseded.
+   document version is superseded, across all
+   document_embeddings_<dimension> tables.
    Prevents AI from retrieving outdated content.
    특허3: 문서 버전 교체 → 임베딩 즉시 무효화.
    새 버전 publish 후 re-embedding 필수.';
@@ -1042,33 +1529,33 @@ begin
   revoke all on function
     catchmenu_knowledge.upsert_document_embedding(
       uuid, uuid, uuid, int, int, text,
-      vector, text, text
+      extensions.vector, text, text
     ) from public;
   grant execute on function
     catchmenu_knowledge.upsert_document_embedding(
       uuid, uuid, uuid, int, int, text,
-      vector, text, text
+      extensions.vector, text, text
     ) to authenticated;
 
   revoke all on function
     catchmenu_knowledge.search_knowledge_vector(
-      uuid, vector, text, jsonb, text,
+      uuid, extensions.vector, text, jsonb, text,
       text, int, float, text, uuid
     ) from public;
   grant execute on function
     catchmenu_knowledge.search_knowledge_vector(
-      uuid, vector, text, jsonb, text,
+      uuid, extensions.vector, text, jsonb, text,
       text, int, float, text, uuid
     ) to authenticated;
 
   revoke all on function
     catchmenu_knowledge.build_grounded_ai_context(
-      uuid, uuid, text, vector, text,
+      uuid, uuid, text, extensions.vector, text,
       text, text, jsonb, text, text
     ) from public;
   grant execute on function
     catchmenu_knowledge.build_grounded_ai_context(
-      uuid, uuid, text, vector, text,
+      uuid, uuid, text, extensions.vector, text,
       text, text, jsonb, text, text
     ) to authenticated;
 
@@ -1085,19 +1572,23 @@ $$;
 
 comment on function
   catchmenu_knowledge.search_knowledge_vector(
-    uuid, vector, text, jsonb, text,
+    uuid, extensions.vector, text, jsonb, text,
     text, int, float, text, uuid
   ) is
   'pgvector similarity search — RETRIEVAL ONLY.
 
    검색 파이프라인:
-   1. pgvector 코사인 유사도 검색
-   2. is_valid = true 필터 (무효화 임베딩 제외)
-   3. is_ai_retrievable_snapshot = true 필터
-   4. document_status_snapshot = PUBLISHED 필터
-   5. 쿼리 시점 권위 재확인
+   1. 쿼리 벡터의 실제 차원(vector_dims) 확인
+   2. 해당 차원 전용 document_embeddings_<dim> 테이블만 검색
+      (다른 차원 모델과의 교차 검색은 설계상 지원하지 않음 —
+      서로 다른 모델의 임베딩은 비교 가능한 벡터 공간이 아님)
+   3. pgvector 코사인 유사도 검색
+   4. is_valid = true 필터 (무효화 임베딩 제외)
+   5. is_ai_retrievable_snapshot = true 필터
+   6. document_status_snapshot = PUBLISHED 필터
+   7. 쿼리 시점 권위 재확인
       (d.document_status = PUBLISHED 재검증)
-   6. tenant_id RLS 격리
+   8. tenant_id RLS 격리
 
    검색 결과 ≠ AI 답변
    검색 결과 = AI 답변의 근거 문서
@@ -1112,11 +1603,12 @@ comment on function
 
 comment on function
   catchmenu_knowledge.build_grounded_ai_context(
-    uuid, uuid, text, vector, text,
+    uuid, uuid, text, extensions.vector, text,
     text, text, jsonb, text, text
   ) is
   'Builds retrieval-grounded AI context.
    Combines vector search with grounding instructions.
+   Dimension routing is handled entirely by search_knowledge_vector.
 
    grounding_instructions 포함:
    - must_cite_sources: true

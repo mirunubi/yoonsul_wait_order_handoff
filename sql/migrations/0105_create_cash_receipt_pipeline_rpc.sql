@@ -81,7 +81,7 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (9040, 'cash_receipt_issue_failed',
   'INTEGRATION', 'TECHNICAL', 500, 'ERROR',
@@ -92,7 +92,7 @@ insert into catchmenu_common.error_codes (
 (9042, 'cash_receipt_already_issued',
   'INTEGRATION', 'CONFLICT', 409, 'INFO', null),
 (9043, 'cash_receipt_identifier_invalid',
-  'INTEGRATION', 'VALIDATION', 400, 'WARNING', null),
+  'INTEGRATION', 'INVALID_INPUT', 400, 'WARNING', null),
 (9044, 'cash_receipt_nts_unavailable',
   'INTEGRATION', 'TECHNICAL', 503, 'ERROR',
   'SOP-SYS-002'),

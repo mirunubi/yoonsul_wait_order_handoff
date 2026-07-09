@@ -265,47 +265,6 @@ declare
   v_failed int := 0;
   v_risk_score int := 0;
 
-  -- check helpers
-  procedure add_check(
-    p_check_name text,
-    p_passed boolean,
-    p_severity text,
-    p_detail text,
-    p_remediation text default null
-  ) as
-  $inner$
-  begin
-    v_total := v_total + 1;
-    if p_passed then
-      v_passed := v_passed + 1;
-      v_checks := v_checks || jsonb_build_array(
-        jsonb_build_object(
-          'check', p_check_name,
-          'status', 'PASS',
-          'detail', p_detail
-        )
-      );
-    else
-      v_failed := v_failed + 1;
-      v_risk_score := v_risk_score + case p_severity
-        when 'CRITICAL' then 25
-        when 'HIGH' then 15
-        when 'MEDIUM' then 5
-        else 1
-      end;
-      v_critical := v_critical || jsonb_build_array(
-        jsonb_build_object(
-          'check', p_check_name,
-          'status', 'FAIL',
-          'severity', p_severity,
-          'detail', p_detail,
-          'remediation', p_remediation
-        )
-      );
-    end if;
-  end;
-  $inner$;
-
 begin
   v_scan_id := gen_random_uuid();
   v_start := now();
@@ -327,97 +286,201 @@ begin
   -- =============================================
   -- CHECK 1: Tenant exists and is active
   -- =============================================
-  call add_check(
-    'tenant_exists_and_active',
-    exists (
+  v_total := v_total + 1;
+  if exists (
       select 1 from catchmenu_hq.tenants
       where id = p_tenant_id
         and is_active = true
-    ),
-    'CRITICAL',
-    'Tenant must exist and be active',
-    'Verify tenant provisioning'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'tenant_exists_and_active',
+        'status', 'PASS',
+        'detail', 'Tenant must exist and be active'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'tenant_exists_and_active',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'Tenant must exist and be active',
+        'remediation', 'Verify tenant provisioning'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 2: No orders with wrong tenant
   -- =============================================
-  call add_check(
-    'orders_tenant_isolation',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_pos.orders o
       join catchmenu_hq.stores s
         on s.id = o.store_id
       where o.tenant_id = p_tenant_id
         and s.tenant_id <> p_tenant_id
-    ),
-    'CRITICAL',
-    'All orders must belong to correct tenant',
-    'Investigate cross-tenant order contamination'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'orders_tenant_isolation',
+        'status', 'PASS',
+        'detail', 'All orders must belong to correct tenant'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'orders_tenant_isolation',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'All orders must belong to correct tenant',
+        'remediation', 'Investigate cross-tenant order contamination'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 3: No payment records with wrong tenant
   -- =============================================
-  call add_check(
-    'payment_ledger_tenant_isolation',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_payment.payment_ledger pl
       join catchmenu_hq.stores s
         on s.id = pl.store_id
       where pl.tenant_id = p_tenant_id
         and s.tenant_id <> p_tenant_id
-    ),
-    'CRITICAL',
-    'Payment ledger must be tenant-isolated',
-    'Investigate payment data contamination'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'payment_ledger_tenant_isolation',
+        'status', 'PASS',
+        'detail', 'Payment ledger must be tenant-isolated'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'payment_ledger_tenant_isolation',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'Payment ledger must be tenant-isolated',
+        'remediation', 'Investigate payment data contamination'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 4: No KDS tickets with wrong tenant
   -- =============================================
-  call add_check(
-    'kds_tickets_tenant_isolation',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_kds.kds_tickets kt
       join catchmenu_hq.stores s
         on s.id = kt.store_id
       where kt.tenant_id = p_tenant_id
         and s.tenant_id <> p_tenant_id
-    ),
-    'CRITICAL',
-    'KDS tickets must be tenant-isolated',
-    'Investigate KDS data contamination'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'kds_tickets_tenant_isolation',
+        'status', 'PASS',
+        'detail', 'KDS tickets must be tenant-isolated'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'kds_tickets_tenant_isolation',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'KDS tickets must be tenant-isolated',
+        'remediation', 'Investigate KDS data contamination'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 5: No orphaned sessions (no store)
   -- =============================================
-  call add_check(
-    'no_orphaned_sessions',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_pos.order_sessions os
       left join catchmenu_hq.stores s
         on s.id = os.store_id
       where os.tenant_id = p_tenant_id
         and s.id is null
-    ),
-    'HIGH',
-    'All sessions must have valid store reference',
-    'Clean up orphaned session records'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'no_orphaned_sessions',
+        'status', 'PASS',
+        'detail', 'All sessions must have valid store reference'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'HIGH'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'no_orphaned_sessions',
+        'status', 'FAIL',
+        'severity', 'HIGH',
+        'detail', 'All sessions must have valid store reference',
+        'remediation', 'Clean up orphaned session records'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 6: Audit records append-only
   -- (no updated_at changes = truly append-only)
   -- =============================================
-  call add_check(
-    'audit_records_append_only',
-    (
+  v_total := v_total + 1;
+  if (
       select coalesce(
         sum(
           case when recorded_at <> created_at
@@ -426,37 +489,79 @@ begin
       ) = 0
       from catchmenu_ledger.audit_records
       where tenant_id = p_tenant_id
-    ),
-    'CRITICAL',
-    'Audit records must be append-only (no modifications)',
-    'Investigate audit record tampering'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'audit_records_append_only',
+        'status', 'PASS',
+        'detail', 'Audit records must be append-only (no modifications)'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'audit_records_append_only',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'Audit records must be append-only (no modifications)',
+        'remediation', 'Investigate audit record tampering'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 7: No UNTRUSTED devices online
   -- =============================================
-  call add_check(
-    'no_untrusted_devices_online',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_store.device_registry
       where tenant_id = p_tenant_id
         and trust_level in ('UNTRUSTED', 'REVOKED')
         and device_status = 'ONLINE'
         and is_active = true
-    ),
-    'CRITICAL',
-    'UNTRUSTED/REVOKED devices must not be ONLINE',
-    'Immediately revoke device access and investigate'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'no_untrusted_devices_online',
+        'status', 'PASS',
+        'detail', 'UNTRUSTED/REVOKED devices must not be ONLINE'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'no_untrusted_devices_online',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'UNTRUSTED/REVOKED devices must not be ONLINE',
+        'remediation', 'Immediately revoke device access and investigate'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 8: No agent with execute permission
   -- outside approved types
   -- =============================================
-  call add_check(
-    'agent_execute_permission_restricted',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_store.agent_registry
       where tenant_id = p_tenant_id
@@ -465,18 +570,39 @@ begin
           'RECOVERY', 'SUPERVISOR'
         )
         and is_active = true
-    ),
-    'HIGH',
-    'Only RECOVERY/SUPERVISOR agents can have execute permission',
-    'Revoke execute permission from non-approved agents'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'agent_execute_permission_restricted',
+        'status', 'PASS',
+        'detail', 'Only RECOVERY/SUPERVISOR agents can have execute permission'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'HIGH'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'agent_execute_permission_restricted',
+        'status', 'FAIL',
+        'severity', 'HIGH',
+        'detail', 'Only RECOVERY/SUPERVISOR agents can have execute permission',
+        'remediation', 'Revoke execute permission from non-approved agents'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 9: KDS release = explicit authorization only
   -- =============================================
-  call add_check(
-    'kds_release_requires_authorization',
-    (
+  v_total := v_total + 1;
+  if (
       -- all APPROVED payments must have
       -- explicit kds_release_authorized flag
       select count(*) filter (
@@ -486,19 +612,40 @@ begin
       from catchmenu_payment.payment_ledger
       where tenant_id = p_tenant_id
         and ledger_status = 'APPROVED'
-    ),
-    'CRITICAL',
-    'KDS release must always have authorization timestamp',
-    'Re-audit all KDS release authorizations'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'kds_release_requires_authorization',
+        'status', 'PASS',
+        'detail', 'KDS release must always have authorization timestamp'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'kds_release_requires_authorization',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'KDS release must always have authorization timestamp',
+        'remediation', 'Re-audit all KDS release authorizations'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 10: No UNCERTAIN payments
   -- with cooking KDS tickets
   -- =============================================
-  call add_check(
-    'uncertain_payment_blocks_kds',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_payment.payment_intents pi
       join catchmenu_kds.kds_tickets kt
@@ -506,49 +653,112 @@ begin
       where pi.tenant_id = p_tenant_id
         and pi.intent_status = 'UNCERTAIN'
         and kt.kds_status = 'COOKING'
-    ),
-    'CRITICAL',
-    'UNCERTAIN payment must block all KDS cooking',
-    'Immediately halt KDS and resolve payment uncertainty'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'uncertain_payment_blocks_kds',
+        'status', 'PASS',
+        'detail', 'UNCERTAIN payment must block all KDS cooking'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'CRITICAL'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'uncertain_payment_blocks_kds',
+        'status', 'FAIL',
+        'severity', 'CRITICAL',
+        'detail', 'UNCERTAIN payment must block all KDS cooking',
+        'remediation', 'Immediately halt KDS and resolve payment uncertainty'
+      )
+    );
+  end if;
 
   -- =============================================
   -- CHECK 11: Store-level isolation
   -- =============================================
   if p_store_id is not null then
-    call add_check(
-      'store_belongs_to_tenant',
-      exists (
+    v_total := v_total + 1;
+    if exists (
         select 1 from catchmenu_hq.stores
         where id = p_store_id
           and tenant_id = p_tenant_id
           and is_active = true
-      ),
-      'CRITICAL',
-      'Store must belong to tenant',
-      'Verify store provisioning'
-    );
+      ) then
+      v_passed := v_passed + 1;
+      v_checks := v_checks || jsonb_build_array(
+        jsonb_build_object(
+          'check', 'store_belongs_to_tenant',
+          'status', 'PASS',
+          'detail', 'Store must belong to tenant'
+        )
+      );
+    else
+      v_failed := v_failed + 1;
+      v_risk_score := v_risk_score + case 'CRITICAL'
+        when 'CRITICAL' then 25
+        when 'HIGH' then 15
+        when 'MEDIUM' then 5
+        else 1
+      end;
+      v_critical := v_critical || jsonb_build_array(
+        jsonb_build_object(
+          'check', 'store_belongs_to_tenant',
+          'status', 'FAIL',
+          'severity', 'CRITICAL',
+          'detail', 'Store must belong to tenant',
+          'remediation', 'Verify store provisioning'
+        )
+      );
+    end if;
 
-    call add_check(
-      'store_data_boundary',
-      not exists (
+    v_total := v_total + 1;
+    if not exists (
         select 1
         from catchmenu_pos.orders
         where store_id = p_store_id
           and tenant_id <> p_tenant_id
-      ),
-      'CRITICAL',
-      'Store data must not leak across tenant boundary',
-      'Investigate data boundary violation immediately'
-    );
+      ) then
+      v_passed := v_passed + 1;
+      v_checks := v_checks || jsonb_build_array(
+        jsonb_build_object(
+          'check', 'store_data_boundary',
+          'status', 'PASS',
+          'detail', 'Store data must not leak across tenant boundary'
+        )
+      );
+    else
+      v_failed := v_failed + 1;
+      v_risk_score := v_risk_score + case 'CRITICAL'
+        when 'CRITICAL' then 25
+        when 'HIGH' then 15
+        when 'MEDIUM' then 5
+        else 1
+      end;
+      v_critical := v_critical || jsonb_build_array(
+        jsonb_build_object(
+          'check', 'store_data_boundary',
+          'status', 'FAIL',
+          'severity', 'CRITICAL',
+          'detail', 'Store data must not leak across tenant boundary',
+          'remediation', 'Investigate data boundary violation immediately'
+        )
+      );
+    end if;
   end if;
 
   -- =============================================
   -- CHECK 12: Knowledge docs not leaking
   -- =============================================
-  call add_check(
-    'knowledge_docs_tenant_isolated',
-    not exists (
+  v_total := v_total + 1;
+  if not exists (
       select 1
       from catchmenu_knowledge.documents d
       where d.tenant_id = p_tenant_id
@@ -564,11 +774,33 @@ begin
             and d2.ai_retrieval_scope
               = 'CUSTOMER_FACING'
         )
-    ),
-    'HIGH',
-    'INTERNAL_ONLY knowledge docs must not be customer-facing',
-    'Review knowledge doc AI retrieval scopes'
-  );
+    ) then
+    v_passed := v_passed + 1;
+    v_checks := v_checks || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'knowledge_docs_tenant_isolated',
+        'status', 'PASS',
+        'detail', 'INTERNAL_ONLY knowledge docs must not be customer-facing'
+      )
+    );
+  else
+    v_failed := v_failed + 1;
+    v_risk_score := v_risk_score + case 'HIGH'
+      when 'CRITICAL' then 25
+      when 'HIGH' then 15
+      when 'MEDIUM' then 5
+      else 1
+    end;
+    v_critical := v_critical || jsonb_build_array(
+      jsonb_build_object(
+        'check', 'knowledge_docs_tenant_isolated',
+        'status', 'FAIL',
+        'severity', 'HIGH',
+        'detail', 'INTERNAL_ONLY knowledge docs must not be customer-facing',
+        'remediation', 'Review knowledge doc AI retrieval scopes'
+      )
+    );
+  end if;
 
   -- finalize scan
   update catchmenu_audit.security_scan_results
@@ -691,7 +923,17 @@ begin
       'risk_type', 'ORDER_TENANT_MISMATCH',
       'severity', 'CRITICAL',
       'count', count(*),
-      'sample_ids', jsonb_agg(order_id limit 5),
+      'sample_ids', (
+        select coalesce(
+          jsonb_agg(sample.order_id),
+          '[]'::jsonb
+        )
+        from (
+          select order_id
+          from mismatched
+          limit 5
+        ) sample
+      ),
       'detail', 'Orders assigned to stores of different tenant'
     )
     else null

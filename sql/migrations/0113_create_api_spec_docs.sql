@@ -9,23 +9,20 @@
 -- =============================================
 insert into catchmenu_knowledge.documents (
   tenant_id, store_id,
-  document_code, document_title,
+  document_code, title,
   document_type, domain,
-  content_ko, content_en,
-  version_number, document_status,
-  is_tenant_approved,
-  approved_at, effective_from, created_by
+  content, content_locale,
+  document_status, approved_at, published_at
 ) values
 
 -- -----------------------------------------------
 -- 1. 전체 RPC 매핑표
 -- -----------------------------------------------
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'API_SPEC_RPC_MAP_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_RPC_MAP_001_KO',
   'Catch Menu RPC 전체 매핑표',
-  'SPEC', 'ARCHITECTURE',
+  'SPEC', 'architecture',
   $ko$
 # Catch Menu RPC 전체 매핑표
 
@@ -468,7 +465,16 @@ RPC: catchmenu_knowledge.submit_customer_inquiry
 RPC: catchmenu_knowledge.get_ai_center_dashboard
 설명: AI 고객센터 대시보드 조회
 권한: authenticated
-  $ko$,
+
+$ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_RPC_MAP_001_EN',
+  'Catch Menu RPC 전체 매핑표',
+  'SPEC', 'architecture',
   $en$
 # Catch Menu RPC Complete Mapping Table
 
@@ -498,8 +504,10 @@ No Korean hardcoding in SQL — use i18n keys.
 See Korean version for full RPC table.
 Section 16 (HQ Admin) RPCs are service_role only.
 Flutter apps must not call service_role RPCs directly.
-  $en$,
-  1, 'PUBLISHED', true, now(), current_date, null
+
+$en$,
+  'en',
+  'PUBLISHED', now(), current_date
 )
 ;
 -- 0113_create_api_spec_docs.sql (PART 2)
@@ -508,23 +516,20 @@ Flutter apps must not call service_role RPCs directly.
 
 insert into catchmenu_knowledge.documents (
   tenant_id, store_id,
-  document_code, document_title,
+  document_code, title,
   document_type, domain,
-  content_ko, content_en,
-  version_number, document_status,
-  is_tenant_approved,
-  approved_at, effective_from, created_by
+  content, content_locale,
+  document_status, approved_at, published_at
 ) values
 
 -- -----------------------------------------------
 -- 2. Flutter 개발 가이드
 -- -----------------------------------------------
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'API_SPEC_FLUTTER_GUIDE_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_FLUTTER_GUIDE_001_KO',
   'Flutter 개발 가이드 — Catch Menu',
-  'GUIDE', 'FLUTTER',
+  'GUIDE', 'flutter',
   $ko$
 # Flutter 개발 가이드 — Catch Menu
 
@@ -874,7 +879,16 @@ Flutter 앱 책임:
   [ ] Realtime 구독 해제 테스트 (로그아웃 시)
   [ ] KDS HOLD → COMMITTED 흐름 E2E 테스트
   [ ] 다국어 6개 언어 메뉴 표시 테스트
-  $ko$,
+
+$ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_FLUTTER_GUIDE_001_EN',
+  'Flutter 개발 가이드 — Catch Menu',
+  'GUIDE', 'flutter',
   $en$
 # Flutter Developer Guide — Catch Menu
 
@@ -905,19 +919,20 @@ Error messages use error_key lookup in i18n catalog.
 No Korean hardcoding in SQL.
 
 See Korean version for full guide.
-  $en$,
-  1, 'PUBLISHED', true, now(), current_date, null
+
+$en$,
+  'en',
+  'PUBLISHED', now(), current_date
 ),
 
 -- -----------------------------------------------
 -- 3. RPC 입출력 매핑표 — 핵심 RPC 상세
 -- -----------------------------------------------
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'API_SPEC_RPC_IO_MAP_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_RPC_IO_MAP_001_KO',
   'Catch Menu RPC 입출력 매핑표 — 핵심 RPC 상세',
-  'SPEC', 'ARCHITECTURE',
+  'SPEC', 'architecture',
   $ko$
 # Catch Menu RPC 입출력 매핑표 — 핵심 RPC 상세
 
@@ -1137,7 +1152,16 @@ ledger event: KNOWLEDGE_SEARCHED
   queued_at           timestamptz
 
 ledger event: OFFLINE_ACTION_QUEUED
-  $ko$,
+
+$ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'API_SPEC_RPC_IO_MAP_001_EN',
+  'Catch Menu RPC 입출력 매핑표 — 핵심 RPC 상세',
+  'SPEC', 'architecture',
   $en$
 # Catch Menu RPC Input/Output Mapping Table — Core RPCs
 
@@ -1155,7 +1179,9 @@ Direct HOLD to IN_PROGRESS transition is forbidden.
 
 pgvector search is retrieval only — no generative authority.
 Only published and approved documents are searchable.
-  $en$,
-  1, 'PUBLISHED', true, now(), current_date, null
+
+$en$,
+  'en',
+  'PUBLISHED', now(), current_date
 )
 ;

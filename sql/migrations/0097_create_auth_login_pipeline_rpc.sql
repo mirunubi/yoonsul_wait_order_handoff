@@ -88,19 +88,19 @@ insert into catchmenu_common.error_codes (
   error_category, http_status, severity
 ) values
 (1016, 'login_failed',
-  'AUTH', 'AUTHENTICATION', 401, 'WARNING'),
+  'AUTH', 'PERMISSION', 401, 'WARNING'),
 (1017, 'too_many_login_attempts',
-  'AUTH', 'RATE_LIMIT', 429, 'WARNING'),
+  'AUTH', 'CAPACITY', 429, 'WARNING'),
 (1018, 'pin_incorrect',
-  'AUTH', 'AUTHENTICATION', 401, 'WARNING'),
+  'AUTH', 'PERMISSION', 401, 'WARNING'),
 (1019, 'verify_code_expired',
-  'AUTH', 'AUTHENTICATION', 401, 'WARNING'),
+  'AUTH', 'PERMISSION', 401, 'WARNING'),
 (1020, 'verify_code_incorrect',
-  'AUTH', 'AUTHENTICATION', 401, 'WARNING'),
+  'AUTH', 'PERMISSION', 401, 'WARNING'),
 (1021, 'phone_verify_required',
-  'AUTH', 'AUTHENTICATION', 403, 'INFO'),
+  'AUTH', 'PERMISSION', 403, 'INFO'),
 (1022, 'staff_not_active',
-  'AUTH', 'AUTHORIZATION', 403, 'WARNING'),
+  'AUTH', 'PERMISSION', 403, 'WARNING'),
 (1023, 'device_fingerprint_mismatch',
   'AUTH', 'SECURITY', 403, 'CRITICAL')
 on conflict (code) do nothing;
@@ -1573,7 +1573,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'AUTH_SESSION_CLEANUP',

@@ -72,7 +72,7 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (9050, 'delivery_order_duplicate',
   'DELIVERY', 'CONFLICT', 409, 'INFO', null),
@@ -989,7 +989,7 @@ begin
     intake_status = 'REJECTED',
     rejected_at = now(),
     reject_reason = p_reject_reason,
-    reject_message :=
+    reject_message =
       catchmenu_common.get_message(
         case p_reject_reason
           when 'kds_overloaded'

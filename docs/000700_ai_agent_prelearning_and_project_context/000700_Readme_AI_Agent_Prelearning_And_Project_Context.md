@@ -33,15 +33,17 @@ It provides project-wide context slicing, phase-by-phase project understanding, 
 | File | Role |
 | --- | --- |
 | `000700_Readme_AI_Agent_Prelearning_And_Project_Context.md` | Defines the AI agent prelearning folder boundary, owned number range, file roles, and non-implementation rule. |
-| `000702_Guide_Project_Wide_Claude_Codex_Cursor_Onboarding_Instruction.md` | Provides ready-to-copy onboarding instructions for Claude, Codex, Cursor, and human approval review. |
-| `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Defines the project-wide phase roadmap and AI prelearning context across phases 1 through 7. |
+| `000701_Guide_Controlled_AI_Development_Pipeline.md` | Defines the controlled development pipeline across Claude Code execution, Claude governance and independent audit, and Human approval and release authority. |
+| `000702_Guide_Project_Wide_Claude_And_Claude_Code_Onboarding_Instruction.md` | Provides ready-to-copy onboarding instructions for Claude, Claude Code, and human approval review. |
+| `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Defines the project-wide phase roadmap and AI prelearning context across phases 1 through 8. |
 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | Defines Phase 1 Catch Menu MVP context for customer entry, waiting, takeout order request, and basic handoff. |
 | `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` | Defines Phase 2 yoonsul_os store runtime context as a separate project and Franchise_OS precursor. |
 | `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` | Defines Phase 3 kiosk, KDS, DID, CMS, and POS integration prelearning context. |
-| `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` | Defines Phase 4 Franchise_OS no-outage restaurant operations prelearning context. |
-| `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Defines Phase 5 AI customer center and integrated support prelearning context. |
-| `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Defines Phase 6 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. |
-| `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Defines Phase 7 AI readiness and physical AI gateway prelearning context. |
+| `000709_Guide_Phase_4_Catch_Menu_AI_Customer_Center_Prelearning_Context.md` | Defines Phase 4 Catch Menu AI Customer Center prelearning context. |
+| `000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md` | Defines Phase 5 Franchise_OS no-outage restaurant operations prelearning context. |
+| `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Defines Phase 6 AI customer center and integrated support prelearning context. |
+| `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Defines Phase 7 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. |
+| `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Defines Phase 8 AI readiness and physical AI gateway prelearning context. |
 
 ## Final Rule
 

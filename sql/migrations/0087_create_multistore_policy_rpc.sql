@@ -399,6 +399,40 @@ comment on table catchmenu_hq.escalation_log is
 -- =============================================
 -- RPCs
 -- =============================================
+-- add_check_item was originally (incorrectly) written as a nested
+-- procedure inside run_compliance_check's DECLARE section -- same
+-- invalid pattern as 0073's assert_true / 0082's add_check. Fixed the
+-- same way: a real standalone function, logging to a temp table since
+-- a standalone routine can't mutate run_compliance_check's local
+-- variables directly. All `perform add_compliance_check_item(...)` sites below were
+-- mechanically changed to `perform add_compliance_check_item(...)` --
+-- no argument list touched.
+create temp table if not exists compliance_check_items (
+  ordinal bigint generated always as identity,
+  rule text,
+  status text,
+  actual jsonb,
+  expected jsonb,
+  severity text
+);
+
+create or replace function catchmenu_hq.add_compliance_check_item(
+  p_rule text,
+  p_status text,
+  p_actual jsonb,
+  p_expected jsonb,
+  p_severity text default 'WARNING'
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.compliance_check_items
+    (rule, status, actual, expected, severity)
+    values (p_rule, p_status, p_actual, p_expected, p_severity);
+end;
+$$;
+
 create or replace function
   catchmenu_hq.run_compliance_check(
   p_tenant_id uuid,
@@ -431,51 +465,8 @@ declare
   v_compliance_status text;
   v_check_score int;
   v_business_day date;
-
-  procedure add_check_item(
-    p_rule text,
-    p_status text,
-    p_actual jsonb,
-    p_expected jsonb,
-    p_severity text default 'WARNING'
-  ) as
-  $inner$
-  begin
-    v_total := v_total + 1;
-    case p_status
-      when 'PASS' then
-        v_passed := v_passed + 1;
-      when 'FAIL' then
-        v_failed := v_failed + 1;
-        v_violations_found :=
-          v_violations_found
-          || jsonb_build_array(
-            jsonb_build_object(
-              'rule', p_rule,
-              'severity', p_severity,
-              'actual', p_actual,
-              'expected', p_expected
-            )
-          );
-      when 'WARN' then
-        v_warnings := v_warnings + 1;
-      else null;
-    end case;
-
-    v_check_results := v_check_results
-      || jsonb_build_array(
-        jsonb_build_object(
-          'rule', p_rule,
-          'status', p_status,
-          'actual', p_actual,
-          'expected', p_expected,
-          'severity', p_severity
-        )
-      );
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.compliance_check_items;
   v_start := now();
   v_business_day := (timezone(
     'Asia/Seoul', now()
@@ -502,7 +493,7 @@ begin
   end if;
 
   -- 유효 기간 확인
-  call add_check_item(
+  perform add_compliance_check_item(
     'policy_effective_period',
     case
       when v_business_day
@@ -556,7 +547,7 @@ begin
               and menu_status = 'AVAILABLE'
           ) into v_exists;
 
-          call add_check_item(
+          perform add_compliance_check_item(
             'required_menu_present:'
               || v_menu_code,
             case v_exists
@@ -591,7 +582,7 @@ begin
           and benefit_type = 'PCT_DISCOUNT'
           and discount_pct > v_max_discount_pct;
 
-        call add_check_item(
+        perform add_compliance_check_item(
           'max_discount_pct_compliance',
           case v_violation_count
             when 0 then 'PASS'
@@ -623,7 +614,7 @@ begin
         where store_id = p_store_id
           and tenant_id = p_tenant_id;
 
-        call add_check_item(
+        perform add_compliance_check_item(
           'kds_threshold_compliance',
           case
             when v_actual_threshold
@@ -667,7 +658,7 @@ begin
           and served_at is not null
           and committed_at is not null;
 
-        call add_check_item(
+        perform add_compliance_check_item(
           'avg_cook_time_compliance',
           case
             when v_actual_avg_minutes::int
@@ -683,7 +674,7 @@ begin
 
     else
       -- 기본: 배정 여부만 확인
-      call add_check_item(
+      perform add_compliance_check_item(
         'policy_assigned',
         case when exists (
           select 1
@@ -698,6 +689,41 @@ begin
         'ERROR'
       );
   end case;
+
+  -- populate v_total/v_passed/v_failed/v_warnings/v_check_results/
+  -- v_violations_found from the temp table now that all
+  -- add_compliance_check_item() calls above have logged into it
+  select
+    count(*),
+    count(*) filter (where status = 'PASS'),
+    count(*) filter (where status = 'FAIL'),
+    count(*) filter (where status = 'WARN'),
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'rule', rule,
+        'status', status,
+        'actual', actual,
+        'expected', expected,
+        'severity', severity
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    coalesce((
+      select jsonb_agg(
+        jsonb_build_object(
+          'rule', rule,
+          'severity', severity,
+          'actual', actual,
+          'expected', expected
+        )
+        order by ordinal
+      )
+      from pg_temp.compliance_check_items
+      where status = 'FAIL'
+    ), '[]'::jsonb)
+  into v_total, v_passed, v_failed, v_warnings,
+       v_check_results, v_violations_found
+  from pg_temp.compliance_check_items;
 
   -- 점수 계산
   v_check_score := case v_total

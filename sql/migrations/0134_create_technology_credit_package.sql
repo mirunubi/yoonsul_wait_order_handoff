@@ -12,21 +12,18 @@
 -- =============================================
 insert into catchmenu_knowledge.documents (
   tenant_id, store_id,
-  document_code, document_title,
+  document_code, title,
   document_type, domain,
-  content_ko, content_en,
-  version_number, document_status,
-  is_tenant_approved,
-  approved_at, effective_from
+  content, content_locale,
+  document_status, approved_at, published_at
 ) values
 
 -- 1. 기술 개요서
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'TECH_CREDIT_OVERVIEW_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_OVERVIEW_001_KO',
   '기술신보 기술 개요서 — Catch Menu',
-  'SPEC', 'PROJECT',
+  'SPEC', 'project',
   $ko$
 # 기술신보 기술 개요서 — Catch Menu
 
@@ -126,22 +123,30 @@ SaaS 시스템입니다.
 | 2035 | 한국 F&B OS 1위 |
 | 2037+ | 동아시아 진출 |
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_OVERVIEW_001_EN',
+  '기술신보 기술 개요서 — Catch Menu',
+  'SPEC', 'project',
   $en$
 # Technology Credit Overview — Catch Menu
 Korea first F&B Operation OS (SaaS).
 2 patents filed. 9 schemas, 155+ tables, 220+ RPCs.
 See Korean version for full details.
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 ),
 
 -- 2. 경쟁사 비교 분석
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'TECH_CREDIT_COMPARISON_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_COMPARISON_001_KO',
   '기술신보 경쟁사 비교 분석',
-  'REPORT', 'PROJECT',
+  'REPORT', 'project',
   $ko$
 # 경쟁사 비교 분석
 
@@ -190,6 +195,14 @@ $en$,
    현금영수증 소득세법.
    개인정보보호법 SHA-256 해시.
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_COMPARISON_001_EN',
+  '기술신보 경쟁사 비교 분석',
+  'REPORT', 'project',
   $en$
 # Competitive Analysis
 Catch Menu is the only F&B OS with:
@@ -199,16 +212,16 @@ Catch Menu is the only F&B OS with:
 4. 6-locale support
 No existing domestic or foreign competitor has all 4.
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 ),
 
 -- 3. 자금 집행 계획
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'TECH_CREDIT_FUND_PLAN_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_FUND_PLAN_001_KO',
   '기술신보 자금 집행 계획서',
-  'SPEC', 'PROJECT',
+  'SPEC', 'project',
   $ko$
 # 기술신보 자금 집행 계획서
 
@@ -294,6 +307,14 @@ BEP 분석:
 - 100개: 약 800만원/월
 - 500개: 약 4,000만원/월
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_FUND_PLAN_001_EN',
+  '기술신보 자금 집행 계획서',
+  'SPEC', 'project',
   $en$
 # Technology Credit Fund Plan
 Target: 150M ~ 300M KRW
@@ -303,16 +324,16 @@ C: Infrastructure (15%)
 D: Marketing (15%)
 BEP: 50 stores at PRO tier
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 ),
 
 -- 4. 특허 구현 증빙
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'TECH_CREDIT_PATENT_EVIDENCE_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_PATENT_EVIDENCE_001_KO',
   '특허 구현 증빙 — DB 기반 증거',
-  'EVIDENCE', 'PROJECT',
+  'EVIDENCE', 'project',
   $ko$
 # 특허 구현 증빙 — DB 기반 증거
 
@@ -425,6 +446,14 @@ ORDER BY kt.ticket_created_at;
 
 이것이 특허의 핵심 비즈니스 가치입니다.
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'TECH_CREDIT_PATENT_EVIDENCE_001_EN',
+  '특허 구현 증빙 — DB 기반 증거',
+  'EVIDENCE', 'project',
   $en$
 # Patent Implementation Evidence
 
@@ -442,12 +471,12 @@ Combined: pre_order_while_waiting()
   Order while waiting + fresh food on seating
   World-first combined implementation
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 )
 on conflict (tenant_id, document_code)
 do update set
-  content_ko = excluded.content_ko,
-  updated_at = now();
+  content = excluded.content;
 
 
 -- =============================================
@@ -705,13 +734,13 @@ set is_current = false
 where is_current = true;
 
 insert into catchmenu_common.schema_versions (
-  version_code, version_name,
-  migration_range, is_current,
-  validation_result, deployed_at
+  version_code, migration_count,
+  description, is_current,
+  validation_result
 ) values (
   'v0134',
-  'Catch Menu Full System v1.3 - Tech Credit Ready',
-  '0001-0134',
+  134,
+  'Catch Menu Full System v1.3 - Tech Credit Ready (0001-0134)',
   true,
   jsonb_build_object(
     'validated_at', now(),
@@ -727,6 +756,10 @@ insert into catchmenu_common.schema_versions (
     'rpc_added',
       'get_tech_credit_summary()',
     'next_milestone', 'Flutter MVP Development'
-  ),
-  now()
-);
+  )
+)
+on conflict (version_code) do update set
+  migration_count = excluded.migration_count,
+  description = excluded.description,
+  is_current = excluded.is_current,
+  validation_result = excluded.validation_result;

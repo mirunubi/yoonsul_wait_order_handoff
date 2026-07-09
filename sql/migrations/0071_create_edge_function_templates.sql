@@ -19,10 +19,17 @@ create table if not exists
   id uuid primary key default gen_random_uuid(),
 
   template_code text not null unique,
-  function_code text not null
-    references catchmenu_common.edge_function_registry(
-      function_code
-    ),
+  -- edge_function_registry has no standalone unique constraint on
+  -- function_code alone (it's unique per (tenant_id, function_code) —
+  -- tenant-scoped by design, see 0068), so a plain FK on function_code
+  -- is not possible. function_id is the real relationship; function_code
+  -- is kept as a plain (non-FK) denormalized copy purely so
+  -- get_edge_function_template() can keep reading it directly without
+  -- an extra join. If edge_function_registry.function_code is ever
+  -- renamed for a given row, this copy will not auto-update.
+  function_id uuid not null
+    references catchmenu_common.edge_function_registry(id),
+  function_code text not null,
   template_language text not null default 'typescript',
   template_category text not null,
 
@@ -101,7 +108,7 @@ create trigger trg_flutter_patterns_updated
 -- Seed Edge Function templates
 -- =============================================
 insert into catchmenu_common.edge_function_templates (
-  template_code, function_code,
+  template_code, function_id, function_code,
   template_category, template_description,
   environment_vars, template_code_body
 ) values
@@ -111,6 +118,8 @@ insert into catchmenu_common.edge_function_templates (
 -- =============================================
 (
   'TOSS_WEBHOOK_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'TOSS_WEBHOOK' and tenant_id is null),
   'TOSS_WEBHOOK',
   'WEBHOOK',
   'Toss Payments 웹훅 수신 → 서명 검증 → RPC 라우팅',
@@ -246,6 +255,8 @@ $template$
 -- =============================================
 (
   'BAEMIN_WEBHOOK_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'BAEMIN_WEBHOOK' and tenant_id is null),
   'BAEMIN_WEBHOOK',
   'WEBHOOK',
   '배달의민족 웹훅 수신 → KDS 과부하 체크 → 주문 처리',
@@ -358,6 +369,8 @@ $template$
 -- =============================================
 (
   'SESSION_CLEANUP_SCHEDULED',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'SESSION_CLEANUP_CRON' and tenant_id is null),
   'SESSION_CLEANUP_CRON',
   'SCHEDULED',
   '15분마다 실행: 만료 세션 정리 + 노쇼 처리',
@@ -450,6 +463,8 @@ $template$
 -- =============================================
 (
   'AI_CHAT_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'AI_CHAT_HANDLER' and tenant_id is null),
   'AI_CHAT_HANDLER',
   'AI_HANDLER',
   'AI 고객센터: Context Builder → AI API → Firebase 저장',
@@ -729,6 +744,8 @@ $template$
 -- =============================================
 (
   'DAILY_CLOSE_SCHEDULED',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'DAILY_CLOSE_CRON' and tenant_id is null),
   'DAILY_CLOSE_CRON',
   'SCHEDULED',
   '23:00 KST 일일 마감 배치 실행',

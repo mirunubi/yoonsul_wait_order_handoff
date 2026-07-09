@@ -182,7 +182,12 @@ begin
         'count', count(*),
         'detail',
           'Events with future occurred_at timestamp',
-        'sample_ids', jsonb_agg(id limit 5)
+        'sample_ids', (
+          select coalesce(jsonb_agg(sample.id), '[]'::jsonb)
+          from (
+            select id from future_events limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -220,7 +225,12 @@ begin
         'count', count(*),
         'detail',
           'Payment events with no ledger reference',
-        'sample_ids', jsonb_agg(id limit 5)
+        'sample_ids', (
+          select coalesce(jsonb_agg(sample.id), '[]'::jsonb)
+          from (
+            select id from orphaned_events limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -247,7 +257,12 @@ begin
         'count', count(*),
         'detail',
           'Replay events missing original_event_id',
-        'sample_ids', jsonb_agg(id limit 5)
+        'sample_ids', (
+          select coalesce(jsonb_agg(sample.id), '[]'::jsonb)
+          from (
+            select id from bad_replays limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -282,8 +297,15 @@ begin
           'Multiple payment_confirmed events '
           || 'with same correlation_id. '
           || 'POSSIBLE DOUBLE CHARGE.',
-        'correlation_ids',
-          jsonb_agg(correlation_id limit 5)
+        'correlation_ids', (
+          select coalesce(
+            jsonb_agg(sample.correlation_id),
+            '[]'::jsonb
+          )
+          from (
+            select correlation_id from dup_payments limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -323,8 +345,15 @@ begin
         'count', count(*),
         'detail',
           'Payment confirmed but no KDS condition update',
-        'order_ids',
-          jsonb_agg(order_id limit 5)
+        'order_ids', (
+          select coalesce(
+            jsonb_agg(sample.order_id),
+            '[]'::jsonb
+          )
+          from (
+            select order_id from payment_no_kds limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -553,7 +582,12 @@ begin
         'count', count(*),
         'detail',
           'Financial audit records without actor_id',
-        'sample_ids', jsonb_agg(id limit 5)
+        'sample_ids', (
+          select coalesce(jsonb_agg(sample.id), '[]'::jsonb)
+          from (
+            select id from anon_financial limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -579,7 +613,12 @@ begin
         'count', count(*),
         'detail',
           'Audit records with future timestamps',
-        'sample_ids', jsonb_agg(id limit 5)
+        'sample_ids', (
+          select coalesce(jsonb_agg(sample.id), '[]'::jsonb)
+          from (
+            select id from future_audit limit 5
+          ) sample
+        )
       )
     )
     else v_anomalies
@@ -740,12 +779,17 @@ begin
           'detail',
             'Payment ledger state does not match '
             || 'event projection',
-          'sample', jsonb_agg(
-            jsonb_build_object(
-              'ledger_id', ledger_id,
-              'current', current_status,
-              'projected', projected_status
-            ) limit 5
+          'sample', (
+            select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+            from (
+              select jsonb_build_object(
+                'ledger_id', ledger_id,
+                'current', current_status,
+                'projected', projected_status
+              ) as item
+              from payment_projection
+              limit 5
+            ) sample
           )
         )
       )
@@ -794,13 +838,18 @@ begin
           'detail',
             'Order status does not match '
             || 'event projection',
-          'sample', jsonb_agg(
-            jsonb_build_object(
-              'order_id', order_id,
-              'order_number', order_number,
-              'current', current_status,
-              'projected', projected_status
-            ) limit 5
+          'sample', (
+            select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+            from (
+              select jsonb_build_object(
+                'order_id', order_id,
+                'order_number', order_number,
+                'current', current_status,
+                'projected', projected_status
+              ) as item
+              from order_projection
+              limit 5
+            ) sample
           )
         )
       )
@@ -848,13 +897,18 @@ begin
           'detail',
             'KDS ticket status does not match '
             || 'event projection',
-          'sample', jsonb_agg(
-            jsonb_build_object(
-              'ticket_id', ticket_id,
-              'ticket_number', ticket_number,
-              'current', current_status,
-              'projected', projected_status
-            ) limit 5
+          'sample', (
+            select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+            from (
+              select jsonb_build_object(
+                'ticket_id', ticket_id,
+                'ticket_number', ticket_number,
+                'current', current_status,
+                'projected', projected_status
+              ) as item
+              from kds_projection
+              limit 5
+            ) sample
           )
         )
       )
@@ -900,12 +954,17 @@ begin
           'detail',
             'Session status does not match '
             || 'event projection',
-          'sample', jsonb_agg(
-            jsonb_build_object(
-              'session_id', session_id,
-              'current', current_status,
-              'projected', projected_status
-            ) limit 5
+          'sample', (
+            select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+            from (
+              select jsonb_build_object(
+                'session_id', session_id,
+                'current', current_status,
+                'projected', projected_status
+              ) as item
+              from session_projection
+              limit 5
+            ) sample
           )
         )
       )
@@ -1040,13 +1099,18 @@ begin
         'count', count(*),
         'detail',
           'Paid orders with no payment_confirmed event',
-        'sample', jsonb_agg(
-          jsonb_build_object(
-            'order_id', order_id,
-            'order_number', order_number,
-            'order_status', order_status,
-            'final_amount', final_amount
-          ) limit 5
+        'sample', (
+          select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+          from (
+            select jsonb_build_object(
+              'order_id', order_id,
+              'order_number', order_number,
+              'order_status', order_status,
+              'final_amount', final_amount
+            ) as item
+            from gap_order_payment
+            limit 5
+          ) sample
         )
       )
     )
@@ -1080,12 +1144,17 @@ begin
         'detail',
           'KDS tickets in non-HOLD state '
           || 'with no KDS events',
-        'sample', jsonb_agg(
-          jsonb_build_object(
-            'ticket_id', ticket_id,
-            'ticket_number', ticket_number,
-            'kds_status', kds_status
-          ) limit 5
+        'sample', (
+          select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+          from (
+            select jsonb_build_object(
+              'ticket_id', ticket_id,
+              'ticket_number', ticket_number,
+              'kds_status', kds_status
+            ) as item
+            from gap_kds
+            limit 5
+          ) sample
         )
       )
     )
@@ -1117,12 +1186,17 @@ begin
         'count', count(*),
         'detail',
           'Sessions with no session events recorded',
-        'sample', jsonb_agg(
-          jsonb_build_object(
-            'session_id', session_id,
-            'session_status', session_status,
-            'session_type', session_type
-          ) limit 5
+        'sample', (
+          select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+          from (
+            select jsonb_build_object(
+              'session_id', session_id,
+              'session_status', session_status,
+              'session_type', session_type
+            ) as item
+            from gap_session
+            limit 5
+          ) sample
         )
       )
     )
@@ -1158,12 +1232,17 @@ begin
         'detail',
           'Approved payments pending reconciliation '
           || 'for over 1 hour',
-        'sample', jsonb_agg(
-          jsonb_build_object(
-            'ledger_id', ledger_id,
-            'approved_amount', approved_amount,
-            'provider_type', provider_type
-          ) limit 5
+        'sample', (
+          select coalesce(jsonb_agg(sample.item), '[]'::jsonb)
+          from (
+            select jsonb_build_object(
+              'ledger_id', ledger_id,
+              'approved_amount', approved_amount,
+              'provider_type', provider_type
+            ) as item
+            from gap_reconciliation
+            limit 5
+          ) sample
         )
       )
     )

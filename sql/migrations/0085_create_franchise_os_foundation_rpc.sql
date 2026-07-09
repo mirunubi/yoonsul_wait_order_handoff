@@ -1562,16 +1562,16 @@ begin
             and order_status = 'COMPLETED'
         ), 0),
         'policy_compliance', coalesce((
-          select count(*) filter (
-            where compliance_status = 'COMPLIANT'
-          )::numeric
-          / nullif(count(*), 0) * 100, 0
-        )::int
-          from catchmenu_hq
-            .franchise_policy_assignments
+          select (
+            count(*) filter (
+              where compliance_status = 'COMPLIANT'
+            )::numeric
+            / nullif(count(*), 0) * 100
+          )::int
+          from catchmenu_hq.franchise_policy_assignments
           where store_id = s.id
             and tenant_id = p_tenant_id
-        ),
+        ), 0),
         'pending_approvals', (
           select count(*)
           from catchmenu_hq

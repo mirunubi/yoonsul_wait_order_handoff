@@ -61,7 +61,7 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (9020, 'toss_payment_initiate_failed',
   'PAYMENT', 'TECHNICAL', 500, 'ERROR',
@@ -1058,9 +1058,9 @@ begin
               .toss_payment_requests
             set
               request_status = 'ABORTED',
-              failure_code :=
+              failure_code =
                 p_raw_payload->>'code',
-              failure_message :=
+              failure_message =
                 p_raw_payload->>'message',
               updated_at = now()
             where payment_key = v_payment_key
@@ -1220,7 +1220,7 @@ $$;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'TOSS_PAYMENT_EXPIRE',

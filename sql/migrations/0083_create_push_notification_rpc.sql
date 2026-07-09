@@ -1030,7 +1030,7 @@ insert into catchmenu_common.edge_function_registry (
   true, 10, 200,
   'fcm-push'
 )
-on conflict (function_code) do nothing;
+on conflict (tenant_id, function_code) do nothing;
 
 
 -- Flutter SDK 패턴: 푸시 알림
@@ -1045,9 +1045,9 @@ insert into catchmenu_common.flutter_sdk_patterns (
   'RPC_CALL',
   '["CUSTOMER_APP"]'::jsonb,
   '고객 앱 FCM 토큰 등록 + 알림 수신 처리',
-  '["supabase_flutter: ^2.0.0",'
+  ('["supabase_flutter: ^2.0.0",'
   || '"firebase_messaging: ^14.0.0",'
-  || '"flutter_local_notifications: ^17.0.0"]'::jsonb,
+  || '"flutter_local_notifications: ^17.0.0"]')::jsonb,
   $dart$
 // lib/services/push_notification_service.dart
 import 'package:firebase_messaging/firebase_messaging.dart';

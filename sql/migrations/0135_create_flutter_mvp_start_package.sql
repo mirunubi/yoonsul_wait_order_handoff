@@ -12,21 +12,18 @@
 -- =============================================
 insert into catchmenu_knowledge.documents (
   tenant_id, store_id,
-  document_code, document_title,
+  document_code, title,
   document_type, domain,
-  content_ko, content_en,
-  version_number, document_status,
-  is_tenant_approved,
-  approved_at, effective_from
+  content, content_locale,
+  document_status, approved_at, published_at
 ) values
 
 -- 1. Flutter MVP 범위 확정
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'FLUTTER_MVP_SCOPE_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'FLUTTER_MVP_SCOPE_001_KO',
   'Flutter MVP 개발 범위 확정',
-  'SPEC', 'FLUTTER',
+  'SPEC', 'flutter',
   $ko$
 # Flutter MVP 개발 범위 확정
 
@@ -184,6 +181,14 @@ insert into catchmenu_knowledge.documents (
 - Password: [DB Password]
 - SSL: required
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'FLUTTER_MVP_SCOPE_001_EN',
+  'Flutter MVP 개발 범위 확정',
+  'SPEC', 'flutter',
   $en$
 # Flutter MVP Scope
 
@@ -196,16 +201,16 @@ Phase 5: CUSTOMER_APP (6 weeks, post-open)
 DB is complete. Start Flutter or Edge Function outsourcing now.
 See Korean version for full spec.
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 ),
 
 -- 2. DB 적용 체크리스트
 (
-  '00000000-0000-0000-0000-000000000001',
-  null,
-  'DB_APPLY_CHECKLIST_001',
+  '00000000-0000-0000-0000-000000000001', null,
+  'DB_APPLY_CHECKLIST_001_KO',
   'DB 적용 체크리스트 — Supabase',
-  'GUIDE', 'OPERATION',
+  'GUIDE', 'operation',
   $ko$
 # DB 적용 체크리스트 — Supabase
 
@@ -275,6 +280,14 @@ run_opening_checklist() → READY 또는 CAUTION
 알레르겐 등록 → 식품위생법 준수
 직원 PIN 설정 → 보안 완료
 $ko$,
+  'ko',
+  'PUBLISHED', now(), current_date
+),
+(
+  '00000000-0000-0000-0000-000000000001', null,
+  'DB_APPLY_CHECKLIST_001_EN',
+  'DB 적용 체크리스트 — Supabase',
+  'GUIDE', 'operation',
   $en$
 # DB Apply Checklist
 
@@ -286,12 +299,12 @@ $ko$,
 6. Get Supabase API keys
 7. Configure Flutter pubspec.yaml
 $en$,
-  1, 'PUBLISHED', true, now(), current_date
+  'en',
+  'PUBLISHED', now(), current_date
 )
 on conflict (tenant_id, document_code)
 do update set
-  content_ko = excluded.content_ko,
-  updated_at = now();
+  content = excluded.content;
 
 
 -- =============================================
@@ -406,13 +419,13 @@ set is_current = false
 where is_current = true;
 
 insert into catchmenu_common.schema_versions (
-  version_code, version_name,
-  migration_range, is_current,
-  validation_result, deployed_at
+  version_code, migration_count,
+  description, is_current,
+  validation_result
 ) values (
   'v0135',
-  'Catch Menu Full System v2.0 - DB Complete',
-  '0001-0135',
+  135,
+  'Catch Menu Full System v2.0 - DB Complete (0001-0135)',
   true,
   jsonb_build_object(
     'validated_at', now(),
@@ -437,9 +450,35 @@ insert into catchmenu_common.schema_versions (
     ),
     'milestone',
       '0001~0135 DB 설계 완료. Flutter MVP 시작.'
-  ),
-  now()
-);
+  )
+)
+on conflict (version_code) do update set
+  migration_count = excluded.migration_count,
+  description = excluded.description,
+  is_current = excluded.is_current,
+  validation_result = excluded.validation_result;
+
+comment on function
+  catchmenu_common.get_project_completion_summary()
+  is
+  '프로젝트 완성 요약.
+   DB 설계 완료 기념 최종 요약.
+
+   DBeaver에서 실행:
+   SELECT
+     catchmenu_common
+       .get_project_completion_summary();
+
+   포함 정보:
+   - 마이그레이션 파일 수 (135개)
+   - 테이블/함수/RLS/i18n 수치
+   - 특허 구현 상태
+   - 다음 단계 안내
+   - Edge Function P1 목록
+   - Flutter 개발 우선순위
+
+   이 결과물이 2027.09 1호점 오픈의
+   기술적 근거가 됩니다.';
 
 comment on function
   catchmenu_common.get_project_completion_summary()

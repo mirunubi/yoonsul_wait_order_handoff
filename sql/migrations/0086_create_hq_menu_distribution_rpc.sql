@@ -539,7 +539,7 @@ begin
         update catchmenu_hq.menu_distribution_log
         set
           distribution_status = 'FAILED',
-          error_detail :=
+          error_detail =
             v_apply_result->>'error_key',
           completed_at = now()
         where id = v_log_id;

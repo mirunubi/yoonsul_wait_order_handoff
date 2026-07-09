@@ -46,8 +46,7 @@ insert into catchmenu_common.edge_function_registry (
   function_method, trigger_type,
   requires_auth, timeout_seconds,
   rate_limit_per_minute,
-  flutter_invoke_name,
-  description
+  flutter_invoke_name
 ) values
 -- FCM 푸시 알림
 (
@@ -56,9 +55,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/fcm-push',
   'POST', 'HTTP',
   true, 10, 200,
-  'fcm-push',
-  'Firebase FCM API 호출. '
-  || 'push_notification_log PENDING → SENT.'
+  'fcm-push'
 ),
 -- pgvector 임베딩 생성
 (
@@ -67,9 +64,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/generate-embedding',
   'POST', 'HTTP',
   true, 30, 60,
-  'generate-embedding',
-  'OpenAI text-embedding-3-small 호출. '
-  || 'document_embeddings 등록.'
+  'generate-embedding'
 ),
 -- AI 답변 생성 (RAG)
 (
@@ -78,9 +73,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/ai-rag-answer',
   'POST', 'HTTP',
   true, 30, 100,
-  'ai-rag-answer',
-  'Claude Sonnet 호출 + RAG 컨텍스트 주입. '
-  || 'grounding 검증 후 답변 반환.'
+  'ai-rag-answer'
 ),
 -- SOP 초안 생성
 (
@@ -89,9 +82,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/sop-draft',
   'POST', 'HTTP',
   true, 60, 10,
-  'sop-draft',
-  'Claude Sonnet으로 SOP 초안 생성. '
-  || 'Human review 필수 플래그 포함.'
+  'sop-draft'
 ),
 -- 배달앱 웹훅 수신
 (
@@ -100,9 +91,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/delivery-webhook',
   'POST', 'WEBHOOK',
   false, 10, 500,
-  null,
-  '배민/요기요/쿠팡이츠 주문 상태 웹훅. '
-  || 'sync_delivery_order_status() 호출.'
+  null
 ),
 -- POS 동기화 웹훅
 (
@@ -111,9 +100,7 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/pos-sync',
   'POST', 'WEBHOOK',
   false, 10, 300,
-  null,
-  'OKpos/Toss POS 이벤트 수신. '
-  || 'Layer 1 대사 트리거.'
+  null
 ),
 -- 결제 웹훅 (Toss Payments)
 (
@@ -122,31 +109,25 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/payment-webhook',
   'POST', 'WEBHOOK',
   false, 10, 300,
-  null,
-  '토스페이먼츠 결제 완료/실패 웹훅. '
-  || 'confirm_payment_from_provider() 호출.'
+  null
 ),
 -- 매장 상태 브로드캐스트
 (
   'STORE_STATUS_BROADCAST',
   '매장 상태 Realtime 브로드캐스트',
   '/functions/v1/store-broadcast',
-  'POST', 'SCHEDULE',
+  'POST', 'SCHEDULED',
   true, 5, 60,
-  null,
-  'Supabase Realtime 채널 브로드캐스트. '
-  || '매장 모드/KDS 상태 Flutter 앱 전송.'
+  null
 ),
 -- 일일 리포트 생성
 (
   'DAILY_REPORT_GENERATOR',
   '일일 운영 리포트 생성',
   '/functions/v1/daily-report',
-  'POST', 'SCHEDULE',
+  'POST', 'SCHEDULED',
   true, 60, 5,
-  null,
-  '매일 자정 일일 리포트 생성. '
-  || '매출/주문/KDS/대기 집계 후 푸시 발송.'
+  null
 ),
 -- 고객 앱 세션 갱신
 (
@@ -155,12 +136,9 @@ insert into catchmenu_common.edge_function_registry (
   '/functions/v1/session-refresh',
   'POST', 'HTTP',
   true, 5, 500,
-  'session-refresh',
-  '고객 앱 세션 토큰 갱신. '
-  || 'Phase 2: Firebase 마이그레이션 대상.'
+  'session-refresh'
 )
-on conflict (function_code) do update set
-  description = excluded.description,
+on conflict (tenant_id, function_code) do update set
   timeout_seconds = excluded.timeout_seconds;
 
 
@@ -303,7 +281,7 @@ $dart$
 (
   'FLUTTER_KDS_SCREEN',
   'KDS 화면 패턴',
-  'UI_PATTERN',
+  'RPC_CALL',
   '["KDS_DISPLAY","STAFF_APP"]'::jsonb,
   'KDS 티켓 목록 + 상태 변경 + Realtime',
   '["supabase_flutter: ^2.0.0","flutter_riverpod: ^2.0.0"]'::jsonb,
@@ -768,7 +746,7 @@ $dart$
 (
   'FLUTTER_I18N_PATTERN',
   '다국어(i18n) 처리 패턴',
-  'UTILITY',
+  'I18N',
   '["STAFF_APP","CUSTOMER_APP","MINI_KIOSK","DID_DISPLAY"]'::jsonb,
   'message_catalog 기반 다국어 메시지 처리',
   '["supabase_flutter: ^2.0.0","flutter_localizations"]'::jsonb,
@@ -843,7 +821,7 @@ $dart$
 (
   'FLUTTER_OFFLINE_PATTERN',
   '오프라인/네트워크 오류 대응 패턴',
-  'UTILITY',
+  'ERROR_HANDLING',
   '["STAFF_APP","POS_TERMINAL","KDS_DISPLAY"]'::jsonb,
   '네트워크 단절 시 로컬 캐시 + 재연결 처리',
   '["supabase_flutter: ^2.0.0","connectivity_plus: ^5.0.0","hive: ^2.0.0"]'::jsonb,
@@ -1063,6 +1041,37 @@ end;
 $$;
 
 
+-- add_health was originally (incorrectly) written as a nested procedure
+-- inside health_check's DECLARE section -- same invalid pattern as
+-- 0073's assert_true and others found this session. Fixed the same way:
+-- a real standalone function, logging to a temp table since a
+-- standalone routine can't mutate health_check's local variables
+-- directly. All 5 `perform catchmenu_common.add_health_check_item(...)` sites below were mechanically
+-- changed to `perform add_health_check_item(...)` -- no argument list
+-- touched.
+create temp table if not exists health_check_items (
+  ordinal bigint generated always as identity,
+  component text,
+  status text,
+  detail jsonb,
+  checked_at timestamptz
+);
+
+create or replace function catchmenu_common.add_health_check_item(
+  p_component text,
+  p_status text,
+  p_detail jsonb default null
+)
+returns void
+language plpgsql
+as $$
+begin
+  insert into pg_temp.health_check_items
+    (component, status, detail, checked_at)
+    values (p_component, p_status, p_detail, now());
+end;
+$$;
+
 create or replace function
   catchmenu_common.health_check(
   p_tenant_id uuid default null,
@@ -1082,41 +1091,14 @@ declare
   v_checks jsonb := '[]'::jsonb;
   v_overall text := 'HEALTHY';
   v_business_day date;
-
-  procedure add_health(
-    p_component text,
-    p_status text,
-    p_detail jsonb default null
-  ) as
-  $inner$
-  begin
-    v_checks := v_checks
-      || jsonb_build_array(
-        jsonb_build_object(
-          'component', p_component,
-          'status', p_status,
-          'detail', p_detail,
-          'checked_at', now()
-        )
-      );
-    if p_status = 'DEGRADED'
-      and v_overall = 'HEALTHY'
-    then
-      v_overall := 'DEGRADED';
-    end if;
-    if p_status = 'DOWN' then
-      v_overall := 'DOWN';
-    end if;
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.health_check_items;
   v_business_day := (timezone(
     'Asia/Seoul', now()
   ))::date;
 
   -- DB 연결
-  call add_health(
+  perform catchmenu_common.add_health_check_item(
     'DATABASE', 'HEALTHY',
     jsonb_build_object(
       'connection', 'ok',
@@ -1132,7 +1114,7 @@ begin
     from information_schema.schemata
     where schema_name like 'catchmenu_%';
 
-    call add_health(
+    perform catchmenu_common.add_health_check_item(
       'SCHEMAS',
       case v_schema_count >= 9
         when true then 'HEALTHY'
@@ -1156,7 +1138,7 @@ begin
       from catchmenu_common.tenant_plan_configs
       where tenant_id = p_tenant_id;
 
-      call add_health(
+      perform catchmenu_common.add_health_check_item(
         'TENANT_PLAN',
         case v_plan_status
           when 'ACTIVE' then 'HEALTHY'
@@ -1183,7 +1165,7 @@ begin
         and cooking_started_at
           < now() - interval '60 minutes';
 
-      call add_health(
+      perform catchmenu_common.add_health_check_item(
         'KDS',
         case v_stuck_tickets
           when 0 then 'HEALTHY'
@@ -1210,7 +1192,7 @@ begin
         )
         and case_severity = 'CRITICAL';
 
-      call add_health(
+      perform catchmenu_common.add_health_check_item(
         'RECONCILIATION',
         case v_open_recon_cases
           when 0 then 'HEALTHY'
@@ -1223,6 +1205,26 @@ begin
       );
     end;
   end if;
+
+  -- populate v_checks/v_overall from the temp table now that all
+  -- add_health_check_item() calls above have logged into it
+  select
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'component', component,
+        'status', status,
+        'detail', detail,
+        'checked_at', checked_at
+      )
+      order by ordinal
+    ), '[]'::jsonb),
+    case
+      when bool_or(status = 'DOWN') then 'DOWN'
+      when bool_or(status = 'DEGRADED') then 'DEGRADED'
+      else 'HEALTHY'
+    end
+  into v_checks, v_overall
+  from pg_temp.health_check_items;
 
   return catchmenu_common.build_success_response(
     p_message_key := case v_overall

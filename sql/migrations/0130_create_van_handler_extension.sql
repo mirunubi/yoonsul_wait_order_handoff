@@ -36,14 +36,11 @@ on conflict (message_key, locale) do nothing;
 insert into catchmenu_common.error_codes (
   code, error_key, error_domain,
   error_category, http_status, severity,
-  sop_runbook_code
+  sop_document_code
 ) values
 (5010, 'van_connection_failed',
   'PAYMENT', 'TECHNICAL', 503,
   'CRITICAL', 'SOP-PAY-001'),
-(5011, 'van_approval_failed',
-  'PAYMENT', 'TECHNICAL', 502,
-  'ERROR', 'SOP-PAY-001'),
 (5012, 'van_net_cancel_failed',
   'PAYMENT', 'FINANCIAL', 500,
   'CRITICAL', 'SOP-PAY-002'),
@@ -1031,10 +1028,10 @@ $$;
 
 -- SOP: VAN 장애 대응
 insert into catchmenu_common.sop_runbooks (
-  runbook_code, runbook_title,
-  target_domain, trigger_condition,
-  steps, escalation_path,
-  estimated_resolution_minutes,
+  runbook_code, runbook_name,
+  runbook_domain, symptom_description,
+  recovery_steps, escalation_contact,
+  escalation_threshold_minutes,
   is_active
 ) values
 (
@@ -1056,10 +1053,7 @@ insert into catchmenu_common.sop_runbooks (
     '7. 복구 후 flush_offline_queue()',
     '8. 망취소 필요 건 request_van_net_cancel()'
   ),
-  jsonb_build_array(
-    '15분 내 미해결 → 수동 결제 운영',
-    '30분 내 미해결 → VAN사 긴급 연락'
-  ),
+  '15분 내 미해결 → 수동 결제 운영 / 30분 내 미해결 → VAN사 긴급 연락',
   15, true
 ),
 (
@@ -1079,11 +1073,7 @@ insert into catchmenu_common.sop_runbooks (
     '8. 감사 증빙 패킷 생성',
     '   generate_audit_packet(DISPUTE_EVIDENCE)'
   ),
-  jsonb_build_array(
-    '즉시 CRITICAL 알림 발송',
-    '1,000원 이상 갭 → 즉일 해결 필수',
-    '미해결 → 세무사/회계사 보고'
-  ),
+  '즉시 CRITICAL 알림 발송 / 1,000원 이상 갭 → 즉일 해결 필수 / 미해결 → 세무사/회계사 보고',
   60, true
 )
 on conflict (runbook_code) do nothing;
@@ -1093,7 +1083,7 @@ on conflict (runbook_code) do nothing;
 insert into catchmenu_common.pg_cron_jobs (
   job_code, pg_cron_job_name,
   schedule_cron_utc, schedule_cron_kst,
-  sql_command, notes, is_active
+  sql_command, notes, is_registered
 ) values
 (
   'VAN_TIMEOUT_CHECK',

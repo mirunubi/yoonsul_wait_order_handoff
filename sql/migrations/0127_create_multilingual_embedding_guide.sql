@@ -63,7 +63,7 @@ insert into catchmenu_common.error_codes (
 (13011, 'menu_vector_not_found',
   'AI', 'NOT_FOUND', 404, 'INFO'),
 (13012, 'rag_grounding_failed',
-  'AI', 'INTEGRITY', 200, 'WARNING')
+  'AI', 'SECURITY', 200, 'WARNING')
 on conflict (code) do nothing;
 
 

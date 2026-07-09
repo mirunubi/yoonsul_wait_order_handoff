@@ -64,14 +64,14 @@ insert into catchmenu_common.edge_function_registry (
   'get_pos_health',
   'pos-health'
 )
-on conflict (function_code) do nothing;
+on conflict (tenant_id, function_code) do nothing;
 
 
 -- =============================================
 -- Edge Function TypeScript 템플릿
 -- =============================================
 insert into catchmenu_common.edge_function_templates (
-  template_code, function_code,
+  template_code, function_id, function_code,
   template_category, template_description,
   environment_vars, template_code_body
 ) values
@@ -81,11 +81,13 @@ insert into catchmenu_common.edge_function_templates (
 -- =============================================
 (
   'OKPOS_WEBHOOK_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'OKPOS_WEBHOOK' and tenant_id is null),
   'OKPOS_WEBHOOK',
   'WEBHOOK',
   'OKpos 웹훅 수신 → 서명 검증 → RPC 라우팅. 1차 MVP.',
-  '["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY",'
-  || '"OKPOS_WEBHOOK_SECRET","TENANT_ID","STORE_ID"]'::jsonb,
+  ('["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY",'
+  || '"OKPOS_WEBHOOK_SECRET","TENANT_ID","STORE_ID"]')::jsonb,
   $template$
 // supabase/functions/okpos-webhook/index.ts
 // OKpos 웹훅 수신 핸들러
@@ -306,11 +308,13 @@ $template$
 -- =============================================
 (
   'TOSS_POS_WEBHOOK_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'TOSS_POS_WEBHOOK' and tenant_id is null),
   'TOSS_POS_WEBHOOK',
   'WEBHOOK',
   '토스 POS 웹훅 수신 → OAuth 검증 → RPC 라우팅. 1차 MVP.',
-  '["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY",'
-  || '"TOSS_POS_CLIENT_SECRET","TENANT_ID","STORE_ID"]'::jsonb,
+  ('["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY",'
+  || '"TOSS_POS_CLIENT_SECRET","TENANT_ID","STORE_ID"]')::jsonb,
   $template$
 // supabase/functions/toss-pos-webhook/index.ts
 // 토스 POS 웹훅 수신 핸들러
@@ -496,6 +500,8 @@ $template$
 -- =============================================
 (
   'POS_MENU_SYNC_HANDLER',
+  (select id from catchmenu_common.edge_function_registry
+    where function_code = 'POS_MENU_SYNC' and tenant_id is null),
   'POS_MENU_SYNC',
   'HTTP_HANDLER',
   'POS → 캐치메뉴 메뉴 동기화. OKpos/토스POS 공통.',

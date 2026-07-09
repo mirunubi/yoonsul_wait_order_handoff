@@ -348,6 +348,41 @@ $$;
 -- =============================================
 -- RPCs
 -- =============================================
+
+-- update_check was originally (incorrectly) written as a nested
+-- procedure inside run_saas_launch_checklist's DECLARE section, closing
+-- over that function's p_tenant_id parameter -- same invalid pattern as
+-- 0073's assert_true and others found this session. Unlike those, this
+-- one needs no temp table: it only performs a direct UPDATE and never
+-- fed state back into run_saas_launch_checklist's local variables (the
+-- final passed/failed/manual/waived counts come from a separate
+-- aggregation query against saas_launch_checklist after all checks run,
+-- untouched here). Fixed as a standalone function taking p_tenant_id as
+-- an explicit parameter. All 22 call sites below were mechanically
+-- changed from the old CALL-based invocation to a PERFORM-based one,
+-- with p_tenant_id added as the new leading argument, no other
+-- argument touched.
+create or replace function catchmenu_common.update_saas_launch_check(
+  p_tenant_id uuid,
+  p_code text,
+  p_status text,
+  p_result jsonb
+)
+returns void
+language plpgsql
+as $$
+begin
+  update catchmenu_common.saas_launch_checklist
+  set
+    check_status = p_status,
+    last_checked_at = now(),
+    check_result = p_result,
+    updated_at = now()
+  where tenant_id = p_tenant_id
+    and check_code = p_code;
+end;
+$$;
+
 create or replace function
   catchmenu_common.run_saas_launch_checklist(
   p_tenant_id uuid,
@@ -377,25 +412,6 @@ declare
   v_waived int := 0;
   v_required_failed int := 0;
   v_business_day date;
-
-  procedure update_check(
-    p_code text,
-    p_status text,
-    p_result jsonb
-  ) as
-  $inner$
-  begin
-    update catchmenu_common.saas_launch_checklist
-    set
-      check_status = p_status,
-      last_checked_at = now(),
-      check_result = p_result,
-      updated_at = now()
-    where tenant_id = p_tenant_id
-      and check_code = p_code;
-  end;
-  $inner$;
-
 begin
   v_business_day := (timezone(
     'Asia/Seoul', now()
@@ -423,7 +439,9 @@ begin
     v_detail := jsonb_build_object(
       'pos_configs', v_pos_count
     );
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'MVP_POS_CONNECTED',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -444,7 +462,9 @@ begin
       );
 
     v_result := v_kds_completed >= 10;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'MVP_KDS_VERIFIED',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -467,7 +487,9 @@ begin
       and session_status = 'COMPLETED';
 
     v_result := v_completed_sessions >= 5;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'MVP_WAITING_FLOW',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -491,7 +513,9 @@ begin
       and recon_status = 'BALANCED';
 
     v_result := v_balanced_days >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'MVP_PAYMENT_RECONCILIATION',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -513,7 +537,9 @@ begin
       and menu_status = 'AVAILABLE';
 
     v_result := v_menu_count >= 5;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'MVP_MENU_PUBLISHED',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -536,7 +562,9 @@ begin
       and order_status = 'COMPLETED';
 
     v_result := v_takeout_count >= 5;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'B_TAKEOUT_ORDER',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -557,7 +585,9 @@ begin
       and session_status = 'ACTIVE';
 
     v_result := v_session_count >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'B_CUSTOMER_APP',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -579,7 +609,9 @@ begin
       and sync_result = 'SUCCESS';
 
     v_result := v_sync_count >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'B_DELIVERY_SYNC',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -601,7 +633,9 @@ begin
       );
 
     v_result := v_push_sent >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'B_PUSH_NOTIFICATION',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -621,7 +655,9 @@ begin
       and invoice_status in ('PAID', 'ISSUED');
 
     v_result := v_invoice_count >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'B_SAAS_BILLING',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -647,7 +683,9 @@ begin
       and created_at > now() - interval '7 days';
 
     v_result := v_grounding_rate >= 70;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_AI_CUSTOMER_CENTER',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -670,7 +708,9 @@ begin
       and is_active = true;
 
     v_result := v_sop_count >= 5;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_DIGITAL_SOP',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -695,7 +735,9 @@ begin
       and created_at > now() - interval '7 days';
 
     v_result := v_avg_response_ms <= 3000;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_RAG_PIPELINE',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -726,7 +768,9 @@ begin
     and c.relrowsecurity = false;
 
     v_result := v_rls_disabled = 0;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_MULTITENANT_ISOLATION',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -748,7 +792,9 @@ begin
       and created_at > now() - interval '7 days';
 
     v_result := v_critical_count = 0;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_SECURITY_AUDIT',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -769,7 +815,9 @@ begin
       and is_active = true;
 
     v_result := v_quota_configured >= 5;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_QUOTA_ENFORCEMENT',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -792,7 +840,9 @@ begin
       and is_active = true;
 
     v_result := v_policy_count >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_FRANCHISE_POLICY',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -812,7 +862,9 @@ begin
       and distribution_status = 'COMPLETED';
 
     v_result := v_dist_count >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_MENU_DISTRIBUTION',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -840,7 +892,9 @@ begin
       and recon_status = 'BALANCED';
 
     v_result := v_l2_balanced >= 1;
-    call update_check(
+    perform catchmenu_common.update_saas_launch_check(
+
+      p_tenant_id,
       'C_RECONCILIATION_L2L3',
       case v_result when true then 'PASSED'
         else 'FAILED' end,
@@ -914,6 +968,80 @@ end;
 $$;
 
 
+-- assert_test was originally (incorrectly) written as a nested procedure
+-- inside run_integration_test's DECLARE section, closing over
+-- p_tenant_id/p_store_id/p_test_suite/v_start -- same invalid pattern as
+-- 0073's assert_true and others found this session. Fixed as a
+-- standalone function taking those as explicit parameters. It still
+-- performs the real INSERT into integration_test_results (unchanged
+-- logic), and additionally logs to a temp table so
+-- run_integration_test can reconstruct v_passed/v_failed/v_results
+-- afterward (a standalone routine can't mutate the caller's local
+-- variables directly). All call sites below were mechanically changed
+-- from the old CALL-based invocation to a PERFORM-based one, with
+-- p_tenant_id/p_store_id/p_test_suite/v_start added as new leading
+-- arguments, no other argument touched.
+create temp table if not exists integration_test_assertions (
+  ordinal bigint generated always as identity,
+  test_id uuid,
+  code text,
+  name text,
+  status text,
+  detail jsonb
+);
+
+create or replace function catchmenu_common.assert_integration_test(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_test_suite text,
+  p_run_start timestamptz,
+  p_code text,
+  p_name text,
+  p_category text,
+  p_condition boolean,
+  p_detail jsonb default null
+)
+returns void
+language plpgsql
+as $$
+declare
+  v_status text;
+  v_test_id uuid;
+begin
+  v_status := case p_condition
+    when true then 'PASSED'
+    else 'FAILED'
+  end;
+
+  insert into
+    catchmenu_common.integration_test_results (
+    tenant_id, store_id,
+    test_suite, test_code, test_name,
+    test_category, test_status,
+    passed_assertions,
+    failed_assertions,
+    test_detail,
+    execution_ms, ran_at
+  ) values (
+    p_tenant_id, p_store_id,
+    p_test_suite, p_code, p_name,
+    p_category, v_status,
+    case p_condition when true then 1 else 0 end,
+    case p_condition when true then 0 else 1 end,
+    coalesce(p_detail, '{}'::jsonb),
+    extract(
+      epoch from (now() - p_run_start)
+    )::int * 1000,
+    now()
+  )
+  returning id into v_test_id;
+
+  insert into pg_temp.integration_test_assertions
+    (test_id, code, name, status, detail)
+    values (v_test_id, p_code, p_name, v_status, p_detail);
+end;
+$$;
+
 create or replace function
   catchmenu_common.run_integration_test(
   p_tenant_id uuid,
@@ -938,67 +1066,8 @@ declare
   v_failed int := 0;
   v_start timestamptz := now();
   v_results jsonb := '[]'::jsonb;
-
-  procedure assert_test(
-    p_code text,
-    p_name text,
-    p_category text,
-    p_condition boolean,
-    p_detail jsonb default null
-  ) as
-  $inner$
-  declare
-    v_status text;
-    v_test_id uuid;
-  begin
-    v_status := case p_condition
-      when true then 'PASSED'
-      else 'FAILED'
-    end;
-
-    if p_condition then
-      v_passed := v_passed + 1;
-    else
-      v_failed := v_failed + 1;
-    end if;
-
-    insert into
-      catchmenu_common.integration_test_results (
-      tenant_id, store_id,
-      test_suite, test_code, test_name,
-      test_category, test_status,
-      passed_assertions,
-      failed_assertions,
-      test_detail,
-      execution_ms, ran_at
-    ) values (
-      p_tenant_id, p_store_id,
-      p_test_suite, p_code, p_name,
-      p_category, v_status,
-      case p_condition when true then 1 else 0 end,
-      case p_condition when true then 0 else 1 end,
-      coalesce(p_detail, '{}'::jsonb),
-      extract(
-        epoch from (now() - v_start)
-      )::int * 1000,
-      now()
-    )
-    returning id into v_test_id;
-
-    v_results := v_results
-      || jsonb_build_array(
-        jsonb_build_object(
-          'test_id', v_test_id,
-          'code', p_code,
-          'name', p_name,
-          'status', v_status,
-          'detail', p_detail
-        )
-      );
-  end;
-  $inner$;
-
 begin
+  delete from pg_temp.integration_test_assertions;
   case p_test_suite
     when 'PAYMENT' then
       -- 결제 통합 테스트
@@ -1014,7 +1083,10 @@ begin
           and tenant_id = p_tenant_id
           and ledger_status = 'APPROVED';
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'PAY_001', '결제 원장 존재',
           'PAYMENT', v_ledger_count > 0,
           jsonb_build_object(
@@ -1022,7 +1094,10 @@ begin
           )
         );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'PAY_002', '승인 금액 양수',
           'PAYMENT', v_approved_sum > 0,
           jsonb_build_object(
@@ -1038,7 +1113,10 @@ begin
             'BALANCED', 'RESOLVED'
           );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'PAY_003', 'Layer2 대사 통과',
           'RECONCILIATION', v_recon_count >= 1,
           jsonb_build_object(
@@ -1061,7 +1139,10 @@ begin
           and tenant_id = p_tenant_id
           and kds_status != 'HOLD';
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'KDS_001', 'KDS HOLD → 상태 전환',
           'KDS_FLOW', v_hold_flow > 0,
           jsonb_build_object(
@@ -1077,7 +1158,10 @@ begin
             'SERVED', 'COMPLETED'
           );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'KDS_002', 'KDS SERVED 완료',
           'KDS_FLOW', v_served_flow >= 5,
           jsonb_build_object(
@@ -1095,7 +1179,10 @@ begin
             'CANCELLED', 'SERVED', 'COMPLETED'
           );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'KDS_003', 'KDS 지연 티켓 0건',
           'KDS_QUALITY', v_late_count = 0,
           jsonb_build_object(
@@ -1124,7 +1211,10 @@ begin
         where store_id = p_store_id
           and tenant_id = p_tenant_id;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'WAIT_001', '대기 세션 생성',
           'WAITING', v_wait_started >= 5,
           jsonb_build_object(
@@ -1132,7 +1222,10 @@ begin
           )
         );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'WAIT_002', '대기 → 착석 완료',
           'WAITING', v_wait_completed >= 3,
           jsonb_build_object(
@@ -1148,7 +1241,10 @@ begin
           )::int
         end;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'WAIT_003', '착석 전환율 50% 이상',
           'WAITING_QUALITY',
           v_arrival_rate >= 50,
@@ -1178,7 +1274,10 @@ begin
         from catchmenu_knowledge.ai_query_logs
         where tenant_id = p_tenant_id;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'AI_001', 'AI 쿼리 10건 이상',
           'AI_VOLUME', v_query_count >= 10,
           jsonb_build_object(
@@ -1194,7 +1293,10 @@ begin
           )::int
         end;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'AI_002', 'AI 그라운딩률 70% 이상',
           'AI_QUALITY',
           v_grounding_rate >= 70,
@@ -1205,7 +1307,10 @@ begin
           )
         );
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'AI_003', 'AI 응답 속도 3초 이내',
           'AI_PERFORMANCE',
           v_avg_ms <= 3000,
@@ -1221,7 +1326,10 @@ begin
           and document_status = 'PUBLISHED'
           and is_tenant_approved = true;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'AI_004', 'SOP 문서 5개 이상',
           'KNOWLEDGE_BASE',
           v_sop_count >= 5,
@@ -1248,7 +1356,10 @@ begin
         where t.schemaname like 'catchmenu_%'
           and c.relrowsecurity = false;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'SEC_001', 'RLS 전체 활성화',
           'SECURITY', v_rls_count = 0,
           jsonb_build_object(
@@ -1264,7 +1375,10 @@ begin
           and created_at > now()
             - interval '24 hours';
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'SEC_002', '24h CRITICAL 위반 0건',
           'SECURITY', v_violation_count = 0,
           jsonb_build_object(
@@ -1278,7 +1392,10 @@ begin
         where tenant_id = p_tenant_id
           and is_active = true;
 
-        call assert_test(
+        perform catchmenu_common.assert_integration_test(
+
+
+          p_tenant_id, p_store_id, p_test_suite, v_start,
           'SEC_003', '쿼터 설정 5개 이상',
           'QUOTA', v_quota_count >= 5,
           jsonb_build_object(
@@ -1300,6 +1417,24 @@ begin
         p_rpc_name := 'run_integration_test'
       );
   end case;
+
+  -- populate v_passed/v_failed/v_results from the temp table now that
+  -- all assert_integration_test() calls above have logged into it
+  select
+    count(*) filter (where status = 'PASSED'),
+    count(*) filter (where status = 'FAILED'),
+    coalesce(jsonb_agg(
+      jsonb_build_object(
+        'test_id', test_id,
+        'code', code,
+        'name', name,
+        'status', status,
+        'detail', detail
+      )
+      order by ordinal
+    ), '[]'::jsonb)
+  into v_passed, v_failed, v_results
+  from pg_temp.integration_test_assertions;
 
   return catchmenu_common.build_success_response(
     p_message_key := case v_failed
