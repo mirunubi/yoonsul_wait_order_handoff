@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document is required prelearning for Claude Cowork, Codex, Cursor, and future AI agents before they participate in development work for `yoonsul_wait_order_handoff`.
+This document is required prelearning for Claude Code, Claude, and future AI agents before they participate in development work for `yoonsul_wait_order_handoff`.
 
 The project is not just Catch Menu. It is a staged franchise SaaS, store runtime, POS/KDS/payment, AI customer center, digital SOP, delivery channel, analytics, and future physical AI gateway project.
 
@@ -12,15 +12,16 @@ This guide explains the development phases, cross-cutting layers, and agent warn
 
 | phase | summary |
 | --- | --- |
-| Phase 0 | Foundation, documentation system, AI prelearning, and 51355 development pipeline. |
+| Phase 0 | Foundation, documentation system, AI prelearning, and the 000701 controlled AI development pipeline. |
 | Phase 1 | Catch Menu real-store MVP: menu, waiting, takeout request, pickup, Mini Kiosk, basic KDS, OKPOS/Toss POS handoff. |
 | Phase 2 | Separate `yoonsul_os` project: staff, membership, partial inventory; not Catch Menu backend; Franchise_OS precursor. |
-| Phase 3 | Full Kiosk / KDS / DID / CMS / POS integration; reuses Phase 1 OKPOS/Toss; foundation for Phase 1-C and Phase 4. |
+| Phase 3 | Full Kiosk / KDS / DID / CMS / POS integration; reuses Phase 1 OKPOS/Toss; foundation for Phase 1-C and Phase 5. |
 | Phase 3-B | Delivery app, external order channel, and KDS-DID omnichannel expansion. |
-| Phase 4 | Franchise_OS no-outage restaurant operations system; Agent + SOP Runtime; builds on Phase 3. |
-| Phase 5 | Franchise_OS AI customer center + integrated support; extends 1-C; uses Phase 4 events; prerequisite for Phase 6. |
-| Phase 6 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement; builds on Phase 4/5. |
-| Phase 7 | AI readiness + Physical AI Gateway; safety gate, human override, actuation evidence. |
+| Phase 4 | Catch Menu AI Customer Center: standalone, reusable AI customer center module built independent of Franchise_OS; Phase 6 later extends it. |
+| Phase 5 | Franchise_OS no-outage restaurant operations system; Agent + SOP Runtime; builds on Phase 3. |
+| Phase 6 | Franchise_OS AI Customer Center: extends the Phase 4 module with Phase 5 no-outage events, SOP Runtime, and recovery evidence; prerequisite for Phase 7. |
+| Phase 7 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement; builds on Phase 5/6. |
+| Phase 8 | AI readiness + Physical AI Gateway; safety gate, human override, actuation evidence. |
 
 ## 3. Phase Detail Format
 
@@ -40,10 +41,11 @@ Each phase must be understood through these lenses:
 | Phase 1 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` |
 | Phase 2 | `000707_Guide_Phase_2_Yoonsul_OS_Store_Runtime_Prelearning_Context.md` |
 | Phase 3 | `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md` |
-| Phase 4 | `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md` |
-| Phase 5 | `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` |
-| Phase 6 | `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` |
-| Phase 7 | `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` |
+| Phase 4 | `000709_Guide_Phase_4_Catch_Menu_AI_Customer_Center_Prelearning_Context.md` |
+| Phase 5 | `000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md` |
+| Phase 6 | `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` |
+| Phase 7 | `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` |
+| Phase 8 | `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` |
 
 ## 4. Phase 0 Foundation
 
@@ -53,7 +55,7 @@ Phase 0 is not a product feature phase. It is the documentation, governance, AI 
 
 ### Scope
 
-Phase 0 connects the `051355` development pipeline, `600000` implementation lifecycle, `700000` runtime flow bundle, and `000500` AI agent prelearning folder.
+Phase 0 connects the `000701` controlled AI development pipeline, `600000` implementation lifecycle, `700000` runtime flow bundle, and `000500` AI agent prelearning folder.
 
 ### Key Runtime Domains
 
@@ -73,7 +75,7 @@ Phase 0 connects the `051355` development pipeline, `600000` implementation life
 
 ### AI Agent Warning
 
-Claude Cowork, Codex, and Cursor must not restart project understanding from zero on every task. They must use this prelearning folder and the 51355 pipeline as the shared entry point.
+Claude Code and Claude must not restart project understanding from zero on every task. They must use this prelearning folder and the 000701 controlled AI development pipeline as the shared entry point.
 
 ### Implementation Authorization Rule
 
@@ -87,7 +89,7 @@ Phase 1 defines Catch Menu as the first real-store MVP connecting customer entry
 
 ### Scope
 
-Catch Menu is not a simple menu page and not the final public SaaS service. It is a bounded store-runtime projection for field validation. Phase 1-B expands SaaS and equipment integration; Phase 6 owns full POS coverage planning.
+Catch Menu is not a simple menu page and not the final public SaaS service. It is a bounded store-runtime projection for field validation. Phase 1-B expands SaaS and equipment integration; Phase 7 owns full POS coverage planning.
 
 ### Key Runtime Domains
 
@@ -152,7 +154,7 @@ Phase 3 is the **full Kiosk / KDS / DID / CMS / POS integration phase**. It stab
 
 ### Scope
 
-Phase 3 reuses Phase 1 OKPOS and Toss POS foundation and may expand to additional major POS providers with evidence. Output becomes infrastructure for Phase 1-C SaaS productization and Phase 4 Franchise_OS—not Franchise_OS or SaaS launch itself.
+Phase 3 reuses Phase 1 OKPOS and Toss POS foundation and may expand to additional major POS providers with evidence. Output becomes infrastructure for Phase 1-C SaaS productization and Phase 5 Franchise_OS—not Franchise_OS or SaaS launch itself.
 
 ### Key Runtime Domains
 
@@ -214,11 +216,43 @@ Delivery integration must be understood as channel-to-kitchen-to-customer runtim
 
 Implementation requires provider evidence, security boundary, event contract, replay plan, and human approval.
 
-## 9. Phase 4 Franchise OS
+## 9. Phase 4 Catch Menu AI Customer Center
 
 ### Purpose
 
-Phase 4 Franchise_OS is a **no-outage restaurant operations system**. See `000709_Guide_Phase_4_Franchise_OS_Prelearning_Context.md`.
+Phase 4 builds Catch Menu's own AI customer center as a standalone, reusable module, independent of Franchise_OS SOP Runtime. See `000709_Guide_Phase_4_Catch_Menu_AI_Customer_Center_Prelearning_Context.md`.
+
+### Scope
+
+Module-first phase: RAG pipeline, unresolved-inquiry tracking, and SOP-candidate flow scoped to Catch Menu knowledge only (menu, hours, pickup policy). Does not depend on Phase 5 Franchise_OS. Phase 6 later extends this same module — it does not rebuild it.
+
+### Key Runtime Domains
+
+- Customer inquiry intake (menu, waiting, pickup, order status)
+- RAG/pgvector search scoped to Catch Menu knowledge sources
+- Unresolved-inquiry logging and repeated-inquiry detection
+- Minimal SOP-candidate flagging (no auto-publish)
+- Human review path for low-confidence answers
+
+### Key Risks
+
+- Module built too narrowly for Catch Menu only, forcing Phase 6 to rebuild instead of extend.
+- RAG sources not clearly scoped; answers leak Franchise_OS-level assumptions that don't exist yet.
+- Auto-answering low-confidence questions without human review.
+
+### AI Agent Warning
+
+This is a standalone module, not a preview of Franchise_OS AI customer center. Do not assume Franchise_OS SOP Runtime, no-outage events, or role-based tenant isolation are in scope here — those arrive in Phase 6.
+
+### Implementation Authorization Rule
+
+Implementation requires Catch-Menu-scoped knowledge boundary, low-confidence routing rule, and human approval.
+
+## 10. Phase 5 Franchise OS
+
+### Purpose
+
+Phase 5 Franchise_OS is a **no-outage restaurant operations system**. See `000710_Guide_Phase_5_Franchise_OS_Prelearning_Context.md`.
 
 ### Scope
 
@@ -245,15 +279,15 @@ Continue if safe. Limit if necessary. Close safely if unsafe. Agent recommends; 
 
 Implementation requires approval workflow, ownership boundary, evidence trail, and rollback rule.
 
-## 10. Phase 5 AI Customer Center, Digital SOP, RAG, pgvector
+## 11. Phase 6 AI Customer Center, Digital SOP, RAG, pgvector
 
 ### Purpose
 
-Phase 5 is **Franchise_OS AI customer center and integrated support enhancement**. See `000710_Guide_Phase_5_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md`.
+Phase 6 is **Franchise_OS AI customer center and integrated support enhancement**. See `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md`.
 
 ### Scope
 
-Extends Phase 1-C launch AI customer center using Phase 4 no-outage events, SOP Runtime, and recovery evidence. Not a FAQ chatbot; RAG/pgvector are search layers, not final authority.
+Extends the Phase 4 Catch Menu AI Customer Center module using Phase 5 no-outage events, SOP Runtime, and recovery evidence — does not rebuild it. Not a FAQ chatbot; RAG/pgvector are search layers, not final authority.
 
 ### Key Runtime Domains
 
@@ -265,9 +299,9 @@ Extends Phase 1-C launch AI customer center using Phase 4 no-outage events, SOP 
 
 ### Key Risks
 
-- Reducing Phase 5 to generic FAQ chatbot; disconnect from Phase 4 events.
+- Reducing Phase 6 to generic FAQ chatbot; disconnect from Phase 5 events.
 - Auto-deploying SOP without human approval; RAG-only answers.
-- Missing role isolation or tenant-safe support design for Phase 6.
+- Missing role isolation or tenant-safe support design for Phase 7.
 
 ### AI Agent Warning
 
@@ -306,15 +340,15 @@ Implementation requires knowledge boundary, RLS boundary, evidence plan, unresol
 - Versioning.
 - Rollback.
 
-## 11. Phase 6 Full SaaS Integration
+## 12. Phase 7 Full SaaS Integration
 
 ### Purpose
 
-Phase 6 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**. See `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md`.
+Phase 7 is **Franchise_OS SaaS conversion plus Phase 1 SaaS enhancement**. See `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md`.
 
 ### Scope
 
-Dual center: Franchise_OS SaaS productization (Phase 4 output) and Phase 1-C SaaS operational enhancement. Common SaaS foundation with separated product boundaries. Phase 5 is prerequisite.
+Dual center: Franchise_OS SaaS productization (Phase 5 output) and Phase 1-C SaaS operational enhancement. Common SaaS foundation with separated product boundaries. Phase 6 is prerequisite.
 
 ### Key Runtime Domains
 
@@ -325,27 +359,27 @@ Dual center: Franchise_OS SaaS productization (Phase 4 output) and Phase 1-C Saa
 
 ### Key Risks
 
-- Treating Phase 6 as UI completion or first Franchise_OS implementation.
+- Treating Phase 7 as UI completion or first Franchise_OS implementation.
 - Weak tenant isolation; AI/RAG crossing tenant boundaries.
 - Official provider support or SaaS claims without billing/evidence/support readiness.
 
 ### AI Agent Warning
 
-Phase 6 productizes and operates SaaS; it does not re-implement Phase 4/5 core or Phase 7 Physical AI control.
+Phase 7 productizes and operates SaaS; it does not re-implement Phase 5/6 core or Phase 8 Physical AI control.
 
 ### Implementation Authorization Rule
 
 Implementation requires tenant isolation proof, release gate, rollback plan, and audit evidence.
 
-## 12. Phase 7 Physical AI Gateway
+## 13. Phase 8 Physical AI Gateway
 
 ### Purpose
 
-Phase 7 is **AI readiness and Physical AI Gateway**. See `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md`.
+Phase 8 is **AI readiness and Physical AI Gateway**. See `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md`.
 
 ### Scope
 
-Prepares safety gate, authority boundary, human override, and actuation evidence before AI connects to sensors, robots, voice, vision, IoT, and devices. Builds on Phase 4/5/6—not direct device control.
+Prepares safety gate, authority boundary, human override, and actuation evidence before AI connects to sensors, robots, voice, vision, IoT, and devices. Builds on Phase 5/6/7—not direct device control.
 
 ### Key Runtime Domains
 
@@ -357,7 +391,7 @@ Prepares safety gate, authority boundary, human override, and actuation evidence
 
 - AI directly controlling devices; missing safety gate or human override.
 - Sensor/voice/vision treated as certain truth; actuation without evidence.
-- Bypassing Phase 4 no-outage principles or Phase 6 tenant isolation.
+- Bypassing Phase 5 no-outage principles or Phase 7 tenant isolation.
 
 ### AI Agent Warning
 
@@ -367,7 +401,7 @@ AI proposes; Gateway gates; humans approve. No uncontrolled physical actuation.
 
 Implementation requires safety boundary, permission model, actuation evidence, fallback, human override, and human approval.
 
-## 13. Cross-Cutting Layers
+## 14. Cross-Cutting Layers
 
 All phases share these layers:
 
@@ -382,17 +416,15 @@ All phases share these layers:
 
 Agents must never treat these as optional add-ons.
 
-## 14. AI Agent Instruction
+## 15. AI Agent Instruction
 
-Claude Cowork uses this document to understand phases, runtime domains, authority boundaries, risks, design implications, audit expectations, and document classification.
+Claude uses this document to understand phases, runtime domains, authority boundaries, risks, design implications, audit expectations, and document classification.
 
-Cursor is only an optional inspection helper. It may use this document to keep impact search and raw-log collection aligned to the correct phase and context slice.
-
-Codex uses this document to stay inside approved allowed files and approved allowed operations only, whether doing limited implementation or document generation.
+Claude Code uses this document to keep boundary scan, drafting, and restricted implementation aligned to the correct phase and context slice, and to stay inside approved allowed files and approved allowed operations only.
 
 The human owner uses this document as a reminder that final approval, merge, and release stay human-owned.
 
-## 15. Final Rule
+## 16. Final Rule
 
 This project is not just a menu.
 

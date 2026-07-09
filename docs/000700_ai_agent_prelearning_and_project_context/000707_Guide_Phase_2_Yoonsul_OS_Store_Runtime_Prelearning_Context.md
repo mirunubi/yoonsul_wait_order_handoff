@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document is the Phase 2 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to the **`yoonsul_os`** project.
+This document is the Phase 2 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to the **`yoonsul_os`** project.
 
 It teaches agents the **responsibility scope and non-scope** of Phase 2 work centered on **staff**, **membership**, and **partial inventory** inside a single-store internal operations foundation.
 
@@ -30,7 +30,7 @@ Phase 2 organizes **single-store internal operations** first. Staff, membership,
 
 ## 3. Phase Position
 
-Phase 2 comes **after** Phase 0 foundation, documentation governance, AI prelearning, the **51355** pipeline, and Phase 1 Catch Menu as a **parallel / separate track**—not as Catch Menu's downstream runtime.
+Phase 2 comes **after** Phase 0 foundation, documentation governance, AI prelearning, the **000701** controlled AI development pipeline, and Phase 1 Catch Menu as a **parallel / separate track**—not as Catch Menu's downstream runtime.
 
 Phase 2 comes **before**:
 
@@ -223,7 +223,7 @@ No Phase 2 implementation may begin without:
 
 ## 16. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - Every feature must define **runtime state source of truth** and **staff authority** requirements.
 - Do **not** reference Catch Menu as Phase 2 backend, handoff target, or waiting runtime.
@@ -237,9 +237,8 @@ No Phase 2 implementation may begin without:
 
 | Actor | Role in Phase 2 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit, phase-boundary enforcement |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, phase-boundary enforcement, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 18. Relationship To Other Documents
@@ -250,7 +249,7 @@ No Phase 2 implementation may begin without:
 | `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` | **Separate project** — do not merge scope |
 | `000508` through `000512` | Later phases; Franchise_OS prep and full implementation |
 | `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 
 ## 19. Final Rule

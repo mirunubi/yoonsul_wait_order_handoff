@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document is the Phase 1 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to the Catch Menu project surface.
+This document is the Phase 1 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to the Catch Menu project surface.
 
 It teaches agents what Phase 1 means in this repository: a bounded real-store MVP that connects customer entry, menu browsing, waiting, takeout order request, pickup status, Mini Kiosk basic projection, basic KDS display, and basic POS handoff for OKPOS and Toss POS.
 
@@ -26,7 +26,7 @@ Phase 1 comes **after**:
 - Phase 0 foundation
 - documentation governance
 - AI prelearning (`000500` folder)
-- the **51355** development pipeline (AI-assisted financial-grade development pipeline)
+- the **000701** controlled AI development pipeline (AI-assisted financial-grade development pipeline)
 
 Phase 1 prepares the **first real-store MVP** for field validation in a live store context. It is not a documentation-only phase, but it is still bounded and not a full commercial SaaS rollout.
 
@@ -206,7 +206,7 @@ No Phase 1 implementation may begin without these approved artifacts:
 
 ## 13. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - Even UI work must define the **runtime state source of truth**.
 - Customer-facing finality language must be **evidence-backed**.
@@ -220,9 +220,8 @@ No Phase 1 implementation may begin without these approved artifacts:
 
 | Actor | Role in Phase 1 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit, risk framing |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, risk framing, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 15. Relationship To Other Documents
@@ -234,7 +233,7 @@ Conceptual cross-references (read before proposing Phase 1 work):
 | `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | Project-wide phase roadmap; Phase 1 position |
 | `000001_Md_Rules.md` | Markdown and documentation discipline |
 | `000002_Naming_Rules.md` | File naming and folder placement |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 | `000507` through `000512` | Later phase prelearning; do not merge their scope into Phase 1 |
 

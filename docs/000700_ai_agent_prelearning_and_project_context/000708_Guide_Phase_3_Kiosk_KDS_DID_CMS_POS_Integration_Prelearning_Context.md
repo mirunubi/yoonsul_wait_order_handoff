@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document is the Phase 3 prelearning context for Claude Cowork, Codex, Cursor, and future AI agents before they design, document, or implement anything related to **Kiosk / KDS / DID / CMS / POS integration**.
+This document is the Phase 3 prelearning context for Claude Code, Claude, and future AI agents before they design, document, or implement anything related to **Kiosk / KDS / DID / CMS / POS integration**.
 
 It teaches agents what Phase 3 means, which equipment and integration layers are in scope, and how Phase 3 relates to earlier and later phases—without authorizing implementation.
 
@@ -263,7 +263,7 @@ No Phase 3 implementation may begin without:
 
 ## 16. Implementation Rules
 
-- No implementation without the **51355** pipeline.
+- No implementation without the **000701** controlled AI development pipeline.
 - Allowed files are not enough; **allowed operations** must also be specified.
 - Kiosk / KDS / DID / CMS / POS integration must define **source of truth per state**.
 - Payment success, order success, KDS ready, DID callout, and POS completion must be treated as **separate state events**.
@@ -276,9 +276,8 @@ No Phase 3 implementation may begin without:
 
 | Actor | Role in Phase 3 |
 | --- | --- |
-| Claude Cowork | Context classification, design, documentation reasoning, audit |
-| Codex | Restricted file creation or implementation **only after approval** |
-| Cursor | Optional local IDE inspection helper only; **no autonomous edits** |
+| Claude Code | Context classification, design, documentation reasoning, restricted file creation or implementation **only after approval**, local verification |
+| Claude | Design verification and independent audit |
 | Human | Final approval, merge, release |
 
 ## 18. Relationship To Other Documents
@@ -293,7 +292,7 @@ No Phase 3 implementation may begin without:
 | `000711_Guide_Phase_6_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | SaaS maturity phase |
 | `000712_Guide_Phase_7_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Physical AI readiness |
 | `000001_Md_Rules.md` / `000002_Naming_Rules.md` | Documentation discipline |
-| **51355 development pipeline** | Mandatory gate before implementation |
+| **000701 controlled AI development pipeline** | Mandatory gate before implementation |
 | `000500` AI agent prelearning folder | Shared onboarding entry point |
 
 ## 19. Final Rule
