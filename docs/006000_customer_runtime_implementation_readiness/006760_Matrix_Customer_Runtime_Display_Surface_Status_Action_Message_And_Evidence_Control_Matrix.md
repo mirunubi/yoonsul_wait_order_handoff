@@ -43,7 +43,7 @@ It also supports:
 
 `06690_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md`
 
-`006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
+`006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
 
 `006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md`
 

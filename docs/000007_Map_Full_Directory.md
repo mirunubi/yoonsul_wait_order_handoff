@@ -210,7 +210,8 @@ docs/
   |   +--- 000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md
   |   +--- 000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
   |   +--- 000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
-  |   \--- 000714_Readme_Implementation_Lifecycle_Governance.md
+  |   +--- 000714_Readme_Implementation_Lifecycle_Governance.md
+  |   \--- 000715_ContentVerificationLog.md
   +--- 000800_pos_gateway_and_provider_integration_foundation/
   |   +--- 000800_Readme_POS_Gateway_And_Provider_Integration_Foundation.md
   |   +--- 000801_Boundary_POS_Gateway_Order_Payment_Provider_And_Runtime_Authority.md
@@ -378,6 +379,7 @@ docs/
   |   |   +--- 005024_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control.md
   |   |   +--- 005025_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance.md
   |   |   +--- 005026_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md
+  |   |   +--- 005027_Policy_Order_Payment_Three_Path_Gate_Sequencing_And_Runtime_Control.md
   |   |   +--- 005030_Readme_Stage_0.md
   |   |   +--- 005040_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
   |   |   +--- 005050_Policy_Stage_0B_Send_To_Store_Request_Flow.md
@@ -402,42 +404,36 @@ docs/
   |   +--- 005400_pos_waiting_entry_sync/
   |   |   +--- 005400_Readme_POS_Waiting_Entry_Sync.md
   |   |   \--- 005410_Policy_POS_Waiting_Entry_NoShow_And_Prepaid_Cancel_Sync.md
-  |   +--- 006400_store_runtime_workpackage_control/
-  |   |   +--- 006400_Readme_Store_Runtime_WorkPackage_Control.md
-  |   |   +--- 006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md
-  |   |   +--- 006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md
-  |   |   \--- 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md
-  |   +--- 006500_entrance_customer_runtime_boundary/
-  |   |   +--- 006500_Readme_Entrance_Customer_Runtime_Boundary.md
-  |   |   +--- 006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
-  |   |   +--- 006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md
-  |   |   +--- 006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control.md
-  |   |   \--- 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md
-  |   +--- 006600_customer_runtime_evidence_handoff/
-  |   |   +--- 006600_Readme_Customer_Runtime_Evidence_Handoff.md
-  |   |   \--- 006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md
-  |   \--- 006700_customer_runtime_display_control/
-  |       +--- 006700_Readme_Customer_Runtime_Display_Control.md
-  |       +--- 006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md
-  |       +--- 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md
-  |       +--- 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md
-  |       +--- 006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix.md
-  |       +--- 006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template.md
-  |       +--- 006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance.md
-  |       +--- 006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff.md
-  |       +--- 006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record.md
-  |       +--- 006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control.md
-  |       +--- 006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance.md
-  |       +--- 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec.md
-  |       +--- 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec.md
-  |       +--- 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md
-  |       +--- 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md
-  |       +--- 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md
-  |       +--- 006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check.md
-  |       +--- 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md
-  |       +--- 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md
-  |       +--- 006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec.md
-  |       \--- 006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec.md
+  +--- 006000_customer_runtime_implementation_readiness/
+  |   +--- 006000_Readme_Customer_Runtime_Implementation_Readiness.md
+  |   +--- 006410_WorkPackage_Store_Runtime_Customer_Session_Waiting_Preorder_Table_Matching_And_Order_State_Control.md
+  |   +--- 006440_WorkPackage_Store_Runtime_KDS_Kitchen_Ticket_Preparation_Remake_Ready_Served_And_Manual_Kitchen_Continuity.md
+  |   +--- 006470_WorkPackage_Store_Runtime_Inventory_Soldout_Availability_Production_Exception_Control.md
+  |   +--- 006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
+  |   +--- 006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md
+  |   +--- 006530_Policy_Entrance_Table_Matching_Table_Session_Preorder_Link_Service_Context_And_Seating_Control.md
+  |   +--- 006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md
+  |   +--- 006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md
+  |   +--- 006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md
+  |   +--- 006740_Checklist_Customer_Runtime_Privacy_Consent_And_Link_Security_Preflight_Check.md
+  |   +--- 006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md
+  |   +--- 006760_Matrix_Customer_Runtime_Display_Surface_Status_Action_Message_And_Evidence_Control_Matrix.md
+  |   +--- 006770_Template_Customer_Runtime_Display_Status_Code_Action_Permission_Message_Binding_And_Evidence_Template.md
+  |   +--- 006780_Checklist_Customer_Runtime_Display_Surface_Status_Action_Message_Evidence_And_QA_Acceptance.md
+  |   +--- 006790_Runbook_Customer_Runtime_Display_QA_Execution_Defect_Retest_Acceptance_And_Rollout_Handoff.md
+  |   +--- 006800_Template_Customer_Runtime_Display_QA_Defect_Retest_Acceptance_Rollout_Handoff_And_Evidence_Record.md
+  |   +--- 006810_Register_Customer_Runtime_Display_QA_Defect_Retest_Waiver_Blocker_Rollout_And_Backlog_Control.md
+  |   +--- 006820_Index_Customer_Runtime_Display_Control_Message_Status_Action_QA_Defect_And_Rollout_Governance.md
+  |   +--- 006830_Spec_Customer_Runtime_Display_Status_Code_Registry_And_UI_State_Binding_Spec.md
+  |   +--- 006840_Spec_Customer_Runtime_Action_Permission_Button_Guard_And_Idempotency_Spec.md
+  |   +--- 006850_Spec_Customer_Runtime_Message_Template_Localization_Key_And_Versioning_Spec.md
+  |   +--- 006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md
+  |   +--- 006870_Spec_Customer_Runtime_Error_Recovery_Stale_State_And_Safe_Fallback_Display_Spec.md
+  |   +--- 006890_Checklist_Customer_Runtime_Display_Release_Gate_And_Production_Preflight_Check.md
+  |   +--- 006900_Index_Customer_Runtime_Display_Implementation_Spec_Release_Gate_Handoff_And_Closeout_Governance.md
+  |   +--- 006910_Spec_Customer_Runtime_Display_Registry_Data_Model_And_Table_Candidate_Spec.md
+  |   +--- 006920_Spec_Customer_Runtime_Display_Event_Naming_Correlation_And_Evidence_Packet_Spec.md
+  |   \--- 006930_Spec_Customer_Runtime_Display_Feature_Flag_Emergency_Disable_And_Rollback_Control_Spec.md
   +--- 007000_admin_console/
   |   +--- 007000_Readme_Admin_Console.md
   |   +--- 007010_Policy_Admin_Console_Context_And_Role_Model.md
@@ -1913,6 +1909,7 @@ docs/
   |   +--- 028050_Boundary_Franchise_OS_Data_Handoff_Future.md
   |   \--- 028060_Franchise_Intelligence_Feedback_Loop_Model.md
   +--- 029000_operations_sop_store_runbook_support_closure/
+  |   +--- 029000_Readme_Operations_SOP_Store_Runbook_And_Support_Closure.md
   |   +--- 029100_Governance_Operations_SOP_Bridge_Master_Control.md
   |   +--- 029101_Matrix_Operations_SOP_Bridge_Source_To_Runbook_Map.md
   |   +--- 029102_Checklist_Operations_SOP_Bridge_Readiness_Check.md

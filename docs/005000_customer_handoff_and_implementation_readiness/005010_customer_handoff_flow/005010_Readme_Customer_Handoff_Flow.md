@@ -29,6 +29,7 @@ This folder owns `005010~005099` until the next sibling folder, `005100_implemen
 | `005024_Register_Customer_Runtime_Risk_Waiver_Blocker_Backlog_Carry_Forward_And_Rollout_Control.md` | Registers customer runtime risks, waivers, blockers, backlog carry-forward, and rollout control. |
 | `005025_Index_Customer_Runtime_Lane_Document_Map_Readiness_Status_Handoff_And_Governance.md` | Indexes customer runtime lane documents, readiness status, handoff, and governance. |
 | `005026_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md` | Maps customer runtime state authority, events, and evidence coverage. |
+| `005027_Policy_Order_Payment_Three_Path_Gate_Sequencing_And_Runtime_Control.md` | Defines the payment-gate sequencing and guest/self-membership/tenant-membership path routing. |
 | `005030_Readme_Stage_0.md` | Defines Stage 0 customer handoff context. |
 | `005040_Policy_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md` | Defines Stage 0A QR menu and show-to-staff flow policy. |
 | `005050_Policy_Stage_0B_Send_To_Store_Request_Flow.md` | Defines Stage 0B send-to-store request flow policy. |

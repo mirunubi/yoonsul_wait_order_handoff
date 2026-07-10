@@ -6,7 +6,7 @@ This folder defines POS waiting entry, no-show, prepaid cancel, and customer han
 
 ## 2 Folder-Owned Number Range
 
-This folder owns `005400~006399` until the next sibling folder, `006400_store_runtime_workpackage_control/`, begins.
+This folder owns `005400~005999` until the next top-level sibling folder, `006000_customer_runtime_implementation_readiness/`, begins.
 
 ## 3 Active File Roles
 

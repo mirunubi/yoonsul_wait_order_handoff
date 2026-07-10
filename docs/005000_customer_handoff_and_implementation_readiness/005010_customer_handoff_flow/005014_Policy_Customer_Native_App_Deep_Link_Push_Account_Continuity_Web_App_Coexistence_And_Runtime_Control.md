@@ -33,7 +33,7 @@ This policy does not define final native app UI, full account authentication imp
 
 This policy depends on:
 
-`006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
+`006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
 
 `006540_Policy_Entrance_Customer_Notification_Status_Display_Multilingual_Guidance.md`
 

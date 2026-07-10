@@ -45,7 +45,7 @@ It also verifies implementation against:
 
 `006750_Register_Customer_Runtime_Message_Template_Translation_Status_Wording_And_Customer_Display_Control.md`
 
-`006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
+`006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
 
 `06690_Matrix_Customer_Runtime_State_Authority_Event_And_Evidence_Coverage_Matrix.md`
 

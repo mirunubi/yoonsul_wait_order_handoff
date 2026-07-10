@@ -40,7 +40,7 @@ This policy depends on:
 
 `014163_WorkPackage_Store_Runtime_Staff_Tablet_Manager_Console_Override_Manual_Control_And_Evidence_Boundary.md`
 
-`005001_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance.md`
+`005011_WorkPackage_Store_Runtime_Pilot_Readiness_Store_Rollout_Closeout_Expansion_Gate_And_Operational_Acceptance.md`
 
 06500 closes the integrated Store Runtime WorkPackage lane.  
 This policy opens the entrance-facing customer link and waiting assist boundary.

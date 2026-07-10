@@ -32,7 +32,7 @@ This policy does not define full authentication implementation, final membership
 
 This policy depends on:
 
-`006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
+`006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
 
 `005002_Policy_Customer_Link_Token_QR_NFC_Session_Expiration_Abuse_Prevention_And_Security_Boundary.md`
 
@@ -150,6 +150,8 @@ Merge must preserve:
 - Before/after identity linkage
 
 Merge must not duplicate the order, payment, table session, or support case.
+
+For where the merge trigger sits relative to the payment gate across guest/self-membership/tenant-membership paths, see `005027`.
 
 ## 9. Merge Authority
 

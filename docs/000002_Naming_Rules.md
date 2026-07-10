@@ -37,7 +37,7 @@ DocumentType must appear immediately after the numeric prefix.
 Correct:
 
 ```text
-0006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
+0006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
 100300_SOP_Entrance_Waiting_Assist_Device_Operation.md
 005420_Checklist_First_Store_POS_Equipment_Decision_And_Provider_Procurement.md
 ```
@@ -45,7 +45,7 @@ Correct:
 Wrong:
 
 ```text
-006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
+006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
 005420_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md
 06510 Entrance Waiting Assist Device Policy.md
 06510-Policy-Entrance-Waiting-Assist-Device.md
@@ -165,28 +165,29 @@ Verification
 Audit
 ```
 
-Use the common filename rule:
+Lifecycle documents use a PascalCase-joined filename with **no six-digit prefix**, placed under a per-change evidence folder:
 
 ```text
-<6-digit-number>_<DocumentType>_<Scope_Or_Title>.md
+docs/implementation_evidence/<change_id>/<DocumentType>.md
 ```
 
-Examples:
+The recommended folder shape uses a local two-digit ordinal prefix for filesystem sort order only (not a project document number):
 
 ```text
-604264_TestPlan_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604265_ChangeContract_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604266_Approval_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604267_Module_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604268_Verification_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604269_Audit_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+docs/implementation_evidence/<change_id>/04_TestPlan.md
+docs/implementation_evidence/<change_id>/05_ChangeContract.md
+docs/implementation_evidence/<change_id>/06_ImplementationModule.md
+docs/implementation_evidence/<change_id>/07_VerificationResult.md
+docs/implementation_evidence/<change_id>/09_AuditReview.md
 ```
 
-The H1 must exactly match the complete filename, including `.md`:
+The canonical name for each artifact (used in prose, cross-references, and the `H1`) is the PascalCase-joined form without the ordinal, e.g.:
 
 ```md
-# 604264_TestPlan_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+# TestPlan.md
 ```
+
+See `docs/000700_ai_agent_prelearning_and_project_context/000701_Guide_Controlled_AI_Development_Pipeline.md` §15 and §33 for the authoritative full artifact list, folder shape, and rationale. This scheme superseded the six-digit `604xxx`-band numbering convention when that band was quarantined to `990000_legacy_quarantine/` on 2026-07-10 — see `000701` §15.1.
 
 - `TestPlan` and `ChangeContract` are pre-implementation and never authorize implementation.
 - `Approval` is Human-owned and authorizes only its explicit boundary.
@@ -197,24 +198,13 @@ The H1 must exactly match the complete filename, including `.md`:
 
 ### 1.2.3 NavigationMap Naming Rule
 
-`NavigationMap` is an approved development documentation route-map type. It must use:
-
-```text
-<6-digit-number>_NavigationMap_<Scope_Or_Title>.md
-```
-
-Examples:
-
-```text
-604306_NavigationMap_Scope_D_Server_Runtime_Guard_Workpacket_Flow.md
-6042xx_NavigationMap_Scope_D_00A_To_604250_Handoff_Route.md
-```
-
-Its H1 must exactly match the complete filename, including `.md`:
+`NavigationMap` is an approved development documentation route-map type. It uses a PascalCase-joined filename with **no six-digit prefix**, placed in the domain/module folder it tracks (one per governed domain, not per change) — see `000701` §32-§33:
 
 ```md
-# 604306_NavigationMap_Scope_D_Server_Runtime_Guard_Workpacket_Flow.md
+# NavigationMap.md
 ```
+
+This scheme superseded the six-digit `604xxx`-band numbering convention when that band was quarantined to `990000_legacy_quarantine/` on 2026-07-10 — see `000701` §15.1.
 
 `NavigationMap` explains reading and dependency routes. It is not an Index, Approval, implementation instruction, Verification, or Audit.
 

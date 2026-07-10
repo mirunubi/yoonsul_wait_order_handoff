@@ -51,7 +51,7 @@ It must remain consistent with:
 
 `006860_Spec_Customer_Runtime_Display_Evidence_Event_And_Audit_Schema_Spec.md`
 
-`006700_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
+`006710_Template_Customer_Runtime_Event_Audit_Evidence_Field_Specification_Template.md`
 
 `006620_Policy_Customer_Runtime_Evidence_Audit_Trail_Traceability_Closeout_Handoff.md`
 

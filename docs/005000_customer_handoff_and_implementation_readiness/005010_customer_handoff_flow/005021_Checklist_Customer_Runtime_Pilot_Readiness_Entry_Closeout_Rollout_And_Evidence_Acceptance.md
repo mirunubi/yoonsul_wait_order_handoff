@@ -37,7 +37,7 @@ This checklist depends on:
 
 It also verifies readiness against the customer runtime policy lane from:
 
-`006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
+`006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
 
 through:
 

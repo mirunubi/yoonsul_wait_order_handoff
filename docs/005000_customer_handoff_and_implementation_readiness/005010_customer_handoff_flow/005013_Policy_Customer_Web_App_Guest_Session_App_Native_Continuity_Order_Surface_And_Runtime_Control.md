@@ -33,7 +33,7 @@ This policy does not define final UI design, full native app implementation, mem
 
 This policy depends on:
 
-`006511_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
+`006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md`
 
 `006520_Policy_Entrance_Waiting_Queue_Call_Arrival_No_Show_Seating_And_Recovery_Control.md`
 
@@ -285,6 +285,8 @@ Payment status display must follow conservative rules.
 | Manual Review Required | Staff or support is checking payment status |
 
 The web app must not infer payment success from browser redirect, button tap, or network response alone.
+
+For where the payment gate sits relative to cart/preorder/order state, see `005027`.
 
 ## 15. Waiting And Table Display Boundary
 
