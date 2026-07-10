@@ -13,8 +13,8 @@ This document applies only to `yoonsul_wait_order_handoff`.
 - no 4-digit-prefixed docs/folders remain.
 - no transitional five-digit band paths remain after rebalance.
 - no duplicate document number in the same folder.
-- moved files reflected in `docs/000005_Document_Number_Index.md`.
-- moved folders reflected in `docs/000007_Full_Directory_Map.md`.
+- moved files reflected in `docs/000005_Index_Document_Number.md`.
+- moved folders reflected in `docs/000007_Map_Full_Directory.md`.
 - stale 4-digit path references checked.
 - README links checked.
 - no SQL, migration, app implementation, Supabase function, package change, or runtime implementation included.

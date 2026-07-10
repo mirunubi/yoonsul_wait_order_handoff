@@ -101,7 +101,7 @@ Batch 9F produces documentation artifacts only:
 | Static validation test plan | `docs/000097_Plan_WP_9B_001_Source_Module_Map_Static_Validation_Test_Plan.md` |
 | SMM-001 through SMM-009 coverage matrix | `docs/000098_Matrix_WP_9B_001_SMM_001_To_SMM_009_Validation_Case_Coverage_Map.md` |
 | Readiness checklist | `docs/000099_Checklist_WP_9B_001_Source_Module_Map_Static_Evidence_Gate_Readiness_Checklist.md` |
-| Batch closeout report | `docs/000100_Report_Batch_9F_WP_9B_001_Artifact_Pack_Closeout.md` |
+| Batch closeout report | `docs/990000_legacy_quarantine/602000_source_map/602100_wp_9b_001_source_module_map_static_validation/602101_Report_Batch_9F_WP_9B_001_Artifact_Pack_Closeout.md` |
 
 Future batches may produce validation execution evidence. Batch 9F does not produce execution evidence.
 

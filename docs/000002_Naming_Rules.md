@@ -90,7 +90,16 @@ DocumentType values are divided into three groups. See `000001_Md_Rules.md` Sect
 
 - `Overview`
 - `Logic`
+- `TestPlan`
+- `ChangeContract`
+- `Approval`
 - `Module`
+- `Verification`
+- `NavigationMap`
+
+Multi-word DocumentType values use PascalCase with no separator (e.g., WorkPackage, ChangeContract, TestPlan, NavigationMap) — capitalize each meaningful word, no underscore between them.
+
+`Audit` remains listed in Group B because it is also used outside implementation lifecycle workpackets. Within the 600000 lifecycle, it is the independent final review type after `Verification`.
 
 Definitions:
 
@@ -123,6 +132,10 @@ Definitions:
 | C | `Overview` | 구현 WorkPackage 전 맥락. 어떤 파일을 함께 봐야 하는지. **구현 전용.** |
 | C | `Logic` | 구현 변경 로직. 상태 전이, 예외 처리, 권한, 감사 로직. **구현 전용.** |
 | C | `Module` | 구현 결과 기록. 소스 파일, 테스트 결과, 롤백 노트. **구현 후 기록.** |
+| C | `ChangeContract` | Allowed/forbidden file and operation boundary contract that locks Codex's implementation scope before execution; the Stage 3 human-approval boundary artifact in the controlled AI development pipeline. |
+| C | `TestPlan` | Verification and test-scenario coverage plan for an implementation change, defining test scenarios, exception cases, and financial-accident cross-checks before implementation begins. |
+| C | `NavigationMap` | Cross-document, cross-workpacket lifecycle flow map showing how stages, documents, and cross-references connect within a bounded scope. Records flow and sequence, not physical file location. |
+| A | `Map` | Project- or folder-wide structural map of physical file/directory layout. Records where things live, not how lifecycle stages flow. Distinct from NavigationMap: Map = structure, NavigationMap = flow. |
 
 ### 1.2.1 Group C Usage Rule
 
@@ -134,6 +147,76 @@ Definitions:
 - `Overview`, `Logic`, and `Module` are independent approved DocumentType values. They must not be treated as subtypes of `Spec`.
 - A small implementation or work package may include Overview, Logic, and Module sections inside one governed document when separate files would add unnecessary overhead.
 - Core flow, financial, payment, POS, KDS, audit, and security documents should prefer separate Overview, Logic, and Module files when traceability and review evidence matter.
+
+### 1.2.2 Development Lifecycle Naming And Order
+
+The lifecycle order is:
+
+```text
+Index
+ImpactScope
+Overview
+Logic
+TestPlan
+ChangeContract
+Approval
+Module
+Verification
+Audit
+```
+
+Use the common filename rule:
+
+```text
+<6-digit-number>_<DocumentType>_<Scope_Or_Title>.md
+```
+
+Examples:
+
+```text
+604264_TestPlan_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+604265_ChangeContract_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+604266_Approval_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+604267_Module_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+604268_Verification_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+604269_Audit_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+```
+
+The H1 must exactly match the complete filename, including `.md`:
+
+```md
+# 604264_TestPlan_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+```
+
+- `TestPlan` and `ChangeContract` are pre-implementation and never authorize implementation.
+- `Approval` is Human-owned and authorizes only its explicit boundary.
+- `Module` is implementer self-report.
+- `Verification` is command and test evidence.
+- `Audit` is independent review.
+- Module, Verification, and Audit must not be collapsed when lifecycle separation is required.
+
+### 1.2.3 NavigationMap Naming Rule
+
+`NavigationMap` is an approved development documentation route-map type. It must use:
+
+```text
+<6-digit-number>_NavigationMap_<Scope_Or_Title>.md
+```
+
+Examples:
+
+```text
+604306_NavigationMap_Scope_D_Server_Runtime_Guard_Workpacket_Flow.md
+6042xx_NavigationMap_Scope_D_00A_To_604250_Handoff_Route.md
+```
+
+Its H1 must exactly match the complete filename, including `.md`:
+
+```md
+# 604306_NavigationMap_Scope_D_Server_Runtime_Guard_Workpacket_Flow.md
+```
+
+`NavigationMap` explains reading and dependency routes. It is not an Index, Approval, implementation instruction, Verification, or Audit.
 
 ## 1.3 Markdown Filename Format Rules
 
@@ -205,8 +288,8 @@ Future migration must be performed by controlled waves. Each migration wave must
 7. Detect bad four-digit and five-digit files.
 8. Detect Korean filename risks.
 9. Detect internal link references to old paths.
-10. Prepare an update plan for `docs/000005_Document_Number_Index.md`.
-11. Prepare an update plan for `docs/000007_Full_Directory_Map.md`.
+10. Prepare an update plan for `docs/000005_Index_Document_Number.md`.
+11. Prepare an update plan for `docs/000007_Map_Full_Directory.md`.
 12. Prepare an update plan for folder README files.
 13. Rename files only with an approved migration batch.
 14. Update the document heading only if explicitly approved and required by the batch.
@@ -261,8 +344,8 @@ Root governance files:
 - `000001_Md_Rules.md`
 - `000002_Naming_Rules.md`
 - `000003_Project_Context.md`
-- `000005_Document_Number_Index.md`
-- `000007_Full_Directory_Map.md`
+- `000005_Index_Document_Number.md`
+- `000007_Map_Full_Directory.md`
 - `000015_Korean_Document_And_Encoding_Safety_Rules.md`
 - `000099_Docs_Governance_Checklist.md`
 
