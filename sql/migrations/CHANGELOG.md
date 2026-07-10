@@ -52,3 +52,56 @@ Each class below was found at least twice; on the second occurrence the rest of 
 - **0089** — entire file deferred; duplicates 0069's already-validated pgvector knowledge infrastructure (own `document_embeddings` table, own `register_embedding`/`search_knowledge`/`verify_answer_grounding` with a different signature). 0069 is canonical. This file's genuine unique value (SOP document lifecycle) should eventually be rewritten to call into 0069's storage/search functions instead of duplicating them.
 - **0099** — table/seed/`get_realtime_config` deferred; 0068 (already applied, live, already validated by 0073's passing seed-count assertion) established `realtime_channels` with a Postgres-CDC + role-based-access model. This file's incompatible broadcast-based redesign (device-type + role targeting) never took effect. If device-type targeting is genuinely needed, it requires a new forward migration extending 0068's actual live schema, not a competing table definition. Note: `broadcast_store_event` (kept active in this same file) still references `last_broadcast_at`/`broadcast_count` on `realtime_channels`, columns that don't exist on 0068's schema either — a latent runtime bug, not fixed (out of the deferral's stated scope), only flagged.
 - **0101** — entire vision-document INSERT deferred; the source file is genuinely truncated mid-generation (opens a `$ko$` dollar-quote, cuts off mid-sentence, no closing tag, no `content_en`, no remaining columns). Not recoverable from elsewhere in the repo. Investor/partner-facing business narrative content — must be authored by a human, not reconstructed by AI.
+
+## 2026-07-11 — order_sessions.customer_id 컬럼 부재 확인 및 원인 재분류 (환경 드리프트 아님, 순수 SQL 결함으로 확정)
+
+d9d90ce 커밋 메시지("SQL migration verification 0000-0147, 147/147
+succeeded")를 근거로 0115/0116이 order_sessions.customer_id를
+참조하는 게 정합적이라고 잠정 판단했었으나, 다음 5개 독립 확인을
+통해 해당 self-report가 이 항목에 한해 부정확했음을 확정함:
+
+1. 0012_create_pos_order_sessions.sql 원본 컬럼 목록에 customer_id
+   없음 (customer_token text만 존재)
+2. 전체 sql/migrations/*.sql grep — 해당 컬럼을 추가하는 ALTER 없음
+3. 로컬 Supabase(127.0.0.1:54322) information_schema 조회 — 컬럼 없음
+4. 클라우드 Supabase(upzthfwhtvazfftxnyfu) information_schema 조회 —
+   컬럼 없음
+5. supabase db diff --linked 결과 "No schema changes found" —
+   로컬/클라우드 스키마 완전 동일, 드리프트 아님을 재확인
+
+0081_create_customer_app_rpc.sql의 자체 DEFERRED 주석(컬럼 없음)은
+정확했음. 0115/0116_...sql은 이 사실을 인지하지 못한 채 작성되어
+order_sessions.customer_id를 전제로 한 INSERT/SELECT를 다수 포함 —
+현재 라이브 실행 시 "column does not exist" 에러 발생 대상.
+
+세 조각(0097 전화+OTP 로그인, 0081 customer_app_sessions,
+0115/0116 order_sessions.customer_id)의 고객 정체성 모델
+(catchmenu_store.customers) 자체는 상호 정합적이며 폐기 대상 없음.
+필요한 조치는 단 하나의 forward migration (order_sessions에
+customer_id uuid FK 컬럼 추가)뿐.
+
+부수 확인: sql/migrations/ 아래 4자리 순번 SQL 파일 관례는 처음부터
+일관되게 사용되어 왔으며 000701 §28/§30/§33과 990000_legacy_quarantine의
+다수 선행 워크패킷(604250-604526 등)에 이미 광범위하게 문서화·실증되어
+있음. 다만 Supabase CLI의 표준 마이그레이션 추적(supabase/migrations/,
+supabase migration list/db push)은 이 관례와 처음부터 별개로 전혀
+사용된 적이 없었음 — 선행 워크패킷들도 전부 ls/docker cp 방식의 직접
+검증만 사용했음. config.toml에도 sql/migrations 경로 참조가 없어,
+CLI가 이 이력을 인식하지 못하는 것은 설계상 당연한 결과였음. 결함이
+아니라 두 개의 독립적인 도구 체계가 처음부터 공존해온 것.
+
+Supersedes: d9d90ce 커밋 메시지의 "147/147 succeeded" 주장을
+order_sessions.customer_id 관련 부분에 한해 정정함 (다른 146개
+항목의 정확성에 대해서는 판단하지 않음 — 이번 조사는 이 1개 항목만
+재검증했음).
+
+Next: order_sessions.customer_id 추가 forward migration — 별도
+DesignPack.md 초안 작성 완료, Human Approval 대기.
+
+## 2026-07-11 — 0148 order_sessions customer identity FK and guest flag
+
+- **0148** — adds the approved forward migration for `catchmenu_pos.order_sessions.customer_id`, `catchmenu_pos.order_sessions.phone_hash`, and `catchmenu_store.customers.is_guest`.
+- Required because 0115/0116 already reference `order_sessions.customer_id`/`phone_hash`, while 0012 did not create those columns and the earlier local DB state had only an out-of-band, untracked partial application.
+- Cleans the local out-of-band `order_sessions.customer_id` FK/index/column first, then recreates the canonical spec with `ON DELETE SET NULL` rather than the previous local `ON DELETE NO ACTION`.
+- Recreates `idx_order_sessions_customer` as the approved partial index (`WHERE customer_id IS NOT NULL`) and records comments for the new columns.
+- Does **not** resolve the three open items from the approved design packet: 005015 wording/policy revision, anonymous guest dedupe, or the duplicate 604500 folder/workpacket issue.
