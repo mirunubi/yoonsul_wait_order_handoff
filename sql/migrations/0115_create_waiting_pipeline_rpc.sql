@@ -227,7 +227,7 @@ begin
 
   -- 매장 설정 확인
   select store_mode, waiting_enabled,
-         max_waiting_count
+         max_wait_number
   into v_settings
   from catchmenu_store.store_settings
   where store_id = p_store_id
@@ -264,7 +264,7 @@ begin
 
   -- 대기 정원 초과
   if v_queue_position >=
-    coalesce(v_settings.max_waiting_count, 30)
+    coalesce(v_settings.max_wait_number, 30)
   then
     return catchmenu_common.build_error_response(
       p_error_key := 'wait_queue_full',
@@ -292,8 +292,6 @@ begin
     wait_number, queue_position,
     guest_count, guest_locale,
     phone_hash, customer_id,
-    memo,
-    pre_order_amount,
     session_started_at,
     business_day, business_timezone
   ) values (
@@ -302,8 +300,6 @@ begin
     v_wait_number, v_queue_position + 1,
     p_guest_count, p_guest_locale,
     p_phone_hash, p_customer_id,
-    p_memo,
-    0,
     now(),
     v_business_day, v_timezone
   )

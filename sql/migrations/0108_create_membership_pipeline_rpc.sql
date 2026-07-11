@@ -609,7 +609,7 @@ begin
 
   -- 고객 조회
   select id, membership_tier,
-         total_points, total_spent_amount,
+         point_balance, lifetime_spend,
          visit_count
   into v_customer
   from catchmenu_store.customers
@@ -667,7 +667,7 @@ begin
         p_tenant_id, p_store_id, p_customer_id,
         p_order_id, 'EARN',
         v_earned_points,
-        v_customer.total_points + v_earned_points,
+        v_customer.point_balance + v_earned_points,
         'ORDER_' || p_order_id::text,
         v_business_day
       );
@@ -675,10 +675,10 @@ begin
       -- 고객 포인트 업데이트
       update catchmenu_store.customers
       set
-        total_points =
-          total_points + v_earned_points,
-        total_spent_amount =
-          total_spent_amount + p_order_amount,
+        point_balance =
+          point_balance + v_earned_points,
+        lifetime_spend =
+          lifetime_spend + p_order_amount,
         updated_at = now()
       where id = p_customer_id;
 
@@ -813,7 +813,7 @@ begin
       and tenant_id = p_tenant_id
       and is_active = true
       and min_total_amount <= (
-        v_customer.total_spent_amount
+        v_customer.lifetime_spend
         + p_order_amount
       )
     order by tier_order desc
@@ -1146,7 +1146,7 @@ declare
 begin
   -- 고객 조회
   select id, display_name, membership_tier,
-         total_points, total_spent_amount,
+         point_balance, lifetime_spend,
          visit_count, first_visit_at,
          last_visit_at
   into v_customer
@@ -1207,7 +1207,7 @@ begin
     and tenant_id = p_tenant_id
     and is_active = true
     and min_total_amount
-      > v_customer.total_spent_amount
+      > v_customer.lifetime_spend
   order by min_total_amount asc
   limit 1;
 
@@ -1263,9 +1263,9 @@ begin
         'display_name', v_customer.display_name,
         'membership_tier',
           v_customer.membership_tier,
-        'total_points', v_customer.total_points,
+        'total_points', v_customer.point_balance,
         'total_spent_amount',
-          v_customer.total_spent_amount,
+          v_customer.lifetime_spend,
         'visit_count', v_customer.visit_count,
         'first_visit_at', v_customer.first_visit_at,
         'last_visit_at', v_customer.last_visit_at
@@ -1303,7 +1303,7 @@ begin
           'tier_name', v_next_tier.tier_name_ko,
           'remaining_amount',
             v_next_tier.min_total_amount
-            - v_customer.total_spent_amount,
+            - v_customer.lifetime_spend,
           'remaining_visits',
             greatest(
               0,
@@ -1389,11 +1389,11 @@ begin
         >= date_trunc('month', now())
     ),
     'total_points_issued', coalesce(
-      sum(total_points), 0
+      sum(point_balance), 0
     ),
     'avg_spend_per_visit', coalesce(
       avg(
-        total_spent_amount::numeric
+        lifetime_spend::numeric
         / nullif(visit_count, 0)
       )::int, 0
     )

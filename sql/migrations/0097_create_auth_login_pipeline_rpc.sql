@@ -1276,7 +1276,7 @@ begin
 
   -- 고객 조회 또는 신규 생성
   select id, display_name, membership_tier,
-         total_points, locale
+         point_balance, preferred_locale
   into v_customer
   from catchmenu_store.customers
   where phone_hash = p_phone_hash
@@ -1291,7 +1291,7 @@ begin
       tenant_id,
       phone_hash, display_name,
       membership_tier,
-      locale,
+      preferred_locale,
       first_visit_at
     ) values (
       p_tenant_id,
@@ -1304,8 +1304,8 @@ begin
       now()
     )
     returning id, display_name,
-              membership_tier, total_points,
-              locale
+              membership_tier, point_balance,
+              preferred_locale
     into v_customer;
   end if;
 
@@ -1422,8 +1422,8 @@ begin
         'display_name', v_customer.display_name,
         'membership_tier',
           v_customer.membership_tier,
-        'total_points', v_customer.total_points,
-        'locale', v_customer.locale
+        'total_points', v_customer.point_balance,
+        'locale', v_customer.preferred_locale
       ),
       'is_new_customer', v_is_new_customer,
       'token_note',
@@ -1505,8 +1505,8 @@ begin
         'id', id,
         'display_name', display_name,
         'membership_tier', membership_tier,
-        'total_points', total_points,
-        'locale', locale
+        'total_points', point_balance,
+        'locale', preferred_locale
       )
       into v_subject_data
       from catchmenu_store.customers

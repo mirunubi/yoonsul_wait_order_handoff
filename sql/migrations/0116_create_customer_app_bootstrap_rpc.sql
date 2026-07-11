@@ -155,8 +155,16 @@ begin
   end if;
 
   -- 매장 설정
+  -- NOTE (§24 lightweight fix, 2026-07-11): min_order_amount was never
+  -- a real column on catchmenu_store.store_settings (confirmed via
+  -- \d catchmenu_store.store_settings -- no min_order_amount, no
+  -- minimum_order_amount, no min_pre_order_amount equivalent). This
+  -- SELECT would have failed at runtime with "column does not exist"
+  -- on every call. The concept (minimum pre-order amount) was simply
+  -- never implemented -- removed from this SELECT rather than mapped
+  -- to a nonexistent column.
   select store_mode, waiting_enabled,
-         pre_order_enabled, min_order_amount
+         pre_order_enabled
   into v_store_settings
   from catchmenu_store.store_settings
   where store_id = p_store_id
@@ -184,8 +192,8 @@ begin
   -- 고객 정보 + 멤버십
   if p_customer_id is not null then
     select id, display_name, membership_tier,
-           total_points, visit_count,
-           last_visit_at, locale
+           point_balance, visit_count,
+           last_visit_at, preferred_locale
     into v_customer
     from catchmenu_store.customers
     where id = p_customer_id
@@ -220,9 +228,9 @@ begin
             and wait_number < os.wait_number
         ),
         'has_pre_order',
-          os.pre_order_amount > 0,
+          false,
         'pre_order_amount',
-          os.pre_order_amount
+          0
       )
       into v_active_waiting
       from catchmenu_pos.order_sessions os
@@ -277,7 +285,7 @@ begin
       if p_push_token is not null then
         update catchmenu_store.customers
         set
-          locale = p_locale,
+          preferred_locale = p_locale,
           updated_at = now()
         where id = p_customer_id;
       end if;
@@ -312,7 +320,7 @@ begin
           else m.menu_name
         end,
         'price', m.price,
-        'thumbnail_url', m.thumbnail_url,
+        'thumbnail_url', m.image_url,
         'menu_status', m.menu_status
       )
       order by m.display_order asc
@@ -343,9 +351,12 @@ begin
         'waiting_enabled', coalesce(
           v_store_settings.waiting_enabled, true
         ),
-        'min_order_amount', coalesce(
-          v_store_settings.min_order_amount, 0
-        ),
+        -- NOTE (§24 lightweight fix, 2026-07-11): min_order_amount was
+        -- never implemented on store_settings (see the SELECT above);
+        -- hardcoded to 0 rather than referencing a nonexistent field on
+        -- v_store_settings, which would itself fail since the record
+        -- only carries the columns actually selected into it.
+        'min_order_amount', 0,
         'business_hours', case
           when v_business_hours.open_time
             is not null
@@ -369,7 +380,7 @@ begin
           'display_name', v_customer.display_name,
           'membership_tier',
             v_customer.membership_tier,
-          'total_points', v_customer.total_points,
+          'total_points', v_customer.point_balance,
           'visit_count', v_customer.visit_count
         )
         else null
@@ -827,7 +838,7 @@ begin
   ))::date;
 
   select id, display_name, membership_tier,
-         total_points
+         point_balance
   into v_customer
   from catchmenu_store.customers
   where id = p_customer_id
@@ -943,7 +954,7 @@ begin
         'display_name', v_customer.display_name,
         'membership_tier',
           v_customer.membership_tier,
-        'total_points', v_customer.total_points
+        'total_points', v_customer.point_balance
       ),
       'active_waiting', v_active_waiting,
       'has_active_waiting',

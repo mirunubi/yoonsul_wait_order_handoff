@@ -1,9 +1,15 @@
 -- 0081_create_customer_app_rpc.sql
 --
 -- DEFERRED: customer_id/customer_token relationship undesigned as of
--- 2026-07-09 -- see 604000 SQL verification log. Do not re-enable until
+-- 2026-07-10 -- see sql/migrations/CHANGELOG.md. Do not re-enable until
 -- order_sessions <-> customers linkage is explicitly designed (new
 -- forward migration required).
+--
+-- Design gap addressed by 005027_Policy_Order_Payment_Three_Path_Gate_
+-- Sequencing_And_Runtime_Control.md. Design-ready as of 2026-07-10 --
+-- not yet re-enabled; re-enabling requires a new forward migration
+-- through 000701's full pipeline (design lock, human approval,
+-- implementation, verification, audit).
 --
 -- catchmenu_pos.order_sessions (already applied, 0012) has no
 -- customer_id column -- only an unused customer_token text field with
@@ -265,7 +271,7 @@ begin
   -- 고객 조회 (전화번호 해시 기반)
   if p_phone_hash is not null then
     select id, display_name, membership_tier,
-           total_points, visit_count,
+           point_balance, visit_count,
            arrival_reliability_score
     into v_customer
     from catchmenu_store.customers
@@ -579,7 +585,7 @@ begin
   -- 고객 조회
   if p_customer_id is not null then
     select id, display_name,
-           membership_tier, total_points
+           membership_tier, point_balance
     into v_customer
     from catchmenu_store.customers
     where id = p_customer_id
@@ -587,7 +593,7 @@ begin
       and is_active = true;
   elsif p_phone_hash is not null then
     select id, display_name,
-           membership_tier, total_points
+           membership_tier, point_balance
     into v_customer
     from catchmenu_store.customers
     where phone_hash = p_phone_hash
@@ -1164,8 +1170,8 @@ declare
 begin
   -- 고객 정보
   select id, display_name, membership_tier,
-         total_points, visit_count,
-         total_spend_amount
+         point_balance, visit_count,
+         lifetime_spend
   into v_customer
   from catchmenu_store.customers
   where id = p_customer_id
@@ -1314,7 +1320,7 @@ begin
       'point_balance', v_point_balance,
       'visit_count', v_customer.visit_count,
       'total_spend_amount',
-        v_customer.total_spend_amount
+        v_customer.lifetime_spend
     ),
     'active_orders', v_active_orders,
     'active_order_count',

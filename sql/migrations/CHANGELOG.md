@@ -105,3 +105,41 @@ DesignPack.md 초안 작성 완료, Human Approval 대기.
 - Cleans the local out-of-band `order_sessions.customer_id` FK/index/column first, then recreates the canonical spec with `ON DELETE SET NULL` rather than the previous local `ON DELETE NO ACTION`.
 - Recreates `idx_order_sessions_customer` as the approved partial index (`WHERE customer_id IS NOT NULL`) and records comments for the new columns.
 - Does **not** resolve the three open items from the approved design packet: 005015 wording/policy revision, anonymous guest dedupe, or the duplicate 604500 folder/workpacket issue.
+
+## 2026-07-11 — 0149 guest customer bootstrap helper and RPC entry patch
+
+- **0149** — creates `catchmenu_store.get_or_create_guest_customer(p_tenant_id uuid, p_phone_hash text default null)` and forward-patches `catchmenu_pos.register_waiting(...)` plus `catchmenu_store.bootstrap_customer_app_v2(...)` with `CREATE OR REPLACE FUNCTION`.
+- Required because 0148 made `order_sessions.customer_id`/`phone_hash` real, but callers that omitted `p_customer_id` still needed a DB-side guest customer bootstrap path.
+- The helper uses `ON CONFLICT (tenant_id, phone_hash) DO UPDATE SET updated_at = now()` and intentionally keeps `is_guest` out of the `DO UPDATE SET` list, preserving already-promoted `is_guest = false` customers on repeat same-phone_hash guest calls.
+- Direct helper execution is not granted to `authenticated`; access is intended through the existing SECURITY DEFINER entry RPCs.
+- Verification note: helper-only scenarios passed (new phone_hash creates `is_guest=true`, same phone_hash returns the same id, promoted `is_guest=false` is preserved, anonymous no-phone calls create distinct rows). The full 0115/0116 entry-RPC scenarios were blocked by pre-existing runtime column references outside the approved 0149 logic: `register_waiting()` still references missing `store_settings.max_waiting_count` (real column: `max_wait_number`), and `bootstrap_customer_app_v2()` still references missing `store_settings.min_order_amount`.
+
+## 2026-07-11 — 0115/0116/0149 live-function column audit and 0150 waiting event domain widening
+
+- **§24 live-function lesson** — checksum updates only change `catchmenu_meta.migration_history`; they do not re-run already-applied function DDL. Any future §24 in-place SQL function fix must update source, sync checksum, and then explicitly re-execute the affected live function definition (for this round, `0149_create_guest_customer_bootstrap_rpc.sql` was re-run with `docker exec ... psql`) before treating the runtime as fixed.
+- **Column audit fixes across 0115/0116/0149** — audited the live `pg_get_functiondef()` bodies for `catchmenu_pos.register_waiting(...)`, `catchmenu_store.bootstrap_customer_app_v2(...)`, and `catchmenu_store.get_or_create_guest_customer(...)` against actual table columns. Fixed stale references: `store_settings.max_waiting_count` → `max_wait_number`; removed nonexistent `store_settings.min_order_amount` and emitted payload literal `0`; removed nonexistent `order_sessions.memo` and `order_sessions.pre_order_amount` from the target register_waiting insert path; mapped `customers.total_points` → `point_balance`; mapped `customers.locale` → `preferred_locale`; mapped menu preview `m.thumbnail_url` → `m.image_url`.
+- **0150** — widens `catchmenu_ledger.events.chk_event_domain` to include `waiting`, preserving every existing allowed value. This is required because `register_waiting()` records `event_domain = 'waiting'`; without 0150, the §24 function fixes and 0149 guest-customer bootstrap path still fail at the ledger insert constraint even after the target stale column references are corrected.
+- **Total points/spend follow-up audit** — extended the same §24 procedure to every live function still carrying `customers.total_points` / `customers.total_spent_amount` lineage. Confirmed actual columns are `catchmenu_store.customers.point_balance` and `catchmenu_store.customers.lifetime_spend`. Updated source/live definitions for `0081_create_customer_app_rpc.sql`, `0097_create_auth_login_pipeline_rpc.sql`, `0108_create_membership_pipeline_rpc.sql`, `0116_create_customer_app_bootstrap_rpc.sql`, and `0149_create_guest_customer_bootstrap_rpc.sql` as applicable. The corrected live functions are `bootstrap_customer_app`, `place_takeout_order`, `customer_login`, `get_auth_context`, `earn_points_after_order`, `get_customer_membership`, `get_membership_dashboard`, `bootstrap_customer_app_v2`, and `get_customer_home`. JSON payload keys such as `total_points` and `total_spent_amount` were preserved for response compatibility while backing column reads now use `point_balance` / `lifetime_spend`.
+- **Post-total-audit verification result** — helper scenarios pass, `bootstrap_customer_app_v2()` now completes successfully through the former `get_customer_membership(...)` total-column blocker, and `pg_get_functiondef()` confirms no audited live function has stale `total_points` / `total_spent_amount` column references. `register_waiting()` initially hit `chk_event_caused_by_type` because the verification SQL passed `p_source := 'LOCAL_VERIFICATION'`, which the function intentionally writes to `caused_by_type`. Re-running the same scenario with the allowed value `p_source := 'STAFF'` succeeded end-to-end. Final conclusion: `register_waiting()` and `bootstrap_customer_app_v2()` both work end-to-end after 0149/0150 plus the Human-approved §24 stale-column fixes.
+
+Supersession note for the older lightweight-bugfix memo below: that memo was
+written before the subsequent §24 live-function audit. As of the total-points
+follow-up pass, `0149_create_guest_customer_bootstrap_rpc.sql` has been updated,
+checksum-synced, and directly re-executed against the local Docker database with
+`docker exec ... psql`; `pg_get_functiondef()` confirms the target live
+functions no longer contain the audited stale references. The former downstream
+`catchmenu_store.get_customer_membership(...)` `customers.total_points` /
+`customers.total_spent_amount` blocker has also been fixed and directly
+re-executed. The remaining blocker observed by `600123_TestPlan.md` is now
+`chk_event_caused_by_type` on the `register_waiting()` ledger insert path, not
+a stale customer total column.
+
+## 2026-07-11 — Lightweight Bugfix: register_waiting/bootstrap_customer_app_v2 stale column names (§24, Human-authorized)
+
+- 발견 경위: 600123_TestPlan.md(600120 워크패킷) 전체 검증 실행 중 (위 0149 항목의 "Verification note" 참고)
+- register_waiting(): `store_settings.max_waiting_count` 참조 → 실제 컬럼 `max_wait_number`로 정정 (`\d catchmenu_store.store_settings` 재확인: `max_wait_number integer not null default 999`, "대기 최대 인원 제한" 의미와 일치)
+- bootstrap_customer_app_v2(): `store_settings.min_order_amount` 참조 → `store_settings`에 대응 컬럼이 전혀 없음을 전체 컬럼 목록으로 확인 (`minimum_order_amount`, `min_pre_order_amount` 등 유사명도 없음). 해당 필드를 SELECT에서 제거하고, 응답 JSON의 `min_order_amount` 키는 이 개념이 애초에 구현된 적 없다는 주석과 함께 하드코딩된 `0`으로 대체
+- 근본 원인: 이 컬럼들은 원래부터 존재한 적 없음 — 함수 작성 시 의도한 컬럼명과 실제 0049(`store_settings` 정의)의 컬럼명이 처음부터 불일치했던 것으로 추정 (신규 회귀 아님)
+- 이 fix는 600120(guest_customer_bootstrap_rpc)의 승인 범위 밖이지만, 그 워크패킷의 TestPlan 실행 중 발견되어 §24 트랙으로 Human 승인 하에 즉시 수정함. **600120과 무관한 독립 §24 fix** — 600120의 Module/Verification/Audit 문서와 혼동하지 말 것
+- **중요한 범위 제약**: `0115`/`0116` 파일 자체를 패치했으나, 라이브 DB에서 실제 실행되는 함수 본문은 이미 `0149`가 `CREATE OR REPLACE FUNCTION`으로 재선언한 버전이며, `0149`는 이 fix의 대상이 아니었다(Human 결정 — 0149는 건드리지 않음). 따라서 **이 fix는 0115/0116 파일의 소스 정합성만 복원하며, 라이브 DB의 버그(0149 안의 동일한 stale 컬럼 참조)는 여전히 미해결 상태로 남아있다.** 라이브 버그 해결은 별도 결정 필요.
+- 영향받은 파일의 migration_history 체크섬 갱신 필요 (아래 참고)
