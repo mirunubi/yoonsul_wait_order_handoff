@@ -399,7 +399,7 @@ begin
 
   select store_mode,
          kds_capacity_threshold_total,
-         kds_capacity_threshold_per_station
+         kds_capacity_threshold_per_zone
   into v_store_settings
   from catchmenu_store.store_settings
   where store_id = p_store_id
@@ -417,8 +417,14 @@ begin
         'quantity', kt.quantity_snapshot,
         'kitchen_zone', kt.kitchen_zone,
         'kds_status', kt.kds_status,
-        'is_late', kt.is_late,
-        'priority_score', kt.priority_score,
+        'is_late', (
+          kt.committed_at is not null
+          and kt.estimated_minutes_snapshot is not null
+          and kt.committed_at
+              + kt.estimated_minutes_snapshot * interval '1 minute'
+              < now()
+        ),
+        'priority', kt.priority,
         'conditions_met', kt.conditions_met,
         'ticket_created_at',
           kt.ticket_created_at,
@@ -442,7 +448,7 @@ begin
         'request_memo', o.request_memo
       )
       order by
-        kt.priority_score desc nulls last,
+        kt.priority asc,
         kt.ticket_created_at asc
     ),
     '[]'::jsonb
@@ -488,7 +494,11 @@ begin
       )::int, 0
     ),
     'late_count', count(*) filter (
-      where is_late = true
+      where committed_at is not null
+        and estimated_minutes_snapshot is not null
+        and committed_at
+            + estimated_minutes_snapshot * interval '1 minute'
+            < now()
         and kds_status not in (
           'SERVED', 'COMPLETED', 'CANCELLED'
         )
@@ -528,7 +538,11 @@ begin
   where store_id = p_store_id
     and tenant_id = p_tenant_id
     and business_day = v_business_day
-    and is_late = true
+    and committed_at is not null
+    and estimated_minutes_snapshot is not null
+    and committed_at
+        + estimated_minutes_snapshot * interval '1 minute'
+        < now()
     and kds_status in (
       'COMMITTED', 'COOKING'
     );
@@ -936,7 +950,11 @@ begin
   where store_id = p_store_id
     and tenant_id = p_tenant_id
     and business_day = v_business_day
-    and is_late = true
+    and committed_at is not null
+    and estimated_minutes_snapshot is not null
+    and committed_at
+        + estimated_minutes_snapshot * interval '1 minute'
+        < now()
     and kds_status in ('COMMITTED', 'COOKING')
   limit 5;
 
