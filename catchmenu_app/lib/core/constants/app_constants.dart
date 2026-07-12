@@ -12,8 +12,10 @@ class AppConstants {
 
   // --- 환경 ---
   /// 'dev' | 'staging' | 'prod'. 기본은 dev.
-  static const String appEnv =
-      String.fromEnvironment('APP_ENV', defaultValue: 'dev');
+  static const String appEnv = String.fromEnvironment(
+    'APP_ENV',
+    defaultValue: 'dev',
+  );
   static bool get isProd => appEnv == 'prod';
 
   /// prod 가 아니면 개발 모드로 간주 (dev audit 로깅 활성).
@@ -21,8 +23,9 @@ class AppConstants {
 
   // --- Supabase (--dart-define 주입) ---
   static const String supabaseUrl = String.fromEnvironment('SUPABASE_URL');
-  static const String supabaseAnonKey =
-      String.fromEnvironment('SUPABASE_ANON_KEY');
+  static const String supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+  );
 
   static bool get hasSupabaseConfig =>
       supabaseUrl.isNotEmpty && supabaseAnonKey.isNotEmpty;
@@ -35,7 +38,9 @@ class AppConstants {
   // 주의: public 이외 스키마는 Supabase 프로젝트 설정의
   //       "Exposed schemas" 에 등록되어 있어야 rpc 호출이 가능하다.
   static const String schemaPublic = 'public';
-  static const String schemaPos = 'catchmenu_pos'; // register_waiting, seat, call
+  static const String schemaPos =
+      'catchmenu_pos'; // register_waiting, seat, call
+  static const String schemaStore = 'catchmenu_store'; // customer bootstrap
   static const String schemaPayment = 'catchmenu_payment'; // confirm_payment
   static const String schemaCommon = 'catchmenu_common'; // run_integration_test
   static const String schemaKds = 'catchmenu_kds';
@@ -53,7 +58,5 @@ class AppConstants {
 
   // --- INV-004: 클라이언트가 절대 직접 호출하면 안 되는 서버 전용 RPC ---
   // rpc_caller 가 이 목록을 강제 차단한다.
-  static const Set<String> forbiddenClientRpcs = {
-    'release_kds_after_payment',
-  };
+  static const Set<String> forbiddenClientRpcs = {'release_kds_after_payment'};
 }

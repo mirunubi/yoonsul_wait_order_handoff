@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'app/router.dart';
 import 'core/constants/app_constants.dart';
 import 'core/errors/app_error.dart';
 import 'core/supabase/supabase_client.dart';
@@ -16,11 +17,7 @@ Future<void> main() async {
     initError = e;
   }
 
-  runApp(
-    ProviderScope(
-      child: CatchMenuApp(initError: initError),
-    ),
-  );
+  runApp(ProviderScope(child: CatchMenuApp(initError: initError)));
 }
 
 class CatchMenuApp extends StatelessWidget {
@@ -30,14 +27,18 @@ class CatchMenuApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = createAppRouter(
+      bootScreen: _BootScreen(initError: initError),
+    );
+
+    return MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: _BootScreen(initError: initError),
+      routerConfig: router,
     );
   }
 }
@@ -62,20 +63,28 @@ class _BootScreen extends StatelessWidget {
               ? Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.check_circle,
-                        color: Colors.teal, size: 48),
+                    const Icon(
+                      Icons.check_circle,
+                      color: Colors.teal,
+                      size: 48,
+                    ),
                     const SizedBox(height: 12),
                     Text('${AppConstants.appName} MVP 부트스트랩 완료'),
                     const SizedBox(height: 4),
-                    Text('Supabase 연결됨 · v${AppConstants.appVersion}',
-                        style: Theme.of(context).textTheme.bodySmall),
+                    Text(
+                      'Supabase 연결됨 · v${AppConstants.appVersion}',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ],
                 )
               : Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.error_outline,
-                        color: Colors.redAccent, size: 48),
+                    const Icon(
+                      Icons.error_outline,
+                      color: Colors.redAccent,
+                      size: 48,
+                    ),
                     const SizedBox(height: 12),
                     const Text('초기화 실패'),
                     const SizedBox(height: 8),
