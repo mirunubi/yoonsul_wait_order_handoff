@@ -1,4 +1,4 @@
-# 003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md
+# 003199_Overview_Entry_Media_Inventory_And_MVP_Cutline.md
 
 ## Purpose
 
@@ -485,7 +485,7 @@ AI Menu Intake
 
 Possible future document:
 
-docs/02400\_owner\_console/02440\_AI\_Menu\_Intake\_And\_Menu\_Draft\_Generation\_Policy.md
+docs/02400\_owner\_console/02440\_AI\_Menu\_Intake\_And\_Menu\_Draft\_Generation\_Policy.md (not yet implemented)
 
 or equivalent owner/admin onboarding folder.
 
@@ -505,7 +505,7 @@ sop/entry\_media\_operations/SOP\_Entry\_Media\_Trial\_Installation\_Recovery\_A
 
 Separation:
 
-docs/00300\_entry\_media\_inventory/
+docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md/
 \= system policy and source of operational truth
 
 sop/entry\_media\_operations/
