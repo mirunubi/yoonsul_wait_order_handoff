@@ -90,3 +90,8 @@ cloud_backup_*.sql
 
 # Supabase Studio local query snippets (personal/ad-hoc, not schema-governed)
 supabase/snippets/
+
+# Ephemeral local inspection/sync outputs
+directory_only_tree.txt
+sync_checksums*.sql
+tools/missing_from_000005.txt
