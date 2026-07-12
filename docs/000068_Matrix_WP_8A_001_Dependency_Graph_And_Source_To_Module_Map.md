@@ -16,7 +16,7 @@ This file is a placeholder matrix for read-only hydration. It does not define ru
 | Owner map | `docs/000830_Register_Development_Foundation_Repository_Module_Owner_Map.md` | Upstream owner register pattern |
 | Hydration evidence | `docs/000840_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md` | Evidence packet model |
 | Implementation lifecycle | `docs/600000_implementation_lifecycle/600000_Index_Implementation_Lifecycle_Expansion_Wave_1.md` | Lifecycle evidence context |
-| Planning readiness | `docs/023000_implementation_planning/023000_Index_Implementation_Planning_And_Development_Readiness_Expansion_Wave_1.md` | Planning and approval context |
+| Planning readiness | `docs/023000_implementation_planning/023179_Index_Implementation_Planning_And_Development_Readiness_Expansion_Wave_1.md` | Planning and approval context |
 
 ## Source Dependency Graph Placeholders
 

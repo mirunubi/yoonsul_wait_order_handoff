@@ -46,7 +46,7 @@ Additional rules:
 - operating_group may be optional initially but must be modeled as a future axis.
 - do not hard-code single-company/single-store assumptions.
 
-Aligns with `docs/01000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md` Active MVP candidates for tenant/store runtime context.
+Aligns with `docs/001000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md` Active MVP candidates for tenant/store runtime context.
 
 ## 5 Cross-References
 

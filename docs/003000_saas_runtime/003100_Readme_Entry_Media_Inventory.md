@@ -17,7 +17,7 @@ This document defines the SaaS runtime or entry media inventory topic indicated 
 | `003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md` | Policy for scan usage observation, trial monitoring, and usage evidence. |
 | `003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md` | Policy linking entry media admin access, suspension, and service termination. |
 | `003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md` | Policy for production batch, stock, and inventory control of entry media assets. |
-| `003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md` | Index for Entry Media Inventory documents and MVP cutline alignment. |
+| `003199_Overview_Entry_Media_Inventory_And_MVP_Cutline.md` | Overview of Entry Media Inventory documents and MVP cutline alignment. |
 
 Legacy path: $old.
 
@@ -177,7 +177,7 @@ However, SOP does not own the system of record.
 
 Separation:
 
-docs/00300\_entry\_media\_inventory/
+docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md/
 \= system policy, asset lifecycle, mapping history, audit
 
 sop/entry\_media\_operations/

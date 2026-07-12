@@ -601,7 +601,7 @@ WOH.ENTRY\_MEDIA.ADMIN.SUSPEND.DELETE\_HISTORY\_DENIED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 27\. Audit Events
 

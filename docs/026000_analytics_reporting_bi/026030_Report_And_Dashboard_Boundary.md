@@ -57,9 +57,9 @@ Future dashboard implementation requires separate wave approval after `26010`, `
 ## 5 Cross-References
 
 - `docs/07000_admin_console/007040_Admin_Screen_Inventory_And_Navigation_Model.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
-- `docs/26000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
-- `docs/13000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
+- `docs/013000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
 
 ## 6 Open Decisions
 

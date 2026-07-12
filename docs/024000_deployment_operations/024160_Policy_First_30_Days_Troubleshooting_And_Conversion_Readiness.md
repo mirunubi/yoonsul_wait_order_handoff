@@ -78,11 +78,11 @@ full customer success automation
 
 Related documents:
 
-24150\_Readme\_Merchant\_Success\_Troubleshooting.md.md
-24060\_Policy\_First\_7\_Days\_Activation\_Check.md.md
-24170\_Policy\_AI\_Menu\_Intake\_Correction\_And\_Live\_Menu\_Stabilization.md.md
-24180\_Policy\_Request\_Board\_Staff\_Adoption\_And\_Operation\_Check.md.md
-24190\_Policy\_POS\_Manual\_Fallback\_Training\_And\_Store\_Usage.md.md
+24150\_Readme\_Merchant\_Success\_Troubleshooting.md
+24060\_Policy\_First\_7\_Days\_Activation\_Check.md
+24170\_Policy\_AI\_Menu\_Intake\_Correction\_And\_Live\_Menu\_Stabilization.md
+24180\_Policy\_Request\_Board\_Staff\_Adoption\_And\_Operation\_Check.md
+24190\_Policy\_POS\_Manual\_Fallback\_Training\_And\_Store\_Usage.md
 03600\_Billing\_Plan\_Settlement\_Readme.md
 03610\_Service\_Plan\_Trial\_And\_Paid\_Conversion\_Policy.md
 03500\_External\_POS\_Integration\_Runtime\_Readme.md
@@ -747,7 +747,7 @@ WOH.MERCHANT\_SUCCESS.FIRST\_30.NON\_CONVERSION\_RISK\_UNRECORDED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 30\. Relationship To First 7 Days Activation
 

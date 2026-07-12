@@ -78,10 +78,10 @@ full POS replacement product
 
 Related documents:
 
-24150\_Readme\_Merchant\_Success\_Troubleshooting.md.md
-24060\_Policy\_First\_7\_Days\_Activation\_Check.md.md
-24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md.md
-24180\_Policy\_Request\_Board\_Staff\_Adoption\_And\_Operation\_Check.md.md
+24150\_Readme\_Merchant\_Success\_Troubleshooting.md
+24060\_Policy\_First\_7\_Days\_Activation\_Check.md
+24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md
+24180\_Policy\_Request\_Board\_Staff\_Adoption\_And\_Operation\_Check.md
 03500\_External\_POS\_Integration\_Runtime\_Readme.md
 03530\_POS\_Menu\_Table\_Order\_Mapping\_And\_Idempotency\_Policy.md
 03540\_POS\_Callback\_Replay\_Manual\_Fallback\_And\_Evidence\_Policy.md
@@ -630,7 +630,7 @@ WOH.POS\_MANUAL\_FALLBACK.POS\_INTEGRATION\_REVIEW\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 30\. Relationship To Request Board Adoption
 

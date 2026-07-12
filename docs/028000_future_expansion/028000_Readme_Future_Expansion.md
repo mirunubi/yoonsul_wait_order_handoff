@@ -18,22 +18,22 @@ This project is `yoonsul_wait_order_handoff`, not `yoonsul_franchise_os`.
 
 | domain | role |
 | --- | --- |
-| `docs/15000_membership_loyalty/` | Active documentation domain for membership/loyalty/coupon/point boundaries. |
-| `docs/26000_analytics_reporting_bi/` | Active documentation domain for analytics/reporting/BI boundaries. |
-| `docs/20000_validation_security_audit/` | Governs privacy, export, security, and audit evidence. |
-| `docs/22000_implementation_planning/` | Governs implementation readiness and MVP non-goals. |
-| `docs/24000_deployment_operations/` | Governs deployment, operations, and support planning boundaries. |
-| `docs/28000_future_expansion/` | Long-term future/reference only. |
+| `docs/015000_membership_loyalty/` | Active documentation domain for membership/loyalty/coupon/point boundaries. |
+| `docs/026000_analytics_reporting_bi/` | Active documentation domain for analytics/reporting/BI boundaries. |
+| `docs/020000_validation_security_audit/` | Governs privacy, export, security, and audit evidence. |
+| `docs/022000_implementation_planning/` | Governs implementation readiness and MVP non-goals. |
+| `docs/024000_deployment_operations/` | Governs deployment, operations, and support planning boundaries. |
+| `docs/028000_future_expansion/` | Long-term future/reference only. |
 
 ## 3 Current 28000 Documents
 
 | document | summary |
 | --- | --- |
-| `28020_Membership_Loyalty_Point_Future_Model.md` | Historical/future membership, loyalty, coupon, stamp, and point model candidates. Active boundaries are in `15000`. |
-| `28030_Boundary_Point_Bridge_And_Exchange_Future.md` | Historical/future point bridge and exchange boundary among SaaS, white-label, group, and external membership systems. Active boundaries are in `15000` and `20000`. |
-| `28040_Data_Ad_CRM_AI_Future_Expansion_Model.md` | Long-term market/future reference for data, advertising, CRM, and AI expansion. Active analytics boundary is in `26000`. |
-| `28050_Boundary_Franchise_OS_Data_Handoff_Future.md` | Future-only Franchise OS intelligence handoff boundary. Not Franchise OS runtime. |
-| `28060_Franchise_Intelligence_Feedback_Loop_Model.md` | Future-only intelligence feedback loop concept. Not AI or Franchise OS runtime. |
+| `docs/028000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md` | Historical/future membership, loyalty, coupon, stamp, and point model candidates. Active boundaries are in `15000`. |
+| `docs/028000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md` | Historical/future point bridge and exchange boundary among SaaS, white-label, group, and external membership systems. Active boundaries are in `15000` and `20000`. |
+| `docs/028000_future_expansion/028040_Data_Ad_CRM_AI_Future_Expansion_Model.md` | Long-term market/future reference for data, advertising, CRM, and AI expansion. Active analytics boundary is in `26000`. |
+| `docs/028000_future_expansion/028050_Boundary_Franchise_OS_Data_Handoff_Future.md` | Future-only Franchise OS intelligence handoff boundary. Not Franchise OS runtime. |
+| `docs/028000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md` | Future-only intelligence feedback loop concept. Not AI or Franchise OS runtime. |
 
 ## 4 Future Migration Rule
 

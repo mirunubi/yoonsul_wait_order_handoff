@@ -51,10 +51,10 @@ It does not approve export runtime, report jobs, BI tools, or benchmark products
 
 ## 5 Cross-References
 
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
-- `docs/26000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
-- `docs/26000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
-- `docs/13000_app_api_projection/013130_Boundary_Future_Surface_And_Api_Non_MVP.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/026000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
+- `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
+- `docs/013000_app_api_projection/013130_Boundary_Future_Surface_And_Api_Non_MVP.md`
 
 ## 6 Open Decisions
 

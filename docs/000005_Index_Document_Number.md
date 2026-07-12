@@ -3273,3 +3273,60 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\900000_patent_and_handoff_package\906000_TestPlan_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md | 906000_TestPlan_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release. | active |
 | docs\900000_patent_and_handoff_package\906010_ChangeContract_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md | 906010_ChangeContract_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release. | active |
 | docs\900000_patent_and_handoff_package\900180_Overview_CatchMenu_YoonsulOS_Asia_FnB_Platform.md | 900180_Overview_CatchMenu_YoonsulOS_Asia_FnB_Platform. | active |
+
+## 102 docs/600000_implementation_lifecycle
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600000_Readme_Implementation_Lifecycle.md | 600000_Readme_Implementation_Lifecycle. | active |
+
+## 103 docs/600000_implementation_lifecycle/604000_workpackets
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\604000_workpackets\604000_Readme_Workpackets.md | 604000_Readme_Workpackets. | active |
+
+## 104 docs/600000_implementation_lifecycle/604000_workpackets/604500_order_sessions_customer_id_fk_and_guest_promotion
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\604000_workpackets\604500_order_sessions_customer_id_fk_and_guest_promotion\604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md | 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion. | active |
+
+## 105 docs/600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600100_Readme_Customer_Identity_And_Guest_Promotion.md | 600100_Readme_Customer_Identity_And_Guest_Promotion. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600101_ChangeHistory.md | 600101_ChangeHistory — append-only change history skeleton (§30). | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600102_NavigationMap.md | 600102_NavigationMap — per-domain change index (§32). | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600103_DecisionLog.md | 600103_DecisionLog — recorded Human decisions 1-7 for this module. | active |
+
+## 106 docs/600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600111_Overview.md | 600111_Overview — Stage 1.5 draft, order_sessions.customer_id FK + guest promotion. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600112_Logic.md | 600112_Logic — DDL detail, guest promotion logic, 3 Open Questions. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600113_TestPlan.md | 600113_TestPlan — Stage 2 draft, executable test steps. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600114_ChangeContract.md | 600114_ChangeContract — Stage 2 draft, Allowed/Forbidden files, Human Boundary Approval pending. | active |
+
+## 109 docs/600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| (folder only — no governed documents yet) | guest_customer_bootstrap_rpc workpacket | draft |
+
+## 107 docs/600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600200_Readme_Flutter_Waiting_Feature_Implementation.md | 600200_Readme_Flutter_Waiting_Feature_Implementation. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600201_ChangeHistory.md | 600201_ChangeHistory — append-only change history skeleton (§30). | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600202_NavigationMap.md | 600202_NavigationMap — per-domain change index (§32). | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600203_DecisionLog.md | 600203_DecisionLog — Human decision log skeleton. | active |
+
+## 108 docs/600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| (folder only — no governed documents yet) | waiting_feature_guest_customer_id_integration workpacket | draft |

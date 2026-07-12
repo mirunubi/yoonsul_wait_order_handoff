@@ -50,13 +50,13 @@ It does not define database schema, API endpoints, or production runtime code.
 - analytics profile does not equal BI runtime active.
 - support profile does not equal support approval.
 
-Additional rules align with `docs/01000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md` and `docs/11000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`.
+Additional rules align with `docs/001000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md` and `docs/011000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`.
 
 ## 5 Cross-References
 
 - `docs/03000_saas_runtime/003010_Tenant_Store_Runtime_And_Package_Model.md`
-- `docs/03000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
-- `docs/03000_saas_runtime/003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`
+- `docs/003000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
+- `docs/003000_saas_runtime/003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`
 - `docs/07000_admin_console/007020_Admin_Store_Runtime_Configuration_Model.md`
 
 ## 6 Open Decisions

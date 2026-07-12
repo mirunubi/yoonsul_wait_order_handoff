@@ -651,7 +651,7 @@ WOH.QUANTITY.MANUAL\_CONFIRMATION\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 28\. Support Signals
 

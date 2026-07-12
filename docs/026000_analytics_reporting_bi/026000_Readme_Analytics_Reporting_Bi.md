@@ -9,7 +9,7 @@ This folder is the active documentation domain for analytics, reporting, and BI 
 This domain defines future analytics/reporting boundaries only.
 It does not create analytics runtime.
 
-It follows `docs/20000_validation_security_audit/` security, audit, privacy, and export governance.
+It follows `docs/020000_validation_security_audit/` security, audit, privacy, and export governance.
 
 ## 2 In Scope
 
@@ -23,11 +23,11 @@ It follows `docs/20000_validation_security_audit/` security, audit, privacy, and
 
 | document | description |
 | --- | --- |
-| `26010_Boundary_Analytics_Product.md` | Analytics product scope, critical distinction rules, and non-MVP boundary. |
-| `26020_Index_Operational_Metrics_Catalog.md` | Conceptual metric families and examples; metrics are not SQL queries. |
-| `26030_Report_And_Dashboard_Boundary.md` | Future report types and dashboard surface boundary with export governance. |
-| `26040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md` | Cross-tenant benchmark prohibited by default; data sharing safety rules. |
-| `26050_Governance_Analytics_To_Action.md` | Insight-to-action path; analytics insight does not equal execution. |
+| `docs/026000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md` | Analytics product scope, critical distinction rules, and non-MVP boundary. |
+| `docs/026000_analytics_reporting_bi/026020_Index_Operational_Metrics_Catalog.md` | Conceptual metric families and examples; metrics are not SQL queries. |
+| `docs/026000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md` | Future report types and dashboard surface boundary with export governance. |
+| `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md` | Cross-tenant benchmark prohibited by default; data sharing safety rules. |
+| `docs/026000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md` | Insight-to-action path; analytics insight does not equal execution. |
 
 ## 4 Out Of Scope
 

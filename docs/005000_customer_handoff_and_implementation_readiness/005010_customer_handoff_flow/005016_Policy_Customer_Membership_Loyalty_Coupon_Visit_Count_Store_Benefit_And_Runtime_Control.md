@@ -259,6 +259,8 @@ Coupon must be released when:
 
 Coupon must not remain stuck in reserved state without expiration and recovery rule.
 
+For which payment path (guest/self-membership/tenant-membership) unlocks benefit eligibility, see `005027`.
+
 ## 13. Benefit Application Boundary
 
 Benefit application must pass through controlled order calculation.

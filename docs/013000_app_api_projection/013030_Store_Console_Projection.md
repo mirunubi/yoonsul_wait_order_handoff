@@ -1,6 +1,6 @@
-# 013030_Store_Console_Projection
+# 013030_Store_Console_Projection.md
 
-## 1 Purpose
+## Purpose
 
 Store console helps store staff review order candidates, preorder requests, waiting sessions, Mini Kiosk sessions, Store Agent/printer status, and manual recovery items.
 

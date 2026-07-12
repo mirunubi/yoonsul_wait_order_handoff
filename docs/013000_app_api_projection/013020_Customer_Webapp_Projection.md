@@ -1,6 +1,6 @@
-# 013020_Customer_Webapp_Projection
+# 013020_Customer_Webapp_Projection.md
 
-## 1 Purpose
+## Purpose
 
 Customer webapp supports waiting, menu browsing, cart/order candidate, Mini Kiosk, multilingual flow, and customer notification.
 

@@ -6,7 +6,7 @@ Package plans and feature flags are runtime configuration concepts.
 
 They must be governed because they can imply customer/store behavior.
 
-This document aligns with `docs/01000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md`.
+This document aligns with `docs/001000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md`.
 
 This document is runtime governance only.
 It does not approve implementation or define flag storage schema.
@@ -21,7 +21,7 @@ It does not approve implementation or define flag storage schema.
 | POS API Integrated | POS API attempt path with validation and truth separation. |
 | Full OS Future Package | Future OS-controlled package; not generic SaaS MVP default. |
 
-Aligns with `docs/01000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md`.
+Aligns with `docs/001000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md`.
 
 ## 3 Feature Flag Categories
 
@@ -56,10 +56,10 @@ Aligns with `docs/01000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md`.
 ## 5 Cross-References
 
 - `docs/03000_saas_runtime/003010_Tenant_Store_Runtime_And_Package_Model.md`
-- `docs/03000_saas_runtime/003050_Governance_Runtime_Profile_Change_And_Audit.md`
-- `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
-- `docs/26000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/003000_saas_runtime/003050_Governance_Runtime_Profile_Change_And_Audit.md`
+- `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
+- `docs/026000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
 
 ## 6 Open Decisions
 

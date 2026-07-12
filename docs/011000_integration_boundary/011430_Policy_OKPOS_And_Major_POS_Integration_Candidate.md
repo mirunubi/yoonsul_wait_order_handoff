@@ -1,4 +1,4 @@
-# 004430_Policy_OKPOS_And_Major_POS_Integration_Candidate
+# 011430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md
 
 ## **1\. Purpose**
 
@@ -645,13 +645,13 @@ This document depends on:
 04370 POS Integration Monitoring Replay And Incident Runbook Policy
 04380 POS Integration Support Escalation And Vendor Communication Policy
 04390 POS Integration Governance Index And Readiness Check
-04420 POS Adapter Runtime Data Object And Event Family Policy
+011420 POS Adapter Runtime Data Object And Event Family Policy
 
 The relationship is:
 
 04300\~04390 \= POS federation governance
-04420 \= runtime object/event foundation
-04430 \= first major POS candidate integration policy
+011420 \= runtime object/event foundation
+011430 \= first major POS candidate integration policy
 
 ---
 

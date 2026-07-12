@@ -52,8 +52,8 @@ Additional rules:
 
 ## 5 Cross-References
 
-- `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
 - `docs/03000_saas_runtime/003010_Tenant_Store_Runtime_And_Package_Model.md`
 
 ## 6 Open Decisions

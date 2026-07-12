@@ -64,10 +64,10 @@ It does not approve audit tables, evidence storage, or compliance workflow runti
 
 ## 6 Cross-References
 
-- `docs/20000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
+- `docs/020000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
 - `docs/09000_data_model_state_machine/009100_Admin_Support_Audit_Entity_Lineage_Model.md`
-- `docs/13000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/013000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
 
 ## 7 Open Decisions
 

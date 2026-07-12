@@ -104,8 +104,8 @@ Root-level legacy files (safe, single file each):
 
 - `docs/00001_Md_Rules.md` → tracked `docs/000001_Md_Rules.md`
 - `docs/00002_Naming_Rules.md` → tracked `docs/000002_Naming_Rules.md`
-- `docs/00005_Document_Number_Index.md` → tracked `docs/000005_Document_Number_Index.md`
-- `docs/00007_Full_Directory_Map.md` → tracked `docs/000007_Full_Directory_Map.md`
+- `docs/00005_Document_Number_Index.md` → tracked `docs/000005_Index_Document_Number.md`
+- `docs/00007_Full_Directory_Map.md` → tracked `docs/000007_Map_Full_Directory.md`
 - `docs/00015_Korean_Document_And_Encoding_Safety_Rules.md` → tracked `docs/000015_Korean_Document_And_Encoding_Safety_Rules.md`
 - `docs/00099_Docs_Governance_Checklist.md` → tracked `docs/000099_Docs_Governance_Checklist.md`
 

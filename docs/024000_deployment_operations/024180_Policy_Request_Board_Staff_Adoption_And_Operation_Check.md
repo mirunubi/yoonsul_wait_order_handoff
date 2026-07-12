@@ -72,11 +72,11 @@ legal labor policy
 
 Related documents:
 
-24150\_Readme\_Merchant\_Success\_Troubleshooting.md.md
-24060\_Policy\_First\_7\_Days\_Activation\_Check.md.md
-24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md.md
-24170\_Policy\_AI\_Menu\_Intake\_Correction\_And\_Live\_Menu\_Stabilization.md.md
-24190\_Policy\_POS\_Manual\_Fallback\_Training\_And\_Store\_Usage.md.md
+24150\_Readme\_Merchant\_Success\_Troubleshooting.md
+24060\_Policy\_First\_7\_Days\_Activation\_Check.md
+24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md
+24170\_Policy\_AI\_Menu\_Intake\_Correction\_And\_Live\_Menu\_Stabilization.md
+24190\_Policy\_POS\_Manual\_Fallback\_Training\_And\_Store\_Usage.md
 01130\_Stage\_0C\_POS\_Less\_Request\_Confirmation\_Board.md
 01160\_Stage\_0\_Request\_State\_Transition\_Guard.md
 01170\_Stage\_0\_Unconfirmed\_Request\_Warning\_And\_Forced\_Cleanup.md
@@ -586,7 +586,7 @@ WOH.REQUEST\_BOARD.MANUAL\_POS\_CONFUSION
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 28\. Relationship To First 7 Days Activation
 

@@ -651,7 +651,7 @@ Outcome must be recorded.
 Recommended future folder:
 
     docs/
-      05000_provider_integration_and_kiosk_reuse/
+      docs/005000_customer_handoff_and_implementation_readiness/
         pilot_rollout/
           024120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md
           Pilot_Store_Register.md

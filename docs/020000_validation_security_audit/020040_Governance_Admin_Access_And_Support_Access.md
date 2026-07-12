@@ -77,8 +77,8 @@ Conceptual sensitivity classes:
 
 ## 6.1 Security Governance Consolidation Cross-Reference
 
-- Access context/data visibility governance is refined in `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`.
-- Support access/masking/scoped session governance is refined in `docs/20000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`.
+- Access context/data visibility governance is refined in `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`.
+- Support access/masking/scoped session governance is refined in `docs/020000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`.
 - Support access does not equal approval.
 - Support visibility does not equal mutation authority.
 

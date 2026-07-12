@@ -1,6 +1,6 @@
-# 013060_Matrix_Surface_State_Visibility_And_Authority
+# 013060_Matrix_Surface_State_Visibility_And_Authority.md
 
-## 1 Purpose
+## Purpose
 
 Surface visibility must not imply mutation authority.
 

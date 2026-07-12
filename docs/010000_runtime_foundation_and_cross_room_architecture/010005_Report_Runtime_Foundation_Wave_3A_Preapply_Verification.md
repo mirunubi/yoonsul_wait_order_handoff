@@ -15,7 +15,7 @@ This document defines the governed scope indicated by its filename within the 01
 
 ## 1 Executive Summary
 
-Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdown files) are present on disk and ready for **move-as-subfolder** consolidation under a new parent `docs/10000_runtime_foundation_and_cross_room_architecture/`. No folder merges are required for Wave 3.
+Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdown files) are present on disk and ready for **move-as-subfolder** consolidation under a new parent `docs/010000_runtime_foundation_and_cross_room_architecture/`. No folder merges are required for Wave 3.
 
 **Key findings:**
 
@@ -25,11 +25,11 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 | Distinct `10000_*` top-level folders | **3** (foundation, static planning, store framing) |
 | Cross-folder duplicate basenames | **None** |
 | Cross-folder duplicate 5-digit doc numbers | **None blocking** (expected in-package families; one cross-folder `10000` readme family noted) |
-| Plain `README.md` violations | **1** (`10000_store_runtime_room_framing`) |
+| Plain `README.md` violations | **1** (`docs/010000_runtime_foundation_and_cross_room_architecture`) |
 | `10609` nested subpackage | **Present and intact** (17 files) |
-| `40000_menu_taxonomy_and_ai_classification` | **Present; holds `10703`~`10720`; must stay untouched** |
+| `docs/040000_menu_taxonomy_and_ai_classification` | **Present; holds `10703`~`10720`; must stay untouched** |
 | Docs-root stray band files | **None** (only `00000`~`00099` governance files remain at root) |
-| `10005_Plan_10712_Root_File_Rename_And_Move.md` | **Exists** |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md` | **Exists** |
 
 **Recommendation:** **APPLY** Wave 3 with **MODERATE** risk rating, after resolving the single README violation during apply and preserving `10609` nesting via parent-folder `git mv`.
 
@@ -41,33 +41,33 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 
 | # | Top-level folder | Direct `.md` files | Subfolders | Total `.md` (recursive) |
 | --- | --- | ---: | --- | ---: |
-| 1 | `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/` | 24 | 0 | 24 |
-| 2 | `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` | 35 | 0 | 35 |
-| 3 | `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` | 18 | 0 | 18 |
-| 4 | `docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/` | 7 | 0 | 7 |
-| 5 | `docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/` | 10 | 0 | 10 |
-| 6 | `docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/` | 14 | 0 | 14 |
-| 7 | `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/` | 22 | 1 | 39 |
-| 8 | `docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/` | 4 | 0 | 4 |
-| 9 | `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` | 17 | 0 | 17 |
-| 10 | `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` | 10 | 0 | 10 |
+| 1 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` | 24 | 0 | 24 |
+| 2 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` | 35 | 0 | 35 |
+| 3 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` | 18 | 0 | 18 |
+| 4 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md/` | 7 | 0 | 7 |
+| 5 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md/` | 10 | 0 | 10 |
+| 6 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md/` | 14 | 0 | 14 |
+| 7 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/` | 22 | 1 | 39 |
+| 8 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md/` | 4 | 0 | 4 |
+| 9 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/` | 17 | 0 | 17 |
+| 10 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md/` | 10 | 0 | 10 |
 | | **Totals** | **161** | **1** | **178** |
 
 **Answers to verification questions:**
 
 1. **How many top-level 10000-family folders exist now?** **10** matching folders on disk.
-2. **Are there still 3 distinct `10000_*` folders?** **Yes** — `10000_foundation_static_catalog_package`, `10000_static_catalog_runtime_planning`, `10000_store_runtime_room_framing`.
+2. **Are there still 3 distinct `10000_*` folders?** **Yes** — `docs/010000_runtime_foundation_and_cross_room_architecture`, `docs/010000_runtime_foundation_and_cross_room_architecture`, `docs/010000_runtime_foundation_and_cross_room_architecture`.
 3. **Plan vs disk count:** `000006_Plan_Top_Level_Folder_Consolidation.md` states "11 top-level folders" for Band C; inventory above lists **10** move targets. The eleventh item in the plan is the **parent folder to create**, not an additional existing top-level folder.
 
 **Not in Wave 3 scope (confirmed separate):**
 
-- `docs/40000_menu_taxonomy_and_ai_classification/` — separate top-level package; do not move in Wave 3.
+- `docs/docs/040000_menu_taxonomy_and_ai_classification/` — separate top-level package; do not move in Wave 3.
 
 ---
 
 ## 3 Direct File List Per Candidate Folder
 
-### 3.1 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/` (24 files)
+### 3.1 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` (24 files)
 
 - `010105_Plan_10712_Root_File_Rename_And_Move.md`
 - `010106_Policy_Foundation_Static_Catalog_Package_Closure_Runtime_Entry_Deferral.md`
@@ -94,53 +94,53 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 - `010156_Policy_Static_Artifact_Authorization_Readiness_Review_And_User_Approval_Gate.md`
 - `010157_Policy_Catch_Menu_Mini_Kiosk_Foundation_Static_Authorization_Closure_And_Next_Step_Deferral.md`
 
-### 3.2 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_static_catalog_runtime_planning/` (35 files)
+### 3.2 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` (35 files)
 
 - `010201_Policy_Catch_And_Order_SaaS_Runtime_Boundary_And_Module_Naming.md` through `010234_Policy_AI_pgvector_Governance_Catalog_Static_Package_Handoff_And_Non_Authority_Boundary.md` (33 policy files)
 - `010200_Readme_Static_Catalog_Runtime_Planning.md`
 
-### 3.3 `docs/10000_runtime_foundation_and_cross_room_architecture/10000_store_runtime_room_framing/` (18 files)
+### 3.3 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/` (18 files)
 
 - `010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` *(101xx doc in 102xx framing package — see §15)*
 - `010020_Index_Store_Room_Framing_And_Runtime_Domain_Boundary.md` through `010099_Policy_Store_Runtime_Room_Framing_Closure_And_Next_Axis_Handoff.md` (16 files)
 - `README.md` *(non-canonical — see §5)*
 
-### 3.4 `docs/10000_runtime_foundation_and_cross_room_architecture/10100_four_side_platform_skeleton/` (7 files)
+### 3.4 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md/` (7 files)
 
 - `010300_Readme_Four_Side_Platform_Skeleton.md`
 - `010305_Policy_Four_Side_Platform_Skeleton_Cross_Axis_Construction.md`
 - `10110_` through `10150_` (5 policy files)
 
-### 3.5 `docs/10000_runtime_foundation_and_cross_room_architecture/10400_financial_trust_room/` (10 files)
+### 3.5 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md/` (10 files)
 
-- `010400_Readme_Financial_Trust_Room.md`
+- `0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md`
 - `010405_Index_Financial_Trust_Room_Framing_And_Domain_Boundary.md`
 - `10410_` through `10480_` (8 policy files)
 
-### 3.6 `docs/10000_runtime_foundation_and_cross_room_architecture/10500_data_governance_room/` (14 files)
+### 3.6 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md/` (14 files)
 
-- `010500_Readme_Data_Governance_Room.md`
+- `0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md`
 - `010505_Index_Data_Governance_Room_Framing_And_Intelligence_Boundary.md`
 - `10510_` through `10580_` (12 policy files)
 
-### 3.7 `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/` (22 direct files)
+### 3.7 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/` (22 direct files)
 
-- `010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md`
+- `0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md`
 - `010611_Index_Cross_Room_Plumbing_Wiring_Insulation_Planning.md`
 - `10601_` through `10608_`, `10610_` through `10690_` (20 policy files; note gap at `10609` — subfolder)
 
-### 3.8 `docs/10000_runtime_foundation_and_cross_room_architecture/10700_security_trust_and_smart_order_control/` (4 files)
+### 3.8 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md/` (4 files)
 
-- `010700_Readme_Security_Trust_And_Smart_Order_Control.md`
+- `0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md`
 - `010705_Index_Security_And_Trust_Foundation.md`
 - `10701_`, `10702_` (2 policy files)
 
-### 3.9 `docs/10000_runtime_foundation_and_cross_room_architecture/10720_legal_notice_sop_and_regulatory_control/` (17 files)
+### 3.9 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/` (17 files)
 
 - `010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md`
 - `10721_` through `10736_` (16 policy files)
 
-### 3.10 `docs/10000_runtime_foundation_and_cross_room_architecture/10800_store_onboarding_and_sales_setup_axis/` (10 files)
+### 3.10 `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md/` (10 files)
 
 - `010900_Readme_Store_Onboarding_And_Sales_Setup_Axis.md`
 - `010909_Index_Store_Onboarding_And_Sales_Setup_Axis.md`
@@ -153,16 +153,16 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 
 | Folder | Subfolders |
 | --- | --- |
-| `10000_foundation_static_catalog_package` | *(none)* |
-| `10000_static_catalog_runtime_planning` | *(none)* |
-| `10000_store_runtime_room_framing` | *(none)* |
-| `10100_four_side_platform_skeleton` | *(none)* |
-| `10400_financial_trust_room` | *(none)* |
-| `10500_data_governance_room` | *(none)* |
-| `10600_cross_room_plumbing_wiring_insulation` | `10609_financial_regulation_risk_expansion/` |
-| `10700_security_trust_and_smart_order_control` | *(none)* |
-| `10720_legal_notice_sop_and_regulatory_control` | *(none)* |
-| `10800_store_onboarding_and_sales_setup_axis` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` | `10609_financial_regulation_risk_expansion/` |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control` | *(none)* |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` | *(none)* |
 
 ---
 
@@ -170,21 +170,21 @@ Wave 3-A verification confirms **10 candidate top-level subfolders** (178 markdo
 
 | Folder | Numbered package README | Plain `README.md` | Parent README conflict risk |
 | --- | --- | --- | --- |
-| `10000_foundation_static_catalog_package` | `10000_Readme_Foundation_Static_Catalog_Package.md` | No | Low — distinct from parent `10000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md` |
-| `10000_static_catalog_runtime_planning` | `10000_Readme_Static_Catalog_Runtime_Planning.md` | No | Low — second `10000_*` readme; filename distinct from parent |
-| `10000_store_runtime_room_framing` | **Missing** | **Yes — `README.md`** | **Violation** — rename during apply to `10000_Readme_Store_Runtime_Room_Framing.md` |
-| `10100_four_side_platform_skeleton` | `10100_Readme_Four_Side_Platform_Skeleton.md` | No | None |
-| `10400_financial_trust_room` | `10400_Readme_Financial_Trust_Room.md` | No | None |
-| `10500_data_governance_room` | `10500_Readme_Data_Governance_Room.md` | No | None |
-| `10600_cross_room_plumbing_wiring_insulation` | `10600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | `docs/010000_runtime_foundation_and_cross_room_architecture.md` | No | Low — distinct from parent `docs/010000_runtime_foundation_and_cross_room_architecture.md` |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | `docs/010000_runtime_foundation_and_cross_room_architecture.md` | No | Low — second `10000_*` readme; filename distinct from parent |
+| `docs/010000_runtime_foundation_and_cross_room_architecture` | **Missing** | **Yes — `README.md`** | **Violation** — rename during apply to `docs/010000_runtime_foundation_and_cross_room_architecture.md` |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` | No | None |
 | `10609_financial_regulation_risk_expansion` | `10609_Readme_Financial_Regulation_Risk_Expansion.md` | No | None |
-| `10700_security_trust_and_smart_order_control` | `10700_Readme_Security_Trust_And_Smart_Order_Control.md` | No | None |
-| `10720_legal_notice_sop_and_regulatory_control` | `10720_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` | No | None |
-| `10800_store_onboarding_and_sales_setup_axis` | `10800_Readme_Store_Onboarding_And_Sales_Setup_Axis.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control` | `10720_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` | No | None |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` | `docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` | No | None |
 
-**Parent README (to create):** `010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md` — no filename collision with existing files; shares `10000` document-family prefix with two subpackage readmes (acceptable band-level pattern, same as Wave 1/2).
+**Parent README (to create):** `0docs/010000_runtime_foundation_and_cross_room_architecture.md` — no filename collision with existing files; shares `10000` document-family prefix with two subpackage readmes (acceptable band-level pattern, same as Wave 1/2).
 
-**Other `README.md` in `docs/` (outside band):** `docs/20000_validation_security_audit/20400_foundation_security/README.md` — unrelated; not in Wave 3 scope.
+**Other `README.md` in `docs/` (outside band):** `docs/020000_validation_security_audit/020400_foundation_security/README.md` — unrelated; not in Wave 3 scope.
 
 ---
 
@@ -202,14 +202,14 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 | 5-digit prefix | Cross-folder? | Assessment |
 | --- | --- | --- |
-| `10000` | **Yes** — `10000_foundation_static_catalog_package` (3 files + plan) and `10000_static_catalog_runtime_planning` (1 readme) | **Expected** — shared band family number; filenames differ; not a merge blocker |
+| `10000` | **Yes** — `docs/010000_runtime_foundation_and_cross_room_architecture` (3 files + plan) and `docs/010000_runtime_foundation_and_cross_room_architecture` (1 readme) | **Expected** — shared band family number; filenames differ; not a merge blocker |
 | `10100`–`10805` | Within-package only (index + readme pairs) | **Expected** package pattern |
 | `10609` | Subfolder only under `10600` | **Expected** subpackage family |
 
 **Result: PASS — no blocking cross-folder document-number filename collisions.**  
-**Note:** `10141` in `10000_store_runtime_room_framing` is a numbering outlier (101xx inside 102xx framing lane); document remains valid; no duplicate file elsewhere.
+**Note:** `10141` in `docs/010000_runtime_foundation_and_cross_room_architecture` is a numbering outlier (101xx inside 102xx framing lane); document remains valid; no duplicate file elsewhere.
 
-**Related (out of band, do not move):** `docs/40000_menu_taxonomy_and_ai_classification/` holds `10703`~`10720` while `10700` holds `10700`~`10702` and `10720` holds `10721`~`10736`. This is an intentional legacy split documented in `00007`; Wave 3 must not merge or renumber these packages.
+**Related (out of band, do not move):** `docs/docs/040000_menu_taxonomy_and_ai_classification/` holds `10703`~`10720` while `10700` holds `10700`~`10702` and `10720` holds `10721`~`10736`. This is an intentional legacy split documented in `00007`; Wave 3 must not merge or renumber these packages.
 
 ---
 
@@ -217,9 +217,9 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 **Status: CONFIRMED**
 
-- Path exists: `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion/`
-- Indexed separately in `00005` as section **40** (`docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion`)
-- **Apply rule:** `git mv` the parent `10600_cross_room_plumbing_wiring_insulation` folder only; do not flatten `10609`.
+- Path exists: `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/10609_financial_regulation_risk_expansion/`
+- Indexed separately in `00005` as section **40** (`docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/10609_financial_regulation_risk_expansion`)
+- **Apply rule:** `git mv` the parent `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` folder only; do not flatten `10609`.
 
 ---
 
@@ -227,7 +227,7 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 **Status: CONFIRMED — leave untouched in Wave 3**
 
-- Path: `docs/40000_menu_taxonomy_and_ai_classification/`
+- Path: `docs/docs/040000_menu_taxonomy_and_ai_classification/`
 - **19** markdown files including `040000_Readme_Menu_Taxonomy_And_AI_Classification.md`
 - Legacy document numbers **`10703` through `10720`** are present (menu taxonomy + legal-notice master-data artifacts consolidated here in a prior wave)
 - `00007` directory note explicitly states legacy `10703`~`10720` preserved in this package
@@ -241,26 +241,26 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 | Section | Path |
 | ---: | --- |
-| 18 | `docs/10000_static_catalog_runtime_planning` |
-| 19 | `docs/10000_store_runtime_room_framing` |
-| 35 | `docs/10000_foundation_static_catalog_package` |
-| 36 | `docs/10100_four_side_platform_skeleton` |
-| 37 | `docs/10400_financial_trust_room` |
-| 38 | `docs/10500_data_governance_room` |
-| 39 | `docs/10600_cross_room_plumbing_wiring_insulation` |
-| 40 | `docs/10000_runtime_foundation_and_cross_room_architecture/10600_cross_room_plumbing_wiring_insulation/10609_financial_regulation_risk_expansion` |
-| 41 | `docs/10700_security_trust_and_smart_order_control` |
-| 43 | `docs/10720_legal_notice_sop_and_regulatory_control` |
-| 44 | `docs/10800_store_onboarding_and_sales_setup_axis` |
+| 18 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture` |
+| 19 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture` |
+| 35 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture` |
+| 36 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md` |
+| 37 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md` |
+| 38 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md` |
+| 39 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md` |
+| 40 | `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/10609_financial_regulation_risk_expansion` |
+| 41 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md` |
+| 43 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control` |
+| 44 | `docs/docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md` |
 
 **Estimated path rows to rewrite:** **~178** index table rows + **1** new parent-band section + section renumbering downstream (mirror Wave 1/2 pattern).
 
 **Stale-reference hotspot files (non-index):**
 
-- `docs/10000_runtime_foundation_and_cross_room_architecture/10000_foundation_static_catalog_package/010105_Plan_10712_Root_File_Rename_And_Move.md` (~100+ historical path strings)
-- `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/005105_Plan_10807_Root_File_Rename_And_Move.md` (cross-wave plan references)
+- `docs/010000_runtime_foundation_and_cross_room_architecture/docs/010000_runtime_foundation_and_cross_room_architecture/010105_Plan_10712_Root_File_Rename_And_Move.md` (~100+ historical path strings)
+- `docs/05000_customer_handoff_and_implementation_readiness/05100_implementation_readiness_and_provider_verification/005105_Plan_docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010807_Policy_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control.md` (cross-wave plan references)
 
-**`README.md` index entry:** `00005` line references `docs\10000_runtime_foundation_and_cross_room_architecture\10000_store_runtime_room_framingREADME.md` — must update when readme renamed during apply.
+**`README.md` index entry:** `00005` line references `docs\docs/010000_runtime_foundation_and_cross_room_architecture\docs/010000_runtime_foundation_and_cross_room_architectureREADME.md` — must update when readme renamed during apply.
 
 ---
 
@@ -268,12 +268,12 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 **Tree block updates required:**
 
-- Replace **10** top-level band folder entries with nested tree under `10000_runtime_foundation_and_cross_room_architecture/`
+- Replace **10** top-level band folder entries with nested tree under `docs/010000_runtime_foundation_and_cross_room_architecture/`
 - Preserve `10609_financial_regulation_risk_expansion/` nesting under moved `10600` parent
 - Update **~11** directory-note bullets (lines referencing `docs/10000_*`, `10100`, `10400`–`10800`)
-- **Do not** relocate `40000_menu_taxonomy_and_ai_classification/` in tree
+- **Do not** relocate `docs/040000_menu_taxonomy_and_ai_classification/` in tree
 
-**Note:** `00007` currently lists `10000_store_runtime_room_framing` separately from other band folders (tree ordering split at lines ~224 vs ~414); apply should consolidate into one nested band block.
+**Note:** `00007` currently lists `docs/010000_runtime_foundation_and_cross_room_architecture` separately from other band folders (tree ordering split at lines ~224 vs ~414); apply should consolidate into one nested band block.
 
 ---
 
@@ -281,10 +281,10 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 | Risk | Severity | Files / areas |
 | --- | --- | --- |
-| Bulk path prefix change `docs/<folder>/` → `docs/10000_runtime_foundation_and_cross_room_architecture/<folder>/` | High volume | `00005`, `00007`, consolidation plan inventory |
-| `10005_Plan_10712_Root_File_Rename_And_Move.md` historical path table | Medium | Self-references old top-level paths |
-| `05105_Plan_10807_Root_File_Rename_And_Move.md` | Medium | References `10720`, `10800`, `10000_foundation` paths |
-| `10000_store_runtime_room_framing/README.md` path | Medium | `00005` + consolidation plan; rename to numbered readme |
+| Bulk path prefix change `docs/<folder>/` → `docs/010000_runtime_foundation_and_cross_room_architecture/<folder>/` | High volume | `00005`, `00007`, consolidation plan inventory |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md` historical path table | Medium | Self-references old top-level paths |
+| `05105_Plan_docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010807_Policy_Legal_Notice_Customer_Display_UX_And_Popup_Fatigue_Control.md` | Medium | References `10720`, `10800`, `docs/010000_runtime_foundation_and_cross_room_architecture` paths |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/README.md` path | Medium | `00005` + consolidation plan; rename to numbered readme |
 | Three `10000_*` folder names under one parent | Low | Confusing naming only; move-as-subfolder avoids merge risk |
 | `10703`~`10720` split across `40000` vs `10700`/`10720` bands | Low (documented) | Cross-references in prose may use doc numbers without full paths |
 | `10141` framing outlier | Low | No path collision; optional future relocation to `10100` package deferred |
@@ -297,27 +297,27 @@ Every filename is unique across the band. Moving folders as units will not cause
 
 ```text
 docs/
-  10000_runtime_foundation_and_cross_room_architecture/          [CREATE]
-    010000_Readme_Runtime_Foundation_And_Cross_Room_Architecture.md [CREATE]
-    10000_foundation_static_catalog_package/                     [MOVE]
-    10000_static_catalog_runtime_planning/                       [MOVE]
-    10000_store_runtime_room_framing/                            [MOVE + README rename]
-    10100_four_side_platform_skeleton/                           [MOVE]
-    10400_financial_trust_room/                                  [MOVE]
-    10500_data_governance_room/                                  [MOVE]
-    10600_cross_room_plumbing_wiring_insulation/                 [MOVE — keeps 10609/ nested]
-    10700_security_trust_and_smart_order_control/                [MOVE]
-    10720_legal_notice_sop_and_regulatory_control/               [MOVE]
-    10800_store_onboarding_and_sales_setup_axis/                 [MOVE]
+  docs/010000_runtime_foundation_and_cross_room_architecture/          [CREATE]
+    0docs/010000_runtime_foundation_and_cross_room_architecture.md [CREATE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/                     [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/                       [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/                            [MOVE + README rename]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010100_Readme_Foundation_Static_Catalog_Package.md/                           [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010400_Readme_Financial_Trust_Room.md/                                  [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/0docs/010000_runtime_foundation_and_cross_room_architecture/010500_data_governance_room/010500_Readme_Data_Governance_Room.md/                                  [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/0docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010600_Readme_Cross_Room_Plumbing_Wiring_Insulation.md/                 [MOVE — keeps 10609/ nested]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/0docs/010000_runtime_foundation_and_cross_room_architecture/010700_security_trust_and_smart_order_control/010700_Readme_Security_Trust_And_Smart_Order_Control.md/                [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/               [MOVE]
+    docs/010000_runtime_foundation_and_cross_room_architecture/010800_legal_notice_sop_and_regulatory_control/010800_Readme_Legal_Notice_SOP_And_Regulatory_Control.md/                 [MOVE]
 
-  40000_menu_taxonomy_and_ai_classification/                     [UNTOUCHED]
+  docs/040000_menu_taxonomy_and_ai_classification/                     [UNTOUCHED]
 ```
 
 **Apply sequence (recommended):**
 
 1. Create parent folder + parent README.
 2. `git mv` ten subfolders into parent (single mv per subfolder; `10600` mv carries `10609` automatically).
-3. Rename `10000_store_runtime_room_framing/README.md` → `010010_Readme_Store_Runtime_Room_Framing.md` (update first title `# 10000_Readme_Store_Runtime_Room_Framing` during apply).
+3. Rename `docs/010000_runtime_foundation_and_cross_room_architecture/README.md` → `010010_Readme_Store_Runtime_Room_Framing.md` (update first title `# docs/010000_runtime_foundation_and_cross_room_architecture` during apply).
 4. Update `00005`, `00007`, affected README relationship notes, plan audit header.
 5. Grep stale top-level paths; validate; commit.
 
@@ -350,7 +350,7 @@ Not **LOW** because: volume, README violation, three `10000_*` sibling folder na
 | --- | --- | --- |
 | 1 | **Proceed with Wave 3 apply?** | **Yes (APPLY)** — verification supports move-as-subfolder |
 | 2 | **`10700` and `10720` placement** — under `10000` parent vs separate compliance top-level axis? | **Keep under `10000` parent** as subfolders; they are foundation/cross-room packages per consolidation plan. `40000` remains separate for legacy `10703`~`10720` menu/legal-master taxonomy. |
-| 3 | **Rename `README.md` in `10000_store_runtime_room_framing` during apply?** | **Yes** → `10000_Readme_Store_Runtime_Room_Framing.md` |
+| 3 | **Rename `README.md` in `docs/010000_runtime_foundation_and_cross_room_architecture` during apply?** | **Yes** → `docs/010000_runtime_foundation_and_cross_room_architecture.md` |
 | 4 | **Merge three `10000_*` folders?** | **No** in Wave 3 — distinct document lanes (`09660`~`09990` planning vs `10010`~`10057` foundation vs `10200`~`10350` framing) |
 | 5 | **Relocate `10141` from store framing to `10100` skeleton?** | **Defer** — out of scope for folder wave; file is valid where it is |
 | 6 | **Plan header count "11 folders"** | Treat as **10 subfolders + 1 parent**; no missing folder on disk |
@@ -361,7 +361,7 @@ Not **LOW** because: volume, README violation, three `10000_*` sibling folder na
 
 | # | Question | Answer |
 | ---: | --- | --- |
-| 12 | `10005_Plan_10712_Root_File_Rename_And_Move.md` exists? | **Yes** |
+| 12 | `docs/010000_runtime_foundation_and_cross_room_architecture/010005_Report_Runtime_Foundation_Wave_3A_Preapply_Verification.md` exists? | **Yes** |
 | 13 | `10609` nested subpackage exists? | **Yes — 17 files** |
 | 14 | `40000` holds `10703`~`10720` and stays untouched? | **Yes — 19 files; do not move** |
 | 11 | Docs-root band stragglers? | **No — only `00000`~`00099` governance at root** |

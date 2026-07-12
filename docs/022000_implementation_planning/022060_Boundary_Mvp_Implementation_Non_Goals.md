@@ -27,7 +27,7 @@ MVP implementation must not include by default:
 - no printer driver implementation as default.
 - no financial truth ownership unless explicitly integrated.
 
-These non-goals align with `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md` and `docs/01000_mvp_scope/001010_MVP_Scope.md`.
+These non-goals align with `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md` and `docs/01000_mvp_scope/001010_MVP_Scope.md`.
 
 ## 3 Allowed MVP Focus
 
@@ -48,38 +48,38 @@ It is not payment settlement, loyalty ledger, or full OS replacement.
 
 MVP scope consolidation cross-reference:
 
-- `docs/01000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md` is the source MVP active/optional/future/non-goal matrix.
-- `docs/01000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md` governs feature flag boundary.
-- `docs/01000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md` governs store-type adoption sequence.
+- `docs/001000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md` is the source MVP active/optional/future/non-goal matrix.
+- `docs/001000_mvp_scope/001050_Boundary_MVP_Package_And_Feature_Flag.md` governs feature flag boundary.
+- `docs/001000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md` governs store-type adoption sequence.
 - `22060` remains implementation non-goal enforcement.
 
 ## 4 Future Expansion Cross-Reference
 
-`docs/28000_future_expansion/` documents do not override MVP non-goals.
+`docs/028000_future_expansion/` documents do not override MVP non-goals.
 
 Data/Ad/CRM/AI, Franchise OS handoff, point bridge, and intelligence feedback loop remain non-MVP unless separately approved.
 
-See `docs/28000_future_expansion/028000_Readme_Future_Expansion.md`.
+See `docs/028000_future_expansion/028000_Readme_Future_Expansion.md`.
 
 ## 5 Analytics Cross-Reference
 
 Analytics/reporting/BI runtime is not MVP by default.
 
-Future analytics boundaries are defined in `docs/26000_analytics_reporting_bi/`.
+Future analytics boundaries are defined in `docs/026000_analytics_reporting_bi/`.
 
 Analytics insight must not become runtime mutation.
 
-See `docs/26000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`.
+See `docs/026000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`.
 
 ## 6 Cross-References
 
 - `docs/01000_mvp_scope/001010_MVP_Scope.md`
-- `docs/28000_future_expansion/028000_Readme_Future_Expansion.md`
-- `docs/28000_future_expansion/028040_Data_Ad_CRM_AI_Future_Expansion_Model.md`
-- `docs/26000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
-- `docs/22000_implementation_planning/022020_Boundary_Build_Sequence_And_Phase.md`
+- `docs/028000_future_expansion/028000_Readme_Future_Expansion.md`
+- `docs/028000_future_expansion/028040_Data_Ad_CRM_AI_Future_Expansion_Model.md`
+- `docs/026000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/022000_implementation_planning/022020_Boundary_Build_Sequence_And_Phase.md`
 
 ## 7 Open Decisions
 

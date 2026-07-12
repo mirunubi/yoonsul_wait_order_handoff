@@ -1,6 +1,6 @@
-# 013070_Matrix_Customer_Surface_State_Wording
+# 013070_Matrix_Customer_Surface_State_Wording.md
 
-## 1 Purpose
+## Purpose
 
 Customer wording must match the real confirmation authority.
 

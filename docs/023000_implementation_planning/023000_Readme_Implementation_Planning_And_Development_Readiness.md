@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This folder is the documentation domain for implementation planning and development readiness for CatchMenu / Catch & Order. It is the expansion band that follows `022000_implementation_planning`.
+This folder is the documentation domain for implementation planning and development readiness for CatchMenu / Catch & Order. It is the expansion band that follows `022000_implementation_planning` — the AI-workflow/workpackage governance layer (Cursor/Claude/Codex role-separated pipeline stages, human approval gates, audit review) on top of `022000`'s pre-implementation readiness and technical boundary content.
 
 ## Scope
 

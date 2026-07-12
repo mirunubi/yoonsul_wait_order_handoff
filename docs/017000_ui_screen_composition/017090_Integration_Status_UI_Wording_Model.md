@@ -54,9 +54,9 @@ It does not create final copywriting, translations, or UI components.
 
 ## 5 Cross-References
 
-- `docs/11000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md`
-- `docs/13000_app_api_projection/013120_Boundary_Integration_Status_Projection.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/011000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md`
+- `docs/013000_app_api_projection/013120_Boundary_Integration_Status_Projection.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 6 Open Decisions
 

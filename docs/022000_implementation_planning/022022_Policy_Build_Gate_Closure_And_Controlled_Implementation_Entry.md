@@ -1,4 +1,4 @@
-# 022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry
+# 0docs/022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md
 
 ## 1. Purpose
 
@@ -96,19 +96,19 @@ This lane includes:
 
 | Document | Focus |
 | -------- | ----- |
-| `22009_Readme_Build_Gate_And_Pre_Implementation_Readiness` | lane start, build gate meaning |
-| `22011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate` | MVP backlog review and build candidates |
-| `22012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision` | critical blocker and go/no-go decisions |
-| `22013_Policy_Error_Message_Code_Namespace_I18n_And_Recovery_Traceability` | OS-level error code and i18n message traceability |
-| `22014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate` | tests, evidence, manual review, i18n readiness |
-| `22015_Policy_Security_Legal_Provider_Review_Gate` | security, legal, provider evidence gate |
-| `22016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate` | UI permission, masking, action, i18n surface approval |
-| `22017_Policy_I18n_Library_First_Development_And_External_Menu_Translation_Integration` | i18n library rule and external menu projection |
+| `docs/022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md` | lane start, build gate meaning |
+| `docs/022000_implementation_planning/022011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md` | MVP backlog review and build candidates |
+| `docs/022000_implementation_planning/022012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md` | critical blocker and go/no-go decisions |
+| `docs/022000_implementation_planning/022013_Policy_Error_Message_Code_Namespace_I18n_And_Recovery_Traceability.md` | OS-level error code and i18n message traceability |
+| `docs/022000_implementation_planning/022014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md` | tests, evidence, manual review, i18n readiness |
+| `docs/022000_implementation_planning/022015_Policy_Security_Legal_Provider_Review_Gate.md` | security, legal, provider evidence gate |
+| `docs/022000_implementation_planning/022016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md` | UI permission, masking, action, i18n surface approval |
+| `docs/022000_implementation_planning/022017_Policy_I18n_Library_First_Development_And_External_Menu_Translation_Integration.md` | i18n library rule and external menu projection |
 | `09260_Policy_Payment_KDS_Provider_Implementation_Entry_Gate` | payment, KDS, POS, provider, Mini Kiosk entry gate |
-| `22018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness` | support, Admin, commercial, fallback readiness |
-| `22019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness` | pilot preconditions, dry run, rollback |
-| `22021_Policy_Redtable_Type_Global_Menu_Translation_Payment_Partner_Module` | Redtable-type translated menu and global payment partner module |
-| `22022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry` | lane closure and controlled implementation entry |
+| `docs/022000_implementation_planning/022018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md` | support, Admin, commercial, fallback readiness |
+| `docs/022000_implementation_planning/022019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md` | pilot preconditions, dry run, rollback |
+| `docs/022000_implementation_planning/022021_Policy_Redtable_Type_Global_Menu_Translation_Payment_Partner_Module.md` | Redtable-type translated menu and global payment partner module |
+| `docs/022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md` | lane closure and controlled implementation entry |
 
 ---
 
@@ -756,9 +756,9 @@ The next range should still avoid actual code unless explicitly authorized later
 
 Recommended 09300 documents:
 
-- `22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition`
-- `22024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning`
-- `22025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness`
+- `docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md`
+- `docs/022000_implementation_planning/022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md`
+- `docs/022000_implementation_planning/022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md`
 - `22330 API RPC Event Contract Planning Boundary Policy`
 - `22340 UI Implementation Package Planning And I18n Surface Mapping Policy`
 - `22350 Payment KDS Provider Adapter Package Planning Policy`

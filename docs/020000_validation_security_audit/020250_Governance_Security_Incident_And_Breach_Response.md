@@ -25,7 +25,7 @@ Out of scope:
 - Law enforcement coordination procedures.
 - Automated incident orchestration product.
 
-Aligns with `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md` at operations boundary level.
+Aligns with `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md` at operations boundary level.
 
 ## 3 Incident Categories
 
@@ -102,9 +102,9 @@ Postmortem must produce corrective governance, not blame-only notes.
 
 ## 10 Cross-References
 
-- `docs/20000_validation_security_audit/020180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md`
-- `docs/20000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
-- `docs/20000_validation_security_audit/020260_Governance_External_Integration_And_Webhook_Audit.md`
+- `docs/020000_validation_security_audit/020180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md`
+- `docs/020000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
+- `docs/020000_validation_security_audit/020260_Governance_External_Integration_And_Webhook_Audit.md`
 
 ## 11 Open Decisions
 

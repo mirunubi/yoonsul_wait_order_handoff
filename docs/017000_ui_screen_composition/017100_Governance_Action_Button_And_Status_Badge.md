@@ -60,9 +60,9 @@ It does not approve button components, CSS, or design tokens.
 
 ## 5 Cross-References
 
-- `docs/17000_ui_screen_composition/017080_UI_Surface_To_Authority_Composition_Model.md`
+- `docs/017000_ui_screen_composition/017080_UI_Surface_To_Authority_Composition_Model.md`
 - `docs/07000_admin_console/007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`
-- `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
 
 ## 6 Open Decisions
 

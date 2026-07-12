@@ -1,4 +1,4 @@
-# 004400_Policy_Toss_Payments_MVP_Integration_Boundary
+# 011400_Policy_Toss_Payments_MVP_Integration_Boundary.md
 
 ## **1\. Purpose**
 
@@ -733,7 +733,7 @@ The relationship is:
 04280 \= customer display UX
 04290 \= store device and bottleneck reduction
 04300\~04390 \= multi-POS governance
-04400 \= first concrete payment provider MVP boundary
+011400 \= first concrete payment provider MVP boundary
 
 ---
 

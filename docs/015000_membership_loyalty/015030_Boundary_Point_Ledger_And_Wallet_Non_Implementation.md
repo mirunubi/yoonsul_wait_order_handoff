@@ -59,10 +59,10 @@ Future activation also requires admin approval workflow, audit/reconciliation mo
 
 ## 5 Cross-References
 
-- `docs/28000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md`
-- `docs/28000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
-- `docs/15000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/028000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md`
+- `docs/028000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
+- `docs/015000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
 - `docs/09000_data_model_state_machine/009060_Implementation_Deferred_Data_Model_Boundary.md`
 
 ## 6 Open Decisions

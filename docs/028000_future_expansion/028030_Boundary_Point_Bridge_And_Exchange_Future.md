@@ -48,10 +48,10 @@ Exchange requires audit and reconciliation.
 ## 5 Relationship To 15000 and 20000
 
 - Point bridge/exchange remains future-only.
-- `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md` controls point ledger/wallet non-implementation.
-- `docs/15000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md` controls external membership bridge boundary.
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md` controls cross-entity data sharing and privacy.
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md` controls export/report approval.
+- `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md` controls point ledger/wallet non-implementation.
+- `docs/015000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md` controls external membership bridge boundary.
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md` controls cross-entity data sharing and privacy.
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md` controls export/report approval.
 - No point bridge is active in MVP.
 
 ## 6 Relationship To Active MVP

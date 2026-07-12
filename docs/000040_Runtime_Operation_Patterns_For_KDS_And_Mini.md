@@ -61,7 +61,7 @@ Examples:
 
 3.2 Mini Runtime Layer
 
-Jarijjim Mini Kiosk and Mini KDS may support simplified versions of store operation patterns.
+CatchMenu Mini Kiosk and Mini KDS may support simplified versions of store operation patterns.
 
 Mini Kiosk is a lightweight customer-facing ordering-preparation interface.
 
@@ -378,12 +378,12 @@ Standalone Kiosk Loop| Not default core| Local/manual support| Local/manual supp
 The following statement must be preserved in related documents.
 
 «Operation patterns such as split production, multi-channel handoff, pre-order confirmation, and standalone kiosk loops are not owned by the wait\_order core ledger.
-They are reflected as interface fields in the handoff payload, simplified support behavior in Jarijjim Mini Kiosk and Mini KDS, and full production/runtime behavior in Yoonsul KDS or the store’s external KDS.»
+They are reflected as interface fields in the handoff payload, simplified support behavior in CatchMenu Mini Kiosk and Mini KDS, and full production/runtime behavior in Yoonsul KDS or the store’s external KDS.»
 
 Korean version:
 
 «분리 주방, 다중 수령 채널, 선주문 후확정, 독립형 키오스크 루프는 wait\_order core 원장이 직접 소유하지 않는다.
-이 패턴들은 wait\_order handoff payload의 인터페이스 필드, 자리찜 Mini Kiosk / Mini KDS의 경량 보조 기능, 윤슬 KDS 또는 업소 외부 KDS의 실제 주방 실행 로직에 나누어 반영한다.»
+이 패턴들은 wait\_order handoff payload의 인터페이스 필드, 캐치메뉴 Mini Kiosk / Mini KDS의 경량 보조 기능, 윤슬 KDS 또는 업소 외부 KDS의 실제 주방 실행 로직에 나누어 반영한다.»
 
 11\. Design Rule
 

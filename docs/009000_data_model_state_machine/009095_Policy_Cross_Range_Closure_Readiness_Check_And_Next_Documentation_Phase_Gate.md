@@ -94,7 +94,7 @@ This range includes:
 | `00455_Policy_Backlog_Extraction_Source_Traceability_And_Policy_To_Work_Item_Mapping` | policy-to-backlog extraction |
 | `00456_Policy_Test_Extraction_Evidence_Packet_And_Verification_Case_Mapping` | policy-to-test and evidence mapping |
 | `00457_Policy_UI_Wireframe_Handoff_Surface_Role_Context_And_Field_Boundary` | UI wireframe handoff and surface boundary |
-| `09070_Policy_Provider_Legal_Security_Payment_KDS_Review_Handoff_Packet` | domain review packet handoff |
+| `docs/009000_data_model_state_machine/009070_Matrix_Context_Entity_Alignment_Model.md` | domain review packet handoff |
 | `00458_Policy_Mobile_Draft_Archive_Git_Source_Of_Truth_And_Google_Docs_Fallback` | mobile draft, Git source of truth, archive |
 | `09090 Cross Range Closure Readiness Check And Next Documentation Phase Gate` | final closure and next phase gate |
 
@@ -557,15 +557,15 @@ Expected 09100 range purpose:
 Recommended 09100 documents:
 
 - `09100 Backlog Extraction Lane README And Source Traceability Index`
-- `22001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register`
-- `22002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register`
+- `docs/022000_implementation_planning/022001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register.md`
+- `docs/022000_implementation_planning/022002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register.md`
 - `09130_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary`
-- `22003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction`
-- `22004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation`
-- `22005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register`
-- `22006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline`
-- `22007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register`
-- `22008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff`
+- `docs/022000_implementation_planning/022003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction.md`
+- `docs/022000_implementation_planning/022004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md`
+- `docs/022000_implementation_planning/022005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register.md`
+- `docs/022000_implementation_planning/022006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline.md`
+- `docs/022000_implementation_planning/022007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register.md`
+- `docs/022000_implementation_planning/022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md`
 
 This composition may be adjusted later.
 

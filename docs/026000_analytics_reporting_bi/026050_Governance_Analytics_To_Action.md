@@ -71,7 +71,7 @@ Future insight products require separate approval after `26010`, `26030`, `26040
 
 ## 6 Future Expansion Cross-Reference
 
-`docs/28000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md` is long-term reference only.
+`docs/028000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md` is long-term reference only.
 
 Analytics-to-action governance must remain approval-based.
 
@@ -79,10 +79,10 @@ Recommendation does not equal runtime mutation.
 
 ## 7 Cross-References
 
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
-- `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
-- `docs/28000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md`
-- `docs/26000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
+- `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/028000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md`
+- `docs/026000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
 
 ## 8 Open Decisions
 

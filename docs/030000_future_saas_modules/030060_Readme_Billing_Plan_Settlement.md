@@ -92,16 +92,16 @@ partner contract negotiation
 
 Related folders:
 
-docs/03100\_reservation\_preorder\_governance/
-docs/30000_future_saas_modules/030050_Readme_Ad_Promotion_CMS.md
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
+docs/030000_future_saas_modules/030050_Readme_Ad_Promotion_CMS.md
 docs/03300\_open\_api\_partner\_alliance/
 docs/03400\_provider\_adapter\_runtime/
 docs/03500\_external\_pos\_integration\_runtime/
-docs/30000_future_saas_modules/030070_Readme_Sales_Partner_Field_Growth.md
-docs/30000_future_saas_modules/030080_Readme_Native_All_In_One_Service_Runtime.md
-docs/00400\_identity\_access/
+docs/030000_future_saas_modules/030070_Readme_Sales_Partner_Field_Growth.md
+docs/030000_future_saas_modules/030080_Policy_Native_All_In_One_Service_Runtime.md
+docs/000100_project_foundation/000400_development_foundation/000400_Readme_Development_Foundation.md/
 docs/00500\_organization\_core/
-docs/03000\_catchmenu\_hq/
+docs/003000_saas_runtime/
 
 3\. Core Principle
 
@@ -1091,7 +1091,7 @@ WOH.BILLING.DISPUTE.EVIDENCE\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 44\. Billing Support Signals
 

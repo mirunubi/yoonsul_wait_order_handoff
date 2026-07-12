@@ -61,9 +61,9 @@ Additional forbidden jumps:
 
 ## 5 Cross-References
 
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
-- `docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
+- `docs/005000_customer_handoff_and_implementation_readiness/005000_Readme_Customer_Handoff_And_Implementation_Readiness.md`
 - `docs/03000_saas_runtime/003010_Tenant_Store_Runtime_And_Package_Model.md`
 
 ## 6 Open Decisions

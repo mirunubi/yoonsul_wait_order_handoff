@@ -36,7 +36,7 @@ It does not create support console implementation, support automation, or direct
 - support cannot export customer data without approval.
 - support must preserve original event lineage.
 
-Additional rules align with `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md` and `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`.
+Additional rules align with `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md` and `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`.
 
 ## 4 Support Session Lifecycle
 
@@ -65,9 +65,9 @@ Break-glass may be considered in open decisions but must not be implemented in t
 
 ## 6 Cross-References
 
-- `docs/17000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
-- `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
+- `docs/017000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
 
 ## 7 Open Decisions
 

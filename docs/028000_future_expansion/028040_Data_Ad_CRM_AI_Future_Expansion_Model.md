@@ -119,9 +119,9 @@ Future data/ad/CRM/AI expansion must not change MVP wording from order candidate
 
 ## 9 Relationship To 26000 and MVP Non-Goals
 
-- `docs/26000_analytics_reporting_bi/` controls analytics/reporting/BI boundary.
-- `docs/26000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md` controls analytics-to-action governance.
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md` keeps AI recommendation, CRM automation, and ad targeting out of MVP.
+- `docs/026000_analytics_reporting_bi/` controls analytics/reporting/BI boundary.
+- `docs/026000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md` controls analytics-to-action governance.
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md` keeps AI recommendation, CRM automation, and ad targeting out of MVP.
 - This `28040` document remains long-term market/future reference only.
 - Data/Ad/CRM/AI must not become active runtime from this document.
 
@@ -129,13 +129,13 @@ This project may observe broader F&B SaaS/AI platform trends, but it does not im
 
 ## 10 Governance Cross-References
 
-SaaS data capture governance is defined in `docs/20000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`.
+SaaS data capture governance is defined in `docs/020000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`.
 
-Cross-entity privacy and data-sharing boundary is defined in `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`.
+Cross-entity privacy and data-sharing boundary is defined in `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`.
 
-Franchise OS data handoff future boundary is defined in `docs/28000_future_expansion/028050_Boundary_Franchise_OS_Data_Handoff_Future.md`.
+Franchise OS data handoff future boundary is defined in `docs/028000_future_expansion/028050_Boundary_Franchise_OS_Data_Handoff_Future.md`.
 
-Franchise intelligence feedback loop is defined in `docs/28000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md`.
+Franchise intelligence feedback loop is defined in `docs/028000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md`.
 
 This `9040` document remains future-reserved and must not imply active MVP ad, CRM, analytics automation, AI recommendation, or Franchise OS runtime.
 

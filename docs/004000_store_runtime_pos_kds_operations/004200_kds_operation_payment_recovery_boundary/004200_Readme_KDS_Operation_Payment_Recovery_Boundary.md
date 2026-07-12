@@ -19,8 +19,8 @@ It frames how kitchen operation, payment uncertainty, degraded operation, manual
 
 ## 3 Relationship Notes
 
-- This package depends on `docs/04000_store_runtime_pos_kds_operations/04000_kds_integration_kitchen_continuity/`.
-- This package depends on `docs/04000_store_runtime_pos_kds_operations/04100_menu_availability_soldout_runtime/` when sold-out state or menu readiness affects recovery.
+- This package depends on `docs/004000_store_runtime_pos_kds_operations/004000_Readme_Store_Runtime_POS_KDS_Operations.md/`.
+- This package depends on `docs/004000_store_runtime_pos_kds_operations/004100_menu_availability_soldout_runtime/` when sold-out state or menu readiness affects recovery.
 - This package inherits Foundation Security for audit/evidence, access control, data retention, and incident response.
 - This package must not mutate payment truth directly unless the relevant payment authority policy allows it.
 
@@ -28,12 +28,12 @@ It frames how kitchen operation, payment uncertainty, degraded operation, manual
 
 | document | role |
 | --- | --- |
-| `04210_Policy_KDS_Station_Routing.md` | KDS station routing policy. |
-| `04220_SOP_Kitchen_Display_Staff_Role_And_Training.md` | Kitchen display staff role and training SOP. |
-| `04230_Boundary_KDS_Bridge_Vendor_Integration.md` | KDS bridge vendor integration boundary. |
-| `04240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md` | Manual kitchen recovery and reconciliation policy. |
-| `04250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md` | Manual kitchen recovery evidence packet policy. |
-| `04260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md` | POS payment webhook and kitchen release boundary policy. |
-| `04270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md` | Payment failure, timeout, duplicate, and manual confirmation policy. |
-| `04280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md` | Customer display dynamic QR and payment status UX policy. |
-| `04290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md` | Store payment device and counter bottleneck reduction policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004210_Policy_KDS_Station_Routing.md` | KDS station routing policy. |
+| `04220_SOP_Kitchen_Display_Staff_Role_And_Training.md` (not yet implemented) | Kitchen display staff role and training SOP. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004230_Boundary_KDS_Bridge_Vendor_Integration.md` | KDS bridge vendor integration boundary. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004240_Policy_Manual_Kitchen_Recovery_And_Reconciliation.md` | Manual kitchen recovery and reconciliation policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004250_Policy_Manual_Kitchen_Recovery_Evidence_Packet.md` | Manual kitchen recovery evidence packet policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004260_Policy_POS_Payment_Webhook_And_Kitchen_Release_Boundary.md` | POS payment webhook and kitchen release boundary policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004270_Policy_Payment_Failure_Timeout_Duplicate_And_Manual_Confirmation.md` | Payment failure, timeout, duplicate, and manual confirmation policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004280_Policy_Customer_Display_Dynamic_QR_And_Payment_Status_UX.md` | Customer display dynamic QR and payment status UX policy. |
+| `docs/004000_store_runtime_pos_kds_operations/004200_kds_operation_payment_recovery_boundary/004290_Policy_Store_Payment_Device_And_Counter_Bottleneck_Reduction.md` | Store payment device and counter bottleneck reduction policy. |

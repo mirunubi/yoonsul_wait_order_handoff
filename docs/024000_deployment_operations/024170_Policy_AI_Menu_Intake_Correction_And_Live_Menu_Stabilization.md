@@ -80,9 +80,9 @@ automatic menu copyright verification
 
 Related documents:
 
-24150\_Readme\_Merchant\_Success\_Troubleshooting.md.md
-24060\_Policy\_First\_7\_Days\_Activation\_Check.md.md
-24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md.md
+24150\_Readme\_Merchant\_Success\_Troubleshooting.md
+24060\_Policy\_First\_7\_Days\_Activation\_Check.md
+24160\_Policy\_First\_30\_Days\_Troubleshooting\_And\_Conversion\_Readiness.md
 03530\_POS\_Menu\_Table\_Order\_Mapping\_And\_Idempotency\_Policy.md
 04110\_Menu\_Availability\_Soldout\_And\_Preorder\_Blocking\_Policy.md
 02440\_AI\_Menu\_Intake\_And\_Menu\_Draft\_Generation\_Policy.md
@@ -665,7 +665,7 @@ WOH.AI\_MENU.URGENT\_CORRECTION\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 29\. Relationship To First 7 Days Activation
 

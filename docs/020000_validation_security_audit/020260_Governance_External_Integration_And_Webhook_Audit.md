@@ -25,7 +25,7 @@ Out of scope:
 - Webhook endpoint hosting.
 - Partner API product development.
 
-Aligns with `docs/11000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md` and related integration boundary docs.
+Aligns with `docs/011000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md` and related integration boundary docs.
 
 ## 3 Integration Categories
 
@@ -99,9 +99,9 @@ Aligns with `docs/11000_integration_boundary/011020_Boundary_POS_API_Integration
 
 ## 11 Cross-References
 
-- `docs/11000_integration_boundary/011060_Boundary_Integration_Failure_Retry_And_Recovery.md`
-- `docs/20000_validation_security_audit/020250_Governance_Security_Incident_And_Breach_Response.md`
-- `docs/13000_app_api_projection/013120_Boundary_Integration_Status_Projection.md`
+- `docs/011000_integration_boundary/011060_Boundary_Integration_Failure_Retry_And_Recovery.md`
+- `docs/020000_validation_security_audit/020250_Governance_Security_Incident_And_Breach_Response.md`
+- `docs/013000_app_api_projection/013120_Boundary_Integration_Status_Projection.md`
 
 ## 12 Open Decisions
 

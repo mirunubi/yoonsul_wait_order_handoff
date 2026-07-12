@@ -70,7 +70,7 @@ Expected upstream documentation includes:
 - `docs/000830_Register_Development_Foundation_Repository_Module_Owner_Map.md`
 - `docs/000840_Evidence_Development_Foundation_First_Codebase_Hydration_Report.md`
 - `docs/600000_implementation_lifecycle/600000_Index_Implementation_Lifecycle_Expansion_Wave_1.md`
-- `docs/023000_implementation_planning/023000_Index_Implementation_Planning_And_Development_Readiness_Expansion_Wave_1.md`
+- `docs/023000_implementation_planning/023179_Index_Implementation_Planning_And_Development_Readiness_Expansion_Wave_1.md`
 
 ## Expected Test Areas
 

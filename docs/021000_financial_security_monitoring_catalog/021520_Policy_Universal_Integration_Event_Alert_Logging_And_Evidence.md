@@ -159,7 +159,7 @@ Membership events may involve:
 - customer consent
 - duplicate account linking
 - partner identity mapping
-- 자리찜 identity
+- 캐치메뉴 identity
 - tenant white-label identity
 - store-specific benefit rules
 
@@ -275,7 +275,7 @@ Customer identity linking is a high-risk integration boundary.
 
 This applies to:
 
-- 자리찜 customer identity
+- 캐치메뉴 customer identity
 - tenant/store membership identity
 - white-label app identity
 - POS customer identity

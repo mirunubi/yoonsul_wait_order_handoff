@@ -49,14 +49,14 @@ This document does not define approval workflow implementation, audit storage sc
 - support action does not equal approval.
 - emergency disable must be recorded.
 
-Aligns with `docs/20000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md` and `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`.
+Aligns with `docs/020000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md` and `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`.
 
 ## 5 Cross-References
 
 - `docs/07000_admin_console/007050_Admin_Approval_Workflow_Model.md`
-- `docs/07000_admin_console/007060_Governance_Admin_Audit_And_Recovery_Queue.md`
+- `docs/007000_admin_console/007060_Governance_Admin_Audit_And_Recovery_Queue.md`
 - `docs/03000_saas_runtime/003030_Store_Runtime_Profile_Model.md`
-- `docs/03000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
+- `docs/003000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
 
 ## 6 Open Decisions
 

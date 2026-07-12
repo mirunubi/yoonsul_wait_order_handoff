@@ -672,7 +672,7 @@ Review should produce:
 Recommended future folder:
 
     docs/
-      05000_provider_integration_and_kiosk_reuse/
+      docs/005000_customer_handoff_and_implementation_readiness/
         pilot_rollout/
           evidence_packets/
             PILOT-EVIDENCE-PSTORE-001-YYYYMMDD-001.md

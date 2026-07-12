@@ -97,10 +97,10 @@ Audit packet is evidence, not approval.
 
 ## 10 Cross-References
 
-- `docs/20000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
-- `docs/20000_validation_security_audit/020110_Governance_Retention_Deletion_Anonymization_Consolidation.md`
-- `docs/13000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
-- `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
+- `docs/020000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
+- `docs/020000_validation_security_audit/020110_Governance_Retention_Deletion_Anonymization_Consolidation.md`
+- `docs/013000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
+- `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
 
 Note: `020110_Governance_Retention_Deletion_Anonymization_Consolidation.md` is a separate document in the same number band covering retention lifecycle governance.
 

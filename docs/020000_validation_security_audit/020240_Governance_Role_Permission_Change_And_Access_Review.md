@@ -98,9 +98,9 @@ Out of scope:
 
 ## 11 Cross-References
 
-- `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
-- `docs/20000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
-- `docs/20000_validation_security_audit/020220_Governance_Admin_Console_Action_Safety.md`
+- `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
+- `docs/020000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
+- `docs/020000_validation_security_audit/020220_Governance_Admin_Console_Action_Safety.md`
 
 ## 12 Open Decisions
 

@@ -72,9 +72,9 @@ Conceptual lifecycle:
 
 ## 7 Analytics Export Cross-Reference
 
-Report/export boundaries for analytics are defined in `docs/26000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`.
+Report/export boundaries for analytics are defined in `docs/026000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`.
 
-Cross-tenant benchmark/data sharing is defined in `docs/26000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`.
+Cross-tenant benchmark/data sharing is defined in `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`.
 
 Analytics exports must follow `20050` approval and audit rules.
 
@@ -82,7 +82,7 @@ Analytics visibility does not equal export authority.
 
 ## 7.1 Security Governance Consolidation Cross-Reference
 
-- Export/report/benchmark governance is consolidated in `docs/20000_validation_security_audit/020100_Governance_Export_Report_And_Benchmark.md`.
+- Export/report/benchmark governance is consolidated in `docs/020000_validation_security_audit/020100_Governance_Export_Report_And_Benchmark.md`.
 - Cross-tenant benchmark is prohibited by default.
 - Export remains higher risk than view.
 

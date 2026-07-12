@@ -187,7 +187,7 @@ PAYCO customer identity
 internal customer identity
 store membership identity
 tenant membership identity
-윤슬 자리찜 identity
+윤슬 캐치메뉴 identity
 white-label tenant app identity
 ```
 

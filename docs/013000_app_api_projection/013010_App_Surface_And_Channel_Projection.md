@@ -1,6 +1,6 @@
-# 013010_App_Surface_And_Channel_Projection
+# 013010_App_Surface_And_Channel_Projection.md
 
-## 1 Purpose
+## Purpose
 
 This document defines app/channel projection only.
 

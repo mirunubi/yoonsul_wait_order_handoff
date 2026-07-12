@@ -4,7 +4,7 @@
 
 Customer webapp UI supports QR/NFC entry, waiting registration, menu browsing, cart/order candidate, preorder request, staff review pending, called/arrival prompts, table/pickup handoff, and recovery messages.
 
-It must match confirmation authority and customer wording rules from `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`.
+It must match confirmation authority and customer wording rules from `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`.
 
 It must not imply POS/order/payment confirmation unless the correct authority exists.
 
@@ -180,10 +180,10 @@ Customer wording must distinguish order candidate, staff-confirmed order, POS-co
 
 ## 4 Cross-References
 
-- `docs/13000_app_api_projection/013020_Customer_Webapp_Projection.md`
-- `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
-- `docs/05000_customer_handoff_and_implementation_readiness/05000_customer_handoff_flow/05010_User_Flow.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/013000_app_api_projection/013020_Customer_Webapp_Projection.md`
+- `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/005000_customer_handoff_and_implementation_readiness/005000_Readme_Customer_Handoff_And_Implementation_Readiness.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 5 Open Decisions
 

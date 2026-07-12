@@ -662,8 +662,8 @@ Use the following table for artifact validation.
 
 | Artifact ID | Package ID | Gate | Result | Blocker | Reviewer | Status |
 |---|---|---|---|---|---|---|
-| `21510_locale_audience_catalog_v1.md` | `foundation.locale.audience_catalog.v1` | Header Gate | Pending | Review required | TBD | `REVIEW_NOT_STARTED` |
-| `21530_provider_capability_registry_v1.md` | `foundation.provider.capability_registry.v1` | Provider Evidence Gate | Pending | Evidence default review | TBD | `REVIEW_NOT_STARTED` |
+| `docs/021000_financial_security_monitoring_catalog/021510_Policy_Financial_Event_Alert_Logging_And_Automated_Warning_System.md` | `foundation.locale.audience_catalog.v1` | Header Gate | Pending | Review required | TBD | `REVIEW_NOT_STARTED` |
+| `docs/021000_financial_security_monitoring_catalog/021530_Policy_Universal_Integration_Event_Catalog_And_Alert_Family_Index.md` | `foundation.provider.capability_registry.v1` | Provider Evidence Gate | Pending | Evidence default review | TBD | `REVIEW_NOT_STARTED` |
 
 This table is a planning and review artifact.
 

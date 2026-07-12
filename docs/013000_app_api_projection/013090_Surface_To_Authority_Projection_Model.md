@@ -1,6 +1,6 @@
-# 013090_Surface_To_Authority_Projection_Model
+# 013090_Surface_To_Authority_Projection_Model.md
 
-## 1 Purpose
+## Purpose
 
 Surface visibility must not imply mutation authority.
 

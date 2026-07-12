@@ -120,9 +120,9 @@ Review must be append-only.
 
 ## 11 Cross-References
 
-- `docs/20000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
-- `docs/20000_validation_security_audit/020180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md`
-- `docs/20000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
+- `docs/020000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
+- `docs/020000_validation_security_audit/020180_Audit_Evidence_Packet_And_Runtime_Forensics_Governance.md`
+- `docs/020000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
 - `docs/07000_admin_console/007100_Admin_Audit_Review_And_Change_History_Model.md`
 
 ## 12 Open Decisions

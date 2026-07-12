@@ -1,4 +1,4 @@
-# 022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff
+# 0docs/022000_implementation_planning/022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md
 
 ## 1. Purpose
 
@@ -88,15 +88,15 @@ This range includes:
 | Document | Focus |
 | -------- | ----- |
 | `09100 Backlog Extraction Lane README And Source Traceability Index` | lane start, extraction scope, source traceability |
-| `22001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register` | runtime owners, backlog categories, AI/pgvector ownership |
-| `22002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register` | UI surface and wireframe candidate extraction |
+| `docs/022000_implementation_planning/022001_Policy_Runtime_Owner_Mapping_And_Backlog_Category_Register.md` | runtime owners, backlog categories, AI/pgvector ownership |
+| `docs/022000_implementation_planning/022002_Policy_UI_Surface_Backlog_Extraction_And_Wireframe_Candidate_Register.md` | UI surface and wireframe candidate extraction |
 | `09130_Policy_Payment_KDS_Provider_Backlog_Extraction_And_Runtime_Boundary` | payment, KDS, POS, provider extraction |
-| `22003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction` | Admin, support, billing, commercial extraction |
-| `22004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation` | high-risk extraction and default deferral |
-| `22005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register` | test/evidence linkage and verification candidates |
-| `22006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline` | MVP prioritization and cutline |
-| `22007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register` | deferred, future, and NFI registers |
-| `22008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff` | lane closure and build gate handoff |
+| `docs/022000_implementation_planning/022003_Policy_Admin_Console_Support_Commercial_Backlog_Extraction.md` | Admin, support, billing, commercial extraction |
+| `docs/022000_implementation_planning/022004_Policy_High_Risk_Foundation_Backlog_Extraction_And_Deferred_Activation.md` | high-risk extraction and default deferral |
+| `docs/022000_implementation_planning/022005_Policy_Test_Evidence_Backlog_Linkage_And_Verification_Candidate_Register.md` | test/evidence linkage and verification candidates |
+| `docs/022000_implementation_planning/022006_Policy_MVP_Candidate_Prioritization_Phase_Tag_And_Scope_Cutline.md` | MVP prioritization and cutline |
+| `docs/022000_implementation_planning/022007_Policy_Deferred_Scope_Future_Range_And_Not_For_Implementation_Register.md` | deferred, future, and NFI registers |
+| `docs/022000_implementation_planning/022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md` | lane closure and build gate handoff |
 
 ---
 
@@ -673,16 +673,16 @@ Expected focus:
 
 Recommended 09200 documents:
 
-- `22009_Readme_Build_Gate_And_Pre_Implementation_Readiness`
-- `22011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate`
-- `22012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision`
-- `22014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate`
-- `22015_Policy_Security_Legal_Provider_Review_Gate`
-- `22016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate`
+- `docs/022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md`
+- `docs/022000_implementation_planning/022011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md`
+- `docs/022000_implementation_planning/022012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md`
+- `docs/022000_implementation_planning/022014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md`
+- `docs/022000_implementation_planning/022015_Policy_Security_Legal_Provider_Review_Gate.md`
+- `docs/022000_implementation_planning/022016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md`
 - `09260_Policy_Payment_KDS_Provider_Implementation_Entry_Gate`
-- `22018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness`
-- `22019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness`
-- `22022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry`
+- `docs/022000_implementation_planning/022018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md`
+- `docs/022000_implementation_planning/022019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md`
+- `docs/022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md`
 
 Composition may be adjusted later.
 
@@ -809,8 +809,8 @@ Recommended future files:
       Backlog_Extraction_Readiness_Register.md
       Build_Gate_Handoff_Packet_Register.md
       Build_Gate_Input_Category_Register.md
-      09100_Closure_Gate_Register.md
-      Correction_After_09100_Closure_Register.md
+      docs/009000_data_model_state_machine/009100_Audit_Admin_Support_Entity_Lineage_Model.md
+      Correction_After_docs/009000_data_model_state_machine/009100_Audit_Admin_Support_Entity_Lineage_Model.md
       Patch_Upgrade_Memory_Register.md
       Long_Term_Data_Upgrade_Register.md
       Platform_Readiness_Dashboard_Register.md

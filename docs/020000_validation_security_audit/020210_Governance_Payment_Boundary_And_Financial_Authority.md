@@ -27,7 +27,7 @@ Out of scope:
 - Chargeback dispute resolution runtime.
 - Platform payment product activation.
 
-Aligns with `docs/11000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md` at integration boundary level.
+Aligns with `docs/011000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md` at integration boundary level.
 
 ## 3 Payment-Adjacent Data
 
@@ -108,8 +108,8 @@ Aligns with `docs/11000_integration_boundary/011040_Boundary_Payment_And_Financi
 
 ## 12 Cross-References
 
-- `docs/11000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md`
-- `docs/20000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
+- `docs/011000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md`
+- `docs/020000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
 - `docs/09000_data_model_state_machine/009090_Order_Candidate_And_Confirmation_State_Refinement.md`
 
 ## 13 Open Decisions

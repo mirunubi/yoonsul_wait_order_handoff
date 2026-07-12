@@ -50,8 +50,8 @@ It does not approve UI components, routes, or design assets.
 
 ## 5 Cross-References
 
-- `docs/13000_app_api_projection/013090_Surface_To_Authority_Projection_Model.md`
-- `docs/17000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`
+- `docs/013000_app_api_projection/013090_Surface_To_Authority_Projection_Model.md`
+- `docs/017000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`
 - `docs/07000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md`
 
 ## 6 Open Decisions

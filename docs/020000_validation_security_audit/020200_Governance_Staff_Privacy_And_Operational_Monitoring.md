@@ -99,9 +99,9 @@ Out of scope:
 
 ## 11 Cross-References
 
-- `docs/20000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
-- `docs/20000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
-- `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
+- `docs/020000_validation_security_audit/020150_Governance_Runtime_Misuse_And_Abuse_Prevention.md`
+- `docs/020000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
+- `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
 
 ## 12 Open Decisions
 

@@ -61,11 +61,11 @@ Operational data capture for handoff may exist in future runtime, but analytics 
 
 ## 5 Cross-References
 
-- `docs/20000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
-- `docs/26000_analytics_reporting_bi/026020_Index_Operational_Metrics_Catalog.md`
-- `docs/26000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`
+- `docs/020000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
+- `docs/026000_analytics_reporting_bi/026020_Index_Operational_Metrics_Catalog.md`
+- `docs/026000_analytics_reporting_bi/026050_Governance_Analytics_To_Action.md`
 
 ## 6 Open Decisions
 

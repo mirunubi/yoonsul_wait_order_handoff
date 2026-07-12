@@ -769,9 +769,9 @@ If any answer is missing, the AI package remains planning-only.
 
 This document follows:
 
-- `22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition`
-- `22024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning`
-- `22025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness`
+- `docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md`
+- `docs/022000_implementation_planning/022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md`
+- `docs/022000_implementation_planning/022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md`
 - `22330 API RPC Event Contract Planning Boundary Policy`
 - `22340 UI Implementation Package Planning And I18n Surface Mapping Policy`
 - `22350 Payment KDS Provider Adapter Package Planning Policy`

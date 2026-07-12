@@ -1,4 +1,4 @@
-# 022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition
+# 0docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md
 
 ## 1. Purpose
 
@@ -122,9 +122,9 @@ Recommended 09300 lane composition:
 
 | Document | Focus |
 | -------- | ----- |
-| `22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition` | lane start and package planning index |
-| `22024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning` | runtime packages and module boundaries |
-| `22025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness` | data model planning without schema creation |
+| `docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md` | lane start and package planning index |
+| `docs/022000_implementation_planning/022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md` | runtime packages and module boundaries |
+| `docs/022000_implementation_planning/022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md` | data model planning without schema creation |
 | `22330 API RPC Event Contract Planning Boundary Policy` | API/RPC/event contract planning without implementation |
 | `22340 UI Implementation Package Planning And I18n Surface Mapping Policy` | UI package planning and i18n mapping |
 | `22350 Payment KDS Provider Adapter Package Planning Policy` | Payment/KDS/POS/Provider package planning |

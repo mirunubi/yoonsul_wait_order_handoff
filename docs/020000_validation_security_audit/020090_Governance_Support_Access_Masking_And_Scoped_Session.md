@@ -57,10 +57,10 @@ It does not approve support console implementation, masking runtime, or break-gl
 
 ## 6 Cross-References
 
-- `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
-- `docs/17000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md`
-- `docs/24000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
+- `docs/017000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md`
+- `docs/024000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
 
 ## 7 Open Decisions
 

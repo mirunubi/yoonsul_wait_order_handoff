@@ -1,4 +1,4 @@
-# 011000_Readme_Integration_Boundary
+# 011000_Readme_Integration_Boundary.md
 
 ## 1 Purpose
 
@@ -22,10 +22,10 @@ This wave consolidates integration boundary governance after MVP scope, SaaS run
 
 | document | description |
 | --- | --- |
-| `04400_Policy_Toss_Payments_MVP_Integration_Boundary.md` | 04400 Toss Payments MVP Integration Boundary Policy. |
-| `04410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md` | 04410 PAYCO Payment And Order Provider MVP Boundary Policy. |
-| `04420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md` | 04420 POS Adapter Runtime Data Object And Event Family Policy. |
-| `04430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md` | 04430 OKPOS And Major POS Integration Candidate Policy. |
+| `011400_Policy_Toss_Payments_MVP_Integration_Boundary.md` | 011400 Toss Payments MVP Integration Boundary Policy. |
+| `011410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md` | 011410 PAYCO Payment And Order Provider MVP Boundary Policy. |
+| `011420_Policy_POS_Adapter_Runtime_Data_Object_And_Event_Family.md` | 011420 POS Adapter Runtime Data Object And Event Family Policy. |
+| `011430_Policy_OKPOS_And_Major_POS_Integration_Candidate.md` | 011430 OKPOS And Major POS Integration Candidate Policy. |
 | `11010_Boundary_POS_Payment_Printer_Integration.md` | 11010 POS Payment Printer Integration Boundary. |
 | `11020_Boundary_POS_API_Integration_Truth.md` | 11020 POS API Integration Truth Boundary. |
 | `11030_Boundary_Printer_And_Store_Agent.md` | 11030 Printer And Store Agent Boundary. |

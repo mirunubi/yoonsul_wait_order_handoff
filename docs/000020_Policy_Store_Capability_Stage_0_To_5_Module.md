@@ -6,7 +6,7 @@ This document defines the six-stage store capability model for the yoonsul\_wait
 
 The purpose of this model is to separate store adoption types by real operational capability, not by project development maturity.
 
-The six stages define how much of Jarijjim / wait\_order\_handoff should be activated for each store depending on the store’s POS, KDS, waiting operation, multilingual need, membership integration, and SaaS readiness.
+The six stages define how much of CatchMenu / wait\_order\_handoff should be activated for each store depending on the store’s POS, KDS, waiting operation, multilingual need, membership integration, and SaaS readiness.
 
 This is a store-by-store module policy.
 
@@ -31,7 +31,7 @@ wait\_order core remains one runtime, but Store Console, Mini Kiosk, Mini KDS, P
 
 3\. Stage Summary
 
-Stage 0 \= Multilingual Menu Board / No Jarijjim Waiting
+Stage 0 \= Multilingual Menu Board / No CatchMenu Waiting
 Stage 1 \= Manual POS Handoff / POS Exists But No Integration
 Stage 2 \= Manual POS \+ Mini KDS / Kitchen Assist
 Stage 3 \= POS Adapter Handoff
@@ -52,11 +52,11 @@ A QSR or franchise store with KDS may adopt Stage 4\.
 
 A multi-store tenant or franchise brand may adopt Stage 5\.
 
-4\. Stage 0 — Multilingual Menu Board / No Jarijjim Waiting
+4\. Stage 0 — Multilingual Menu Board / No CatchMenu Waiting
 
 4.1 Store Situation
 
-Stage 0 is for stores that do not need Jarijjim waiting or order handoff.
+Stage 0 is for stores that do not need CatchMenu waiting or order handoff.
 
 The store may only need a QR menu, multilingual menu explanation, allergy information, and a screen that customers can show to staff.
 
@@ -91,7 +91,7 @@ Optional modules:
 
 The following modules are disabled:
 
-\- Jarijjim waiting registration
+\- CatchMenu waiting registration
 \- wait\_order\_session
 \- order preparation flow
 \- Store Wait Board
@@ -113,7 +113,7 @@ Stage 0 must not create unnecessary wait\_order state.
 
 4.5 Definition
 
-«Stage 0 is a multilingual QR menu board mode for stores that do not need Jarijjim waiting, order preparation, or POS/KDS handoff.»
+«Stage 0 is a multilingual QR menu board mode for stores that do not need CatchMenu waiting, order preparation, or POS/KDS handoff.»
 
 \---
 
@@ -132,13 +132,13 @@ Typical stores:
 \- store wants to avoid POS integration risk
 \- KDS does not exist or is separate
 \- staff can manually enter the prepared order into POS
-\- store wants Jarijjim waiting and order preparation with minimal system change
+\- store wants CatchMenu waiting and order preparation with minimal system change
 
 5.2 Activated Modules
 
 Required modules:
 
-\- Jarijjim waiting registration
+\- CatchMenu waiting registration
 \- customer webapp or app entry
 \- menu pre-selection
 \- request and allergy input
@@ -196,7 +196,7 @@ Stage 1 may use:
 
 5.6 Definition
 
-«Stage 1 is a manual handoff mode where Jarijjim carries the customer’s waiting and prepared-order context to staff, and staff manually enters the order into the existing POS.»
+«Stage 1 is a manual handoff mode where CatchMenu carries the customer’s waiting and prepared-order context to staff, and staff manually enters the order into the existing POS.»
 
 \---
 
@@ -279,7 +279,7 @@ Stage 2 may use:
 
 6.6 Definition
 
-«Stage 2 is a manual POS plus Mini KDS mode where Jarijjim supports both staff handoff and lightweight kitchen visibility without POS/KDS API integration.»
+«Stage 2 is a manual POS plus Mini KDS mode where CatchMenu supports both staff handoff and lightweight kitchen visibility without POS/KDS API integration.»
 
 \---
 
@@ -469,7 +469,7 @@ Typical stores or tenants:
 \- multi-store operator
 \- tenant with own customer membership
 \- white label app operator
-\- store using Jarijjim plus tenant membership
+\- store using CatchMenu plus tenant membership
 \- brand with external coupon/point system
 \- stores requiring SaaS-level reporting and policy configuration
 
@@ -480,7 +480,7 @@ Stage 5 may include all previous modules plus:
 \- tenant management
 \- store capability profile
 \- feature activation by plan/package
-\- Jarijjim customer identity
+\- CatchMenu customer identity
 \- tenant customer identity
 \- identity link
 \- claim token
@@ -514,11 +514,11 @@ The following must not be enabled automatically:
 \- cross-tenant identity merge
 \- tenant customer data sharing without boundary
 \- POS/KDS integration without store capability declaration
-\- white label account merge with Jarijjim account
+\- white label account merge with CatchMenu account
 
 9.4 Membership and Benefit Policy
 
-Jarijjim has its own customer identity.
+CatchMenu has its own customer identity.
 
 A tenant or white label app may have its own customer identity.
 
@@ -550,7 +550,7 @@ Stage 5 may use:
 
 9.6 Definition
 
-«Stage 5 is the SaaS and white label stage where Jarijjim/wait\_order\_handoff supports tenant-specific capability, external membership linkage, benefit routing, duplicate guard, and API/webhook integration while preserving identity and ledger boundaries.»
+«Stage 5 is the SaaS and white label stage where CatchMenu/wait\_order\_handoff supports tenant-specific capability, external membership linkage, benefit routing, duplicate guard, and API/webhook integration while preserving identity and ledger boundaries.»
 
 \---
 
@@ -559,7 +559,7 @@ Stage 5 may use:
 Module| Stage 0| Stage 1| Stage 2| Stage 3| Stage 4| Stage 5
 QR Menu Board| Required| Optional| Optional| Optional| Optional| Optional
 Multilingual Menu| Required| Optional| Optional| Optional| Optional| Optional
-Jarijjim Waiting| Disabled| Required| Required| Required| Required| Required
+CatchMenu Waiting| Disabled| Required| Required| Required| Required| Required
 Menu Pre-selection| Show-only| Required| Required| Required| Required| Required
 Store Wait Board| Disabled| Required| Required| Required| Required| Required
 Staff Handoff| Disabled| Required| Required| Required| Required| Required

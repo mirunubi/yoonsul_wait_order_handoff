@@ -47,7 +47,7 @@ Out of scope:
 - support operators may assist but do not approve policy changes.
 - customer-facing behavior changes require extra review beyond technical config change.
 
-Aligns with `docs/07000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md` at admin console level.
+Aligns with `docs/007000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md` at admin console level.
 
 ## 5 Pre-Change Review Requirements
 
@@ -91,9 +91,9 @@ Aligns with `docs/07000_admin_console/007080_Governance_Admin_Runtime_Profile_Co
 
 ## 10 Cross-References
 
-- `docs/20000_validation_security_audit/020220_Governance_Admin_Console_Action_Safety.md`
+- `docs/020000_validation_security_audit/020220_Governance_Admin_Console_Action_Safety.md`
 - `docs/09000_data_model_state_machine/009080_Runtime_Profile_And_Change_Request_Entity_Model.md`
-- `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
+- `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
 
 ## 11 Open Decisions
 

@@ -149,11 +149,11 @@ Conceptual store console controls:
 
 ## 5 Cross-References
 
-- `docs/13000_app_api_projection/013030_Store_Console_Projection.md`
-- `docs/13000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
-- `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
-- `docs/11000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/013000_app_api_projection/013030_Store_Console_Projection.md`
+- `docs/013000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/011000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 6 Open Decisions
 

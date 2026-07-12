@@ -112,10 +112,10 @@ Aligns with `docs/03000_saas_runtime/003020_Tenant_Company_Legal_Operating_Group
 
 ## 12 Cross-References
 
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
-- `docs/20000_validation_security_audit/020100_Governance_Export_Report_And_Benchmark.md`
-- `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
-- `docs/26000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
+- `docs/020000_validation_security_audit/020100_Governance_Export_Report_And_Benchmark.md`
+- `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
+- `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md`
 
 ## 13 Open Decisions
 

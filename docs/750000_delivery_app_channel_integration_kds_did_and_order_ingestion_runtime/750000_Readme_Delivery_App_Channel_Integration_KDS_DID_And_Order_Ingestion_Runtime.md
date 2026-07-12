@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This index opens the `750000_delivery_app_channel_integration` folder under the `700000_runtime_flow_bundle` domain for `yoonsul_wait_order_handoff`.
+This index opens the `750000_delivery_app_channel_integration` folder, an independent top-level documentation domain for `yoonsul_wait_order_handoff` (see `docs/000000_Readme_Root.md` §3).
 
 This folder is dedicated to delivery-app order channel integration, official platform API boundaries, KDS/DID handoff, kitchen order ingestion, rider/customer pickup visibility, and runtime verification flows.
 
@@ -20,13 +20,14 @@ This folder exists because delivery-app integration is not merely a POS provider
 
 ## 2. Placement Decision
 
-Approved placement:
+Current placement (confirmed independent top-level folder, not nested under `700000_runtime_flow_bundle` — see `docs/000000_Readme_Root.md` §3 and §6.3 below):
 
 ```text
 docs/
-  700000_runtime_flow_bundle/
-    750000_delivery_app_channel_integration/
+  750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/
 ```
+
+An earlier revision of this section proposed placement as a subfolder of `700000_runtime_flow_bundle/`. That placement was not adopted — `750000` was created as its own top-level numbered domain instead, and `000000_Readme_Root.md` §3 lists it as such.
 
 Rejected placement for now:
 
@@ -174,11 +175,11 @@ The relationship is:
 
 ### 6.3 Relationship To `700000_runtime_flow_bundle` And `700900_runtime_flow`
 
-`700000_runtime_flow_bundle` is the parent flow-bundle governance domain: 80 flat files (`700000`-`700178`), no subfolders.
+`700000_runtime_flow_bundle` is a separate, independent flow-bundle governance domain: 80 flat files (`700000`-`700178`), no subfolders. `750000` is not nested under it — both are independent top-level folders under `docs/` (confirmed against `docs/000000_Readme_Root.md` §3, which lists them as separate entries).
 
 `700900_runtime_flow` is the separate runtime-flow infrastructure folder that holds the registry, dependency-graph, module-map, and code-handoff machinery.
 
-This `750000` folder is a specialized child bundle for delivery-app channel integration.
+This `750000` folder is a related, but independent, bundle for delivery-app channel integration.
 
 It should later connect to `700900_runtime_flow`'s subfolders:
 

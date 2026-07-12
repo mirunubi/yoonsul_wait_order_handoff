@@ -49,9 +49,9 @@ CatchMenu is a waiting-to-order-preparation flow that carries guest intent to st
 
 The previous internal nickname was:
 
-자리찜 / Jarijjim
+캐치메뉴 / CatchMenu
 
-However, Jarijjim feels limited to seat holding or waiting.
+However, CatchMenu feels limited to seat holding or waiting.
 
 The actual product scope is broader:
 
@@ -348,7 +348,7 @@ Wait Order Handoff Runtime
 대기-주문 준비-입장 핸드오프 시스템
 \= Korean formal technical description
 
-자리찜 / Jarijjim
+캐치메뉴 / CatchMenu
 \= previous internal nickname, currently deprioritized
 
 18\. Guest Signage Examples

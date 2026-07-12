@@ -52,7 +52,7 @@ The temporary guest-facing working name is:
 
 CatchMenu / 캐치메뉴
 
-CatchMenu is currently used because it is easier than the previous internal nickname and follows the familiar mental model of CatchTable.
+CatchMenu is currently used because it is simple and follows the familiar mental model of CatchTable.
 
 However, CatchMenu is not yet confirmed as:
 
@@ -72,12 +72,6 @@ Korean formal technical description:
 Repository/project name:
 
 yoonsul\_wait\_order\_handoff
-
-Previous internal nickname:
-
-자리찜 / Jarijjim
-
-Jarijjim is deprioritized for now.
 
 4\. Why CatchMenu Works For Guests
 

@@ -66,10 +66,10 @@ Additional risks:
 
 ## 6 Cross-References
 
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
-- `docs/11000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`
-- `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
-- `docs/20000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/011000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md`
+- `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/020000_validation_security_audit/020010_Governance_SaaS_Data_Capture_And_Principle.md`
 
 ## 7 Open Decisions
 

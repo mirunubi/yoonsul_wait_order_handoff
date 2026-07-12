@@ -1,6 +1,6 @@
-# 013000_Readme_App_Api_Projection
+# 013000_Readme_App_Api_Projection.md
 
-## 1 Purpose
+## Purpose
 
 This folder defines customer web, store console, admin console, support console, and API contract projection.
 
@@ -21,23 +21,23 @@ This wave consolidates App/API projection after the Integration Boundary consoli
 
 | document | description |
 | --- | --- |
-| `13010_App_Surface_And_Channel_Projection.md` | Defines conceptual app surfaces, channel entry points, ownership boundaries, and non-implementation limits. |
-| `13020_Customer_Webapp_Projection.md` | Defines customer-facing webapp modes, conceptual screens, wording rules, and privacy notes. |
-| `13030_Store_Console_Projection.md` | Defines store console screens, staff actions, role access, and forbidden POS/payment claims. |
-| `13040_Admin_Console_Projection.md` | Projects admin governance into conceptual admin screen groups, actions, and authority constraints. |
-| `13050_Boundary_Api_Contract_Projection.md` | Defines conceptual API contract groups, contract principles, and forbidden implementation boundaries. |
-| `13060_Matrix_Surface_State_Visibility_And_Authority.md` | Defines surface-by-surface state visibility, requestable actions, mutation authority, approval, audit, and forbidden actions. |
-| `13070_Matrix_Customer_Surface_State_Wording.md` | Defines customer-facing wording by state, integration level, recovery/delay condition, and multilingual/Mini Kiosk boundary. |
-| `13080_Matrix_Store_Admin_Support_Action_Authority.md` | Defines action authority across store, admin, support, legal, platform, and auditor roles. |
-| `13090_Surface_To_Authority_Projection_Model.md` | Maps surfaces to visibility, request, mutation, approval, and audit authority types. |
-| `13100_Boundary_Customer_Store_Admin_Api_Group.md` | Conceptual API group boundaries by authority, context, and truth family. |
-| `13110_Idempotency_Recovery_And_Audit_Envelope_Projection.md` | Idempotency, recovery, and audit envelope projection across surfaces. |
-| `13120_Boundary_Integration_Status_Projection.md` | Integration state projection without overstating truth per `11020`~`11060`. |
-| `13130_Boundary_Future_Surface_And_Api_Non_MVP.md` | Future membership, analytics, payment, Franchise OS, and benchmark API/surface boundaries. |
+| `013010_App_Surface_And_Channel_Projection.md` | Defines conceptual app surfaces, channel entry points, ownership boundaries, and non-implementation limits. |
+| `013020_Customer_Webapp_Projection.md` | Defines customer-facing webapp modes, conceptual screens, wording rules, and privacy notes. |
+| `013030_Store_Console_Projection.md` | Defines store console screens, staff actions, role access, and forbidden POS/payment claims. |
+| `013040_Admin_Console_Projection.md` | Projects admin governance into conceptual admin screen groups, actions, and authority constraints. |
+| `013050_Boundary_Api_Contract_Projection.md` | Defines conceptual API contract groups, contract principles, and forbidden implementation boundaries. |
+| `013060_Matrix_Surface_State_Visibility_And_Authority.md` | Defines surface-by-surface state visibility, requestable actions, mutation authority, approval, audit, and forbidden actions. |
+| `013070_Matrix_Customer_Surface_State_Wording.md` | Defines customer-facing wording by state, integration level, recovery/delay condition, and multilingual/Mini Kiosk boundary. |
+| `013080_Matrix_Store_Admin_Support_Action_Authority.md` | Defines action authority across store, admin, support, legal, platform, and auditor roles. |
+| `013090_Surface_To_Authority_Projection_Model.md` | Maps surfaces to visibility, request, mutation, approval, and audit authority types. |
+| `013100_Boundary_Customer_Store_Admin_Api_Group.md` | Conceptual API group boundaries by authority, context, and truth family. |
+| `013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md` | Idempotency, recovery, and audit envelope projection across surfaces. |
+| `013120_Boundary_Integration_Status_Projection.md` | Integration state projection without overstating truth per `011020`~`011060`. |
+| `013130_Boundary_Future_Surface_And_Api_Non_MVP.md` | Future membership, analytics, payment, Franchise OS, and benchmark API/surface boundaries. |
 
-`13010`~`13080` are existing app/API projection foundations.
+`013010`~`013080` are existing app/API projection foundations.
 
-`13090`~`13130` consolidate authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP surface/API boundaries.
+`013090`~`013130` consolidate authority projection, conceptual API groups, idempotency/recovery/audit envelopes, integration status projection, and future non-MVP surface/API boundaries.
 
 This domain remains projection-only and does not create endpoints.
 

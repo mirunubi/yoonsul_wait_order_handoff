@@ -52,11 +52,11 @@ It does not approve customer-facing copy or multilingual assets.
 
 ## 5 Cross-References
 
-- `docs/17000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md`
-- `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md`
+- `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
 - `docs/09000_data_model_state_machine/009090_Order_Candidate_And_Confirmation_State_Refinement.md`
-- `docs/11000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md`
+- `docs/011000_integration_boundary/011040_Boundary_Payment_And_Financial_Truth.md`
 
 ## 6 Open Decisions
 

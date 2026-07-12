@@ -79,8 +79,8 @@ Related folders:
 docs/03500\_external\_pos\_integration\_runtime/
 docs/03800\_native\_all\_in\_one\_service\_runtime/
 docs/03900\_merchant\_success\_troubleshooting/
-docs/04100\_menu\_availability\_soldout\_runtime/
-docs/03100\_reservation\_preorder\_governance/
+docs/004000_store_runtime_pos_kds_operations/004100_menu_availability_soldout_runtime/004100_Readme_Menu_Availability_Soldout_Runtime.md/
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
 docs/03400\_provider\_adapter\_runtime/
 
 3\. Core Principle
@@ -614,7 +614,7 @@ WOH.KDS.EVIDENCE.PACKET\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 28\. Relationship To External POS Integration
 

@@ -81,10 +81,10 @@ Future reward examples:
 
 ## 7 Relationship To 15000
 
-- `docs/15000_membership_loyalty/` is now the active boundary domain for membership/loyalty/coupon/point.
+- `docs/015000_membership_loyalty/` is now the active boundary domain for membership/loyalty/coupon/point.
 - This `28020` document remains historical/future context only.
 - No point ledger, wallet, coupon runtime, stamp runtime, or external bridge is active here.
-- Any future activation must follow `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`, `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`, `docs/15000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md`, and `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md` readiness gates.
+- Any future activation must follow `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`, `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`, `docs/015000_membership_loyalty/015040_Boundary_External_Membership_Bridge_Future.md`, and `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md` readiness gates.
 
 ## 8 Future Approval Requirements
 

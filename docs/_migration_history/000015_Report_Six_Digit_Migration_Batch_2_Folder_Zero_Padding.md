@@ -115,8 +115,8 @@ No already six-digit folders were excluded before Batch 2.
 
 ## 5 Reference Documents Updated
 
-- `docs/000005_Document_Number_Index.md`
-- `docs/000007_Full_Directory_Map.md`
+- `docs/000005_Index_Document_Number.md`
+- `docs/000007_Map_Full_Directory.md`
 - `docs/000011_Report_Six_Digit_Documentation_Numbering_Dry_Run_Manifest.md`
 - `docs/000012_Register_Six_Digit_Rename_Dry_Run_Manifest.md`
 - `docs/000013_Register_Six_Digit_Rename_Anomaly_And_Manual_Review.md`
@@ -124,7 +124,7 @@ No already six-digit folders were excluded before Batch 2.
 
 ## 6 000007 Update Summary
 
-`docs/000007_Full_Directory_Map.md` was updated by replacing Batch 2 five-digit folder path references with their six-digit zero-padded folder path references. File names were not changed. H1 headings were not changed.
+`docs/000007_Map_Full_Directory.md` was updated by replacing Batch 2 five-digit folder path references with their six-digit zero-padded folder path references. File names were not changed. H1 headings were not changed.
 
 ## 7 Next Step
 

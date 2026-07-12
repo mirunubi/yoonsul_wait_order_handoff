@@ -82,9 +82,9 @@ Related documents:
 024170_Policy_AI_Menu_Intake_Correction_And_Live_Menu_Stabilization.md
 024180_Policy_Request_Board_Staff_Adoption_And_Operation_Check.md
 024190_Policy_POS_Manual_Fallback_Training_And_Store_Usage.md
-00300_Entry_Media_Inventory_Readme.md
-01100_Stage_0_Readme.md
-02400_owner_console/
+docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md
+docs/001000_mvp_scope/001100_Policy_CatchMenu_I18n_Order_Request_Translation.md
+02400_owner_console/ (not yet implemented)
 03610_Service_Plan_Trial_And_Paid_Conversion_Policy.md
 
 3. Core Principle
@@ -641,7 +641,7 @@ WOH.MERCHANT_SUCCESS.FIRST_7.CHECK_OVERDUE
 
 Failure/error naming is governed by:
 
-docs/00000_foundation/00080_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 30. Relationship To First 30 Days Review
 

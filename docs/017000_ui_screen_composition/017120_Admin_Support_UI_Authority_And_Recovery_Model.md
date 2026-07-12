@@ -48,10 +48,10 @@ It does not approve admin console code or support tooling.
 
 ## 5 Cross-References
 
-- `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
-- `docs/13000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
-- `docs/17000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`
-- `docs/24000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
+- `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
+- `docs/013000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md`
+- `docs/017000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`
+- `docs/024000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
 
 ## 6 Open Decisions
 

@@ -8,7 +8,7 @@ This document reserves surfaces only.
 
 It does not create UI implementation or active membership runtime.
 
-This document complements `docs/17000_ui_screen_composition/` and `docs/07000_admin_console/` without activating runtime.
+This document complements `docs/017000_ui_screen_composition/` and `docs/007000_admin_console/` without activating runtime.
 
 ## 2 Future Customer Surfaces
 
@@ -49,7 +49,7 @@ Additional wording rules:
 - coupon issued does not equal coupon redeemed.
 - membership hint does not equal verified membership account.
 
-Cross-reference: `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md` and `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`.
+Cross-reference: `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md` and `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`.
 
 ## 5 Non-MVP Boundary
 
@@ -64,10 +64,10 @@ Placeholders, if visible, must be clearly marked as future-reserved and must not
 
 ## 6 Cross-References
 
-- `docs/07000_admin_console/007040_Admin_Screen_Inventory_And_Navigation_Model.md`
-- `docs/17000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/007000_admin_console/007040_Admin_Screen_Inventory_And_Navigation_Model.md`
+- `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
 
 ## 7 Open Decisions
 

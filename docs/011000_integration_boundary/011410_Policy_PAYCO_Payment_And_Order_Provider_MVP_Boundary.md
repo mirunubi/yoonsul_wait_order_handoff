@@ -1,4 +1,4 @@
-# 004410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary
+# 011410_Policy_PAYCO_Payment_And_Order_Provider_MVP_Boundary.md
 
 ## **1\. Purpose**
 
@@ -172,7 +172,7 @@ PAYCO customer identity
 internal customer identity
 store membership identity
 tenant membership identity
-윤슬 자리찜 identity
+윤슬 캐치메뉴 identity
 white-label tenant app identity
 
 External membership visibility must not overwrite internal customer identity without consent and linking rules.
@@ -631,16 +631,16 @@ These may be later phases.
 
 ---
 
-## **30\. Relationship To 04400**
+## **30\. Relationship To 011400**
 
-Document 04400 defines the Toss Payments MVP Integration Boundary policy.
+Document 011400 defines the Toss Payments MVP Integration Boundary policy.
 
 This document defines the PAYCO Payment and Order Provider MVP Boundary policy.
 
 The relationship is:
 
-04400 \= first payment provider MVP path
-04410 \= second payment/order/membership provider candidate path
+011400 \= first payment provider MVP path
+011410 \= second payment/order/membership provider candidate path
 
 Together, they help prove that the internal Payment Runtime and Order Provider Adapter are provider-neutral.
 

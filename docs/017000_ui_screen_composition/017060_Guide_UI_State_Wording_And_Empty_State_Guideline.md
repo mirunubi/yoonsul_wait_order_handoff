@@ -6,7 +6,7 @@ Shared UI wording must preserve operational truth.
 
 Empty/error/recovery states must not mislead customer or staff.
 
-This document complements `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md` and applies across customer webapp, Mini Kiosk, store console, admin console, and support console surfaces.
+This document complements `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md` and applies across customer webapp, Mini Kiosk, store console, admin console, and support console surfaces.
 
 This document is UI screen composition projection only.
 It does not define UI implementation, translation delivery, notification delivery, or production copy.
@@ -72,16 +72,16 @@ Additional forbidden wording:
 
 ## 6 Membership / Loyalty UI Wording Cross-Reference
 
-Future membership/coupon/point UI wording must follow `docs/15000_membership_loyalty/`.
+Future membership/coupon/point UI wording must follow `docs/015000_membership_loyalty/`.
 
 - do not show active point balance, wallet, or redemption UI in MVP.
 - coupon/benefit wording must avoid implying POS discount or settlement.
 
-See `docs/15000_membership_loyalty/015050_Membership_Admin_And_UI_Reserved_Surface.md`.
+See `docs/015000_membership_loyalty/015050_Membership_Admin_And_UI_Reserved_Surface.md`.
 
 ## 7 Integration Boundary Wording Cross-Reference
 
-Integration-related UI wording must follow `docs/11000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md` through `docs/11000_integration_boundary/011060_Boundary_Integration_Failure_Retry_And_Recovery.md`.
+Integration-related UI wording must follow `docs/011000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md` through `docs/011000_integration_boundary/011060_Boundary_Integration_Failure_Retry_And_Recovery.md`.
 
 - do not show POS confirmed when only printer output exists.
 - do not show paid unless payment authority exists.
@@ -89,21 +89,21 @@ Integration-related UI wording must follow `docs/11000_integration_boundary/0110
 
 ## 7.1 UI Composition Consolidation Cross-Reference
 
-- Integration wording is refined in `docs/17000_ui_screen_composition/017090_Integration_Status_UI_Wording_Model.md`.
-- Button/status badge governance is defined in `docs/17000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`.
-- Customer/Mini Kiosk wording is consolidated in `docs/17000_ui_screen_composition/017110_Customer_MiniKiosk_State_Wording_Consolidation.md`.
-- Admin/support recovery wording is consolidated in `docs/17000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md`.
-- Future UI non-MVP boundary is defined in `docs/17000_ui_screen_composition/017130_Boundary_Future_UI_Surface_Non_MVP.md`.
+- Integration wording is refined in `docs/017000_ui_screen_composition/017090_Integration_Status_UI_Wording_Model.md`.
+- Button/status badge governance is defined in `docs/017000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md`.
+- Customer/Mini Kiosk wording is consolidated in `docs/017000_ui_screen_composition/017110_Customer_MiniKiosk_State_Wording_Consolidation.md`.
+- Admin/support recovery wording is consolidated in `docs/017000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md`.
+- Future UI non-MVP boundary is defined in `docs/017000_ui_screen_composition/017130_Boundary_Future_UI_Surface_Non_MVP.md`.
 
 ## 8 Cross-References
 
-- `docs/11000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md`
-- `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/011000_integration_boundary/011020_Boundary_POS_API_Integration_Truth.md`
+- `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
 - `docs/09000_data_model_state_machine/009020_Handoff_State_Machine.md`
 - `docs/09000_data_model_state_machine/009040_State_And_Event_Ownership_Model.md`
-- `docs/17000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017030_Store_Console_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017030_Store_Console_UI_Composition.md`
 
 ## 9 Open Decisions
 

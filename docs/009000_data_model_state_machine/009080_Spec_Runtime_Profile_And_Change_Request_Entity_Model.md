@@ -52,9 +52,9 @@ It does not approve runtime config, flag storage, or approval workflow implement
 ## 5 Cross-References
 
 - `docs/03000_saas_runtime/003030_Store_Runtime_Profile_Model.md`
-- `docs/03000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
-- `docs/03000_saas_runtime/003050_Governance_Runtime_Profile_Change_And_Audit.md`
-- `docs/07000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md`
+- `docs/003000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
+- `docs/003000_saas_runtime/003050_Governance_Runtime_Profile_Change_And_Audit.md`
+- `docs/007000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md`
 - `docs/07000_admin_console/007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`
 
 ## 6 Open Decisions

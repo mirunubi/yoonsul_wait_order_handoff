@@ -51,10 +51,10 @@ It does not approve membership ledger, analytics runtime, or Franchise OS integr
 
 ## 5 Cross-References
 
-- `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
-- `docs/26000_analytics_reporting_bi/026020_Index_Operational_Metrics_Catalog.md`
-- `docs/28000_future_expansion/028000_Readme_Future_Expansion.md`
-- `docs/03000_saas_runtime/003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`
+- `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
+- `docs/026000_analytics_reporting_bi/026020_Index_Operational_Metrics_Catalog.md`
+- `docs/028000_future_expansion/028000_Readme_Future_Expansion.md`
+- `docs/003000_saas_runtime/003060_Boundary_Runtime_Profile_Non_MVP_And_Future_Flag.md`
 - `docs/09000_data_model_state_machine/009040_State_And_Event_Ownership_Model.md`
 
 ## 6 Open Decisions

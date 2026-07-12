@@ -44,8 +44,8 @@ H1 skipped file: `docs/000009_Report_Root_Governance_Rules_Correction_Readme_Ind
 
 | File | Update Scope |
 | --- | --- |
-| docs/000005_Document_Number_Index.md | Root-level renamed file path entries (~10 replacements) |
-| docs/000007_Full_Directory_Map.md | Root-level renamed file basename entries (39 basename replacements) |
+| docs/000005_Index_Document_Number.md | Root-level renamed file path entries (~10 replacements) |
+| docs/000007_Map_Full_Directory.md | Root-level renamed file basename entries (39 basename replacements) |
 | docs/000038_Report_Batch_5A_Global_Docs_File_Basename_Migration_Planning.md | Structure path references for renamed root files |
 | docs/000039_Matrix_Batch_5A_Global_Docs_File_Basename_Rename_Manifest.md | CurrentPath/ProposedPath columns only; CurrentFilename provenance preserved |
 

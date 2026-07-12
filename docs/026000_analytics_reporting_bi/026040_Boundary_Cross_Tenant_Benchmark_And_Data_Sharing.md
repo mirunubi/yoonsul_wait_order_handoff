@@ -57,11 +57,11 @@ Additional forbidden assumptions:
 
 ## 5 Cross-References
 
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
-- `docs/20000_validation_security_audit/020060_Policy_Anonymization_And_Pseudonymization_Standard.md`
-- `docs/26000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
-- `docs/28000_future_expansion/028050_Boundary_Franchise_OS_Data_Handoff_Future.md`
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/020000_validation_security_audit/020060_Policy_Anonymization_And_Pseudonymization_Standard.md`
+- `docs/026000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
+- `docs/028000_future_expansion/028050_Boundary_Franchise_OS_Data_Handoff_Future.md`
 
 ## 6 Open Decisions
 

@@ -101,10 +101,10 @@ Support access must be scoped, masked, and audited per `20090`.
 
 ## 11 Cross-References
 
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
-- `docs/20000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
-- `docs/20000_validation_security_audit/020110_Governance_Retention_Deletion_Anonymization_Consolidation.md`
-- `docs/20000_validation_security_audit/020170_Governance_Cross_Tenant_Isolation_And_Data_Leakage_Prevention.md`
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
+- `docs/020000_validation_security_audit/020090_Governance_Support_Access_Masking_And_Scoped_Session.md`
+- `docs/020000_validation_security_audit/020110_Governance_Retention_Deletion_Anonymization_Consolidation.md`
+- `docs/020000_validation_security_audit/020170_Governance_Cross_Tenant_Isolation_And_Data_Leakage_Prevention.md`
 
 ## 12 Open Decisions
 

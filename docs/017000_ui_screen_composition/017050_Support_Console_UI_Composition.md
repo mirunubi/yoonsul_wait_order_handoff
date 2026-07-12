@@ -110,11 +110,11 @@ Additional constraints:
 
 ## 4 Cross-References
 
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
-- `docs/20000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
-- `docs/13000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
-- `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
-- `docs/17000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/020000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
+- `docs/013000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md`
+- `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/017000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
 
 ## 5 Open Decisions
 

@@ -69,11 +69,11 @@ Additional forbidden claims:
 
 ## 6 Cross-References
 
-- `docs/28000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md`
-- `docs/28000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
+- `docs/028000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md`
+- `docs/028000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
 - `docs/03000_saas_runtime/003010_Tenant_Store_Runtime_And_Package_Model.md`
-- `docs/15000_membership_loyalty/015020_Lightweight_Coupon_And_Stamp_Future_Model.md`
-- `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
+- `docs/015000_membership_loyalty/015020_Lightweight_Coupon_And_Stamp_Future_Model.md`
+- `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
 
 ## 7 Open Decisions
 

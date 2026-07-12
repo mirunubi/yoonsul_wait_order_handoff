@@ -1,4 +1,4 @@
-# 022009_Readme_Build_Gate_And_Pre_Implementation_Readiness
+# 0docs/022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md
 
 ## 1. Purpose
 
@@ -118,16 +118,16 @@ Recommended 09200 lane composition:
 
 | Document | Focus |
 | -------- | ----- |
-| `22009_Readme_Build_Gate_And_Pre_Implementation_Readiness` | lane start, build gate meaning, readiness boundary |
-| `22011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate` | MVP backlog review and build authorization candidates |
-| `22012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision` | blocker review and go/no-go decision |
-| `22014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate` | test/evidence readiness and manual review |
-| `22015_Policy_Security_Legal_Provider_Review_Gate` | security, legal, provider evidence gate |
-| `22016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate` | UI surface and masking approval |
+| `docs/022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md` | lane start, build gate meaning, readiness boundary |
+| `docs/022000_implementation_planning/022011_Policy_MVP_Backlog_Review_Build_Authorization_Candidate.md` | MVP backlog review and build authorization candidates |
+| `docs/022000_implementation_planning/022012_Policy_Critical_Blocker_Review_And_Go_No_Go_Decision.md` | blocker review and go/no-go decision |
+| `docs/022000_implementation_planning/022014_Policy_Test_Evidence_Readiness_And_Manual_Review_Gate.md` | test/evidence readiness and manual review |
+| `docs/022000_implementation_planning/022015_Policy_Security_Legal_Provider_Review_Gate.md` | security, legal, provider evidence gate |
+| `docs/022000_implementation_planning/022016_Policy_UI_Wireframe_Permission_Masking_And_Surface_Approval_Gate.md` | UI surface and masking approval |
 | `09260_Policy_Payment_KDS_Provider_Implementation_Entry_Gate` | payment/KDS/provider implementation entry |
-| `22018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness` | support, Admin, commercial, manual fallback readiness |
-| `22019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness` | pilot preconditions, dry run, rollback |
-| `22022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry` | lane closure and controlled implementation entry |
+| `docs/022000_implementation_planning/022018_Policy_Support_Admin_Commercial_Manual_Fallback_Readiness.md` | support, Admin, commercial, manual fallback readiness |
+| `docs/022000_implementation_planning/022019_Policy_Pilot_Precondition_Dry_Run_And_Rollback_Readiness.md` | pilot preconditions, dry run, rollback |
+| `docs/022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md` | lane closure and controlled implementation entry |
 
 This range may be adjusted only with traceability.
 

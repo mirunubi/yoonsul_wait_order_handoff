@@ -6,7 +6,7 @@ This document defines the overall purpose, scope, and structure of the yoonsul\_
 
 This project covers:
 
-\- Jarijjim customer service
+\- CatchMenu customer service
 \- waiting registration
 \- order preparation during waiting
 \- customer arrival
@@ -33,44 +33,44 @@ yoonsul\_wait\_order\_handoff
 
 The customer-facing service name is:
 
-자리찜 / Jarijjim
+캐치메뉴 / CatchMenu
 
 The project can be summarized as:
 
-Jarijjim / waiting / order preparation / arrival / seating / POS-KDS handoff / SaaS integration
+CatchMenu / waiting / order preparation / arrival / seating / POS-KDS handoff / SaaS integration
 
 3\. Core Definition
 
-Jarijjim is the customer-facing service.
+CatchMenu is the customer-facing service.
 
 wait\_order\_handoff is the operational runtime.
 
-Jarijjim provides the customer experience.
+CatchMenu provides the customer experience.
 
 wait\_order\_handoff carries runtime context between customer, staff, POS, KDS, Mini Kiosk, Mini KDS, and external SaaS systems.
 
 Core statement:
 
-«Jarijjim is not just a waiting app.
+«CatchMenu is not just a waiting app.
 It is a waiting-to-store-execution handoff service.»
 
 Korean statement:
 
-자리찜은 단순 대기앱이 아니다.
+캐치메뉴는 단순 대기앱이 아니다.
 대기 중 만들어진 고객/주문 맥락을 입장·착석·직원·POS·KDS로 끊기지 않게 넘기는 handoff 서비스다.
 
 4\. Product Axes
 
 The project is divided into five major product/design axes.
 
-4.1 Jarijjim Service Concept
+4.1 CatchMenu Service Concept
 
 This axis defines:
 
-\- what Jarijjim is
+\- what CatchMenu is
 \- why waiting time can be used for order preparation
-\- how Jarijjim differs from a normal waiting app
-\- how Jarijjim differs from POS or KDS
+\- how CatchMenu differs from a normal waiting app
+\- how CatchMenu differs from POS or KDS
 \- how Mini Kiosk and Mini KDS are positioned
 \- how SaaS and white label models are separated
 
@@ -78,7 +78,7 @@ This axis defines:
 
 This axis defines:
 
-\- Jarijjim customer app
+\- CatchMenu customer app
 \- QR webapp
 \- non-member entry
 \- waiting registration
@@ -123,7 +123,7 @@ This axis defines the runtime ledger for:
 
 This axis defines:
 
-\- Jarijjim customer identity
+\- CatchMenu customer identity
 \- tenant customer identity
 \- white label identity
 \- identity link
@@ -170,7 +170,7 @@ Defines what this project is and how major product/runtime axes are separated.
 
 Defines the six store capability stages:
 
-Stage 0 \= Multilingual QR Menu Board / No Jarijjim Waiting
+Stage 0 \= Multilingual QR Menu Board / No CatchMenu Waiting
 Stage 1 \= Manual POS Handoff / POS Exists But No Integration
 Stage 2 \= Manual POS \+ Mini KDS / Kitchen Assist
 Stage 3 \= POS Adapter Handoff / KDS Not Directly Owned
@@ -285,26 +285,26 @@ KDS owns:
 
 wait\_order may send handoff context to KDS, but KDS remains the source of kitchen execution truth.
 
-10\. Jarijjim App, Webapp, And White Label Separation
+10\. CatchMenu App, Webapp, And White Label Separation
 
-Jarijjim App is for repeat customers.
+CatchMenu App is for repeat customers.
 
-Jarijjim Webapp is for QR/link-based immediate store use.
+CatchMenu Webapp is for QR/link-based immediate store use.
 
 White label app is for tenant-owned membership/service experience.
 
 These must remain separated.
 
-Jarijjim App
-\= Jarijjim customer identity and repeated customer experience
+CatchMenu App
+\= CatchMenu customer identity and repeated customer experience
 
-Jarijjim Webapp
+CatchMenu Webapp
 \= QR/link-based immediate entry for waiting, menu pre-selection, and show-to-staff flow
 
 White Label App
 \= tenant-owned customer membership and brand experience
 
-A customer may have both Jarijjim identity and tenant membership identity.
+A customer may have both CatchMenu identity and tenant membership identity.
 
 These identities must not be forcibly merged.
 
@@ -314,7 +314,7 @@ They may be connected through identity link, claim token, policy evaluation, and
 
 wait\_order is not a membership ledger.
 
-Jarijjim may detect benefit candidates.
+CatchMenu may detect benefit candidates.
 
 The system may issue claim tokens.
 

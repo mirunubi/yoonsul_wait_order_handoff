@@ -83,11 +83,11 @@ full CRM automation
 
 Related folders:
 
-docs/00300\_entry\_media\_inventory/
-docs/01100\_stage\_0\_entry\_runtime/
-docs/02400\_owner\_console/
-docs/02600\_merchant\_ops/
-docs/03100\_reservation\_preorder\_governance/
+docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md/
+docs/001000_mvp_scope/001100_Policy_CatchMenu_I18n_Order_Request_Translation.md/
+docs/02400\_owner\_console/ (not yet implemented)
+docs/02600\_merchant\_ops/ (not yet implemented)
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
 docs/03500\_external\_pos\_integration\_runtime/
 docs/03600\_billing\_plan\_settlement/
 docs/03700\_sales\_partner\_field\_growth/
@@ -638,7 +638,7 @@ WOH.MERCHANT\_SUCCESS.RECOVERY.ENTRY\_MEDIA\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 27\. Relationship To Entry Media Inventory
 

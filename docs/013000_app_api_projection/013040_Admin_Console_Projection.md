@@ -1,6 +1,6 @@
-# 013040_Admin_Console_Projection
+# 013040_Admin_Console_Projection.md
 
-## 1 Purpose
+## Purpose
 
 Admin Console projection turns 4000 governance into conceptual app surfaces.
 

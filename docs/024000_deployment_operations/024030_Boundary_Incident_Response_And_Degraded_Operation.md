@@ -68,10 +68,10 @@ Additional rules:
 ## 6 Cross-References
 
 - `docs/07000_admin_console/007030_Admin_Operational_Monitoring_And_Recovery_Model.md`
-- `docs/09000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
-- `docs/24000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
-- `docs/24000_deployment_operations/024040_Boundary_Operational_Runbook.md`
+- `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/024000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md`
+- `docs/024000_deployment_operations/024040_Boundary_Operational_Runbook.md`
 
 ## 7 Open Decisions
 

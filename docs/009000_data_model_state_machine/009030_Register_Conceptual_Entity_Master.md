@@ -121,7 +121,7 @@ Physical schema must not be inferred directly from `03000` docs.
 - Context entity alignment is defined in `docs/09000_data_model_state_machine/009070_Context_Entity_Alignment_Model.md`.
 - Runtime profile/change request conceptual entities are defined in `docs/09000_data_model_state_machine/009080_Runtime_Profile_And_Change_Request_Entity_Model.md`.
 - Admin/support/audit lineage is defined in `docs/09000_data_model_state_machine/009100_Admin_Support_Audit_Entity_Lineage_Model.md`.
-- Future profile/analytics state boundaries are defined in `docs/09000_data_model_state_machine/009110_Boundary_Future_Profile_And_Analytics_State.md`.
+- Future profile/analytics state boundaries are defined in `docs/009000_data_model_state_machine/009110_Boundary_Future_Profile_And_Analytics_State.md`.
 - Physical schema must not be inferred directly.
 
 ## 12 Open Decisions

@@ -610,7 +610,7 @@ Hardware partner should follow pilot evidence.
 Recommended future folder:
 
     docs/
-      05000_provider_integration_and_kiosk_reuse/
+      docs/005000_customer_handoff_and_implementation_readiness/
         pilot_rollout/
           024110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md
           Pilot_Store_Register.md

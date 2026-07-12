@@ -69,10 +69,10 @@ Additional rules:
 
 ## 5 Cross-References
 
-- `docs/26000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
+- `docs/026000_analytics_reporting_bi/026010_Boundary_Analytics_Product.md`
 - `docs/09000_data_model_state_machine/009040_State_And_Event_Ownership_Model.md`
-- `docs/09000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
+- `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
 
 ## 6 Open Decisions
 

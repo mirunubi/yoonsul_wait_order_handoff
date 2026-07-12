@@ -1,6 +1,6 @@
-# 013110_Idempotency_Recovery_And_Audit_Envelope_Projection
+# 013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
 
-## 1 Purpose
+## Purpose
 
 Handoff flows need idempotency and audit envelopes before implementation.
 

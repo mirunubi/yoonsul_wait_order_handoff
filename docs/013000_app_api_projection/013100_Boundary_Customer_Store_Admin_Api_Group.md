@@ -1,6 +1,6 @@
-# 013100_Boundary_Customer_Store_Admin_Api_Group
+# 013100_Boundary_Customer_Store_Admin_Api_Group.md
 
-## 1 Purpose
+## Purpose
 
 API groups must be separated by authority, context, and truth family.
 

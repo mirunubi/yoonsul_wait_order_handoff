@@ -24,19 +24,19 @@ This is not implementation.
 
 | document | description |
 | --- | --- |
-| `17010_Customer_Webapp_UI_Composition.md` | Conceptual customer webapp screen groups, composition notes, and customer wording rules aligned with 13070. |
-| `17020_Mini_Kiosk_UI_Composition.md` | Conceptual Mini Kiosk screen groups for store-assisted or visitor ordering without waiting flow assumption. |
-| `17030_Store_Console_UI_Composition.md` | Conceptual store console screens, staff controls, and forbidden UI implications; store console is not POS. |
-| `17040_Admin_Console_UI_Composition.md` | Conceptual admin console screen groups and authority UI rules from 07000 and 13040 governance. |
-| `17050_Support_Console_UI_Composition.md` | Conceptual scoped support console screens; support action does not equal approval. |
-| `17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md` | Shared loading, empty, error, delay, and recovery wording across all surfaces. |
-| `17070_Boundary_Wireframe_Prototype.md` | Boundary for future wireframes and prototypes; no image assets in this wave. |
-| `17080_UI_Surface_To_Authority_Composition_Model.md` | Maps UI controls to visibility, request, mutation, approval, and audit authority types. |
-| `17090_Integration_Status_UI_Wording_Model.md` | Integration status wording per surface without overstating truth. |
-| `17100_Governance_Action_Button_And_Status_Badge.md` | Button and status badge governance; visibility does not equal authority. |
-| `17110_Customer_MiniKiosk_State_Wording_Consolidation.md` | Customer and Mini Kiosk state wording consolidated from 17010, 17020, 13070, 09090, 11000. |
-| `17120_Admin_Support_UI_Authority_And_Recovery_Model.md` | Admin/support authority, recovery, audit, and support scope UI rules. |
-| `17130_Boundary_Future_UI_Surface_Non_MVP.md` | Future membership, analytics, payment, Franchise OS, and benchmark UI boundaries. |
+| `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md` | Conceptual customer webapp screen groups, composition notes, and customer wording rules aligned with 13070. |
+| `docs/017000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md` | Conceptual Mini Kiosk screen groups for store-assisted or visitor ordering without waiting flow assumption. |
+| `docs/017000_ui_screen_composition/017030_Store_Console_UI_Composition.md` | Conceptual store console screens, staff controls, and forbidden UI implications; store console is not POS. |
+| `docs/017000_ui_screen_composition/017040_Admin_Console_UI_Composition.md` | Conceptual admin console screen groups and authority UI rules from 07000 and 13040 governance. |
+| `docs/017000_ui_screen_composition/017050_Support_Console_UI_Composition.md` | Conceptual scoped support console screens; support action does not equal approval. |
+| `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md` | Shared loading, empty, error, delay, and recovery wording across all surfaces. |
+| `docs/017000_ui_screen_composition/017070_Boundary_Wireframe_Prototype.md` | Boundary for future wireframes and prototypes; no image assets in this wave. |
+| `docs/017000_ui_screen_composition/017080_UI_Surface_To_Authority_Composition_Model.md` | Maps UI controls to visibility, request, mutation, approval, and audit authority types. |
+| `docs/017000_ui_screen_composition/017090_Integration_Status_UI_Wording_Model.md` | Integration status wording per surface without overstating truth. |
+| `docs/017000_ui_screen_composition/017100_Governance_Action_Button_And_Status_Badge.md` | Button and status badge governance; visibility does not equal authority. |
+| `docs/017000_ui_screen_composition/017110_Customer_MiniKiosk_State_Wording_Consolidation.md` | Customer and Mini Kiosk state wording consolidated from 17010, 17020, 13070, 09090, 11000. |
+| `docs/017000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md` | Admin/support authority, recovery, audit, and support scope UI rules. |
+| `docs/017000_ui_screen_composition/017130_Boundary_Future_UI_Surface_Non_MVP.md` | Future membership, analytics, payment, Franchise OS, and benchmark UI boundaries. |
 
 `17010`~`17070` are existing UI composition foundations.
 

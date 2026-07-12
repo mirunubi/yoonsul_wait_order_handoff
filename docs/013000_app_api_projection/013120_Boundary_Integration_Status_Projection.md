@@ -1,6 +1,6 @@
-# 013120_Boundary_Integration_Status_Projection
+# 013120_Boundary_Integration_Status_Projection.md
 
-## 1 Purpose
+## Purpose
 
 Integration states must be projected without overstating truth.
 

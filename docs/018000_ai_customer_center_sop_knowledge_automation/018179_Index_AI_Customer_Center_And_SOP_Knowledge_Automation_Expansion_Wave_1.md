@@ -15,7 +15,7 @@ This batch is limited to documentation for AI customer center governance, digita
 - No formatter execution
 
 ## Wave 1 Created Documents
-- 018000_Index_AI_Customer_Center_And_SOP_Knowledge_Automation_Expansion_Wave_1.md
+- 018179_Index_AI_Customer_Center_And_SOP_Knowledge_Automation_Expansion_Wave_1.md
 - 018100_Governance_AI_Customer_Center_Master_Control.md
 - 018101_Overview_AI_Customer_Center_Operating_Model.md
 - 018102_Boundary_AI_Customer_Center_No_Runtime_Implementation_Boundary.md

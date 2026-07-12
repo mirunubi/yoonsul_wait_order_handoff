@@ -15,15 +15,15 @@ It does not create deployment scripts, CI/CD config, hosting setup, Supabase con
 
 | input | source |
 | --- | --- |
-| implementation readiness gate | `docs/22000_implementation_planning/22010_Implementation_Readiness_Gate.md` |
-| QA/smoke/rollback planning | `docs/22000_implementation_planning/22050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md` |
-| schema/API/app readiness | `docs/22000_implementation_planning/22030_Checklist_Schema_Design_Readiness.md`, `22040` |
-| security/access review | `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md` |
-| support access review | `docs/24000_deployment_operations/24020_Boundary_Runtime_Operations_And_Support.md` |
-| audit evidence review | `docs/20000_validation_security_audit/20070_Audit_Evidence_And_Compliance_Record_Model.md` |
-| integration disable/rollback review | `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md` |
+| implementation readiness gate | `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md` |
+| QA/smoke/rollback planning | `docs/022000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md` |
+| schema/API/app readiness | `docs/022000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`, `22040` |
+| security/access review | `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md` |
+| support access review | `docs/024000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md` |
+| audit evidence review | `docs/020000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md` |
+| integration disable/rollback review | `docs/011000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md` |
 | tenant/store communication plan | future operational communication boundary |
-| incident response readiness | `docs/24000_deployment_operations/24030_Boundary_Incident_Response_And_Degraded_Operation.md` |
+| incident response readiness | `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md` |
 
 All inputs must be satisfied before any deployment wave is approved.
 
@@ -70,10 +70,10 @@ They do not authorize deployment artifacts.
 
 ## 6 Cross-References
 
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
-- `docs/24000_deployment_operations/024040_Boundary_Operational_Runbook.md`
-- `docs/24000_deployment_operations/024050_Boundary_Environment_And_Config_Non_Implementation.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md`
+- `docs/024000_deployment_operations/024040_Boundary_Operational_Runbook.md`
+- `docs/024000_deployment_operations/024050_Boundary_Environment_And_Config_Non_Implementation.md`
 
 ## 7 Open Decisions
 

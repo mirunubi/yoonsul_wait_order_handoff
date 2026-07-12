@@ -76,13 +76,13 @@ Compliance records may support:
 
 ## 6 Operations Evidence Cross-Reference
 
-Runtime support and incident operation evidence must follow `docs/24000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md` and `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`.
+Runtime support and incident operation evidence must follow `docs/024000_deployment_operations/024020_Boundary_Runtime_Operations_And_Support.md` and `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`.
 
 Runbook-driven actions must still generate audit evidence per this document.
 
 ## 6.1 Security Governance Consolidation Cross-Reference
 
-- Audit evidence packet/compliance readiness is refined in `docs/20000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md`.
+- Audit evidence packet/compliance readiness is refined in `docs/020000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md`.
 - Evidence does not equal approval.
 - Integration attempts, support actions, runtime changes, exports, and incidents require traceable evidence principles.
 

@@ -66,9 +66,9 @@ Any future numbering migration must be handled as a dedicated governance wave.
 
 ## 6 Implementation Planning Cross-Reference
 
-Implementation readiness gates are defined in `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`.
+Implementation readiness gates are defined in `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`.
 
-Schema readiness is defined in `docs/22000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`.
+Schema readiness is defined in `docs/022000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`.
 
 This document remains the conceptual data model non-implementation boundary.
 
@@ -76,7 +76,7 @@ This document remains the conceptual data model non-implementation boundary.
 
 - `09070`~`09110` are conceptual refinements only.
 - They do not approve physical schema, SQL, migrations, RLS, RPC, or Edge Functions.
-- Schema readiness remains governed by `docs/22000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`.
+- Schema readiness remains governed by `docs/022000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`.
 
 ## 7 Open Decisions
 

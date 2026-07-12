@@ -294,6 +294,21 @@ docs/13000_app_api_projection/                  [separate or needs_review]
 | --- | --- |
 | Report file created | Yes |
 | Folders inspected | 5 |
-| Folders moved | **None** |
-| Files moved | **None** |
-| Commit performed | **No** |
+| Folders moved | **None** (as of 2026-06-09 dry-run) |
+| Files moved | **None** (as of 2026-06-09 dry-run) |
+| Commit performed | **No** (as of 2026-06-09 dry-run) |
+
+## Wave 4-B Execution Update (2026-07-10)
+
+This report's Wave 4-B recommendation (Section 15) was executed today, scoped to `docs/014000_pos_provider_integration_strategy/` only (the `13000_security_runtime_test_catalog` side of the original 16-file dedupe was out of scope for this pass and remains unresolved).
+
+Additional finding made during execution (not identified in the original 2026-06-09 dry-run): 6 of the 16 files initially believed unique to `14000` were themselves broken-escape duplicate pairs of the other 6 (identical content, one copy with literal `\#\#`/`\-` escaped Markdown, the other clean). All 6 clean survivors were confirmed genuinely distinct from any existing `014xxx` document via direct content diff before renumbering (see `archive_duplicate_review/` disposition below for the one weak-title-match case, `005290`/`005291` vs `014070`, confirmed NOT a duplicate: 774 vs 348 lines, substantially different content).
+
+| Item | Result |
+| --- | --- |
+| Files archived to `archive_duplicate_review/` (original numbers retained, no renumbering) | 16 — 10 confirmed superseded by existing `014xxx` documents (`005320`, `005330`, `005340`, `005350`, `005360`, `005370`, `005380`, `005390`, `005400`, `005410`) + 6 confirmed broken-escape duplicates (`005255`, `005260`, `005270`, `005280`, `005290`, `005310`) |
+| Files renumbered into the `014xxx` band (clean survivors of the broken-escape pairs) | 6 — `005256`→`014580`, `005261`→`014581`, `005271`→`014582`, `005281`→`014583`, `005291`→`014584`, `005420`→`014585` |
+| `000005_Index_Document_Number.md` updated | Yes |
+| `000007_Map_Full_Directory.md` updated | Yes |
+| `14000` numbered README created | **No** — still outstanding, not part of this pass |
+| Commit performed | Pending (staged for review, not yet committed as of this update) |

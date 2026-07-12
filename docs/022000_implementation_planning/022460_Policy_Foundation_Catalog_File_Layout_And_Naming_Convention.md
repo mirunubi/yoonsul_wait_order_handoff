@@ -106,9 +106,9 @@ If the project later creates foundation artifacts, the recommended folder struct
 
 ```text
 docs/
-  09000_controlled_implementation_planning/
-  22400_foundation_readiness/
-  21500_foundation_catalogs/
-  21600_foundation_handoff/
-  09700_foundation_guardrails/
-  09800_foundation_tests/
+  docs/009000_data_model_state_machine/
+  docs/022000_implementation_planning/022400_Policy_Controlled_Implementation_Readiness_Review_And_Blocker_Inventory.md/
+  docs/021000_financial_security_monitoring_catalog/021500_Policy_Financial_Security_Ledger_Foundation_Catalog_And_Status_Value_Addendum.md/
+  docs/021000_financial_security_monitoring_catalog/021600_Policy_Log_Data_Lifecycle_Retention_Naming_And_Immutable_Archive_Governance.md/
+  09700_foundation_guardrails/ (not yet implemented)
+  09800_foundation_tests/ (not yet implemented)

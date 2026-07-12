@@ -30,7 +30,7 @@ It does not authorize implementation, API design, database schema, or production
 - future asset naming must use five-digit numbering if stored in docs.
 - generated assets must not replace source markdown governance.
 
-Markdown documents in `docs/17000_ui_screen_composition/` remain the source of truth for screen composition, wording, and authority boundaries.
+Markdown documents in `docs/017000_ui_screen_composition/` remain the source of truth for screen composition, wording, and authority boundaries.
 
 ## 4 Prototype Rules
 
@@ -49,27 +49,27 @@ Additional rules:
 
 ## 5 Implementation Planning Cross-Reference
 
-UI implementation readiness is governed by `docs/22000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`.
+UI implementation readiness is governed by `docs/022000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`.
 
-QA/smoke/rollback planning is governed by `docs/22000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`.
+QA/smoke/rollback planning is governed by `docs/022000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`.
 
 Prototype does not equal implementation approval.
 
 ## 6 Cross-References
 
-- `docs/17000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
-- `docs/22000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`
-- `docs/22000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`
-- `docs/17000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017030_Store_Console_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
-- `docs/00001_Md_Rules.md`
+- `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
+- `docs/022000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`
+- `docs/022000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`
+- `docs/017000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017030_Store_Console_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017040_Admin_Console_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/000001_Md_Rules.md`
 
 ## 7 Open Decisions
 
-- whether assets live under `docs/17000_ui_screen_composition/assets`.
+- whether assets live under `docs/017000_ui_screen_composition/assets`.
 - whether Figma exports are stored.
 - whether image files are versioned.
 - wireframe naming rule.

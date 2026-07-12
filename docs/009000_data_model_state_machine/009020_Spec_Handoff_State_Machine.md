@@ -220,6 +220,6 @@ Entity definitions are consolidated in `docs/09000_data_model_state_machine/0090
 
 State/event ownership is defined in `docs/09000_data_model_state_machine/009040_State_And_Event_Ownership_Model.md`.
 
-Audit/recovery lineage is defined in `docs/09000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`.
+Audit/recovery lineage is defined in `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`.
 
 Implementation is deferred by `docs/09000_data_model_state_machine/009060_Implementation_Deferred_Data_Model_Boundary.md`.

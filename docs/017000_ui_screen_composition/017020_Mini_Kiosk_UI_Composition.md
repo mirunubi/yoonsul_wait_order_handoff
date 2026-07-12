@@ -125,11 +125,11 @@ Menu translation must not change order/payment authority meaning per `13070`.
 
 ## 4 Cross-References
 
-- `docs/13000_app_api_projection/013010_App_Surface_And_Channel_Projection.md`
-- `docs/13000_app_api_projection/013020_Customer_Webapp_Projection.md`
-- `docs/13000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
-- `docs/17000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/013000_app_api_projection/013010_App_Surface_And_Channel_Projection.md`
+- `docs/013000_app_api_projection/013020_Customer_Webapp_Projection.md`
+- `docs/013000_app_api_projection/013070_Matrix_Customer_Surface_State_Wording.md`
+- `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 5 Open Decisions
 

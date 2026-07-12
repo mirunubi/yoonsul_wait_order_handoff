@@ -50,9 +50,9 @@ It does not approve deletion jobs, retention automation, or anonymization pipeli
 
 ## 5 Cross-References
 
-- `docs/20000_validation_security_audit/020030_Policy_Data_Retention_And_Deletion.md`
-- `docs/20000_validation_security_audit/020060_Policy_Anonymization_And_Pseudonymization_Standard.md`
-- `docs/20000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md`
+- `docs/020000_validation_security_audit/020030_Policy_Data_Retention_And_Deletion.md`
+- `docs/020000_validation_security_audit/020060_Policy_Anonymization_And_Pseudonymization_Standard.md`
+- `docs/020000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md`
 
 ## 6 Open Decisions
 

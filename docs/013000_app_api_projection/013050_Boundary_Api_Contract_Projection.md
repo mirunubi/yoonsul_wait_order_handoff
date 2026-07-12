@@ -1,6 +1,6 @@
-# 013050_Boundary_Api_Contract_Projection
+# 013050_Boundary_Api_Contract_Projection.md
 
-## 1 Purpose
+## Purpose
 
 API projection defines contract groups only.
 

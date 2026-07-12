@@ -49,8 +49,8 @@
 
 | File | UpdateSummary |
 |---|---|
-| `docs/000005_Document_Number_Index.md` | Updated POS Gateway package structural paths from `012091~012099` and `12091~12099` folder names to `605100~605900` folder names. |
-| `docs/000007_Full_Directory_Map.md` | Updated POS Gateway package tree folder names to `605100~605900`. |
+| `docs/000005_Index_Document_Number.md` | Updated POS Gateway package structural paths from `012091~012099` and `12091~12099` folder names to `605100~605900` folder names. |
+| `docs/000007_Map_Full_Directory.md` | Updated POS Gateway package tree folder names to `605100~605900`. |
 | `docs/000019_Report_Batch_3A_High_Range_Implementation_Lifecycle_Planning_Manifest.md` | Updated planned POS Gateway package folder references to the stabilized `605100~605900` names. |
 | `docs/000020_Matrix_Batch_3A_Implementation_Lifecycle_Move_Manifest.md` | Updated manifest folder references to the stabilized `605100~605900` names. |
 | `docs/000021_Report_Batch_3B_High_Range_Implementation_Lifecycle_POS_Gateway_Package_Move.md` | Updated POS Gateway package move report references to the stabilized `605100~605900` names. |
@@ -61,7 +61,7 @@
 ## Validation Plan
 
 - Run `git status --short`.
-- Run `git diff --check -- docs/000005_Document_Number_Index.md docs/000007_Full_Directory_Map.md docs/000019_Report_Batch_3A_High_Range_Implementation_Lifecycle_Planning_Manifest.md docs/000020_Matrix_Batch_3A_Implementation_Lifecycle_Move_Manifest.md docs/000021_Report_Batch_3B_High_Range_Implementation_Lifecycle_POS_Gateway_Package_Move.md docs/000022_Report_Batch_3B_1_Implementation_Lifecycle_Long_Path_Mitigation_Manifest.md docs/000023_Matrix_Batch_3B_1_Long_Path_Mitigation_Rename_Manifest.md docs/000024_Report_Batch_3B_2_Implementation_Lifecycle_Folder_Shortening.md docs/000030_Report_Batch_3F_POS_Gateway_Package_Internal_Folder_Renumbering.md`.
+- Run `git diff --check -- docs/000005_Index_Document_Number.md docs/000007_Map_Full_Directory.md docs/000019_Report_Batch_3A_High_Range_Implementation_Lifecycle_Planning_Manifest.md docs/000020_Matrix_Batch_3A_Implementation_Lifecycle_Move_Manifest.md docs/000021_Report_Batch_3B_High_Range_Implementation_Lifecycle_POS_Gateway_Package_Move.md docs/000022_Report_Batch_3B_1_Implementation_Lifecycle_Long_Path_Mitigation_Manifest.md docs/000023_Matrix_Batch_3B_1_Long_Path_Mitigation_Rename_Manifest.md docs/000024_Report_Batch_3B_2_Implementation_Lifecycle_Folder_Shortening.md docs/000030_Report_Batch_3F_POS_Gateway_Package_Internal_Folder_Renumbering.md`.
 - Confirm old `012091~012099` folders no longer exist.
 - Confirm new `605100~605900` folders exist.
 - Confirm no file basename rename occurred.

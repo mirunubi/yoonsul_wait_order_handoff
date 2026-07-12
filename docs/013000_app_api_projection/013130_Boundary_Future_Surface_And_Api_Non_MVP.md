@@ -1,6 +1,6 @@
-# 013130_Boundary_Future_Surface_And_Api_Non_MVP
+# 013130_Boundary_Future_Surface_And_Api_Non_MVP.md
 
-## 1 Purpose
+## Purpose
 
 Future surfaces and API groups must not become MVP active APIs accidentally.
 

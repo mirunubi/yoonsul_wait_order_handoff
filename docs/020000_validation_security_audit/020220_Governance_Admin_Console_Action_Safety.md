@@ -25,7 +25,7 @@ Out of scope:
 - Break-glass tooling implementation.
 - Automated rollback runtime.
 
-Aligns with `docs/07000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md` and related admin governance docs at console level.
+Aligns with `docs/007000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md` and related admin governance docs at console level.
 
 ## 3 Admin Action Categories
 
@@ -106,10 +106,10 @@ Dual-control policy owner remains open; governance requires separation of reques
 
 ## 10 Cross-References
 
-- `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
-- `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
-- `docs/20000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
+- `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md`
+- `docs/020000_validation_security_audit/020160_Governance_Suspicious_Activity_Review_And_Escalation.md`
 
 ## 11 Open Decisions
 

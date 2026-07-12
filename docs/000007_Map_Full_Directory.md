@@ -2046,6 +2046,29 @@ docs/
   |   +--- 070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md
   |   +--- 070650_Matrix_External_Settlement_Reconciliation_Exception_Type_Action_And_Escalation_Map.md
   |   \--- 070660_Overview_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md
+  +--- 600000_implementation_lifecycle/
+  |   +--- 600000_Readme_Implementation_Lifecycle.md
+  |   +--- 600100_customer_identity_and_guest_promotion/
+  |   |   +--- 600100_Readme_Customer_Identity_And_Guest_Promotion.md
+  |   |   +--- 600101_ChangeHistory.md
+  |   |   +--- 600102_NavigationMap.md
+  |   |   +--- 600103_DecisionLog.md
+  |   |   +--- 600110_order_sessions_customer_id_fk_and_guest_promotion/
+  |   |   |   +--- 600111_Overview.md
+  |   |   |   +--- 600112_Logic.md
+  |   |   |   +--- 600113_TestPlan.md
+  |   |   |   \--- 600114_ChangeContract.md
+  |   |   +--- 600120_guest_customer_bootstrap_rpc/
+  |   +--- 600200_flutter_waiting_feature_implementation/
+  |   |   +--- 600200_Readme_Flutter_Waiting_Feature_Implementation.md
+  |   |   +--- 600201_ChangeHistory.md
+  |   |   +--- 600202_NavigationMap.md
+  |   |   +--- 600203_DecisionLog.md
+  |   |   +--- 600210_waiting_feature_guest_customer_id_integration/
+  |   +--- 604000_workpackets/
+  |   |   +--- 604000_Readme_Workpackets.md
+  |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
+  |   |   |   \--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   +--- 700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md

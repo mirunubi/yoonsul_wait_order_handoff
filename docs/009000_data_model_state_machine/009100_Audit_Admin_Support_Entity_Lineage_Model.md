@@ -52,10 +52,10 @@ It does not approve audit storage, export runtime, or support tooling.
 ## 5 Cross-References
 
 - `docs/07000_admin_console/007100_Admin_Audit_Review_And_Change_History_Model.md`
-- `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
-- `docs/09000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
+- `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
+- `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
 - `docs/09000_data_model_state_machine/009080_Runtime_Profile_And_Change_Request_Entity_Model.md`
-- `docs/20000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
+- `docs/020000_validation_security_audit/020070_Audit_Evidence_And_Compliance_Record_Model.md`
 
 ## 6 Open Decisions
 

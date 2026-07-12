@@ -39,19 +39,19 @@ Feature flag visibility must not imply these profiles are active.
 
 Future activation requires review against:
 
-- `docs/15000_membership_loyalty/` membership boundaries.
-- `docs/20000_validation_security_audit/` security, privacy, and export governance.
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md` implementation readiness gates.
-- `docs/22000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md` MVP non-goals.
-- `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md` deployment readiness.
-- `docs/26000_analytics_reporting_bi/` analytics boundaries.
-- `docs/28000_future_expansion/` future expansion boundaries.
+- `docs/015000_membership_loyalty/` membership boundaries.
+- `docs/020000_validation_security_audit/` security, privacy, and export governance.
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md` implementation readiness gates.
+- `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md` MVP non-goals.
+- `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md` deployment readiness.
+- `docs/026000_analytics_reporting_bi/` analytics boundaries.
+- `docs/028000_future_expansion/` future expansion boundaries.
 
 ## 5 Cross-References
 
-- `docs/01000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md`
-- `docs/03000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/001000_mvp_scope/001040_Matrix_MVP_Active_Optional_Future_NonGoal.md`
+- `docs/003000_saas_runtime/003040_Governance_Package_Plan_And_Feature_Flag_Runtime.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
 
 ## 6 Open Decisions
 

@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This folder defines SaaS tenant, context axes, store runtime, package plans, feature flags, runtime profiles, and runtime governance boundaries.
+This folder defines SaaS tenant, context axes, store runtime, package plans, feature flags, runtime profiles, runtime governance boundaries, and Entry Media (QR/NFC entry asset) inventory governance.
 
 This wave consolidates the SaaS runtime model after MVP scope consolidation in `001000`.
 
@@ -14,6 +14,7 @@ This wave consolidates the SaaS runtime model after MVP scope consolidation in `
 - Runtime profile change and audit governance.
 - Non-MVP and future runtime profile boundaries.
 - Initial tenant/store runtime model in `003010`.
+- Entry Media (QR/NFC entry plate) inventory ownership, asset lifecycle, and mapping/audit governance in `003100`.
 
 ## 3 Document List
 
@@ -35,7 +36,7 @@ This wave consolidates the SaaS runtime model after MVP scope consolidation in `
 | `003170_Policy_Entry_Media_Scan_Usage_And_Trial_Observation.md` | Policy for scan usage observation, trial monitoring, and usage evidence. |
 | `003180_Policy_Entry_Media_Admin_Access_Suspension_And_Service_Termination_Link.md` | Policy linking entry media admin access, suspension, and service termination. |
 | `003190_Policy_Entry_Media_Production_Batch_Stock_And_Inventory_Control.md` | Policy for production batch, stock, and inventory control of entry media assets. |
-| `003199_Index_Entry_Media_Inventory_And_MVP_Cutline.md` | Index for Entry Media Inventory documents and MVP cutline alignment. |
+| `003199_Overview_Entry_Media_Inventory_And_MVP_Cutline.md` | Overview of Entry Media Inventory documents and MVP cutline alignment. |
 
 ## 4 Out Of Scope
 

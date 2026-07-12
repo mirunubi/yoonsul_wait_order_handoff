@@ -53,10 +53,10 @@ Additional rules:
 
 ## 5 Cross-References
 
-- `docs/22000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`
-- `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
-- `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/022000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md`
+- `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
+- `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
 
 ## 6 Open Decisions
 

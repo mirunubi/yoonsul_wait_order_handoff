@@ -76,14 +76,14 @@ billing engine
 
 Related folders:
 
-docs/00300\_entry\_media\_inventory/
+docs/000100_project_foundation/000300_documentation_governance/000300_Readme_Documentation_Governance.md/
 docs/00500\_organization\_core/
-docs/02400\_owner\_console/
-docs/02600\_merchant\_ops/
-docs/03100\_reservation\_preorder\_governance/
+docs/02400\_owner\_console/ (not yet implemented)
+docs/02600\_merchant\_ops/ (not yet implemented)
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
 docs/03400\_provider\_adapter\_runtime/
 docs/03500\_external\_pos\_integration\_runtime/
-docs/30000_future_saas_modules/030060_Readme_Billing_Plan_Settlement.md
+docs/030000_future_saas_modules/030060_Readme_Billing_Plan_Settlement.md
 
 3\. Core Principle
 
@@ -901,7 +901,7 @@ WOH.SALES.CLAWBACK.EVIDENCE\_REQUIRED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 41\. Support Signals
 

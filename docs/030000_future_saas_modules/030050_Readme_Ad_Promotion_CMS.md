@@ -83,12 +83,12 @@ external advertiser portal
 
 Related folders:
 
-docs/02500\_guest\_webapp/
-docs/02400\_owner\_console/
-docs/03000\_catchmenu\_hq/
-docs/00400\_identity\_access/
-docs/02700\_observability\_failure\_recovery/
-docs/03100\_reservation\_preorder\_governance/
+docs/02500\_guest\_webapp/ (not yet implemented)
+docs/02400\_owner\_console/ (not yet implemented)
+docs/003000_saas_runtime/
+docs/000100_project_foundation/000400_development_foundation/000400_Readme_Development_Foundation.md/
+docs/02700\_observability\_failure\_recovery/ (not yet implemented)
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
 docs/03300\_open\_api\_partner\_alliance/
 
 3\. Core Principle
@@ -500,7 +500,7 @@ Reservation notice must match active policy version.
 
 Related folder:
 
-docs/03100\_reservation\_preorder\_governance/
+docs/003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md/
 
 19\. Payment And Order Wording Guard
 
@@ -845,7 +845,7 @@ WOH.CMS.CONTENT.RUNTIME\_OVERRIDE\_DENIED
 
 Failure/error naming is governed by:
 
-docs/00000\_foundation/00080\_Failure\_Error\_Code\_Naming\_And\_Diagnostic\_Hierarchy.md
+docs/000080_Governance_CatchMenu_Failure_Error_Code_Naming_And_Diagnostic_Hierarchy.md
 
 34\. Support Signals
 

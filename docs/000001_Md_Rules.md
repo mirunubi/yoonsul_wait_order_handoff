@@ -88,6 +88,14 @@ See `docs/000015_Korean_Document_And_Encoding_Safety_Rules.md` for mandatory Kor
 - The `Readme` document should define the local semantic boundary before new documents are added.
 - A folder without a `Readme` should not receive high-volume move batches until its ownership boundary is clear.
 
+### 5.2.1 Boundary Reference Documents Rule
+
+- 모든 모듈 Readme(예: `600100_Readme_...md`)는 "Boundary Reference Documents" 섹션을 포함해야 한다.
+- 이 섹션은 그 모듈 산하 모든 변경건(예: `600110`, `600120`)이 Stage 1 스캔 시 반드시 대조해야 하는 경계 정의 문서를 표 형식으로 누적 등록한다: `문서 경로 | 필요한 이유`.
+- 이는 각 변경건의 `Overview.md`가 갖는 "Required Context Snapshot Candidates"(§6.5, 변경건 1회성 스냅샷)와는 다른 목적이다 — Readme의 이 섹션은 모듈 전체에 걸쳐 영구적으로 재사용되는 누적 레지스트리다.
+- 새 변경건의 Stage 1.5(Overview 작성)가 기존에 이 섹션에 없던 새로운 경계 문서를 발견하면, 그 변경건의 Overview 작성과 동시에 모듈 Readme의 이 섹션에도 추가해야 한다 (§5.11 관련 문서 동시 갱신 원칙과 동일한 정신).
+- 이 섹션이 없는 모듈 Readme는 §5.2 Mandatory Rule 미준수로 간주한다.
+
 ## 5.3 Index Concentration Rule
 
 - Do not create local index files just to list files in a folder.
@@ -151,30 +159,28 @@ The following DocumentType values are approved for governed development lifecycl
 
 `Audit` also remains valid as a general independent review DocumentType outside any specific implementation-lifecycle band.
 
-### 5.4.2 Lifecycle Filename And H1 Rule
+### 5.4.2 Lifecycle Filename And Location Rule
 
-The common lifecycle filename format is:
+**작업 중 (Stage 1~6, 설계~구현~감사 진행 단계)**
 
-```text
-<6-digit-number>_<DocumentType>_<Scope_Or_Title>.md
-```
-
-Examples:
+Lifecycle documents (`ImpactScope`, `Overview`, `Logic`, `TestPlan`, `ChangeContract`, `Approval`, `Module`, `Verification`, `Audit`) use a PascalCase-joined filename with **no six-digit prefix**, placed under a per-change evidence folder:
 
 ```text
-604264_TestPlan_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604265_ChangeContract_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604266_Approval_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604267_Module_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604268_Verification_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
-604269_Audit_Scope_D_00A_Toss_MVP_PaymentIntent_Binding_Precondition.md
+docs/implementation_evidence/<change_id>/<DocumentType>.md
 ```
 
-The H1 must exactly match the complete filename, including `.md`:
+이 폴더는 진행 중인 작업의 임시 워크스페이스다. `000701` §33의 "permanent from creation" 원칙은 이 임시 단계 안에서 개별 파일명이 다시 바뀌지 않는다는 뜻으로 한정되며, 아래 영구 보관 단계로의 이전 자체를 금지하지 않는다.
 
-```md
-# <full_filename>.md
-```
+Medium tier(§31) 진행 중 편의상 여러 DocumentType을 한 파일에 묶어 쓰는 것(`DesignPack.md`, `TestAndContract.md` 등)은 작업 속도를 위한 허용된 실무 관행이나, **각 섹션의 실제 저자(author)는 `000701` §3의 8단계 소유자 구분을 그대로 따라야 한다** — 예를 들어 Overview/Logic은 Stage 1.5(Claude Code)가, TestPlan/ChangeContract는 Stage 2(Claude)가 각자 독립적으로 작성해야 하며, 한 행위자가 여러 Stage의 산출물을 대신 작성해서는 안 된다. 이는 명명 규칙이 아니라 저자 분리 원칙이며, 위반 시 Stage 2/6 검증이 그 사실 자체를 지적하고 반려해야 한다.
+
+**Stage 7 머지 승인 완료 시 (필수, 영구 보관)**
+
+Stage 7 Human Merge/Release가 완료되면, `implementation_evidence/<change_id>/`의 최종 승인된 산출물은 `docs/` 트리의 6자리 영구 문서로 반드시 archive해야 한다. 이 archive 단계 없이는 Stage 7 머지가 완료된 것으로 간주하지 않는다.
+
+- 작업 중 통합 파일(`DesignPack.md` 등)을 사용했더라도, 아카이브 시점에는 원래의 개별 승인 DocumentType(`Overview`/`Logic`/`TestPlan`/`ChangeContract`/`Module`/`Verification`/`Audit`)으로 분리하여 저장한다. 통합본 자체를 그대로 영구 보관하지 않는다.
+- 번호는 관련 도메인(예: 결제/로그인 도메인이면 005000대 근처)에서 `000005_Index_Document_Number.md` 기준 다음 빈 번호로 배정한다.
+- `000005_Index_Document_Number.md`와 `000007_Map_Full_Directory.md`에 정식 등록한다 (§5.11 트리플 업데이트 원칙 적용).
+- `implementation_evidence/<change_id>/` 원본 폴더는 archive 완료 후 삭제 가능하다 (내용은 이미 영구 위치로 이전됨).
 
 ### 5.4.3 Implementation Lifecycle Order
 
@@ -299,15 +305,13 @@ It records:
 
 NavigationMap may be created after Index, Overview, Logic, TestPlan, and ChangeContract exist and before implementation begins. It may also be created when multiple workpackets are chained and Index is not enough to explain the route.
 
-Filename and H1:
-
-```text
-<6-digit-number>_NavigationMap_<Scope_Or_Title>.md
-```
+Filename and location: `NavigationMap.md`, PascalCase-joined, **no six-digit prefix**, placed in the domain/module folder it tracks (one per governed domain, not per change) — see `000701` §32-§33. The `H1` matches the filename exactly:
 
 ```md
-# <full_filename>.md
+# NavigationMap.md
 ```
+
+This scheme superseded the six-digit `604xxx`-band numbering convention when that band was quarantined to `990000_legacy_quarantine/` on 2026-07-10 — see `000701` §15.1.
 
 Required sections:
 
@@ -496,6 +500,31 @@ or skip the Readme requirement. Instead:
 2. If truly exhausted, flag for a dedicated renumbering review. Do not
    silently work around it with a Readme-less folder or a mis-numbered
    Readme.
+
+## 5.13 Archive/Duplicate-Review Subfolder Numbering Exception
+
+A subfolder explicitly named with an "archive_duplicate_review",
+"_duplicate_review", or similarly-named disposition-tracking pattern
+(e.g. `020991_superseded_by_foundation_security`,
+`020993_duplicate_copy_xx01`,
+`014000_pos_provider_integration_strategy/archive_duplicate_review`) is
+exempt from the parent folder's numeric band requirement.
+
+Files inside such a subfolder MUST retain their original number as of
+the point they were archived — this number is itself evidence of what
+the file was called when the disposition decision was made. Do not
+renumber files inside these subfolders to match the parent folder's band.
+
+Any future folder/file band-mismatch scan MUST exclude these subfolders
+by default, treating them the same as §5.10 frozen historical content —
+a mismatch here is not a defect, it is the intended record.
+
+Known instances as of 2026-07-10:
+
+- `docs/020000_validation_security_audit/020999_archive_duplicate_review/`
+  (020991-020996)
+- `docs/014000_pos_provider_integration_strategy/archive_duplicate_review/`
+  (27 files, 005xxx numbering preserved)
 
 ## 6 Quality Rule
 

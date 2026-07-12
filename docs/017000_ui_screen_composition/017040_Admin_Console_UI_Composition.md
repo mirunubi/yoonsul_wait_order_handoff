@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-Admin Console UI composition follows `docs/07000_admin_console/` governance and `docs/13000_app_api_projection/013040_Admin_Console_Projection.md`.
+Admin Console UI composition follows `docs/007000_admin_console/` governance and `docs/013000_app_api_projection/013040_Admin_Console_Projection.md`.
 
 It configures and monitors SaaS runtime but is not POS, payment settlement, or membership ledger.
 
@@ -150,7 +150,7 @@ High-risk changes include package plan, feature flags, payment profile, POS API 
 
 ## 4 Admin Console Governance Cross-Reference
 
-Admin UI composition must follow `docs/07000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`.
+Admin UI composition must follow `docs/007000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md` through `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`.
 
 UI button visibility must not imply action authority.
 
@@ -158,16 +158,16 @@ Emergency disable and rollback UI must preserve audit/review boundaries.
 
 ## 5 Cross-References
 
-- `docs/07000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md`
-- `docs/07000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md`
-- `docs/07000_admin_console/007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`
-- `docs/07000_admin_console/007100_Admin_Audit_Review_And_Change_History_Model.md`
-- `docs/07000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
-- `docs/07000_admin_console/007040_Admin_Screen_Inventory_And_Navigation_Model.md`
-- `docs/13000_app_api_projection/013040_Admin_Console_Projection.md`
-- `docs/13000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
-- `docs/17000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
+- `docs/007000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md`
+- `docs/007000_admin_console/007080_Governance_Admin_Runtime_Profile_Configuration.md`
+- `docs/007000_admin_console/007090_Admin_Feature_Flag_Approval_And_Emergency_Disable_Model.md`
+- `docs/007000_admin_console/007100_Admin_Audit_Review_And_Change_History_Model.md`
+- `docs/007000_admin_console/007110_Boundary_Admin_Support_And_BreakGlass.md`
+- `docs/007000_admin_console/007040_Admin_Screen_Inventory_And_Navigation_Model.md`
+- `docs/013000_app_api_projection/013040_Admin_Console_Projection.md`
+- `docs/013000_app_api_projection/013080_Matrix_Store_Admin_Support_Action_Authority.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/017000_ui_screen_composition/017050_Support_Console_UI_Composition.md`
 
 ## 6 Open Decisions
 

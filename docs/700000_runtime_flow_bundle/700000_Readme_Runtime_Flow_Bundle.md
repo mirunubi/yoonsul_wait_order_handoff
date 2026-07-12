@@ -17,10 +17,6 @@ This folder is documentation-only: it may describe expected flows, evidence, fai
 - Financial audit trail, consumer protection, and security signature verification evidence
 - Runtime owner/escalation matrix, test coverage evidence, release/rollback gate, post-incident evidence
 
-## Subfolders
-
-- `750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/` — specialized child bundle for delivery-app channel integration (see its own `750000_Readme_...md`)
-
 ## File List
 
 - `700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md` — full manifest of the 80-document Wave 1 batch (Batch 7D), reclassified from Index to Governance

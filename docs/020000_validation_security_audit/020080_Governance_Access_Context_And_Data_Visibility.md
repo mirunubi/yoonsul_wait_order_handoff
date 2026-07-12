@@ -63,9 +63,9 @@ It does not approve role tables, permission matrix code, or access middleware.
 
 ## 6 Cross-References
 
-- `docs/13000_app_api_projection/013090_Surface_To_Authority_Projection_Model.md`
+- `docs/013000_app_api_projection/013090_Surface_To_Authority_Projection_Model.md`
 - `docs/07000_admin_console/007070_Admin_Context_Navigation_And_Scope_Model.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
 
 ## 7 Open Decisions
 

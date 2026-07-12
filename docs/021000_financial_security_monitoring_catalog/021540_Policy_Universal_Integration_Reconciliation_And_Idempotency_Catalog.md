@@ -371,7 +371,7 @@ Identity reconciliation must handle:
 - missing consent
 - conflicting phone/email/social identity
 - partner identity mismatch
-- 자리찜 vs tenant membership identity conflict
+- 캐치메뉴 vs tenant membership identity conflict
 - temporary session to permanent identity conflict
 - unlink request mismatch
 

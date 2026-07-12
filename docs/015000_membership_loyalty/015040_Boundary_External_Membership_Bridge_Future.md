@@ -50,7 +50,7 @@ Additional rules:
 - support/export access must be audited.
 - external provider data must not become platform training data by default.
 
-Cross-reference: `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`.
+Cross-reference: `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`.
 
 Sensitive data classes for bridge context:
 
@@ -61,11 +61,11 @@ Sensitive data classes for bridge context:
 
 ## 5 Cross-References
 
-- `docs/28000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
-- `docs/15000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
-- `docs/15000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
-- `docs/20000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
-- `docs/20000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
+- `docs/028000_future_expansion/028030_Boundary_Point_Bridge_And_Exchange_Future.md`
+- `docs/015000_membership_loyalty/015010_Boundary_Membership_Loyalty_Product.md`
+- `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`
+- `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md`
+- `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`
 
 ## 6 Open Decisions
 

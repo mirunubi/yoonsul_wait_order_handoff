@@ -104,21 +104,21 @@ Examples:
 
 | Artifact | Recommended File Name |
 |---|---|
-| Bulkhead catalog | `21631_catalog_bulkhead_domain_map_v1.md` |
-| Containment catalog | `21632_catalog_containment_status_and_trigger_map_v1.md` |
-| Quarantine catalog | `21633_catalog_quarantine_status_and_trigger_map_v1.md` |
-| Security controls | `21634_catalog_security_control_records_v1.md` |
-| Security events/alerts | `21635_catalog_security_event_alert_families_v1.md` |
-| Error codes | `21636_catalog_unix_style_error_codes_v1.md` |
-| Trigger signal contract | `21637_contract_trigger_signal_audit_packet_v1.md` |
-| Monitoring view contract | `21638_contract_monitoring_view_and_risk_projection_v1.md` |
-| AI daemon contract | `21639_contract_ai_daemon_monitoring_boundary_v1.md` |
-| pgvector source catalog | `21640_catalog_pgvector_source_traceability_v1.md` |
-| Retention/archive catalog | `21641_catalog_retention_archive_naming_manifest_v1.md` |
-| Legal hold/deletion review | `21642_catalog_legal_hold_deletion_review_v1.md` |
-| Boundary test checklist | `21643_test_boundary_checklist_security_monitoring_v1.md` |
-| Patent summary | `21644_patent_security_monitoring_architecture_summary_v1.md` |
-| Package readiness matrix | `21645_readiness_security_monitoring_package_matrix_v1.md` |
+| Bulkhead catalog | `docs/021000_financial_security_monitoring_catalog/021631_Boundary_Bulkhead_Domain_Map_Source_Of_Truth_And_Trust_Catalog.md` |
+| Containment catalog | `docs/021000_financial_security_monitoring_catalog/021632_Index_Containment_Status_And_Trigger_Map_Catalog.md` |
+| Quarantine catalog | `docs/021000_financial_security_monitoring_catalog/021633_Index_Quarantine_Status_And_Trigger_Map_Catalog.md` |
+| Security controls | `docs/021000_financial_security_monitoring_catalog/021634_Index_Security_Control_Records_And_Security_Class_Catalog.md` |
+| Security events/alerts | `docs/021000_financial_security_monitoring_catalog/021635_Index_Security_Event_Alert_Families_And_Severity_Routing_Catalog.md` |
+| Error codes | `docs/021000_financial_security_monitoring_catalog/021636_Policy_Unix_Style_Error_Code_Catalog_And_Domain_Fault_Mapping.md` |
+| Trigger signal contract | `docs/021000_financial_security_monitoring_catalog/021637_Policy_Trigger_Signal_Audit_Packet_Contract_And_Lightweight_Capture.md` |
+| Monitoring view contract | `docs/021000_financial_security_monitoring_catalog/021638_Spec_Monitoring_View_And_Risk_Projection_Contract.md` |
+| AI daemon contract | `docs/021000_financial_security_monitoring_catalog/021639_Boundary_AI_Daemon_Monitoring_Contract_And_Rule_Based_Filter_Catalog.md` |
+| pgvector source catalog | `docs/021000_financial_security_monitoring_catalog/021640_Boundary_pgvector_Approved_Source_Traceability_Lifecycle_And_Authority_Catalog.md` |
+| Retention/archive catalog | `docs/021000_financial_security_monitoring_catalog/021641_Index_Retention_Tier_Archive_Naming_Manifest_And_Lifecycle_Catalog.md` |
+| Legal hold/deletion review | `docs/021000_financial_security_monitoring_catalog/021642_Index_Legal_Hold_Deletion_Anonymization_And_Retention_Review_Catalog.md` |
+| Boundary test checklist | `docs/021000_financial_security_monitoring_catalog/021643_Boundary_Test_Checklist_And_Security_Monitoring_Validation_Matrix.md` |
+| Patent summary | `docs/021000_financial_security_monitoring_catalog/021644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md` |
+| Package readiness matrix | `docs/021000_financial_security_monitoring_catalog/021645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md` |
 
 These ids are suggested next artifacts.
 
@@ -520,7 +520,7 @@ This group must not produce final patent claims without attorney review.
 
 Recommended readiness artifact:
 
-`21645_readiness_security_monitoring_package_matrix_v1.md`
+`docs/021000_financial_security_monitoring_catalog/021645_Policy_Security_Monitoring_Package_Readiness_Matrix_And_Foundation_Closure.md`
 
 Required matrix fields:
 

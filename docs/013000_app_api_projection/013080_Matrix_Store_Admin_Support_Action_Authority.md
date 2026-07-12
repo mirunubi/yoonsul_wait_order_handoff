@@ -1,6 +1,6 @@
-# 013080_Matrix_Store_Admin_Support_Action_Authority
+# 013080_Matrix_Store_Admin_Support_Action_Authority.md
 
-## 1 Purpose
+## Purpose
 
 Operational actions must be separated from configuration actions, support actions, approval actions, and audit visibility.
 

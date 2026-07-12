@@ -603,9 +603,9 @@ If any answer is missing, the contract remains planning-only.
 
 This document follows:
 
-* `22023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition`
-* `22024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning`
-* `22025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness`
+* `docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md`
+* `docs/022000_implementation_planning/022024_Policy_Runtime_Package_Decomposition_And_Module_Boundary_Planning.md`
+* `docs/022000_implementation_planning/022025_Policy_Data_Model_Planning_Boundary_And_Schema_Design_Readiness.md`
 
 This document prepares the boundary for:
 

@@ -39,13 +39,13 @@ Core statement:
 «wait\_order\_handoff does not replace store execution systems.
 It carries customer/order context created during waiting and hands it off to staff, POS, KDS, or external systems according to store capability.»
 
-3\. Jarijjim And wait\_order\_handoff
+3\. CatchMenu And wait\_order\_handoff
 
-Jarijjim is the customer-facing service name.
+CatchMenu is the customer-facing service name.
 
 wait\_order\_handoff is the runtime/project name.
 
-Jarijjim may include:
+CatchMenu may include:
 
 customer app
 customer webapp
@@ -67,7 +67,7 @@ POS/KDS adapter boundary
 benefit routing boundary
 external integration boundary
 
-Jarijjim is the service experience.
+CatchMenu is the service experience.
 
 wait\_order\_handoff is the operational runtime.
 

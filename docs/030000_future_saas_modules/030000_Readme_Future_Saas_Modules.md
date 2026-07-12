@@ -14,19 +14,19 @@ This folder is reserved for future SaaS module documentation under the `30000~99
 
 | document | description |
 | --- | --- |
-| `30010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md` | 30010 Franchise OS Linked POS SaaS Expansion And Hardware Partner Strategy Policy. |
-| `30020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md` | 30020 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy. |
-| `30030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md` | 30030 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy. |
-| `30040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md` | 30040 Franchise Store Billing Responsibility And HQ Store SaaS Fee Split Policy. |
-| `30050_Readme_Ad_Promotion_CMS.md` | 30050 Readme Ad Promotion CMS. |
-| `30060_Readme_Billing_Plan_Settlement.md` | 30060 Readme Billing Plan Settlement. |
-| `30070_Readme_Sales_Partner_Field_Growth.md` | 30070 Readme Sales Partner Field Growth. |
-| `30080_Readme_Native_All_In_One_Service_Runtime.md` | 30080 Readme Native All In One Service Runtime. |
-| `30090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md` | 30090 Dual Track External Alliance And Native Service Strategy. |
+| `docs/030000_future_saas_modules/030010_Policy_Franchise_OS_Linked_POS_SaaS_Expansion_And_Hardware_Partner_Strategy.md` | 30010 Franchise OS Linked POS SaaS Expansion And Hardware Partner Strategy Policy. |
+| `docs/030000_future_saas_modules/030020_Policy_SaaS_Revenue_Model_Payment_Margin_And_Provider_Partnership_Boundary.md` | 30020 SaaS Revenue Model Payment Margin And Provider Partnership Boundary Policy. |
+| `docs/030000_future_saas_modules/030030_Policy_SaaS_Package_Tier_Store_OS_Franchise_OS_And_Provider_Gateway_Pricing_Boundary.md` | 30030 SaaS Package Tier Store OS Franchise OS And Provider Gateway Pricing Boundary Policy. |
+| `docs/030000_future_saas_modules/030040_Policy_Franchise_Store_Billing_Responsibility_And_HQ_Store_SaaS_Fee_Split.md` | 30040 Franchise Store Billing Responsibility And HQ Store SaaS Fee Split Policy. |
+| `docs/030000_future_saas_modules/030050_Readme_Ad_Promotion_CMS.md` | 30050 Readme Ad Promotion CMS. |
+| `docs/030000_future_saas_modules/030060_Readme_Billing_Plan_Settlement.md` | 30060 Readme Billing Plan Settlement. |
+| `docs/030000_future_saas_modules/030070_Readme_Sales_Partner_Field_Growth.md` | 30070 Readme Sales Partner Field Growth. |
+| `030080_Policy_Native_All_In_One_Service_Runtime.md` | 030080 Policy Native All In One Service Runtime. |
+| `docs/030000_future_saas_modules/030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md` | 30090 Dual Track External Alliance And Native Service Strategy. |
 ## 4 Relationship To Other Bands
 
-- `docs/28000_future_expansion/` holds active future-expansion reference documents for franchise_os, Agent, AI, membership future models, and related boundaries.
-- `docs/30000_future_saas_modules/` is the long-term reserved namespace for additional SaaS module families not yet assigned.
+- `docs/028000_future_expansion/` holds active future-expansion reference documents for franchise_os, Agent, AI, membership future models, and related boundaries.
+- `docs/030000_future_saas_modules/` is the long-term reserved namespace for additional SaaS module families not yet assigned.
 
 ## 5 Out Of Scope
 

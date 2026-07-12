@@ -15,16 +15,16 @@ It does not define schema, migrations, app code, API endpoints, RLS policies, or
 
 | gate category | primary inputs |
 | --- | --- |
-| MVP scope approval | `docs/01000_mvp_scope/01010_MVP_Scope.md`, `docs/01000_mvp_scope/01020_Store_Type_And_Product_Package_Strategy.md` |
-| entity master review | `docs/09000_data_model_state_machine/09030_Conceptual_Entity_Master.md` |
-| state/event ownership review | `docs/09000_data_model_state_machine/09040_State_And_Event_Ownership_Model.md` |
-| audit/recovery lineage review | `docs/09000_data_model_state_machine/09050_Audit_Recovery_Event_Lineage_Model.md` |
-| integration boundary review | `docs/11000_integration_boundary/11010_Boundary_POS_Payment_Printer_Integration.md` |
-| security/access/privacy review | `docs/20000_validation_security_audit/20040_Governance_Admin_Access_And_Support_Access.md`, `docs/20000_validation_security_audit/20020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md` |
-| API projection review | `docs/13000_app_api_projection/13050_Boundary_Api_Contract_Projection.md`, `docs/13000_app_api_projection/13060_Matrix_Surface_State_Visibility_And_Authority.md` |
-| UI wording/surface review | `docs/17000_ui_screen_composition/17010_Customer_Webapp_UI_Composition.md`, `docs/17000_ui_screen_composition/17060_Guide_UI_State_Wording_And_Empty_State_Guideline.md` |
-| legal/payment/loyalty exclusion review | `docs/15000_membership_loyalty/15030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`, `docs/22000_implementation_planning/22060_Boundary_Mvp_Implementation_Non_Goals.md` |
-| rollback/test planning review | `docs/22000_implementation_planning/22050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md` |
+| MVP scope approval | `docs/001000_mvp_scope/001010_Guide_MVP_Scope.md`, `docs/001000_mvp_scope/001020_Store_Type_And_Product_Package_Strategy.md` |
+| entity master review | `docs/009000_data_model_state_machine/009030_Register_Conceptual_Entity_Master.md` |
+| state/event ownership review | `docs/009000_data_model_state_machine/009040_Policy_State_And_Event_Ownership_Model.md` |
+| audit/recovery lineage review | `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md` |
+| integration boundary review | `docs/011000_integration_boundary/011010_Boundary_POS_Payment_Printer_Integration.md` |
+| security/access/privacy review | `docs/020000_validation_security_audit/020040_Governance_Admin_Access_And_Support_Access.md`, `docs/020000_validation_security_audit/020020_Boundary_Cross_Entity_Data_Sharing_And_Privacy.md` |
+| API projection review | `docs/013000_app_api_projection/013050_Boundary_Api_Contract_Projection.md`, `docs/013000_app_api_projection/013060_Matrix_Surface_State_Visibility_And_Authority.md` |
+| UI wording/surface review | `docs/017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md`, `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md` |
+| legal/payment/loyalty exclusion review | `docs/015000_membership_loyalty/015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md`, `docs/022000_implementation_planning/022060_Boundary_Mvp_Implementation_Non_Goals.md` |
+| rollback/test planning review | `docs/022000_implementation_planning/022050_Boundary_QA_Smoke_Test_And_Rollback_Planning.md` |
 
 Each gate category must produce an explicit pass/fail outcome before implementation planning advances to physical design.
 
@@ -65,7 +65,7 @@ Additional hard stops:
 
 ## 5 Security Governance Consolidation Cross-Reference
 
-Implementation readiness must review `docs/20000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md` through `docs/20000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md` before implementation approval.
+Implementation readiness must review `docs/020000_validation_security_audit/020080_Governance_Access_Context_And_Data_Visibility.md` through `docs/020000_validation_security_audit/020120_Audit_Evidence_Packet_And_Compliance_Readiness.md` before implementation approval.
 
 Security/audit/privacy governance does not create implementation, but it is a hard gate.
 
@@ -84,9 +84,9 @@ It does not create implementation artifacts.
 ## 7 Cross-References
 
 - `docs/09000_data_model_state_machine/009060_Implementation_Deferred_Data_Model_Boundary.md`
-- `docs/22000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`
-- `docs/22000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`
-- `docs/22000_implementation_planning/022020_Boundary_Build_Sequence_And_Phase.md`
+- `docs/022000_implementation_planning/022030_Checklist_Schema_Design_Readiness.md`
+- `docs/022000_implementation_planning/022040_Checklist_Api_App_Implementation_Readiness.md`
+- `docs/022000_implementation_planning/022020_Boundary_Build_Sequence_And_Phase.md`
 
 ## 8 Open Decisions
 

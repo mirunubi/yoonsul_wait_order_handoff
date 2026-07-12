@@ -66,21 +66,21 @@ Test artifacts require a separate approved implementation wave after this planni
 
 ## 6 Deployment Operations Cross-Reference
 
-Deployment readiness and release governance are defined in `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`.
+Deployment readiness and release governance are defined in `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`.
 
-Incident/degraded operation boundary is defined in `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`.
+Incident/degraded operation boundary is defined in `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`.
 
-Rollback planning must align with `docs/24000_deployment_operations/024040_Boundary_Operational_Runbook.md`.
+Rollback planning must align with `docs/024000_deployment_operations/024040_Boundary_Operational_Runbook.md`.
 
 ## 7 Cross-References
 
-- `docs/22000_implementation_planning/022010_Implementation_Readiness_Gate.md`
-- `docs/24000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
-- `docs/24000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
-- `docs/24000_deployment_operations/024040_Boundary_Operational_Runbook.md`
-- `docs/09000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
-- `docs/20000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
-- `docs/17000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
+- `docs/022000_implementation_planning/022010_Implementation_Readiness_Gate.md`
+- `docs/024000_deployment_operations/024010_Governance_Deployment_Readiness_And_Release.md`
+- `docs/024000_deployment_operations/024030_Boundary_Incident_Response_And_Degraded_Operation.md`
+- `docs/024000_deployment_operations/024040_Boundary_Operational_Runbook.md`
+- `docs/009000_data_model_state_machine/009050_Audit_Recovery_Event_Lineage_Model.md`
+- `docs/020000_validation_security_audit/020050_Governance_Data_Export_And_Report_Approval.md`
+- `docs/017000_ui_screen_composition/017060_Guide_UI_State_Wording_And_Empty_State_Guideline.md`
 
 ## 8 Open Decisions
 

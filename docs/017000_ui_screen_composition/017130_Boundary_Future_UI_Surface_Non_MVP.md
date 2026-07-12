@@ -49,10 +49,10 @@ It does not approve future UI components or design assets.
 
 ## 5 Cross-References
 
-- `docs/15000_membership_loyalty/015050_Membership_Admin_And_UI_Reserved_Surface.md`
-- `docs/13000_app_api_projection/013130_Boundary_Future_Surface_And_Api_Non_MVP.md`
-- `docs/26000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
-- `docs/28000_future_expansion/028000_Readme_Future_Expansion.md`
+- `docs/015000_membership_loyalty/015050_Membership_Admin_And_UI_Reserved_Surface.md`
+- `docs/013000_app_api_projection/013130_Boundary_Future_Surface_And_Api_Non_MVP.md`
+- `docs/026000_analytics_reporting_bi/026030_Report_And_Dashboard_Boundary.md`
+- `docs/028000_future_expansion/028000_Readme_Future_Expansion.md`
 
 ## 6 Open Decisions
 
