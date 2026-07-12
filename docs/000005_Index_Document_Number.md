@@ -3330,3 +3330,18 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | (folder only — no governed documents yet) | waiting_feature_guest_customer_id_integration workpacket | draft |
+
+## 110 docs/600000_implementation_lifecycle/600300_cloud_local_migration_sync
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600300_Readme_Cloud_Local_Migration_Sync.md | 600300_Readme_Cloud_Local_Migration_Sync. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600301_ChangeHistory.md | 600301_ChangeHistory — append-only change history skeleton (§30). | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600302_NavigationMap.md | 600302_NavigationMap — per-domain change index (§32). | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600303_DecisionLog.md | 600303_DecisionLog — Human decision log skeleton. | active |
+
+## 111 docs/600000_implementation_lifecycle/600300_cloud_local_migration_sync/600310_initial_cloud_state_audit
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600310_initial_cloud_state_audit\600311_Overview.md | 600311_Overview — Q1-Q10 cloud state audit, 0000-0150 replay, 19-file skip/accept record, data backfill, §29 Decision Log. | active |

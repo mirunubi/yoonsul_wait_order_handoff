@@ -143,3 +143,11 @@ a stale customer total column.
 - 이 fix는 600120(guest_customer_bootstrap_rpc)의 승인 범위 밖이지만, 그 워크패킷의 TestPlan 실행 중 발견되어 §24 트랙으로 Human 승인 하에 즉시 수정함. **600120과 무관한 독립 §24 fix** — 600120의 Module/Verification/Audit 문서와 혼동하지 말 것
 - **중요한 범위 제약**: `0115`/`0116` 파일 자체를 패치했으나, 라이브 DB에서 실제 실행되는 함수 본문은 이미 `0149`가 `CREATE OR REPLACE FUNCTION`으로 재선언한 버전이며, `0149`는 이 fix의 대상이 아니었다(Human 결정 — 0149는 건드리지 않음). 따라서 **이 fix는 0115/0116 파일의 소스 정합성만 복원하며, 라이브 DB의 버그(0149 안의 동일한 stale 컬럼 참조)는 여전히 미해결 상태로 남아있다.** 라이브 버그 해결은 별도 결정 필요.
 - 영향받은 파일의 migration_history 체크섬 갱신 필요 (아래 참고)
+
+## 2026-07-11/12 — Cloud migration full replay (0000-0150) and data backfill
+
+- Full sequential replay of sql/migrations/0000-0150 against cloud project upzthfwhtvazfftxnyfu via tools/apply_migrations_cloud.py (newly created this session, pooler-connection + .pgpass based)
+- Cloud project was NOT empty prior to replay: contained 64 pre-existing dev/test menu rows (created 2026-07-01) and several already-existing tables (edge_function_configs, device_groups, device_commands, subscription_plans/invoices)
+- 19 files (0035, 0073, 0093, 0100, 0107, 0108, 0110, 0113, 0114, 0118, 0119, 0121, 0122, 0123, 0126, 0127, 0131, 0132, 0133, 0134, 0135) hit constraint-widening-order issues (chk_error_domain, chk_doc_domain, chk_plan_tier all widened later by 0140/0145/0146/0147) or forward-referenced objects (0073 expecting 0144's cron_job_executions/run_daily_close_batch). All manually accepted into catchmenu_meta.migration_history with documented reasons after Human review - NOT fixed by editing the source files, since local files were already correct and verified.
+- Post-0147, backfilled 52 error_codes rows, 22 documents rows, and 4 subscription_plans rows into cloud via pg_dump --data-only --column-inserts with ON CONFLICT DO NOTHING, restoring local/cloud parity (246/22/8 on both sides, verified).
+- Full detail: docs/600000_implementation_lifecycle/600300_cloud_local_migration_sync/600310_initial_cloud_state_audit/600311_Overview.md

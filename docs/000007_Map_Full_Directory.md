@@ -2065,6 +2065,13 @@ docs/
   |   |   +--- 600202_NavigationMap.md
   |   |   +--- 600203_DecisionLog.md
   |   |   +--- 600210_waiting_feature_guest_customer_id_integration/
+  |   +--- 600300_cloud_local_migration_sync/
+  |   |   +--- 600300_Readme_Cloud_Local_Migration_Sync.md
+  |   |   +--- 600301_ChangeHistory.md
+  |   |   +--- 600302_NavigationMap.md
+  |   |   +--- 600303_DecisionLog.md
+  |   |   +--- 600310_initial_cloud_state_audit/
+  |   |   |   +--- 600311_Overview.md
   |   +--- 604000_workpackets/
   |   |   +--- 604000_Readme_Workpackets.md
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
