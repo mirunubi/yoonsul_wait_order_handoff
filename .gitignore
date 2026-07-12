@@ -95,3 +95,6 @@ supabase/snippets/
 directory_only_tree.txt
 sync_checksums*.sql
 tools/missing_from_000005.txt
+# One-time cloud backfill working directory (data already applied)
+tmp_cloud_backfill/
+tools/__pycache__/
