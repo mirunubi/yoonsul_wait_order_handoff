@@ -2398,7 +2398,7 @@ Recommended placement:
 repository_root/
   sop/
     system/
-      51355_Guide_AI_Assisted_Financial_Grade_Development_Pipeline_Cursor_Claude_Codex_Automated_Gate_And_Human_Merge.md
+      000701_Guide_Controlled_AI_Development_Pipeline.md
 ```
 
 Alternative placement while still in design governance review:
@@ -2406,13 +2406,15 @@ Alternative placement while still in design governance review:
 ```text
 repository_root/
   docs/
-    600000_implementation_lifecycle/
-      51355_Guide_AI_Assisted_Financial_Grade_Development_Pipeline_Cursor_Claude_Codex_Automated_Gate_And_Human_Merge.md
+    000700_ai_agent_prelearning_and_project_context/
+      000701_Guide_Controlled_AI_Development_Pipeline.md
 ```
+
+(Its current location. The `600000_implementation_lifecycle/` band named here in an earlier revision of this section was quarantined to `990000_legacy_quarantine/` on 2026-07-10 — see §15.1 — so it is no longer a valid alternative placement.)
 
 Placement rule:
 
-- If the document is advisory, keep it under `docs/600000_implementation_lifecycle/`.
+- If the document is advisory, keep it under `docs/000700_ai_agent_prelearning_and_project_context/`.
 - If the document is mandatory, move it to `sop/system/`.
 - If moved to SOP, add cross-links from implementation lifecycle docs and root index.
 - If adopted as the active development constitution, reference it from the root master index and from every implementation lifecycle index.
@@ -2556,3 +2558,35 @@ This is a distinct convention from two other naming systems already in use in th
 - **`sql/migrations/CHANGELOG.md`** is a deliberate, explicitly-noted exception (§30) — it keeps the industry-standard lowercase `CHANGELOG.md` name rather than becoming `ChangeHistory.md`, because that name is recognized by tooling and contributors outside this project's governance system.
 
 There is no working-name/archived-name distinction and no renaming step performed later (§15.1) — a PascalCase artifact name is permanent from the moment Stage 1/1.5 creates it through however long the change remains referenced, whether the change is active or long since released.
+
+**(2026-07-11 개정)** Stage 7 머지 승인 완료 후에는 예외적으로 `000001` §5.4.2의 영구 archive 절차가 적용되어, 통합 작업 파일로 쓰였던 산출물이 개별 승인 DocumentType 단위로 6자리 번호 문서로 이전된다. 위 문단이 말하는 "permanent from creation"은 Stage 1-6 진행 중 단계에서의 파일명 불변성을 의미하며, Stage 7 이후 영구 보관 이전 자체를 금지하지 않는다. 상세 절차는 `000001` §5.4.2 참고.
+
+## 34. Actor Selection Rule (Cost/Capability-Based, 2026-07-11)
+
+기존 §3(8단계 파이프라인, Stage별 소유자)과 별개로, 실무적으로 어느 도구에 어떤 작업을 맡길지에 대한 원칙:
+
+### 34.1 Cursor — 대용량/전수 스캔
+
+- 대용량 파일 전수 검사, 디렉토리 트리 전체 스캔, 광범위 grep에 적합.
+- **제약**: 한글 파일을 처리하는 과정에서 인코딩을 자주 깨뜨리는 경향이 확인됨 (2026-07-11, 900160~179 계열 파일에서 실제 손상 사례 발견). 한글 본문이 포함된 파일의 내용을 다루는 작업에는 Cursor를 신뢰하지 말고, 인코딩 검증은 별도로 거칠 것.
+- 000001 §1("Cursor must not edit Korean body text")과 일치하는 방향 — 이번 발견이 그 규칙의 실제 근거 사례가 됨.
+
+### 34.2 Codex — 간단한 수정/검증, 비용 절감
+
+- 단순 반복 검증(인코딩 체크, 컬럼 존재 확인, 체크섬 계산 등), 소규모 in-place 수정(§24 Lightweight Track 등)에 우선 활용.
+- Claude Code보다 비용이 저렴하고 이런 작업엔 충분한 정확도.
+
+### 34.3 Claude Code — 검증/크리티컬 작업
+
+- 규칙 준수가 중요한 작업(ChangeContract 준수, 저자 분리 원칙, Stage 1.5/2 설계 산출물 작성), 감사·재검증 성격의 작업에 사용.
+- Codex보다 느리고 비싸지만 규칙을 정확히 따르는 경향이 더 강함 — 크리티컬 경로에는 이 특성이 더 중요.
+
+### 34.4 선택 기준 요약
+
+| 작업 성격 | 우선 도구 |
+|---|---|
+| 대용량 파일/트리 전체 스캔 (한글 없음 또는 스캔만) | Cursor |
+| 한글 본문이 있는 파일의 내용 검증/처리 | Cursor 지양, Codex 또는 Claude Code |
+| 단순/반복 검증, 소규모 §24 수정 | Codex |
+| ChangeContract 준수 구현, 규칙 정확성이 중요한 작업 | Claude Code |
+| 설계/감사/최종 판단 | Claude (Stage 2/6) |

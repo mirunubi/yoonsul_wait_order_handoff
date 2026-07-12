@@ -1,4 +1,3 @@
-@"
 # OS / Editor
 .DS_Store
 Thumbs.db
@@ -76,7 +75,6 @@ _archive/
 sop/
 scratch/
 _local/
-"@ | Set-Content .gitignore -Encoding utf8
 
 # Temporary search results
 _tmp_search_results/
@@ -86,3 +84,9 @@ directory_tree.txt
 tree_directory_view.txt
 docs/directory_tree.txt
 docs/tree_directory_view.txt
+
+# Ad-hoc cloud DB dump backups (not governed migration files)
+cloud_backup_*.sql
+
+# Supabase Studio local query snippets (personal/ad-hoc, not schema-governed)
+supabase/snippets/
