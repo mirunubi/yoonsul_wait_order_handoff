@@ -2590,3 +2590,30 @@ There is no working-name/archived-name distinction and no renaming step performe
 | 단순/반복 검증, 소규모 §24 수정 | Codex |
 | ChangeContract 준수 구현, 규칙 정확성이 중요한 작업 | Claude Code |
 | 설계/감사/최종 판단 | Claude (Stage 2/6) |
+
+## 35. Cross-Actor Verification Expansion Rule (2026-07-11)
+
+배경: 600210 워크패킷(Flutter 게스트 customer_id 연동)에서, Codex가 구현(Stage 4)하고 Claude Code가 검증(Stage 5)했으나, 이후 Cursor에게 독립 재검증을 별도로 시켰더니 Claude Code/Codex 둘 다 놓친 발견(하드코딩된 tenant_id/store_id가 실제 테스트 값과 동일함)이 나왔다. 이는 §3의 8단계 파이프라인이 "각 Stage를 서로 다른 행위자가 맡는다"는 원칙을 지켰음에도, 정작 최종 검증은 여전히 "구현자(Codex)를 검증한 그 한 명(Claude Code)"에게만 의존했기 때문이다 — 검증자가 1명이면 그 1명의 사각지대는 그대로 남는다.
+
+### 35.1 원칙
+
+Medium tier 이상(§31)의 구현이 완료되면, Stage 5(Claude Code 검증) 이후 **구현에 관여하지 않은 제3의 행위자(Cursor 우선, Cursor가 부적합하면 Codex)**에게 Eyes-Only 독립 재검증을 최소 1회 추가로 받는다. 이는 §5.5(Cursor 세컨오피니언, Full tier 한정)와 별개로, Medium tier에도 적용되는 경량 버전이다.
+
+### 35.2 절차
+
+1. Stage 6(Claude 감사) 이전 또는 병행하여, Cursor에게 다음을 Eyes-Only로 지시한다:
+   - 구현 파일 전체를 처음부터 직접 읽을 것 (이전 Stage 보고를 신뢰하지 말 것)
+   - ChangeContract의 Allowed/Forbidden 파일 준수 여부 재확인
+   - 설계 문서(Overview/Logic)와 실제 코드의 일치 여부 재확인
+   - 하드코딩된 값, 에러 핸들링 누락, 그 외 설계 문서에 없는 임의 판단이 섞였는지 전수 스캔
+2. Cursor는 판단/권고를 최소화하고 Open Question으로만 보고한다 (기존 Stage 1 원칙 그대로 적용).
+3. 새로운 발견이 나오면 Human이 처리 방침(즉시 수정 vs Known Limitation 문서화 vs 후속 워크패킷)을 결정한다 — Claude나 Cursor가 스스로 결정하지 않는다.
+
+### 35.3 이 규칙이 적용되지 않는 경우
+
+- Lightweight tier(§24) 성격의 단순 fix에는 적용하지 않는다 (과도한 오버헤드).
+- Low tier(§31) 문서 전용 변경에는 적용하지 않는다.
+
+### 35.4 근거
+
+이 규칙은 검증자 다양성(actor diversity)이 실제로 결함을 잡아낸 사례(600210, 2026-07-11)에 기반한다. 동일한 자료를 같은 방식으로 한 번 더 보는 것(§26이 이미 경고한 "반복 확인은 검증이 아니다")과, 전혀 다른 관점/도구로 처음부터 다시 보는 것은 다르다 — 후자만이 새로운 발견을 낳는다.
