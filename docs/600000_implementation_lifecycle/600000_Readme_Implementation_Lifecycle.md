@@ -11,7 +11,7 @@ This folder is the active implementation lifecycle band for controlled workpacke
 
 ## In Scope
 
-- Active domain folders such as `600100_customer_identity_and_guest_promotion/` and `600200_flutter_waiting_feature_implementation/`
+- Active domain folders such as `600100_customer_identity_and_guest_promotion/`, `600200_flutter_waiting_feature_implementation/`, and `600300_cloud_local_migration_sync/`
 - Active workpacket folders under `604000_workpackets/`
 - Future restoration of other quarantined `60xxxx` sub-bands when explicitly authorized
 - Registration in `docs/000005_Index_Document_Number.md` and `docs/000007_Map_Full_Directory.md`
@@ -35,6 +35,7 @@ This folder is the active implementation lifecycle band for controlled workpacke
 | --- | --- | --- |
 | `600100_customer_identity_and_guest_promotion/` | Customer identity / guest promotion documentation lane | Active |
 | `600200_flutter_waiting_feature_implementation/` | Flutter waiting feature implementation documentation lane | Active |
+| `600300_cloud_local_migration_sync/` | Cloud vs local SQL migration sync documentation lane | Active |
 | `604000_workpackets/` | Approved implementation workpacket containers | Active |
 
 Quarantined historical bands (`600100_readme_governance/`, `601000`, `602000`, `603000`, `605000`–`609000`) remain in `docs/990000_legacy_quarantine/` until explicitly restored.
