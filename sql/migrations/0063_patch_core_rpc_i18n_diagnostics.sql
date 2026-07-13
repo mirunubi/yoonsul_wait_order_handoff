@@ -43,7 +43,7 @@ begin
   -- validate session type
   if p_session_type not in (
     'WALK_IN', 'WAITING', 'PRE_ORDER',
-    'KIOSK', 'DELIVERY', 'ONLINE'
+    'KIOSK', 'DELIVERY', 'TAKEOUT'
   ) then
     return catchmenu_common.build_error_response(
       p_error_key := 'invalid_input',
@@ -143,6 +143,7 @@ begin
     case p_session_type
       when 'WALK_IN' then 'ORDERING'
       when 'KIOSK' then 'ORDERING'
+      when 'TAKEOUT' then 'ORDERING'
       when 'DELIVERY' then 'ORDER_CONFIRMED'
       else 'WAITING'
     end,
@@ -173,6 +174,7 @@ begin
     case p_session_type
       when 'WALK_IN' then 'ORDERING'
       when 'KIOSK' then 'ORDERING'
+      when 'TAKEOUT' then 'ORDERING'
       when 'DELIVERY' then 'ORDER_CONFIRMED'
       else 'WAITING'
     end,
@@ -202,6 +204,7 @@ begin
     case p_session_type
       when 'WALK_IN' then 'ORDERING'
       when 'KIOSK' then 'ORDERING'
+      when 'TAKEOUT' then 'ORDERING'
       else 'WAITING'
     end,
     'SYSTEM',
@@ -244,6 +247,7 @@ begin
       'session_status', case p_session_type
         when 'WALK_IN' then 'ORDERING'
         when 'KIOSK' then 'ORDERING'
+        when 'TAKEOUT' then 'ORDERING'
         when 'DELIVERY' then 'ORDER_CONFIRMED'
         else 'WAITING'
       end,

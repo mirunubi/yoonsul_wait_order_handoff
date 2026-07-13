@@ -528,7 +528,10 @@ set search_path = catchmenu_store,
                   catchmenu_hq
 as $$
 declare
-  v_customer record;
+  v_customer_id uuid;
+  v_customer_display_name text;
+  v_customer_membership_tier text;
+  v_customer_point_balance int;
   v_settings record;
   v_session_id uuid;
   v_order_id uuid;
@@ -537,7 +540,12 @@ declare
   v_menu record;
   v_total_amount int := 0;
   v_discount_amount int := 0;
-  v_coupon record;
+  v_coupon_id uuid;
+  v_coupon_discount_type text;
+  v_coupon_discount_value int;
+  v_coupon_discount_pct numeric;
+  v_coupon_min_order_amount int;
+  v_coupon_max_discount_amount int;
   v_coupon_discount int := 0;
   v_point_discount int := 0;
   v_final_amount int;
@@ -590,7 +598,10 @@ begin
   if p_customer_id is not null then
     select id, display_name,
            membership_tier, point_balance
-    into v_customer
+    into v_customer_id,
+         v_customer_display_name,
+         v_customer_membership_tier,
+         v_customer_point_balance
     from catchmenu_store.customers
     where id = p_customer_id
       and tenant_id = p_tenant_id
@@ -598,7 +609,10 @@ begin
   elsif p_phone_hash is not null then
     select id, display_name,
            membership_tier, point_balance
-    into v_customer
+    into v_customer_id,
+         v_customer_display_name,
+         v_customer_membership_tier,
+         v_customer_point_balance
     from catchmenu_store.customers
     where phone_hash = p_phone_hash
       and tenant_id = p_tenant_id
@@ -606,7 +620,7 @@ begin
   end if;
 
   -- 포인트 잔액 확인
-  if v_customer.id is not null
+  if v_customer_id is not null
     and p_use_points > 0
   then
     select coalesce(
@@ -619,7 +633,7 @@ begin
     )
     into v_point_balance
     from catchmenu_store.point_ledger
-    where customer_id = v_customer.id
+    where customer_id = v_customer_id
       and tenant_id = p_tenant_id;
 
     if v_point_balance < p_use_points then
@@ -635,22 +649,52 @@ begin
       );
     end if;
     v_point_discount := p_use_points;
+  elsif v_customer_id is null
+    and p_use_points > 0
+  then
+    perform catchmenu_common.log_diagnostic(
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_log_level := 'WARNING',
+      p_log_domain := 'ORDER',
+      p_log_event := 'points_requested_without_customer',
+      p_message := '비회원 포인트 사용 요청 스킵',
+      p_error_key := null,
+      p_details := jsonb_build_object(
+        'p_use_points', p_use_points
+      ),
+      p_recovery_hint := null,
+      p_rpc_name := 'place_takeout_order',
+      p_correlation_id := p_correlation_id,
+      p_session_id := null,
+      p_order_id := null,
+      p_payment_id := null,
+      p_exception_id := null,
+      p_device_id := null,
+      p_agent_id := null,
+      p_caller_type := null,
+      p_caller_id := null
+    );
   end if;
 
   -- 쿠폰 유효성 확인
   if p_coupon_issue_id is not null then
-    select ci.id, ci.issue_status,
-           ci.expires_at,
+    select ci.id,
            c.discount_type, c.discount_value,
            c.discount_pct,
            c.min_order_amount,
            c.max_discount_amount
-    into v_coupon
+    into v_coupon_id,
+         v_coupon_discount_type,
+         v_coupon_discount_value,
+         v_coupon_discount_pct,
+         v_coupon_min_order_amount,
+         v_coupon_max_discount_amount
     from catchmenu_store.coupon_issues ci
     join catchmenu_store.coupons c
       on c.id = ci.coupon_id
     where ci.id = p_coupon_issue_id
-      and ci.customer_id = v_customer.id
+      and ci.customer_id = v_customer_id
       and ci.tenant_id = p_tenant_id
       and ci.issue_status = 'ISSUED'
       and (
@@ -658,7 +702,7 @@ begin
         or ci.expires_at >= now()
       );
 
-    if v_coupon.id is null then
+    if v_coupon_id is null then
       return catchmenu_common.build_error_response(
         p_error_key := 'coupon_not_redeemable',
         p_locale := p_locale,
@@ -711,16 +755,16 @@ begin
   end loop;
 
   -- 쿠폰 할인 계산
-  if v_coupon.id is not null then
+  if v_coupon_id is not null then
     if v_total_amount
-      < coalesce(v_coupon.min_order_amount, 0)
+      < coalesce(v_coupon_min_order_amount, 0)
     then
       return catchmenu_common.build_error_response(
         p_error_key := 'order_amount_below_minimum',
         p_locale := p_locale,
         p_params := jsonb_build_object(
           'min_order_amount',
-            v_coupon.min_order_amount
+            v_coupon_min_order_amount
         ),
         p_tenant_id := p_tenant_id,
         p_store_id := p_store_id,
@@ -728,15 +772,15 @@ begin
       );
     end if;
 
-    v_coupon_discount := case v_coupon.discount_type
+    v_coupon_discount := case v_coupon_discount_type
       when 'AMOUNT' then
-        v_coupon.discount_value
+        v_coupon_discount_value
       when 'PCT' then
         least(
           (v_total_amount
-            * v_coupon.discount_pct / 100)::int,
+            * v_coupon_discount_pct / 100)::int,
           coalesce(
-            v_coupon.max_discount_amount,
+            v_coupon_max_discount_amount,
             999999
           )
         )
@@ -779,7 +823,7 @@ begin
     business_day, business_timezone
   ) values (
     p_tenant_id, p_store_id,
-    'ONLINE', 'ORDER_CONFIRMED',
+    'TAKEOUT', 'ORDER_CONFIRMED',
     1, p_locale,
     now(),
     p_correlation_id,
@@ -849,7 +893,7 @@ begin
   end;
 
   -- 쿠폰 사용 처리
-  if v_coupon.id is not null then
+  if v_coupon_id is not null then
     update catchmenu_store.coupon_issues
     set
       issue_status = 'USED',
@@ -861,12 +905,12 @@ begin
 
   -- 포인트 사용 처리
   if v_point_discount > 0
-    and v_customer.id is not null
+    and v_customer_id is not null
   then
     perform catchmenu_store.deduct_points(
       p_tenant_id := p_tenant_id,
       p_store_id := p_store_id,
-      p_customer_id := v_customer.id,
+      p_customer_id := v_customer_id,
       p_deduct_amount := v_point_discount,
       p_deduct_reason := '포장 주문 포인트 사용',
       p_order_id := v_order_id
@@ -921,13 +965,13 @@ begin
     'order', 'takeout_order_placed', 1,
     'order', v_order_id,
     null, 'CONFIRMED',
-    'CUSTOMER', v_customer.id,
+    'CUSTOMER', v_customer_id,
     jsonb_build_object(
       'order_number', v_order_number,
       'total_amount', v_total_amount,
       'discount_amount', v_discount_amount,
       'final_amount', v_final_amount,
-      'coupon_used', v_coupon.id is not null,
+      'coupon_used', v_coupon_id is not null,
       'points_used', v_point_discount
     ),
     v_session_id, v_order_id,
@@ -946,7 +990,7 @@ begin
       'order_number', v_order_number,
       'final_amount', v_final_amount,
       'customer_name',
-        coalesce(v_customer.display_name, '비회원'),
+        coalesce(v_customer_display_name, '비회원'),
       'requested_pickup_at',
         p_requested_pickup_at,
       'item_count',
@@ -1053,7 +1097,7 @@ begin
     ),
     'ready_count', count(*) filter (
       where kds_status in (
-        'READY', 'READY_TO_COMMIT'
+        'READY', 'COMMITTED'
       )
     ),
     'completed_count', count(*) filter (
@@ -1063,7 +1107,7 @@ begin
     ),
     'all_ready', bool_and(
       kds_status in (
-        'READY', 'READY_TO_COMMIT',
+        'READY', 'COMMITTED',
         'COMPLETED', 'SERVED'
       )
     )

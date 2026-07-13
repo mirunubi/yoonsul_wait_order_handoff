@@ -69,6 +69,28 @@ Last Updated: 2026-07-13
 
 없음 — 이번 조사는 이 결함(§0)에 직접 관련된 파일/문서만 다루며, §0 원칙에 따라 전수 스캔을 다시 하지 않았다.
 
+## §6.5 Required Context Snapshot Candidates
+
+### Master Anchor
+
+- `900102_ChangeContract_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md` — 본문 §Required Context에서 직접 재확인한 특허/핸드오프/KDS release 기준 문서. 이번 결함에 대한 직접 키워드 연결은 없었지만, KDS release 계열 change의 상위 경계 후보로 기록한다.
+
+### Full Rules Required
+
+- `sql/migrations/0028_create_kds_capacity_commit_rpc.sql` — `evaluate_kds_capacity()` 원본 정의이며, `check_kds_capacity()` wrapper가 재사용할 반환 계약 비교의 직접 근거.
+- `900160_Overview_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md` — 본문 §Required Context에서 `check_kds_capacity`/`evaluate_kds_capacity`/`is_overloaded`/`capacity_ok`/`과부하` 키워드로 전체 재확인했으나 직접 언급이 없음을 확인한 full-read 후보.
+- `900161_Logic_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md` — 본문 §Required Context에서 같은 방식으로 전체 재확인했으나 직접 언급이 없음을 확인한 full-read 후보.
+- `sql/migrations/CHANGELOG.md` — 이 결함에 대한 기존 기록이 없음을 확인한 근거.
+
+### Domain Indexes
+
+- 해당 없음 — 본문에 별도 KDS 도메인 Index/NavigationMap/Readme 인용은 없다.
+
+### Excluded Rule Families
+
+- 다른 KDS RPC 수정군 — 본문 §Direct Dependencies에서 `evaluate_kds_capacity()` 원본 정의는 편집하지 않는다고 명시했으며, 이번 change는 신규 wrapper 함수 설계로 한정한다.
+- 900160/900161 직접 설계 근거화 — full-read 확인은 했으나 이번 결함에 한해서 직접 연결은 없으므로, 이 문서들을 근거로 새 설계를 확장하지 않는다.
+
 ## Snapshot Decision
 
 이 스냅샷으로 `600412_Logic.md` 작성 진행 가능.

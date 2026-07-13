@@ -75,6 +75,26 @@ Last Updated: 2026-07-13
 
 **`0121_create_security_pipeline.sql`의 `security_threats.threat_status`에 있는 `'INVESTIGATING'`은 이번 범위가 아니다.** 이번 턴에 직접 확인한 결과 `catchmenu_common.security_threats`는 `reconciliation_cases`와 **완전히 별개의 테이블**이며(L213에서 독립적으로 `create table`), 그 테이블 자체의 `chk_threat_status` 제약(L285-287)이 `'INVESTIGATING'`을 정상적으로 허용하고 있다 — 즉 **이건 버그가 아니라 그 테이블의 정상적인 자체 값일 가능성이 높다.** 다만 이번 턴에는 "다른 테이블이라 범위 밖"이라는 사실만 확인했을 뿐, 정상 값인지 100% 확정 검증하지는 않았다(지시대로 손대지 않음).
 
+## §6.5 Required Context Snapshot Candidates
+
+### Master Anchor
+
+- 해당 없음 — 본문은 Human이 확정한 Cursor 최종 치환 표와 SQL 소스 직접 재검색에 기반한 순수 코드 정합화이며, 별도 900시리즈/특허/상위 설계 문서를 anchor로 삼지 않는다.
+
+### Full Rules Required
+
+- 해당 없음 — 본문에 별도 설계 문서 full-read 근거는 없고, `0081`/`0092`/`0099`/`0133` 등 대상 SQL 파일의 실제 위치 재확인이 근거다.
+
+### Domain Indexes
+
+- 해당 없음 — 본문에 도메인 Index/NavigationMap/Readme 인용은 없다.
+
+### Excluded Rule Families
+
+- `0015` 및 `0121_create_security_pipeline.sql` — 본문 §5에서 이번 batch의 stale-column 치환 범위와 다른 테이블/다른 상태값 계열로 명시적으로 제외.
+- `gap_amount`/`layer_number`/`amount_difference`/`case_description` 계열 추가 stale 참조 — 본문 §5에서 기록만 하고 이번 배치에서 손대지 않는 별도 후속 후보로 이월.
+- Flutter/runtime UI 변경 — `0092` L380은 문서/가이드 텍스트 동기화일 뿐, Flutter 실행 코드 변경으로 확장하지 않는다.
+
 ## Module Domain Tags
 
 - SQL
