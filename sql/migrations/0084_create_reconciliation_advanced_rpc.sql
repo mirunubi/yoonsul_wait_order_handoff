@@ -544,7 +544,7 @@ begin
       catchmenu_payment.reconciliation_cases (
       tenant_id, store_id,
       case_type, case_status,
-      case_severity,
+      severity,
       layer_number,
       subject_type, subject_id,
       amount_difference,
@@ -990,7 +990,7 @@ begin
     insert into
       catchmenu_payment.reconciliation_cases (
       tenant_id, store_id,
-      case_type, case_status, case_severity,
+      case_type, case_status, severity,
       layer_number,
       subject_type, subject_id,
       amount_difference, case_description,
@@ -1179,14 +1179,14 @@ begin
         'case_id', id,
         'case_type', case_type,
         'case_status', case_status,
-        'case_severity', case_severity,
+        'case_severity', severity,
         'layer_number', layer_number,
         'amount_difference', amount_difference,
         'case_description', case_description,
         'created_at', created_at
       )
       order by
-        case case_severity
+        case severity
           when 'CRITICAL' then 0
           when 'HIGH' then 1
           else 2
@@ -1199,7 +1199,7 @@ begin
   from catchmenu_payment.reconciliation_cases
   where store_id = p_store_id
     and tenant_id = p_tenant_id
-    and case_status in ('OPEN', 'INVESTIGATING')
+    and case_status in ('OPEN', 'UNDER_INVESTIGATION')
     and business_day between
       p_period_start and p_period_end;
 
@@ -1282,7 +1282,7 @@ begin
   end if;
 
   select id, case_type, case_status,
-         case_severity, layer_number,
+         severity, layer_number,
          amount_difference, business_day
   into v_case
   from catchmenu_payment.reconciliation_cases

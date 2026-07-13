@@ -445,7 +445,7 @@ begin
           )::int
           else null
         end,
-        'request_memo', o.request_memo
+        'memo', o.memo
       )
       order by
         kt.priority asc,
@@ -1001,8 +1001,8 @@ begin
   from catchmenu_payment.reconciliation_cases
   where store_id = p_store_id
     and tenant_id = p_tenant_id
-    and case_status in ('OPEN', 'INVESTIGATING')
-    and case_severity = 'CRITICAL';
+    and case_status in ('OPEN', 'UNDER_INVESTIGATION')
+    and severity = 'CRITICAL';
 
   return catchmenu_common.build_success_response(
     p_message_key := 'staff_alert_feed_loaded',

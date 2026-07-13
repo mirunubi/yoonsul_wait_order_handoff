@@ -598,7 +598,7 @@ begin
 
   -- 주문 조회
   select o.id, o.order_number, o.order_type,
-         o.final_amount, o.request_memo,
+         o.final_amount, o.memo,
          os.table_number, os.wait_number
   into v_order
   from catchmenu_pos.orders o
@@ -658,7 +658,7 @@ begin
     'menuList', v_items,
     'totalAmount', v_order.final_amount,
     'memo', coalesce(
-      v_order.request_memo, ''
+      v_order.memo, ''
     ),
     'orderedAt', now()
   );

@@ -497,6 +497,10 @@ end;
 $$;
 
 
+drop function if exists catchmenu_store.place_takeout_order(
+  uuid, uuid, jsonb, uuid, text, text, text, uuid, integer, timestamptz, text
+);
+
 create or replace function
   catchmenu_store.place_takeout_order(
   p_tenant_id uuid,
@@ -505,7 +509,7 @@ create or replace function
   p_customer_id uuid default null,
   p_phone_hash text default null,
   p_locale text default 'ko',
-  p_request_memo text default null,
+  p_memo text default null,
   p_coupon_issue_id uuid default null,
   p_use_points int default 0,
   p_requested_pickup_at timestamptz default null,
@@ -793,7 +797,7 @@ begin
     order_number, order_type, order_status,
     total_amount, discount_amount,
     final_amount,
-    request_memo,
+    memo,
     requested_pickup_at,
     ordered_at,
     business_day, business_timezone
@@ -802,7 +806,7 @@ begin
     v_order_number, 'TAKEOUT', 'CONFIRMED',
     v_total_amount, v_discount_amount,
     v_final_amount,
-    p_request_memo,
+    p_memo,
     p_requested_pickup_at,
     now(),
     v_business_day, v_timezone
@@ -1004,7 +1008,7 @@ begin
   select o.id, o.order_number, o.order_status,
          o.order_type, o.total_amount,
          o.discount_amount, o.final_amount,
-         o.request_memo,
+         o.memo,
          o.ordered_at, o.ready_at,
          o.completed_at, o.cancelled_at,
          o.requested_pickup_at
@@ -1139,7 +1143,7 @@ begin
       'requested_pickup_at',
         v_order.requested_pickup_at
     ),
-    'request_memo', v_order.request_memo,
+    'memo', v_order.memo,
     'message_code', 'order_tracked'
   );
 end;

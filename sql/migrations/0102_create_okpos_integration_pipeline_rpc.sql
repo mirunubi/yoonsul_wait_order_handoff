@@ -664,7 +664,7 @@ begin
   select o.id, o.order_number, o.order_type,
          o.order_status, o.final_amount,
          o.total_amount, o.discount_amount,
-         o.request_memo, o.session_id,
+         o.memo, o.session_id,
          os.table_number, os.wait_number
   into v_order
   from catchmenu_pos.orders o
@@ -725,7 +725,7 @@ begin
     'total_amount', v_order.total_amount,
     'discount_amount', v_order.discount_amount,
     'final_amount', v_order.final_amount,
-    'memo', coalesce(v_order.request_memo, ''),
+    'memo', coalesce(v_order.memo, ''),
     'timestamp', now()
   );
 

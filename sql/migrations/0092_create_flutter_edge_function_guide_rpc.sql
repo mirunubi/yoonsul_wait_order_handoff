@@ -377,7 +377,7 @@ class TakeoutService {
         'p_store_id': storeId,
         'p_customer_id': customerId,
         'p_items': items,
-        'p_request_memo': requestMemo,
+        'p_memo': requestMemo,
         'p_coupon_issue_id': couponIssueId,
         'p_use_points': usePoints,
         'p_requested_pickup_at':
@@ -1188,9 +1188,9 @@ begin
       from catchmenu_payment.reconciliation_cases
       where store_id = p_store_id
         and case_status in (
-          'OPEN', 'INVESTIGATING'
+          'OPEN', 'UNDER_INVESTIGATION'
         )
-        and case_severity = 'CRITICAL';
+        and severity = 'CRITICAL';
 
       perform catchmenu_common.add_health_check_item(
         'RECONCILIATION',

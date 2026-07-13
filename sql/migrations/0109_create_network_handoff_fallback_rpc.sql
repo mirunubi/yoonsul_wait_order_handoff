@@ -857,7 +857,7 @@ begin
                 order_number, order_type,
                 order_status, order_source,
                 total_amount, final_amount,
-                request_memo,
+                memo,
                 local_temp_id,
                 ordered_at, business_day,
                 business_timezone

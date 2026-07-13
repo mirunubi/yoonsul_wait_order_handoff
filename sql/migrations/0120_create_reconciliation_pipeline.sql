@@ -812,12 +812,12 @@ begin
       jsonb_build_object(
         'case_id', rc.id,
         'case_type', rc.case_type,
-        'case_severity', rc.case_severity,
+        'case_severity', rc.severity,
         'gap_amount', rc.gap_amount,
         'case_status', rc.case_status,
         'detected_at', rc.detected_at
       )
-      order by rc.case_severity desc,
+      order by rc.severity desc,
                rc.gap_amount desc
     ),
     '[]'::jsonb

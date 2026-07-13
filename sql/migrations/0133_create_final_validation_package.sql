@@ -278,7 +278,7 @@ create table if not exists
   store_id uuid not null
     references catchmenu_hq.stores(id),
   case_type text not null,
-  case_severity text not null default 'WARNING',
+  severity text not null default 'WARNING',
   gap_amount bigint not null default 0,
   case_status text not null default 'OPEN',
   case_detail jsonb,
@@ -287,7 +287,7 @@ create table if not exists
   created_at timestamptz not null default now(),
   constraint chk_case_status check (
     case_status in (
-      'OPEN', 'INVESTIGATING',
+      'OPEN', 'UNDER_INVESTIGATION',
       'RESOLVED', 'WAIVED'
     )
   )
