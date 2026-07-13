@@ -87,7 +87,7 @@ create table if not exists catchmenu_kds.kds_tickets (
     kds_status in (
       'HOLD',
       'CAPACITY_CHECKING',
-      'READY_TO_COMMIT',
+      'COMMITTED',
       'COOKING',
       'READY',
       'SERVED',
@@ -126,7 +126,7 @@ create index if not exists idx_kds_tickets_order
 create index if not exists idx_kds_tickets_store_zone
   on catchmenu_kds.kds_tickets(store_id, kitchen_zone, kds_status)
   where kitchen_zone is not null
-    and kds_status in ('READY_TO_COMMIT', 'COOKING');
+    and kds_status in ('COMMITTED', 'COOKING');
 
 create index if not exists idx_kds_tickets_session
   on catchmenu_kds.kds_tickets(session_id)
@@ -143,7 +143,7 @@ create index if not exists idx_kds_tickets_hold
 create index if not exists idx_kds_tickets_device
   on catchmenu_kds.kds_tickets(target_device_id, kds_status)
   where target_device_id is not null
-    and kds_status in ('READY_TO_COMMIT', 'COOKING', 'READY');
+    and kds_status in ('COMMITTED', 'COOKING', 'READY');
 
 create index if not exists idx_kds_tickets_business_day
   on catchmenu_kds.kds_tickets(store_id, business_day desc);
@@ -162,7 +162,7 @@ comment on table catchmenu_kds.kds_tickets is
   'KDS kitchen tickets with Late Binding hold control.
    Core implementation of 특허2.
    All tickets start in HOLD state.
-   Transition to READY_TO_COMMIT only when all conditions_met are true.
+   Transition to COMMITTED only when all conditions_met are true.
    KDS release ALWAYS requires payment_confirmed = true in conditions_met.
    Payment approval alone is NOT sufficient — kds_release_authorized in
    payment_ledger must also be true.
@@ -170,7 +170,7 @@ comment on table catchmenu_kds.kds_tickets is
 comment on column catchmenu_kds.kds_tickets.kds_status is
   'HOLD = all or some conditions not yet met. Kitchen does not see this ticket.
    CAPACITY_CHECKING = KDS Capacity Agent is evaluating kitchen load.
-   READY_TO_COMMIT = all conditions met, ready to send to kitchen display.
+   COMMITTED = all conditions met, ready to send to kitchen display.
    COOKING = ticket visible on KDS, cooking in progress.
    READY = cooking complete, waiting to serve.
    SERVED = delivered to customer.
@@ -179,7 +179,7 @@ comment on column catchmenu_kds.kds_tickets.kds_status is
    MANUAL_FALLBACK = staff handling manually, KDS bypassed.';
 comment on column catchmenu_kds.kds_tickets.conditions_met is
   'Tracks which Late Binding conditions are satisfied.
-   All must be true before HOLD → READY_TO_COMMIT transition.
+   All must be true before HOLD → COMMITTED transition.
    arrived: customer physically arrived at store.
    table_confirmed: table assignment completed (Late Binding).
    payment_confirmed: payment_ledger.kds_release_authorized = true.
@@ -189,7 +189,7 @@ comment on column catchmenu_kds.kds_tickets.conditions_met is
    no_show_risk_ok: customer arrival reliability score acceptable.
    특허2: 7개 핵심 조건 모두 충족 시 조리 실행 큐 투입.';
 comment on column catchmenu_kds.kds_tickets.committed_at is
-  'Timestamp when HOLD → READY_TO_COMMIT transition occurred.
+  'Timestamp when HOLD → COMMITTED transition occurred.
    This is the Late Binding commit point.
    Time between ticket_created_at and committed_at = hold duration.
    Used by AI Agent to optimize pre-order timing recommendations.

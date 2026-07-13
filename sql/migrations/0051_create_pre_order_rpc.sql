@@ -904,7 +904,7 @@ comment on function catchmenu_pos.confirm_pre_order_arrival(
    3. Updates KDS conditions: arrived = true, table_confirmed = true.
    4. KDS tickets move from HOLD → CAPACITY_CHECKING.
    Next step: payment → payment_confirmed = true → all conditions met
-   → READY_TO_COMMIT.
+   → COMMITTED.
    특허1: 도착 확인 = Late Binding 완료 시점.
    특허2: 도착 확인 → KDS 조건 2개 충족 → 결제 대기.';
 

@@ -685,7 +685,7 @@ comment on function catchmenu_kds.get_kds_performance(
   uuid, uuid, date, text
 ) is
   'Returns KDS timing KPI broken down by kitchen zone and hour.
-   avg_hold_minutes: time from ticket creation to READY_TO_COMMIT.
+   avg_hold_minutes: time from ticket creation to COMMITTED.
    avg_cooking_minutes: time from COOKING to READY.
    on_time_rate_pct: % of tickets completed within estimated_minutes.
    hourly_load: ticket distribution by hour for peak time analysis.

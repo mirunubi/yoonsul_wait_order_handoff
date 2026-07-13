@@ -1,6 +1,6 @@
 -- 0029_create_kds_cooking_rpc.sql
 -- Purpose: KDS cooking lifecycle RPCs.
---          start_cooking: READY_TO_COMMIT → COOKING.
+--          start_cooking: COMMITTED → COOKING.
 --          complete_cooking: COOKING → READY.
 --          serve_ticket: READY → SERVED.
 --          complete_order_kds: all tickets done → order COMPLETED.
@@ -54,7 +54,7 @@ begin
     );
   end if;
 
-  if v_ticket.kds_status <> 'READY_TO_COMMIT' then
+  if v_ticket.kds_status <> 'COMMITTED' then
     return jsonb_build_object(
       'success', false,
       'error_key', 'ticket_not_ready_to_commit',
@@ -78,7 +78,7 @@ begin
     end if;
   end if;
 
-  -- READY_TO_COMMIT → COOKING
+  -- COMMITTED → COOKING
   update catchmenu_kds.kds_tickets
   set
     kds_status = 'COOKING',
@@ -105,7 +105,7 @@ begin
     p_tenant_id, p_store_id,
     p_ticket_id, v_ticket.order_id,
     'cooking_started',
-    'READY_TO_COMMIT', 'COOKING',
+    'COMMITTED', 'COOKING',
     p_actor_type, p_actor_id,
     p_device_id,
     v_ticket.conditions_met,
@@ -134,7 +134,7 @@ begin
     p_tenant_id, p_store_id,
     'kds', 'kds_cooking_started', 1,
     'kds_ticket', p_ticket_id,
-    'READY_TO_COMMIT', 'COOKING',
+    'COMMITTED', 'COOKING',
     p_actor_type, p_actor_id,
     p_device_id,
     jsonb_build_object(
@@ -164,7 +164,7 @@ begin
       'cooking_started_at', now()
     ),
     p_before_state := jsonb_build_object(
-      'kds_status', 'READY_TO_COMMIT'
+      'kds_status', 'COMMITTED'
     ),
     p_after_state := jsonb_build_object(
       'kds_status', 'COOKING'
@@ -705,7 +705,7 @@ $$;
 comment on function catchmenu_kds.start_cooking(
   uuid, uuid, uuid, text, uuid, uuid, text
 ) is
-  'Transitions KDS ticket READY_TO_COMMIT → COOKING.
+  'Transitions KDS ticket COMMITTED → COOKING.
    Verifies payment_ledger.kds_release_authorized = true before allowing.
    Updates order_item status to COOKING.
    Updates order status to COOKING if first ticket to start.

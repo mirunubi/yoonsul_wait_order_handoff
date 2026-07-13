@@ -289,7 +289,7 @@ begin
           order by
             case kds_status
               when 'COOKING' then 0
-              when 'READY_TO_COMMIT' then 1
+              when 'COMMITTED' then 1
               when 'CAPACITY_CHECKING' then 2
               when 'HOLD' then 3
               else 4
@@ -298,7 +298,7 @@ begin
         ) filter (
           where kds_status in (
             'COOKING', 'READY',
-            'READY_TO_COMMIT',
+            'COMMITTED',
             'CAPACITY_CHECKING'
           )
         ),
@@ -583,7 +583,7 @@ begin
       order by
         case kds_status
           when 'COOKING' then 0
-          when 'READY_TO_COMMIT' then 1
+          when 'COMMITTED' then 1
           when 'CAPACITY_CHECKING' then 2
           when 'HOLD' then 3
           else 4
