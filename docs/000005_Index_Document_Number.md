@@ -75,6 +75,8 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000050_Policy_Deployment_Mode_Model.md | 00050_Deployment_Mode_Model. | active |
 | docs\000051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification.md | 00051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification. | active |
 | docs\000052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest.md | 00052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest. | active |
+| docs\000053_Matrix_Domain_To_Artifact_Traceability.md | 00053_Matrix_Domain_To_Artifact_Traceability. | active |
+| docs\000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md | 00054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap. | active |
 | docs\000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md | 00055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest. | active |
 | docs\000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md | 00057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate. | active |
 | docs\000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md | 00058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest. | active |
@@ -3345,3 +3347,19 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600310_initial_cloud_state_audit\600311_Overview.md | 600311_Overview — Q1-Q10 cloud state audit, 0000-0150 replay, 19-file skip/accept record, data backfill, §29 Decision Log. | active |
+
+## 112 docs/600000_implementation_lifecycle/600400_kds_did_implementation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600400_Readme_KDS_DID_Implementation.md | 600400_Readme_KDS_DID_Implementation. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600401_ChangeHistory.md | 600401_ChangeHistory — append-only change history skeleton (§30). | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600402_NavigationMap.md | 600402_NavigationMap — per-domain change index (§32). | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600403_DecisionLog.md | 600403_DecisionLog — Human decision log (§35 defect-based document linking principle). | active |
+
+## 113 docs/600000_implementation_lifecycle/600400_kds_did_implementation/600410_kds_capacity_gate_and_status_reconciliation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600411_Overview.md | 600411_Overview — check_kds_capacity() missing-function defect, evaluate_kds_capacity() comparison. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600412_Logic.md | 600412_Logic — check_kds_capacity() design resolution (new wrapper function vs. call-site rename). | active |

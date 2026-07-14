@@ -79,6 +79,8 @@ docs/
   +--- 000050_Policy_Deployment_Mode_Model.md
   +--- 000051_Plan_Batch_6B_Staged_Commit_Execution_And_Post_Commit_Verification.md
   +--- 000052_Matrix_Batch_6C_Untracked_Legacy_Five_Digit_Cleanup_Approval_Manifest.md
+  +--- 000053_Matrix_Domain_To_Artifact_Traceability.md
+  +--- 000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md
   +--- 000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md
   +--- 000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md
   +--- 000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md
@@ -2072,6 +2074,15 @@ docs/
   |   |   +--- 600303_DecisionLog.md
   |   |   +--- 600310_initial_cloud_state_audit/
   |   |   |   +--- 600311_Overview.md
+  |   +--- 600400_kds_did_implementation/
+  |   |   +--- 600400_Readme_KDS_DID_Implementation.md
+  |   |   +--- 600401_ChangeHistory.md
+  |   |   +--- 600402_NavigationMap.md
+  |   |   +--- 600403_DecisionLog.md
+  |   |   +--- 600330_kds_did_event_reactive_implementation/
+  |   |   +--- 600410_kds_capacity_gate_and_status_reconciliation/
+  |   |   |   +--- 600411_Overview.md
+  |   |   |   +--- 600412_Logic.md
   |   +--- 604000_workpackets/
   |   |   +--- 604000_Readme_Workpackets.md
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
