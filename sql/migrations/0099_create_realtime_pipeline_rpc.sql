@@ -609,7 +609,7 @@ begin
   ))::date;
 
   select store_mode, waiting_enabled,
-         max_waiting_count
+         max_wait_number
   into v_store_settings
   from catchmenu_store.store_settings
   where store_id = p_store_id
@@ -730,14 +730,14 @@ begin
         v_store_settings.waiting_enabled, true
       ),
       'max_waiting_count', coalesce(
-        v_store_settings.max_waiting_count, 30
+        v_store_settings.max_wait_number, 30
       ),
       'current_waiting',
         jsonb_array_length(v_waiting_sessions),
       'is_full',
         jsonb_array_length(v_waiting_sessions)
           >= coalesce(
-            v_store_settings.max_waiting_count,
+            v_store_settings.max_wait_number,
             30
           ),
       'waiting_sessions', v_waiting_sessions,

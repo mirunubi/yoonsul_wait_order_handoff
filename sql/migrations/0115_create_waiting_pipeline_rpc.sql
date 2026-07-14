@@ -627,6 +627,8 @@ declare
   v_menu record;
   v_business_day date;
   v_timezone text;
+  v_ticket_count int := 0;
+  v_ticket_number text;
 begin
   select timezone into v_timezone
   from catchmenu_hq.stores
@@ -767,9 +769,12 @@ begin
     --  착석하자마자 신선하게 나오는 시스템"
     -- ==========================================
     if v_menu.is_kds_required then
+      v_ticket_count := v_ticket_count + 1;
+      v_ticket_number := v_order_number || '-' || lpad(v_ticket_count::text, 2, '0');
+
       insert into catchmenu_kds.kds_tickets (
         tenant_id, store_id,
-        order_id, menu_id,
+        order_id, ticket_number,
         menu_name_snapshot,
         quantity_snapshot,
         kitchen_zone, kds_status,
@@ -778,7 +783,7 @@ begin
         business_day, business_timezone
       ) values (
         p_tenant_id, p_store_id,
-        v_order_id, v_menu.id,
+        v_order_id, v_ticket_number,
         v_menu.menu_name,
         (v_item->>'quantity')::int,
         coalesce(v_menu.kitchen_zone, 'MAIN'),
