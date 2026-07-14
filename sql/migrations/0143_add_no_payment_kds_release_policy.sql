@@ -116,7 +116,7 @@ begin
     );
   end if;
 
-  if v_ticket.kds_status = 'READY_TO_COMMIT'
+  if v_ticket.kds_status = 'COMMITTED'
      and coalesce(
        (v_ticket.conditions_met->>'no_payment_policy_released')::boolean,
        false
@@ -177,7 +177,7 @@ begin
 
   update catchmenu_kds.kds_tickets
   set
-    kds_status = 'READY_TO_COMMIT',
+    kds_status = 'COMMITTED',
     conditions_met = v_conditions,
     committed_at = now(),
     capacity_check_at = now(),
@@ -218,7 +218,7 @@ begin
     p_order_id,
     'all_conditions_met',
     'HOLD',
-    'READY_TO_COMMIT',
+    'COMMITTED',
     'STAFF',
     p_actor_id,
     v_conditions,
@@ -263,7 +263,7 @@ begin
     'kds_ticket',
     p_ticket_id,
     'HOLD',
-    'READY_TO_COMMIT',
+    'COMMITTED',
     'STAFF',
     p_actor_id,
     jsonb_build_object(
@@ -305,7 +305,7 @@ begin
       'conditions_met', v_ticket.conditions_met
     ),
     p_after_state := jsonb_build_object(
-      'kds_status', 'READY_TO_COMMIT',
+      'kds_status', 'COMMITTED',
       'conditions_met', v_conditions
     ),
     p_session_id := v_ticket.session_id,
@@ -321,7 +321,7 @@ begin
     'already_released', false,
     'ticket_id', p_ticket_id,
     'order_id', p_order_id,
-    'kds_status', 'READY_TO_COMMIT',
+    'kds_status', 'COMMITTED',
     'release_source', 'STORE_NO_PAYMENT_POLICY',
     'authorized_by', p_actor_id,
     'audit_id', v_audit_id,
@@ -341,7 +341,7 @@ grant execute on function catchmenu_kds.release_kds_ticket_no_payment(
 comment on function catchmenu_kds.release_kds_ticket_no_payment(
   uuid, uuid, uuid, uuid, uuid, text
 ) is
-  'Releases one HOLD ticket to READY_TO_COMMIT only when the exact tenant/store '
+  'Releases one HOLD ticket to COMMITTED only when the exact tenant/store '
   'has payment_required_for_kds_release = FALSE and the authenticated active '
   'staff actor has can_override_kds. The RPC preserves payment_confirmed and '
   'does not read or use manual_fallback_activated.';

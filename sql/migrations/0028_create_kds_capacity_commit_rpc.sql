@@ -1,7 +1,7 @@
 -- 0028_create_kds_capacity_commit_rpc.sql
 -- Purpose: KDS capacity evaluation and Late Binding commit RPC.
 --          Evaluates all 7 conditions for each KDS ticket.
---          When all conditions met: HOLD → READY_TO_COMMIT.
+--          When all conditions met: HOLD → COMMITTED.
 --          When conditions not met: updates conditions_met and stays HOLD.
 --          특허2 core: KDS 수용상태 기반 Late Binding 조리 실행 큐 제어.
 -- Depends on: 0027_create_payment_intent_rpc.sql
@@ -32,7 +32,7 @@ begin
   -- count active tickets per kitchen zone
   select
     count(*) filter (
-      where kds_status in ('COOKING', 'READY_TO_COMMIT')
+      where kds_status in ('COOKING', 'COMMITTED')
     ),
     count(*) filter (
       where kds_status in ('HOLD', 'CAPACITY_CHECKING')
@@ -151,7 +151,7 @@ begin
   );
 
   -- check all 7 conditions
-  -- 특허2: 7개 조건 모두 true일 때만 READY_TO_COMMIT 전환
+  -- 특허2: 7개 조건 모두 true일 때만 COMMITTED 전환
   v_all_met := (
     coalesce(
       (v_merged_conditions->>'arrived')::boolean, false
@@ -177,10 +177,10 @@ begin
   );
 
   if v_all_met then
-    -- all conditions met → READY_TO_COMMIT
+    -- all conditions met → COMMITTED
     update catchmenu_kds.kds_tickets
     set
-      kds_status = 'READY_TO_COMMIT',
+      kds_status = 'COMMITTED',
       conditions_met = v_merged_conditions,
       committed_at = now(),
       capacity_check_at = now(),
@@ -200,7 +200,7 @@ begin
       p_tenant_id, p_store_id,
       p_ticket_id, v_ticket.order_id,
       'all_conditions_met',
-      v_ticket.kds_status, 'READY_TO_COMMIT',
+      v_ticket.kds_status, 'COMMITTED',
       'SYSTEM',
       v_merged_conditions,
       jsonb_build_object(
@@ -225,7 +225,7 @@ begin
       p_tenant_id, p_store_id,
       'kds', 'kds_committed', 1,
       'kds_ticket', p_ticket_id,
-      v_ticket.kds_status, 'READY_TO_COMMIT',
+      v_ticket.kds_status, 'COMMITTED',
       'SYSTEM',
       jsonb_build_object(
         'conditions_met', v_merged_conditions,
@@ -259,7 +259,7 @@ begin
         'conditions_met', v_ticket.conditions_met
       ),
       p_after_state := jsonb_build_object(
-        'kds_status', 'READY_TO_COMMIT',
+        'kds_status', 'COMMITTED',
         'conditions_met', v_merged_conditions
       ),
       p_order_id := v_ticket.order_id,
@@ -272,7 +272,7 @@ begin
     return jsonb_build_object(
       'success', true,
       'ticket_id', p_ticket_id,
-      'kds_status', 'READY_TO_COMMIT',
+      'kds_status', 'COMMITTED',
       'conditions_met', v_merged_conditions,
       'committed_at', now(),
       'kitchen_zone', v_ticket.kitchen_zone,
@@ -464,7 +464,7 @@ begin
   into v_tickets_ready
   from catchmenu_kds.kds_tickets
   where order_id = v_ledger.order_id
-    and kds_status in ('READY_TO_COMMIT', 'CAPACITY_CHECKING')
+    and kds_status in ('COMMITTED', 'CAPACITY_CHECKING')
     and (conditions_met->>'payment_confirmed')::boolean = true;
 
   -- payment event
@@ -590,7 +590,7 @@ comment on function catchmenu_kds.commit_kds_ticket(
   'KDS Late Binding commit RPC. Core of 특허2.
    Merges incoming conditions with existing conditions_met.
    Evaluates real-time KDS capacity for kitchen zone.
-   When all 7 conditions true → HOLD/CAPACITY_CHECKING → READY_TO_COMMIT.
+   When all 7 conditions true → HOLD/CAPACITY_CHECKING → COMMITTED.
    Otherwise → stays CAPACITY_CHECKING with updated conditions.
    Conditions: arrived, table_confirmed, payment_confirmed,
                kds_capacity_ok, menu_available,
@@ -606,4 +606,4 @@ comment on function catchmenu_kds.authorize_kds_release(
    This is a separate step from payment approval.
    특허1: 결제 승인 ≠ KDS 자동 릴리즈.
           별도 authorize 단계 필수.
-   After this: run commit_kds_ticket for each ticket in READY_TO_COMMIT.';
+   After this: run commit_kds_ticket for each ticket in COMMITTED.';

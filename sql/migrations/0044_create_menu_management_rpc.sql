@@ -104,7 +104,7 @@ begin
       and kt.store_id = p_store_id
       and kt.tenant_id = p_tenant_id
       and kt.kds_status in (
-        'CAPACITY_CHECKING', 'READY_TO_COMMIT'
+        'CAPACITY_CHECKING', 'COMMITTED'
       );
 
     get diagnostics v_affected_tickets = row_count;

@@ -151,7 +151,7 @@ begin
       where kds_status in ('HOLD', 'CAPACITY_CHECKING')
     ),
     count(*) filter (
-      where kds_status in ('COOKING', 'READY_TO_COMMIT')
+      where kds_status in ('COOKING', 'COMMITTED')
     )
   into v_kds_hold_count, v_kds_cooking_count
   from catchmenu_kds.kds_tickets

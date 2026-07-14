@@ -71,7 +71,7 @@ begin
     if v_zone = 'UNASSIGNED' then
       select
         count(*) filter (
-          where kds_status in ('COOKING', 'READY_TO_COMMIT')
+          where kds_status in ('COOKING', 'COMMITTED')
         ),
         count(*) filter (
           where kds_status in ('HOLD', 'CAPACITY_CHECKING')

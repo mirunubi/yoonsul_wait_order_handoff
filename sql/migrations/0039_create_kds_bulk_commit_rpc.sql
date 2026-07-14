@@ -77,7 +77,7 @@ begin
       p_correlation_id := p_correlation_id
     );
 
-    if (v_commit_result->>'kds_status') = 'READY_TO_COMMIT' then
+    if (v_commit_result->>'kds_status') = 'COMMITTED' then
       v_committed_count := v_committed_count + 1;
     elsif (v_commit_result->>'kds_status') = 'CAPACITY_CHECKING' then
       v_pending_count := v_pending_count + 1;
@@ -94,7 +94,7 @@ begin
         'all_conditions_met',
           coalesce(
             (v_commit_result->>'all_conditions_met')::boolean,
-            (v_commit_result->>'kds_status') = 'READY_TO_COMMIT'
+            (v_commit_result->>'kds_status') = 'COMMITTED'
           )
       )
     );

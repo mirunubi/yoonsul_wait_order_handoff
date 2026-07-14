@@ -582,7 +582,7 @@ begin
     cancelled_at = now(),
     updated_at = now()
   where order_id = p_order_id
-    and kds_status in ('HOLD', 'CAPACITY_CHECKING', 'READY_TO_COMMIT');
+    and kds_status in ('HOLD', 'CAPACITY_CHECKING', 'COMMITTED');
 
   get diagnostics v_cancelled_tickets = row_count;
 
