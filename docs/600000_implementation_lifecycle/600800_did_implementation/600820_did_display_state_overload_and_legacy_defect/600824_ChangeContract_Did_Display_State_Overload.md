@@ -116,9 +116,9 @@ These are explicitly out of scope and must remain separate workpacket candidates
 
 Implementation may proceed only after Human checks all three boxes:
 
-- [ ] I approve the single-file forward migration boundary.
-- [ ] I approve dropping only the legacy 3-param `get_did_display_state(uuid, uuid, uuid)` overload.
-- [ ] I confirm that `0043`, `0117`, `bootstrap_did_app()`, and the other overload families are out of scope.
+☑ I approve the single-file forward migration boundary. (승인일자: 2026-07-14)
+☑ I approve dropping only the legacy 3-param get_did_display_state(uuid, uuid, uuid) overload. (승인일자: 2026-07-14)
+☑ I confirm that 0043, 0117, bootstrap_did_app(), and the other overload families are out of scope. (승인일자: 2026-07-14)
 
 ## 8. Expected Implementation Result
 
