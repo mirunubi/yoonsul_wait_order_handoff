@@ -3352,7 +3352,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 
 | file path | purpose | current status |
 | --- | --- | --- |
-| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600400_Readme_KDS_DID_Implementation.md | 600400_Readme_KDS_DID_Implementation. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600400_Readme_KDS_Implementation.md | 600400_Readme_KDS_Implementation. | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600401_ChangeHistory.md | 600401_ChangeHistory — append-only change history skeleton (§30). | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600402_NavigationMap.md | 600402_NavigationMap — per-domain change index (§32). | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600403_DecisionLog.md | 600403_DecisionLog — Human decision log (§35 defect-based document linking principle). | active |
@@ -3363,3 +3363,115 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600411_Overview.md | 600411_Overview — check_kds_capacity() missing-function defect, evaluate_kds_capacity() comparison. | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600412_Logic.md | 600412_Logic — check_kds_capacity() design resolution (new wrapper function vs. call-site rename). | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600413_TestPlan.md | 600413_TestPlan — check_kds_capacity() verification plan. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600414_ChangeContract.md | 600414_ChangeContract — approved check_kds_capacity() implementation boundary. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600415_Module.md | 600415_Module — check_kds_capacity() implementation record. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600416_Verification.md | 600416_Verification — check_kds_capacity() verification evidence. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600410_kds_capacity_gate_and_status_reconciliation\600417_Audit.md | 600417_Audit — check_kds_capacity() audit decision. | active |
+
+## 114 docs/600000_implementation_lifecycle/600500_payment_confirmation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600500_Readme_Payment_Confirmation.md | 600500_Readme_Payment_Confirmation. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600502_NavigationMap_Payment_Confirmation.md | 600502_NavigationMap_Payment_Confirmation. | active |
+
+## 115 docs/600000_implementation_lifecycle/600500_payment_confirmation/600480_confirm_payment_from_provider_overload_ambiguity
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600481_Overview.md | 600481_Overview — confirm_payment_from_provider() overload ambiguity. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600482_Logic.md | 600482_Logic — canonical provider confirmation overload decision. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600483_TestPlan.md | 600483_TestPlan — provider confirmation overload verification plan. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600484_ChangeContract.md | 600484_ChangeContract — provider confirmation overload implementation boundary. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600485_Module.md | 600485_Module — provider confirmation overload implementation record. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600486_Verification.md | 600486_Verification — provider confirmation overload verification evidence. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600480_confirm_payment_from_provider_overload_ambiguity\600487_Audit.md | 600487_Audit — provider confirmation overload audit decision. | active |
+
+## 116 docs/600000_implementation_lifecycle/600600_waiting_order_session
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600600_Readme_Waiting_Order_Session.md | 600600_Readme_Waiting_Order_Session. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600602_NavigationMap_Waiting_Order_Session.md | 600602_NavigationMap_Waiting_Order_Session. | active |
+
+## 117 docs/600000_implementation_lifecycle/600600_waiting_order_session/600460_takeout_session_type_fix
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600461_Overview.md | 600461_Overview — takeout session type fix. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600462_Logic.md | 600462_Logic — takeout session type fix logic. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600463_TestPlan.md | 600463_TestPlan — takeout session type fix verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600464_ChangeContract.md | 600464_ChangeContract — takeout session type fix implementation boundary. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600465_Module.md | 600465_Module — takeout session type fix implementation record. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600466_Verification.md | 600466_Verification — takeout session type fix verification evidence. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600460_takeout_session_type_fix\600467_Audit.md | 600467_Audit — takeout session type fix audit decision. | active |
+
+## 118 docs/600000_implementation_lifecycle/600600_waiting_order_session/600490_customer_handoff_contract_reconciliation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600491_Overview.md | 600491_Overview — customer handoff contract reconciliation. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600492_Logic.md | 600492_Logic — customer handoff contract reconciliation logic. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600493_TestPlan.md | 600493_TestPlan — customer handoff contract reconciliation verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600494_ChangeContract.md | 600494_ChangeContract — customer handoff contract reconciliation boundary. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600495_Module.md | 600495_Module — customer handoff contract reconciliation implementation record. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600496_Verification.md | 600496_Verification — customer handoff contract reconciliation evidence. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600490_customer_handoff_contract_reconciliation\600497_Audit.md | 600497_Audit — customer handoff contract reconciliation audit decision. | active |
+
+## 119 docs/600000_implementation_lifecycle/600700_takeout_pickup_order
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600700_Readme_Takeout_Pickup_Order.md | 600700_Readme_Takeout_Pickup_Order. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600702_NavigationMap_Takeout_Pickup_Order.md | 600702_NavigationMap_Takeout_Pickup_Order. | active |
+
+## 120 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600450_place_takeout_order_unassigned_record_fix
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600451_Overview.md | 600451_Overview — place_takeout_order() unassigned-record fix. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600452_Logic.md | 600452_Logic — place_takeout_order() scalar-variable logic. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600453_TestPlan.md | 600453_TestPlan — place_takeout_order() verification plan. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600454_ChangeContract.md | 600454_ChangeContract — place_takeout_order() implementation boundary. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600455_Module.md | 600455_Module — place_takeout_order() implementation record. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600456_Verification.md | 600456_Verification — place_takeout_order() verification evidence. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600450_place_takeout_order_unassigned_record_fix\600457_Audit.md | 600457_Audit — place_takeout_order() audit decision. | active |
+
+## 121 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600470_orders_pickup_ready_timing_columns_migration
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600471_Overview.md | 600471_Overview — orders pickup/ready timing columns migration. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600472_Logic.md | 600472_Logic — orders pickup/ready timing column design. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600473_TestPlan.md | 600473_TestPlan — orders pickup/ready timing verification plan. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600474_ChangeContract.md | 600474_ChangeContract — orders pickup/ready timing boundary. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600475_Module.md | 600475_Module — orders pickup/ready timing implementation record. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600476_Verification.md | 600476_Verification — orders pickup/ready timing verification evidence. | active |
+| docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600470_orders_pickup_ready_timing_columns_migration\600477_Audit.md | 600477_Audit — orders pickup/ready timing audit decision. | active |
+
+## 122 docs/600000_implementation_lifecycle/600800_did_implementation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600800_Readme_Did_Implementation.md | 600800_Readme_Did_Implementation. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600802_NavigationMap_Did_Implementation.md | 600802_NavigationMap_Did_Implementation. | active |
+
+## 123 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600900_Readme_Cross_Domain_Reconciliation.md | 600900_Readme_Cross_Domain_Reconciliation. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600902_NavigationMap_Cross_Domain_Reconciliation.md | 600902_NavigationMap_Cross_Domain_Reconciliation. | active |
+
+## 124 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation/600430_stale_column_reconciliation_batch
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600431_Overview.md | 600431_Overview — stale column reconciliation batch. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600432_Logic.md | 600432_Logic — stale column reconciliation batch logic. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600433_TestPlan.md | 600433_TestPlan — stale column reconciliation batch verification plan. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600434_ChangeContract.md | 600434_ChangeContract — stale column reconciliation batch boundary. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600435_Module.md | 600435_Module — stale column reconciliation batch implementation record. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600436_Verification.md | 600436_Verification — stale column reconciliation batch verification evidence. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600430_stale_column_reconciliation_batch\600437_Audit.md | 600437_Audit — stale column reconciliation batch audit decision. | active |

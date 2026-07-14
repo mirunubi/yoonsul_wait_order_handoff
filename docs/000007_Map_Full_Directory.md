@@ -2075,14 +2075,95 @@ docs/
   |   |   +--- 600310_initial_cloud_state_audit/
   |   |   |   +--- 600311_Overview.md
   |   +--- 600400_kds_did_implementation/
-  |   |   +--- 600400_Readme_KDS_DID_Implementation.md
+  |   |   +--- 600400_Readme_KDS_Implementation.md
   |   |   +--- 600401_ChangeHistory.md
   |   |   +--- 600402_NavigationMap.md
   |   |   +--- 600403_DecisionLog.md
-  |   |   +--- 600330_kds_did_event_reactive_implementation/
+  |   |   +--- 600404_PlaceTakeoutOrder_Defect_Roadmap.md
   |   |   +--- 600410_kds_capacity_gate_and_status_reconciliation/
   |   |   |   +--- 600411_Overview.md
   |   |   |   +--- 600412_Logic.md
+  |   |   |   +--- 600413_TestPlan.md
+  |   |   |   +--- 600414_ChangeContract.md
+  |   |   |   +--- 600415_Module.md
+  |   |   |   +--- 600416_Verification.md
+  |   |   |   +--- 600417_Audit.md
+  |   |   +--- 600420_kds_status_naming_and_stale_columns/
+  |   |   |   +--- 600421_Module.md
+  |   |   |   +--- 600422_Verification.md
+  |   |   |   +--- 600423_Audit.md
+  |   |   +--- 600440_kds_status_committed_unification/
+  |   |   |   +--- 600441_Overview.md
+  |   |   |   +--- 600442_Logic.md
+  |   |   |   +--- 600443_TestPlan.md
+  |   |   |   +--- 600444_ChangeContract.md
+  |   |   |   +--- 600445_Module.md
+  |   |   |   +--- 600446_Verification.md
+  |   |   |   +--- 600447_Audit.md
+  |   +--- 600500_payment_confirmation/
+  |   |   +--- 600500_Readme_Payment_Confirmation.md
+  |   |   +--- 600502_NavigationMap_Payment_Confirmation.md
+  |   |   +--- 600480_confirm_payment_from_provider_overload_ambiguity/
+  |   |   |   +--- 600481_Overview.md
+  |   |   |   +--- 600482_Logic.md
+  |   |   |   +--- 600483_TestPlan.md
+  |   |   |   +--- 600484_ChangeContract.md
+  |   |   |   +--- 600485_Module.md
+  |   |   |   +--- 600486_Verification.md
+  |   |   |   +--- 600487_Audit.md
+  |   +--- 600600_waiting_order_session/
+  |   |   +--- 600600_Readme_Waiting_Order_Session.md
+  |   |   +--- 600602_NavigationMap_Waiting_Order_Session.md
+  |   |   +--- 600460_takeout_session_type_fix/
+  |   |   |   +--- 600461_Overview.md
+  |   |   |   +--- 600462_Logic.md
+  |   |   |   +--- 600463_TestPlan.md
+  |   |   |   +--- 600464_ChangeContract.md
+  |   |   |   +--- 600465_Module.md
+  |   |   |   +--- 600466_Verification.md
+  |   |   |   +--- 600467_Audit.md
+  |   |   +--- 600490_customer_handoff_contract_reconciliation/
+  |   |   |   +--- 600491_Overview.md
+  |   |   |   +--- 600492_Logic.md
+  |   |   |   +--- 600493_TestPlan.md
+  |   |   |   +--- 600494_ChangeContract.md
+  |   |   |   +--- 600495_Module.md
+  |   |   |   +--- 600496_Verification.md
+  |   |   |   +--- 600497_Audit.md
+  |   +--- 600700_takeout_pickup_order/
+  |   |   +--- 600700_Readme_Takeout_Pickup_Order.md
+  |   |   +--- 600702_NavigationMap_Takeout_Pickup_Order.md
+  |   |   +--- 600450_place_takeout_order_unassigned_record_fix/
+  |   |   |   +--- 600451_Overview.md
+  |   |   |   +--- 600452_Logic.md
+  |   |   |   +--- 600453_TestPlan.md
+  |   |   |   +--- 600454_ChangeContract.md
+  |   |   |   +--- 600455_Module.md
+  |   |   |   +--- 600456_Verification.md
+  |   |   |   +--- 600457_Audit.md
+  |   |   +--- 600470_orders_pickup_ready_timing_columns_migration/
+  |   |   |   +--- 600471_Overview.md
+  |   |   |   +--- 600472_Logic.md
+  |   |   |   +--- 600473_TestPlan.md
+  |   |   |   +--- 600474_ChangeContract.md
+  |   |   |   +--- 600475_Module.md
+  |   |   |   +--- 600476_Verification.md
+  |   |   |   +--- 600477_Audit.md
+  |   +--- 600800_did_implementation/
+  |   |   +--- 600800_Readme_Did_Implementation.md
+  |   |   +--- 600802_NavigationMap_Did_Implementation.md
+  |   |   +--- 600330_kds_did_event_reactive_implementation/
+  |   +--- 600900_cross_domain_reconciliation/
+  |   |   +--- 600900_Readme_Cross_Domain_Reconciliation.md
+  |   |   +--- 600902_NavigationMap_Cross_Domain_Reconciliation.md
+  |   |   +--- 600430_stale_column_reconciliation_batch/
+  |   |   |   +--- 600431_Overview.md
+  |   |   |   +--- 600432_Logic.md
+  |   |   |   +--- 600433_TestPlan.md
+  |   |   |   +--- 600434_ChangeContract.md
+  |   |   |   +--- 600435_Module.md
+  |   |   |   +--- 600436_Verification.md
+  |   |   |   +--- 600437_Audit.md
   |   +--- 604000_workpackets/
   |   |   +--- 604000_Readme_Workpackets.md
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
