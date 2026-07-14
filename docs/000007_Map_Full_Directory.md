@@ -2103,67 +2103,75 @@ docs/
   |   +--- 600500_payment_confirmation/
   |   |   +--- 600500_Readme_Payment_Confirmation.md
   |   |   +--- 600502_NavigationMap_Payment_Confirmation.md
-  |   |   +--- 600480_confirm_payment_from_provider_overload_ambiguity/
-  |   |   |   +--- 600481_Overview.md
-  |   |   |   +--- 600482_Logic.md
-  |   |   |   +--- 600483_TestPlan.md
-  |   |   |   +--- 600484_ChangeContract.md
-  |   |   |   +--- 600485_Module.md
-  |   |   |   +--- 600486_Verification.md
-  |   |   |   +--- 600487_Audit.md
+  |   |   +--- 600510_confirm_payment_from_provider_overload_ambiguity/
+  |   |   |   +--- 600511_Overview.md
+  |   |   |   +--- 600512_Logic.md
+  |   |   |   +--- 600513_TestPlan.md
+  |   |   |   +--- 600514_ChangeContract.md
+  |   |   |   +--- 600515_Module.md
+  |   |   |   +--- 600516_Verification.md
+  |   |   |   +--- 600517_Audit.md
+  |   |   +--- 600540_mark_payment_uncertain_overload_ambiguity/
+  |   |   |   +--- 600541_Overview_Mark_Payment_Uncertain_Overload.md
+  |   |   |   +--- 600542_Logic_Mark_Payment_Uncertain_Overload.md
+  |   |   |   +--- 600543_TestPlan_Mark_Payment_Uncertain_Overload.md
+  |   |   |   +--- 600544_ChangeContract_Mark_Payment_Uncertain_Overload.md
+  |   |   |   +--- 600545_Module.md
+  |   |   |   +--- 600546_Verification.md
+  |   |   |   +--- 600547_Audit.md
   |   +--- 600600_waiting_order_session/
   |   |   +--- 600600_Readme_Waiting_Order_Session.md
   |   |   +--- 600602_NavigationMap_Waiting_Order_Session.md
-  |   |   +--- 600460_takeout_session_type_fix/
-  |   |   |   +--- 600461_Overview.md
-  |   |   |   +--- 600462_Logic.md
-  |   |   |   +--- 600463_TestPlan.md
-  |   |   |   +--- 600464_ChangeContract.md
-  |   |   |   +--- 600465_Module.md
-  |   |   |   +--- 600466_Verification.md
-  |   |   |   +--- 600467_Audit.md
-  |   |   +--- 600490_customer_handoff_contract_reconciliation/
-  |   |   |   +--- 600491_Overview.md
-  |   |   |   +--- 600492_Logic.md
-  |   |   |   +--- 600493_TestPlan.md
-  |   |   |   +--- 600494_ChangeContract.md
-  |   |   |   +--- 600495_Module.md
-  |   |   |   +--- 600496_Verification.md
-  |   |   |   +--- 600497_Audit.md
+  |   |   +--- 600610_takeout_session_type_fix/
+  |   |   |   +--- 600611_Overview.md
+  |   |   |   +--- 600612_Logic.md
+  |   |   |   +--- 600613_TestPlan.md
+  |   |   |   +--- 600614_ChangeContract.md
+  |   |   |   +--- 600615_Module.md
+  |   |   |   +--- 600616_Verification.md
+  |   |   |   +--- 600617_Audit.md
+  |   |   +--- 600620_customer_handoff_contract_reconciliation/
+  |   |   |   +--- 600621_Overview.md
+  |   |   |   +--- 600622_Logic.md
+  |   |   |   +--- 600623_TestPlan.md
+  |   |   |   +--- 600624_ChangeContract.md
+  |   |   |   +--- 600625_Module.md
+  |   |   |   +--- 600626_Verification.md
+  |   |   |   +--- 600627_Audit.md
   |   +--- 600700_takeout_pickup_order/
   |   |   +--- 600700_Readme_Takeout_Pickup_Order.md
   |   |   +--- 600702_NavigationMap_Takeout_Pickup_Order.md
-  |   |   +--- 600450_place_takeout_order_unassigned_record_fix/
-  |   |   |   +--- 600451_Overview.md
-  |   |   |   +--- 600452_Logic.md
-  |   |   |   +--- 600453_TestPlan.md
-  |   |   |   +--- 600454_ChangeContract.md
-  |   |   |   +--- 600455_Module.md
-  |   |   |   +--- 600456_Verification.md
-  |   |   |   +--- 600457_Audit.md
-  |   |   +--- 600470_orders_pickup_ready_timing_columns_migration/
-  |   |   |   +--- 600471_Overview.md
-  |   |   |   +--- 600472_Logic.md
-  |   |   |   +--- 600473_TestPlan.md
-  |   |   |   +--- 600474_ChangeContract.md
-  |   |   |   +--- 600475_Module.md
-  |   |   |   +--- 600476_Verification.md
-  |   |   |   +--- 600477_Audit.md
+  |   |   +--- 600710_place_takeout_order_unassigned_record_fix/
+  |   |   |   +--- 600711_Overview.md
+  |   |   |   +--- 600712_Logic.md
+  |   |   |   +--- 600713_TestPlan.md
+  |   |   |   +--- 600714_ChangeContract.md
+  |   |   |   +--- 600715_Module.md
+  |   |   |   +--- 600716_Verification.md
+  |   |   |   +--- 600717_Audit.md
+  |   |   +--- 600720_orders_pickup_ready_timing_columns_migration/
+  |   |   |   +--- 600721_Overview.md
+  |   |   |   +--- 600722_Logic.md
+  |   |   |   +--- 600723_TestPlan.md
+  |   |   |   +--- 600724_ChangeContract.md
+  |   |   |   +--- 600725_Module.md
+  |   |   |   +--- 600726_Verification.md
+  |   |   |   +--- 600727_Audit.md
   |   +--- 600800_did_implementation/
   |   |   +--- 600800_Readme_Did_Implementation.md
   |   |   +--- 600802_NavigationMap_Did_Implementation.md
-  |   |   +--- 600330_kds_did_event_reactive_implementation/
+  |   |   +--- 600810_kds_did_event_reactive_implementation/
   |   +--- 600900_cross_domain_reconciliation/
   |   |   +--- 600900_Readme_Cross_Domain_Reconciliation.md
   |   |   +--- 600902_NavigationMap_Cross_Domain_Reconciliation.md
-  |   |   +--- 600430_stale_column_reconciliation_batch/
-  |   |   |   +--- 600431_Overview.md
-  |   |   |   +--- 600432_Logic.md
-  |   |   |   +--- 600433_TestPlan.md
-  |   |   |   +--- 600434_ChangeContract.md
-  |   |   |   +--- 600435_Module.md
-  |   |   |   +--- 600436_Verification.md
-  |   |   |   +--- 600437_Audit.md
+  |   |   +--- 600910_stale_column_reconciliation_batch/
+  |   |   |   +--- 600911_Overview.md
+  |   |   |   +--- 600912_Logic.md
+  |   |   |   +--- 600913_TestPlan.md
+  |   |   |   +--- 600914_ChangeContract.md
+  |   |   |   +--- 600915_Module.md
+  |   |   |   +--- 600916_Verification.md
+  |   |   |   +--- 600917_Audit.md
   |   +--- 604000_workpackets/
   |   |   +--- 604000_Readme_Workpackets.md
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/

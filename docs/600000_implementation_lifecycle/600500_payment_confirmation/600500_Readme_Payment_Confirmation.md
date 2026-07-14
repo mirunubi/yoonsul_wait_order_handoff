@@ -25,5 +25,5 @@ This folder owns payment-confirmation workpackets that are not KDS, waiting/sess
 
 | Folder | Role | Status |
 |---|---|---|
-| `600480_confirm_payment_from_provider_overload_ambiguity/` | `confirm_payment_from_provider()` legacy overload disposition. | Moved from `600400_kds_did_implementation/`. |
+| `600510_confirm_payment_from_provider_overload_ambiguity/` | `confirm_payment_from_provider()` legacy overload disposition. | Moved from `600400_kds_did_implementation/`. |
 

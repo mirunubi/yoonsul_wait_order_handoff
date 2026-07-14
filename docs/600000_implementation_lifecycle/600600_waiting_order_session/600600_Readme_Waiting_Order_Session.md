@@ -24,6 +24,6 @@ This folder owns waiting and order-session workpackets that were previously mixe
 
 | Folder | Role | Status |
 |---|---|---|
-| `600460_takeout_session_type_fix/` | `TAKEOUT` session-type alignment across order-session creation and takeout order flow. | Moved from `600400_kds_did_implementation/`. |
-| `600490_customer_handoff_contract_reconciliation/` | Customer handoff contract reconciliation for waiting/order-session flow. | Moved from `600400_kds_did_implementation/`. |
+| `600610_takeout_session_type_fix/` | `TAKEOUT` session-type alignment across order-session creation and takeout order flow. | Moved from `600400_kds_did_implementation/`. |
+| `600620_customer_handoff_contract_reconciliation/` | Customer handoff contract reconciliation for waiting/order-session flow. | Moved from `600400_kds_did_implementation/`. |
 

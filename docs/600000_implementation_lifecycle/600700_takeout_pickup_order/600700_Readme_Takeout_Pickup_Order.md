@@ -24,6 +24,6 @@ This folder owns takeout and pickup-order workpackets whose primary defect surfa
 
 | Folder | Role | Status |
 |---|---|---|
-| `600450_place_takeout_order_unassigned_record_fix/` | `place_takeout_order()` unassigned-record/scalar-variable correction. | Moved from `600400_kds_did_implementation/`; NavigationMap row newly created from existing completed records. |
-| `600470_orders_pickup_ready_timing_columns_migration/` | `orders.requested_pickup_at` and `orders.ready_at` migration workpacket. | Moved from `600400_kds_did_implementation/`. |
+| `600710_place_takeout_order_unassigned_record_fix/` | `place_takeout_order()` unassigned-record/scalar-variable correction. | Moved from `600400_kds_did_implementation/`; NavigationMap row newly created from existing completed records. |
+| `600720_orders_pickup_ready_timing_columns_migration/` | `orders.requested_pickup_at` and `orders.ready_at` migration workpacket. | Moved from `600400_kds_did_implementation/`. |
 

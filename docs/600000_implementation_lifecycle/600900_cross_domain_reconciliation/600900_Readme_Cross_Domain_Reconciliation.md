@@ -25,5 +25,5 @@ This folder owns cross-domain reconciliation workpackets whose scope spans more 
 
 | Folder | Role | Status |
 |---|---|---|
-| `600430_stale_column_reconciliation_batch/` | Cross-domain stale-column reconciliation batch. | Moved from `600400_kds_did_implementation/`. |
+| `600910_stale_column_reconciliation_batch/` | Cross-domain stale-column reconciliation batch. | Moved from `600400_kds_did_implementation/`. |
 

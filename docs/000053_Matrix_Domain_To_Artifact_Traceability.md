@@ -19,7 +19,7 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 
 `000009_Report_Root_Governance_Rules_Correction_Readme_Index_And_Overview_Logic_Module_Model.md`는 `Readme`/`Index`/`Overview`/`Logic`/`Module`이라는 **문서 유형(DocumentType)의 정의와 권한 경계**를 확립한 거버넌스 문서다 — "이 폴더는 무엇을 소유하는가", "이 문서 유형은 무엇에 답하는가"를 규정한다.
 
-`000053`은 그와 다른 축의 문서다 — 특정 폴더나 문서 유형이 아니라, **비즈니스 도메인(결제/대기·주문세션/KDS/DID/직원앱/재고/멤버십) 각각이 실제로 어떤 산출물(설계문서/SQL 마이그레이션/Flutter 코드/라이브 DB 상태)로 구현되어 있는지를 가로질러 추적**하는 매트릭스다. `000009`가 "이 문서가 어떤 종류인가"에 답한다면, `000053`은 "이 도메인이 실제로 어디까지 만들어져 있는가"에 답한다 — 이 세션 전체(`600410`~`600497`)에서 반복적으로 드러난 패턴(설계 문서와 실제 SQL/라이브 DB 상태 사이의 괴리, 예: `600480`의 오버로드 모호성, `600490`의 `order_sessions` 8건 phantom 컬럼, 이번 §G의 `015030`/`0108` 시간적 불일치)을 한 곳에서 조망하기 위해 신설한다.
+`000053`은 그와 다른 축의 문서다 — 특정 폴더나 문서 유형이 아니라, **비즈니스 도메인(결제/대기·주문세션/KDS/DID/직원앱/재고/멤버십) 각각이 실제로 어떤 산출물(설계문서/SQL 마이그레이션/Flutter 코드/라이브 DB 상태)로 구현되어 있는지를 가로질러 추적**하는 매트릭스다. `000009`가 "이 문서가 어떤 종류인가"에 답한다면, `000053`은 "이 도메인이 실제로 어디까지 만들어져 있는가"에 답한다 — 이 세션 전체(`600410`~`600627`)에서 반복적으로 드러난 패턴(설계 문서와 실제 SQL/라이브 DB 상태 사이의 괴리, 예: `600510`의 오버로드 모호성, `600620`의 `order_sessions` 8건 phantom 컬럼, 이번 §G의 `015030`/`0108` 시간적 불일치)을 한 곳에서 조망하기 위해 신설한다.
 
 `000009` 자체를 수정하거나 재해석하지 않는다 — `000053`은 `000009`가 정의한 `Matrix` 유형(다른 `00005x` 문서들, 예: `000052`/`000055`/`000058`이 이미 사용 중인 "체크리스트/승인 매니페스트" 성격)의 연장선에 있는 살아있는(living) 참조 문서다.
 
@@ -27,7 +27,7 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 
 ### A. Customer Handoff — Payment Confirmation
 
-**상태**: 오버로드 모호성 해소 완료(`600480`), Payment Confirmation Boundary 후속 조사는 별도 필요.
+**상태**: 오버로드 모호성 해소 완료(`600510`), Payment Confirmation Boundary 후속 조사는 별도 필요.
 
 | 산출물 | 위치 | 상태 |
 |---|---|---|
@@ -37,11 +37,11 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 | SQL — 호출부 | `0038`(토스 웹훅), `0056`(VAN 연동) | 정상, 수정 불필요(이미 8-param 정확 사용) |
 | 라이브 검증 | `kds_release_authorized = false` 불변식(특허1) | 2회 독립 재현 전부 확인 |
 | Open Item | `mark_payment_uncertain()`/`authorize_kds_release()` — 같은 오버로드 확산 패턴, 호출자 0건, 별도 워크패킷 후보 (`authorize_kds_release()`는 두 오버로드가 3번째 파라미터 이름부터 달라 단순 해법 적용 불가) | 미착수 |
-| 문서 | `600480_confirm_payment_from_provider_overload_ambiguity/` (`600481`-`600487`, 7개 파일 완비) | 완료 |
+| 문서 | `600510_confirm_payment_from_provider_overload_ambiguity/` (`600511`-`600517`, 7개 파일 완비) | 완료 |
 
 ### B. Customer Handoff — Waiting / Order Session
 
-**상태**: Contract Inventory 완료(`600490`), 2건 Correction 구현 완료, 나머지 다수 Open.
+**상태**: Contract Inventory 완료(`600620`), 2건 Correction 구현 완료, 나머지 다수 Open.
 
 **함수 계약** (`0115_create_waiting_pipeline_rpc.sql`, 9개):
 
@@ -50,7 +50,7 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 | `register_waiting()` | **정상** — `session_type := 'WAITING'` 정확 사용, `chk_session_type` 통과 |
 | `call_waiting_customer()` | `order_sessions`의 phantom 컬럼(`table_number`/`called_at`/`call_count`/`pre_order_amount`) 참조 — 미해결 |
 | `confirm_arrival()` | phantom 컬럼(`table_number`/`arrival_confirmed_at`) 참조 — 미해결 |
-| `pre_order_while_waiting()` | **3중 결함 체인** — ① `orders` INSERT의 `order_source`(phantom)/`order_type := 'TABLE'`(chk_order_type에 없음), ② `order_items` INSERT의 `unit_price`/`subtotal`/`item_options` phantom + `menu_code_snapshot` 누락, ③ `kds_tickets` INSERT의 `menu_id`/`ticket_number` — **③만 이번에 수정 완료**(`600495`-`600497`), ①/②는 여전히 함수를 100% 막고 있어 이 수정으로도 E2E 진전 없음(직접 재현으로 재확인됨) |
+| `pre_order_while_waiting()` | **3중 결함 체인** — ① `orders` INSERT의 `order_source`(phantom)/`order_type := 'TABLE'`(chk_order_type에 없음), ② `order_items` INSERT의 `unit_price`/`subtotal`/`item_options` phantom + `menu_code_snapshot` 누락, ③ `kds_tickets` INSERT의 `menu_id`/`ticket_number` — **③만 이번에 수정 완료**(`600625`-`600627`), ①/②는 여전히 함수를 100% 막고 있어 이 수정으로도 E2E 진전 없음(직접 재현으로 재확인됨) |
 | `seat_waiting_customer()` | phantom 컬럼(`table_number`) 참조 — 미해결 |
 | `cancel_waiting()` | phantom 컬럼(`cancel_reason`) 참조 — 미해결 |
 | `mark_no_show()` | phantom 컬럼(`no_show_at`) 참조; **오버로드 2개**(`0050` 원본 vs `0115` 재정의, `p_actor_type` vs `p_actor_id`+`p_locale`) — 모호성 실증 여부 미조사 |
@@ -61,7 +61,7 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 
 **`order_sessions` 8개 컬럼 drift** (전부 phantom, 실제 34개 컬럼 목록에 없음): `pre_order_amount`/`table_number`/`called_at`/`call_count`/`arrival_confirmed_at`/`cancel_reason`/`no_show_at`/`memo`. SoT 후보 분류(결정 아님): Correction 2건(`cancel_reason`/`no_show_at`), Alignment 1건(`arrival_confirmed_at`↔기존 `arrived_at`), Redesign 5건(나머지, `dining_tables`/`did_display_queue`와 개념 중복 우려).
 
-**문서**: `600490_customer_handoff_contract_reconciliation/` (`600491`-`600497`, 7개 파일 완비).
+**문서**: `600620_customer_handoff_contract_reconciliation/` (`600621`-`600627`, 7개 파일 완비).
 
 ### C. Customer Handoff — KDS Ticket
 
@@ -70,27 +70,27 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 | 워크패킷 | 내용 | 상태 |
 |---|---|---|
 | `600410` | `catchmenu_kds.check_kds_capacity()` 신규 생성(존 인지 wrapper, `evaluate_kds_capacity()` 위) | ACCEPT, 완료 |
-| `600420` | `0099`의 `is_late`/`priority`/`kds_capacity_threshold_per_zone` stale 컬럼 → 계산식/정정 컬럼명 | ACCEPT, 완료. 이번 `600490` 작업에서도 잔존 여부 재확인(0건, 보존 확인) |
-| `600430` | `request_memo`/`case_severity`/`'INVESTIGATING'` 등 10개 파일 정정 | ACCEPT, 완료 |
+| `600420` | `0099`의 `is_late`/`priority`/`kds_capacity_threshold_per_zone` stale 컬럼 → 계산식/정정 컬럼명 | ACCEPT, 완료. 이번 `600620` 작업에서도 잔존 여부 재확인(0건, 보존 확인) |
+| `600910` | `request_memo`/`case_severity`/`'INVESTIGATING'` 등 10개 파일 정정 | ACCEPT, 완료 |
 | `600440` | `READY_TO_COMMIT`→`COMMITTED` 13개 파일/46건 통일(Human 결정, 900시리즈 패턴 근거) | ACCEPT(설계), **구현 자체는 일부만 커밋됨** — `0016`/`0029`/`0045`/`0051`/`0070`/`0081`/`0063`은 커밋 완료(`38d681f`/`8b0e45d`), `0024`/`0026`/`0028`/`0039`/`0044`/`0143`/`0151` 7개 파일은 이번 세션 끝까지 **미커밋 상태로 확인**(diff는 전부 정확, 그러나 git에 반영 안 됨) |
-| `600490` | `pre_order_while_waiting()`(`0115`)의 `kds_tickets` INSERT — `menu_id`(phantom) 제거, `ticket_number`(NOT NULL 누락) 생성 로직 추가(`0026` 관례 재사용) | ACCEPT(scoped, final), 삼중검증(Claude Code+안티+Codex+Cursor) 완료. 단 `kds_tickets` 자체는 `pre_order_while_waiting()`의 앞선 2개 블로커(orders/order_items) 때문에 실제 도달 불가 상태 |
+| `600620` | `pre_order_while_waiting()`(`0115`)의 `kds_tickets` INSERT — `menu_id`(phantom) 제거, `ticket_number`(NOT NULL 누락) 생성 로직 추가(`0026` 관례 재사용) | ACCEPT(scoped, final), 삼중검증(Claude Code+안티+Codex+Cursor) 완료. 단 `kds_tickets` 자체는 `pre_order_while_waiting()`의 앞선 2개 블로커(orders/order_items) 때문에 실제 도달 불가 상태 |
 
 **`kds_tickets`** 라이브 스키마: 41개 컬럼, `ticket_number`(실존, NOT NULL) 확인, `menu_id` 없음(메뉴 연결은 `order_item_id` 경유). `chk_kds_status`: `HOLD`/`CAPACITY_CHECKING`/`COMMITTED`/`COOKING`/`READY`/`SERVED`/`COMPLETED`/`CANCELLED`/`MANUAL_FALLBACK`.
 
-**문서**: `600410`/`600420`/`600430`/`600440`/`600490` 각 워크패킷 폴더 + `600404_PlaceTakeoutOrder_Defect_Roadmap.md`(관련 place_takeout_order() 결함 로드맵).
+**문서**: `600410`/`600420`/`600910`/`600440`/`600620` 각 워크패킷 폴더 + `600404_PlaceTakeoutOrder_Defect_Roadmap.md`(관련 place_takeout_order() 결함 로드맵).
 
 ### D. Customer Handoff — DID
 
-**상태**: 오늘 계약 인벤토리(`600490`)에서 조사됨. **실제 화면 구현 미착수.**
+**상태**: 오늘 계약 인벤토리(`600620`)에서 조사됨. **실제 화면 구현 미착수.**
 
 | 함수 | Source | 상태 |
 |---|---|---|
 | `get_did_display_state()` | `0043`(원본, `p_did_id`) / `0117`(재정의, `p_device_id`) | **오버로드 2개** — `0117`이 원본을 DROP 없이 새 시그니처로 추가. 모호성 실증 여부 미조사 |
 | `notify_customer_ready()` | `0043` | 계약만 추출, 함수 본문 심층 검증 안 함 |
 | `update_did_display()` | `0043` | 계약만 추출, 함수 본문 심층 검증 안 함 |
-| `call_customer_pickup()` | `0079`(원본) / `0094`(패치, 라이브 실제 소유자로 확인됨 — 본문 전체 diff로 검증) | `event_domain := 'store'`가 `chk_event_domain`에 없어 매 호출마다 실패(`600477_Audit.md`에서 발견) — `ready_at` UPDATE(`600470`에서 수정됨) 도달 전에 이미 막힘 |
+| `call_customer_pickup()` | `0079`(원본) / `0094`(패치, 라이브 실제 소유자로 확인됨 — 본문 전체 diff로 검증) | `event_domain := 'store'`가 `chk_event_domain`에 없어 매 호출마다 실패(`600727_Audit.md`에서 발견) — `ready_at` UPDATE(`600720`에서 수정됨) 도달 전에 이미 막힘 |
 
-**테이블**: `catchmenu_store.did_display_queue`(25개 컬럼), `catchmenu_store.did_devices`(22개 컬럼) — 둘 다 실존, RLS 확인. **단, `600490` 조사 범위였던 B/C 경계 15개 함수 중 어느 것도 이 두 테이블을 직접 참조하지 않음** — DID 관련 실제 로직은 `0043`/`0079`/`0094`/`0117`에 흩어져 있고, 이번 세션에서 이 함수들에 대한 화면/E2E 검증은 수행되지 않았다.
+**테이블**: `catchmenu_store.did_display_queue`(25개 컬럼), `catchmenu_store.did_devices`(22개 컬럼) — 둘 다 실존, RLS 확인. **단, `600620` 조사 범위였던 B/C 경계 15개 함수 중 어느 것도 이 두 테이블을 직접 참조하지 않음** — DID 관련 실제 로직은 `0043`/`0079`/`0094`/`0117`에 흩어져 있고, 이번 세션에서 이 함수들에 대한 화면/E2E 검증은 수행되지 않았다.
 
 **Flutter**: 실제 DID 화면 코드 존재 여부 미확인 — 이번 세션 조사 범위 밖. **화면 구현 미착수로 명시.**
 

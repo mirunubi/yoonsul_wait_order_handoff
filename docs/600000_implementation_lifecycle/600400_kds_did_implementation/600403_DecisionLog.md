@@ -13,6 +13,6 @@ Recorded Human decisions for the `600400_kds_did_implementation` module. 재논�
 (a) `600402_NavigationMap.md`는 도메인별로 분리하되, 5개 신규 도메인 폴더에는 Readme + NavigationMap만 신설한다 — `ChangeHistory`/`DecisionLog` 신설 여부는 별도 미결(§6.1, `600527_Audit.md` Open Item (a)).
 (b) `000005`/`000007`은 이번 기회에 전수 백필한다(신규 47건) — 기존에 대부분 미색인 상태였던 것을 정정.
 (c) `600400_Readme`는 이름/본문을 DID 언급 없이 정정한다(3개 워크패킷만 남았으므로).
-(d) `600510_did_display_state_overload_and_legacy_defect`는 물리적으로만 이동하고, 색인/NavigationMap 등재는 그 워크패킷 자체가 Stage 6 ACCEPT에 도달할 때까지 보류한다 — 아직 Stage 2(승인 대기)인 워크패킷을 완료된 것처럼 색인하지 않기 위함.
+(d) `600820_did_display_state_overload_and_legacy_defect`는 물리적으로만 이동하고, 색인/NavigationMap 등재는 그 워크패킷 자체가 Stage 6 ACCEPT에 도달할 때까지 보류한다 — 아직 Stage 2(승인 대기)인 워크패킷을 완료된 것처럼 색인하지 않기 위함.
 
 이 결정들은 재논의 대상 아님 — `600524_ChangeContract.md` §8 Human Boundary Approval 4개 항목 승인 완료, `600527_Audit.md`(Stage 6 ACCEPT)로 이행 완료.

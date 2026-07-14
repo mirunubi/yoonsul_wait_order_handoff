@@ -8,6 +8,6 @@ Domain: Waiting / Order Session
 
 | Workpacket | Scope | Local flow |
 |---|---|---|
-| `600460_takeout_session_type_fix/` | `ONLINE` → `TAKEOUT` session-type correction and `TAKEOUT` → `ORDERING` session-status mapping. | `600461_Overview.md` → `600462_Logic.md` → `600463_TestPlan.md` → `600464_ChangeContract.md` → `600465_Module.md` → `600466_Verification.md` → `600467_Audit.md` |
-| `600490_customer_handoff_contract_reconciliation/` | Waiting/pre-order customer handoff contract reconciliation, including `kds_tickets` insert and waiting realtime state contract facts. | `600491_Overview.md` → `600492_Logic.md` → `600493_TestPlan.md` → `600494_ChangeContract.md` → `600495_Module.md` → `600496_Verification.md` → `600497_Audit.md` |
+| `600610_takeout_session_type_fix/` | `ONLINE` → `TAKEOUT` session-type correction and `TAKEOUT` → `ORDERING` session-status mapping. | `600611_Overview.md` → `600612_Logic.md` → `600613_TestPlan.md` → `600614_ChangeContract.md` → `600615_Module.md` → `600616_Verification.md` → `600617_Audit.md` |
+| `600620_customer_handoff_contract_reconciliation/` | Waiting/pre-order customer handoff contract reconciliation, including `kds_tickets` insert and waiting realtime state contract facts. | `600621_Overview.md` → `600622_Logic.md` → `600623_TestPlan.md` → `600624_ChangeContract.md` → `600625_Module.md` → `600626_Verification.md` → `600627_Audit.md` |
 

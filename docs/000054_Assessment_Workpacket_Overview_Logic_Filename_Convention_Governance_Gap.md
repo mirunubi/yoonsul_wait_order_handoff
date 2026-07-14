@@ -47,7 +47,7 @@ L2560: "There is no working-name/archived-name distinction and no renaming step 
 >
 > "This scheme **superseded the six-digit `604xxx`-band numbering convention** when that band was **quarantined to `990000_legacy_quarantine/` on 2026-07-10** — see `000701` §15.1."
 
-즉 문제는 "600xxx Overview/Logic 파일에 제목이 빠졌다"가 아니다 — **six-digit 접두사가 붙은 `Overview`/`Logic` 파일 형식 자체가, 2026-07-10부로 이미 대체(superseded)된 예전 방식**이다. 이 세션 전체(`600410`~`600497`, 2026-07-13~07-14 작성)에서 사용한 `docs/600000_implementation_lifecycle/600400_kds_did_implementation/<workpacket>/600461_Overview.md` 패턴은, 그 대체가 일어난 지 3-4일 뒤에 만들어진 것이다.
+즉 문제는 "600xxx Overview/Logic 파일에 제목이 빠졌다"가 아니다 — **six-digit 접두사가 붙은 `Overview`/`Logic` 파일 형식 자체가, 2026-07-10부로 이미 대체(superseded)된 예전 방식**이다. 이 세션 전체(`600410`~`600627`, 2026-07-13~07-14 작성)에서 사용한 `docs/600000_implementation_lifecycle/600400_kds_did_implementation/<workpacket>/600611_Overview.md` 패턴은, 그 대체가 일어난 지 3-4일 뒤에 만들어진 것이다.
 
 **이 프로젝트 안에서 실제로 확인되는 세 가지 서로 다른 패턴**(이번 턴 `docs/` 전수 조회로 확인):
 
@@ -55,7 +55,7 @@ L2560: "There is no working-name/archived-name distinction and no renaming step 
 |---|---|---|---|---|
 | (a) `000002` §1.1 canonical(제목 포함, 6자리) | `000067_Overview_WP_8A_001_Read_Only_Codebase_Hydration_...md`, `000086_Overview_WP_9A_001_Hydration_Registry_...md` | O(6자리) | **있음** | `docs/` 최상위 |
 | (b) `000002`/`000701` 현재 유효 규정(접두사 없음) | `docs/implementation_evidence/<change_id>/Overview.md` | 없음 | 없음(폴더명이 대체) | `docs/implementation_evidence/` |
-| (c) **이번 세션 실제 사용 패턴** | `600461_Overview.md` | O(6자리) | **없음** | `docs/600000_implementation_lifecycle/600400_kds_did_implementation/<workpacket>/` |
+| (c) **이번 세션 실제 사용 패턴** | `600611_Overview.md` | O(6자리) | **없음** | `docs/600000_implementation_lifecycle/600400_kds_did_implementation/<workpacket>/` |
 
 (c)는 (a)와 (b) 어느 쪽과도 정확히 일치하지 않는다 — (a)처럼 6자리 접두사를 쓰지만 (a)와 달리 제목이 없고, (b)처럼 제목이 없지만 (b)와 달리 6자리 접두사가 있다. 즉 **"제목이 빠졌다"는 지시문의 원 진단은 정확하지만, 근본 원인은 더 크다** — (c) 패턴 자체가 이 프로젝트 안에 명시적으로 정의된 적이 없다.
 
@@ -65,7 +65,7 @@ L2560: "There is no working-name/archived-name distinction and no renaming step 
 
 **장점**:
 - 오늘까지의 실제 관행(이 세션 전체, 수십 개 파일)을 그대로 인정 — 소급 rename 불필요, 즉시 실행 비용 0.
-- 폴더 경로(`<workpacket_name>/`)가 이미 사실상 제목 역할을 하고 있음(`600460_takeout_session_type_fix/600461_Overview.md`에서 폴더명이 맥락 제공) — 완전히 근거 없는 예외는 아님.
+- 폴더 경로(`<workpacket_name>/`)가 이미 사실상 제목 역할을 하고 있음(`600610_takeout_session_type_fix/600611_Overview.md`에서 폴더명이 맥락 제공) — 완전히 근거 없는 예외는 아님.
 
 **단점**:
 - §3에서 확인했듯, 애초에 "6자리 접두사 + Overview/Logic" 형식 자체가 2026-07-10부로 대체된 것이므로, 이 예외를 신설해도 **더 근본적인 문제(위치/접두사 체계 자체가 현재 규정과 다름)는 해결되지 않는다** — 증상만 봉합.
@@ -80,7 +80,7 @@ L2560: "There is no working-name/archived-name distinction and no renaming step 
 
 **단점**:
 - §3의 근본 문제(6자리 접두사 체계 자체가 대체됨)는 여전히 해결되지 않음 — 제목을 붙여도 여전히 "현재 유효 규정과 다른 세 번째 패턴"으로 남는다.
-- 과거 파일(`600410`~`600497`)과 신규 파일 사이에 두 가지 형식이 영구 공존 — 프로젝트 전체 일관성 저하.
+- 과거 파일(`600410`~`600627`)과 신규 파일 사이에 두 가지 형식이 영구 공존 — 프로젝트 전체 일관성 저하.
 - "언제부터 B를 적용하는가"의 경계가 모호(다음 워크패킷부터? 이번 세션의 미완료 항목부터?).
 
 ### C) (이번 조사에서 새로 드러난 선택지, 지시문에는 없었음) `000002`/`000701`이 이미 규정한 현재 유효 형식으로 이전

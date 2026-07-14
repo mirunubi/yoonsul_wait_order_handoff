@@ -48,7 +48,7 @@ Both functions were called directly (not merely inspected) to observe their actu
 
 ## 4. Cursor Independent Verification (§39)
 
-Per Human report, Cursor independently reviewed the same scope (13-file diff, checksum safety judgment) and reached the same conclusion: `0070`/`0081` checksum mismatch is safe to resolve via checksum-only update, no live re-execution needed. This Verification document's §1-§3 above is Claude Code's own independent re-derivation — as with `600436_Verification.md`, this document does not have direct access to Cursor's raw report text, only the Human-relayed agreement on the checksum-safety conclusion.
+Per Human report, Cursor independently reviewed the same scope (13-file diff, checksum safety judgment) and reached the same conclusion: `0070`/`0081` checksum mismatch is safe to resolve via checksum-only update, no live re-execution needed. This Verification document's §1-§3 above is Claude Code's own independent re-derivation — as with `600916_Verification.md`, this document does not have direct access to Cursor's raw report text, only the Human-relayed agreement on the checksum-safety conclusion.
 
 ## Scenario Summary
 

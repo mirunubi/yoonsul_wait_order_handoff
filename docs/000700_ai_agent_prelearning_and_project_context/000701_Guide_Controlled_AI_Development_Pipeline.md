@@ -2669,7 +2669,7 @@ Medium tier 이상(§31)에서, Stage 2(Claude 검증) 완료 후 Stage 3(Human 
 
 ## 38. Verification Intensity Tiering by Risk (2026-07-11)
 
-배경: §35/§36/§37이 "다른 행위자가 검증한다"는 원칙을 세웠으나, 매번 3개 행위자(Cursor/Codex/Claude Code) 전부를 동원하면 작업 적체가 발생한다(Human 관찰, 600430 워크패킷 진행 중). 검증 강도는 "이번 산출물이 실제로 무엇을 바꾸는가"에 비례해야 한다.
+배경: §35/§36/§37이 "다른 행위자가 검증한다"는 원칙을 세웠으나, 매번 3개 행위자(Cursor/Codex/Claude Code) 전부를 동원하면 작업 적체가 발생한다(Human 관찰, 600910 워크패킷 진행 중). 검증 강도는 "이번 산출물이 실제로 무엇을 바꾸는가"에 비례해야 한다.
 
 ### 38.1 원칙
 
@@ -2740,7 +2740,7 @@ Medium tier 이상 검증 시 기본 구성("3중 검토"):
 
 모든 RPC 함수는 `EXCEPTION` 핸들러 블록을 갖추고, 실패 발생 시 **`catchmenu_audit.append_audit_record()`를 통해 `catchmenu_ledger.audit_records`에 append-only로 영구 기록**한다. 이 경로는 이미 append-only + 영구 보존이 보장되므로 그 자체로 충분하며, 별도의 OS 파일시스템 이중 기록은 요구하지 않는다(위 배경 문단 참고 — 실현 시 오히려 더 불안정한 감사 경로가 된다는 것이 조사로 확인됨). 기록 후 원래 에러를 재발생시키거나(`RAISE`) 적절한 에러 응답을 반환한다 — 조용히 삼키지 않는다.
 
-**`log_diagnostic()`/`diagnostic_logs`와의 구분 — 용도가 다름**: `catchmenu_common.log_diagnostic()`(→ `catchmenu_common.diagnostic_logs`)은 이번 조항이 대체하지 않는다. 이는 "비즈니스 실패는 아니지만 알아둘 만한 상황"(예: `600450`의 게스트+포인트 요청 케이스 — 주문 자체는 정상 진행되지만 클라이언트 버그 추적용으로 남기는 경고)을 위한 **진단성 경고** 채널로 별도 유지한다. `append_audit_record()`는 실제 실패(`EXCEPTION` 발생)를 위한 경로이고, `log_diagnostic()`은 실패가 아닌 정상 흐름 중의 경고를 위한 경로다 — 두 채널은 목적이 다르므로 서로 대체하지 않는다.
+**`log_diagnostic()`/`diagnostic_logs`와의 구분 — 용도가 다름**: `catchmenu_common.log_diagnostic()`(→ `catchmenu_common.diagnostic_logs`)은 이번 조항이 대체하지 않는다. 이는 "비즈니스 실패는 아니지만 알아둘 만한 상황"(예: `600710`의 게스트+포인트 요청 케이스 — 주문 자체는 정상 진행되지만 클라이언트 버그 추적용으로 남기는 경고)을 위한 **진단성 경고** 채널로 별도 유지한다. `append_audit_record()`는 실제 실패(`EXCEPTION` 발생)를 위한 경로이고, `log_diagnostic()`은 실패가 아닌 정상 흐름 중의 경고를 위한 경로다 — 두 채널은 목적이 다르므로 서로 대체하지 않는다.
 
 ### 41.2 §010554와의 관계 — 범위가 다르지 대체가 아님
 
@@ -2748,7 +2748,7 @@ Medium tier 이상 검증 시 기본 구성("3중 검토"):
 
 ### 41.3 적용 범위
 
-신규/수정되는 함수부터 우선 적용한다 — `600450_place_takeout_order_unassigned_record_fix`의 `place_takeout_order()`가 첫 적용 대상 후보다. 기존 함수 전체에 대한 소급 적용은 이번 조항의 범위가 아니며, 별도 백필(backfill) 워크패킷으로 분리한다.
+신규/수정되는 함수부터 우선 적용한다 — `600710_place_takeout_order_unassigned_record_fix`의 `place_takeout_order()`가 첫 적용 대상 후보다. 기존 함수 전체에 대한 소급 적용은 이번 조항의 범위가 아니며, 별도 백필(backfill) 워크패킷으로 분리한다.
 
 ## 42. §6.5 Mandatory Rule For Every Overview.md (2026-07-13)
 
@@ -2823,6 +2823,6 @@ Antigravity(또는 다른 검증자)가 토큰/컨텍스트 부족 등으로 참
 
 오늘 세션에서 실제로 확인된 사례들:
 
-- `0063`의 오버로드 방치(작은 씨앗) → `confirm_payment_from_provider()`가 이 프로젝트 역사상 최초로 성공적인 E2E 실행에 이르기까지 오래 방치됨(`600480_confirm_payment_from_provider_overload_ambiguity`, `600401_ChangeHistory.md` 2026-07-14 항목).
-- Cursor의 체크섬 보고(`0115`, DB `7eba4434...` vs. 주장된 정답 `c588014b...`) 오탐을 재검증 없이 받아들였다면, 실제로 정상인 파일을 훼손할 뻔했다 — 3가지 독립 방법(수동 재계산, `apply_migrations.py` 소스 검토, 실제 재실행)으로 재검증한 결과 DB 체크섬은 이미 정확했다(`600496_Verification.md`).
+- `0063`의 오버로드 방치(작은 씨앗) → `confirm_payment_from_provider()`가 이 프로젝트 역사상 최초로 성공적인 E2E 실행에 이르기까지 오래 방치됨(`600510_confirm_payment_from_provider_overload_ambiguity`, `600401_ChangeHistory.md` 2026-07-14 항목).
+- Cursor의 체크섬 보고(`0115`, DB `7eba4434...` vs. 주장된 정답 `c588014b...`) 오탐을 재검증 없이 받아들였다면, 실제로 정상인 파일을 훼손할 뻔했다 — 3가지 독립 방법(수동 재계산, `apply_migrations.py` 소스 검토, 실제 재실행)으로 재검증한 결과 DB 체크섬은 이미 정확했다(`600626_Verification.md`).
 - §15.1의 "600000_implementation_lifecycle/ 전체 밴드가 990000_legacy_quarantine/로 격리됐다"는 주장을 원문 재확인 없이 받아들였다면, 잘못된 폴더 구조 결정(현재 활성 상태인 `600000_implementation_lifecycle/`을 존재하지 않는 것처럼 취급)을 내렸을 것이다 — 직접 `990000_legacy_quarantine/`을 조사한 결과, 격리된 것은 이 경로의 **이전** 판본(별개의 메타-거버넌스 스킴 81개 파일 + `604000_workpackets/` 166개 파일)이었고, 이후 같은 경로가 지금의 다른 내용으로 **재사용**된 것으로 확인됐다(`000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md`).
