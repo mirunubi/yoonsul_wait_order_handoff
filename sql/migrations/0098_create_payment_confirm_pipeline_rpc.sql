@@ -188,6 +188,7 @@ declare
   v_provider_response_id uuid;
   v_gateway_provider_type text;
   v_actor_type text;
+  v_row_count int;
 begin
   v_actor_type := case
     when p_actor_type in (
@@ -220,16 +221,41 @@ begin
 
   -- 멱등성 검사 (correlation_id 기반)
   if p_correlation_id is not null then
-    if exists (
-      select 1
-      from catchmenu_payment.payment_ledger
-      where store_id = p_store_id
-        and tenant_id = p_tenant_id
-        and provider_payment_key = p_provider_tx_id
-        and provider_type = p_provider_type
-        and ledger_status = 'APPROVED'
-    ) then
-      -- 중복 결제 시도 → CRITICAL 로그
+    select pl.id
+    into v_ledger_id
+    from catchmenu_payment.payment_ledger pl
+    join catchmenu_pos.orders o
+      on o.id = pl.order_id
+    where pl.store_id = p_store_id
+      and pl.tenant_id = p_tenant_id
+      and pl.provider_payment_key = p_provider_tx_id
+      and pl.provider_type = p_provider_type
+      and pl.ledger_status = 'APPROVED'
+      and pl.order_id = p_order_id
+    order by pl.approved_at desc
+    limit 1;
+
+    if v_ledger_id is not null then
+      if exists (
+        select 1
+        from catchmenu_pos.orders
+        where id = p_order_id
+          and store_id = p_store_id
+          and tenant_id = p_tenant_id
+          and order_status = 'CONFIRMED'
+      ) then
+        return catchmenu_common.build_success_response(
+          p_message_key := 'payment_already_confirmed_idempotent',
+          p_data := jsonb_build_object(
+            'ledger_id', v_ledger_id,
+            'order_id', p_order_id,
+            'already_confirmed', true
+          ),
+          p_locale := p_locale,
+          p_correlation_id := p_correlation_id
+        );
+      end if;
+
       perform catchmenu_common.log_diagnostic(
         p_tenant_id := p_tenant_id,
         p_store_id := p_store_id,
@@ -238,14 +264,15 @@ begin
         p_log_event :=
           'payment_idempotency_violation',
         p_message :=
-          '중복 결제 시도 감지: '
+          'Duplicate payment confirmation attempt: '
           || p_provider_tx_id,
         p_rpc_name := 'confirm_payment',
         p_correlation_id := p_correlation_id,
         p_details := jsonb_build_object(
           'provider_tx_id', p_provider_tx_id,
           'provider_type', p_provider_type,
-          'order_id', p_order_id
+          'order_id', p_order_id,
+          'existing_ledger_id', v_ledger_id
         )
       );
 
@@ -254,7 +281,10 @@ begin
         p_locale := p_locale,
         p_tenant_id := p_tenant_id,
         p_store_id := p_store_id,
-        p_rpc_name := 'confirm_payment'
+        p_correlation_id := p_correlation_id,
+        p_rpc_name := 'confirm_payment',
+        p_order_id := p_order_id,
+        p_payment_id := v_ledger_id
       );
     end if;
   end if;
@@ -281,7 +311,78 @@ begin
   end if;
 
   -- 이미 결제 완료
-  if exists (
+  if v_order.order_status = 'CONFIRMED' then
+    select id
+    into v_ledger_id
+    from catchmenu_payment.payment_ledger
+    where order_id = p_order_id
+      and provider_payment_key = p_provider_tx_id
+      and provider_type = p_provider_type
+      and ledger_status = 'APPROVED'
+    order by approved_at desc
+    limit 1;
+
+    if v_ledger_id is not null then
+      return catchmenu_common.build_success_response(
+        p_message_key := 'payment_already_confirmed_idempotent',
+        p_data := jsonb_build_object(
+          'ledger_id', v_ledger_id,
+          'order_id', p_order_id,
+          'already_confirmed', true
+        ),
+        p_locale := p_locale,
+        p_correlation_id := p_correlation_id
+      );
+    end if;
+
+    return catchmenu_common.build_error_response(
+      p_error_key := 'payment_already_confirmed',
+      p_locale := p_locale,
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id
+    );
+  elsif v_order.order_status in (
+    'COOKING',
+    'READY',
+    'SERVED',
+    'COMPLETED'
+  ) then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'order_not_confirmable',
+      p_locale := p_locale,
+      p_params := jsonb_build_object(
+        'current_status', v_order.order_status
+      ),
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id
+    );
+  elsif v_order.order_status not in (
+    'PENDING',
+    'CANCELLED',
+    'REFUNDED',
+    'PARTIAL_REFUNDED'
+  ) then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'order_not_confirmable',
+      p_locale := p_locale,
+      p_params := jsonb_build_object(
+        'current_status', v_order.order_status
+      ),
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id
+    );
+  end if;
+
+  if v_order.order_status = 'PENDING' and exists (
     select 1 from catchmenu_payment.payment_ledger
     where order_id = p_order_id
       and ledger_status = 'APPROVED'
@@ -291,10 +392,11 @@ begin
       p_locale := p_locale,
       p_tenant_id := p_tenant_id,
       p_store_id := p_store_id,
-      p_rpc_name := 'confirm_payment'
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id
     );
   end if;
-
   -- 금액 검증 (±10원 허용 오차)
   if abs(p_approved_amount - v_order.final_amount)
     > 10
@@ -424,6 +526,121 @@ begin
   end if;
 
   -- 결제 원장 기록 (Layer 1)
+  if v_order.order_status in (
+    'CANCELLED',
+    'REFUNDED',
+    'PARTIAL_REFUNDED'
+  ) then
+    insert into catchmenu_payment.payment_ledger (
+      tenant_id, store_id,
+      order_id, session_id,
+      intent_id,
+      ledger_entry_type,
+      provider_type,
+      provider_payment_key,
+      provider_approval_number,
+      provider_approved_at,
+      provider_response_id,
+      approved_amount, net_amount,
+      ledger_status,
+      approved_at,
+      reconciliation_status,
+      business_day, business_timezone
+    ) values (
+      p_tenant_id, p_store_id,
+      p_order_id, v_order.session_id,
+      v_intent_id,
+      'APPROVAL',
+      p_provider_type,
+      p_provider_tx_id,
+      p_provider_approval_number,
+      now(),
+      v_provider_response_id,
+      p_approved_amount, v_net_amount,
+      'APPROVED',
+      now(),
+      'MANUAL_REVIEW',
+      v_business_day, v_timezone
+    )
+    returning id into v_ledger_id;
+
+    insert into catchmenu_payment.payment_events (
+      tenant_id, store_id, order_id,
+      intent_id, ledger_id,
+      event_type, from_status, to_status,
+      caused_by_type, caused_by_id,
+      amount_at_event,
+      provider_event_id,
+      event_payload, correlation_id, occurred_at
+    ) values (
+      p_tenant_id, p_store_id, p_order_id,
+      v_intent_id, v_ledger_id,
+      'payment_approved',
+      v_order.order_status, 'APPROVED_MANUAL_REVIEW',
+      v_actor_type, p_actor_id,
+      p_approved_amount,
+      p_provider_tx_id,
+      jsonb_build_object(
+        'reason', 'payment_approved_after_order_cancelled',
+        'order_status', v_order.order_status,
+        'provider_type', p_provider_type,
+        'provider_tx_id', p_provider_tx_id,
+        'provider_approval_number',
+          p_provider_approval_number,
+        'reconciliation_status', 'MANUAL_REVIEW'
+      ),
+      p_correlation_id, now()
+    );
+
+    insert into catchmenu_ledger.events (
+      tenant_id, store_id,
+      event_domain, event_type, event_version,
+      subject_type, subject_id,
+      from_state, to_state,
+      caused_by_type, caused_by_id,
+      event_payload,
+      order_id, payment_id, correlation_id,
+      business_day, business_timezone, occurred_at
+    ) values (
+      p_tenant_id, p_store_id,
+      'payment',
+      'payment_approved_after_order_cancelled', 1,
+      'payment_ledger', v_ledger_id,
+      v_order.order_status, 'APPROVED_MANUAL_REVIEW',
+      v_actor_type, p_actor_id,
+      jsonb_build_object(
+        'reason', 'payment_approved_after_order_cancelled',
+        'order_status', v_order.order_status,
+        'provider_type', p_provider_type,
+        'provider_tx_id', p_provider_tx_id,
+        'provider_approval_number',
+          p_provider_approval_number,
+        'approved_amount', p_approved_amount,
+        'reconciliation_status', 'MANUAL_REVIEW'
+      ),
+      p_order_id, v_ledger_id, p_correlation_id,
+      v_business_day, v_timezone, now()
+    );
+
+    return catchmenu_common.build_error_response(
+      p_error_key := 'payment_already_confirmed',
+      p_locale := p_locale,
+      p_details := jsonb_build_object(
+        'ledger_id', v_ledger_id,
+        'order_id', p_order_id,
+        'order_status', v_order.order_status,
+        'reconciliation_status', 'MANUAL_REVIEW',
+        'reason', 'payment_approved_after_order_cancelled'
+      ),
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id,
+      p_payment_id := v_ledger_id
+    );
+  end if;
+
   insert into catchmenu_payment.payment_ledger (
     tenant_id, store_id,
     order_id, session_id,
@@ -466,7 +683,23 @@ begin
     end,
     confirmed_at = now(),
     updated_at = now()
-  where id = p_order_id;
+  where id = p_order_id
+    and order_status = 'PENDING';
+
+  get diagnostics v_row_count = row_count;
+
+  if v_row_count = 0 then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'order_status_changed_concurrently',
+      p_locale := p_locale,
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_correlation_id := p_correlation_id,
+      p_rpc_name := 'confirm_payment',
+      p_order_id := p_order_id,
+      p_payment_id := v_ledger_id
+    );
+  end if;
 
   -- ==========================================
   -- 특허2 핵심: KDS Late Binding 해제
