@@ -104,8 +104,7 @@ begin
     cancelled_amount = approved_amount,
     net_amount = 0,
     kds_release_authorized = false,
-    evidence_packet_id = v_evidence_id,
-    updated_at = now()
+    evidence_packet_id = v_evidence_id
   where id = p_ledger_id;
 
   -- block all KDS tickets for this order
@@ -357,8 +356,7 @@ begin
     end,
     cancelled_amount = v_new_cancelled_amount,
     net_amount = v_new_net_amount,
-    evidence_packet_id = v_evidence_id,
-    updated_at = now()
+    evidence_packet_id = v_evidence_id
   where id = p_ledger_id;
 
   -- payment event
@@ -605,8 +603,7 @@ begin
     ledger_status = v_new_status,
     refunded_amount = v_new_refunded_amount,
     net_amount = v_new_net_amount,
-    evidence_packet_id = v_evidence_id,
-    updated_at = now()
+    evidence_packet_id = v_evidence_id
   where id = p_ledger_id;
 
   -- update order status
