@@ -140,7 +140,7 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 | `catchmenu_store.point_transfer_log` | O | O |
 | `catchmenu_store.membership_tiers_config` | O | O |
 
-**함수** (`0108` 헤더 주석 기준, 라이브 존재 확인): `get_membership_config()`, `earn_points_after_order()`, `stamp_visit()`, **`transfer_points_to_franchise()`**, **`transfer_points_to_yoonsul()`**, `get_customer_membership()`, `get_membership_dashboard()`.
+**함수**: `get_membership_config()`, `earn_points_after_order()`, `stamp_visit()`, `get_customer_membership()`, `get_membership_dashboard()` — 라이브 존재 확인. **`transfer_points_to_franchise()`/`transfer_points_to_yoonsul()`는 `0108` 헤더 주석에만 예정으로 적혀있을 뿐 실제 구현되지 않음**(2026-07-15 삼중 검증 확인, G.4 참고) — 이 둘은 라이브에 존재하지 않는다.
 
 #### G.3 Flutter 소비
 
@@ -150,18 +150,19 @@ Cursor의 전수 스캔 결과와 일치 — `000053`을 이 문서의 번호로
 
 #### G.4 발견된 이슈 (판단·해결책 제시 없음, 사실만 기록)
 
-**거버넌스 문서(`015030`/`015040`)가 명시적으로 "미승인"/"future-reserved"라고 선언한 기능이, SQL 레벨에서는 이미 완전히 구현되어 라이브 DB에 존재한다.**
+**정정(2026-07-15, Cursor+안티+Codex 삼중 검증 확인)**: 이전 판본은 이 절에서 "거버넌스 문서가 미승인이라고 선언한 기능이 SQL 레벨에서는 이미 완전히 구현되어 라이브 DB에 존재한다"고 기재했으나, 이는 부정확했다. `transfer_points_to_franchise()`/`transfer_points_to_yoonsul()`는 `0108` 헤더 주석에만 예정으로 적혀있을 뿐 실제 구현되지 않음(2026-07-15 삼중 검증 확인). `015030`/`015040`의 "MVP 금지" 거버넌스와 실제로 모순되지 않는다 — 애초에 금지된 기능이 구현된 적이 없었다. 실제 존재하는 것은 `earn_points_after_order()`의 `FRANCHISE_LINK`/`YOONSUL_LINK` 분기(PENDING 로그+이벤트 발행만)이며, 이것도 트리거 가능한 실제 테넌트 데이터가 0건이라 당장의 운영 리스크는 낮다.
 
-- `015030` §2 "Forbidden in MVP": "no point ledger", "no point earning", "no cross-store point exchange", "no cross-tenant point exchange", "no Yoonsul group point integration" — 그러나 `catchmenu_store.point_ledger` 테이블은 실존하고, `earn_points_after_order()`(포인트 적립)와 `transfer_points_to_franchise()`(가맹점 간 이관)가 라이브 함수로 존재한다.
-- `015040` §2 "Bridge Types" 표에 "Yoonsul group point future bridge"를 "future-reserved"로 명시 — 그러나 `transfer_points_to_yoonsul()` 함수가 라이브로 존재하고, `900140` 설계 문서는 `YOONSUL_LINK` 모드를 (Phase 2로 예정되어 있긴 하나) 상세히 기술하고 있다.
-- `015030`/`015040` 둘 다 §7 "Current Status"에서 "No implementation approval"이라고 명시.
-- 이 매트릭스는 이 시간적 불일치가 왜 발생했는지(예: `015030`/`015040`이 더 나중에 작성된 재검토 결정인지, `0108`이 이미 승인된 후 거버넌스 문서가 뒤늦게 작성된 것인지, 단순 소통 누락인지)를 판단하지 않는다 — **우선순위/승인 상태 재확인이 필요하다는 사실만 기록한다.**
+- `015030` §2 "Forbidden in MVP": "no point ledger", "no point earning", "no cross-store point exchange", "no cross-tenant point exchange", "no Yoonsul group point integration" — `catchmenu_store.point_ledger` 테이블과 `earn_points_after_order()`(포인트 적립)는 실존한다(이 부분은 정정 대상 아님, 이전 판본 기재 그대로 유효). 다만 "cross-store"/"cross-tenant"/"Yoonsul group" 이관 자체를 수행하는 `transfer_points_to_franchise()`는 라이브에 존재하지 않는다.
+- `015040` §2 "Bridge Types" 표에 "Yoonsul group point future bridge"를 "future-reserved"로 명시 — `transfer_points_to_yoonsul()` 함수는 라이브에 존재하지 않으므로 이 "future-reserved" 표기와 모순되지 않는다. `900140` 설계 문서가 `YOONSUL_LINK` 모드를 상세히 기술하고 있다는 사실 자체는 유효하다(설계 문서 존재 ≠ 구현 존재).
+- `015030`/`015040` 둘 다 §7 "Current Status"에서 "No implementation approval"이라고 명시 — 실제 구현 상태와 일치.
+- `earn_points_after_order()`의 `FRANCHISE_LINK`/`YOONSUL_LINK` case 분기(`0108` L701-786)는 실존하며, `catchmenu_common.notify_channel()` 이벤트 발행 + `catchmenu_store.point_transfer_log`에 `transfer_status = 'PENDING'` 행 삽입까지만 수행한다 — 실제 포인트 차감/이관(`transfer_points_to_franchise()`/`transfer_points_to_yoonsul()` 호출)은 코드에 존재하지 않는다.
+- 이 분기를 트리거하려면 `catchmenu_store.membership_configs.membership_mode`가 `FRANCHISE_LINK` 또는 `YOONSUL_LINK`인 테넌트가 있어야 하나, 라이브 재확인 결과 `membership_configs`는 행 1개뿐이고 그 값은 `STAMP` — `FRANCHISE_LINK`/`YOONSUL_LINK` 테넌트 0건. `point_transfer_log`도 0행(한 번도 이 분기가 실제로 실행된 적 없음).
 
 ## §3 남은 작업
 
 - E/F(Staff App/Inventory) 섹션은 골격만 — 실제 조사 필요.
 - D(DID) 섹션의 실제 화면 구현 여부는 이번 세션에서 확인되지 않음.
-- G.4의 거버넌스/SQL 불일치는 Human 판단 필요 — 이 문서는 그 판단을 대신하지 않는다.
+- ~~G.4의 거버넌스/SQL 불일치는 Human 판단 필요~~ — **해소됨(2026-07-15)**: 삼중 검증 결과 애초에 불일치가 아니었음(G.4 정정 참고). `FRANCHISE_LINK`/`YOONSUL_LINK`의 PENDING-로그-only 분기가 실제로 언제 완성될지(별도 워크패킷 필요 여부)는 여전히 Human 판단 대상이나, 이는 "거버넌스 위반"이 아니라 "미완성 기능"이라는 성격 정정이다.
 
 ## Module Domain Tags
 
