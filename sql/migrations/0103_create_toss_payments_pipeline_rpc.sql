@@ -706,7 +706,8 @@ begin
       coalesce(p_toss_response, '{}'::jsonb),
     p_actor_type := 'PG_WEBHOOK',
     p_locale := p_locale,
-    p_correlation_id := p_correlation_id
+    p_correlation_id := p_correlation_id,
+    p_intent_id := v_request.payment_intent_id
   );
 
   return catchmenu_common.build_success_response(

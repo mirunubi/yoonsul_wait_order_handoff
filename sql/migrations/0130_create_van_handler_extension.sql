@@ -310,6 +310,7 @@ declare
   v_business_day date;
   v_tax_amount int;
   v_message_key text;
+  v_provider_response_id uuid;
 begin
   v_business_day := (timezone(
     'Asia/Seoul', now()
@@ -389,37 +390,105 @@ begin
   then
     declare
       v_ledger_id uuid;
+      v_intent_id uuid;
+      v_provider_payment_key text;
+      v_gateway_provider_type text;
     begin
+      v_provider_payment_key := coalesce(
+        p_approval_number,
+        v_tx_id::text
+      );
+
+      v_gateway_provider_type := case
+        when p_van_provider in (
+          'VAN_NICE',
+          'VAN_KIS',
+          'VAN_KICC'
+        ) then p_van_provider
+        when p_van_provider in ('NICE', 'NICE_VAN') then 'VAN_NICE'
+        when p_van_provider in ('KIS', 'KIS_VAN') then 'VAN_KIS'
+        when p_van_provider in ('KICC', 'KICC_VAN') then 'VAN_KICC'
+        else 'OTHER'
+      end;
+
+      insert into catchmenu_gateway.provider_raw_events (
+        tenant_id,
+        store_id,
+        provider_type,
+        provider_code,
+        provider_event_id,
+        provider_event_type,
+        raw_payload
+      ) values (
+        p_tenant_id,
+        p_store_id,
+        v_gateway_provider_type,
+        p_van_provider,
+        v_provider_payment_key,
+        'VAN_TRANSACTION',
+        coalesce(
+          p_van_response_raw,
+          jsonb_build_object(
+            'van_provider', p_van_provider,
+            'approval_number', p_approval_number,
+            'van_reference_id', p_van_reference_id,
+            'approved_amount', p_approved_amount
+          )
+        )
+      )
+      returning id into v_provider_response_id;
+
+      v_intent_id :=
+        catchmenu_payment.resolve_or_create_payment_intent(
+          p_tenant_id := p_tenant_id,
+          p_store_id := p_store_id,
+          p_order_id := p_order_id,
+          p_requested_amount := p_approved_amount,
+          p_payment_method := 'CARD',
+          p_payment_channel := 'COUNTER_CARD',
+          p_provider_type := v_gateway_provider_type,
+          p_intent_origin := 'VAN_SYNTHESIZED',
+          p_origin_reference := jsonb_build_object(
+            'source', 'record_van_transaction',
+            'van_transaction_id', v_tx_id,
+            'van_provider', p_van_provider,
+            'approval_number', p_approval_number,
+            'van_reference_id', p_van_reference_id
+          ),
+          p_intent_id := null,
+          p_session_id := null,
+          p_locale := p_locale
+        );
+
       insert into
         catchmenu_payment.payment_ledger (
         tenant_id, store_id,
-        order_id, provider_type,
-        payment_method, provider_tx_id,
-        approved_amount, fee_amount,
-        net_amount, tax_amount,
+        order_id, intent_id,
+        ledger_entry_type,
+        provider_type,
+        provider_payment_key,
+        provider_approval_number,
+        provider_approved_at,
+        provider_response_id,
+        approved_amount,
+        net_amount,
         ledger_status, approved_at,
-        business_day, business_timezone,
-        provider_response
+        business_day, business_timezone
       ) values (
         p_tenant_id, p_store_id,
         p_order_id,
+        v_intent_id,
+        'APPROVAL',
         p_van_provider || '_VAN',
-        case p_card_type
-          when 'CREDIT' then 'CREDIT_CARD'
-          else 'DEBIT_CARD'
-        end,
-        coalesce(
-          p_approval_number,
-          v_tx_id::text
-        ),
+        v_provider_payment_key,
+        p_approval_number,
+        coalesce(p_approval_at, now()),
+        v_provider_response_id,
         p_approved_amount,
-        0,
-        p_approved_amount - v_tax_amount,
-        v_tax_amount,
+        p_approved_amount,
         'APPROVED',
         coalesce(p_approval_at, now()),
-        v_business_day, 'Asia/Seoul',
-        p_van_response_raw
+        v_business_day, 'Asia/Seoul'
       )
       returning id into v_ledger_id;
 
@@ -430,9 +499,8 @@ begin
     end;
   end if;
 
-  -- 메시지 키
-  v_message_key := case
-    p_transaction_type
+  -- message key
+  v_message_key := case p_transaction_type
     when 'APPROVAL' then 'van_payment_approved'
     when 'NET_CANCEL' then 'van_net_cancel_completed'
     else 'van_payment_cancelled'
@@ -452,7 +520,7 @@ begin
     'payment', 'van_transaction_recorded', 1,
     'van_transaction', v_tx_id,
     'PENDING', p_transaction_status,
-    'VAN_' || p_van_provider,
+    'PROVIDER',
     jsonb_build_object(
       'van_provider', p_van_provider,
       'transaction_type', p_transaction_type,

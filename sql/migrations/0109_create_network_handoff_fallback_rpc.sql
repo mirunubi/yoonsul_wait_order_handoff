@@ -912,43 +912,104 @@ begin
           -- 수기 결제 기록
           declare
             v_ledger_id uuid;
+            v_intent_id uuid;
+            v_provider_response_id uuid;
+            v_order_id uuid;
+            v_amount int;
+            v_payment_method text;
+            v_payment_key text;
+            v_provider_payload jsonb;
           begin
+            v_order_id := (
+              v_item.action_payload
+                ->>'order_id'
+            )::uuid;
+            v_amount := (
+              v_item.action_payload
+                ->>'amount'
+            )::int;
+            v_payment_method := coalesce(
+              v_item.action_payload
+                ->>'payment_method',
+              'CASH'
+            );
+            v_payment_key := 'MANUAL-' || v_item.id::text;
+            v_provider_payload := jsonb_build_object(
+              'offline', true,
+              'manual', true,
+              'queue_item_id', v_item.id,
+              'note', v_item.action_payload
+                ->>'note'
+            );
+
+            insert into catchmenu_gateway.provider_raw_events (
+              tenant_id,
+              store_id,
+              provider_type,
+              provider_code,
+              provider_event_id,
+              provider_event_type,
+              raw_payload,
+              correlation_id
+            ) values (
+              p_tenant_id,
+              p_store_id,
+              'OTHER',
+              'MANUAL',
+              v_payment_key,
+              'RECORD_MANUAL_PAYMENT',
+              v_provider_payload,
+              null
+            )
+            returning id into v_provider_response_id;
+
+            v_intent_id :=
+              catchmenu_payment.resolve_or_create_payment_intent(
+                p_tenant_id := p_tenant_id,
+                p_store_id := p_store_id,
+                p_order_id := v_order_id,
+                p_requested_amount := v_amount,
+                p_payment_method := v_payment_method,
+                p_payment_channel := 'STAFF_POS',
+                p_provider_type := 'MANUAL',
+                p_intent_origin := 'MANUAL_ENTRY',
+                p_origin_reference := jsonb_build_object(
+                  'source', 'flush_offline_queue',
+                  'queue_item_id', v_item.id,
+                  'payment_key', v_payment_key
+                ),
+                p_intent_id := null,
+                p_session_id := null,
+                p_locale := p_locale
+              );
             insert into
               catchmenu_payment.payment_ledger (
               tenant_id, store_id,
-              order_id, provider_type,
-              payment_method,
-              provider_tx_id,
-              approved_amount, fee_amount,
+              order_id, intent_id,
+              ledger_entry_type,
+              provider_type,
+              provider_payment_key,
+              provider_response_id,
+              approved_amount,
               net_amount, ledger_status,
               approved_at, business_day,
-              business_timezone,
-              provider_response
+              business_timezone
             ) values (
               p_tenant_id, p_store_id,
-              (v_item.action_payload
-                ->>'order_id')::uuid,
+              v_order_id,
+              v_intent_id,
+              'APPROVAL',
               'MANUAL',
-              v_item.action_payload
-                ->>'payment_method',
-              'MANUAL-' || now()::text,
-              (v_item.action_payload
-                ->>'amount')::int,
-              0,
-              (v_item.action_payload
-                ->>'amount')::int,
+              v_payment_key,
+              v_provider_response_id,
+              v_amount,
+              v_amount,
               'APPROVED',
               (v_item.action_payload
                 ->>'paid_at')::timestamptz,
               (v_item.action_payload
                 ->>'business_day')::date,
-              'Asia/Seoul',
-              jsonb_build_object(
-                'offline', true,
-                'manual', true,
-                'note', v_item.action_payload
-                  ->>'note'
-              )
+              'Asia/Seoul'
             )
             returning id into v_ledger_id;
 

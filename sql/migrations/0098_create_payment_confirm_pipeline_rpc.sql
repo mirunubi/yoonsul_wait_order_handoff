@@ -141,6 +141,11 @@ on conflict (code) do nothing;
 -- =============================================
 -- RPCs
 -- =============================================
+drop function if exists catchmenu_payment.confirm_payment(
+  uuid, uuid, uuid, text, text, text,
+  int, text, jsonb, text, uuid, text, text
+);
+
 create or replace function
   catchmenu_payment.confirm_payment(
   p_tenant_id uuid,
@@ -155,7 +160,8 @@ create or replace function
   p_actor_type text default 'STAFF',
   p_actor_id uuid default null,
   p_locale text default 'ko',
-  p_correlation_id text default null
+  p_correlation_id text default null,
+  p_intent_id uuid default null
 )
 returns jsonb
 language plpgsql
@@ -178,7 +184,32 @@ declare
   v_timezone text;
   v_net_amount int;
   v_fee_amount int;
+  v_intent_id uuid;
+  v_provider_response_id uuid;
+  v_gateway_provider_type text;
+  v_actor_type text;
 begin
+  v_actor_type := case
+    when p_actor_type in (
+      'SYSTEM',
+      'AGENT',
+      'STAFF',
+      'MANAGER',
+      'OWNER',
+      'HQ_ADMIN',
+      'CUSTOMER',
+      'PROVIDER',
+      'SCHEDULER'
+    ) then p_actor_type
+    when p_actor_type in (
+      'PG_WEBHOOK',
+      'POS_WEBHOOK',
+      'VAN_WEBHOOK',
+      'PROVIDER_WEBHOOK'
+    ) then 'PROVIDER'
+    else 'SYSTEM'
+  end;
+
   select timezone into v_timezone
   from catchmenu_hq.stores
   where id = p_store_id and tenant_id = p_tenant_id;
@@ -194,7 +225,7 @@ begin
       from catchmenu_payment.payment_ledger
       where store_id = p_store_id
         and tenant_id = p_tenant_id
-        and provider_tx_id = p_provider_tx_id
+        and provider_payment_key = p_provider_tx_id
         and provider_type = p_provider_type
         and ledger_status = 'APPROVED'
     ) then
@@ -275,9 +306,9 @@ begin
       p_log_domain := 'PAYMENT',
       p_log_event := 'payment_amount_mismatch',
       p_message :=
-        '결제 금액 불일치'
-        || ' | 주문=' || v_order.final_amount
-        || ' | 승인=' || p_approved_amount,
+        'Payment amount mismatch'
+        || ' | order=' || v_order.final_amount
+        || ' | approved=' || p_approved_amount,
       p_rpc_name := 'confirm_payment',
       p_details := jsonb_build_object(
         'order_amount', v_order.final_amount,
@@ -300,31 +331,127 @@ begin
     else
       (p_approved_amount * 0.015)::int
   end;
-  v_net_amount := p_approved_amount - v_fee_amount;
+  v_net_amount := p_approved_amount;
+
+  v_gateway_provider_type := case
+    when p_provider_type in (
+      'TOSS_POS',
+      'TOSS_PAYMENTS',
+      'VAN_NICE',
+      'VAN_KIS',
+      'VAN_KICC',
+      'PG_KAKAO',
+      'PG_NAVER',
+      'ALIPAY',
+      'WECHAT_PAY',
+      'SAMSUNG_PAY',
+      'DELIVERY_BAEMIN',
+      'DELIVERY_YOGIYO',
+      'DELIVERY_COUPANG',
+      'OKPOS',
+      'KIOSK_VENDOR',
+      'INTERNAL_AGENT',
+      'OTHER'
+    ) then p_provider_type
+    else 'OTHER'
+  end;
+
+  insert into catchmenu_gateway.provider_raw_events (
+    tenant_id,
+    store_id,
+    provider_type,
+    provider_code,
+    provider_event_id,
+    provider_event_type,
+    raw_payload,
+    correlation_id
+  ) values (
+    p_tenant_id,
+    p_store_id,
+    v_gateway_provider_type,
+    p_provider_type,
+    p_provider_tx_id,
+    'PAYMENT_CONFIRM',
+    coalesce(
+      p_provider_response,
+      jsonb_build_object(
+        'provider_type', p_provider_type,
+        'provider_tx_id', p_provider_tx_id,
+        'provider_approval_number',
+          p_provider_approval_number,
+        'approved_amount', p_approved_amount
+      )
+    ),
+    p_correlation_id
+  )
+  returning id into v_provider_response_id;
+
+  v_intent_id :=
+    catchmenu_payment.resolve_or_create_payment_intent(
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_order_id := p_order_id,
+      p_requested_amount := p_approved_amount,
+      p_payment_method := p_payment_method,
+      p_payment_channel := 'STAFF_POS',
+      p_provider_type := p_provider_type,
+      p_intent_origin := case
+        when p_intent_id is not null then
+          'PREAUTHORIZED'
+        else
+          'POS_SYNTHESIZED'
+      end,
+      p_origin_reference := jsonb_build_object(
+        'source', 'confirm_payment',
+        'provider_type', p_provider_type,
+        'provider_tx_id', p_provider_tx_id,
+        'provider_approval_number',
+          p_provider_approval_number
+      ),
+      p_intent_id := p_intent_id,
+      p_session_id := v_order.session_id,
+      p_locale := p_locale
+    );
+
+  if v_intent_id is null then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'payment_intent_resolution_failed',
+      p_locale := p_locale,
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_rpc_name := 'confirm_payment'
+    );
+  end if;
 
   -- 결제 원장 기록 (Layer 1)
   insert into catchmenu_payment.payment_ledger (
     tenant_id, store_id,
     order_id, session_id,
-    provider_type, payment_method,
-    provider_tx_id,
+    intent_id,
+    ledger_entry_type,
+    provider_type,
+    provider_payment_key,
     provider_approval_number,
-    approved_amount, fee_amount, net_amount,
+    provider_approved_at,
+    provider_response_id,
+    approved_amount, net_amount,
     ledger_status,
     approved_at,
-    provider_response,
     reconciliation_status,
     business_day, business_timezone
   ) values (
     p_tenant_id, p_store_id,
     p_order_id, v_order.session_id,
-    p_provider_type, p_payment_method,
+    v_intent_id,
+    'APPROVAL',
+    p_provider_type,
     p_provider_tx_id,
     p_provider_approval_number,
-    p_approved_amount, v_fee_amount, v_net_amount,
+    now(),
+    v_provider_response_id,
+    p_approved_amount, v_net_amount,
     'APPROVED',
     now(),
-    coalesce(p_provider_response, '{}'::jsonb),
     'PENDING',
     v_business_day, v_timezone
   )
@@ -337,7 +464,7 @@ begin
       when 'TABLE' then 'COOKING'
       else 'CONFIRMED'
     end,
-    paid_at = now(),
+    confirmed_at = now(),
     updated_at = now()
   where id = p_order_id;
 
@@ -362,7 +489,7 @@ begin
     p_audit_domain := 'payment',
     p_audit_type := 'payment_confirmed',
     p_audit_category := 'FINANCIAL',
-    p_actor_type := p_actor_type,
+    p_actor_type := v_actor_type,
     p_actor_id := p_actor_id,
     p_subject_type := 'payment_ledger',
     p_subject_id := v_ledger_id,
@@ -397,7 +524,7 @@ begin
     'payment', 'payment_confirmed', 1,
     'payment_ledger', v_ledger_id,
     'PENDING', 'APPROVED',
-    p_actor_type, p_actor_id,
+    v_actor_type, p_actor_id,
     jsonb_build_object(
       'order_id', p_order_id,
       'order_number', v_order.order_number,
@@ -1288,12 +1415,12 @@ begin
   revoke all on function
     catchmenu_payment.confirm_payment(
       uuid, uuid, uuid, text, text, text,
-      int, text, jsonb, text, uuid, text, text
+      int, text, jsonb, text, uuid, text, text, uuid
     ) from public;
   grant execute on function
     catchmenu_payment.confirm_payment(
       uuid, uuid, uuid, text, text, text,
-      int, text, jsonb, text, uuid, text, text
+      int, text, jsonb, text, uuid, text, text, uuid
     ) to authenticated;
 
   revoke all on function
@@ -1348,7 +1475,7 @@ $$;
 comment on function
   catchmenu_payment.confirm_payment(
     uuid, uuid, uuid, text, text, text,
-    int, text, jsonb, text, uuid, text, text
+    int, text, jsonb, text, uuid, text, text, uuid
   ) is
   '결제 확인 파이프라인 핵심 함수.
    처리 순서:
