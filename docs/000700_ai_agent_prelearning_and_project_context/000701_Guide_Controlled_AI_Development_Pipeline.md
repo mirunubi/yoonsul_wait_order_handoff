@@ -20,7 +20,7 @@ SOP Status:
 
 Foundation governance guide, not yet promoted to mandatory `sop/system` document.
 
-As of 2026-07-10, Cursor and Codex are reintroduced as subordinate execution/scan tools under Claude's full governance — they hold NO authority to self-approve, self-stage, or self-commit anything. Every Cursor/Codex output is independently re-verified by a different model (Claude Code) before Claude's Stage 6 audit accepts it. This is a deliberate cross-model diversity safeguard (see §26 Adversarial Audit Pass Requirement) against shared blind spots if verification stayed entirely within one model family — it is not a return to unsupervised GPT authority, which remains permanently revoked.
+As of 2026-07-10, Cursor and Codex are reintroduced as subordinate execution/scan tools under Claude's full governance — they hold NO authority to self-approve, self-stage, or self-commit anything. Every Cursor/Codex output is independently re-verified by a different model (Claude Code) before Claude's Final Audit (Stage 11 as of the 2026-07-16 thirteen-stage restructure, §3) accepts it. This is a deliberate cross-model diversity safeguard (see §26 Adversarial Audit Pass Requirement) against shared blind spots if verification stayed entirely within one model family — it is not a return to unsupervised GPT authority, which remains permanently revoked.
 
 ## 1. Purpose
 
@@ -40,164 +40,172 @@ This document is not a general AI development guide. It is a project governance 
 
 Revision emphasis for this version:
 
+- **(2026-07-16, 재논의 금지)** §3 was rebuilt from an eight-stage (1/1.5/2/3/4/5/5.5/6/7) loop into a thirteen-stage (0-12) loop, folding the previously ad hoc §34-§40 multi-actor verification practices (tiered Architecture/Contract/Independent Verification, Antigravity's non-binding parallel role) directly into the numbered pipeline, and adding a new explicit Documentation stage (10) between independent verification and final audit. This formalizes practices that had already drifted into actual use and closes the verification gaps that drift had caused — see §3 for the full mapping and rationale.
 - The guide is treated as a candidate top-level system SOP / development constitution.
-- The pipeline runs as an explicit eight-stage loop for Medium/Full tier changes (Stage 1.5 and Stage 5.5 added 2026-07-10 alongside the Cursor/Codex reintroduction; see §3, §31). The Lightweight track (§24) is unaffected and remains log-only. Human Approval is a standalone Stage 3, not an implicit line inside Stage 2.
+- The pipeline runs as an explicit thirteen-stage (0-12) loop for Medium/Full tier changes (see §3, §31). The Lightweight track (§24) is unaffected and remains log-only. Human Approval is a standalone Stage 7.
 - The human approval record (the Human Boundary Approval section inside `ChangeContract.md`) remains mandatory before Codex touches code.
-- Context Snapshot injection is mandatory before Claude design work.
+- Context Snapshot injection is mandatory before Claude's Stage 3 design review.
 - Raw terminal logs and git diff must be handed to Claude without AI summarization.
 - Allowed Operations must be narrower than Allowed Files.
 - Every audit and evidence artifact must map back to the active `CHANGE_ID`.
 - MVV may not be used for RLS, database migration, financial, provider, audit, evidence, access-control, or production-release changes.
 - Context Snapshot must be dieted by cheat sheets, domain slicing, and Claude Code-discovered rule references so Claude receives only the relevant rule boundary.
 - Full master rules are governance anchors; AI injection should prefer short rule summaries unless a conflict or audit requires the full document.
-- Stage 1/1.5 (Cursor scan, Claude Code verification) must discover not only affected code and docs, but also the minimal rule files needed for Stage 2.
-- Stage 5 raw logs (Claude Code's cross-model re-verification of Codex's Stage 4 implementation) should be saved to `raw_logs/` by shell redirection or task scripts so Claude can audit exact terminal output without copy-paste loss.
+- Stage 1/2 (Cursor scan, Claude Code verification and design draft) must discover not only affected code and docs, but also the minimal rule files needed for Stage 3.
+- Stage 9 raw logs (Claude Code's cross-model re-verification of Codex's Stage 8 implementation) should be saved to `raw_logs/` by shell redirection or task scripts so Claude can audit exact terminal output without copy-paste loss.
 - Each major domain folder should maintain a thin `<Domain>RulesSummary.md` cheat sheet so future development uses sliced context instead of dumping thousands of planning documents.
 - When this guide is adopted as mandatory governance, it should be placed under `sop/system/` and treated as the project development constitution.
-- Role split revision (2026-07-08, superseded in part 2026-07-10 below): Stage 2 (Claude) verifies and, where needed, corrects the drafted design, then authors `TestPlan.md` and `ChangeContract.md`. Stage 3 (Human) is a standalone approval gate that must exist before implementation may begin. Stage 6 (Claude) remains the independent audit stage, producing the confirm/audit output (`AuditReview.md`) — the implementer's `ImplementationModule.md` in Stage 4 is a self-report, not a completion proof, and is not binding until Stage 6 audits it.
+- Role split revision (2026-07-08, superseded 2026-07-10, restructured again 2026-07-16 — see §3): design verification, contract drafting, and contract verification are now separate stages (3, 5, 6) rather than one combined stage. Human Approval (now Stage 7) remains a standalone gate that must exist before implementation may begin. Claude's Final Audit (now Stage 11) remains the independent audit stage, producing the confirm/audit output (`AuditReview.md`) — the implementer's `ImplementationModule.md` (Stage 8) is a self-report, not a completion proof, and is not binding until Stage 11 audits it.
 - Sections 25-29 were added after this session's SQL migration verification pass revealed that internally consistent documentation chains can still diverge completely from actual system state — these sections require reality-checking, adversarial review, effort-prioritization toward substantive verification, and durable decision logging as structural corrections, not optional best practices.
-- Role split revision (2026-07-10): Cursor and Codex are reintroduced under Claude's full governance (see the notice above and §2, §3). Stage 1 (Cursor) is scope/inventory search only — no drafting, no editing. Stage 1.5 (Claude Code) verifies Cursor's scope and drafts `Overview.md`/`Logic.md`. Stage 4 (Codex) implements strictly within the approved `ChangeContract.md` boundary. Stage 5 (Claude Code) independently re-verifies Codex's implementation — this is a cross-model check, not self-verification, since Claude Code did not write the implementation. Stage 5.5 (Cursor) produces a non-binding `MinorOpinion.md` second review, which Stage 6 must explicitly address (see §31 for tier applicability, §32 for the per-domain NavigationMap that tracks tier and status per change).
+- Role split revision (2026-07-10, stage numbers updated 2026-07-16): Cursor and Codex are reintroduced under Claude's full governance (see the notice above and §2, §3). Stage 1 (Cursor) is scope/inventory search only — no drafting, no editing. Stage 2 (Claude Code) verifies Cursor's scope and drafts `Overview.md`/`Logic.md`. Stage 8 (Codex) implements strictly within the approved `ChangeContract.md` boundary. Stage 9 (Claude Code, plus Cursor under Critical tier) independently re-verifies Codex's implementation — this is a cross-model check, not self-verification, since Claude Code did not write the implementation. Under Critical tier, Cursor's participation in Stage 9 produces a non-binding `MinorOpinion.md`, which Stage 11 must explicitly address (see §31 for tier applicability, §32 for the per-domain NavigationMap that tracks tier and status per change).
 
 ---
 
 ## 2. Operating Thesis
 
-The project uses AI tools as a divided-control development system, with five actors under one governance authority (Claude).
+The project uses AI tools as a divided-control development system, with five core actors under one governance authority (Claude), plus Antigravity as a non-authoritative observer-tier participant (§40).
 
 ```text
 Cursor scans and reports (no drafting, no editing).
 Claude Code verifies the scan and drafts the design.
-Claude verifies the draft, locks the contract.
+Claude reviews the draft and sets the verification tier.
+Codex and/or Cursor verify the architecture; Claude integrates.
+Claude Code drafts the contract.
+Codex and/or Cursor verify the contract; Claude integrates.
 Human approves the boundary.
 Codex implements strictly inside the boundary.
-Claude Code independently re-verifies Codex's implementation.
-Cursor gives a non-binding second opinion.
+Claude Code (plus Cursor under Critical tier) independently re-verifies Codex's implementation.
+Codex and Claude Code document the change.
 Claude judges (does not trust any prior self-report).
 Human owns merge and release.
 ```
 
-No single AI tool is allowed to be trusted as the final authority. Cursor and Codex additionally hold no authority to self-approve, self-stage, or self-commit anything — every output either tool produces passes through at least one different model's independent re-verification before Claude's Stage 6 audit can accept it (see the notice near §1 and §26 Adversarial Audit Pass Requirement).
+No single AI tool is allowed to be trusted as the final authority. Cursor and Codex additionally hold no authority to self-approve, self-stage, or self-commit anything — every output either tool produces passes through at least one different model's independent re-verification before Claude's Stage 11 audit can accept it (see the notice near §1 and §26 Adversarial Audit Pass Requirement).
 
-Claude Code's design draft is not binding by itself. `Overview.md` and `Logic.md` only become the approved design once Claude has verified them in Stage 2 — Claude Code drafting first does not remove Claude's role as design authority, it only changes who produces the first draft. The same non-binding principle applies to Codex's implementation and Cursor's scan/opinion: nothing either of them produces is treated as ground truth until a different model has independently re-checked it.
+Claude Code's design draft is not binding by itself. `Overview.md` and `Logic.md` only become the approved design once Claude has reviewed them in Stage 3 and Stage 4's architecture verification has passed — Claude Code drafting first does not remove Claude's role as design authority, it only changes who produces the first draft. The same non-binding principle applies to Codex's implementation and Cursor's scan/opinion: nothing either of them produces is treated as ground truth until a different model has independently re-checked it.
 
 The pipeline is designed around the following authority split:
 
 | Party | Authority And Responsibility |
 |---|---|
-| Cursor | Stage 1 scope/inventory scan (search, dependency discovery only — no editing, no design authority). Stage 5.5 non-binding minor-opinion second review of Codex's implementation and Claude Code's Stage 5 verification. Cursor cannot block, approve, or require changes at either stage. |
-| Claude Code | Stage 1.5: verifies/corrects Cursor's scope, drafts `Overview.md`/`Logic.md`. Stage 5: independently re-verifies Codex's implementation (cross-model check, not self-verification) and produces `VerificationResult.md` with raw evidence capture. |
-| Claude | Design verification, contract lock, governance review, and mandatory independent audit of raw diffs and logs (Stage 2, Stage 6). Claude does not trust Cursor's scan, Codex's self-report, or Claude Code's verification report at face value — Stage 6 re-derives key claims. Final ACCEPT/REJECT authority rests solely with Claude. |
-| Codex | Stage 4: isolated implementation strictly within the human-approved `ChangeContract.md` boundary. Codex's `ImplementationModule.md` is a self-report, not a completion proof, and is not binding until Stage 5 (Claude Code) and Stage 6 (Claude) both review it. |
-| Human | Implementation approval, final merge, release, and production risk acceptance. |
+| Cursor | Stage 1 scope/inventory scan (search, dependency discovery only — no editing, no design authority). Under Critical tier, participates in Stage 4 (architecture verification), Stage 6 (contract verification), and Stage 9 (independent verification), producing a non-binding `MinorOpinion.md` where applicable. Cursor cannot block, approve, or require changes at any stage. |
+| Claude Code | Stage 2: verifies/corrects Cursor's scope, drafts `Overview.md`/`Logic.md`. Stage 5: drafts `TestPlan.md`/`ChangeContract.md`. Stage 9: independently re-verifies Codex's implementation (cross-model check, not self-verification) and produces `VerificationResult.md` with raw evidence capture. Stage 10: produces the important documentation (`Verification.md`, draft `Audit.md`). |
+| Claude | First-pass design review and tier decision (Stage 3), integrates Stage 4/Stage 6 multi-actor verification results, governance review, and mandatory independent Final Audit of raw diffs and logs (Stage 11). Claude does not trust Cursor's scan, Codex's self-report, or Claude Code's verification report at face value — Stage 11 re-derives key claims. Final ACCEPT/REJECT authority rests solely with Claude. |
+| Codex | Stage 8: isolated implementation strictly within the human-approved `ChangeContract.md` boundary. Under Normal/Critical tier, also participates in Stage 4 and Stage 6 verification (never of its own output). Stage 10: produces simple documentation (`Module.md`, `NavigationMap.md`/index updates). Codex's `ImplementationModule.md` is a self-report, not a completion proof, and is not binding until Stage 9 (Claude Code) and Stage 11 (Claude) both review it. |
+| Antigravity | Non-binding parallel participant in Stage 1, 4, 6, and 9 during the observer period (§40) — reference only, never counted toward a PASS/FAIL verdict. |
+| Human | Stage 7 boundary approval, final merge, release, and production risk acceptance (Stage 12). |
 
-The resulting process is an eight-stage integrity loop for Medium/Full tier changes (§31); the Lightweight track (§24) remains a shorter, log-only path.
+The resulting process is a thirteen-stage (0-12) integrity loop for Medium/Full tier changes (§3, §31); the Lightweight track (§24) remains a shorter, log-only path.
 
 ---
 
-## 3. Final Eight-Stage Integrity Loop
+## 3. Thirteen-Stage (0–12) Integrity Loop
 
-As of 2026-07-10 this is an eight-stage loop for Medium/Full tier changes (§31): Stage 1.5 and Stage 5.5 were added alongside the reintroduction of Cursor and Codex as subordinate, non-authoritative tools. The Lightweight track (§24) is unaffected and stays log-only, no Cursor/Codex involvement required for small fixes.
+**(2026-07-16 전면 개정, Human 결정, 재논의 금지)** As of 2026-07-16 this is a thirteen-stage loop (Stage 0 through Stage 12) for Medium/Full tier changes (§31), superseding the eight-stage (Stage 1 / 1.5 / 2 / 3 / 4 / 5 / 5.5 / 6 / 7) structure that had been in effect since 2026-07-10. The Lightweight track (§24) is unaffected and stays log-only.
+
+This revision exists because the eight-stage structure had drifted from actual session practice ("Stage 2 = Codex writes TestPlan", "Stage 5 = Cursor+Antigravity parallel run treated as formal verification"), and that drift itself caused verification gaps. The original eight-stage spirit — author ≠ verifier, a mandatory human gate, and Claude's sole final ACCEPT/REJECT authority — is preserved. What changes is the stage count and boundaries: the multi-actor architecture/contract verification rules that had already accumulated as informal add-ons (§34-§40 — Actor Selection, Cross-Actor Verification Expansion, Design-Implementation Double Cross-Verification, Mandatory Dual Verification, Verification Intensity Tiering, the Antigravity Observer Period) are now folded directly into the numbered pipeline instead of sitting as an unnumbered layer on top of an eight-stage skeleton that no longer matched how the pipeline actually ran.
 
 ```text
-[1] Cursor Scope/Inventory Scan -> "Eyes Only"
-    - 영향 파일 검색
-    - dependency / import / route / SQL / RLS / test 위치 확인
-    - 관련 MD / SOP / policy / index 위치 확인
+[0] Issue Discovery / Fact Scan (Non-Regular)
+    - 생산자: 누구든 (Human / Cursor / Codex / Claude Code / Antigravity)
+    - 검증: 없음 — 경량, 비정기 발생. 정규 사이클(Stage 1) 진입 전 자유 조사 단계.
+    - Output: Issue Record (선택, 형식 자유)
+
+    ↓ optional handoff into the regular cycle
+
+[1] Scan -> "Eyes Only"
+    - 생산자: Cursor (Eyes Only, 검색/보고만, 설계·구현 금지)
+    - 병행: Antigravity [참고용, 비구속 — §40 관찰 기간 원칙 그대로]
     - 절대 구현 코드 작성 금지, 절대 설계 문서 초안 작성 금지 (검색/보고만)
     - 아키텍처/DB/RLS/네이밍 신규 표준 결정 금지 — 불확실하면 "Open Question" 표시
-    - Cursor는 이 단계에서 승인/차단 권한이 없음 — 원시 스캔 결과만 보고
-    - Output: raw scope/inventory report (ImpactScope.md draft input)
+    - Output: raw scope/inventory report
 
-    ↓ scan handoff (Claude Code verifies before trusting it)
+    ↓ scan handoff
 
-[1.5] Claude Code Verifies Cursor Scope And Drafts Design -> "Drafting Hands"
-    - Cursor의 스캔 결과를 직접 검증 (누락된 파일/의존성/RLS/migration 여부 확인)
-    - ImpactScope.md 확정
-    - Overview.md 초안 작성
-    - Logic.md 초안 작성
-    - 절대 구현 코드 작성 금지 (design draft 문서만 작성)
-    - 아키텍처/DB/RLS/네이밍 신규 표준 결정 금지 — 불확실하면 "Open Question for Claude"로 표시
-    - Output: ImpactScope.md (verified), Overview.md (draft), Logic.md (draft)
+[2] Design Draft -> "Drafting Hands"
+    - 생산자: Claude Code
+    - Cursor의 스캔 결과를 직접 검증(누락된 파일/의존성/RLS/migration 확인)한 뒤 ImpactScope.md를 확정하고 초안을 작성
+    - Output: Overview.md, Logic.md (draft)
+    - 금지: 구현 코드 작성, 신규 아키텍처/DB/RLS/네이밍 표준 확정 (불확실하면 Open Question 표시)
 
-    ↓ context snapshot handoff
+    ↓ draft handoff
 
-[2] Claude Design Verification And Contract Lock -> "Brain / Judge"
-    - Overview.md / Logic.md 초안을 마스터 규칙·invariant·gap 대비 검증
-    - 사소한 오류는 직접 수정, impact scope 자체가 불완전하면 Stage 1로 반려(loopback)
-    - TestPlan.md 생성
-    - ChangeContract.md 생성
-    - 프로젝트 마스터 규칙 준수
-    - 허용/금지 파일 목록 작성
-    - rollback 기준 작성
-    - Output: verified Overview.md/Logic.md + TestPlan.md + draft ChangeContract.md (not yet approved)
+[3] Claude First-Pass Review + Critical/Normal Tier Decision -> "Brain"
+    - 담당: Claude (저)
+    - 내용: Overview.md/Logic.md를 직접 검토, 위험도(Critical/Normal) 판단 후 Stage 4 검증자 구성을 결정
+    - Output: 검토 코멘트 + tier 판정
 
-    ↓ design pack handoff
+    ↓ tier decision handoff
 
-[3] Human Approval             -> "Owner (Gate)"
-    - Overview.md / Logic.md / TestPlan.md / ChangeContract.md 검토
-    - 허용 파일 / 금지 파일 확정
-    - Codex가 손댈 수 있는 범위를 명시적으로 승인
-    - Output: ChangeContract.md (Human Boundary Approval 섹션 작성 완료)
+[4] Architecture Verification
+    - 검증 (Normal tier): Codex + Antigravity [참고용]
+    - 검증 (Critical tier): Cursor + Codex + Antigravity [참고용]
+    - 담당: Claude(저)가 결과 통합/판단 → Human 확인
+    - Output: Architecture Review (raw 검증 결과 통합)
+
+    ↓ verified design handoff
+
+[5] Contract Drafting -> "Drafting Hands"
+    - 생산자: Claude Code
+    - Output: TestPlan.md, ChangeContract.md
+
+    ↓ contract handoff
+
+[6] Contract Verification (§37 — 원작자인 Claude Code는 검증자에서 제외)
+    - 검증 (Normal tier): Codex + Antigravity [참고용]
+    - 검증 (Critical tier): Cursor + Codex + Antigravity [참고용]
+    - 담당: Claude(저)가 결과 통합/판단
+
+    ↓ verified contract handoff
+
+[7] Human Approval Gate -> "Owner (Gate)"
+    - 담당: Human
+    - Overview.md / Logic.md / TestPlan.md / ChangeContract.md 검토, 허용/금지 파일 확정
+    - Output: ChangeContract.md (Human Boundary Approval 섹션 완료)
 
     ↓ approved boundary handoff
 
-[4] Codex Isolated Implementation -> "Hands"
-    - 승인된 ChangeContract.md 바운더리 내부에서만 구현 (엄격 준수)
-    - 작은 diff 유지
-    - 불필요한 리팩토링 금지
-    - 구현 후 ImplementationModule.md 생성 (구현자 자기보고서 — 완료 증명 아님)
+[8] Implementation -> "Hands"
+    - 생산자: Codex (승인된 ChangeContract.md 바운더리 내부에서만, 엄격 준수, 작은 diff 유지, 불필요한 리팩토링 금지)
     - Codex는 자기 구현을 스스로 승인/커밋할 권한 없음
-    - Output: code diff + ImplementationModule.md
+    - Output: code diff + ImplementationModule.md (자기보고서, 완료 증명 아님)
 
     ↓ raw verification handoff
 
-[5] Claude Code Independent Re-Verification -> "Cross-Model Ruler"
-    - Codex 구현에 대한 독립적 재검증 (자기검증 아님 — 다른 모델에 의한 교차검증)
-    - 터미널 operator로서 빌드/테스트 실행
-    - lint / typecheck / test / migration dry-run / RLS/security check
-    - idempotency / duplicate / unknown-state test
-    - 실제 실행/DB 상태 대비 검증 (§25 reality-verification)
-    - raw terminal log 수집
-    - git diff / git diff --stat / git diff --check 수집
-    - Output: VerificationResult.md + raw logs + git diff
+[9] Independent Verification (§37 — 원작자인 Codex는 검증자에서 제외)
+    - 검증 (Normal tier): Claude Code + Antigravity [참고용]
+    - 검증 (Critical tier): Claude Code + Cursor + Antigravity [참고용]
+    - 담당: Claude(저)가 결과 통합/판단
+    - Output: VerificationResult.md + raw logs + git diff (Critical tier에서 Cursor가 참여한 경우 MinorOpinion.md도 포함)
 
-    ↓ raw log + diff handoff
+    ↓ documentation handoff
 
-[5.5] Cursor Minor-Opinion Review -> "Second Set Of Eyes, Non-Binding"
-    - ChangeContract.md + 실제 code diff + Stage 5 VerificationResult.md 검토
-    - Claude Code의 Stage 5 검증이 놓쳤을 수 있는 우려사항/불일치/질문 목록 작성
-    - Pass/Fail 판정 아님, 게이트 아님 — 승인/차단/수정요구 권한 없음
-    - 발견사항 없어도 "발견사항 없음"을 명시적으로 기록 (침묵 금지)
-    - Output: MinorOpinion.md (concerns list, or explicit clean-pass statement)
-    - 적용 범위: Medium/Full tier만 (§31). Lightweight track(§24)과 순수 기계적 수정에는 적용 안 함.
+[10] Documentation
+    - Codex: 간단 문서 (Module.md, NavigationMap 갱신, 000005/000007 색인 등록)
+    - Claude Code: 중요 문서 (Verification.md, Audit.md 초안)
+    - Output: 갱신된 Module/NavigationMap/색인 문서 + Verification.md + Audit.md 초안
 
-    ↓ minor opinion + raw log + diff handoff
+    ↓ audit handoff
 
-[6] Claude Independent Audit    -> "Judge"
-    - ImplementationModule.md 검토 (자기보고서를 그대로 신뢰하지 않음)
-    - VerificationResult.md 검토 (Claude Code의 보고서도 액면 그대로 신뢰하지 않음)
-    - MinorOpinion.md 검토 — Cursor가 제기한 모든 우려사항에 명시적으로 응답 (수용/추가조사/기각사유) 필수, 침묵 처리 금지
-    - raw terminal error log 검토
-    - git diff 직접 검토
-    - 핵심 주장 재도출 (re-derive key claims, 액면 신뢰 금지)
-    - 3,000개 규칙 매칭
+[11] Final Audit -> "Judge"
+    - 담당: Claude(저) 단독. 최종 ACCEPT/REJECT 권한은 오직 Claude에게만 있음
+    - ImplementationModule.md / VerificationResult.md / Module.md / Verification.md / Audit.md 초안을 액면 그대로 신뢰하지 않고 핵심 주장 재도출, raw git diff 직접 검토
     - 금융 사고 반례 시나리오 교차 감사
-    - 최종 ACCEPT/REJECT 권한은 오직 Claude에게만 있음
-    - Output: AuditReview.md (confirm/audit) — APPROVE / APPROVE_WITH_NOTES / BLOCK
+    - Output: AuditReview.md (ACCEPT / APPROVE_WITH_NOTES / BLOCK)
 
     ↓ owner decision handoff
 
-[7] Human Merge / Release       -> "Owner"
-    - 최종 diff 직접 확인
-    - AuditReview.md 확인
-    - VerificationResult.md 확인
-    - MinorOpinion.md 확인
-    - unresolved BLOCK 없음 확인
-    - commit / merge / release 승인
-    - Output: ReleaseEvidence.md
+[12] Human Merge / Release -> "Owner"
+    - 담당: Human
+    - 최종 diff 확인, AuditReview.md 확인, unresolved BLOCK 없음 확인, commit / merge / release 승인
+    - Output: ReleaseEvidence.md (선택) 또는 커밋 자체
 ```
 
-This is the explicit eight-stage form (Medium/Full tier). Earlier revisions of this guide compressed Human Approval into an implicit line inside Stage 2 to save a stage for daily execution speed. This version reinstates Human Approval as a standalone Stage 3: Codex may not begin implementation until a recorded approval artifact exists, separate from Claude's design-verification output. Codex's `ImplementationModule.md` (Stage 4) is a self-report, not a completion proof — it is not binding until Claude Code's Stage 5 cross-model re-verification and Claude's Stage 6 audit both review it against `VerificationResult.md`, `MinorOpinion.md`, and the raw `git diff`.
+This is the explicit thirteen-stage form (Medium/Full tier). Stage 0 is non-regular and may be skipped entirely for a given change — it exists only to let any actor record a finding before the regular cycle starts. Stage 10 (Documentation) is new relative to the eight-stage structure: it did not previously exist as a numbered gate, and the artifacts it produces (`Module.md` / `NavigationMap.md` / `000005`/`000007` index registration, `Verification.md`, `Audit.md` draft) previously existed only as background governance requirements (§30, §32) with no explicit stage boundary between independent verification and final audit. Stages 3, 4, 5, and 6 replace the old Stage 2's combined "verify the design, then lock the contract" role with four separate steps — first-pass review and tiering (3), multi-actor architecture verification (4), contract drafting (5), and multi-actor contract verification (6) — because the single old Stage 2 had, in practice, already been supplemented by the ad hoc §34-§40 multi-actor rules; this revision folds that reality into the stage numbering itself. `ImplementationModule.md` (Stage 8) remains a self-report, not a completion proof — it is not binding until Stage 9's independent re-verification and Stage 11's audit both review it against `VerificationResult.md` and the raw `git diff`.
+
+### 3.1 Antigravity Principle (Applies To Stages 1, 4, 6, And 9)
+
+1/4/6/9단계 모두 병행 지시가 기본값이며, Antigravity의 결과는 어디서든 "참고용, 비구속" — 정식 PASS/FAIL 판정에 영향을 주지 않는다. 관찰 기간 종료 전까지 "Cursor"/"Codex" 표기를 Antigravity로 대체하지 않는다 (§40 원칙 그대로 유지).
 
 ---
 
@@ -233,23 +241,31 @@ The final authority is the combined evidence of:
 
 ## 5. Stage Output Map
 
+**(2026-07-16 개정)** Rebuilt for the thirteen-stage (0-12) structure (§3); supersedes the eight-stage (1/1.5/2/3/4/5/5.5/6/7) version of this table.
+
 | Stage | Owner | Role Name | Main Output | Main Risk Controlled |
 |---:|---|---|---|---|
-| 1 | Cursor | Eyes Only | Raw scope/inventory report (search only, no drafting, no editing) | Wrong file scope, missed dependency, hidden test/RLS/migration impact |
-| 1.5 | Claude Code | Drafting Hands | `ImpactScope.md` (verified), `Overview.md` (draft), `Logic.md` (draft) | Cursor's raw scan trusted uncritically; unverified design draft mistaken for final |
-| 2 | Claude | Brain / Judge | Verified `Overview.md`/`Logic.md`, `TestPlan.md`, draft `ChangeContract.md` | Poor design, hidden financial risk, ambiguous scope, unverified Claude Code draft silently accepted |
-| 3 | Human | Owner (Gate) | `ChangeContract.md` (Human Boundary Approval section filled in) | Codex starting on an unapproved or ambiguous file boundary |
-| 4 | Codex | Hands | Code diff, `ImplementationModule.md` | Incorrect implementation, broad refactor, unauthorized changes, self-report mistaken for completion proof, implementation outside the approved boundary |
-| 5 | Claude Code | Cross-Model Ruler | `VerificationResult.md`, raw logs, git diff | Type errors, test failures, migration/RLS/security gaps hidden by summaries; Codex's self-report trusted without independent re-verification |
-| 5.5 | Cursor | Second Set Of Eyes (Non-Binding) | `MinorOpinion.md` (concerns list or explicit clean-pass statement) | Blind spots shared by the Stage 5 verifier going unnoticed; a single model family's correlated failure risk |
-| 6 | Claude | Judge | `AuditReview.md` (confirm/audit) | Logic mismatch, financial accident scenario, evidence gap, false confidence, unaudited self-report treated as final, a raised Cursor concern silently ignored |
-| 7 | Human | Owner | Commit, merge, `ReleaseEvidence.md` | Blind merge, uncontrolled production release, unowned risk |
+| 0 | Anyone | Fact Scanner (Non-Regular) | Issue Record (optional) | Early findings lost or re-discovered later at higher cost; no gate, so no risk controlled by verification — only a capture point |
+| 1 | Cursor (+ Antigravity, reference only) | Eyes Only | Raw scope/inventory report (search only, no drafting, no editing) | Wrong file scope, missed dependency, hidden test/RLS/migration impact |
+| 2 | Claude Code | Drafting Hands | `Overview.md` (draft), `Logic.md` (draft) | Cursor's raw scan trusted uncritically; unverified design draft mistaken for final |
+| 3 | Claude | Brain (First-Pass Review + Tier Decision) | Review comments + Critical/Normal tier verdict | Wrong verifier composition assigned to Stage 4/6/9; risk level misjudged before design proceeds |
+| 4 | Codex + Antigravity (Normal) / Cursor + Codex + Antigravity (Critical) — Claude integrates | Architecture Verification | Architecture Review (integrated raw verification results) | Poor design, hidden financial risk, ambiguous scope silently accepted from a single reviewer's blind spot |
+| 5 | Claude Code | Drafting Hands (Contract) | `TestPlan.md`, draft `ChangeContract.md` | Contract drafted without a verified design; tests scoped to the wrong risk surface |
+| 6 | Codex + Antigravity (Normal) / Cursor + Codex + Antigravity (Critical) — Claude integrates | Contract Verification (§37: Claude Code excluded, as contract author) | Verified `TestPlan.md`/`ChangeContract.md` | Contract boundary too broad/narrow, missing rollback or test coverage, self-authored contract unchecked |
+| 7 | Human | Owner (Gate) | `ChangeContract.md` (Human Boundary Approval section filled in) | Codex starting on an unapproved or ambiguous file boundary |
+| 8 | Codex | Hands | Code diff, `ImplementationModule.md` | Incorrect implementation, broad refactor, unauthorized changes, self-report mistaken for completion proof, implementation outside the approved boundary |
+| 9 | Claude Code + Antigravity (Normal) / Claude Code + Cursor + Antigravity (Critical) — Claude integrates (§37: Codex excluded, as implementer) | Independent Verification | `VerificationResult.md`, raw logs, git diff (+ `MinorOpinion.md` when Cursor participates under Critical tier) | Type errors, test failures, migration/RLS/security gaps hidden by summaries; Codex's self-report trusted without independent re-verification; blind spots shared by a single verifier |
+| 10 | Codex (simple docs) / Claude Code (important docs) | Documentation | `Module.md`, `NavigationMap.md`/index updates (Codex); `Verification.md`, draft `Audit.md` (Claude Code) | Implementation lands without traceable module/index records; audit proceeds without a documentation trail |
+| 11 | Claude | Judge | `AuditReview.md` (ACCEPT / APPROVE_WITH_NOTES / BLOCK) | Logic mismatch, financial accident scenario, evidence gap, false confidence, unaudited self-report treated as final, a raised concern silently ignored |
+| 12 | Human | Owner | Commit, merge, `ReleaseEvidence.md` (optional) | Blind merge, uncontrolled production release, unowned risk |
 
 ---
 
-## 6. Mandatory Context Snapshot Between Stage 1.5 And Stage 2
+## 6. Mandatory Context Snapshot Between Stage 2 And Stage 3
 
-As of 2026-07-10, Stage 1 (Cursor's raw scan) is not itself the handoff point — Cursor has no drafting authority and its raw scan is search-only. The context snapshot referenced throughout this section is assembled after Claude Code's Stage 1.5 verification of that scan, at the Stage 1.5-to-Stage 2 boundary. References to "Stage 1" below mean the combined Stage 1 (Cursor scan) + Stage 1.5 (Claude Code verification/draft) unless otherwise noted.
+**(2026-07-16 번호 정합화)** Old Stage 1.5 (Claude Code verify+draft) is now Stage 2; old Stage 2 (Claude design review) is now Stage 3 — see §3.
+
+As of 2026-07-10, Stage 1 (Cursor's raw scan) is not itself the handoff point — Cursor has no drafting authority and its raw scan is search-only. The context snapshot referenced throughout this section is assembled after Claude Code's Stage 2 verification of that scan, at the Stage 2-to-Stage 3 boundary. References to "Stage 1" below mean the combined Stage 1 (Cursor scan) + Stage 2 (Claude Code verification/draft) unless otherwise noted.
 
 ### 6.1 Why This Exists
 
@@ -265,7 +281,7 @@ Therefore, the context snapshot must not mean "dump every rule document." It mea
 
 ### 6.2 Context Snapshot Diet Rule
 
-When moving from Claude Code Stage 1.5 to Claude Stage 2, always provide a context snapshot bundle.
+When moving from Claude Code Stage 2 to Claude Stage 3, always provide a context snapshot bundle.
 
 The bundle must be:
 
@@ -320,7 +336,7 @@ The summary should be roughly 20 to 40 lines and contain only:
 - Required tests or evidence.
 - Escalation triggers requiring the full document.
 
-The full governance document remains the source of truth, but Stage 2 should normally receive the summary unless the change touches a high-risk boundary or the summary flags a need to inspect the full rule.
+The full governance document remains the source of truth, but Stage 3 should normally receive the summary unless the change touches a high-risk boundary or the summary flags a need to inspect the full rule.
 
 ### 6.4 Context Slicing Matrix
 
@@ -343,11 +359,11 @@ If the module has multiple domain tags, include the union of the required contex
 
 ### 6.5 Claude Code-Assisted Rule Filtering
 
-Cursor's Stage 1 raw scan should surface candidate rule/SOP/policy references alongside code/SQL/test files, but curating those candidates into the minimal rule set Stage 2 actually needs is a judgment call, not a search task — it belongs to Claude Code's Stage 1.5 verification pass, not Cursor's Stage 1 scan.
+Cursor's Stage 1 raw scan should surface candidate rule/SOP/policy references alongside code/SQL/test files, but curating those candidates into the minimal rule set Stage 3 actually needs is a judgment call, not a search task — it belongs to Claude Code's Stage 2 verification pass, not Cursor's Stage 1 scan.
 
-Claude Code must not only find code, SQL, tests, and documents. It must also identify the minimal rule files needed for Stage 2.
+Claude Code must not only find code, SQL, tests, and documents. It must also identify the minimal rule files needed for Stage 3.
 
-Stage 1.5 must ask:
+Stage 2 must ask:
 
 ```text
 Which master index, domain index, rule summary, SOP, Policy, Matrix, Checklist, or governance file must Claude receive to design this change safely?
@@ -376,15 +392,15 @@ The result should be written into `ImpactScope.md` under a dedicated section:
 - <rule family> — excluded because <reason>
 ```
 
-This allows Stage 1.5 to act as the first context filter. Stage 2 then consumes only the filtered snapshot rather than the entire 3,000-document base.
+This allows Stage 2 to act as the first context filter. Stage 3 then consumes only the filtered snapshot rather than the entire 3,000-document base.
 
 ### 6.6 Context Snapshot Output
 
-As of 2026-07-10, the context snapshot is no longer a separate file — it is folded into `ImpactScope.md`'s "Required Context Snapshot Candidates" section and related fields (Module Domain Tags, Context Budget Decision, Known Gaps, Snapshot Decision), produced by Claude Code in Stage 1.5. See 8.8 for the full template. This section previously described a standalone `context_snapshot.md`; that file no longer exists as a separate artifact.
+As of 2026-07-10, the context snapshot is no longer a separate file — it is folded into `ImpactScope.md`'s "Required Context Snapshot Candidates" section and related fields (Module Domain Tags, Context Budget Decision, Known Gaps, Snapshot Decision), produced by Claude Code in Stage 2. See 8.8 for the full template. This section previously described a standalone `context_snapshot.md`; that file no longer exists as a separate artifact.
 
-The handoff from Stage 1.5 to Stage 2 is `ImpactScope.md` itself — there is no second manifest file to produce.
+The handoff from Stage 2 to Stage 3 is `ImpactScope.md` itself — there is no second manifest file to produce.
 
-### 6.7 Stage 2 Prompt Requirement
+### 6.7 Stage 3 Prompt Requirement
 
 Claude must be told:
 
@@ -444,7 +460,7 @@ Recommended summary targets (PascalCase-joined, §33):
 
 When new planning, policy, SOP, or implementation-readiness documents are added at scale, each major domain folder should also carry one thin rule summary file.
 
-The purpose is not to duplicate the full documents. The purpose is to give Stage 1 an easy file to discover and Stage 2 a small rule packet to consume.
+The purpose is not to duplicate the full documents. The purpose is to give Stage 1 an easy file to discover and Stage 3 a small rule packet to consume.
 
 Recommended placement pattern:
 
@@ -525,13 +541,13 @@ It is an auditability failure.
 
 ---
 
-## 7. Mandatory Raw Log And Git Diff Handoff Between Stage 5 And Stage 6
+## 7. Mandatory Raw Log And Git Diff Handoff Between Stage 9 And Stage 11
 
-As of 2026-07-10, this handoff passes through Stage 5.5 (Cursor minor-opinion review, Medium/Full tier only) before reaching Stage 6. Cursor receives the same raw evidence package described below, plus `ChangeContract.md` and the code diff — see §12.9 for Stage 5.5's specific rules. Stage 6 Claude still receives everything Stage 5 produced directly; Stage 5.5 does not filter or gate what reaches Stage 6, it only adds `MinorOpinion.md` to the package.
+**(2026-07-16 번호 정합화)** Old Stage 5/5.5/6 are now Stage 9/9 (Critical tier)/11 — see §3. As of 2026-07-10, when Critical tier applies, this handoff passes through Cursor's non-binding minor-opinion review within Stage 9 (Medium/Full tier only) before reaching Stage 11. Cursor receives the same raw evidence package described below, plus `ChangeContract.md` and the code diff — see §12.9 for the Critical-tier minor-opinion rules. Stage 11 Claude still receives everything Stage 9 produced directly; Cursor's Critical-tier participation does not filter or gate what reaches Stage 11, it only adds `MinorOpinion.md` to the package.
 
 ### 7.1 Why This Exists
 
-Stage 5 is a mechanical verification stage, not a judgment stage. As of 2026-07-10, Stage 5 is performed by Claude Code independently re-verifying Codex's Stage 4 implementation — a cross-model check, not self-verification.
+Stage 9 is a mechanical verification stage, not a judgment stage. As of 2026-07-10, Stage 9 is performed by Claude Code independently re-verifying Codex's Stage 8 implementation — a cross-model check, not self-verification.
 
 If a command fails and the failure is summarized by Claude Code or another AI tool, the most important details may be lost:
 
@@ -545,11 +561,11 @@ If a command fails and the failure is summarized by Claude Code or another AI to
 - formatter side effect;
 - stack trace showing wrong module boundary.
 
-For this reason, Stage 6 Claude Audit must receive raw terminal output and raw `git diff`, not only a friendly summary.
+For this reason, Stage 11 Claude Audit must receive raw terminal output and raw `git diff`, not only a friendly summary.
 
 ### 7.2 Raw Handoff Rule
 
-The Stage 5 output must include:
+The Stage 9 output must include:
 
 ```text
 1. VerificationResult.md
@@ -630,7 +646,7 @@ Project-specific commands may be added for Supabase, RLS, SQL constraints, idemp
 
 For financial, RLS, migration, provider, payout, settlement, audit, or release changes, the raw log folder is mandatory evidence, not a convenience.
 
-### 7.5 Stage 6 Audit Input Rule
+### 7.5 Stage 11 Audit Input Rule
 
 Claude Audit must receive `raw_logs/`, `git diff`, and (Medium/Full tier) `MinorOpinion.md` directly.
 
@@ -638,9 +654,9 @@ Claude must not rely on `VerificationResult.md` alone, and must not rely on Code
 
 ---
 
-## 8. Stage 1 (Cursor) And Stage 1.5 (Claude Code) — Scope Scan And Design Draft
+## 8. Stage 1 (Cursor) And Stage 2 (Claude Code) — Scope Scan And Design Draft
 
-As of 2026-07-10, this section covers two separate pipeline stages under one heading to avoid renumbering every downstream section: **Stage 1** is Cursor's raw scope/inventory scan (search only, no drafting authority). **Stage 1.5** is Claude Code's verification of that scan plus the design draft. Subsections 8.1-8.4 cover Stage 1 (Cursor); 8.5-8.8 cover Stage 1.5 (Claude Code); 8.9-8.10 are the design-draft templates Stage 1.5 produces.
+As of 2026-07-10, this section covers two separate pipeline stages under one heading to avoid renumbering every downstream section: **Stage 1** is Cursor's raw scope/inventory scan (search only, no drafting authority). **Stage 2** is Claude Code's verification of that scan plus the design draft. Subsections 8.1-8.4 cover Stage 1 (Cursor); 8.5-8.8 cover Stage 2 (Claude Code); 8.9-8.10 are the design-draft templates Stage 2 produces.
 
 ### 8.1 Stage 1 Role (Cursor)
 
@@ -663,7 +679,7 @@ Its scouting job is to find:
 - Related documentation references.
 - Related SOP / Policy / Matrix / Checklist references.
 
-Cursor must not modify code in this stage, and must not draft `Overview.md` or `Logic.md` — that is Stage 1.5's job (Claude Code), not Stage 1's.
+Cursor must not modify code in this stage, and must not draft `Overview.md` or `Logic.md` — that is Stage 2's job (Claude Code), not Stage 1's.
 
 ### 8.2 Cursor Usage Boundary
 
@@ -692,7 +708,7 @@ Forbidden:
 - Modifying generated files.
 - Modifying lock files.
 - Guessing that a file is safe without checking references.
-- Drafting `Overview.md` or `Logic.md` — Cursor has no design-drafting authority; this belongs to Claude Code in Stage 1.5.
+- Drafting `Overview.md` or `Logic.md` — Cursor has no design-drafting authority; this belongs to Claude Code in Stage 2.
 - Inventing new architecture, DB, RLS, or naming conventions.
 - Self-approving, self-staging, or self-committing anything.
 
@@ -738,12 +754,12 @@ Rules:
 - Return a structured raw scope/inventory report only.
 - Do not draft Overview.md or Logic.md.
 - Do not invent new architecture, DB, RLS, or naming conventions — mark undecided points as "Open Question".
-- You have no authority to approve, stage, or commit anything. Claude Code independently verifies this report before it is trusted (Stage 1.5).
+- You have no authority to approve, stage, or commit anything. Claude Code independently verifies this report before it is trusted (Stage 2).
 ```
 
 ### 8.4 Stage 1 Output: Raw Scope/Inventory Report
 
-Cursor's Stage 1 output is a raw report, not yet the trusted `ImpactScope.md` — it becomes `ImpactScope.md` only after Claude Code verifies/corrects it in Stage 1.5 (8.8).
+Cursor's Stage 1 output is a raw report, not yet the trusted `ImpactScope.md` — it becomes `ImpactScope.md` only after Claude Code verifies/corrects it in Stage 2 (8.8).
 
 ```markdown
 # raw scope/inventory report (Cursor, Stage 1 — unverified)
@@ -785,17 +801,17 @@ Cursor's Stage 1 output is a raw report, not yet the trusted `ImpactScope.md` �
 ## Uncertainties
 ```
 
-### 8.5 Stage 1.5 Role (Claude Code)
+### 8.5 Stage 2 Role (Claude Code)
 
 Claude Code verifies Cursor's Stage 1 scan and drafts the design. This is where design-drafting authority actually lives — not in Stage 1.
 
-Claude Code must independently check Cursor's report for missed files, missed dependencies, missed RLS/migration impact, and missed rule references before trusting any of it. Claude Code must not simply reformat Cursor's report — it must verify it the same way Claude verifies Claude Code's own draft in Stage 2.
+Claude Code must independently check Cursor's report for missed files, missed dependencies, missed RLS/migration impact, and missed rule references before trusting any of it. Claude Code must not simply reformat Cursor's report — it must verify it the same way Claude verifies Claude Code's own draft in Stage 3.
 
-Claude Code's `Overview.md`/`Logic.md` draft is not binding. It becomes the approved design only after Claude verifies it in Stage 2. Claude Code drafting first is a velocity optimization — it does not change who owns final design authority.
+Claude Code's `Overview.md`/`Logic.md` draft is not binding. It becomes the approved design only after Claude verifies it in Stage 3. Claude Code drafting first is a velocity optimization — it does not change who owns final design authority.
 
 Claude Code must not modify code in this stage.
 
-### 8.6 Claude Code Usage Boundary (Stage 1.5)
+### 8.6 Claude Code Usage Boundary (Stage 2)
 
 Allowed:
 
@@ -820,7 +836,7 @@ Forbidden:
 - Inventing new architecture, DB, RLS, or naming conventions inside the `Overview.md`/`Logic.md` draft.
 - Treating the `Overview.md`/`Logic.md` draft as approved before Claude verification.
 
-### 8.7 Claude Code Prompt Template (Stage 1.5)
+### 8.7 Claude Code Prompt Template (Stage 2)
 
 ```text
 You are verifying a raw scope/inventory scan produced by Cursor (a
@@ -847,10 +863,10 @@ Rules:
 - Do not rewrite Korean text.
 - Do not infer safety from filename alone.
 - Do not invent new architecture, DB, RLS, or naming conventions in the draft — mark undecided points as "Open Question for Claude".
-- Do not treat the draft as approved. Claude verifies it in Stage 2.
+- Do not treat the draft as approved. Claude verifies it in Stage 3.
 ```
 
-### 8.8 Stage 1.5 Output: `ImpactScope.md`
+### 8.8 Stage 2 Output: `ImpactScope.md`
 
 ```markdown
 # ImpactScope.md
@@ -944,7 +960,7 @@ READY_FOR_CLAUDE_DESIGN / BLOCKED_NEED_MORE_CONTEXT
 
 Use `LEAN` when summary files are sufficient. Use `NORMAL` when a small number of full rules are also required. Use `FULL` only for cross-domain financial, RLS, migration, provider, audit, or release changes where summaries are not enough.
 
-### 8.9 `Overview.md` (Claude Code Draft — Verified By Claude In Stage 2)
+### 8.9 `Overview.md` (Claude Code Draft — Verified By Claude In Stage 3)
 
 Purpose:
 
@@ -990,7 +1006,7 @@ Purpose:
 Draft (Claude Code) / Verified (Claude)
 ```
 
-### 8.10 `Logic.md` (Claude Code Draft — Verified By Claude In Stage 2)
+### 8.10 `Logic.md` (Claude Code Draft — Verified By Claude In Stage 3)
 
 Purpose:
 
@@ -1042,7 +1058,9 @@ Draft (Claude Code) / Verified (Claude)
 
 ---
 
-## 9. Stage 2 — Claude Design Verification And Contract Lock
+## 9. Stage 3/5 (Formerly "Stage 2") — Claude Design Verification And Contract Lock
+
+**(2026-07-16 번호 정합화, 내용은 유지)** Old Stage 2 combined "verify the design, then lock the contract" into one stage. §3's 2026-07-16 restructure splits that single stage into four: Stage 3 (Claude first-pass review + Critical/Normal tier decision), Stage 4 (multi-actor Architecture Verification, Claude integrates), Stage 5 (contract drafting — produced by **Claude Code**, not Claude), and Stage 6 (multi-actor Contract Verification, Claude integrates). The section body below still describes the old combined flow and still attributes `TestPlan.md`/`ChangeContract.md` production to "Claude" — under the current §3 structure, read "Claude" as "Claude Code" wherever this section describes drafting `TestPlan.md`/`ChangeContract.md` (Stage 5), and read the verification/review portions as Stage 3 (plus Stage 4/6 for the multi-actor check Claude now integrates rather than performs alone). A full line-by-line rewrite of this section to the four-stage split is deferred as follow-up work; this note exists so the section is not silently inconsistent with §3.
 
 ### 9.1 Role
 
@@ -1068,11 +1086,11 @@ Claude verifies the Claude Code draft first, then produces:
 - `TestPlan.md`
 - `ChangeContract.md`
 
-Claude may correct minor drafting errors directly in `Overview.md`/`Logic.md`. If the draft reveals an incomplete impact scope (missed files, missed dependencies, missed RLS/migration impact), Claude must loop back to Stage 1.5 (or Stage 1 if the gap traces back to Cursor's original scan) rather than patching around the gap.
+Claude may correct minor drafting errors directly in `Overview.md`/`Logic.md`. If the draft reveals an incomplete impact scope (missed files, missed dependencies, missed RLS/migration impact), Claude must loop back to Stage 2 (or Stage 1 if the gap traces back to Cursor's original scan) rather than patching around the gap.
 
-`ChangeContract.md` produced here is a draft. It does not become binding until the human approves it in the standalone Stage 3 (Human Approval) below — Claude's job in Stage 2 is to make the boundary approvable, not to approve it.
+`ChangeContract.md` produced here is a draft. It does not become binding until the human approves it in the standalone Stage 7 (Human Approval) below — Claude's job across Stage 3 (review) and Stage 6 (contract verification integration) is to make the boundary approvable, not to approve it.
 
-### 9.2 Stage 2 Must Not Do
+### 9.2 Stage 3/5 Must Not Do
 
 Claude must not:
 
@@ -1285,7 +1303,7 @@ Input:
 
 Verify first:
 - Check Overview.md and Logic.md against master rules, the real repo state, and every "Open Questions For Claude" entry.
-- Correct minor drafting errors directly. If the impact scope itself is incomplete, stop and send the change back to Stage 1.5 instead of designing around the gap.
+- Correct minor drafting errors directly. If the impact scope itself is incomplete, stop and send the change back to Stage 2 instead of designing around the gap.
 - Mark Overview.md / Logic.md Draft Status as Verified (Claude) only after checks pass.
 
 Then create:
@@ -1307,29 +1325,29 @@ Rules:
 
 ---
 
-## 10. Stage 3 — Human Approval
+## 10. Stage 7 — Human Approval
 
 ### 10.1 Role
 
 The human is the approval gate between design and implementation.
 
-The human receives the full Stage 2 design pack:
+The human receives the full Stage 3-6 design and contract-verification pack:
 
 - `ImpactScope.md`
 - verified `Overview.md`
 - verified `Logic.md`
 - `TestPlan.md`
-- draft `ChangeContract.md`
+- verified `ChangeContract.md`
 
-The human reviews the design pack and decides the exact file boundary Codex may touch. This is a standalone stage, not a line item inside Stage 2 — Claude producing a design pack does not itself authorize implementation.
+The human reviews the design pack and decides the exact file boundary Codex may touch. This is a standalone stage, not a line item inside Stage 3-6 — Claude producing a design pack does not itself authorize implementation.
 
 ### 10.2 Why This Is A Standalone Stage
 
-Folding human approval into Stage 2 makes it easy to treat "Claude finished the design pack" as equivalent to "a human approved implementation." They are not the same event. Keeping Stage 3 separate forces an explicit, timestamped decision to exist before Codex is allowed to touch any file, and gives that decision its own artifact instead of a buried checkbox.
+Folding human approval into Stage 3-6 makes it easy to treat "the design pack is finished" as equivalent to "a human approved implementation." They are not the same event. Keeping Stage 7 separate forces an explicit, timestamped decision to exist before Codex is allowed to touch any file, and gives that decision its own artifact instead of a buried checkbox.
 
-### 10.3 Stage 3 Output
+### 10.3 Stage 7 Output
 
-As of 2026-07-10, `ChangeContract.md` is the single merged artifact — there is no separate standalone approval file. Stage 3 is satisfied by:
+As of 2026-07-10, `ChangeContract.md` is the single merged artifact — there is no separate standalone approval file. Stage 7 is satisfied by:
 
 ```text
 ChangeContract.md -> ## Human Boundary Approval section, filled in
@@ -1363,22 +1381,22 @@ Timestamp:
 Approval Notes:
 ```
 
-### 10.5 Stage 3 Pass Criteria
+### 10.5 Stage 7 Pass Criteria
 
-Stage 3 passes only when:
+Stage 7 passes only when:
 
 - The human has read `Overview.md`, `Logic.md`, `TestPlan.md`, and `ChangeContract.md` (not just skimmed the file list).
 - Allowed Files and Allowed Operations are both explicit and narrower than "the whole module."
 - Any "Open Questions For Claude" left unresolved in the design pack are either answered here or explicitly deferred with a documented reason.
 - The approval artifact carries the active `CHANGE_ID`.
 
-If the human is not ready to approve, the change returns to Stage 2 (design gap) or Stage 1.5 (scope gap) per the Loopback Rules in Section 18.
+If the human is not ready to approve, the change returns to Stage 3 (design gap) or Stage 2 (scope gap) per the Loopback Rules in Section 18.
 
 ---
 
-## 11. Stage 4 — Codex Isolated Implementation
+## 11. Stage 8 — Codex Isolated Implementation
 
-As of 2026-07-10, Codex is the Stage 4 implementer, reintroduced as a subordinate execution tool under Claude's governance. Codex holds no authority to self-approve, self-stage, or self-commit anything — its output is a self-report, not a completion proof, and is not binding until Stage 5 (Claude Code, a different model, cross-model re-verification) and Stage 6 (Claude, independent audit) both review it.
+As of 2026-07-10, Codex is the Stage 8 implementer, reintroduced as a subordinate execution tool under Claude's governance. Codex holds no authority to self-approve, self-stage, or self-commit anything — its output is a self-report, not a completion proof, and is not binding until Stage 9 (Claude Code, a different model, cross-model re-verification) and Stage 11 (Claude, independent audit) both review it.
 
 ### 11.1 Role
 
@@ -1412,14 +1430,14 @@ Codex must:
 - Preserve financial logic readability.
 - Add or update tests required by `TestPlan.md`.
 - Generate `ImplementationModule.md` after implementation.
-- Never self-approve, self-stage, or self-commit — Codex's job ends at producing the diff and its self-report; Stage 5/6 review is mandatory before anything downstream trusts it.
+- Never self-approve, self-stage, or self-commit — Codex's job ends at producing the diff and its self-report; Stage 9/6 review is mandatory before anything downstream trusts it.
 
 ### 11.3 Codex Prompt Template
 
 ```text
 You are the restricted implementer. You have no authority to approve,
 stage, or commit anything — a different model independently
-re-verifies your work in Stage 5 before Claude's Stage 6 audit can
+re-verifies your work in Stage 9 before Claude's Stage 11 audit can
 accept it.
 
 Use only:
@@ -1441,7 +1459,7 @@ Rules:
 - Do not rewrite Korean Markdown.
 - Keep money-moving state transitions explicit at call site.
 - Add or update tests listed in TestPlan.md.
-- If you need another file, stop and request a new Stage 3 boundary approval.
+- If you need another file, stop and request a new Stage 7 boundary approval.
 - After implementation, create ImplementationModule.md.
 
 Output:
@@ -1464,7 +1482,7 @@ Prefer idempotency keys and unique constraints over best-effort duplicate checks
 Prefer boring code over impressive code.
 ```
 
-### 11.5 Stage 4 Output: `ImplementationModule.md`
+### 11.5 Stage 8 Output: `ImplementationModule.md`
 
 ```markdown
 # ImplementationModule.md
@@ -1502,31 +1520,31 @@ If there are deviations from `ChangeContract.md`, Codex must list them explicitl
 
 Hidden deviation is not allowed.
 
-If a deviation requires a new file, new migration, new permission, or wider domain impact, implementation must stop and return to Stage 2 for redesign and a new Stage 3 approval.
+If a deviation requires a new file, new migration, new permission, or wider domain impact, implementation must stop and return to Stage 3 for redesign and a new Stage 7 approval.
 
 ---
 
-## 12. Stage 5 — Claude Code Independent Re-Verification
+## 12. Stage 9 — Claude Code Independent Re-Verification
 
-As of 2026-07-10, Stage 5 is a cross-model check, not self-verification: Codex (Stage 4) wrote the implementation, and Claude Code (a different model) independently re-verifies it here. This is a deliberate diversity safeguard, same rationale as Stage 5.5 below and §26 Adversarial Audit Pass Requirement.
+As of 2026-07-10, Stage 9 is a cross-model check, not self-verification: Codex (Stage 8) wrote the implementation, and Claude Code (a different model) independently re-verifies it here. This is a deliberate diversity safeguard, same rationale as Stage 9 (Critical tier) below and §26 Adversarial Audit Pass Requirement.
 
 ### 12.1 Role
 
-Stage 5 is not an AI judgment stage.
+Stage 9 is not an AI judgment stage.
 
-It is a mechanical verification stage, performed against Codex's Stage 4 implementation.
+It is a mechanical verification stage, performed against Codex's Stage 8 implementation.
 
 It is performed by Claude Code using the direct terminal and, where applicable, the CI pipeline.
 
-Within Stage 5, Claude Code acts only as a command runner and evidence collector — it did not write the code being verified, and must not treat its own Stage 5 pass as proof the implementation is correct beyond what the raw commands actually show (see §25 Reality-Verification Requirement).
+Within Stage 9, Claude Code acts only as a command runner and evidence collector — it did not write the code being verified, and must not treat its own Stage 9 pass as proof the implementation is correct beyond what the raw commands actually show (see §25 Reality-Verification Requirement).
 
-Claude Code must not interpret, auto-fix, or rewrite results unless the process explicitly returns to Stage 1, Stage 1.5, Stage 2, or Stage 3 with a new approved cycle.
+Claude Code must not interpret, auto-fix, or rewrite results unless the process explicitly returns to Stage 1, Stage 2, Stage 3, or Stage 7 with a new approved cycle.
 
 ### 12.2 Why Claude Code Is Not The Judge
 
 Claude Code can execute commands, but it should not be trusted to decide financial correctness.
 
-In Stage 5, Claude Code is only:
+In Stage 9, Claude Code is only:
 
 ```text
 Terminal operator.
@@ -1546,7 +1564,7 @@ Financial risk reviewer.
 Final judge.
 ```
 
-### 12.3 Stage 5 Command Categories
+### 12.3 Stage 9 Command Categories
 
 Required command categories:
 
@@ -1612,7 +1630,7 @@ psql -f scripts/check_financial_constraints.sql
 psql -f scripts/check_idempotency_constraints.sql
 ```
 
-### 12.5 Claude Code Terminal Prompt For Stage 5
+### 12.5 Claude Code Terminal Prompt For Stage 9
 
 ```text
 Run only the commands listed below.
@@ -1631,7 +1649,7 @@ Commands:
 <COMMAND LIST>
 ```
 
-### 12.6 Stage 5 Output: `VerificationResult.md`
+### 12.6 Stage 9 Output: `VerificationResult.md`
 
 ```markdown
 # VerificationResult.md
@@ -1676,9 +1694,9 @@ Commands:
 PASS / FAIL / BLOCKED
 ```
 
-### 12.7 Stage 5 Pass Criteria
+### 12.7 Stage 9 Pass Criteria
 
-Stage 5 passes only when:
+Stage 9 passes only when:
 
 - No unauthorized files are changed.
 - Static analysis passes.
@@ -1692,48 +1710,48 @@ Stage 5 passes only when:
 - Audit/evidence tests pass.
 - No encoding or formatting drift is detected.
 - No generated or lock file changed without approval.
-- Raw logs and git diff are preserved for Stage 6.
+- Raw logs and git diff are preserved for Stage 11.
 
-### 12.8 Stage 5 Failure Handling
+### 12.8 Stage 9 Failure Handling
 
-If Stage 5 fails:
+If Stage 9 fails:
 
 1. Do not let Claude Code fix directly — it is verifying Codex's implementation, not authoring the fix.
 2. Record failure in `VerificationResult.md`.
 3. Preserve raw terminal output.
 4. Preserve `git diff` and `git diff --name-only`.
-5. Return to Stage 2 or Stage 4 depending on failure type.
-6. If the failure indicates a design problem, return to Claude design (Stage 2).
-7. If the failure indicates implementation bug within approved scope, return to Codex (Stage 4) with the raw failure log.
-8. If new file scope is required, return to Stage 2 for redesign and a new Stage 3 human boundary approval.
+5. Return to Stage 3 or Stage 8 depending on failure type.
+6. If the failure indicates a design problem, return to Claude design review (Stage 3).
+7. If the failure indicates implementation bug within approved scope, return to Codex (Stage 8) with the raw failure log.
+8. If new file scope is required, return to Stage 3 for redesign and a new Stage 7 human boundary approval.
 
-### 12.9 Stage 5.5 — Cursor Minor-Opinion Review
+### 12.9 Stage 9 (Critical tier) — Cursor Minor-Opinion Review
 
-Purpose: a second, differently-blind-spotted model reviews the same implementation and Claude Code's Stage 5 verification output, specifically looking for anything Claude Code's pass might have missed — this is the practical application of §26 (Adversarial Audit Pass Requirement): models with different training/prompting tend to catch different failure classes.
+Purpose: a second, differently-blind-spotted model reviews the same implementation and Claude Code's Stage 9 verification output, specifically looking for anything Claude Code's pass might have missed — this is the practical application of §26 (Adversarial Audit Pass Requirement): models with different training/prompting tend to catch different failure classes.
 
 Applies to Medium/Full tier changes only (§31). Does not apply to the Lightweight track (§24) or purely mechanical fixes.
 
 Rules:
 
-- Cursor receives: the approved `ChangeContract.md`, the actual code diff, and Claude Code's `VerificationResult.md` from Stage 5.
+- Cursor receives: the approved `ChangeContract.md`, the actual code diff, and Claude Code's `VerificationResult.md` from Stage 9.
 - Cursor produces a short `MinorOpinion.md`: a list of any concerns, discrepancies, or questions — NOT a pass/fail verdict, NOT a gate. Cursor has no authority to block, approve, or require changes.
 - If Cursor finds nothing, `MinorOpinion.md` states that explicitly (a clean pass is still a recorded output, not silence).
-- Claude's Stage 6 audit MUST read `MinorOpinion.md` alongside `VerificationResult.md` and the raw diff, and MUST explicitly address (accept, investigate further, or explain why dismissed) any concern Cursor raised — silently ignoring a Cursor concern is not permitted, but Claude is not obligated to agree with it. The final ACCEPT/REJECT authority remains solely with Claude.
+- Claude's Stage 11 audit MUST read `MinorOpinion.md` alongside `VerificationResult.md` and the raw diff, and MUST explicitly address (accept, investigate further, or explain why dismissed) any concern Cursor raised — silently ignoring a Cursor concern is not permitted, but Claude is not obligated to agree with it. The final ACCEPT/REJECT authority remains solely with Claude.
 
 #### 12.9.1 Cursor Minor-Opinion Prompt Template
 
 ```text
 You are giving a non-binding second opinion. You cannot block, approve,
-or require changes — you can only raise concerns for Claude's Stage 6
+or require changes — you can only raise concerns for Claude's Stage 11
 audit to address.
 
 You receive:
 - ChangeContract.md (approved boundary)
 - the actual code diff
-- Claude Code's VerificationResult.md (Stage 5)
+- Claude Code's VerificationResult.md (Stage 9)
 
 Task:
-Look for anything Claude Code's Stage 5 verification might have missed:
+Look for anything Claude Code's Stage 9 verification might have missed:
 - logic that doesn't match ChangeContract.md or Logic.md
 - edge cases the verification commands didn't actually exercise
 - claims in VerificationResult.md that the raw logs don't actually support
@@ -1746,7 +1764,7 @@ Output:
 You are not producing a PASS/FAIL verdict. You have no gate authority.
 ```
 
-#### 12.9.2 Stage 5.5 Output: `MinorOpinion.md`
+#### 12.9.2 Stage 9 (Critical tier) Output: `MinorOpinion.md`
 
 ```markdown
 # MinorOpinion.md
@@ -1757,7 +1775,7 @@ You are not producing a PASS/FAIL verdict. You have no gate authority.
 
 - ChangeContract.md
 - code diff
-- VerificationResult.md (Stage 5)
+- VerificationResult.md (Stage 9)
 
 ## Concerns
 
@@ -1765,18 +1783,18 @@ You are not producing a PASS/FAIL verdict. You have no gate authority.
 
 ## Not A Verdict
 
-This document is a non-binding second opinion. It carries no approve/block authority. Claude's Stage 6 audit must explicitly address each concern above, but is not obligated to agree with it.
+This document is a non-binding second opinion. It carries no approve/block authority. Claude's Stage 11 audit must explicitly address each concern above, but is not obligated to agree with it.
 ```
 
 ---
 
-## 13. Stage 6 — Claude Independent Audit
+## 13. Stage 11 — Claude Independent Audit
 
 ### 13.1 Role
 
 Claude performs independent audit.
 
-As of 2026-07-10, Claude's audit is a genuine cross-model check across four separate parties: Cursor (Stage 1 scan, Stage 5.5 minor opinion), Claude Code (Stage 1.5 draft, Stage 5 re-verification), Codex (Stage 4 implementation), and Claude itself (Stage 2, Stage 6). Claude must re-verify the raw diff, raw logs, and repository evidence directly rather than trusting Codex's implementation self-report, Claude Code's Stage 5 verification report, or Cursor's Stage 1/5.5 output at face value — Claude re-derives key claims rather than accepting any prior party's summary.
+As of 2026-07-10 (stage numbers updated 2026-07-16, see §3), Claude's audit is a genuine cross-model check across four separate parties: Cursor (Stage 1 scan, Stage 9 Critical-tier minor opinion), Claude Code (Stage 2 draft, Stage 5 contract draft, Stage 9 re-verification), Codex (Stage 8 implementation), and Claude itself (Stage 3, Stage 4, Stage 6, Stage 11). Claude must re-verify the raw diff, raw logs, and repository evidence directly rather than trusting Codex's implementation self-report, Claude Code's Stage 9 verification report, or Cursor's Stage 1 / Stage 9 (Critical tier) output at face value — Claude re-derives key claims rather than accepting any prior party's summary.
 
 Claude receives:
 
@@ -1788,8 +1806,8 @@ Claude receives:
 - approved `ChangeContract.md`
 - `ChangeContract.md` (or the filled Human Boundary Approval section)
 - `ImplementationModule.md` (Codex's self-report)
-- `VerificationResult.md` (Claude Code's Stage 5 cross-model re-verification)
-- `MinorOpinion.md` (Cursor's Stage 5.5 non-binding second opinion, Medium/Full tier)
+- `VerificationResult.md` (Claude Code's Stage 9 cross-model re-verification)
+- `MinorOpinion.md` (Cursor's Stage 9 (Critical tier) non-binding second opinion, Medium/Full tier)
 - raw terminal logs
 - `git diff --stat`
 - `git diff --check`
@@ -1817,8 +1835,8 @@ Claude must review:
 - Is evidence sufficient?
 - Does code remain simple?
 - Does the implementation still match the master context snapshot?
-- Did Cursor's Stage 1 scan miss anything Claude Code should have caught in Stage 1.5?
-- Has every concern in `MinorOpinion.md` (Stage 5.5) been explicitly addressed, not silently dropped?
+- Did Cursor's Stage 1 scan miss anything Claude Code should have caught in Stage 2?
+- Has every concern in `MinorOpinion.md` (Stage 9 (Critical tier)) been explicitly addressed, not silently dropped?
 
 ### 13.3 Contrarian Audit Prompt
 
@@ -1859,7 +1877,7 @@ Find how this change could cause:
 - master rule violation
 ```
 
-### 13.4 Stage 6 Output: `AuditReview.md`
+### 13.4 Stage 11 Output: `AuditReview.md`
 
 `AuditReview.md` is the confirm/audit artifact. Some teams prefer the name `implementation_confirm.md`; for payment, POS, and other runtime-truth domains in this project, `AuditReview.md` is preferred because Claude's role here is auditor, not a simple confirmation checkbox.
 
@@ -1894,7 +1912,7 @@ PASS / FAIL
 
 PASS / FAIL
 
-## Minor Opinion Review (Stage 5.5, Medium/Full Tier)
+## Minor Opinion Review (Stage 9 (Critical tier), Medium/Full Tier)
 
 For each concern raised in `MinorOpinion.md`: ACCEPTED / INVESTIGATED / DISMISSED (with reason). If `MinorOpinion.md` states no concerns were found, note that explicitly here rather than leaving this section blank.
 
@@ -1928,7 +1946,7 @@ APPROVE / APPROVE_WITH_NOTES / BLOCK
 ## Required Human Review Notes
 ```
 
-### 13.5 Stage 6 Block Criteria
+### 13.5 Stage 11 Block Criteria
 
 Claude Audit must block if:
 
@@ -1952,7 +1970,7 @@ Claude Audit must block if:
 
 ---
 
-## 14. Stage 7 — Human Merge And Release Evidence
+## 14. Stage 12 — Human Merge And Release Evidence
 
 ### 14.1 Role
 
@@ -2069,13 +2087,13 @@ These are permanent PascalCase names (see §33) — no archival renaming step ha
 ```text
 docs/implementation_evidence/<change_id>/
   00_CursorScan.md               (Cursor — Stage 1 raw scan, unverified, search only)
-  01_ImpactScope.md              (Claude Code — Stage 1.5; merged scope + context snapshot, verifies/corrects the Cursor scan)
+  01_ImpactScope.md              (Claude Code — Stage 2; merged scope + context snapshot, verifies/corrects the Cursor scan)
   02_Overview.md                 (Claude Code draft, Claude-verified)
   03_Logic.md                    (Claude Code draft, Claude-verified)
-  04_TestPlan.md                 (Claude)
-  05_ChangeContract.md           (Claude draft, Human-approved; merged contract + Human Boundary Approval section)
+  04_TestPlan.md                 (Claude Code draft, Stage 5; Claude-verified at Stage 6)
+  05_ChangeContract.md           (Claude Code draft, Stage 5; Claude-verified at Stage 6, Human-approved at Stage 7; merged contract + Human Boundary Approval section)
   06_ImplementationModule.md     (Codex — self-report, not a completion proof)
-  07_VerificationResult.md       (Claude Code — Stage 5 cross-model re-verification of Codex, terminal / CI)
+  07_VerificationResult.md       (Claude Code — Stage 9 cross-model re-verification of Codex, terminal / CI)
   raw_logs/
     01_git_diff_stat.txt
     02_git_diff_check.txt
@@ -2086,7 +2104,7 @@ docs/implementation_evidence/<change_id>/
     07_test.log
     08_migration_dry_run.log
     09_rls_security_check.log
-  08_MinorOpinion.md             (Cursor — Stage 5.5 non-binding second opinion; Medium/Full tier only)
+  08_MinorOpinion.md             (Cursor — Stage 9 (Critical tier) non-binding second opinion; Medium/Full tier only)
   09_AuditReview.md              (Claude — confirm/audit; not optional after Codex's module + Claude Code's verification)
   10_ReleaseEvidence.md          (Human — merged release evidence + human merge checklist)
 ```
@@ -2113,7 +2131,7 @@ As of 2026-07-10, this project performs no archival renaming step at all. The Pa
 
 ---
 
-## 16. Financial-Grade Rules To Put In Every Implementation Prompt (Codex, Stage 4)
+## 16. Financial-Grade Rules To Put In Every Implementation Prompt (Codex, Stage 8)
 
 ```text
 Financial-grade implementation rules:
@@ -2199,9 +2217,9 @@ Financial-grade implementation rules:
 
 The pipeline is not always linear.
 
-### 18.1 Return To Stage 1 / Stage 1.5
+### 18.1 Return To Stage 1 / Stage 2
 
-Return to Cursor's scan (Stage 1) or Claude Code's verification/draft (Stage 1.5) if:
+Return to Cursor's scan (Stage 1) or Claude Code's verification/draft (Stage 2) if:
 
 - New affected files are discovered.
 - Dependency scope was incomplete.
@@ -2210,9 +2228,9 @@ Return to Cursor's scan (Stage 1) or Claude Code's verification/draft (Stage 1.5
 - Provider interface dependency appears.
 - Related docs or SOP references were missed.
 
-If the gap traces back to Cursor's original scan (something Cursor should have found but didn't), return to Stage 1. If Cursor's scan was adequate but Claude Code's verification/draft missed something, return to Stage 1.5 directly.
+If the gap traces back to Cursor's original scan (something Cursor should have found but didn't), return to Stage 1. If Cursor's scan was adequate but Claude Code's verification/draft missed something, return to Stage 2 directly.
 
-### 18.2 Return To Stage 2
+### 18.2 Return To Stage 3
 
 Return to Claude design verification if:
 
@@ -2224,9 +2242,9 @@ Return to Claude design verification if:
 - Approval scope changes.
 - Master rule conflict is discovered.
 
-### 18.3 Return To Stage 3 Human Approval
+### 18.3 Return To Stage 7 Human Approval
 
-Return to Stage 3 for a new human approval if:
+Return to Stage 7 for a new human approval if:
 
 - Allowed file list must expand.
 - Forbidden file must be touched.
@@ -2235,7 +2253,7 @@ Return to Stage 3 for a new human approval if:
 - New provider dependency is introduced.
 - Emergency path is needed.
 
-### 18.4 Return To Stage 4
+### 18.4 Return To Stage 8
 
 Return to Codex if:
 
@@ -2244,19 +2262,19 @@ Return to Codex if:
 - Claude Audit finds fixable code-level issue.
 - Verification failure is caused by code error.
 
-### 18.5 Return To Stage 5 (And Stage 5.5, Medium/Full Tier)
+### 18.5 Return To Stage 9 (And Its Critical-Tier Cursor Participation, Medium/Full Tier)
 
-Return to Claude Code's cross-model re-verification (Stage 5) after every implementation change. If the tier includes Stage 5.5, Cursor's minor-opinion review must also re-run against the new diff — a prior `MinorOpinion.md` does not cover a new diff.
+Return to Claude Code's cross-model re-verification (Stage 9) after every implementation change. If the tier includes Stage 9 (Critical tier), Cursor's minor-opinion review must also re-run against the new diff — a prior `MinorOpinion.md` does not cover a new diff.
 
 No manual or AI review can substitute for rerunning automated checks.
 
-### 18.6 Return To Stage 6
+### 18.6 Return To Stage 11
 
 Return to Claude Audit after every new verification run.
 
 A previous audit does not approve a new diff.
 
-Codex's `ImplementationModule.md` is never sufficient by itself — every module must reach Stage 6 before it can be considered done.
+Codex's `ImplementationModule.md` is never sufficient by itself — every module must reach Stage 11 before it can be considered done.
 
 ---
 
@@ -2296,17 +2314,18 @@ For payment, payout, settlement, provider, audit, evidence, RLS, access control,
 ## Before Design
 
 - [ ] Cursor produced the raw scope/inventory scan without editing files or drafting (Stage 1).
-- [ ] Claude Code verified Cursor's scan and produced ImpactScope.md (Stage 1.5).
+- [ ] Claude Code verified Cursor's scan and produced ImpactScope.md (Stage 2).
 - [ ] Claude Code produced Overview.md draft.
 - [ ] Claude Code produced Logic.md draft.
 - [ ] Context snapshot includes master anchor, required rule summaries, relevant domain references, and explicit exclusions.
 
 ## Before Implementation
 
-- [ ] Claude verified Overview.md and Logic.md (Draft Status = Verified).
-- [ ] Claude produced TestPlan.md.
-- [ ] Claude produced draft ChangeContract.md.
-- [ ] Human reviewed the full design pack (ImpactScope/Overview/Logic/TestPlan/ChangeContract) in Stage 3.
+- [ ] Claude reviewed Overview.md and Logic.md and set the Critical/Normal tier (Stage 3, Draft Status = Verified).
+- [ ] Architecture Verification (Stage 4) completed and integrated by Claude.
+- [ ] Claude Code produced TestPlan.md and draft ChangeContract.md (Stage 5).
+- [ ] Contract Verification (Stage 6) completed and integrated by Claude.
+- [ ] Human reviewed the full design pack (ImpactScope/Overview/Logic/TestPlan/ChangeContract) in Stage 7.
 - [ ] Human approved allowed files and allowed operations.
 - [ ] ChangeContract.md's Human Boundary Approval section is filled in.
 
@@ -2326,8 +2345,13 @@ For payment, payout, settlement, provider, audit, evidence, RLS, access control,
 - [ ] lint/typecheck/test commands run.
 - [ ] migration/RLS/security checks run where applicable.
 - [ ] raw logs preserved.
-- [ ] VerificationResult.md written by Claude Code (Stage 5 cross-model re-verification of Codex's implementation).
-- [ ] (Medium/Full tier) MinorOpinion.md written by Cursor (Stage 5.5), including an explicit "no concerns found" statement if applicable.
+- [ ] VerificationResult.md written by Claude Code (Stage 9 cross-model re-verification of Codex's implementation).
+- [ ] (Critical tier) MinorOpinion.md written by Cursor within Stage 9, including an explicit "no concerns found" statement if applicable.
+
+## Documentation
+
+- [ ] Codex produced/updated Module.md and NavigationMap.md/index registration (Stage 10).
+- [ ] Claude Code produced Verification.md and a draft Audit.md (Stage 10).
 
 ## Audit And Merge
 
@@ -2346,43 +2370,58 @@ For payment, payout, settlement, provider, audit, evidence, RLS, access control,
 
 ## 21. One-Page Operating Summary
 
-As of 2026-07-10, this is an eight-stage summary for Medium/Full tier changes (§31). The Lightweight track (§24) skips all of this and stays log-only.
+**(2026-07-16 개정)** As of 2026-07-16, this is a thirteen-stage (0-12) summary for Medium/Full tier changes (§3, §31) — supersedes the eight-stage version of this summary. The Lightweight track (§24) skips all of this and stays log-only.
 
 ```text
-[1] Cursor Scope/Inventory Scan
+[0] Issue Discovery / Fact Scan (non-regular)
+    Output: Issue Record (optional)
+    Rule: Anyone may record a finding before the regular cycle starts. No verification, no gate.
+
+[1] Scan (Cursor, + Antigravity reference)
     Output: raw scope/inventory report (search only)
     Rule: Search and report only. Never draft design, never write implementation code. No approval/block authority.
 
-[1.5] Claude Code Verifies Cursor Scope And Drafts Design
-    Output: ImpactScope.md (verified scope + context snapshot), Overview.md (draft), Logic.md (draft)
-    Rule: Independently check Cursor's scan before trusting it. Draft design. Include master anchor plus sliced rule summaries in ImpactScope.md — do not dump the whole rule base. Never write implementation code. Flag undecided design points as Open Questions For Claude.
+[2] Design Draft (Claude Code)
+    Output: Overview.md (draft), Logic.md (draft)
+    Rule: Independently check Cursor's scan before trusting it. Draft design. Never write implementation code. Flag undecided design points as Open Questions For Claude.
 
-[2] Claude Design Verification And Contract Lock
-    Output: verified Overview.md/Logic.md, TestPlan.md, draft ChangeContract.md
-    Rule: Verify the Claude Code draft against master rules and repo state. Draft the allowed-file boundary — do not approve it.
+[3] Claude First-Pass Review + Critical/Normal Tier Decision
+    Output: review comments + tier verdict
+    Rule: Claude reviews Overview.md/Logic.md directly and decides how many verifiers Stage 4 needs.
 
-[3] Human Approval
+[4] Architecture Verification (Codex + Antigravity, or Cursor + Codex + Antigravity under Critical tier; Claude integrates)
+    Output: Architecture Review (integrated verification results)
+    Rule: Verify the design draft against master rules and repo state before any contract is written.
+
+[5] Contract Drafting (Claude Code)
+    Output: TestPlan.md, draft ChangeContract.md
+    Rule: Draft the allowed-file boundary from the verified design — do not approve it.
+
+[6] Contract Verification (Codex + Antigravity, or Cursor + Codex + Antigravity under Critical tier; Claude integrates; §37 excludes Claude Code as the contract's own author)
+    Output: verified TestPlan.md/ChangeContract.md
+
+[7] Human Approval Gate
     Output: ChangeContract.md (Human Boundary Approval section filled in)
     Rule: Read the full design pack. Lock allowed files and operations. Codex may not start without this.
 
-[4] Codex Isolated Implementation
+[8] Implementation (Codex)
     Output: code diff, ImplementationModule.md
     Rule: Edit only approved files, strictly within ChangeContract.md. Stop if scope expands. This is a self-report, not proof of completion. No self-approval authority.
 
-[5] Claude Code Independent Re-Verification
-    Output: VerificationResult.md, raw logs, git diff
-    Rule: Cross-model check of Codex's implementation, not self-verification. Run commands. Do not fix. Do not hide errors.
+[9] Independent Verification (Claude Code + Antigravity, or Claude Code + Cursor + Antigravity under Critical tier; Claude integrates; §37 excludes Codex as the implementation's own author)
+    Output: VerificationResult.md, raw logs, git diff (+ MinorOpinion.md when Cursor participates under Critical tier)
+    Rule: Cross-model check of Codex's implementation, not self-verification. Run commands. Do not fix. Do not hide errors. A clean pass must still be recorded, not left silent.
 
-[5.5] Cursor Minor-Opinion Review (Medium/Full tier)
-    Output: MinorOpinion.md (concerns list or explicit clean-pass statement)
-    Rule: Non-binding second opinion looking for what Stage 5 might have missed. No approval/block authority. Silence is not permitted — a clean pass must still be recorded.
+[10] Documentation (Codex: simple docs; Claude Code: important docs)
+    Output: Module.md, NavigationMap.md/index updates (Codex); Verification.md, draft Audit.md (Claude Code)
+    Rule: Implementation does not reach Final Audit without a traceable documentation trail.
 
-[6] Claude Independent Audit
-    Output: AuditReview.md (confirm/audit)
-    Rule: Review raw logs and diff directly. Assume implementation is wrong. Explicitly address every MinorOpinion.md concern. Never skip this after Stage 4. Final ACCEPT/REJECT authority rests solely with Claude.
+[11] Final Audit (Claude, alone)
+    Output: AuditReview.md (ACCEPT / APPROVE_WITH_NOTES / BLOCK)
+    Rule: Review raw logs and diff directly. Assume implementation is wrong. Explicitly address every MinorOpinion.md concern. Never skip this after Stage 8. Final ACCEPT/REJECT authority rests solely with Claude.
 
-[7] Human Merge / Release
-    Output: commit, ReleaseEvidence.md
+[12] Human Merge / Release
+    Output: commit, ReleaseEvidence.md (optional)
     Rule: Human owns final risk.
 ```
 
@@ -2471,30 +2510,30 @@ Under this track:
 
 - Claude Code may diagnose and fix issues without producing ImpactScope.md/Overview.md/Logic.md/TestPlan.md/ChangeContract.md for each individual fix.
 - Claude Code must still log every fix in a running table: file, issue, fix applied, verification result — this log substitutes for the formal artifacts and is the audit trail for this track.
-- Claude Code must STOP and escalate to full Stage 1-3 process (formal artifacts + standalone Human Approval) when:
+- Claude Code must STOP and escalate to full Stage 1-7 process (formal artifacts + standalone Human Approval) when:
   - the fix requires new business-logic inference (not a mechanical correction),
   - two plausible fixes have meaningfully different tradeoffs with no clear evidence for which is correct,
   - a new forward file/migration/table/permission is needed,
   - the file touches payment, security-isolation, RLS, or financial settlement logic AND the fix is not a pure syntax correction (i.e. any semantic change to financial-grade logic always requires full process, no exception).
-- Claude's Stage 6 independent audit still applies retroactively: before staging/commit of the full batch, Claude reviews the running log and spot-verifies a sample against the actual file diffs and live DB state, same as any other Stage 6 audit — this track shortens the front-end gates, not the back-end audit.
+- Claude's Stage 11 independent audit still applies retroactively: before staging/commit of the full batch, Claude reviews the running log and spot-verifies a sample against the actual file diffs and live DB state, same as any other Stage 11 audit — this track shortens the front-end gates, not the back-end audit.
 
 This track does not apply to designing new features, new schema, or any work outside an already-approved, already-scoped verification pass.
 
 ## 25. Reality-Verification Requirement (Doc-to-System Gap)
 
-No Stage 6 audit may be marked ACCEPT/PASS based on document cross-references alone, no matter how internally consistent or precisely cited those references are. Every audit that closes a track touching runtime state (database schema, deployed functions, running services, external APIs) must include at least one direct, reproducible check against the actual live target — a query, a test execution, an API call, a build/compile — not just a review of prior documents' claims.
+No Stage 11 audit may be marked ACCEPT/PASS based on document cross-references alone, no matter how internally consistent or precisely cited those references are. Every audit that closes a track touching runtime state (database schema, deployed functions, running services, external APIs) must include at least one direct, reproducible check against the actual live target — a query, a test execution, an API call, a build/compile — not just a review of prior documents' claims.
 
-Precedent: the A4 0065 documentation track (604520-604524) was internally perfect — every cited line number and count matched exactly on independent re-derivation — yet the underlying database had zero of the claimed objects, because no step in that chain ever queried the actual database. A document chain can be flawless and still describe a system that doesn't exist. "PASS" without a reality-check timestamp and command log is not a valid Stage 6 verdict for any runtime-touching change.
+Precedent: the A4 0065 documentation track (604520-604524) was internally perfect — every cited line number and count matched exactly on independent re-derivation — yet the underlying database had zero of the claimed objects, because no step in that chain ever queried the actual database. A document chain can be flawless and still describe a system that doesn't exist. "PASS" without a reality-check timestamp and command log is not a valid Stage 11 verdict for any runtime-touching change.
 
 ## 26. Adversarial Audit Pass Requirement
 
-For any Stage 6 audit closing a track with financial-grade, security, or cross-tenant-isolation impact, at least one audit pass must be explicitly adversarial: instructed to find a reason the prior work is wrong, not to confirm it is right. A second same-style confirmatory pass is not a substitute — models sharing similar training and prompting patterns tend to share blind spots, and repeated agreement between similar passes is evidence of correlated failure risk, not independent verification.
+For any Stage 11 audit closing a track with financial-grade, security, or cross-tenant-isolation impact, at least one audit pass must be explicitly adversarial: instructed to find a reason the prior work is wrong, not to confirm it is right. A second same-style confirmatory pass is not a substitute — models sharing similar training and prompting patterns tend to share blind spots, and repeated agreement between similar passes is evidence of correlated failure risk, not independent verification.
 
 This project has already observed real value from disagreement between independent passes (e.g. the 021632-021642 catalog/policy split verdicts, the 070390 Audit/Closeout/Index disagreement) — genuine splits surfaced real ambiguity that a single confirmatory pass would have missed. Adversarial framing should be used deliberately, not left to accidental disagreement between differently-prompted passes.
 
 ## 27. Procedural Checks Are Automated; Human/AI Time Goes To Substantive Verification
 
-Checks that are purely mechanical (H1-matches-filename, six-digit prefix present, forbidden-action list present, file inside allowed scope) must be enforced by scripted linting wherever possible, not by AI review time. AI review time (Claude's Stage 2/6 review, Claude Code's Stage 1/4/5 work) should be weighted toward substantive verification: does the logic actually do what it claims, does the change actually run/compile/apply, does the fix actually resolve the defect when executed.
+Checks that are purely mechanical (H1-matches-filename, six-digit prefix present, forbidden-action list present, file inside allowed scope) must be enforced by scripted linting wherever possible, not by AI review time. AI review time (Claude's Stage 3/4/6/11 review, Claude Code's Stage 1/8/9 work) should be weighted toward substantive verification: does the logic actually do what it claims, does the change actually run/compile/apply, does the fix actually resolve the defect when executed.
 
 If a review pass spends most of its content on procedural conformance and little or none on whether the underlying system actually works, that is a sign the review has drifted toward the wrong kind of value.
 
@@ -2502,7 +2541,7 @@ If a review pass spends most of its content on procedural conformance and little
 
 For any runtime-affecting change (SQL, RPC, application logic), the Overview/Logic/Module/TestPlan chain must reference and, where practical, trigger an actual automated test or reproducible verification script (e.g. the project's own `tools/apply_migrations.py` pattern) rather than describing test intent in prose alone. A written `TestPlan.md` that is never actually executed against a real system carries no more evidential weight than an unexecuted claim.
 
-Where no automated test/verification tooling exists yet for a given domain, creating that tooling is itself a valid, often higher-priority Stage 1-4 deliverable than producing additional descriptive documents for the same domain.
+Where no automated test/verification tooling exists yet for a given domain, creating that tooling is itself a valid, often higher-priority Stage 1-8 deliverable than producing additional descriptive documents for the same domain.
 
 ## 29. Lightweight Decision Log (Session-Level ADR)
 
@@ -2520,7 +2559,7 @@ Format (one row/entry per change): date | change description | reason/evidence |
 
 Before attempting a fix to any module that previously failed or was modified, Claude Code/Claude must first read that module's `ChangeHistory.md` in full. This is mandatory, not optional — the log exists specifically so future sessions (which have no memory of prior sessions, as demonstrated repeatedly in this project) don't repeat already-tried-and-failed approaches or re-litigate settled decisions.
 
-Stage 6 (Claude audit) must append one entry to the relevant module's `ChangeHistory.md` upon ACCEPT of any change — this is part of closing the audit, not a separate task.
+Stage 11 (Claude audit) must append one entry to the relevant module's `ChangeHistory.md` upon ACCEPT of any change — this is part of closing the audit, not a separate task.
 
 For SQL: `catchmenu_meta.migration_history` (the DB table already built this session) is the data-level history; a companion human-readable log (`sql/migrations/CHANGELOG.md`, one running file) records the narrative reasoning behind each fix (why, not just what) — the DB table answers "was X applied," the changelog answers "why was X necessary." `sql/migrations/CHANGELOG.md` is a deliberate exception to the `ChangeHistory.md` naming convention: it keeps the industry-standard lowercase `CHANGELOG.md` name because that convention is widely recognized by tooling and contributors outside this project's own governance system.
 
@@ -2535,10 +2574,10 @@ The 11-artifact full chain (`CursorScan.md` through `ReleaseEvidence.md`, §15) 
   - `ImplementationAndVerification.md` = ImplementationModule + VerificationResult sections combined
   - `AuditAndRelease.md` = AuditReview + Human Boundary Approval record + ReleaseEvidence sections combined
 
-  All required CHANGE_ID traceability and stage gate rules (§6.11, Stage 3 approval, Stage 6 independent audit) still apply in full — only the FILE COUNT is reduced, not the review rigor.
+  All required CHANGE_ID traceability and stage gate rules (§6.11, Stage 7 approval, Stage 11 independent audit) still apply in full — only the FILE COUNT is reduced, not the review rigor.
 - **Full tier** (existing 11-file chain, §15: `CursorScan` through `ReleaseEvidence`): mandatory, no exception, for any change touching payment, security-isolation, RLS, financial settlement, or cross-tenant logic — same non-negotiable list as §24's escalation criteria.
 
-The human owner or Claude (Stage 2) selects the tier per change, stated explicitly in the `DesignPack.md` / `Overview.md`'s header.
+The human owner or Claude (Stage 3) selects the tier per change, stated explicitly in the `DesignPack.md` / `Overview.md`'s header.
 
 ## 32. Domain NavigationMap Requirement
 
@@ -2546,7 +2585,7 @@ Every governed domain/module (a SQL schema domain, a Flutter feature module, any
 
 `NavigationMap.md` answers "what changes exist in this domain and what state are they in" at a glance. `ChangeHistory.md` answers "why was each change made." These are complementary and both required — do not merge them into one file.
 
-`NavigationMap.md` must be updated at Stage 3 (approval) and Stage 7 (release) at minimum — new row on approval, status update on release.
+`NavigationMap.md` must be updated at Stage 7 (approval) and Stage 12 (release) at minimum — new row on approval, status update on release.
 
 ## 33. Pipeline Artifact Filename Convention (PascalCase-Joined)
 
@@ -2557,13 +2596,13 @@ This is a distinct convention from two other naming systems already in use in th
 - **Project documentation** (`docs/` governed content) uses this project's own six-digit-prefixed `Title_Case_With_Underscores` convention per `000002_Naming_Rules.md` — unaffected by this section.
 - **`sql/migrations/CHANGELOG.md`** is a deliberate, explicitly-noted exception (§30) — it keeps the industry-standard lowercase `CHANGELOG.md` name rather than becoming `ChangeHistory.md`, because that name is recognized by tooling and contributors outside this project's governance system.
 
-There is no working-name/archived-name distinction and no renaming step performed later (§15.1) — a PascalCase artifact name is permanent from the moment Stage 1/1.5 creates it through however long the change remains referenced, whether the change is active or long since released.
+There is no working-name/archived-name distinction and no renaming step performed later (§15.1) — a PascalCase artifact name is permanent from the moment Stage 1/2 creates it through however long the change remains referenced, whether the change is active or long since released.
 
-**(2026-07-11 개정)** Stage 7 머지 승인 완료 후에는 예외적으로 `000001` §5.4.2의 영구 archive 절차가 적용되어, 통합 작업 파일로 쓰였던 산출물이 개별 승인 DocumentType 단위로 6자리 번호 문서로 이전된다. 위 문단이 말하는 "permanent from creation"은 Stage 1-6 진행 중 단계에서의 파일명 불변성을 의미하며, Stage 7 이후 영구 보관 이전 자체를 금지하지 않는다. 상세 절차는 `000001` §5.4.2 참고.
+**(2026-07-11 개정, 2026-07-16 번호 정합화)** Stage 12 머지 승인 완료 후에는 예외적으로 `000001` §5.4.2의 영구 archive 절차가 적용되어, 통합 작업 파일로 쓰였던 산출물이 개별 승인 DocumentType 단위로 6자리 번호 문서로 이전된다. 위 문단이 말하는 "permanent from creation"은 Stage 1-11 진행 중 단계에서의 파일명 불변성을 의미하며, Stage 12 이후 영구 보관 이전 자체를 금지하지 않는다. 상세 절차는 `000001` §5.4.2 참고.
 
 ## 34. Actor Selection Rule (Cost/Capability-Based, 2026-07-11)
 
-기존 §3(8단계 파이프라인, Stage별 소유자)과 별개로, 실무적으로 어느 도구에 어떤 작업을 맡길지에 대한 원칙:
+기존 §3(2026-07-16부터 13단계(0-12) 파이프라인, Stage별 소유자)과 별개로, 실무적으로 어느 도구에 어떤 작업을 맡길지에 대한 원칙:
 
 ### 34.1 Cursor — 대용량/전수 스캔
 
@@ -2578,7 +2617,7 @@ There is no working-name/archived-name distinction and no renaming step performe
 
 ### 34.3 Claude Code — 검증/크리티컬 작업
 
-- 규칙 준수가 중요한 작업(ChangeContract 준수, 저자 분리 원칙, Stage 1.5/2 설계 산출물 작성), 감사·재검증 성격의 작업에 사용.
+- 규칙 준수가 중요한 작업(ChangeContract 준수, 저자 분리 원칙, Stage 2/5 설계·계약 산출물 작성), 감사·재검증 성격의 작업에 사용.
 - Codex보다 느리고 비싸지만 규칙을 정확히 따르는 경향이 더 강함 — 크리티컬 경로에는 이 특성이 더 중요.
 
 ### 34.4 선택 기준 요약
@@ -2589,19 +2628,19 @@ There is no working-name/archived-name distinction and no renaming step performe
 | 한글 본문이 있는 파일의 내용 검증/처리 | Cursor 지양, Codex 또는 Claude Code |
 | 단순/반복 검증, 소규모 §24 수정 | Codex |
 | ChangeContract 준수 구현, 규칙 정확성이 중요한 작업 | Claude Code |
-| 설계/감사/최종 판단 | Claude (Stage 2/6) |
+| 설계/감사/최종 판단 | Claude (Stage 3/4/6/11) |
 
 ## 35. Cross-Actor Verification Expansion Rule (2026-07-11)
 
-배경: 600210 워크패킷(Flutter 게스트 customer_id 연동)에서, Codex가 구현(Stage 4)하고 Claude Code가 검증(Stage 5)했으나, 이후 Cursor에게 독립 재검증을 별도로 시켰더니 Claude Code/Codex 둘 다 놓친 발견(하드코딩된 tenant_id/store_id가 실제 테스트 값과 동일함)이 나왔다. 이는 §3의 8단계 파이프라인이 "각 Stage를 서로 다른 행위자가 맡는다"는 원칙을 지켰음에도, 정작 최종 검증은 여전히 "구현자(Codex)를 검증한 그 한 명(Claude Code)"에게만 의존했기 때문이다 — 검증자가 1명이면 그 1명의 사각지대는 그대로 남는다.
+배경: 600210 워크패킷(Flutter 게스트 customer_id 연동)에서, Codex가 구현(Stage 8)하고 Claude Code가 검증(Stage 9)했으나, 이후 Cursor에게 독립 재검증을 별도로 시켰더니 Claude Code/Codex 둘 다 놓친 발견(하드코딩된 tenant_id/store_id가 실제 테스트 값과 동일함)이 나왔다. 이는 §3의 8단계 파이프라인이 "각 Stage를 서로 다른 행위자가 맡는다"는 원칙을 지켰음에도, 정작 최종 검증은 여전히 "구현자(Codex)를 검증한 그 한 명(Claude Code)"에게만 의존했기 때문이다 — 검증자가 1명이면 그 1명의 사각지대는 그대로 남는다.
 
 ### 35.1 원칙
 
-Medium tier 이상(§31)의 구현이 완료되면, Stage 5(Claude Code 검증) 이후 **구현에 관여하지 않은 제3의 행위자(Cursor 우선, Cursor가 부적합하면 Codex)**에게 Eyes-Only 독립 재검증을 최소 1회 추가로 받는다. 이는 §5.5(Cursor 세컨오피니언, Full tier 한정)와 별개로, Medium tier에도 적용되는 경량 버전이다.
+Medium tier 이상(§31)의 구현이 완료되면, Stage 9(Claude Code 검증) 이후 **구현에 관여하지 않은 제3의 행위자(Cursor 우선, Cursor가 부적합하면 Codex)**에게 Eyes-Only 독립 재검증을 최소 1회 추가로 받는다. 이는 Stage 9의 Critical-tier Cursor 세컨오피니언 조항(§12.9)와 별개로, Medium tier에도 적용되는 경량 버전이다.
 
 ### 35.2 절차
 
-1. Stage 6(Claude 감사) 이전 또는 병행하여, Cursor에게 다음을 Eyes-Only로 지시한다:
+1. Stage 11(Claude 감사) 이전 또는 병행하여, Cursor에게 다음을 Eyes-Only로 지시한다:
    - 구현 파일 전체를 처음부터 직접 읽을 것 (이전 Stage 보고를 신뢰하지 말 것)
    - ChangeContract의 Allowed/Forbidden 파일 준수 여부 재확인
    - 설계 문서(Overview/Logic)와 실제 코드의 일치 여부 재확인
@@ -2624,23 +2663,25 @@ Medium tier 이상(§31)의 구현이 완료되면, Stage 5(Claude Code 검증) 
 
 ### 36.1 원칙
 
-Medium tier 이상(§31)에서, Stage 2(Claude 검증) 완료 후 Stage 3(Human Approval) 이전에 Cursor에게 설계 문서(Overview/Logic/TestPlan/ChangeContract) 독립 재검증을 최소 1회 거친다. 이는 §35(구현 후 재검증)와 별개로 설계 단계에 적용되는 사전 버전이다.
+Medium tier 이상(§31)에서, Stage 3-6(Claude 설계 검증 + Architecture/Contract Verification) 완료 후 Stage 7(Human Approval) 이전에 Cursor에게 설계 문서(Overview/Logic/TestPlan/ChangeContract) 독립 재검증을 최소 1회 거친다. 이는 §35(구현 후 재검증)와 별개로 설계 단계에 적용되는 사전 버전이다. (2026-07-16 갱신: 이 사전 재검증은 이제 신규 Stage 4/Stage 6의 Critical-tier Cursor 참여로 공식 흡수되었다 — 아래 36.2 절차는 그 이전 관행을 그대로 기록하며, 현재는 §3의 Stage 4/6 구성으로 대체 적용된다.)
 
 ### 36.2 전체 루프 (Medium tier 이상 표준 절차로 확정)
 
-1. Stage 1.5(Claude Code): Overview/Logic 작성
-2. Stage 2(Claude): TestPlan/ChangeContract 작성 및 검증
-3. **[신설] Cursor 설계 재검증**: 위 산출물 전체를 원문 대조로 재확인. 불일치 발견 시 Claude Code가 정정 → **필요시 1~2회 반복(티키타카)** → 문서 간 완전 정합 확인될 때까지
-4. Stage 3(Human): 정합화 완료된 최종본에 승인
-5. Stage 4(Codex): 구현
-6. **[신설] 이중 재검증**: Stage 5(Claude Code) 검증 + 별도 Cursor 독립 재검증(§35 원칙) — 구현 결과도 마찬가지로 한 명의 검증자에만 의존하지 않는다
-7. Stage 6(Claude): 최종 감사
+**(2026-07-16 시점 기준: 이 목록은 §36 확정 당시의 옛 8단계 표기로 남긴 역사적 기록이다. 아래 각 항목이 현재 §3의 몇 단계에 해당하는지 괄호로 병기한다.)**
+
+1. Stage 2(Claude Code): Overview/Logic 작성 — 현재도 Stage 2
+2. Stage 2(Claude): TestPlan/ChangeContract 작성 및 검증 — 현재는 Stage 5(Claude Code가 초안 작성) + Stage 3/4(Claude 검토·통합)
+3. **[신설] Cursor 설계 재검증**: 위 산출물 전체를 원문 대조로 재확인. 불일치 발견 시 Claude Code가 정정 → **필요시 1~2회 반복(티키타카)** → 문서 간 완전 정합 확인될 때까지 — 현재는 Stage 4/6의 Critical-tier Cursor 참여로 흡수
+4. Stage 7(Human): 정합화 완료된 최종본에 승인 — 현재도 Stage 7
+5. Stage 8(Codex): 구현 — 현재도 Stage 8
+6. **[신설] 이중 재검증**: Stage 9(Claude Code) 검증 + 별도 Cursor 독립 재검증(§35 원칙) — 구현 결과도 마찬가지로 한 명의 검증자에만 의존하지 않는다 — 현재는 Stage 9의 Critical-tier 구성(Claude Code + Cursor)으로 흡수
+7. Stage 11(Claude): 최종 감사 — 현재도 Stage 11
 
 ### 36.3 절차 세부
 
 - Cursor의 설계 재검증은 Eyes-Only 원칙 그대로: 판단/설계 변경 금지, 원문 인용 기반 사실 대조 및 Open Question만 보고
 - "불일치"는 다음을 포함: (a) 설계 문서가 서술한 코드 동작과 실제 라이브 코드/DB 상태가 다른 경우, (b) 여러 설계 문서(Overview/Logic/TestPlan/ChangeContract) 간 서로 다른 아키텍처를 전제하는 경우, (c) "기존 패턴 재사용"이라고 서술했으나 실제로는 새로운 조합/변형인 경우
-- 반복 한도: 명시적 상한은 두지 않으나, 3회 이상 반복해도 정합 안 되면 설계 자체를 재검토(Stage 1.5로 롤백)할 신호로 간주
+- 반복 한도: 명시적 상한은 두지 않으나, 3회 이상 반복해도 정합 안 되면 설계 자체를 재검토(Stage 3으로 롤백)할 신호로 간주
 
 ### 36.4 근거
 
@@ -2772,7 +2813,7 @@ Medium tier 이상 검증 시 기본 구성("3중 검토"):
 
 Human 결정(2026-07-13, 재논의 금지): 모든 `Overview.md`는 `§6.5 Required Context Snapshot Candidates` 섹션을 반드시 포함한다.
 
-이 섹션은 Stage 1.5/Stage 2가 설계 판단에 실제로 투입한 규칙·문서 후보를 빠뜨리지 않도록 하기 위한 최소 컨텍스트 스냅샷이다. `Overview.md`가 이 섹션을 누락하면 Stage 2 검증에서 반려 사유가 된다.
+이 섹션은 Stage 2/Stage 3가 설계 판단에 실제로 투입한 규칙·문서 후보를 빠뜨리지 않도록 하기 위한 최소 컨텍스트 스냅샷이다. `Overview.md`가 이 섹션을 누락하면 Stage 3 검증에서 반려 사유가 된다.
 
 필수 구조:
 
@@ -2813,7 +2854,7 @@ Antigravity(또는 다른 검증자)가 토큰/컨텍스트 부족 등으로 참
 
 ### 43.3 600520의 처리 (소급 적용 안 함)
 
-`600520`(도메인 폴더 재편) 워크패킷은 이 원칙 확정 이전에 이미 Stage 6 ACCEPT 및 커밋 완료된 사안이므로, 소급 재검증하지 않는다. `600527_Audit.md` Open Item (e)는 "과거 사례로서 이 원칙이 왜 필요한지 보여주는 근거"로 그대로 남긴다.
+`600520`(도메인 폴더 재편) 워크패킷은 이 원칙 확정 이전에 이미 Stage 11 ACCEPT 및 커밋 완료된 사안이므로, 소급 재검증하지 않는다. `600527_Audit.md` Open Item (e)는 "과거 사례로서 이 원칙이 왜 필요한지 보여주는 근거"로 그대로 남긴다.
 
 ### 43.4 §38과의 관계
 
