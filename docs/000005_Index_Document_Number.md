@@ -3462,6 +3462,18 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600600_waiting_order_session\600620_customer_handoff_contract_reconciliation\600626_Verification.md | 600626_Verification — customer handoff contract reconciliation evidence. | active |
 | docs\600000_implementation_lifecycle\600600_waiting_order_session\600620_customer_handoff_contract_reconciliation\600627_Audit.md | 600627_Audit — customer handoff contract reconciliation audit decision. | active |
 
+## 119A docs/600000_implementation_lifecycle/600600_waiting_order_session/600630_mark_no_show_overload_and_redesign
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600631_Overview_Mark_No_Show_Overload_And_Redesign.md | 600631_Overview — mark_no_show overload and no-show/KDS grace redesign. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600632_Logic.md | 600632_Logic — mark_no_show overload and no-show/KDS grace redesign logic. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600633_TestPlan.md | 600633_TestPlan — mark_no_show overload and no-show/KDS grace redesign verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600634_ChangeContract.md | 600634_ChangeContract — mark_no_show overload and no-show/KDS grace redesign boundary. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600635_Module.md | 600635_Module — mark_no_show overload and no-show/KDS grace redesign implementation record. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600636_Verification.md | 600636_Verification — mark_no_show overload and no-show/KDS grace redesign evidence. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600630_mark_no_show_overload_and_redesign\600637_Audit.md | 600637_Audit — mark_no_show overload and no-show/KDS grace redesign audit decision. | active |
+
 ## 120 docs/600000_implementation_lifecycle/600600_waiting_order_session/600640_call_waiting_customer_contract_recovery
 
 | file path | purpose | current status |
