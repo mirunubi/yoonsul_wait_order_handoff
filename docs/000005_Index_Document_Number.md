@@ -78,6 +78,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000053_Matrix_Domain_To_Artifact_Traceability.md | 00053_Matrix_Domain_To_Artifact_Traceability. | active |
 | docs\000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md | 00054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap. | active |
 | docs\000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md | 00055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest. | active |
+| docs\000056_Register_Concurrency_Risk.md | 000056_Register_Concurrency_Risk — 결제/주문/KDS/대기열/재고/멤버십/DID 전 도메인 동시성 위험 레지스터. | active |
 | docs\000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md | 00057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate. | active |
 | docs\000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md | 00058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest. | active |
 | docs\000059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition.md | 00059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition. | active |
@@ -3311,12 +3312,22 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600112_Logic.md | 600112_Logic — DDL detail, guest promotion logic, 3 Open Questions. | active |
 | docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600113_TestPlan.md | 600113_TestPlan — Stage 2 draft, executable test steps. | active |
 | docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600114_ChangeContract.md | 600114_ChangeContract — Stage 2 draft, Allowed/Forbidden files, Human Boundary Approval pending. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600115_Module.md | 600115 Module. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600116_Verification.md | 600116 Verification. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600110_order_sessions_customer_id_fk_and_guest_promotion\600117_Audit.md | 600117 Audit. | active |
 
 ## 109 docs/600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | (folder only — no governed documents yet) | guest_customer_bootstrap_rpc workpacket | draft |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600121_Overview.md | 600121 Overview. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600122_Logic.md | 600122 Logic. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600123_TestPlan.md | 600123 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600124_ChangeContract.md | 600124 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600125_Module.md | 600125 Module. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600126_Verification.md | 600126 Verification. | active |
+| docs\600000_implementation_lifecycle\600100_customer_identity_and_guest_promotion\600120_guest_customer_bootstrap_rpc\600127_Audit.md | 600127 Audit. | active |
 
 ## 107 docs/600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation
 
@@ -3332,6 +3343,13 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | (folder only — no governed documents yet) | waiting_feature_guest_customer_id_integration workpacket | draft |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600211_Overview.md | 600211 Overview. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600212_Logic.md | 600212 Logic. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600213_TestPlan.md | 600213 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600214_ChangeContract.md | 600214 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600215_Module.md | 600215 Module. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600216_Verification.md | 600216 Verification. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600210_waiting_feature_guest_customer_id_integration\600217_Audit.md | 600217 Audit. | active |
 
 ## 110 docs/600000_implementation_lifecycle/600300_cloud_local_migration_sync
 
@@ -3356,6 +3374,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600401_ChangeHistory.md | 600401_ChangeHistory — append-only change history skeleton (§30). | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600402_NavigationMap.md | 600402_NavigationMap — per-domain change index (§32). | active |
 | docs\600000_implementation_lifecycle\600400_kds_did_implementation\600403_DecisionLog.md | 600403_DecisionLog — Human decision log (§35 defect-based document linking principle). | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600404_PlaceTakeoutOrder_Defect_Roadmap.md | 600404 PlaceTakeoutOrder Defect Roadmap. | active |
 
 ## 113 docs/600000_implementation_lifecycle/600400_kds_did_implementation/600410_kds_capacity_gate_and_status_reconciliation
 
@@ -3400,6 +3419,18 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600500_payment_confirmation\600540_mark_payment_uncertain_overload_ambiguity\600546_Verification.md | 600546_Verification — mark_payment_uncertain overload verification evidence. | active |
 | docs\600000_implementation_lifecycle\600500_payment_confirmation\600540_mark_payment_uncertain_overload_ambiguity\600547_Audit.md | 600547_Audit — mark_payment_uncertain overload audit decision. | active |
 
+## 127 docs/600000_implementation_lifecycle/600500_payment_confirmation/600570_cancel_payment_phantom_column_fix
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600571_Overview_Cancel_Payment_Phantom_Column_Fix.md | 600571_Overview_Cancel_Payment_Phantom_Column_Fix — cancel_payment phantom column defect overview. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600572_Logic_Cancel_Payment_Phantom_Column_Fix.md | 600572_Logic_Cancel_Payment_Phantom_Column_Fix — cancel_payment phantom column correction logic. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600573_TestPlan_Cancel_Payment_Phantom_Column_Fix.md | 600573_TestPlan_Cancel_Payment_Phantom_Column_Fix — cancel_payment phantom column verification plan. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600574_ChangeContract_Cancel_Payment_Phantom_Column_Fix.md | 600574_ChangeContract_Cancel_Payment_Phantom_Column_Fix — cancel_payment phantom column implementation boundary. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600575_Module.md | 600575_Module — cancel_payment phantom column implementation record. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600576_Verification.md | 600576_Verification — cancel_payment phantom column verification evidence. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600570_cancel_payment_phantom_column_fix\600577_Audit.md | 600577_Audit — cancel_payment phantom column audit decision. | active |
+
 ## 117 docs/600000_implementation_lifecycle/600600_waiting_order_session
 
 | file path | purpose | current status |
@@ -3431,14 +3462,26 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600600_waiting_order_session\600620_customer_handoff_contract_reconciliation\600626_Verification.md | 600626_Verification — customer handoff contract reconciliation evidence. | active |
 | docs\600000_implementation_lifecycle\600600_waiting_order_session\600620_customer_handoff_contract_reconciliation\600627_Audit.md | 600627_Audit — customer handoff contract reconciliation audit decision. | active |
 
-## 120 docs/600000_implementation_lifecycle/600700_takeout_pickup_order
+## 120 docs/600000_implementation_lifecycle/600600_waiting_order_session/600640_call_waiting_customer_contract_recovery
+
+| file path | purpose | current status |
+| --- | --- | --- |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600641_Overview_Call_Waiting_Customer_Contract_Recovery.md | 600641_Overview — call_waiting_customer contract recovery. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600642_Logic_Call_Waiting_Customer_Contract_Recovery.md | 600642_Logic — call_waiting_customer contract recovery logic. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600643_TestPlan.md | 600643_TestPlan — call_waiting_customer contract recovery verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600644_ChangeContract.md | 600644_ChangeContract — call_waiting_customer contract recovery boundary. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600645_Module.md | 600645_Module — call_waiting_customer contract recovery implementation record. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600646_Verification.md | 600646_Verification — call_waiting_customer contract recovery evidence. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600640_call_waiting_customer_contract_recovery\600647_Audit.md | 600647_Audit — call_waiting_customer contract recovery audit decision. | active |
+
+## 121 docs/600000_implementation_lifecycle/600700_takeout_pickup_order
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600700_Readme_Takeout_Pickup_Order.md | 600700_Readme_Takeout_Pickup_Order. | active |
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600702_NavigationMap_Takeout_Pickup_Order.md | 600702_NavigationMap_Takeout_Pickup_Order. | active |
 
-## 121 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600710_place_takeout_order_unassigned_record_fix
+## 122 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600710_place_takeout_order_unassigned_record_fix
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -3450,7 +3493,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600710_place_takeout_order_unassigned_record_fix\600716_Verification.md | 600716_Verification — place_takeout_order() verification evidence. | active |
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600710_place_takeout_order_unassigned_record_fix\600717_Audit.md | 600717_Audit — place_takeout_order() audit decision. | active |
 
-## 122 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600720_orders_pickup_ready_timing_columns_migration
+## 123 docs/600000_implementation_lifecycle/600700_takeout_pickup_order/600720_orders_pickup_ready_timing_columns_migration
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -3462,21 +3505,22 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600720_orders_pickup_ready_timing_columns_migration\600726_Verification.md | 600726_Verification — orders pickup/ready timing verification evidence. | active |
 | docs\600000_implementation_lifecycle\600700_takeout_pickup_order\600720_orders_pickup_ready_timing_columns_migration\600727_Audit.md | 600727_Audit — orders pickup/ready timing audit decision. | active |
 
-## 123 docs/600000_implementation_lifecycle/600800_did_implementation
+## 124 docs/600000_implementation_lifecycle/600800_did_implementation
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600800_did_implementation\600800_Readme_Did_Implementation.md | 600800_Readme_Did_Implementation. | active |
 | docs\600000_implementation_lifecycle\600800_did_implementation\600802_NavigationMap_Did_Implementation.md | 600802_NavigationMap_Did_Implementation. | active |
 
-## 124 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation
+## 125 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation
 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600900_Readme_Cross_Domain_Reconciliation.md | 600900_Readme_Cross_Domain_Reconciliation. | active |
 | docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600902_NavigationMap_Cross_Domain_Reconciliation.md | 600902_NavigationMap_Cross_Domain_Reconciliation. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600901_ChangeHistory.md | 600901 ChangeHistory. | active |
 
-## 125 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation/600910_stale_column_reconciliation_batch
+## 126 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation/600910_stale_column_reconciliation_batch
 
 | file path | purpose | current status |
 | --- | --- | --- |
@@ -3487,3 +3531,138 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600910_stale_column_reconciliation_batch\600915_Module.md | 600915_Module — stale column reconciliation batch implementation record. | active |
 | docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600910_stale_column_reconciliation_batch\600916_Verification.md | 600916_Verification — stale column reconciliation batch verification evidence. | active |
 | docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600910_stale_column_reconciliation_batch\600917_Audit.md | 600917_Audit — stale column reconciliation batch audit decision. | active |
+
+## 128 docs/600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600221_Overview.md | 600221 Overview. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600222_Logic.md | 600222 Logic. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600223_TestPlan.md | 600223 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600224_ChangeContract.md | 600224 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600225_Module.md | 600225 Module. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600226_Verification.md | 600226 Verification. | active |
+| docs\600000_implementation_lifecycle\600200_flutter_waiting_feature_implementation\600220_platform_deployment_strategy\600227_Audit.md | 600227 Audit. | active |
+
+## 129 docs/600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600321_Overview.md | 600321 Overview. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600322_Logic.md | 600322 Logic. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600323_TestPlan.md | 600323 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600324_ChangeContract.md | 600324 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600325_Module.md | 600325 Module. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600326_Verification.md | 600326 Verification. | active |
+| docs\600000_implementation_lifecycle\600300_cloud_local_migration_sync\600320_scheduled_pull_based_secondary_backup\600327_Audit.md | 600327 Audit. | active |
+
+## 130 docs/600000_implementation_lifecycle/600400_kds_did_implementation/600420_kds_status_naming_and_stale_columns
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600420_kds_status_naming_and_stale_columns\600421_Module.md | 600421 Module. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600420_kds_status_naming_and_stale_columns\600422_Verification.md | 600422 Verification. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600420_kds_status_naming_and_stale_columns\600423_Audit.md | 600423 Audit. | active |
+
+## 131 docs/600000_implementation_lifecycle/600400_kds_did_implementation/600440_kds_status_committed_unification
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600441_Overview.md | 600441 Overview. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600442_Logic.md | 600442 Logic. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600443_TestPlan.md | 600443 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600444_ChangeContract.md | 600444 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600445_Module.md | 600445 Module. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600446_Verification.md | 600446 Verification. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600440_kds_status_committed_unification\600447_Audit.md | 600447 Audit. | active |
+
+## 132 docs/600000_implementation_lifecycle/600400_kds_did_implementation/600520_domain_folder_reorganization
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600521_Overview_Domain_Folder_Reorganization.md | 600521 Overview Domain Folder Reorganization. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600522_Logic_Domain_Folder_Reorganization.md | 600522 Logic Domain Folder Reorganization. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600523_TestPlan_Domain_Folder_Reorganization.md | 600523 TestPlan Domain Folder Reorganization. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600524_ChangeContract_Domain_Folder_Reorganization.md | 600524 ChangeContract Domain Folder Reorganization. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600525_Module.md | 600525 Module. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600526_Verification.md | 600526 Verification. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\600520_domain_folder_reorganization\600527_Audit.md | 600527 Audit. | active |
+
+## 133 docs/600000_implementation_lifecycle/600400_kds_did_implementation/601020_authorize_kds_release_overload_and_redesign
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601021_Overview_Authorize_Kds_Release_Overload_And_Redesign.md | 601021 Overview Authorize Kds Release Overload And Redesign. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601022_Logic_Authorize_Kds_Release_Overload_And_Redesign.md | 601022 Logic Authorize Kds Release Overload And Redesign. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601023_TestPlan.md | 601023 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601024_ChangeContract.md | 601024 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601025_Module.md | 601025 Module. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601026_Verification.md | 601026 Verification. | active |
+| docs\600000_implementation_lifecycle\600400_kds_did_implementation\601020_authorize_kds_release_overload_and_redesign\601027_Audit.md | 601027 Audit. | active |
+
+## 134 docs/600000_implementation_lifecycle/600500_payment_confirmation/600550_confirm_payment_column_drift_and_intent_linkage_fix
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600551_Overview_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md | 600551 Overview Confirm Payment Column Drift And Intent Linkage Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600552_Logic_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md | 600552 Logic Confirm Payment Column Drift And Intent Linkage Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600553_TestPlan_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md | 600553 TestPlan Confirm Payment Column Drift And Intent Linkage Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600554_ChangeContract_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md | 600554 ChangeContract Confirm Payment Column Drift And Intent Linkage Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600555_Module.md | 600555 Module. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600556_Verification.md | 600556 Verification. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600550_confirm_payment_column_drift_and_intent_linkage_fix\600557_Audit.md | 600557 Audit. | active |
+
+## 135 docs/600000_implementation_lifecycle/600500_payment_confirmation/600560_payment_intent_race_condition_fix
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600561_Overview_Payment_Intent_Race_Condition_Fix.md | 600561 Overview Payment Intent Race Condition Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600562_Logic_Payment_Intent_Race_Condition_Fix.md | 600562 Logic Payment Intent Race Condition Fix. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600563_TestPlan.md | 600563 TestPlan. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600564_ChangeContract.md | 600564 ChangeContract. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600565_Module.md | 600565 Module. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600566_Verification.md | 600566 Verification. | active |
+| docs\600000_implementation_lifecycle\600500_payment_confirmation\600560_payment_intent_race_condition_fix\600567_Audit.md | 600567 Audit. | active |
+
+## 136 docs/600000_implementation_lifecycle/600800_did_implementation/600820_did_display_state_overload_and_legacy_defect
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600821_Overview_Did_Display_State_Overload.md | 600821 Overview Did Display State Overload. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600822_Logic_Did_Display_State_Overload.md | 600822 Logic Did Display State Overload. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600823_TestPlan_Did_Display_State_Overload.md | 600823 TestPlan Did Display State Overload. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600824_ChangeContract_Did_Display_State_Overload.md | 600824 ChangeContract Did Display State Overload. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600825_Module.md | 600825 Module. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600826_Verification.md | 600826 Verification. | active |
+| docs\600000_implementation_lifecycle\600800_did_implementation\600820_did_display_state_overload_and_legacy_defect\600827_Audit.md | 600827 Audit. | active |
+
+## 137 docs/600000_implementation_lifecycle/600900_cross_domain_reconciliation/600920_workpacket_renumbering_to_domain_ranges
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600921_Overview_Workpacket_Renumbering_To_Domain_Ranges.md | 600921 Overview Workpacket Renumbering To Domain Ranges. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600922_Logic_Workpacket_Renumbering_To_Domain_Ranges.md | 600922 Logic Workpacket Renumbering To Domain Ranges. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600923_TestPlan_Workpacket_Renumbering_To_Domain_Ranges.md | 600923 TestPlan Workpacket Renumbering To Domain Ranges. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600924_ChangeContract_Workpacket_Renumbering_To_Domain_Ranges.md | 600924 ChangeContract Workpacket Renumbering To Domain Ranges. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600925_Module.md | 600925 Module. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600926_Verification.md | 600926 Verification. | active |
+| docs\600000_implementation_lifecycle\600900_cross_domain_reconciliation\600920_workpacket_renumbering_to_domain_ranges\600927_Audit.md | 600927 Audit. | active |
+
+## 138 docs/600000_implementation_lifecycle/601000_cms_content_management
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601000_Readme_Cms_Content_Management.md | 601000 Readme Cms Content Management. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601002_NavigationMap_Cms_Content_Management.md | 601002 NavigationMap Cms Content Management. | active |
+
+## 139 docs/600000_implementation_lifecycle/601000_cms_content_management/601010_cms_device_content_routing_architecture
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601011_Overview_Cms_Device_Content_Routing_Architecture.md | 601011 Overview Cms Device Content Routing Architecture. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601012_Logic_Cms_Device_Registry_Edid_Mapping.md | 601012 Logic Cms Device Registry Edid Mapping. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601013_TestPlan_Cms_Device_Registry_Edid_Mapping.md | 601013 TestPlan Cms Device Registry Edid Mapping. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601014_ChangeContract_Cms_Device_Registry_Edid_Mapping.md | 601014 ChangeContract Cms Device Registry Edid Mapping. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601015_Module.md | 601015 Module. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601016_Verification.md | 601016 Verification. | active |
+| docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601017_Audit.md | 601017 Audit. | active |

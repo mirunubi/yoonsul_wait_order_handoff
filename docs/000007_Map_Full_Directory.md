@@ -82,6 +82,7 @@ docs/
   +--- 000053_Matrix_Domain_To_Artifact_Traceability.md
   +--- 000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md
   +--- 000055_Matrix_Batch_5F_1_ManualReview_Hold_Files_Resolution_Manifest.md
+  +--- 000056_Register_Concurrency_Risk.md
   +--- 000057_Plan_Batch_6F_Root_Migration_Evidence_Disposition_And_Worktree_Noise_Gate.md
   +--- 000058_Matrix_Batch_6F_Root_Migration_Evidence_Disposition_Manifest.md
   +--- 000059_Plan_Batch_6G_Commit_6F_Manifest_And_Untracked_Migration_Evidence_Disposition.md
@@ -2049,37 +2050,69 @@ docs/
   |   +--- 070650_Matrix_External_Settlement_Reconciliation_Exception_Type_Action_And_Escalation_Map.md
   |   \--- 070660_Overview_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md
   +--- 600000_implementation_lifecycle/
-  |   +--- 600000_Readme_Implementation_Lifecycle.md
   |   +--- 600100_customer_identity_and_guest_promotion/
+  |   |   +--- 600110_order_sessions_customer_id_fk_and_guest_promotion/
+  |   |   |   +--- .gitkeep
+  |   |   |   +--- 600111_Overview.md
+  |   |   |   +--- 600112_Logic.md
+  |   |   |   +--- 600113_TestPlan.md
+  |   |   |   +--- 600114_ChangeContract.md
+  |   |   |   +--- 600115_Module.md
+  |   |   |   +--- 600116_Verification.md
+  |   |   |   +--- 600117_Audit.md
+  |   |   +--- 600120_guest_customer_bootstrap_rpc/
+  |   |   |   +--- .gitkeep
+  |   |   |   +--- 600121_Overview.md
+  |   |   |   +--- 600122_Logic.md
+  |   |   |   +--- 600123_TestPlan.md
+  |   |   |   +--- 600124_ChangeContract.md
+  |   |   |   +--- 600125_Module.md
+  |   |   |   +--- 600126_Verification.md
+  |   |   |   +--- 600127_Audit.md
   |   |   +--- 600100_Readme_Customer_Identity_And_Guest_Promotion.md
   |   |   +--- 600101_ChangeHistory.md
   |   |   +--- 600102_NavigationMap.md
   |   |   +--- 600103_DecisionLog.md
-  |   |   +--- 600110_order_sessions_customer_id_fk_and_guest_promotion/
-  |   |   |   +--- 600111_Overview.md
-  |   |   |   +--- 600112_Logic.md
-  |   |   |   +--- 600113_TestPlan.md
-  |   |   |   \--- 600114_ChangeContract.md
-  |   |   +--- 600120_guest_customer_bootstrap_rpc/
   |   +--- 600200_flutter_waiting_feature_implementation/
+  |   |   +--- 600210_waiting_feature_guest_customer_id_integration/
+  |   |   |   +--- .gitkeep
+  |   |   |   +--- 600211_Overview.md
+  |   |   |   +--- 600212_Logic.md
+  |   |   |   +--- 600213_TestPlan.md
+  |   |   |   +--- 600214_ChangeContract.md
+  |   |   |   +--- 600215_Module.md
+  |   |   |   +--- 600216_Verification.md
+  |   |   |   +--- 600217_Audit.md
+  |   |   +--- 600220_platform_deployment_strategy/
+  |   |   |   +--- 600221_Overview.md
+  |   |   |   +--- 600222_Logic.md
+  |   |   |   +--- 600223_TestPlan.md
+  |   |   |   +--- 600224_ChangeContract.md
+  |   |   |   +--- 600225_Module.md
+  |   |   |   +--- 600226_Verification.md
+  |   |   |   +--- 600227_Audit.md
   |   |   +--- 600200_Readme_Flutter_Waiting_Feature_Implementation.md
   |   |   +--- 600201_ChangeHistory.md
   |   |   +--- 600202_NavigationMap.md
   |   |   +--- 600203_DecisionLog.md
-  |   |   +--- 600210_waiting_feature_guest_customer_id_integration/
   |   +--- 600300_cloud_local_migration_sync/
+  |   |   +--- 600310_initial_cloud_state_audit/
+  |   |   |   +--- .gitkeep
+  |   |   |   +--- 600311_Overview.md
+  |   |   +--- 600320_scheduled_pull_based_secondary_backup/
+  |   |   |   +--- .gitkeep
+  |   |   |   +--- 600321_Overview.md
+  |   |   |   +--- 600322_Logic.md
+  |   |   |   +--- 600323_TestPlan.md
+  |   |   |   +--- 600324_ChangeContract.md
+  |   |   |   +--- 600325_Module.md
+  |   |   |   +--- 600326_Verification.md
+  |   |   |   +--- 600327_Audit.md
   |   |   +--- 600300_Readme_Cloud_Local_Migration_Sync.md
   |   |   +--- 600301_ChangeHistory.md
   |   |   +--- 600302_NavigationMap.md
   |   |   +--- 600303_DecisionLog.md
-  |   |   +--- 600310_initial_cloud_state_audit/
-  |   |   |   +--- 600311_Overview.md
   |   +--- 600400_kds_did_implementation/
-  |   |   +--- 600400_Readme_KDS_Implementation.md
-  |   |   +--- 600401_ChangeHistory.md
-  |   |   +--- 600402_NavigationMap.md
-  |   |   +--- 600403_DecisionLog.md
-  |   |   +--- 600404_PlaceTakeoutOrder_Defect_Roadmap.md
   |   |   +--- 600410_kds_capacity_gate_and_status_reconciliation/
   |   |   |   +--- 600411_Overview.md
   |   |   |   +--- 600412_Logic.md
@@ -2089,6 +2122,7 @@ docs/
   |   |   |   +--- 600416_Verification.md
   |   |   |   +--- 600417_Audit.md
   |   |   +--- 600420_kds_status_naming_and_stale_columns/
+  |   |   |   +--- .gitkeep
   |   |   |   +--- 600421_Module.md
   |   |   |   +--- 600422_Verification.md
   |   |   |   +--- 600423_Audit.md
@@ -2100,9 +2134,28 @@ docs/
   |   |   |   +--- 600445_Module.md
   |   |   |   +--- 600446_Verification.md
   |   |   |   +--- 600447_Audit.md
+  |   |   +--- 600520_domain_folder_reorganization/
+  |   |   |   +--- 600521_Overview_Domain_Folder_Reorganization.md
+  |   |   |   +--- 600522_Logic_Domain_Folder_Reorganization.md
+  |   |   |   +--- 600523_TestPlan_Domain_Folder_Reorganization.md
+  |   |   |   +--- 600524_ChangeContract_Domain_Folder_Reorganization.md
+  |   |   |   +--- 600525_Module.md
+  |   |   |   +--- 600526_Verification.md
+  |   |   |   +--- 600527_Audit.md
+  |   |   +--- 601020_authorize_kds_release_overload_and_redesign/
+  |   |   |   +--- 601021_Overview_Authorize_Kds_Release_Overload_And_Redesign.md
+  |   |   |   +--- 601022_Logic_Authorize_Kds_Release_Overload_And_Redesign.md
+  |   |   |   +--- 601023_TestPlan.md
+  |   |   |   +--- 601024_ChangeContract.md
+  |   |   |   +--- 601025_Module.md
+  |   |   |   +--- 601026_Verification.md
+  |   |   |   +--- 601027_Audit.md
+  |   |   +--- 600400_Readme_KDS_Implementation.md
+  |   |   +--- 600401_ChangeHistory.md
+  |   |   +--- 600402_NavigationMap.md
+  |   |   +--- 600403_DecisionLog.md
+  |   |   +--- 600404_PlaceTakeoutOrder_Defect_Roadmap.md
   |   +--- 600500_payment_confirmation/
-  |   |   +--- 600500_Readme_Payment_Confirmation.md
-  |   |   +--- 600502_NavigationMap_Payment_Confirmation.md
   |   |   +--- 600510_confirm_payment_from_provider_overload_ambiguity/
   |   |   |   +--- 600511_Overview.md
   |   |   |   +--- 600512_Logic.md
@@ -2119,9 +2172,33 @@ docs/
   |   |   |   +--- 600545_Module.md
   |   |   |   +--- 600546_Verification.md
   |   |   |   +--- 600547_Audit.md
+  |   |   +--- 600550_confirm_payment_column_drift_and_intent_linkage_fix/
+  |   |   |   +--- 600551_Overview_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md
+  |   |   |   +--- 600552_Logic_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md
+  |   |   |   +--- 600553_TestPlan_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md
+  |   |   |   +--- 600554_ChangeContract_Confirm_Payment_Column_Drift_And_Intent_Linkage_Fix.md
+  |   |   |   +--- 600555_Module.md
+  |   |   |   +--- 600556_Verification.md
+  |   |   |   +--- 600557_Audit.md
+  |   |   +--- 600560_payment_intent_race_condition_fix/
+  |   |   |   +--- 600561_Overview_Payment_Intent_Race_Condition_Fix.md
+  |   |   |   +--- 600562_Logic_Payment_Intent_Race_Condition_Fix.md
+  |   |   |   +--- 600563_TestPlan.md
+  |   |   |   +--- 600564_ChangeContract.md
+  |   |   |   +--- 600565_Module.md
+  |   |   |   +--- 600566_Verification.md
+  |   |   |   +--- 600567_Audit.md
+  |   |   +--- 600570_cancel_payment_phantom_column_fix/
+  |   |   |   +--- 600571_Overview_Cancel_Payment_Phantom_Column_Fix.md
+  |   |   |   +--- 600572_Logic_Cancel_Payment_Phantom_Column_Fix.md
+  |   |   |   +--- 600573_TestPlan_Cancel_Payment_Phantom_Column_Fix.md
+  |   |   |   +--- 600574_ChangeContract_Cancel_Payment_Phantom_Column_Fix.md
+  |   |   |   +--- 600575_Module.md
+  |   |   |   +--- 600576_Verification.md
+  |   |   |   +--- 600577_Audit.md
+  |   |   +--- 600500_Readme_Payment_Confirmation.md
+  |   |   +--- 600502_NavigationMap_Payment_Confirmation.md
   |   +--- 600600_waiting_order_session/
-  |   |   +--- 600600_Readme_Waiting_Order_Session.md
-  |   |   +--- 600602_NavigationMap_Waiting_Order_Session.md
   |   |   +--- 600610_takeout_session_type_fix/
   |   |   |   +--- 600611_Overview.md
   |   |   |   +--- 600612_Logic.md
@@ -2138,9 +2215,17 @@ docs/
   |   |   |   +--- 600625_Module.md
   |   |   |   +--- 600626_Verification.md
   |   |   |   +--- 600627_Audit.md
+  |   |   +--- 600640_call_waiting_customer_contract_recovery/
+  |   |   |   +--- 600641_Overview_Call_Waiting_Customer_Contract_Recovery.md
+  |   |   |   +--- 600642_Logic_Call_Waiting_Customer_Contract_Recovery.md
+  |   |   |   +--- 600643_TestPlan.md
+  |   |   |   +--- 600644_ChangeContract.md
+  |   |   |   +--- 600645_Module.md
+  |   |   |   +--- 600646_Verification.md
+  |   |   |   +--- 600647_Audit.md
+  |   |   +--- 600600_Readme_Waiting_Order_Session.md
+  |   |   +--- 600602_NavigationMap_Waiting_Order_Session.md
   |   +--- 600700_takeout_pickup_order/
-  |   |   +--- 600700_Readme_Takeout_Pickup_Order.md
-  |   |   +--- 600702_NavigationMap_Takeout_Pickup_Order.md
   |   |   +--- 600710_place_takeout_order_unassigned_record_fix/
   |   |   |   +--- 600711_Overview.md
   |   |   |   +--- 600712_Logic.md
@@ -2157,14 +2242,24 @@ docs/
   |   |   |   +--- 600725_Module.md
   |   |   |   +--- 600726_Verification.md
   |   |   |   +--- 600727_Audit.md
+  |   |   +--- 600700_Readme_Takeout_Pickup_Order.md
+  |   |   +--- 600702_NavigationMap_Takeout_Pickup_Order.md
   |   +--- 600800_did_implementation/
+  |   |   +--- 600810_kds_did_event_reactive_implementation/
+  |   |   |   +--- .gitkeep
+  |   |   +--- 600820_did_display_state_overload_and_legacy_defect/
+  |   |   |   +--- 600821_Overview_Did_Display_State_Overload.md
+  |   |   |   +--- 600822_Logic_Did_Display_State_Overload.md
+  |   |   |   +--- 600823_TestPlan_Did_Display_State_Overload.md
+  |   |   |   +--- 600824_ChangeContract_Did_Display_State_Overload.md
+  |   |   |   +--- 600825_Module.md
+  |   |   |   +--- 600826_Verification.md
+  |   |   |   +--- 600827_Audit.md
   |   |   +--- 600800_Readme_Did_Implementation.md
   |   |   +--- 600802_NavigationMap_Did_Implementation.md
-  |   |   +--- 600810_kds_did_event_reactive_implementation/
   |   +--- 600900_cross_domain_reconciliation/
-  |   |   +--- 600900_Readme_Cross_Domain_Reconciliation.md
-  |   |   +--- 600902_NavigationMap_Cross_Domain_Reconciliation.md
   |   |   +--- 600910_stale_column_reconciliation_batch/
+  |   |   |   +--- .gitkeep
   |   |   |   +--- 600911_Overview.md
   |   |   |   +--- 600912_Logic.md
   |   |   |   +--- 600913_TestPlan.md
@@ -2172,10 +2267,33 @@ docs/
   |   |   |   +--- 600915_Module.md
   |   |   |   +--- 600916_Verification.md
   |   |   |   +--- 600917_Audit.md
+  |   |   +--- 600920_workpacket_renumbering_to_domain_ranges/
+  |   |   |   +--- 600921_Overview_Workpacket_Renumbering_To_Domain_Ranges.md
+  |   |   |   +--- 600922_Logic_Workpacket_Renumbering_To_Domain_Ranges.md
+  |   |   |   +--- 600923_TestPlan_Workpacket_Renumbering_To_Domain_Ranges.md
+  |   |   |   +--- 600924_ChangeContract_Workpacket_Renumbering_To_Domain_Ranges.md
+  |   |   |   +--- 600925_Module.md
+  |   |   |   +--- 600926_Verification.md
+  |   |   |   +--- 600927_Audit.md
+  |   |   +--- 600900_Readme_Cross_Domain_Reconciliation.md
+  |   |   +--- 600901_ChangeHistory.md
+  |   |   +--- 600902_NavigationMap_Cross_Domain_Reconciliation.md
+  |   +--- 601000_cms_content_management/
+  |   |   +--- 601010_cms_device_content_routing_architecture/
+  |   |   |   +--- 601011_Overview_Cms_Device_Content_Routing_Architecture.md
+  |   |   |   +--- 601012_Logic_Cms_Device_Registry_Edid_Mapping.md
+  |   |   |   +--- 601013_TestPlan_Cms_Device_Registry_Edid_Mapping.md
+  |   |   |   +--- 601014_ChangeContract_Cms_Device_Registry_Edid_Mapping.md
+  |   |   |   +--- 601015_Module.md
+  |   |   |   +--- 601016_Verification.md
+  |   |   |   +--- 601017_Audit.md
+  |   |   +--- 601000_Readme_Cms_Content_Management.md
+  |   |   +--- 601002_NavigationMap_Cms_Content_Management.md
   |   +--- 604000_workpackets/
-  |   |   +--- 604000_Readme_Workpackets.md
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
-  |   |   |   \--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
+  |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
+  |   |   +--- 604000_Readme_Workpackets.md
+  |   +--- 600000_Readme_Implementation_Lifecycle.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   +--- 700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md
