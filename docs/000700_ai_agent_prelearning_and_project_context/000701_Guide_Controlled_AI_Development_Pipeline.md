@@ -1058,20 +1058,21 @@ Draft (Claude Code) / Verified (Claude)
 
 ---
 
-## 9. Stage 3/5 (Formerly "Stage 2") — Claude Design Verification And Contract Lock
+## 9. Stage 3/4/5/6 (Formerly "Stage 2") — Claude Design Review, Architecture Verification, Contract Drafting, And Contract Verification
 
-**(2026-07-16 번호 정합화, 내용은 유지)** Old Stage 2 combined "verify the design, then lock the contract" into one stage. §3's 2026-07-16 restructure splits that single stage into four: Stage 3 (Claude first-pass review + Critical/Normal tier decision), Stage 4 (multi-actor Architecture Verification, Claude integrates), Stage 5 (contract drafting — produced by **Claude Code**, not Claude), and Stage 6 (multi-actor Contract Verification, Claude integrates). The section body below still describes the old combined flow and still attributes `TestPlan.md`/`ChangeContract.md` production to "Claude" — under the current §3 structure, read "Claude" as "Claude Code" wherever this section describes drafting `TestPlan.md`/`ChangeContract.md` (Stage 5), and read the verification/review portions as Stage 3 (plus Stage 4/6 for the multi-actor check Claude now integrates rather than performs alone). A full line-by-line rewrite of this section to the four-stage split is deferred as follow-up work; this note exists so the section is not silently inconsistent with §3.
+**(2026-07-16 전면 재작성)** Old Stage 2 combined "verify the design, then lock the contract" into one stage owned solely by Claude. §3's 2026-07-16 restructure splits that into four stages with different owners: **Stage 3** (Claude reviews the design and sets the Critical/Normal tier), **Stage 4** (Codex and, under Critical tier, Cursor — plus Antigravity as a non-binding reference — independently verify the design against master rules; Claude integrates), **Stage 5** (**Claude Code**, not Claude, drafts `TestPlan.md`/`ChangeContract.md` from the verified design), and **Stage 6** (the same multi-actor composition as Stage 4, this time verifying the contract; §37 excludes Claude Code as the contract's own author). The four groups of subsections below are ordered to match: 9.1-9.7 (Stage 3), 9.8-9.11 (Stage 4), 9.12-9.15 (Stage 5), 9.16-9.19 (Stage 6).
+
+### Stage 3 — Claude First-Pass Design Review + Tier Decision
 
 ### 9.1 Role
 
-Claude acts as the senior architect and design verifier.
+Claude acts as the first-pass design reviewer — not, as under the old Stage 2, the sole producer of the implementation contract.
 
 Claude receives:
 
 - `ImpactScope.md`
 - `Overview.md` (Claude Code draft)
 - `Logic.md` (Claude Code draft)
-- `ImpactScope.md`
 - current business requirement
 - filtered rule summaries from the context snapshot
 - full governance rules only when the context snapshot requires them
@@ -1079,18 +1080,18 @@ Claude receives:
 - financial safety requirements
 - existing SOP references if needed
 
-Claude verifies the Claude Code draft first, then produces:
+Claude reviews the Claude Code draft and produces:
 
 - verified/corrected `Overview.md`
 - verified/corrected `Logic.md`
-- `TestPlan.md`
-- `ChangeContract.md`
+- review comments
+- a Critical/Normal tier verdict (§9.5) that determines Stage 4's verifier composition
 
 Claude may correct minor drafting errors directly in `Overview.md`/`Logic.md`. If the draft reveals an incomplete impact scope (missed files, missed dependencies, missed RLS/migration impact), Claude must loop back to Stage 2 (or Stage 1 if the gap traces back to Cursor's original scan) rather than patching around the gap.
 
-`ChangeContract.md` produced here is a draft. It does not become binding until the human approves it in the standalone Stage 7 (Human Approval) below — Claude's job across Stage 3 (review) and Stage 6 (contract verification integration) is to make the boundary approvable, not to approve it.
+Producing `TestPlan.md`/`ChangeContract.md` is no longer Claude's job at this stage — that now happens in Stage 5, performed by Claude Code from the Stage-3-reviewed, Stage-4-verified design (§9.12).
 
-### 9.2 Stage 3/5 Must Not Do
+### 9.2 Stage 3 Must Not Do
 
 Claude must not:
 
@@ -1103,11 +1104,12 @@ Claude must not:
 - skip tests because the change looks small;
 - hide financial risk behind generic wording;
 - accept the Claude Code `Overview.md`/`Logic.md` draft as final without checking it against master rules and the actual repo state;
-- silently resolve an "Open Question For Claude" without recording the decision in the verified document.
+- silently resolve an "Open Question For Claude" without recording the decision in the verified document;
+- treat its own Stage 3 review as a substitute for Stage 4's independent multi-actor verification — Stage 3 is Claude's own first pass, not the cross-actor check §35/§36 established as necessary.
 
 ### 9.3 Claude Verifies Claude Code's `Overview.md` Draft
 
-Claude checks the Claude Code draft (template in 8.5) against:
+Claude checks the Claude Code draft (template in 8.9) against:
 
 - master architecture, naming, and domain conventions;
 - whether "Affected Domains" and "Affected Files From Claude Code" match the actual repo state;
@@ -1120,7 +1122,7 @@ Claude updates `## Draft Status` to `Verified (Claude)` only after these checks 
 
 ### 9.4 Claude Verifies Claude Code's `Logic.md` Draft
 
-Claude checks the Claude Code draft (template in 8.6) against:
+Claude checks the Claude Code draft (template in 8.10) against:
 
 - idempotency, duplicate-prevention, timeout, and unknown-state handling required by project financial rules;
 - whether the state model matches the actual schema/RPC behavior (not just the intended design);
@@ -1130,12 +1132,104 @@ Claude checks the Claude Code draft (template in 8.6) against:
 
 Claude updates `## Draft Status` to `Verified (Claude)` only after these checks pass, and records any correction made.
 
-### 9.5 `TestPlan.md`
+### 9.5 Stage 3 Tier Decision Rule
+
+Claude's tier verdict determines whether Stage 4 (and later Stage 6, Stage 9) run with a single verifier (Codex) or the fuller Cursor+Codex composition. This decision uses the same criteria §38.1/§38.2 already established: does this change actually touch live DB or source code, or does it merely restate an already-settled design in a document template? A new architectural judgment (e.g. a new state-machine shape, a new naming direction) requires the fuller Critical-tier composition even before any code is written. Per §39, Normal tier (single verifier) is now the exception, not the default — it applies only when Human has explicitly authorized it for the change at hand; absent that, Stage 4/6/9 all run Critical tier.
+
+### 9.6 Stage 3 Prompt Template
+
+```text
+You are reviewing a Claude Code design draft for a financial-grade SaaS system. You are not producing the implementation contract yet — that is a later stage.
+
+Input:
+- ImpactScope.md
+- Overview.md (Claude Code draft)
+- Logic.md (Claude Code draft)
+- user requirement
+- project rules
+
+Task:
+- Check Overview.md and Logic.md against master rules, the real repo state, and every "Open Questions For Claude" entry.
+- Correct minor drafting errors directly. If the impact scope itself is incomplete, stop and send the change back to Stage 2 instead of designing around the gap.
+- Mark Overview.md / Logic.md Draft Status as Verified (Claude) only after checks pass.
+- Decide the Critical/Normal verification tier (§9.5) for Stage 4.
+
+Rules:
+- Do not write implementation code.
+- Do not draft TestPlan.md or ChangeContract.md — that is Stage 5's job, performed by Claude Code, not by you here.
+- Use the context snapshot as the project rule boundary.
+- Do not redesign naming conventions, DB conventions, RLS conventions, evidence conventions, or architecture standards.
+- If local requirements conflict with master rules, flag the conflict instead of silently changing the standard.
+```
+
+### 9.7 Stage 3 Output
+
+- verified/corrected `Overview.md`
+- verified/corrected `Logic.md`
+- review comments
+- Critical/Normal tier verdict, handed to Stage 4
+
+### Stage 4 — Architecture Verification (Multi-Actor)
+
+### 9.8 Role
+
+Stage 4 is where an actor other than Claude independently re-checks the Stage-3-verified design before any contract is written — the practical application of §35/§36 (cross-actor verification) now folded directly into the numbered pipeline instead of sitting beside it as an ad hoc add-on.
+
+Composition (per §3, §9.5's tier decision):
+
+- **Normal tier**: Codex, plus Antigravity as a non-binding reference participant (§40).
+- **Critical tier**: Cursor and Codex, plus Antigravity as a non-binding reference participant.
+
+Claude integrates whatever the Stage 4 verifiers report into a single `Architecture Review`, then informs Human of the tier and outcome before Stage 5 begins. Stage 4 verifiers have no authority to approve, block, or redesign — they report findings; Claude decides what to do with them.
+
+### 9.9 Stage 4 Verification Checklist
+
+Each Stage 4 verifier independently re-checks the same dimensions Claude already checked in 9.3/9.4 — the point is a second, differently-blind-spotted look, not a rubber stamp of Claude's Stage 3 pass:
+
+- Does `Overview.md`/`Logic.md` match master architecture, naming, and domain conventions?
+- Does the state model in `Logic.md` match the actual schema/RPC behavior, verified by reading the real code/DB, not just the design prose?
+- Are idempotency, duplicate-prevention, timeout, and unknown-state handling complete for this domain?
+- Are audit ledger / evidence / RLS rules complete and consistent with master rules?
+- Does any part of the draft describe "reusing an existing pattern" that is, on inspection of the actual code, really a new combination or variant (per §36.3(c))?
+- Is there any architectural inconsistency between `Overview.md` and `Logic.md` themselves?
+
+### 9.10 Stage 4 Prompt Template
+
+```text
+You are independently verifying a design draft (Overview.md/Logic.md) that Claude has already reviewed once. Do not trust Claude's Stage 3 pass at face value — read the actual code/DB yourself and cite exact file+line for every claim you make (this citation requirement applies to every participant, including Antigravity — see §40.3).
+
+You receive:
+- Overview.md, Logic.md (Stage 3-verified)
+- ImpactScope.md
+- relevant master rules
+
+Task:
+Check the items in §9.9 against the real repository/DB state, not against the documents' own claims about themselves.
+
+Rules:
+- Eyes-Only: report findings, do not redesign, do not approve or block.
+- Mark any undecided point as an Open Question rather than deciding it yourself.
+- Output a list of concerns/discrepancies, or an explicit "no concerns found" statement — do not stay silent.
+```
+
+### 9.11 Stage 4 Output: `Architecture Review`
+
+Claude's integration of the Stage 4 verifier report(s) into a single record: per-verifier findings, Claude's disposition of each (accepted / investigated further / dismissed with reason), and whether the design is now cleared to proceed to Stage 5. A raised concern is never silently dropped, per the same standard §37/§12.9 already establish for later stages.
+
+### Stage 5 — Contract Drafting (Claude Code)
+
+### 9.12 Role
+
+**Claude Code**, not Claude, drafts `TestPlan.md` and `ChangeContract.md` from the Stage-4-verified `Overview.md`/`Logic.md`. This is the single most significant actor change from the old Stage 2: under the eight-stage structure, Claude produced the contract directly; under the 2026-07-16 restructure, Claude Code drafts it and Claude's role narrows to reviewing (Stage 3) and integrating multi-actor verification (Stage 4, Stage 6) rather than authoring the contract itself.
+
+`ChangeContract.md` produced here is a draft. It does not become binding until Stage 6 verifies it and the human approves it in the standalone Stage 7 (Human Approval) below.
+
+### 9.13 `TestPlan.md`
 
 Purpose:
 
 - Define required tests before implementation.
-- Prevent Claude Code from creating only happy-path tests.
+- Prevent Codex from creating only happy-path tests at Stage 8.
 
 ```markdown
 # TestPlan.md
@@ -1167,12 +1261,12 @@ Purpose:
 ## Manual Verification Checklist
 ```
 
-### 9.6 `ChangeContract.md`
+### 9.14 `ChangeContract.md`
 
 Purpose:
 
 - Lock the implementation boundary.
-- Tell Claude Code what it may and may not touch.
+- Tell Codex what it may and may not touch.
 - Preserve a human approval line before implementation begins.
 
 ```markdown
@@ -1238,7 +1332,7 @@ Default forbidden operations:
 
 ## Operation Granularity Rule
 
-Claude Code must receive the smallest executable operation set that can satisfy the change.
+Codex must receive the smallest executable operation set that can satisfy the change.
 
 Bad:
 
@@ -1288,27 +1382,22 @@ Timestamp:
 Approval Notes:
 ```
 
-### 9.7 Claude Design Prompt Template
+### 9.15 Stage 5 Prompt Template
 
 ```text
-You are the senior architect and design verifier for a financial-grade SaaS system.
+You are Claude Code, drafting the implementation contract from a Stage 4-verified design for a financial-grade SaaS system.
 
 Input:
 - ImpactScope.md
-- Overview.md (Claude Code draft)
-- Logic.md (Claude Code draft)
-- ImpactScope.md
+- Overview.md (Stage 3-verified, Stage 4-verified)
+- Logic.md (Stage 3-verified, Stage 4-verified)
+- Architecture Review (Stage 4 output)
 - user requirement
 - project rules
 
-Verify first:
-- Check Overview.md and Logic.md against master rules, the real repo state, and every "Open Questions For Claude" entry.
-- Correct minor drafting errors directly. If the impact scope itself is incomplete, stop and send the change back to Stage 2 instead of designing around the gap.
-- Mark Overview.md / Logic.md Draft Status as Verified (Claude) only after checks pass.
-
-Then create:
+Create:
 1. TestPlan.md
-2. ChangeContract.md
+2. ChangeContract.md (draft — not yet approved; Stage 6 verifies it, Stage 7 approves it)
 
 Rules:
 - Do not write implementation code yet.
@@ -1322,6 +1411,48 @@ Rules:
 - Include automated verification commands.
 - Include risks and required approvals.
 ```
+
+### Stage 6 — Contract Verification (Multi-Actor, §37)
+
+### 9.16 Role
+
+Stage 6 verifies `TestPlan.md`/`ChangeContract.md` before Human Approval (Stage 7). Per §37, Claude Code — the contract's own author at Stage 5 — is excluded from the Stage 6 verifier pool.
+
+Composition (per §3, §9.5's tier decision, same rule as Stage 4):
+
+- **Normal tier**: Codex, plus Antigravity as a non-binding reference participant.
+- **Critical tier**: Cursor and Codex, plus Antigravity as a non-binding reference participant.
+
+Claude integrates the Stage 6 verifier report(s) into the verified contract that Stage 7 receives.
+
+### 9.17 Stage 6 Verification Checklist
+
+- Do `Allowed Files`/`Forbidden Files`/`Allowed Operations` actually match the boundary `Overview.md`/`Logic.md` describe — not a broader or narrower boundary?
+- Is every `Allowed Operations` entry a narrow verb (per the Operation Granularity Rule, 9.14), not a broad permission?
+- Does `TestPlan.md` cover the idempotency/duplicate/timeout/unknown-state/rollback/audit/evidence requirements `Logic.md` calls for?
+- Is anything in the contract inconsistent with the Stage 4 `Architecture Review`?
+
+### 9.18 Stage 6 Prompt Template
+
+```text
+You are independently verifying an implementation contract (TestPlan.md/ChangeContract.md) drafted by Claude Code. Cite exact file+line for every claim (§40.3 applies if you are Antigravity).
+
+You receive:
+- TestPlan.md, ChangeContract.md (Stage 5 draft)
+- Overview.md, Logic.md (Stage 4-verified)
+- Architecture Review (Stage 4 output)
+
+Task:
+Check the items in §9.17. Confirm the contract boundary actually matches the verified design — no broader, no narrower.
+
+Rules:
+- Eyes-Only: report findings, do not redesign, do not approve or block.
+- Output a list of concerns/discrepancies, or an explicit "no concerns found" statement — do not stay silent.
+```
+
+### 9.19 Stage 6 Output
+
+Verified `TestPlan.md` and `ChangeContract.md`, ready for Stage 7 Human Approval. As with Stage 4, a raised concern is never silently dropped — Claude's integration records what was accepted, investigated further, or dismissed with a stated reason.
 
 ---
 
@@ -1339,7 +1470,7 @@ The human receives the full Stage 3-6 design and contract-verification pack:
 - `TestPlan.md`
 - verified `ChangeContract.md`
 
-The human reviews the design pack and decides the exact file boundary Codex may touch. This is a standalone stage, not a line item inside Stage 3-6 — Claude producing a design pack does not itself authorize implementation.
+The human reviews the design pack and decides the exact file boundary Codex may touch. This is a standalone stage, not a line item inside Stage 3-6 — Claude Code drafting the contract (Stage 5) and Claude reviewing/integrating it (Stage 3, 4, 6) does not itself authorize implementation.
 
 ### 10.2 Why This Is A Standalone Stage
 
