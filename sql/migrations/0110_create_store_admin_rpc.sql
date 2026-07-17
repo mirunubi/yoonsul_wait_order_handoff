@@ -263,10 +263,10 @@ create or replace function
   p_price int default null,
   p_description_ko text default null,
   p_thumbnail_url text default null,
-  p_is_kds_required boolean default true,
-  p_kitchen_zone text default 'MAIN',
-  p_display_order int default 0,
-  p_allergen_codes jsonb default '[]'::jsonb,
+  p_is_kds_required boolean default null,
+  p_kitchen_zone text default null,
+  p_display_order int default null,
+  p_allergen_codes jsonb default null,
   p_menu_options jsonb default '[]'::jsonb,
   p_actor_id uuid default null,
   p_locale text default 'ko'
@@ -351,10 +351,10 @@ create or replace function
   p_price int default null,
   p_description_ko text default null,
   p_image_url text default null,
-  p_is_kds_required boolean default true,
-  p_kitchen_zone text default 'MAIN',
-  p_display_order int default 0,
-  p_allergen_info jsonb default '{}'::jsonb,
+  p_is_kds_required boolean default null,
+  p_kitchen_zone text default null,
+  p_display_order int default null,
+  p_allergen_info jsonb default null,
   p_actor_id uuid default null,
   p_locale text default 'ko'
 )
@@ -378,8 +378,8 @@ begin
     'Asia/Seoul', now()
   ))::date;
   v_clean_allergen_info := case
-    when jsonb_typeof(coalesce(p_allergen_info, '{}'::jsonb)) = 'object'
-      then coalesce(p_allergen_info, '{}'::jsonb)
+    when p_allergen_info is null then null
+    when jsonb_typeof(p_allergen_info) = 'object' then p_allergen_info
     else '{}'::jsonb
   end;
 
@@ -432,7 +432,7 @@ begin
       coalesce(
         p_category_name_ko, p_category_code
       ),
-      p_display_order
+      coalesce(p_display_order, 0)
     )
     on conflict (store_id, category_code)
     do update set
@@ -440,6 +440,10 @@ begin
         excluded.category_name,
         catchmenu_pos.menu_categories
           .category_name
+      ),
+      display_order = coalesce(
+        p_display_order,
+        catchmenu_pos.menu_categories.display_order
       ),
       updated_at = now()
     returning id into v_category_id;
@@ -484,7 +488,7 @@ begin
         coalesce(p_is_kds_required, true),
         coalesce(p_kitchen_zone, 'MAIN'),
         coalesce(p_display_order, 0),
-        v_clean_allergen_info,
+        coalesce(v_clean_allergen_info, '{}'::jsonb),
         'AVAILABLE', true
       )
       returning id into v_menu_id;
@@ -524,7 +528,9 @@ begin
       display_order = coalesce(
         p_display_order, display_order
       ),
-      allergen_info = v_clean_allergen_info,
+      allergen_info = coalesce(
+        v_clean_allergen_info, allergen_info
+      ),
       updated_at = now()
     where id = p_menu_id
       and store_id = p_store_id
