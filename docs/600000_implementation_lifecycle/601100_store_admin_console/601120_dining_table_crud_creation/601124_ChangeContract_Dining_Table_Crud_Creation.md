@@ -204,3 +204,34 @@ Human must check all boxes before Stage 8 implementation:
 ## §10 Approval state
 
 APPROVED (2026-07-17)
+
+## §11 Final Audit (Stage 11, Claude)
+
+**Verdict: ACCEPT (2026-07-17)**
+
+핵심 주장 재도출 확인 (Stage 9 산출물을 액면 그대로 신뢰하지 않고 직접 재검토):
+
+- Open Item (f) 자기 정정: "seat_waiting_customer() 미존재"라는 최초 오판을 Cursor+Codex가 독립적으로 잡아내고, 실제로는 존재하되 order_sessions.table_number(실재하지 않는 컬럼)에 쓰기를 시도해 매 호출 크래시난다는 사실로 정정. 이 워크패킷의 Open Item (f)로 정확히 재정의됨.
+- kds_device_id/did_device_id 포함 여부의 문서 내부 모순(여러 곳에 "포함"과 "제외"가 공존) 정정 완료.
+- capacity 축소 가드의 서술(guest_count 기준처럼 읽힘)과 실제 SQL(stored capacity 기준) 불일치 정정 완료.
+- **EXCEPTION 핸들러의 감사기록 유실 결함**: Stage 5에서 raise; 뒤에 append_audit_record()가 같은 최상위 문 안에서 함께 롤백된다는 것을 실제 라이브 재현으로 발견, build_error_response() 반환으로 재설계. Stage 9에서 3자 모두 audit_records FAILED 행이 실제로 영속됨을 재확인.
+- error_category='INTERNAL_ERROR'(미허용값) → 'TECHNICAL'로 정정, 라이브 제약 재확인.
+- Stage 8 구현 중 v_existing record 미할당 런타임 버그 발견 및 제어흐름 수정으로 해소, Stage 9에서 생성/수정 양쪽 경로 정상 작동 재확인.
+
+Boundary 확인: 0048/0025/0050/0110/0115 전부 0 diff, seat_waiting_customer() 크래시는 의도대로 미수정 확인(3자 일치).
+
+**Open Items (다음 워크패킷 후보로 이월):**
+
+1. **[우선순위 재평가 필요]** seat_waiting_customer()(0115) 크래시 — 이번 워크패킷보다 시급할 수 있음(살아있는 결함이지 단순 공백이 아님). "Staff Seating And Table Assignment Orchestration Contract" 워크패킷에서 다룰 것.
+2. table_code 조회키 사용 여부 전수 검색 미완, 수정 가능성 최종 결정 필요.
+3. 응답 필드명 불일치(table_id vs id).
+4. table_code 변경 시 감사기록 누락(table_name만 커버됨).
+5. orders.table_id 직접참조 케이스가 가드 범위 밖.
+6. 디바이스 FK 사전검증(친절한 에러) 없음.
+7. capacity vs guest_count 정교화 여부.
+8. 0044류 읽기 경로가 dining_tables 특정 컬럼 형태를 가정하는지 미확인.
+9. 601140 외 다른 워크패킷의 EXCEPTION 패턴에 동일 감사유실 결함이 있는지 전수 확인 안 됨.
+
+## §12 Human Merge/Release
+
+담당: Human (정영석님)
