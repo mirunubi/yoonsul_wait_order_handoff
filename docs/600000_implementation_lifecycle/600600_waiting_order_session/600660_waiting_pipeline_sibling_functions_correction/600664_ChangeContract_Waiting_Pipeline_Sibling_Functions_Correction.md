@@ -209,6 +209,31 @@ Human must check all boxes before Stage 8 implementation. **The phantom-column-c
 
 APPROVED (2026-07-18) — all 6 Human Approval boxes in §9 are checked.
 
+## §11 Final Audit (Stage 11, Claude)
+
+**Verdict: ACCEPT (2026-07-18)**
+
+핵심 주장 재도출 확인 (Stage 9 산출물을 액면 그대로 신뢰하지 않고 직접 재검토):
+
+- Slice A(confirm_arrival 파사드): mark_session_arrived() 위임, 이벤트 발자국(session_events 1건+ledger.events 2건), invalid_session_status 재래핑 없는 통과, EXCEPTION 원자성(mark_session_arrived()의 모든 작업이 함께 롤백) - Cursor+Claude Code+안티 3자 독립 재현 완전 일치.
+- Slice B/C: phantom 컬럼(memo 포함) 완전 해소, called_at/call_count 파생 정확성 확인. **안티가 get_waiting_admin_view()의 queue_position을 "제거 안 된 버그"로 오판했으나, Cursor+Claude Code가 이는 Slice B(제거 대상)와 Slice C(정렬/응답에 실제 사용되는 의도된 코드)를 혼동한 것임을 정확히 정정.** Slice B의 죽은 queue_position SELECT는 실제로 제거됨을 3자 모두 확인.
+- Slice D: cancel_reason 렛저 보존, KDS 취소 로직 보존, has_pre_order 경계 케이스, 위임 없는 함수의 자체 원자성(cancel_waiting() 직접 쓰기도 함께 롤백) - 3자 일치. Cursor/Claude Code 각각 자신의 테스트 fixture 결함(ticket_number/menu_name_snapshot)을 스스로 발견하고 함수 자체 문제와 구분.
+- 검증 방법론(AGENTS.md §3.8): 전 구간 begin/rollback 또는 승인 후 라이브 직접 호출(§10 APPROVED 확인 후)만 사용, 트랜잭션 밖 영구 변경 없음 확인 - 지난 라운드의 거버넌스 위반이 재발하지 않았음을 실증.
+
+Boundary 확인: 0025/0048/0050/0110/0115(원본텍스트)/0160/0162/0163 전부 0 diff (3자 일치), 0164는 커밋 7f616d4f에 정상 포함.
+
+**Open Items (다음 워크패킷 후보로 이월):**
+
+1. cancel_waiting()의 상태가드/테이블반납 로직 부재 - 별도 워크패킷 후보(cancel_waiting_state_guard_and_table_release).
+2. get_waiting_admin_view()의 patent_note 제거 - 완료, 이 워크패킷에서 별도 승인받아 해소됨.
+3. memo 필드 제거 - 완료, 향후 직원메모 기능 필요시 별도 워크패킷(waiting_session_staff_memo_feature).
+4. _record_waiting_call()의 proacl 공백 - 여전히 미해결, 별도 워크패킷 후보.
+5. get_dining_table_admin_list()(601120) 응답형태 불일치 - 여전히 범위 밖.
+6. error_codes 7078/7079 - 이번 워크패킷에서 정상 확정 등록됨.
+7. Slice B/C에 EXCEPTION 핸들러 미추가 결정 - 최종 확정으로 유지(Stage 6에서 이견 없었음).
+8. has_pre_order의 암묵 가정(pre_order_created_at이 있으면 orders도 있다) - pre_order_while_waiting() 고장 가능성과 맞물려 여전히 잠재 위험, 이번 워크패킷에서 크래시 없음만 확인됨.
+
+
 ## §12 Human Merge/Release
 
 담당: Human (정영석님) — §9 전체 6개 항목 체크 및 §10 승인 완료(2026-07-18), Stage 8 착수 가능.
