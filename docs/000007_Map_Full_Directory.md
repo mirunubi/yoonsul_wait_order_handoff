@@ -2231,6 +2231,16 @@ docs/
   |   |   |   +--- 600645_Module.md
   |   |   |   +--- 600646_Verification.md
   |   |   |   +--- 600647_Audit.md
+  |   |   +--- 600650_seat_waiting_customer_facade_correction/
+  |   |   |   +--- 600651_Overview_Seat_Waiting_Customer_Facade_Correction.md
+  |   |   |   +--- 600652_Logic_Seat_Waiting_Customer_Facade_Correction.md
+  |   |   |   +--- 600653_TestPlan_Seat_Waiting_Customer_Facade_Correction.md
+  |   |   |   +--- 600654_ChangeContract_Seat_Waiting_Customer_Facade_Correction.md
+  |   |   +--- 600660_waiting_pipeline_sibling_functions_correction/
+  |   |   |   +--- 600661_Overview_Waiting_Pipeline_Sibling_Functions_Correction.md
+  |   |   |   +--- 600662_Logic_Waiting_Pipeline_Sibling_Functions_Correction.md
+  |   |   |   +--- 600663_TestPlan_Waiting_Pipeline_Sibling_Functions_Correction.md
+  |   |   |   +--- 600664_ChangeContract_Waiting_Pipeline_Sibling_Functions_Correction.md
   |   |   +--- 600600_Readme_Waiting_Order_Session.md
   |   |   +--- 600602_NavigationMap_Waiting_Order_Session.md
   |   +--- 600700_takeout_pickup_order/
@@ -2297,6 +2307,27 @@ docs/
   |   |   |   +--- 601017_Audit.md
   |   |   +--- 601000_Readme_Cms_Content_Management.md
   |   |   +--- 601002_NavigationMap_Cms_Content_Management.md
+  |   +--- 601100_store_admin_console/
+  |   |   +--- 601110_store_admin_sql_layer_reconciliation/
+  |   |   |   +--- 601111_Overview_Store_Admin_Sql_Layer_Reconciliation.md
+  |   |   |   +--- 601112_Logic_Store_Admin_Menu_Rpc_Correction.md
+  |   |   |   +--- 601113_TestPlan_Store_Admin_Menu_Rpc_Correction.md
+  |   |   |   +--- 601114_ChangeContract_Store_Admin_Menu_Rpc_Correction.md
+  |   |   +--- 601120_dining_table_crud_creation/
+  |   |   |   +--- 601121_Overview_Dining_Table_Crud_Creation.md
+  |   |   |   +--- 601122_Logic_Dining_Table_Crud_Creation.md
+  |   |   |   +--- 601123_TestPlan_Dining_Table_Crud_Creation.md
+  |   |   |   +--- 601124_ChangeContract_Dining_Table_Crud_Creation.md
+  |   |   +--- 601130_menu_price_list_architecture/
+  |   |   |   +--- 601131_Overview_Menu_Price_List_Architecture.md
+  |   |   |   +--- 601132_Logic_Menu_Price_List_Architecture.md
+  |   |   +--- 601140_allergen_info_and_sibling_overwrite_correction/
+  |   |   |   +--- 601141_Overview_Allergen_Info_And_Sibling_Overwrite_Correction.md
+  |   |   |   +--- 601142_Logic_Allergen_Info_And_Sibling_Overwrite_Correction.md
+  |   |   |   +--- 601143_TestPlan_Allergen_Info_And_Sibling_Overwrite_Correction.md
+  |   |   |   +--- 601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md
+  |   |   +--- 601100_Readme_Store_Admin_Console.md
+  |   |   +--- 601102_NavigationMap_Store_Admin_Console.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

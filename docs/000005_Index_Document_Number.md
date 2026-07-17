@@ -3678,3 +3678,62 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601015_Module.md | 601015 Module. | active |
 | docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601016_Verification.md | 601016 Verification. | active |
 | docs\600000_implementation_lifecycle\601000_cms_content_management\601010_cms_device_content_routing_architecture\601017_Audit.md | 601017 Audit. | active |
+
+## 140 docs/600000_implementation_lifecycle/600600_waiting_order_session/600650_seat_waiting_customer_facade_correction
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600650_seat_waiting_customer_facade_correction\600651_Overview_Seat_Waiting_Customer_Facade_Correction.md | 600651_Overview — seat_waiting_customer facade correction (delegates to bind_table_to_session). | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600650_seat_waiting_customer_facade_correction\600652_Logic_Seat_Waiting_Customer_Facade_Correction.md | 600652_Logic — seat_waiting_customer facade correction logic. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600650_seat_waiting_customer_facade_correction\600653_TestPlan_Seat_Waiting_Customer_Facade_Correction.md | 600653_TestPlan — seat_waiting_customer facade correction verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600650_seat_waiting_customer_facade_correction\600654_ChangeContract_Seat_Waiting_Customer_Facade_Correction.md | 600654_ChangeContract — seat_waiting_customer facade correction boundary. | active |
+
+## 141 docs/600000_implementation_lifecycle/600600_waiting_order_session/600660_waiting_pipeline_sibling_functions_correction
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600660_waiting_pipeline_sibling_functions_correction\600661_Overview_Waiting_Pipeline_Sibling_Functions_Correction.md | 600661_Overview — confirm_arrival/get_waiting_status/get_waiting_admin_view/cancel_waiting phantom-column correction. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600660_waiting_pipeline_sibling_functions_correction\600662_Logic_Waiting_Pipeline_Sibling_Functions_Correction.md | 600662_Logic — waiting pipeline sibling functions correction logic (4 slices). | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600660_waiting_pipeline_sibling_functions_correction\600663_TestPlan_Waiting_Pipeline_Sibling_Functions_Correction.md | 600663_TestPlan — waiting pipeline sibling functions correction verification plan. | active |
+| docs\600000_implementation_lifecycle\600600_waiting_order_session\600660_waiting_pipeline_sibling_functions_correction\600664_ChangeContract_Waiting_Pipeline_Sibling_Functions_Correction.md | 600664_ChangeContract — waiting pipeline sibling functions correction boundary (patent_note tracked as separate approval item), APPROVED, implemented as 0164. | active |
+
+## 142 docs/600000_implementation_lifecycle/601100_store_admin_console
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601100_Readme_Store_Admin_Console.md | 601100_Readme — Store Admin Console domain narrative (Purpose/In Scope/Out of Scope). | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601102_NavigationMap_Store_Admin_Console.md | 601102_NavigationMap — Store Admin Console domain workpacket flow index. | active |
+
+## 143 docs/600000_implementation_lifecycle/601100_store_admin_console/601110_store_admin_sql_layer_reconciliation
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601110_store_admin_sql_layer_reconciliation\601111_Overview_Store_Admin_Sql_Layer_Reconciliation.md | 601111_Overview — menu management RPC phantom-column repair scope. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601110_store_admin_sql_layer_reconciliation\601112_Logic_Store_Admin_Menu_Rpc_Correction.md | 601112_Logic — 3-tier upsert_menu_core()/sync_menu_option_groups_core()/sync_menu_option_items_core() design. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601110_store_admin_sql_layer_reconciliation\601113_TestPlan_Store_Admin_Menu_Rpc_Correction.md | 601113_TestPlan — store admin menu RPC correction verification plan. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601110_store_admin_sql_layer_reconciliation\601114_ChangeContract_Store_Admin_Menu_Rpc_Correction.md | 601114_ChangeContract — store admin menu RPC correction boundary, APPROVED, ACCEPT, implemented as an in-place sync of 0110. | active |
+
+## 144 docs/600000_implementation_lifecycle/601100_store_admin_console/601120_dining_table_crud_creation
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601120_dining_table_crud_creation\601121_Overview_Dining_Table_Crud_Creation.md | 601121_Overview — dining table admin CRUD scope (split from 601110). | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601120_dining_table_crud_creation\601122_Logic_Dining_Table_Crud_Creation.md | 601122_Logic — upsert_dining_table()/set_dining_table_active()/get_dining_table_admin_list() design. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601120_dining_table_crud_creation\601123_TestPlan_Dining_Table_Crud_Creation.md | 601123_TestPlan — dining table CRUD verification plan. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601120_dining_table_crud_creation\601124_ChangeContract_Dining_Table_Crud_Creation.md | 601124_ChangeContract — dining table CRUD boundary, APPROVED, ACCEPT, implemented as 0162. | active |
+
+## 145 docs/600000_implementation_lifecycle/601100_store_admin_console/601130_menu_price_list_architecture
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601130_menu_price_list_architecture\601131_Overview_Menu_Price_List_Architecture.md | 601131_Overview — multi-channel menu price list architecture scope (split from 601110). | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601130_menu_price_list_architecture\601132_Logic_Menu_Price_List_Architecture.md | 601132_Logic — price_lists/price_list_assignments/menu_prices/option_item_prices + resolve_menu_price() design, Stage 1.5 only, not committed to git. | active |
+
+## 146 docs/600000_implementation_lifecycle/601100_store_admin_console/601140_allergen_info_and_sibling_overwrite_correction
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601141_Overview_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601141_Overview — sibling-field parameter-default overwrite bug scope. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601142_Logic_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601142_Logic — allergen_info/is_kds_required/kitchen_zone/display_order + category display_order Slice 2 design. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601143_TestPlan_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601143_TestPlan — sibling-overwrite correction verification plan. | active |
+| docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601144_ChangeContract — sibling-overwrite correction boundary, APPROVED, ACCEPT, implemented as a second in-place sync of 0110 (audit section locally uncommitted). | active |
