@@ -473,6 +473,26 @@ NOT APPROVED until §7 is fully checked by Human.
 
 **Current approval state: APPROVED for items 1-7 (2026-07-17).**
 
+## §11 Final Audit (Stage 11, Claude)
+
+Verdict: ACCEPT (2026-07-17)
+
+핵심 주장 재도출 확인:
+- Slice 1(phantom 4개+3계층 구조): 스키마 네임스페이스 오류/
+  가격필드 3자 모순 발견 및 교정 확인
+- Slice 2(category_summary 중첩집계): 실제 실행 결과(raw JSON)
+  확인
+- Slice 3(카테고리 누수+cascade): Cursor+Claude Code+안티 3자
+  독립 재현 완전 일치
+
+Open Items (다음 워크패킷 후보):
+1. [최우선] allergen_info 덮어쓰기 버그(식품안전 인접) - 즉시
+   착수 권고
+2. get_store_admin_dashboard()의 store_settings stale 컬럼 4개
+3. 0102/0104(POS 동기화)의 event_domain='menu' 동일 패턴 미착수
+4. dining table CRUD(601120), price-list architecture(601130) -
+   이미 별도 워크패킷으로 분리됨
+   
 재도출 확인:
 - Slice 1(phantom 4개+3계층 구조): 여러 라운드 검증, 스키마
   네임스페이스 오류/가격필드 3자 모순까지 잡아내고 교정됨
