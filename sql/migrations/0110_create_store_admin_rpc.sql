@@ -280,17 +280,147 @@ set search_path = catchmenu_pos,
                   catchmenu_ledger
 as $$
 declare
+  v_core_response jsonb;
+  v_menu_id uuid;
+  v_groups jsonb;
+  v_group jsonb;
+begin
+  v_core_response := catchmenu_store.upsert_menu_core(
+    p_tenant_id := p_tenant_id,
+    p_store_id := p_store_id,
+    p_menu_id := p_menu_id,
+    p_category_code := p_category_code,
+    p_category_name_ko := p_category_name_ko,
+    p_menu_code := p_menu_code,
+    p_menu_name_ko := p_menu_name_ko,
+    p_menu_name_en := p_menu_name_en,
+    p_menu_name_zh := p_menu_name_zh,
+    p_menu_name_ja := p_menu_name_ja,
+    p_price := p_price,
+    p_description_ko := p_description_ko,
+    p_image_url := p_thumbnail_url,
+    p_is_kds_required := p_is_kds_required,
+    p_kitchen_zone := p_kitchen_zone,
+    p_display_order := p_display_order,
+    p_allergen_info := p_allergen_codes,
+    p_actor_id := p_actor_id,
+    p_locale := p_locale
+  );
+
+  if coalesce((v_core_response->>'success')::boolean, false) = false then
+    return v_core_response;
+  end if;
+
+  v_menu_id := (v_core_response->'data'->>'menu_id')::uuid;
+
+  v_groups := catchmenu_store.sync_menu_option_groups_core(
+    p_tenant_id := p_tenant_id,
+    p_store_id := p_store_id,
+    p_menu_id := v_menu_id,
+    p_menu_options := coalesce(p_menu_options, '[]'::jsonb)
+  );
+
+  for v_group in
+    select value from jsonb_array_elements(v_groups)
+  loop
+    perform catchmenu_store.sync_menu_option_items_core(
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_option_group_id := (v_group->>'group_id')::uuid,
+      p_items := coalesce(v_group->'items', '[]'::jsonb)
+    );
+  end loop;
+
+  return v_core_response;
+end;
+$$;
+
+
+create or replace function
+  catchmenu_store.upsert_menu_core(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_menu_id uuid default null,
+  p_category_code text default null,
+  p_category_name_ko text default null,
+  p_menu_code text default null,
+  p_menu_name_ko text default null,
+  p_menu_name_en text default null,
+  p_menu_name_zh text default null,
+  p_menu_name_ja text default null,
+  p_price int default null,
+  p_description_ko text default null,
+  p_image_url text default null,
+  p_is_kds_required boolean default true,
+  p_kitchen_zone text default 'MAIN',
+  p_display_order int default 0,
+  p_allergen_info jsonb default '{}'::jsonb,
+  p_actor_id uuid default null,
+  p_locale text default 'ko'
+)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_pos,
+                  catchmenu_common,
+                  catchmenu_ledger
+as $$
+declare
   v_category_id uuid;
   v_menu_id uuid;
   v_is_new boolean;
   v_old_price int;
   v_business_day date;
+  v_clean_allergen_info jsonb;
 begin
   v_business_day := (timezone(
     'Asia/Seoul', now()
   ))::date;
+  v_clean_allergen_info := case
+    when jsonb_typeof(coalesce(p_allergen_info, '{}'::jsonb)) = 'object'
+      then coalesce(p_allergen_info, '{}'::jsonb)
+    else '{}'::jsonb
+  end;
 
-  -- 카테고리 upsert
+  v_is_new := p_menu_id is null;
+
+  if not v_is_new then
+    select price into v_old_price
+    from catchmenu_pos.menus
+    where id = p_menu_id
+      and store_id = p_store_id
+      and tenant_id = p_tenant_id;
+
+    if v_old_price is null then
+      return catchmenu_common.build_error_response(
+        p_error_key := 'menu_not_found',
+        p_locale := p_locale,
+        p_tenant_id := p_tenant_id,
+        p_store_id := p_store_id,
+        p_rpc_name := 'upsert_menu'
+      );
+    end if;
+  end if;
+
+  if v_is_new
+    and p_menu_code is not null
+    and exists (
+      select 1 from catchmenu_pos.menus
+      where store_id = p_store_id
+        and tenant_id = p_tenant_id
+        and menu_code = p_menu_code
+    )
+  then
+    return catchmenu_common.build_error_response(
+      p_error_key := 'menu_code_duplicate',
+      p_locale := p_locale,
+      p_tenant_id := p_tenant_id,
+      p_store_id := p_store_id,
+      p_rpc_name := 'upsert_menu'
+    );
+  end if;
+
   if p_category_code is not null then
     insert into catchmenu_pos.menu_categories (
       tenant_id, store_id,
@@ -315,49 +445,7 @@ begin
     returning id into v_category_id;
   end if;
 
-  -- 신규 vs 수정 판단
-  v_is_new := p_menu_id is null;
-
-  if not v_is_new then
-    -- 기존 가격 조회 (가격 변경 감지)
-    select price into v_old_price
-    from catchmenu_pos.menus
-    where id = p_menu_id
-      and store_id = p_store_id
-      and tenant_id = p_tenant_id;
-
-    if v_old_price is null then
-      return catchmenu_common.build_error_response(
-        p_error_key := 'menu_not_found',
-        p_locale := p_locale,
-        p_tenant_id := p_tenant_id,
-        p_store_id := p_store_id,
-        p_rpc_name := 'upsert_menu'
-      );
-    end if;
-  end if;
-
-  -- 메뉴 코드 중복 확인 (신규 시)
-  if v_is_new
-    and p_menu_code is not null
-    and exists (
-      select 1 from catchmenu_pos.menus
-      where store_id = p_store_id
-        and tenant_id = p_tenant_id
-        and menu_code = p_menu_code
-    )
-  then
-    return catchmenu_common.build_error_response(
-      p_error_key := 'menu_code_duplicate',
-      p_locale := p_locale,
-      p_tenant_id := p_tenant_id,
-      p_store_id := p_store_id,
-      p_rpc_name := 'upsert_menu'
-    );
-  end if;
-
   if v_is_new then
-    -- 메뉴 코드 자동 생성
     declare
       v_auto_code text;
     begin
@@ -379,10 +467,10 @@ begin
         menu_name_en, menu_name_zh,
         menu_name_ja,
         price, description,
-        thumbnail_url,
+        image_url,
         is_kds_required, kitchen_zone,
         display_order,
-        allergen_codes, menu_options,
+        allergen_info,
         menu_status, is_active
       ) values (
         p_tenant_id, p_store_id, v_category_id,
@@ -392,19 +480,17 @@ begin
         p_menu_name_ja,
         coalesce(p_price, 0),
         p_description_ko,
-        p_thumbnail_url,
+        p_image_url,
         coalesce(p_is_kds_required, true),
         coalesce(p_kitchen_zone, 'MAIN'),
         coalesce(p_display_order, 0),
-        coalesce(p_allergen_codes, '[]'::jsonb),
-        coalesce(p_menu_options, '[]'::jsonb),
+        v_clean_allergen_info,
         'AVAILABLE', true
       )
       returning id into v_menu_id;
     end;
 
   else
-    -- 메뉴 수정
     update catchmenu_pos.menus
     set
       category_id = coalesce(
@@ -426,8 +512,8 @@ begin
       description = coalesce(
         p_description_ko, description
       ),
-      thumbnail_url = coalesce(
-        p_thumbnail_url, thumbnail_url
+      image_url = coalesce(
+        p_image_url, image_url
       ),
       is_kds_required = coalesce(
         p_is_kds_required, is_kds_required
@@ -438,12 +524,7 @@ begin
       display_order = coalesce(
         p_display_order, display_order
       ),
-      allergen_codes = coalesce(
-        p_allergen_codes, allergen_codes
-      ),
-      menu_options = coalesce(
-        p_menu_options, menu_options
-      ),
+      allergen_info = v_clean_allergen_info,
       updated_at = now()
     where id = p_menu_id
       and store_id = p_store_id
@@ -451,7 +532,6 @@ begin
 
     v_menu_id := p_menu_id;
 
-    -- 가격 변경 이력
     if p_price is not null
       and p_price <> v_old_price
     then
@@ -466,7 +546,7 @@ begin
         occurred_at
       ) values (
         p_tenant_id, p_store_id,
-        'menu', 'menu_price_changed', 1,
+        'system', 'menu_price_changed', 1,
         'menu', v_menu_id,
         v_old_price::text, p_price::text,
         'STAFF', p_actor_id,
@@ -480,7 +560,6 @@ begin
     end if;
   end if;
 
-  -- Realtime 메뉴 변경 알림
   perform catchmenu_common.notify_channel(
     p_tenant_id := p_tenant_id,
     p_store_id := p_store_id,
@@ -511,6 +590,174 @@ begin
     ),
     p_locale := p_locale
   );
+end;
+$$;
+
+
+create or replace function
+  catchmenu_store.sync_menu_option_groups_core(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_menu_id uuid,
+  p_menu_options jsonb default '[]'::jsonb
+)
+returns jsonb
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_pos,
+                  catchmenu_common
+as $$
+declare
+  v_group jsonb;
+  v_group_id uuid;
+  v_group_codes text[] := array[]::text[];
+  v_result jsonb := '[]'::jsonb;
+begin
+  for v_group in
+    select value
+    from jsonb_array_elements(coalesce(p_menu_options, '[]'::jsonb))
+  loop
+    if coalesce(v_group->>'group_code', '') = '' then
+      continue;
+    end if;
+
+    v_group_codes := array_append(
+      v_group_codes,
+      v_group->>'group_code'
+    );
+
+    insert into catchmenu_pos.menu_option_groups (
+      tenant_id, store_id, menu_id,
+      group_code, group_name, group_type,
+      is_required, min_select, max_select,
+      display_order, is_active
+    ) values (
+      p_tenant_id, p_store_id, p_menu_id,
+      v_group->>'group_code',
+      coalesce(v_group->>'group_name', v_group->>'group_code'),
+      coalesce(v_group->>'group_type', 'ADD'),
+      coalesce((v_group->>'is_required')::boolean, false),
+      coalesce((v_group->>'min_select')::int, 0),
+      coalesce((v_group->>'max_select')::int, 1),
+      coalesce((v_group->>'display_order')::int, 0),
+      true
+    )
+    on conflict (menu_id, group_code)
+    do update set
+      group_name = excluded.group_name,
+      group_type = excluded.group_type,
+      is_required = excluded.is_required,
+      min_select = excluded.min_select,
+      max_select = excluded.max_select,
+      display_order = excluded.display_order,
+      is_active = true,
+      updated_at = now()
+    returning id into v_group_id;
+
+    v_result := v_result || jsonb_build_array(
+      jsonb_build_object(
+        'group_id', v_group_id,
+        'group_code', v_group->>'group_code',
+        'items', coalesce(v_group->'items', '[]'::jsonb)
+      )
+    );
+  end loop;
+
+  for v_group in
+    update catchmenu_pos.menu_option_groups
+    set is_active = false,
+        updated_at = now()
+    where tenant_id = p_tenant_id
+      and store_id = p_store_id
+      and menu_id = p_menu_id
+      and not (group_code = any(v_group_codes))
+    returning jsonb_build_object(
+      'group_id', id,
+      'group_code', group_code,
+      'items', '[]'::jsonb
+    )
+  loop
+    v_result := v_result || jsonb_build_array(v_group);
+  end loop;
+
+  return v_result;
+end;
+$$;
+
+
+create or replace function
+  catchmenu_store.sync_menu_option_items_core(
+  p_tenant_id uuid,
+  p_store_id uuid,
+  p_option_group_id uuid,
+  p_items jsonb default '[]'::jsonb
+)
+returns void
+language plpgsql
+volatile
+security definer
+set search_path = catchmenu_pos,
+                  catchmenu_common
+as $$
+declare
+  v_item jsonb;
+  v_item_codes text[] := array[]::text[];
+begin
+  for v_item in
+    select value
+    from jsonb_array_elements(coalesce(p_items, '[]'::jsonb))
+  loop
+    if coalesce(v_item->>'item_code', '') = '' then
+      continue;
+    end if;
+
+    v_item_codes := array_append(
+      v_item_codes,
+      v_item->>'item_code'
+    );
+
+    insert into catchmenu_pos.menu_option_items (
+      tenant_id, store_id, option_group_id,
+      item_code, item_name,
+      price_delta, is_default_included,
+      is_removable, max_extra_qty,
+      allergen_delta, kitchen_note,
+      display_order, is_active
+    ) values (
+      p_tenant_id, p_store_id, p_option_group_id,
+      v_item->>'item_code',
+      coalesce(v_item->>'item_name', v_item->>'item_code'),
+      coalesce((v_item->>'price_delta')::int, 0),
+      coalesce((v_item->>'is_default_included')::boolean, false),
+      coalesce((v_item->>'is_removable')::boolean, true),
+      coalesce((v_item->>'max_extra_qty')::int, 1),
+      coalesce(v_item->'allergen_delta', '{}'::jsonb),
+      v_item->>'kitchen_note',
+      coalesce((v_item->>'display_order')::int, 0),
+      true
+    )
+    on conflict (option_group_id, item_code)
+    do update set
+      item_name = excluded.item_name,
+      price_delta = excluded.price_delta,
+      is_default_included = excluded.is_default_included,
+      is_removable = excluded.is_removable,
+      max_extra_qty = excluded.max_extra_qty,
+      allergen_delta = excluded.allergen_delta,
+      kitchen_note = excluded.kitchen_note,
+      display_order = excluded.display_order,
+      is_active = true,
+      updated_at = now();
+  end loop;
+
+  update catchmenu_pos.menu_option_items
+  set is_active = false,
+      updated_at = now()
+  where tenant_id = p_tenant_id
+    and store_id = p_store_id
+    and option_group_id = p_option_group_id
+    and not (item_code = any(v_item_codes));
 end;
 $$;
 
@@ -653,15 +900,60 @@ begin
         'is_kds_required', m.is_kds_required,
         'kitchen_zone', m.kitchen_zone,
         'display_order', m.display_order,
-        'thumbnail_url', m.thumbnail_url,
-        'allergen_codes', m.allergen_codes,
+        'image_url', m.image_url,
+        'allergen_info', m.allergen_info,
         'allergen_count',
-          jsonb_array_length(
-            coalesce(m.allergen_codes,
-              '[]'::jsonb)
+          (
+            select count(*)
+            from jsonb_object_keys(
+              coalesce(m.allergen_info, '{}'::jsonb)
+            )
           ),
-        'menu_options', m.menu_options,
-        'pos_sync_at', m.pos_sync_at,
+        'option_groups', (
+          select coalesce(
+            jsonb_agg(
+              jsonb_build_object(
+                'group_id', mog.id,
+                'group_code', mog.group_code,
+                'group_name', mog.group_name,
+                'group_type', mog.group_type,
+                'is_required', mog.is_required,
+                'min_select', mog.min_select,
+                'max_select', mog.max_select,
+                'display_order', mog.display_order,
+                'items', (
+                  select coalesce(
+                    jsonb_agg(
+                      jsonb_build_object(
+                        'item_id', moi.id,
+                        'item_code', moi.item_code,
+                        'item_name', moi.item_name,
+                        'price_delta', moi.price_delta,
+                        'is_default_included',
+                          moi.is_default_included,
+                        'is_removable', moi.is_removable,
+                        'max_extra_qty', moi.max_extra_qty,
+                        'allergen_delta', moi.allergen_delta,
+                        'kitchen_note', moi.kitchen_note,
+                        'display_order', moi.display_order
+                      )
+                      order by moi.display_order asc
+                    ),
+                    '[]'::jsonb
+                  )
+                  from catchmenu_pos.menu_option_items moi
+                  where moi.option_group_id = mog.id
+                    and moi.is_active = true
+                )
+              )
+              order by mog.display_order asc
+            ),
+            '[]'::jsonb
+          )
+          from catchmenu_pos.menu_option_groups mog
+          where mog.menu_id = m.id
+            and mog.is_active = true
+        ),
         'is_pos_synced',
           m.menu_code like 'OKPOS_%'
           or m.menu_code like 'TPOS_%'
@@ -697,29 +989,38 @@ begin
   select coalesce(
     jsonb_agg(
       jsonb_build_object(
-        'category_code', mc.category_code,
-        'category_name', mc.category_name,
-        'menu_count', count(m.id),
-        'sold_out_count', count(m.id) filter (
-          where m.menu_status = 'SOLD_OUT'
-        ),
-        'hidden_count', count(m.id) filter (
-          where m.menu_status = 'HIDDEN'
-        )
+        'category_code', category_code,
+        'category_name', category_name,
+        'menu_count', menu_count,
+        'sold_out_count', sold_out_count,
+        'hidden_count', hidden_count
       )
-      order by mc.display_order
+      order by display_order
     ),
     '[]'::jsonb
   )
   into v_category_summary
-  from catchmenu_pos.menu_categories mc
-  left join catchmenu_pos.menus m
-    on m.category_id = mc.id
-    and m.is_active = true
-  where mc.store_id = p_store_id
-    and mc.tenant_id = p_tenant_id
-  group by mc.id, mc.category_code,
-           mc.category_name, mc.display_order;
+  from (
+    select
+      mc.category_code,
+      mc.category_name,
+      mc.display_order,
+      count(m.id) as menu_count,
+      count(m.id) filter (
+        where m.menu_status = 'SOLD_OUT'
+      ) as sold_out_count,
+      count(m.id) filter (
+        where m.menu_status = 'HIDDEN'
+      ) as hidden_count
+    from catchmenu_pos.menu_categories mc
+    left join catchmenu_pos.menus m
+      on m.category_id = mc.id
+      and m.is_active = true
+    where mc.store_id = p_store_id
+      and mc.tenant_id = p_tenant_id
+    group by mc.id, mc.category_code,
+             mc.category_name, mc.display_order
+  ) as category_agg;
 
   -- 전체/품절 수
   select
@@ -1480,9 +1781,8 @@ begin
       where menu_status = 'HIDDEN'
     ),
     'no_allergen', count(*) filter (
-      where jsonb_array_length(
-        coalesce(allergen_codes, '[]'::jsonb)
-      ) = 0
+      where coalesce(allergen_info, '{}'::jsonb)
+        = '{}'::jsonb
       and menu_status = 'AVAILABLE'
     ),
     'pos_synced', count(*) filter (
