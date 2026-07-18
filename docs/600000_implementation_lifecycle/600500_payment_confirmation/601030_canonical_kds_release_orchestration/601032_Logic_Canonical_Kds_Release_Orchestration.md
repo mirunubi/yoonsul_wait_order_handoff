@@ -152,24 +152,40 @@ exception
     -- 절대 RAISE하지 않는다 — 호출자(confirm_payment_from_provider())의
     -- payment_ledger INSERT가 KDS 쪽 예외로 함께 롤백되는 것을 원천 차단한다
     -- (601031_Overview.md §2, 600652_Logic.md §1.5/§9.2 원칙의 재적용).
-    perform catchmenu_audit.append_audit_record(
-      p_tenant_id := p_tenant_id,
-      p_store_id := p_store_id,
-      p_audit_domain := 'payment',
-      p_audit_type := 'kds_release_requested_failed',
-      p_audit_category := 'OPERATIONAL',
-      p_actor_type := p_actor_type,
-      p_actor_id := null,
-      p_subject_type := 'payment_ledger',
-      p_subject_id := p_ledger_id,
-      p_decision := 'FAILED',
-      p_decision_payload := jsonb_build_object(
-        'error', sqlerrm,
-        'sqlstate', sqlstate
-      ),
-      p_order_id := p_order_id,
-      p_correlation_id := p_correlation_id
-    );
+    --
+    -- (2026-07-18 재정정, Cursor+Codex 실증 발견) 이 감사기록 INSERT 자신이
+    -- 실패하면(예: audit_records 자체의 제약 위반, 락, 일시적 장애) 그 2차
+    -- 실패가 이 EXCEPTION 핸들러 밖으로 새어나가 함수 전체가 결국 예외를
+    -- 던지게 되고, 호출자의 이미 완료된 payment_ledger INSERT까지 함께
+    -- 롤백된다 — 실제 재현으로 확인됨(§1.5). 감사기록 호출 자체를 좁은
+    -- 중첩 블록으로 한 번 더 감싸 이 경로를 차단한다.
+    begin
+      perform catchmenu_audit.append_audit_record(
+        p_tenant_id := p_tenant_id,
+        p_store_id := p_store_id,
+        p_audit_domain := 'payment',
+        p_audit_type := 'kds_release_requested_failed',
+        p_audit_category := 'OPERATIONAL',
+        p_actor_type := p_actor_type,
+        p_actor_id := null,
+        p_subject_type := 'payment_ledger',
+        p_subject_id := p_ledger_id,
+        p_decision := 'FAILED',
+        p_decision_payload := jsonb_build_object(
+          'error', sqlerrm,
+          'sqlstate', sqlstate
+        ),
+        p_order_id := p_order_id,
+        p_correlation_id := p_correlation_id
+      );
+    exception
+      when others then
+        -- 여기서 더 중첩하지 않는다(§1.5 "무한 중첩 금지" 원칙) — 감사
+        -- 기록조차 실패했다는 사실을 서버 로그에만 최소한으로 남기고
+        -- 정상 반환으로 넘어간다. 이 지점을 넘어서는 안전은 이 설계가
+        -- 보장하지 않는, 정직하게 인정된 잔여 위험이다(§1.5 참고).
+        raise warning 'request_kds_release_after_payment(): audit logging of the original failure itself failed (sqlstate=%) -- server log only, no DB trace beyond this warning', sqlstate;
+    end;
     return jsonb_build_object(
       'success', true,
       'result_code', 'PAYMENT_CONFIRMED_KDS_RELEASE_FAILED',
@@ -199,6 +215,26 @@ grant execute on function catchmenu_payment.request_kds_release_after_payment(
 ### §1.4 `kds_release_authorized_by` 값 — `release_kds_after_payment()`와의 차이, 의도적
 
 `release_kds_after_payment()`는 `'SYSTEM'`을 하드코딩한다(`0157`). 신규 함수는 `p_actor_type` 파라미터를 받아 호출자가 실제 주체(웹훅=`'PROVIDER'`, 향후 POS 연동 시=`'SYSTEM'` 또는 스태프)를 전달하게 한다 — 두 함수가 공존하는 동안 `payment_ledger.kds_release_authorized_by`에 서로 다른 관례가 생기는 것은 감내할 만한 차이로 판단한다(둘 다 자유 텍스트 컬럼, 제약 위반 없음). `601031_Overview.md` §6 (b)에서 POS 경로도 이 신규 함수로 전환하면 이 차이는 자연히 사라진다.
+
+### §1.5 "감사기록의 감사기록" — 1단계 fallback만 두고 그 이상은 잔여 위험으로 인정 (2026-07-18, Cursor+Codex 실증 발견 + 정정)
+
+**발견된 결함**: `§1.2`/`§2.2`(옵션 C)의 각 `EXCEPTION` 핸들러는 자신의 실패를 감사기록으로 남기기 위해 `append_audit_record()`를 호출한다. 그런데 **이 호출 자체가 실패하면**(예: `audit_records` 자체의 제약 위반, 락, 일시적 장애) 그 2차 실패는 지금 실행 중인 이 `EXCEPTION` 핸들러가 잡을 수 없다 — PL/pgSQL에서 `EXCEPTION` 절 *안에서* 발생한 새 예외는 그 절 자신을 다시 통과하지 않고 그대로 다음 바깥 블록으로 전파된다. `request_kds_release_after_payment()`는 함수 전체가 단일 최상위 블록이므로, 이 2차 실패는 함수 자체를 예외로 종료시킨다 — 그 예외가 호출자인 `confirm_payment_from_provider()`의 옵션 C 좁은 블록(§2.2)까지 전파되고, **그 블록의 `EXCEPTION` 핸들러가 자신의 감사기록 호출을 시도하다가 같은 이유로 또 실패하면**, 이번엔 그 실패를 잡아줄 블록이 전혀 없어 `confirm_payment_from_provider()` 자체가 예외로 종료된다 — 이 시점에는 이미 완료된 `payment_ledger` INSERT까지 포함해 그 함수 호출 전체가 롤백된다. Cursor+Codex가 이를 실제로 강제 재현해(`kds_events`와 `audit_records` 양쪽에 임시 `CHECK` 제약을 걸어 이중 실패를 유발) `payment_ledger` 행이 0건으로 사라지는 것을 직접 확인했다 — 이 세션도 동일한 기법으로 정정 전 상태에서 독립 재현해 실제로 `confirm_payment_from_provider()` 자체가 처리되지 않은 예외로 종료됨을 확인했다(아래 재검증 결과 참고).
+
+**설계 방향**: 두 `EXCEPTION` 핸들러 안의 `append_audit_record()` 호출 자체를 각각 좁은 중첩 `begin...exception when others...end` 블록으로 한 번 더 감싼다(§1.2/§2.2 최종 코드). 이 감사기록 호출이 실패하면, 그 실패를 이 새 안쪽 블록이 잡아 `raise warning`으로 서버 로그에만 남기고 정상적으로(원래 의도했던 `success:true`/`RELEASE_FAILED` 반환) 계속 진행한다.
+
+**어디서 멈추는가 — 무한 중첩 금지 (ChatGPT 지적, Human 확정)**: "감사기록의 감사기록의 감사기록…"으로 무한히 내려갈 수는 없다. 이 설계는 **정확히 1단계**의 fallback만 둔다 — 감사기록 INSERT가 실패하면 그 실패를 잡아 `RAISE WARNING`까지만 하고 멈춘다. **`RAISE WARNING` 자체가 실패하는 경우는 이 설계가 방어하지 않는다** — 이는 정직하게 인정하는 잔여 위험이다: `RAISE WARNING`은 예외를 던지지 않는 PL/pgSQL 내장 동작이므로(아래 실증 참고) 그 자체가 실패할 realistic한 경로는 사실상 없지만, 만약 극단적으로 서버 자체가 응답 불능 상태라면(디스크 풀, 프로세스 강제종료 등) 이 설계로도 막을 수 없다 — 그런 극단적 상황까지 막으려 하지 않는 것이 이 설계의 명시적 스코프다(무한 안전 보장 시도 금지, Human 지시).
+
+**`RAISE WARNING`이 실행을 중단시키지 않는다는 것을 라이브로 실증(2026-07-18, `pg_temp`)**: 중첩 `begin...exception...end` 블록 안에서 `raise exception`으로 강제 실패를 유발하고, 그 핸들러가 `raise warning`을 호출한 뒤 함수가 정상적으로 `return`까지 도달하는지 확인했다 — 결과: `WARNING` 메시지가 클라이언트/서버 로그에 출력되고, 함수는 `{"marker_after_all_blocks": "fallback_caught_via_warning"}`을 정상 반환했다. `RAISE EXCEPTION`과 달리 `RAISE WARNING`은 트랜잭션이나 함수 실행을 중단시키지 않는다는 것이 이 프로젝트의 실제 PL/pgSQL 버전 위에서 확인됐다.
+
+**정정 후 재검증 — Scenario A/B/C 전부 재실행 (2026-07-18, 라이브 함수 체인 전체, `begin;...rollback;`로 격리, Cursor/Codex의 시나리오 구분과 대응)**:
+
+- **Scenario A** (`request_kds_release_after_payment()`를 직접 호출, `kds_events`와 `audit_records` 양쪽에 임시 `CHECK` 제약을 걸어 원래 실패 + 감사기록 실패를 모두 강제 — 콜백 내부에서 실패가 발생하는 경로): 함수는 예외를 던지지 않고 `{success:true, result_code:'PAYMENT_CONFIRMED_KDS_RELEASE_FAILED', ...}`를 정상 반환했고, `WARNING`이 출력됐다. 호출 이전에 이미 존재하던 `payment_ledger` 행은 `ledger_status='APPROVED'`, `approved_amount=15000` 그대로 살아남았다.
+- **Scenario B** (`confirm_payment_from_provider()`를 종단 호출하되, 1차 실패를 `kds_events` 제약이 아니라 **호출 지점 자체**(§6.4와 동일한 `ALTER FUNCTION ... RENAME` 기법 — `request_kds_release_after_payment()` 자체를 찾을 수 없게 만듦)에서 유발하고, 동시에 `audit_records`에 `kds_release_call_unexpected_exception` 감사기록을 차단하는 제약을 걸어 2차 실패도 강제): 함수는 `{success:true, result_code:'PAYMENT_CONFIRMED_KDS_RELEASE_FAILED', error_detail:{sqlstate:'42883'}}`를 정상 반환했고, `WARNING`이 출력됐다. **`payment_ledger` 행이 정확히 1건 살아남았다**(`ledger_status='APPROVED'`, `kds_release_authorized=false`) — 1차 실패의 발생 지점이 "콜백 내부"(Scenario A/C)냐 "호출 자체"(Scenario B)냐에 따라 원자성 보장이 달라지지 않음을 별도로 확인.
+- **Scenario C** (`confirm_payment_from_provider()`를 종단 호출, `kds_events`(콜백 내부 1차 실패)와 `audit_records`(2차 실패) 양쪽을 동시에 강제 — 정정 전에는 이 시나리오에서 함수 자체가 처리되지 않은 예외로 종료되고 `payment_ledger` 행이 0건이 되는 것을 먼저 확인했다): 정정 후에는 함수가 정상적으로 `{success:true, result_code:'PAYMENT_CONFIRMED_KDS_RELEASE_FAILED', kds_release_authorized:false, ...}`를 반환했고, **`payment_ledger` 행이 정확히 1건 살아남았다** — 정정 전 재현에서 확인된 "0건" 결과와 정확히 대비되는 수정 확인.
+
+세 시나리오 모두 — 1차 실패가 어디서 발생하든(콜백 내부 vs. 호출 자체), 어느 함수를 통해 호출하든(직접 호출 vs. `confirm_payment_from_provider()` 종단 호출) — payment-core(`payment_ledger` INSERT)가 살아남는 것을 확인했다.
+
+이 정정은 아직 라이브에 반영되지 않았다(이번 문서 정정은 Logic.md 설계 교정 단계 — Stage 5 TestPlan/ChangeContract 및 실제 migration은 후속 라운드에서 별도로 갱신 필요, `601033_TestPlan.md`/`601034_ChangeContract.md`는 이번 턴 범위 밖).
 
 ## §2 `confirm_payment_from_provider()`(`0027`) 수정 설계
 
@@ -235,24 +271,38 @@ exception
     -- 신규 함수 자신이 RELEASE_FAILED를 반환했을 때와 동일한 형태로
     -- 통일해서 반환한다 — 호출자 입장에서 "신규 함수 내부에서 잡힌 실패"와
     -- "신규 함수 호출 자체가 실패"를 구분할 필요가 없다.
-    perform catchmenu_audit.append_audit_record(
-      p_tenant_id := p_tenant_id,
-      p_store_id := p_store_id,
-      p_audit_domain := 'payment',
-      p_audit_type := 'kds_release_call_unexpected_exception',
-      p_audit_category := 'FINANCIAL',
-      p_actor_type := 'PROVIDER',
-      p_actor_id := null,
-      p_subject_type := 'payment_ledger',
-      p_subject_id := v_ledger_id,
-      p_decision := 'FAILED',
-      p_decision_payload := jsonb_build_object(
-        'error', sqlerrm,
-        'sqlstate', sqlstate
-      ),
-      p_order_id := v_intent.order_id,
-      p_correlation_id := p_correlation_id
-    );
+    --
+    -- (2026-07-18 재정정, Cursor+Codex 실증 발견 — §1.5 참고) 이 감사기록
+    -- 호출 자체가 실패하면(예: audit_records 제약 위반) 그 2차 실패가 이
+    -- 핸들러 밖으로 새어나가 confirm_payment_from_provider() 전체가 결국
+    -- 처리되지 않은 예외로 종료되고, 이미 완료된 payment_ledger INSERT까지
+    -- 함께 롤백된다 — 실제 재현으로 확인됨(§1.5). 좁은 중첩 블록으로
+    -- 한 번 더 감싼다.
+    begin
+      perform catchmenu_audit.append_audit_record(
+        p_tenant_id := p_tenant_id,
+        p_store_id := p_store_id,
+        p_audit_domain := 'payment',
+        p_audit_type := 'kds_release_call_unexpected_exception',
+        p_audit_category := 'FINANCIAL',
+        p_actor_type := 'PROVIDER',
+        p_actor_id := null,
+        p_subject_type := 'payment_ledger',
+        p_subject_id := v_ledger_id,
+        p_decision := 'FAILED',
+        p_decision_payload := jsonb_build_object(
+          'error', sqlerrm,
+          'sqlstate', sqlstate
+        ),
+        p_order_id := v_intent.order_id,
+        p_correlation_id := p_correlation_id
+      );
+    exception
+      when others then
+        -- §1.5와 동일한 원칙 — 여기서 더 중첩하지 않는다. 감사기록조차
+        -- 실패했다는 사실을 서버 로그에만 남기고 정상 반환으로 넘어간다.
+        raise warning 'confirm_payment_from_provider(): audit logging of the KDS-release-call failure itself failed (sqlstate=%) -- payment_ledger row % still committed; server log only for the original KDS failure', sqlstate, v_ledger_id;
+    end;
     v_kds_release_result := jsonb_build_object(
       'success', true,
       'result_code', 'PAYMENT_CONFIRMED_KDS_RELEASE_FAILED',
@@ -371,6 +421,8 @@ Human이 방향(이번엔 이미 확정됨)에 따라 Stage 5에서 다음 마�
 
 (h) **[신규, 2026-07-18, `p_decision='PENDING'` 결함 수정 중 부수적으로 발견 — canonical 위치는 `601034_ChangeContract.md` §8 (h), 이 항목은 교차참조용 사본]** `catchmenu_audit.append_audit_record()`를 호출하는 다른 기존 라이브 함수 **7개 파일**에서도 `chk_audit_decision`(`0008:105-119`)의 11개 허용값에 없는 리터럴을 `p_decision`에 전달하고 있음을 발견했다 — 리터럴 개수로는 **8개**(타겟 grep 기준 — 전수조사 아님, 그 이상일 수 있음): `0084`(`'RESOLVED'`), `0085`(`'PUBLISHED'`), `0086`(`'PUBLISHED'`), `0087`(`'ROLLED_BACK'`), `0091`(`'GO_LIVE_AUTHORIZED'`), `0098`(`'REFUND_PENDING'`), `0100`(같은 파일 안에 `'OPENED'`/`'CLOSED'` 2개 — 이 파일이 리터럴 수를 파일 수보다 1개 더 많게 만드는 원인). 실행되면 이번 워크패킷에서 고친 것과 동일한 방식(제약 위반 → INSERT 크래시)으로 실패할 가능성이 높다. 이 워크패킷은 이 7개 파일 중 어느 것도 건드리지 않으며, 별도의 독립 감사(가칭 `audit_decision_literal_repair`) 워크패킷 후보로만 기록한다. 최신·상세 버전은 `601034_ChangeContract.md` §8 (h)를 참조 — 두 문서가 서로 어긋나면 `601034`가 우선한다(ChangeContract가 Human Approval의 근거 문서이므로).
 
+(i) **[신규, 2026-07-18, "감사기록의 감사기록" 정정에서 명시적으로 인정된 잔여 위험 — §1.5 참고]** 두 `EXCEPTION` 핸들러의 감사기록 호출에 1단계 fallback(`RAISE WARNING`)을 추가했지만, 이 fallback 자체가 실패하는 극단적 상황(서버 자체가 응답 불능 등)까지는 방어하지 않는다 — 의도적으로 무한 중첩을 하지 않기로 한 설계 결정의 직접적 귀결이다. 또한 `RAISE WARNING`은 서버 로그에만 남으므로, 아무도 그 로그를 모니터링하지 않으면 이 이중 실패 자체가 사실상 관측 불가능한 상태로 남는다 — 로그 모니터링/알림 체계와의 연동 여부는 이 워크패킷 범위 밖이며, 별도 검토가 필요하다.
+
 ## Module Domain Tags
 
 - SQL (예정 — 이번 턴은 설계만, `.sql` 생성/수정 없음)
@@ -381,3 +433,5 @@ Human이 방향(이번엔 이미 확정됨)에 따라 Stage 5에서 다음 마�
 **확정, Stage 5(TestPlan/ChangeContract) 착수 가능한 수준까지 설계 완료.** 신규 함수 `catchmenu_payment.request_kds_release_after_payment()`는 `bulk_commit_kds_tickets()`를 재사용하는 얇은 오케스트레이션 계층으로 설계했다(§1) — 스스로 모든 예외를 삼키고 항상 `success:true`를 반환해, 결제확정 성공이 KDS 방출 실패로부터 격리되도록 했다(§1.2/§2 원칙 재적용). `confirm_payment_from_provider()`는 이 신규 함수를 호출하도록 수정하되, **(2026-07-18 재정정, 옵션 C)** 방어적 `EXCEPTION` 핸들러를 함수 전체가 아니라 `request_kds_release_after_payment()` 호출 지점만 감싸는 좁은 중첩 블록으로 한정했다 — 함수 전체를 감싸면 이 호출부에서 발생한 예외가 이미 완료된 payment-core 작업(`payment_ledger` INSERT 포함)까지 롤백시켜버리는 위험을 ChatGPT 교차검증이 지적했고, 이를 `pg_temp`로 직접 실증해 좁은 중첩 블록만이 안전함을 확인했다(§2.1/§2.2). "payment-core 구간의 예외=결제 실패"와 "이 좁은 블록의 예외=결제 성공/KDS 호출 메커니즘만 실패"라는 두 계층의 의미 차이는 여전히 설계 자체로 구분된다(§2.2). 원자성 가설(예외 발생 시 그 블록 자신의 작업만 롤백되고 그 이전에 이미 완료된 작업은 보존된다)은 이 세션이 `pg_temp`로 4개 시나리오(정상 경로/KDS 예외/0-티켓/옵션 C 좁은 블록)의 재현을 완료해 실증했다(§2.1/§2.2/§3) — 다만 이 완료가 Stage 5/8-9의 독립 재검증 의무를 대체하지 않는다는 점을 §6 (g)에 명시했다.
 
 **(Stage 4 Critical tier 정정 반영, 2026-07-18)** Cursor+Codex가 지적한 3가지 결함을 이번 정정에서 해소했다: (1) 0-티켓 시나리오를 위한 신규 `result_code`(`PAYMENT_CONFIRMED_KDS_NO_TICKETS_TO_PROCESS`) 추가 및 `pg_temp` 재검증(§1.2/§3.3), (2) §3의 "완료" 서술과 §6/Snapshot의 "미완료" 서술 간 모순을 §3 재작성으로 해소(§3/§6 (g)), (3) §2.1 반환값의 `kds_release_authorized` 하드코딩을 `result_code` 파생 값으로 교체, (4) 웹훅 멱등성 Open Item을 High priority로 격상(§6 (e)), (5) 이 문서와 `601031_Overview.md`의 §6 Open Items를 (a)-(g) 동일 목록으로 동기화.
+
+**(2026-07-18, "감사기록의 감사기록" 정정 — Cursor+Codex 실증 발견)** Stage 9 독립 검증 이후, Cursor+Codex가 두 `EXCEPTION` 핸들러(§1.2, §2.2) 안의 `append_audit_record()` 호출 자체가 실패할 경우 그 2차 실패가 핸들러 밖으로 전파되어 `confirm_payment_from_provider()` 전체가 처리되지 않은 예외로 종료되고, 이미 완료된 `payment_ledger` INSERT까지 롤백되는 것을 실제로 재현해 확인했다(`payment_ledger` 행 0건). 이 세션도 동일 기법(`kds_events`와 `audit_records` 양쪽에 임시 `CHECK` 제약)으로 정정 전 상태를 독립 재현해 위험을 재확인했다. 두 감사기록 호출을 각각 좁은 중첩 `begin...exception...end`로 한 번 더 감싸고, 그 안쪽 예외는 `RAISE WARNING`(실행을 중단시키지 않음, `pg_temp`로 실증)만 남기고 정상 반환으로 계속 진행하도록 정정했다(§1.5) — **정확히 1단계 fallback까지만** 두고, 그 이상(fallback 자체의 실패)은 의도적으로 방어하지 않는 잔여 위험으로 명시했다(§6 (i), ChatGPT의 "무한 중첩은 답이 아니다" 지적 반영). 정정 후 Scenario A(`request_kds_release_after_payment()` 직접 호출, 콜백 내부 1차 실패 + 이중 실패 강제), Scenario B(`confirm_payment_from_provider()` 종단 호출, 호출 지점 자체의 1차 실패 — `ALTER FUNCTION RENAME` 기법 — + 이중 실패 강제), Scenario C(`confirm_payment_from_provider()` 종단 호출, 콜백 내부 1차 실패 + 이중 실패 강제) 전부를 라이브 함수 체인 전체로 재실행해, 세 경우 모두 함수가 정상 반환하고 `payment_ledger` 행이 살아남는 것을 확인했다(§1.5) — 다만 이 수정은 아직 라이브에 반영되지 않았고(Logic.md 설계 교정만 이번 턴 범위), Stage 5 TestPlan/ChangeContract 및 실제 migration 갱신은 후속 라운드 필요.

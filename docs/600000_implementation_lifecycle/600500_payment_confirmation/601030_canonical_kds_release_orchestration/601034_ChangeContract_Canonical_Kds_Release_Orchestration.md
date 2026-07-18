@@ -26,6 +26,8 @@ The new function authorizes `payment_ledger.kds_release_authorized` inline (mirr
 
 **Source-of-truth note (2026-07-18 Stage 8 correction)**: `sql/migrations/0027_create_payment_intent_rpc.sql` is an already-applied migration and remains immutable/original. The latest live definition of `catchmenu_payment.confirm_payment_from_provider()` for this workpacket is provided only by the new forward migration `0166_canonical_kds_release_orchestration.sql`; future readers must consult `0166`, not `0027`, for the post-Option-C body.
 
+**Draft migration mutability note (2026-07-18, §14.5 applied)**: `0166_canonical_kds_release_orchestration.sql` is still part of this same `601030` workpacket, has not passed Stage 12, is not on the baseline branch, has not been propagated to a shared environment, and has no downstream workpacket dependency. It therefore satisfies all four Draft Migration Mutability Rule conditions in `000701` §14.5. After the double-failure audit fallback defect was reproduced, the local DB was explicitly returned to the pre-`0166` state (`request_kds_release_after_payment()` dropped, `confirm_payment_from_provider()` restored from the immutable `0027` source, and the `0166` migration_history row removed), then the corrected `0166` was reapplied as the final draft implementation for this workpacket. This was not a checksum-only overwrite.
+
 **`p_decision='PENDING'` design defect, found and fixed 2026-07-18 (Cursor+Codex Critical tier cross-verification)**: the original `601032_Logic.md` §1.2 mapped both `PARTIAL_CAPACITY_HOLD` and `CAPACITY_HOLD` to `p_decision := 'PENDING'`. `'PENDING'` is not one of the 11 values `catchmenu_ledger.audit_records.chk_audit_decision` (`0008:105-119`) actually accepts (`APPROVED`/`REJECTED`/`OVERRIDDEN`/`DELEGATED`/`ESCALATED`/`CANCELLED`/`COMPLETED`/`FAILED`/`NOTED`/`SUSPENDED`/`REVOKED`). Had this shipped, every `PARTIAL_CAPACITY_HOLD`/`CAPACITY_HOLD` call would have crashed its own `append_audit_record()` INSERT, been caught by `request_kds_release_after_payment()`'s own `EXCEPTION WHEN OTHERS` handler, and been misreported to the caller as `PAYMENT_CONFIRMED_KDS_RELEASE_FAILED` — a normal, healthy "still waiting for kitchen capacity" outcome silently relabeled as a failure. Corrected to `'SUSPENDED'` (§2.1) — chosen over `'DELEGATED'` (implies a retry/reconciliation receiver that `601031_Overview.md` §3 already confirmed doesn't exist) and over reusing `'NOTED'` (already used for `NO_TICKETS_TO_PROCESS`; reusing it here would conflate "nothing to do" with "actively on hold," collapsing two operationally distinct audit-trail meanings), based on the existing precedent at `0041_create_agent_heartbeat_rpc.sql:394` (`'agent_module_isolated'` uses `SUSPENDED` for the same "temporarily halted, may resume" concept).
 
 **Verification-gap root cause, worth recording as a session lesson**: this defect survived this session's own Stage 5 authoring because `601033_TestPlan.md` §1.2 originally (incorrectly) asserted "`decision` has no CHECK constraint (free text)" — a false claim never actually checked against `0008_create_ledger_audit.sql`'s full `CREATE TABLE` body (the constraint sits at lines 105-119, past where this session's earlier read of that file stopped). And separately, none of `601032_Logic.md` §3's three `pg_temp` reproductions (§3.1 `COMMITTED`, §3.2 the exception path, §3.3 `NO_TICKETS_TO_PROCESS`) ever exercised the `PARTIAL_CAPACITY_HOLD`/`CAPACITY_HOLD` branches — exactly the two branches carrying the bug. Two independent gaps (an unverified schema claim, and incomplete branch coverage in live testing) compounded to let an invalid literal reach a Stage 5 "final design" document. `601033_TestPlan.md` §1.2 now states the actual constraint, and §2.2/§2.3 now include their own executable fixtures exercising exactly these two branches (Stage 4 Critical-tier correction round, `601033_TestPlan.md`).
@@ -266,32 +268,70 @@ Human must check all boxes before Stage 8 implementation. **자기승인 절대 
 
 **APPROVED (2026-07-18).** Stage 8 may begin because every box in §9 is checked by the Human owner (정영석) with a recorded date.
 
-## §11 Final Audit (Stage 11, Claude)
+## §11 Final Audit (Stage 11, Claude) — 최종 확정 (2026-07-18)
 
-**Verdict: ACCEPT (2026-07-18)**
+**Verdict: ACCEPT** (APPROVE_WITH_NOTES에서 복원)
 
-핵심 주장 재도출 확인 (Stage 9 산출물을 액면 그대로 신뢰하지 않고, raw 검증 결과에서 직접 재도출 - §13.6 앵커링 방지 원칙 적용):
+**하향 조정 사유 해소 확인:**
 
-- 신규 함수 request_kds_release_after_payment()의 5단계 result_code(COMMITTED/PARTIAL_CAPACITY_HOLD/CAPACITY_HOLD/NO_TICKETS_TO_PROCESS/RELEASE_BLOCKED) - Cursor+Claude Code 독립 재현 완전 일치, 서로 다른 fixture(Cursor: 경계/극단 케이스, Claude Code: Pass 1 순차 + Pass 2 실제 용량초과/중복웹훅/대량처리)로 검증방법 독립성(§38.4) 원칙 실전 적용.
-- audit_decision='SUSPENDED' 정정 - 크래시 없이 정상 작동 3자 확인.
-- 오늘 발견된 결정적 설계 결함(kds_release_authorized 하드코딩)의 회귀테스트(§6.2/§6.3) - COMMITTED일 때만 true임을 3자 모두 확인.
-- 옵션C(KDS 호출만 좁게 감싼 중첩 예외블록) - PL/pgSQL 세이브포인트 메커니즘으로 규명된 원리가 실제 함수 체인에서도 정확히 작동함을 3자 확인.
-- 0027/0166 관계 - 순수추가 방식(0027 미변경, 0166이 최신정의 유일 출처)으로 최종 확정. Cursor의 초기 드리프트 우려는 Claude Code의 설계 의도 설명으로 해소됨.
-- boundary - 12개 파일(9+3, Claude Code가 "7개"라는 이전 서술의 오류를 정확히 잡아 정정) 전부 0 diff.
+이전 라운드에서 발견된 MEDIUM Finding(EXCEPTION 핸들러 안
+append_audit_record() 자체의 이중 실패 시 payment-core 롤백
+위험)에 대해:
 
-Boundary 확인: 3자 일치.
+1. Cursor+Codex의 fault-injection 재현으로 결함 실제 확인
+   (정정 전: 시나리오 B/C에서 payment_ledger 0건 - 실제 롤백)
+2. request_kds_release_after_payment()/confirm_payment_from_
+   provider() 옵션C 블록 양쪽에 1단계 fallback(중첩 begin/
+   exception/end + RAISE WARNING) 추가
+3. §14.5(Migration Draft Mutability Rule, 이번 워크패킷 중
+   신설)에 따라 0166을 Draft로 확정 - 체크섬만 덮어쓰지 않고
+   실제 DB를 되돌린 뒤 정정본 재적용
+4. Cursor+Claude Code(안티 배제, Codex는 구현자로 제외)의
+   완전 독립 재검증 - 서로 다른 fixture로 A/B/C 세 시나리오
+   전부 실제 라이브 함수 대상 재현, payment_ledger 전부 생존
+   확인(1건, APPROVED) - 정정 전/후 대조 명확
+5. RAISE WARNING이 실제 서버 로그에 남는 것까지 확인(docker
+   logs 직접 조회)
 
-**Open Items (다음 워크패킷 후보로 이월):**
+기존 재도출 확인 내용(5단계 result_code, SUSPENDED 매핑, 옵션C
+기본 원자성, 회귀테스트, 0027/0166 관계, 12개 파일 boundary)은
+그대로 유효.
 
-1. **[신규 실증, High priority 유지]** 웹훅 멱등성(Open Item e) - Claude Code Pass 2가 실제 중복호출로 payment_ledger 중복행 생성을 실증. 이미 High priority였으나 구체적 증거로 보강됨.
-2. CAPACITY_CHECKING 재시도 메커니즘 부재(a) - 여전히 미해결.
-3. confirm_payment()(POS, 0098) 동일 함수 연결(b) - 최우선 후속 워크패킷 후보.
-4. resolve_payment_uncertain()의 payment_ledger INSERT 누락(c) - 별도 워크패킷.
+**Dual Anchor 절차 참고**: 이 워크패킷의 ChatGPT 개입은 §13.7-
+13.10이 공식 문서화되기 이전, 비공식적으로 이뤄졌으나, 실제로
+결정적 결함(이중 감사실패)을 발견하고 Cursor+Codex의 실제
+재현으로 확정되는 등 Dual Anchor 원칙의 실질적 목적을 충분히
+달성함. 이를 근거로 별도의 정식 11B(신규 대화창, 블라인드)
+재실행 없이 이대로 확정. (이 판단 자체가 §13.7 Dual Anchor
+Principle의 성립 근거 사례로 §13.7에 이미 기록됨.)
+
+**Open Items (다음 워크패킷 후보로 이월, 기존과 동일):**
+
+1. 웹훅 멱등성(Open Item e, High priority) - payment_ledger
+   중복행 생성 실증됨.
+2. CAPACITY_CHECKING 재시도 메커니즘 부재(a).
+3. confirm_payment()(POS, 0098) 동일 함수 연결(b) - 최우선
+   후속 워크패킷 후보.
+4. resolve_payment_uncertain()의 payment_ledger INSERT 누락(c).
 5. bulk_commit_kds_tickets() UI/Flutter 호출자 미확정(d).
-6. 600500 도메인 번호공간 소진(f) - Human 결정 필요.
-7. audit_decision 리터럴 오류 7개 파일(h) - 별도 감사 워크패킷 후보(audit_decision_literal_repair).
-8. 601033 TestPlan §4의 CHECK 제약 기법 - live에 기존 all_conditions_met 행이 있으면 일반 ADD CONSTRAINT가 실패할 수 있음(Cursor 발견) - NOT VALID 옵션 사용 권장, TestPlan 문서 보완 필요.
+6. 600500 도메인 번호공간 소진(f).
+7. audit_decision 리터럴 오류 7개 파일(h) - 별도 감사 워크패킷
+   후보.
+8. 601033 TestPlan §4의 CHECK 제약 기법 - NOT VALID 옵션 권장.
+9. 0166이 이미 git에 커밋된 상태임이 확인됨(Claude Code 관찰) -
+   커밋 시점/내용 재확인 필요.
 
 ## §12 Human Merge/Release
 
-담당: Human (정영석님) — 승인 대기 중, Stage 8 착수 전 §9 전체 체크 필요.
+담당: Human (정영석님) (2026-07-18)
+
+상태: READY_FOR_HUMAN_MERGE
+
+필수 확인:
+- 최종 git diff 확인
+- 0166 파일명 및 내용 확인 (이미 git 커밋된 상태 - Open Item 9
+  재확인 권장)
+- §11 ACCEPT 확인
+- 미해결 BLOCK 없음 확인
+- Open Items 9개가 후속 워크패킷으로 이월됐는지 확인
+- 최종 commit/merge 결정

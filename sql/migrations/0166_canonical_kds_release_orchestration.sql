@@ -100,24 +100,29 @@ begin
   );
 exception
   when others then
-    perform catchmenu_audit.append_audit_record(
-      p_tenant_id := p_tenant_id,
-      p_store_id := p_store_id,
-      p_audit_domain := 'payment',
-      p_audit_type := 'kds_release_requested_failed',
-      p_audit_category := 'OPERATIONAL',
-      p_actor_type := p_actor_type,
-      p_actor_id := null,
-      p_subject_type := 'payment_ledger',
-      p_subject_id := p_ledger_id,
-      p_decision := 'FAILED',
-      p_decision_payload := jsonb_build_object(
-        'error', sqlerrm,
-        'sqlstate', sqlstate
-      ),
-      p_order_id := p_order_id,
-      p_correlation_id := p_correlation_id
-    );
+    begin
+      perform catchmenu_audit.append_audit_record(
+        p_tenant_id := p_tenant_id,
+        p_store_id := p_store_id,
+        p_audit_domain := 'payment',
+        p_audit_type := 'kds_release_requested_failed',
+        p_audit_category := 'OPERATIONAL',
+        p_actor_type := p_actor_type,
+        p_actor_id := null,
+        p_subject_type := 'payment_ledger',
+        p_subject_id := p_ledger_id,
+        p_decision := 'FAILED',
+        p_decision_payload := jsonb_build_object(
+          'error', sqlerrm,
+          'sqlstate', sqlstate
+        ),
+        p_order_id := p_order_id,
+        p_correlation_id := p_correlation_id
+      );
+    exception
+      when others then
+        raise warning 'request_kds_release_after_payment(): audit logging of the original failure itself failed (sqlstate=%) -- server log only, no DB trace beyond this warning', sqlstate;
+    end;
 
     return jsonb_build_object(
       'success', true,
@@ -365,24 +370,29 @@ begin
     );
   exception
     when others then
-      perform catchmenu_audit.append_audit_record(
-        p_tenant_id := p_tenant_id,
-        p_store_id := p_store_id,
-        p_audit_domain := 'payment',
-        p_audit_type := 'kds_release_call_unexpected_exception',
-        p_audit_category := 'FINANCIAL',
-        p_actor_type := 'PROVIDER',
-        p_actor_id := null,
-        p_subject_type := 'payment_ledger',
-        p_subject_id := v_ledger_id,
-        p_decision := 'FAILED',
-        p_decision_payload := jsonb_build_object(
-          'error', sqlerrm,
-          'sqlstate', sqlstate
-        ),
-        p_order_id := v_intent.order_id,
-        p_correlation_id := p_correlation_id
-      );
+      begin
+        perform catchmenu_audit.append_audit_record(
+          p_tenant_id := p_tenant_id,
+          p_store_id := p_store_id,
+          p_audit_domain := 'payment',
+          p_audit_type := 'kds_release_call_unexpected_exception',
+          p_audit_category := 'FINANCIAL',
+          p_actor_type := 'PROVIDER',
+          p_actor_id := null,
+          p_subject_type := 'payment_ledger',
+          p_subject_id := v_ledger_id,
+          p_decision := 'FAILED',
+          p_decision_payload := jsonb_build_object(
+            'error', sqlerrm,
+            'sqlstate', sqlstate
+          ),
+          p_order_id := v_intent.order_id,
+          p_correlation_id := p_correlation_id
+        );
+      exception
+        when others then
+          raise warning 'confirm_payment_from_provider(): audit logging of the KDS-release-call failure itself failed (sqlstate=%) -- payment_ledger row % still committed; server log only for the original KDS failure', sqlstate, v_ledger_id;
+      end;
 
       v_kds_release_result := jsonb_build_object(
         'success', true,

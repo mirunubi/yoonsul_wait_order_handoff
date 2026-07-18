@@ -1927,9 +1927,11 @@ This document is a non-binding second opinion. It carries no approve/block autho
 
 ---
 
-## 13. Stage 11 — Claude Independent Audit
+## 13. Stage 11 — Independent Audit (11A Claude Audit / 11B ChatGPT Blind Audit / 11C Conflict Analysis)
 
-### 13.1 Role
+**2026-07-18 구조 변경**: Stage 11은 이제 3개 하위 단계로 구성된다 — **11A**(§13.1-§13.5, Claude의 raw-증거 기반 감사, 기존과 동일), **11B**(§13.8, ChatGPT의 진짜 블라인드 역설계 감사, 신규·모든 워크패킷 의무), **11C**(§13.9, Human이 11A/11B를 직접 대조하는 Conflict Analysis, 신규). 이 세 단계 전체를 근거로 최종 병합 결정을 내리는 것은 **여전히 별도의 Stage 12(§14, Human Merge And Release Evidence)이며, 번호나 구조가 바뀌지 않는다** — Stage 11의 하위단계로 흡수되지 않는다. 근거와 배경은 §13.7(Dual Anchor Principle)을 참고.
+
+### 13.1 Stage 11A — Role
 
 Claude performs independent audit.
 
@@ -1955,7 +1957,7 @@ Claude receives:
 
 Claude checks whether the implementation matches the plan and whether the plan itself still has hidden failure modes. `ImplementationModule.md` is Codex's self-report and `VerificationResult.md` is Claude Code's report — Claude must verify both against the raw logs and diff, not accept either at face value. Every concern raised in `MinorOpinion.md` must be explicitly addressed (accepted, investigated further, or dismissed with a stated reason) — silently ignoring a Cursor concern is not permitted, though Claude is not obligated to agree with it.
 
-### 13.2 Audit Focus
+### 13.2 Stage 11A — Audit Focus
 
 Claude must review:
 
@@ -1977,7 +1979,7 @@ Claude must review:
 - Did Cursor's Stage 1 scan miss anything Claude Code should have caught in Stage 2?
 - Has every concern in `MinorOpinion.md` (Stage 9 (Critical tier)) been explicitly addressed, not silently dropped?
 
-### 13.3 Contrarian Audit Prompt
+### 13.3 Stage 11A — Contrarian Audit Prompt
 
 ```text
 Assume the implementation is wrong.
@@ -2016,9 +2018,11 @@ Find how this change could cause:
 - master rule violation
 ```
 
-### 13.4 Stage 11 Output: `AuditReview.md`
+### 13.4 Stage 11A Output: `AuditReview.md`
 
 `AuditReview.md` is the confirm/audit artifact. Some teams prefer the name `implementation_confirm.md`; for payment, POS, and other runtime-truth domains in this project, `AuditReview.md` is preferred because Claude's role here is auditor, not a simple confirmation checkbox.
+
+**2026-07-18부터**: 이 `AuditReview.md`는 Stage 11C(§13.9)에서 Stage 11B(ChatGPT Blind Audit, §13.8)의 결과와 나란히 대조되는 두 입력 중 하나다 — Stage 11A 혼자만으로는 Stage 12(§14) Human 병합 결정의 충분한 근거가 아니다(§13.7 Dual Anchor Principle).
 
 ```markdown
 # AuditReview.md
@@ -2085,7 +2089,7 @@ APPROVE / APPROVE_WITH_NOTES / BLOCK
 ## Required Human Review Notes
 ```
 
-### 13.5 Stage 11 Block Criteria
+### 13.5 Stage 11A Block Criteria
 
 Claude Audit must block if:
 
@@ -2121,6 +2125,72 @@ Stage 11(최종 감사) 수행 시, Claude는 이전 Stage들에서 이미 형�
 
 (2026-07-18, ChatGPT 교차검증 기반 반영)
 
+### 13.7 Dual Anchor Principle (2026-07-18, 모든 워크패킷 의무 적용)
+
+**원칙**: Stage 11에서는 동일한 AI 계열이 만든 설계를 동일 계열 AI가 최종 진실로 인정하지 않는다. 반드시 독립 모델(ChatGPT 등)이 동일 결론을 별도 경로(진짜 블라인드 — 사전 맥락 없는 새 대화창)에서 재도출하거나, 차이를 명시적으로 보고해야 한다. 이는 모든 워크패킷의 Stage 11에 예외 없이 적용된다.
+
+**근거(2026-07-18 실제 사례로 확립)**: `canonical_kds_release_orchestration` 워크패킷에서, Claude 혼자 내린 Stage 11 ACCEPT 판정에 실제 결함(두 `EXCEPTION` 핸들러가 자신의 감사기록 호출 실패까지는 방어하지 못해, 이중 실패 시 이미 완료된 `payment_ledger` INSERT까지 롤백되는 문제)이 있었다. 이 결함은 ChatGPT의 독립적 재검토가 먼저 잡아냈고, 이후 Cursor+Codex의 fault-injection(실제 라이브 DB 대상 이중 실패 강제 재현)으로 확정됐다 — "같은 AI 계열이 설계하고 같은 AI 계열이 최종 감사하면 앵커링이 발생한다"는 것의 실제 증거다.
+
+**역할 재정의**:
+
+| 역할 | Claude | ChatGPT |
+|---|---|---|
+| 기본 태도 | 설계를 증명 | 설계를 반증 |
+| Stage 11A | Logic/구현이 계약을 충족하는지 확인 | - |
+| Stage 11B | - | 설계문서 없이 raw 자료만으로 블라인드 역설계 |
+| 질문 프레임 | "왜 맞는가" | "왜 틀릴 수 있는가" |
+
+### 13.8 Stage 11B — ChatGPT Blind Audit (신규, 모든 워크패킷 의무)
+
+**전제조건 — 진짜 블라인드**: 반드시 이 워크패킷에 대한 사전 논의가 전혀 없었던, 완전히 새로운 ChatGPT 대화창에서 진행한다. 기존에 이 워크패킷을 함께 만들어온 맥락이 있는 대화창을 재사용하면 블라인드가 성립하지 않는다 — 이 경우 Stage 11B는 무효로 간주하고 새 대화창에서 다시 시작해야 한다.
+
+**1단계 — 제공하는 것 (설계문서는 절대 먼저 보여주지 않는다)**:
+
+- 실제 SQL(관련 migration 파일 전문)
+- 실제 스키마
+- 트리거 / 뷰
+- RPC 정의
+- 실제 테스트 결과
+- raw 로그
+
+`Overview.md`/`Logic.md`/`TestPlan.md`/`ChangeContract.md` 등 Claude Code가 작성한 설계 문서는 이 단계에서 절대 보여주지 않는다.
+
+지시 프레임(그대로 사용):
+
+```text
+아래는 실제 SQL/스키마/테스트 결과입니다. 이 시스템이 무슨 구조인지,
+어떤 상태머신을 가정하는지, 경계는 어디인지, 어떤 위험이 있는지
+처음부터 역설계해주세요.
+```
+
+**2단계 — 그 다음에만** Claude의 Stage 11A 감사 결과(설계문서 포함)를 보여주고, 다음 프레임을 그대로 사용:
+
+```text
+이게 Claude의 설계와 감사 결과입니다. 당신이 역설계한 것과 차이가
+있는지 찾아주세요.
+```
+
+**출력**: ChatGPT가 raw 자료만으로 역설계한 시스템 모델, 그리고 Claude의 설계/감사 결과와 대조한 차이점 목록(있다면). "차이 없음"도 명시적 결론으로 기록한다 — 침묵은 허용되지 않는다(§13.5 Block Criteria와 동일한 정신).
+
+### 13.9 Stage 11C — Conflict Analysis (신규)
+
+Human(정영석님)이 Stage 11A(§13.1-§13.6)와 Stage 11B(§13.8)의 결과를 직접 비교한다.
+
+**원칙**:
+
+- PASS/PASS 일치 자체는 **약한 증거**로 취급한다 — 같은 결론에 도달했다는 사실만으로 안심하지 않는다(§38.4 검증방법 독립성 원칙과 동일한 논리).
+- **불일치가 나온 지점을 최우선으로 살핀다.**
+- 불일치가 실제 결함인지 판단이 서지 않으면, Cursor/Codex에게 fault-injection 등 실제 재현(라이브 DB 대상)으로 확정을 요청한다 — `canonical_kds_release_orchestration` 워크패킷의 이중 실패 검증 사례가 이 절차의 정확한 선례다.
+
+**출력**: 무엇이 일치했는지, 무엇이 불일치했는지, 불일치 중 어느 것이 실제 재현으로 확정 요청됐는지, 그 재현 결과가 무엇이었는지를 기록한 Conflict Analysis 메모 — Stage 12(§14) Human 병합 결정의 입력 중 하나가 된다.
+
+### 13.10 실무 참고사항 (Stage 11B/11C)
+
+- ChatGPT의 Stage 11B는 반드시 새 대화창에서 진행한다 — 기존에 함께 만들어온 맥락이 있는 대화창을 쓰면 진짜 블라인드가 되지 않는다.
+- ChatGPT의 지적은 그 자체로 확정하지 않는다 — 반드시 Cursor/Codex의 실제 재현(라이브 DB 대상)으로 확정한 뒤에만 문서/코드에 반영한다(`canonical_kds_release_orchestration` 워크패킷이 표준 절차 선례).
+- 이 원칙은 기존 §13.6(앵커링 방지 규칙)/§38.4(검증방법 독립성 원칙)를 **대체하지 않고 보완한다** — §13.6은 "Claude가 자기 자신의 이전 요약을 신뢰하지 말 것"을, §38.4는 "여러 검증자의 방법이 달라야 진짜 독립"을, §13.7(Dual Anchor)은 그중에서도 특히 "Stage 11의 최종 감사는 반드시 다른 AI 계열이 별도로 재도출해야 한다"는 것을 Stage 11에 한해 의무화한 것이다. 셋 다 함께 적용된다.
+- Stage 12(§14, Human Merge And Release Evidence)는 번호/구조가 바뀌지 않는다 — Stage 11A/11B/11C 전체를 근거로 최종 병합 결정을 내리는 것은 여전히 Stage 12의 역할이다.
+
 ---
 
 ## 14. Stage 12 — Human Merge And Release Evidence
@@ -2129,10 +2199,14 @@ Stage 11(최종 감사) 수행 시, Claude는 이전 Stage들에서 이미 형�
 
 Human performs final merge and release decision.
 
+**2026-07-18부터**: 이 최종 결정은 Stage 11A(`AuditReview.md`) 단독이 아니라, Stage 11B(§13.8, ChatGPT Blind Audit 결과)와 Stage 11C(§13.9, Conflict Analysis 메모) 전체를 근거로 한다(§13.7 Dual Anchor Principle). Stage 12 자체의 번호/구조는 바뀌지 않는다 — 입력이 늘어난 것뿐이다.
+
 The human reviews:
 
 - Final diff.
-- `AuditReview.md`.
+- `AuditReview.md` (Stage 11A).
+- ChatGPT의 Stage 11B 블라인드 역설계 결과 및 대조 결과.
+- Stage 11C Conflict Analysis 메모 (일치/불일치, 불일치 중 실제 재현으로 확정된 항목과 그 결과).
 - `VerificationResult.md`.
 - Raw logs for failed or risky commands.
 - Any remaining risks.
@@ -2151,8 +2225,10 @@ As of 2026-07-10, the merge checklist is a section inside the single merged `Rel
 - [ ] I reviewed ImplementationModule.md.
 - [ ] I reviewed VerificationResult.md.
 - [ ] I confirmed raw logs exist for required commands.
-- [ ] I reviewed AuditReview.md.
+- [ ] I reviewed AuditReview.md (Stage 11A).
 - [ ] I reviewed MinorOpinion.md, if present (Medium/Full tier), and confirmed its concerns were addressed in AuditReview.md.
+- [ ] I reviewed ChatGPT's Stage 11B blind reverse-engineering result (genuinely blind, new chat window confirmed).
+- [ ] I reviewed the Stage 11C Conflict Analysis memo and confirmed any disagreement was escalated to Cursor/Codex fault-injection reproduction before being accepted or dismissed.
 - [ ] I confirmed no unresolved BLOCK finding exists.
 - [ ] I confirmed rollback notes exist.
 - [ ] I confirmed commit message is correct.
@@ -2217,8 +2293,10 @@ APPROVED / BLOCKED / DEFERRED
 - [ ] I reviewed ImplementationModule.md.
 - [ ] I reviewed VerificationResult.md.
 - [ ] I confirmed raw logs exist for required commands.
-- [ ] I reviewed AuditReview.md.
+- [ ] I reviewed AuditReview.md (Stage 11A).
 - [ ] I reviewed MinorOpinion.md, if present (Medium/Full tier), and confirmed its concerns were addressed in AuditReview.md.
+- [ ] I reviewed ChatGPT's Stage 11B blind reverse-engineering result (genuinely blind, new chat window confirmed).
+- [ ] I reviewed the Stage 11C Conflict Analysis memo and confirmed any disagreement was escalated to Cursor/Codex fault-injection reproduction before being accepted or dismissed.
 - [ ] I confirmed no unresolved BLOCK finding exists.
 - [ ] I confirmed rollback notes exist.
 - [ ] I confirmed commit message is correct.
@@ -2228,6 +2306,30 @@ APPROVED / BLOCKED / DEFERRED
 
 ## Post-Release Notes
 ```
+
+### 14.5 Migration Draft Mutability Rule (2026-07-18)
+
+**배경**: `0027`/`0166` 두 사례에서, migration 체크섬 불변성 안전장치(`tools/apply_migrations.py`의 checksum-mismatch 정지 로직)와 같은 워크패킷 안에서의 반복 정정 작업이 충돌했다. 제미나이는 "이미 `git commit`됐는가"를 단일 기준으로 제시했으나, ChatGPT의 분석이 이를 정확히 반박했다 — `git commit` 여부는 로컬 작업 관행의 문제일 뿐, 이 migration이 실제로 "돌이킬 수 없는 상태"가 됐는지와는 무관하다(예: 로컬에만 커밋하고 아직 아무 데도 push/merge/적용하지 않은 경우, 커밋됐다는 사실 자체는 재작성을 막을 이유가 되지 못한다). 대신 이 문서가 이미 갖고 있는 **Stage 12(Human Merge/Release, §14)** 개념을 그대로 판단 기준으로 재사용한다 — "Human이 병합을 승인했는가"가 실제로 의미 있는 불가역성의 경계다.
+
+**Draft Migration**: 다음 4개 조건을 **전부** 충족하는 동안, 해당 migration 파일은 초안(draft)으로 취급되며 같은 파일을 다시 고칠 수 있다.
+
+1. 해당 워크패킷이 아직 Stage 12(Human Merge/Release)를 통과하지 않았다.
+2. 이 migration이 보호된 기준 브랜치(`main` 등)에 아직 없다.
+3. 어떤 공유 환경에도 아직 적용된 적이 없다.
+4. 다른(이후) 워크패킷이 이 migration의 현재 체크섬/동작에 의존하기 시작하지 않았다.
+
+이 4개 조건을 전부 만족하는 동안 파일을 다시 고칠 수는 있지만, **체크섬만 덮어쓰는 것은 허용되지 않는다** — 반드시 이 migration 적용 이전 상태로 로컬 DB를 되돌린 뒤(또는 전체 재실행) 정정된 파일을 다시 적용해야 한다. 파일 내용과 실제 DB 상태는 항상 일치해야 한다.
+
+**불변 경계 (Migration Immutability Boundary)**: 다음 중 **하나라도** 발생하면 그 즉시, 그 migration 파일은 영구 불변으로 전환된다.
+
+1. Human Merge/Release 승인(Stage 12).
+2. 보호된 기준 브랜치에 포함됨.
+3. 어떤 공유 환경에든 적용됨.
+4. 다른 승인된 워크패킷이 이 migration을 의존 대상으로 사용하기 시작함.
+
+**경계 이후 정정 (Post-boundary correction)**: 불변 경계를 넘은 뒤에 발견되는 모든 결함은 반드시 **새로운 forward migration(신규 번호)**으로만 처리한다. 체크섬 수정이나 파일 직접 수정은 어떤 경우에도 허용되지 않는다 — `0027`(`canonical_kds_release_orchestration` 워크패킷 이전에 이미 병합·적용된 파일)에 대해 이 원칙이 실제로 적용된 사례: 결함을 `0027` 자체의 수정이 아니라 신규 `0166` migration으로 처리했다.
+
+**도구 지원은 향후 과제로만 명시 (지금 구현 안 함)**: `tools/apply_migrations.py`가 `--draft`/`--strict` 모드를 구분해 이 규칙을 자동으로 강제하도록 개선하는 것은 별도 워크패킷 후보로 남긴다. 지금은 이 원칙을 사람이 직접 판단하여 수동으로 적용한다 — `0027`은 원본 유지 + `0166` 신설로 처리됐고, `0166` 자신이 이번 정정 라운드들에서 다시 고쳐질 수 있는지(Draft 상태인지 이미 불변 경계를 넘었는지)는 Stage 12 통과 여부에 따라 그때그때 판단 대기 상태로 남아있다 — 이것이 이 규칙의 실제 적용 선례다.
 
 ---
 
