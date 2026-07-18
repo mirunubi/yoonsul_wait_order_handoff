@@ -337,3 +337,27 @@ Human must check all boxes before Stage 8 implementation:
 **Current approval state: APPROVED for all items 1-5 (2026-07-17).**
 
 Stage 8 may proceed with the original four-item scope plus Slice 2 (§2.5). `601143_TestPlan.md` §7 carries the required Slice 2 test coverage.
+
+## §11 Final Audit (Stage 11, Claude)
+
+**Verdict: ACCEPT (2026-07-17)**
+
+핵심 주장 재도출 확인 (Stage 9 산출물을 액면 그대로 신뢰하지 않고 직접 재검토):
+
+- **allergen_info 덮어쓰기 버그(식품안전 인접)**: 원인 규명(Stage 1 Cursor+안티 조사) → 설계(§1.1/§1.2/§1.3) → 구현 → Cursor+Claude Code+안티 3자 독립 재현 완료. "생략(NULL)/명시적 객체/명시적 비정상 타입"의 3분기가 실제로 "보존/교체/무해화"로 정확히 갈라지는 것을 각 검증자가 별도 데이터로 재확인.
+- **형제 필드 3개(is_kds_required/kitchen_zone/display_order)**: 같은 클래스의 버그로 함께 해결. UPDATE절 자체는 원래도 정상(coalesce(p_x, x))이었고, 문제는 오직 wrapper 시그니처의 non-null 기본값이었다는 근본 원인이 실증됨.
+- **upsert_menu_core() 시그니처 변경의 필수성**: proacl=NULL 라이브 확인(Codex 최초 발견, Cursor+Claude Code+안티 재확인) — 명시적 ACL이 없어 PostgreSQL 기본 PUBLIC-EXECUTE가 적용되므로, wrapper를 우회하는 직접 호출 경로가 열려있음을 근거로 "방어적 권장"에서 "필수"로 격상한 판단이 타당함을 확인.
+- **Slice 2(카테고리 display_order)**: Stage 8 구현 중 실제 크래시로 발견된 신규 결함. 단순 coalesce(p_display_order, 0) 응급처치가 "기존 카테고리 값을 조용히 0으로 리셋"하는, 이 워크패킷이 애초에 고치려던 것과 동일한 버그 클래스를 새로 만들 뻔했음을 ChatGPT+제미나이 교차검증으로 사전에 포착. INSERT/UPDATE 경로를 분리하여 신규는 기본값 0, 기존은 보존(excluded.display_order가 아닌 실제 테이블 값 참조)하는 방식으로 안전하게 해결. "응급처치 함정" 시나리오(§7.2)와 메뉴/카테고리 독립성(§7.4)을 3자 모두 실제 재현.
+
+Boundary 확인: upsert_menu()/upsert_menu_core() 두 함수만 변경, menu_options/sync_menu_option_groups_core()/sync_menu_option_items_core()/get_menu_admin_list()/get_store_admin_dashboard()/set_menu_status() 전부 0 diff 확인(3자 일치).
+
+**Open Items (다음 워크패킷 후보로 이월):**
+
+1. **[구조적 결함]** p_display_order가 메뉴와 카테고리라는 서로 다른 리소스에 재사용되는 파라미터 오버로딩 — 근본 해결은 p_menu_display_order/p_category_display_order로 이름 분리하는 별도 워크패킷. 파급효과 전수 확인 필요(이 파라미터를 받는 다른 함수, 전체 호출자, Flutter payload, overload 여부).
+2. get_store_admin_dashboard()의 store_settings stale 컬럼 4개(max_waiting_count 등) — 601110에서 이월.
+3. 0102/0104(POS 동기화)의 event_domain='menu' 안티패턴 — 601110에서 이월, 아직 미착수.
+4. dining_table_crud_creation(601120), menu_price_list_architecture(601130) — 이미 별도 워크패킷으로 분리 확정, 이번 범위 아님.
+
+## §12 Human Merge/Release
+
+담당: Human (정영석님)
