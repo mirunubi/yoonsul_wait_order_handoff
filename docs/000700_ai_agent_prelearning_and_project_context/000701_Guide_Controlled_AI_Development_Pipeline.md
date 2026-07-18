@@ -1454,6 +1454,14 @@ Rules:
 
 Verified `TestPlan.md` and `ChangeContract.md`, ready for Stage 7 Human Approval. As with Stage 4, a raised concern is never silently dropped — Claude's integration records what was accepted, investigated further, or dismissed with a stated reason.
 
+### 9.20 Stage 7 제시 전 Claude의 원문서 직접 검토 필수 (2026-07-18 추가, 실제 사례 기반)
+
+Stage 6(Contract Verification) 검증자들의 raw 결과를 통합해서 "우려사항 해소/미해소"를 판정한 뒤, Human에게 Stage 7(§10 Human Approval) 체크박스를 안내하기 전에, Claude는 반드시 `TestPlan.md`/`ChangeContract.md` 원문 자체를 직접 읽어야 한다. 검증자 보고서를 요약해서 전달하는 것만으로는 불충분하다 — 검증자들이 놓친 것을 Claude가 직접 읽다가 발견하는 경우가 실제로 있었다(`canonical_kds_release_orchestration` 워크패킷, 검증자 3명 전원이 ACCEPT라고 했음에도 Human이 "지시어를 주기 전에 해당 문서 2개를 자체 검증을 해야죠"라고 지적해 막았고, 이후 Claude가 §2.1-§2.5 SQL 실행가능성/§4 EXCEPTION 경로/§6.2-§6.3 회귀테스트/§0 발견경위/Stop Conditions를 라인 단위로 직접 재검토한 뒤에야 Stage 7로 진행함 — 검증자 전원 ACCEPT라는 사실 자체가 Claude 자신의 직접 검토를 생략할 근거가 되지 않는다는 원칙 재확인).
+
+이 직접 검토가 새로운 문제를 발견하면, Stage 5로 되돌려 정정한 뒤 Stage 6을 재실행한다. 문제가 없으면 그제서야 Stage 7(§10 체크박스)을 Human에게 제시한다.
+
+이 원칙은 §9.3/§9.4(Stage 3, `Overview.md`/`Logic.md` 직접 검토)의 연장선이며, "Claude는 어느 단계에서도 다른 행위자의 보고를 액면 그대로 신뢰하지 않고, 최종 감사 권한을 가진 자로서 직접 근거를 재확인한다"는 Stage 11 Final Audit(§13) 원칙이 Stage 7 이전에도 동일하게 적용됨을 명시한다 — Stage 11이 구현 이후의 마지막 방어선이라면, 이 규칙은 구현 착수(Stage 8) 이전, 즉 Human이 되돌릴 수 없는 승인 결정을 내리기 전의 동일한 방어선이다.
+
 ---
 
 ## 10. Stage 7 — Human Approval
@@ -2098,6 +2106,20 @@ Claude Audit must block if:
 - Implementation deviated from contract without approval.
 - Implementation conflicts with master rules from `ImpactScope.md`.
 - A concern raised in `MinorOpinion.md` (Medium/Full tier) was not explicitly addressed.
+
+### 13.6 앵커링 방지 규칙 — Raw 증거로부터의 직접 재도출 (2026-07-18)
+
+Stage 11(최종 감사) 수행 시, Claude는 이전 Stage들에서 이미 형성된 요약/통합 결과 — 설령 그것이 Claude 자신(또는 이전 세션의 자신)이 작성한 것이라 해도 — 를 그대로 신뢰하지 않는다. 핵심 주장(무엇이 바뀌었는가, 무엇이 검증됐는가, 무엇이 아직 미해결인가)은 반드시 다음 원본 증거로부터 직접 재도출해야 한다:
+
+- raw diff(`git diff`의 실제 텍스트 — 요약이나 서술이 아님)
+- raw 실행 로그(테스트/쿼리의 실제 출력 — "통과했다"는 문장이 아님)
+- 각 검증자(Cursor/Codex/Antigravity 등)의 원본 raw 보고서 — Claude 자신이 이미 통합한 요약본이 아님
+
+**근거**: Stage 3부터 Stage 11까지 여러 단계에 걸쳐 동일한 Claude가 계속 판단을 내리는 이 파이프라인 구조상, 초기 단계에서 형성된 해석이 후속 단계까지 그대로 지속되는 앵커링(anchoring) 편향 위험이 구조적으로 존재한다 — 인간 검토자가 자기 자신의 이전 결론에 저항하기 어려운 것과 동일한 인지적 함정이다. Stage 11이 단순한 재확인이 아니라 진짜 독립 감사로서 의미를 가지려면, 이전 단계의 통합/요약 결과가 아니라 그 통합의 재료였던 원본 증거를 다시 봐야 한다.
+
+**적용**: 위 세 종류의 원본 증거로부터 핵심 주장을 직접 재도출한 뒤, 그 결과를 이전 단계의 통합 결과와 대조한다 — 일치하면 그대로 ACCEPT 근거로 쓰고, 불일치가 발견되면 그 불일치 자체를 감사 결과에 명시한다(§44.2 Zero Deferred Doubt 원칙과 동일한 정신을 Stage 11에 특화 적용한 것).
+
+(2026-07-18, ChatGPT 교차검증 기반 반영)
 
 ---
 
@@ -2859,6 +2881,16 @@ Medium tier 이상(§31)에서, Stage 3-6(Claude 설계 검증 + Architecture/Co
 
 검증자가 작업 도중 "이 판단은 예상보다 크다"고 스스로 인지하면(예: 이번처럼 함수 오버로드 발견), 원래 배정보다 상위 등급 검증을 요청할 수 있다.
 
+### 38.4 검증 방법 독립성 원칙 (2026-07-18)
+
+**배경**: §35-§39가 "몇 명이 검증하는가"(인원수 축)를 규율해왔으나, 복수 검증자가 전부 PASS를 낸 경우에도 그 PASS들이 진짜 독립적인 증거인지는 별도로 판단해야 한다 — 인원수가 같아도 검증 방법이 같으면 사실상 같은 관찰을 여러 번 반복한 것에 불과하다.
+
+**원칙**: 복수 검증자가 모두 PASS를 낸 경우, Claude는 그들이 (a) 같은 방법(예: 셋 다 같은 문서를 읽고 동의)으로 도달했는지, (b) 서로 다른 방법(예: 하나는 실제 재현, 하나는 정적 코드 대조, 하나는 라이브 DB 직접 조회)으로 도달했는지를 구분해야 한다. **서로 다른 검증 방법의 수렴이 같은 방법의 반복보다 훨씬 강한 증거다** — 방법이 같으면 그 방법 자체의 공통 사각지대(shared blind spot)를 아무도 잡아내지 못한다(§26 Adversarial Audit Pass Requirement가 "같은 모델 계열 안에 머물면 공통 사각지대 위험이 있다"고 한 것과 동일한 논리를, 검증자 인원이 아니라 검증 *방법*의 축에 적용한 것).
+
+**적용**: Critical tier 검증을 지시할 때, 가능하면 검증자별로 서로 다른 접근법을 쓰도록 유도한다 — 예를 들어 한 검증자는 문서-코드 정합성만 정적으로 대조하고, 다른 검증자는 실제 라이브 DB에서 재현 테스트를 실행하고, 필요하면 세 번째 검증자는 코드만 보고(문서 없이) 독립적으로 재구성하도록 지시하는 식이다. 검증 지시문 작성 시 "다른 AI + 다른 검증 방법 + 다른 입력 순서"라는 세 축을 명시적으로 고려한다 — 이 구조는 §45(Post-MVP Fable 블라인드 역설계 계획)의 Pass A-D 설계에서도 동일하게 적용될 후보로 기록한다.
+
+(2026-07-18, ChatGPT 교차검증 기반 반영)
+
 ## 39. Mandatory Dual Verification Standard (2026-07-11)
 
 배경: §38이 "산출물 성격에 따라 검증 강도를 차등화"하도록 했으나, Human 결정으로 이를 상향 조정한다: 앞으로 모든 검증은 최소 이중(2인 이상의 서로 다른 행위자)으로 진행한다. 이는 §38의 "1명으로 충분" 등급을 폐기하는 것이 아니라, 그 등급의 적용을 Human이 명시적으로 승인한 경우로 제한한다는 뜻이다 — §38을 대체하지 않고, 그 위에 추가되어 기본 적용 범위를 좁히는 상위 규칙이다.
@@ -3016,3 +3048,87 @@ Antigravity(또는 다른 검증자)가 토큰/컨텍스트 부족 등으로 참
 - `0063`의 오버로드 방치(작은 씨앗) → `confirm_payment_from_provider()`가 이 프로젝트 역사상 최초로 성공적인 E2E 실행에 이르기까지 오래 방치됨(`600510_confirm_payment_from_provider_overload_ambiguity`, `600401_ChangeHistory.md` 2026-07-14 항목).
 - Cursor의 체크섬 보고(`0115`, DB `7eba4434...` vs. 주장된 정답 `c588014b...`) 오탐을 재검증 없이 받아들였다면, 실제로 정상인 파일을 훼손할 뻔했다 — 3가지 독립 방법(수동 재계산, `apply_migrations.py` 소스 검토, 실제 재실행)으로 재검증한 결과 DB 체크섬은 이미 정확했다(`600626_Verification.md`).
 - §15.1의 "600000_implementation_lifecycle/ 전체 밴드가 990000_legacy_quarantine/로 격리됐다"는 주장을 원문 재확인 없이 받아들였다면, 잘못된 폴더 구조 결정(현재 활성 상태인 `600000_implementation_lifecycle/`을 존재하지 않는 것처럼 취급)을 내렸을 것이다 — 직접 `990000_legacy_quarantine/`을 조사한 결과, 격리된 것은 이 경로의 **이전** 판본(별개의 메타-거버넌스 스킴 81개 파일 + `604000_workpackets/` 166개 파일)이었고, 이후 같은 경로가 지금의 다른 내용으로 **재사용**된 것으로 확인됐다(`000054_Assessment_Workpacket_Overview_Logic_Filename_Convention_Governance_Gap.md`).
+
+## 45. Post-MVP Fable 블라인드 역설계 검증 계획 (향후 계획 — 지금 실행 안 함)
+
+**Status: 계획만 기록. 실행 시점 미정, 이 세션이나 진행 중인 어떤 워크패킷도 이 섹션을 실행 근거로 삼을 수 없다.** MVP(Phase 1/2) 완성 후, Claude Fable 5(장문맥 모델)를 이용해 이 프로젝트 전체 시스템을 기존 설계 문서에 전혀 앵커링되지 않은 상태로 역설계·검증하는 별도 워크스트림을 계획 중이다. ChatGPT가 2026-07-18 제안한 4-Pass 구조를 그대로 이 섹션에 기록한다.
+
+### 45.1 Pass A — 블라인드 역설계 (문서 미제공)
+
+Fable에게 최초로는 기존 `Overview.md`/`Logic.md` 등 설계 문서를 전혀 보여주지 않는다. 제공하는 것:
+
+- 실제 스키마, 함수 정의, 트리거, 뷰, RLS 정책, GRANT
+- 실제 호출 관계(누가 누구를 부르는가)
+- Flutter/API 호출자
+- cron/background job 정의
+- 실제 테스트 실행 결과
+
+Fable이 오직 이것들만으로 재구성해야 하는 것:
+
+- 실제 도메인 경계
+- 실제 상태 머신
+- 실제 권한 모델
+- 결제 → KDS 흐름
+- 감사 경로
+- 실패 복구 경로
+- 도달 불가능 상태
+- 중복 엔진(같은 상태를 바꾸는 함수가 둘 이상 존재하는 경우)
+- 우회 경로
+- 고아 함수(호출자 없는 함수)
+
+### 45.2 Pass B — 문서 기반 의도 모델 추출 (Pass A와 별도로, 섞지 않음)
+
+기존 설계 문서(`Overview.md`/`Logic.md` 등)만 보고 다음을 추출한다:
+
+- 의도된 아키텍처
+- 정책상 상태 머신
+- 정책상 권한 경계
+- 금지된 우회 경로
+- 예상 복구 경로
+
+이 Pass는 Pass A와 반드시 별도 세션/별도 컨텍스트로 수행해 서로 오염되지 않게 한다 — Pass A 수행자가 Pass B의 문서를 미리 봐서는 안 되고, 그 역도 마찬가지다.
+
+### 45.3 Pass C — As-Designed vs As-Built 비교, 9개 분류
+
+Pass A(실제 구현)와 Pass B(문서상 의도) 사이의 모든 차이를 다음 9개 카테고리 중 하나로 분류한다:
+
+1. **Implementation Defect** — 문서는 맞고 코드가 틀림
+2. **Documentation Drift** — 코드는 의도대로 바뀌었지만 문서가 낡음
+3. **Architecture Divergence** — 코드와 문서가 서로 다른 모델을 따름
+4. **Dead Design** — 문서엔 있으나 미구현
+5. **Undocumented Runtime** — 구현됐지만 문서 없음
+6. **Duplicate Authority** — 같은 상태를 바꾸는 엔진이 둘 이상
+7. **Bypass Path** — 정식 게이트 우회 경로
+8. **Orphan Function** — 호출자가 없거나 미완성
+9. **False Verification** — PASS로 기록된 문서가 실제 실행 증거와 불일치
+
+### 45.4 Pass D — 실제 시나리오 재생 (정적 역설계로 끝내지 않음)
+
+Pass A-C가 정적 분석에 그치지 않도록, 실제 DB에서 대표 시나리오를 재생하고 그 결과를 역설계한 상태 머신과 대조한다. 최소 다음 시나리오를 포함:
+
+- POS 결제
+- Toss 웹훅
+- VAN 승인
+- 결제 uncertain 복구
+- 취소 후 재승인
+- KDS capacity overload
+- capacity 해소 후 재방출
+- 중복 웹훅(재전송)
+- no-show 후 늦은 도착
+- 테이블 착석과 세션 바인딩
+
+### 45.5 검증 독립성의 3축 — 이 계획에도 적용할 후보
+
+§38.4(검증 방법 독립성 원칙)가 확립한 "다른 AI + 다른 검증 방법 + 다른 입력 순서가 함께 있어야 진짜 독립"이라는 원칙을, 이 Fable 역설계 작업에도 그대로 적용할 후보로 기록한다:
+
+- AI 1: 문서-코드 정합성 검사(정적 대조)
+- AI 2: 코드만 보고 역설계(Pass A와 동일한 블라인드 방식)
+- AI 3: 실제 DB 실행과 상태 전이 검사(Pass D와 동일한 동적 재현)
+- Claude: 셋의 충돌 감사
+- Human: 정책 결정
+
+### 45.6 이 섹션의 지위
+
+이 섹션은 계획 기록일 뿐이다 — MVP(Phase 1/2) 완성이 확인된 뒤, Human이 별도로 착수 여부/시점/스코프를 결정한다. 그 전까지는 어떤 진행 중인 워크패킷도 이 섹션의 존재를 실행 승인이나 우선순위 판단의 근거로 사용할 수 없다.
+
+(2026-07-18, ChatGPT 제안 4-Pass 구조 기반 기록)
