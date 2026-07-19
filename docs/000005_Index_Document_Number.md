@@ -226,6 +226,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000700_ai_agent_prelearning_and_project_context\000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md | 00713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000714_Readme_Implementation_Lifecycle_Governance.md | 000714_Readme_Implementation_Lifecycle_Governance. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000715_ContentVerificationLog.md | 000715_ContentVerificationLog. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md | 000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan. | active |
 
 ## 6 docs/000800_pos_gateway_and_provider_integration_foundation
 
@@ -3737,3 +3738,46 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601142_Logic_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601142_Logic — allergen_info/is_kds_required/kitchen_zone/display_order + category display_order Slice 2 design. | active |
 | docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601143_TestPlan_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601143_TestPlan — sibling-overwrite correction verification plan. | active |
 | docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601144_ChangeContract — sibling-overwrite correction boundary, APPROVED, ACCEPT, implemented as a second in-place sync of 0110 (audit section locally uncommitted). | active |
+
+## 147 docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601301_Master_Tracker.md | 601301_Master_Tracker — Fable blind reverse-engineering audit program, 6-domain × Pass A/B/C progress table, Known Prior Finding warning (601210/601211/601212 withheld from Pass A), Pass immutability principle, Modularization Entry Gate. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601310_domain_00_common_auth\601311_PassA_Blind_Reverse_Engineering_Common_Auth.md | Domain 00 (common/auth) Pass A — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601310_domain_00_common_auth\601312_PassB_Intent_Comparison_Common_Auth.md | Domain 00 (common/auth) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601310_domain_00_common_auth\601313_PassC_Confirmed_Gaps_And_Disposition_Common_Auth.md | Domain 00 (common/auth) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601320_domain_01_payment\601321_PassA_Blind_Reverse_Engineering_Payment.md | Domain 01 (payment) Pass A — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601320_domain_01_payment\601322_PassB_Intent_Comparison_Payment.md | Domain 01 (payment) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601320_domain_01_payment\601323_PassC_Confirmed_Gaps_And_Disposition_Payment.md | Domain 01 (payment) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601330_domain_02_waiting_order\601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md | Domain 02 (waiting/order session) Pass A — PLACEHOLDER, NOT_STARTED; input to be re-split into 5 slices by Cursor. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601330_domain_02_waiting_order\601332_PassB_Intent_Comparison_Waiting_Order.md | Domain 02 (waiting/order session) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601330_domain_02_waiting_order\601333_PassC_Confirmed_Gaps_And_Disposition_Waiting_Order.md | Domain 02 (waiting/order session) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601340_domain_03_store_admin\601341_PassA_Blind_Reverse_Engineering_Store_Admin.md | Domain 03 (store admin console) Pass A — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601340_domain_03_store_admin\601342_PassB_Intent_Comparison_Store_Admin.md | Domain 03 (store admin console) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601340_domain_03_store_admin\601343_PassC_Confirmed_Gaps_And_Disposition_Store_Admin.md | Domain 03 (store admin console) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601350_domain_04_kds_did\601351_PassA_Blind_Reverse_Engineering_Kds_Did.md | Domain 04 (KDS/DID) Pass A — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601350_domain_04_kds_did\601352_PassB_Intent_Comparison_Kds_Did.md | Domain 04 (KDS/DID) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601350_domain_04_kds_did\601353_PassC_Confirmed_Gaps_And_Disposition_Kds_Did.md | Domain 04 (KDS/DID) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601360_domain_05_cms\601361_PassA_Blind_Reverse_Engineering_Cms.md | Domain 05 (CMS) Pass A — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601360_domain_05_cms\601362_PassB_Intent_Comparison_Cms.md | Domain 05 (CMS) Pass B — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601360_domain_05_cms\601363_PassC_Confirmed_Gaps_And_Disposition_Cms.md | Domain 05 (CMS) Pass C — PLACEHOLDER, NOT_STARTED. | active |
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601390_Modularization_Integration_Plan.md | 601390_Modularization_Integration_Plan — Phase 4 final deliverable, PLACEHOLDER gated by Entry Gate (all 6 domains Pass A/B/C DONE + cross-dedup + Human decision on Critical/High conflicts). | active |
+
+## 148 docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\601401_Master_Tracker.md | 601401_Master_Tracker — Fable design integrity inspection program, 13-domain progress table, Domain 01 Customer Handoff Stage 1/2 complete. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601411_Register_Stage1_File_Inventory_Customer_Handoff.md | 601411_Register — Customer Handoff Stage 1 full file inventory (495 files, metadata table). | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601411_Inventory_Customer_Handoff.ndjson | Machine-readable Stage 1 inventory (495 JSON lines). | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601412_Register_Stage1_Structural_Issues_Customer_Handoff.md | 601412_Register — Customer Handoff Stage 1 structural issue facts (no judgment). | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601413_Register_Stage2_Domain_Classification_Customer_Handoff.md | 601413_Register — Customer Handoff Stage 2 lifecycle-layer classification. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\601420_Register_Slice_Manifest_Customer_Handoff.md | 601420_Register — Customer Handoff 6-slice Fable delivery manifest (sizes, 1-pass feasibility). | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_01_waiting\601421_Slice_Input_Package_Waiting.md | 601421 — Fable slice package: waiting/order session (600600) + migrations + 601412/601413 excerpts. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_02_payment\601422_Slice_Input_Package_Payment.md | 601422 — Fable slice package: payment confirmation (600500) + migrations + 601412/601413 excerpts. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_03_kds_did\601423_Slice_Input_Package_Kds_Did.md | 601423 — Fable slice package: KDS/DID (600400/600800) + migrations + 601412/601413 excerpts. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_04_customer_handoff_policy\601424_Slice_Input_Package_Customer_Handoff_Policy.md | 601424 — Fable slice package: customer handoff policy (005000) + patent (900000) + migrations + excerpts. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_04_customer_handoff_policy\601427_Report_Fable_Design_Integrity_Inspection_Slice_04_Customer_Handoff_Policy.md | 601427_Report — Fable design integrity inspection result for slice_04 (verbatim §9.1–§9.9; 16 findings). | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_05_runtime_flow\601425_Slice_Input_Package_Runtime_Flow.md | 601425 — Fable slice package: runtime flow (700000) + migrations + 601412/601413 excerpts. | active |
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_06_app_layer\601426_Slice_Input_Package_App_Layer.md | 601426 — Fable slice package: Flutter/app layer (600200 + catchmenu_app) + migrations + excerpts. | active |

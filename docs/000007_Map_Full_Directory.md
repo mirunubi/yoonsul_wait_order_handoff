@@ -214,7 +214,8 @@ docs/
   |   +--- 000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md
   |   +--- 000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md
   |   +--- 000714_Readme_Implementation_Lifecycle_Governance.md
-  |   \--- 000715_ContentVerificationLog.md
+  |   +--- 000715_ContentVerificationLog.md
+  |   \--- 000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md
   +--- 000800_pos_gateway_and_provider_integration_foundation/
   |   +--- 000800_Readme_POS_Gateway_And_Provider_Integration_Foundation.md
   |   +--- 000801_Boundary_POS_Gateway_Order_Payment_Provider_And_Runtime_Authority.md
@@ -2328,6 +2329,57 @@ docs/
   |   |   |   +--- 601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md
   |   |   +--- 601100_Readme_Store_Admin_Console.md
   |   |   +--- 601102_NavigationMap_Store_Admin_Console.md
+  |   +--- 601300_fable_blind_reverse_engineering_audit/
+  |   |   +--- 601310_domain_00_common_auth/
+  |   |   |   +--- 601311_PassA_Blind_Reverse_Engineering_Common_Auth.md
+  |   |   |   +--- 601312_PassB_Intent_Comparison_Common_Auth.md
+  |   |   |   +--- 601313_PassC_Confirmed_Gaps_And_Disposition_Common_Auth.md
+  |   |   +--- 601320_domain_01_payment/
+  |   |   |   +--- 601321_PassA_Blind_Reverse_Engineering_Payment.md
+  |   |   |   +--- 601322_PassB_Intent_Comparison_Payment.md
+  |   |   |   +--- 601323_PassC_Confirmed_Gaps_And_Disposition_Payment.md
+  |   |   +--- 601330_domain_02_waiting_order/
+  |   |   |   +--- 601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md
+  |   |   |   +--- 601332_PassB_Intent_Comparison_Waiting_Order.md
+  |   |   |   +--- 601333_PassC_Confirmed_Gaps_And_Disposition_Waiting_Order.md
+  |   |   +--- 601340_domain_03_store_admin/
+  |   |   |   +--- 601341_PassA_Blind_Reverse_Engineering_Store_Admin.md
+  |   |   |   +--- 601342_PassB_Intent_Comparison_Store_Admin.md
+  |   |   |   +--- 601343_PassC_Confirmed_Gaps_And_Disposition_Store_Admin.md
+  |   |   +--- 601350_domain_04_kds_did/
+  |   |   |   +--- 601351_PassA_Blind_Reverse_Engineering_Kds_Did.md
+  |   |   |   +--- 601352_PassB_Intent_Comparison_Kds_Did.md
+  |   |   |   +--- 601353_PassC_Confirmed_Gaps_And_Disposition_Kds_Did.md
+  |   |   +--- 601360_domain_05_cms/
+  |   |   |   +--- 601361_PassA_Blind_Reverse_Engineering_Cms.md
+  |   |   |   +--- 601362_PassB_Intent_Comparison_Cms.md
+  |   |   |   +--- 601363_PassC_Confirmed_Gaps_And_Disposition_Cms.md
+  |   |   +--- 601301_Master_Tracker.md
+  |   |   +--- 601390_Modularization_Integration_Plan.md
+  |   +--- 601400_fable_design_integrity_inspection/
+  |   |   +--- domain_01_customer_handoff/
+  |   |   |   +--- 601411_Register_Stage1_File_Inventory_Customer_Handoff.md
+  |   |   |   +--- 601411_Inventory_Customer_Handoff.ndjson
+  |   |   |   +--- 601412_Register_Stage1_Structural_Issues_Customer_Handoff.md
+  |   |   |   +--- 601413_Register_Stage2_Domain_Classification_Customer_Handoff.md
+  |   |   |   +--- slices/
+  |   |   |   |   +--- slice_04_customer_handoff_policy/
+  |   |   |   |   |   +--- 601424_Slice_Input_Package_slice_04_customer_handoff_policy.md
+  |   |   |   |   |   +--- 601427_Report_Fable_Design_Integrity_Inspection_Slice_04_Customer_Handoff_Policy.md
+  |   |   |   |   |   +--- slice_04_customer_handoff_policy_migrations_concat.sql
+  |   |   +--- domain_02_payment_ledger_kds/
+  |   |   +--- domain_03_waiting_call_no_show/
+  |   |   +--- domain_04_order_cancel_refund/
+  |   |   +--- domain_05_menu_option_personalization/
+  |   |   +--- domain_06_pos_provider_gateway/
+  |   |   +--- domain_07_sop_agent_fallback/
+  |   |   +--- domain_08_inventory_scm/
+  |   |   +--- domain_09_security_rls_audit/
+  |   |   +--- domain_10_franchise_hq/
+  |   |   +--- domain_11_ai_customer_center/
+  |   |   +--- domain_12_saas_multitenant/
+  |   |   +--- domain_13_physical_ai/
+  |   |   +--- 601401_Master_Tracker.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
