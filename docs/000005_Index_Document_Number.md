@@ -7,6 +7,7 @@ This document indexes governance files and the active `docs/` domain documentati
 Documentation paths use five-digit prefixes and approximately 2,000-slot domain bands.
 
 > History (2026-07-20): 697 empty template-shell documents from `Batch 7X Expansion Wave 1` were removed after mechanical verification; see commit `1bf7be7a`. Their intentionally vacant number ranges are retained in Git history.
+> History (2026-07-20): the remaining 158 Batch 7 template shells were removed: `700100`-`700178` (Batch 7D; Readme and `700179` manifest preserved) and quarantined `600100`-`600178` (Batch 7C). This completes the cleanup begun in commit `1bf7be7a`; see the immediately following cleanup commit for the deletion record.
 
 - `active`: current governance or design authority.
 - `initial`: domain landing document.
@@ -1576,91 +1577,6 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | --- | --- | --- |
 | docs\990000_legacy_quarantine\600000_Index_Implementation_Lifecycle.md | 600000_Index_Implementation_Lifecycle. | moved |
 
-## 68 docs/990000_legacy_quarantine/600100_readme_governance
-
-| file path | purpose | current status |
-| --- | --- | --- |
-| docs\990000_legacy_quarantine\600100_readme_governance\600100_Governance_Implementation_Lifecycle_Master_Control_Policy.md | 600100_Governance_Implementation_Lifecycle_Master_Control_Policy. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model.md | 600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control.md | 600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map.md | 600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600104_Checklist_Implementation_Lifecycle_Governance_Preflight_Check.md | 600104_Checklist_Implementation_Lifecycle_Governance_Preflight_Check. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600105_Matrix_Implementation_Lifecycle_Document_Type_To_Gate_Map.md | 600105_Matrix_Implementation_Lifecycle_Document_Type_To_Gate_Map. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600106_Report_Implementation_Lifecycle_Readiness_Status_Summary.md | 600106_Report_Implementation_Lifecycle_Readiness_Status_Summary. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600107_Template_Implementation_Lifecycle_Controlled_Handoff_Cover_Sheet.md | 600107_Template_Implementation_Lifecycle_Controlled_Handoff_Cover_Sheet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600108_Audit_Implementation_Lifecycle_Governance_Compliance_Review.md | 600108_Audit_Implementation_Lifecycle_Governance_Compliance_Review. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600109_Plan_Implementation_Lifecycle_Wave_Execution_Sequencing.md | 600109_Plan_Implementation_Lifecycle_Wave_Execution_Sequencing. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600110_Checklist_Code_Handoff_Readiness_Master_Check.md | 600110_Checklist_Code_Handoff_Readiness_Master_Check. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600111_Template_Code_Handoff_Readiness_Request_Template.md | 600111_Template_Code_Handoff_Readiness_Request_Template. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600112_Matrix_Code_Handoff_Readiness_Evidence_To_Gate_Map.md | 600112_Matrix_Code_Handoff_Readiness_Evidence_To_Gate_Map. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600113_Report_Code_Handoff_Readiness_Open_Item_Report.md | 600113_Report_Code_Handoff_Readiness_Open_Item_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600114_Register_Code_Handoff_Readiness_Blocker_Register.md | 600114_Register_Code_Handoff_Readiness_Blocker_Register. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600115_Runbook_Code_Handoff_Readiness_Document_Packet_Assembly.md | 600115_Runbook_Code_Handoff_Readiness_Document_Packet_Assembly. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600116_Evidence_Code_Handoff_Readiness_Approval_Evidence_Packet.md | 600116_Evidence_Code_Handoff_Readiness_Approval_Evidence_Packet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600117_Handoff_Code_Handoff_Readiness_To_Reviewer_Packet.md | 600117_Handoff_Code_Handoff_Readiness_To_Reviewer_Packet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600118_Checklist_Code_Handoff_Readiness_No_Implementation_Guard.md | 600118_Checklist_Code_Handoff_Readiness_No_Implementation_Guard. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600119_Report_Code_Handoff_Readiness_Closeout_Report.md | 600119_Report_Code_Handoff_Readiness_Closeout_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600120_WorkPackage_WorkPackage_Intake_Request_Envelope.md | 600120_WorkPackage_WorkPackage_Intake_Request_Envelope. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600121_Template_WorkPackage_Intake_Problem_Statement_Template.md | 600121_Template_WorkPackage_Intake_Problem_Statement_Template. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600122_Checklist_WorkPackage_Intake_Readiness_Checklist.md | 600122_Checklist_WorkPackage_Intake_Readiness_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600123_Matrix_WorkPackage_Intake_Source_To_Output_Map.md | 600123_Matrix_WorkPackage_Intake_Source_To_Output_Map. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600124_Register_WorkPackage_Intake_Open_Question_Register.md | 600124_Register_WorkPackage_Intake_Open_Question_Register. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600125_Evidence_WorkPackage_Intake_Evidence_Bundle.md | 600125_Evidence_WorkPackage_Intake_Evidence_Bundle. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600126_Handoff_WorkPackage_Intake_To_Implementation_Planning_Handoff.md | 600126_Handoff_WorkPackage_Intake_To_Implementation_Planning_Handoff. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600127_Report_WorkPackage_Intake_Rejection_And_Deferral_Report.md | 600127_Report_WorkPackage_Intake_Rejection_And_Deferral_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600128_Plan_WorkPackage_Intake_Prioritization_Plan.md | 600128_Plan_WorkPackage_Intake_Prioritization_Plan. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600129_Audit_WorkPackage_Intake_Traceability_Audit.md | 600129_Audit_WorkPackage_Intake_Traceability_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600130_Evidence_Dependency_Graph_Source_Document_Evidence.md | 600130_Evidence_Dependency_Graph_Source_Document_Evidence. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600131_Matrix_Dependency_Graph_Node_And_Edge_Review_Matrix.md | 600131_Matrix_Dependency_Graph_Node_And_Edge_Review_Matrix. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600132_Checklist_Dependency_Graph_Completeness_Checklist.md | 600132_Checklist_Dependency_Graph_Completeness_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600133_Audit_Dependency_Graph_Change_Impact_Audit.md | 600133_Audit_Dependency_Graph_Change_Impact_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600134_Report_Dependency_Graph_Risk_And_Gap_Report.md | 600134_Report_Dependency_Graph_Risk_And_Gap_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600135_Evidence_Runtime_Flow_Diagram_Source_Evidence.md | 600135_Evidence_Runtime_Flow_Diagram_Source_Evidence. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600136_Matrix_Runtime_Flow_Diagram_To_Module_Trace_Matrix.md | 600136_Matrix_Runtime_Flow_Diagram_To_Module_Trace_Matrix. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600137_Checklist_Runtime_Flow_Diagram_Review_Checklist.md | 600137_Checklist_Runtime_Flow_Diagram_Review_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600138_Report_Runtime_Flow_Diagram_Missing_Evidence_Report.md | 600138_Report_Runtime_Flow_Diagram_Missing_Evidence_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600139_Audit_Runtime_Flow_Diagram_No_Code_Change_Audit.md | 600139_Audit_Runtime_Flow_Diagram_No_Code_Change_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600140_Evidence_Module_Impact_Map_Source_Evidence.md | 600140_Evidence_Module_Impact_Map_Source_Evidence. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600141_Matrix_Module_Impact_Map_Module_To_Document_Matrix.md | 600141_Matrix_Module_Impact_Map_Module_To_Document_Matrix. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600142_Checklist_Module_Impact_Map_Completeness_Checklist.md | 600142_Checklist_Module_Impact_Map_Completeness_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600143_Report_Module_Impact_Map_Risk_Report.md | 600143_Report_Module_Impact_Map_Risk_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600144_Audit_Module_Impact_Map_Review_Audit.md | 600144_Audit_Module_Impact_Map_Review_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600145_Evidence_Test_Coverage_Map_Source_Evidence.md | 600145_Evidence_Test_Coverage_Map_Source_Evidence. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600146_Matrix_Test_Coverage_Map_Test_To_Document_Matrix.md | 600146_Matrix_Test_Coverage_Map_Test_To_Document_Matrix. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600147_Checklist_Test_Coverage_Map_Gap_Checklist.md | 600147_Checklist_Test_Coverage_Map_Gap_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600148_Report_Test_Coverage_Map_Missing_Coverage_Report.md | 600148_Report_Test_Coverage_Map_Missing_Coverage_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600149_Audit_Test_Coverage_Map_Review_Audit.md | 600149_Audit_Test_Coverage_Map_Review_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600150_Boundary_Codex_Implementation_Boundary_Control.md | 600150_Boundary_Codex_Implementation_Boundary_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600151_Checklist_Codex_Implementation_Boundary_Preflight_Check.md | 600151_Checklist_Codex_Implementation_Boundary_Preflight_Check. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600152_Audit_Codex_Implementation_Boundary_Compliance_Audit.md | 600152_Audit_Codex_Implementation_Boundary_Compliance_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600153_Boundary_Cursor_Search_Boundary_Control.md | 600153_Boundary_Cursor_Search_Boundary_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600154_Checklist_Cursor_Search_Boundary_Preflight_Check.md | 600154_Checklist_Cursor_Search_Boundary_Preflight_Check. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600155_Audit_Cursor_Search_Boundary_Compliance_Audit.md | 600155_Audit_Cursor_Search_Boundary_Compliance_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600156_Boundary_Claude_Review_Boundary_Control.md | 600156_Boundary_Claude_Review_Boundary_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600157_Checklist_Claude_Review_Boundary_Preflight_Check.md | 600157_Checklist_Claude_Review_Boundary_Preflight_Check. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600158_Audit_Claude_Review_Boundary_Compliance_Audit.md | 600158_Audit_Claude_Review_Boundary_Compliance_Audit. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600159_Governance_Human_Approval_Gate_Control.md | 600159_Governance_Human_Approval_Gate_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600160_Template_Human_Approval_Gate_Decision_Record_Template.md | 600160_Template_Human_Approval_Gate_Decision_Record_Template. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600161_Register_Human_Approval_Gate_Approver_Register.md | 600161_Register_Human_Approval_Gate_Approver_Register. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600162_Checklist_Local_Verification_Gate_Checklist.md | 600162_Checklist_Local_Verification_Gate_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600163_Runbook_Local_Verification_Gate_Runbook.md | 600163_Runbook_Local_Verification_Gate_Runbook. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600164_Evidence_Local_Verification_Gate_Evidence_Packet.md | 600164_Evidence_Local_Verification_Gate_Evidence_Packet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600165_Audit_Audit_Review_Gate_Control.md | 600165_Audit_Audit_Review_Gate_Control. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600166_Checklist_Audit_Review_Gate_Checklist.md | 600166_Checklist_Audit_Review_Gate_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600167_Report_Audit_Review_Gate_Findings_Report.md | 600167_Report_Audit_Review_Gate_Findings_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600168_Checklist_Commit_Readiness_Gate_Checklist.md | 600168_Checklist_Commit_Readiness_Gate_Checklist. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600169_Template_Commit_Readiness_Gate_Commit_Message_Template.md | 600169_Template_Commit_Readiness_Gate_Commit_Message_Template. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600170_Report_Commit_Readiness_Gate_Closeout_Report.md | 600170_Report_Commit_Readiness_Gate_Closeout_Report. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600171_Evidence_Rollback_Evidence_Packet.md | 600171_Evidence_Rollback_Evidence_Packet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600172_Runbook_Rollback_Evidence_Collection_Runbook.md | 600172_Runbook_Rollback_Evidence_Collection_Runbook. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600173_Register_Release_Hold_And_Waiver_Register.md | 600173_Register_Release_Hold_And_Waiver_Register. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600174_Template_Release_Hold_Waiver_Request_Template.md | 600174_Template_Release_Hold_Waiver_Request_Template. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600175_Evidence_Post_Implementation_Evidence_Packet.md | 600175_Evidence_Post_Implementation_Evidence_Packet. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600176_Matrix_Diff_Review_Matrix.md | 600176_Matrix_Diff_Review_Matrix. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600177_Governance_Safety_No_Runtime_Without_Approval_Guardrail.md | 600177_Governance_Safety_No_Runtime_Without_Approval_Guardrail. | moved |
-| docs\990000_legacy_quarantine\600100_readme_governance\600178_Matrix_Cross_Document_Traceability_Matrix.md | 600178_Matrix_Cross_Document_Traceability_Matrix. | moved |
-| docs\000700_ai_agent_prelearning_and_project_context\000701_Guide_Controlled_AI_Development_Pipeline.md | 000701_Guide_Controlled_AI_Development_Pipeline. | active |
-
 ## 69 docs/990000_legacy_quarantine/601000_olm_model
 
 | file path | purpose | current status |
@@ -2398,85 +2314,6 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\700000_runtime_flow_bundle\700000_Readme_Runtime_Flow_Bundle.md | 700000_Readme_Runtime_Flow_Bundle. | active |
-| docs\700000_runtime_flow_bundle\700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md | 700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control. | active |
-| docs\700000_runtime_flow_bundle\700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md | 700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model. | active |
-| docs\700000_runtime_flow_bundle\700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md | 700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary. | active |
-| docs\700000_runtime_flow_bundle\700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md | 700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register. | active |
-| docs\700000_runtime_flow_bundle\700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check.md | 700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check. | active |
-| docs\700000_runtime_flow_bundle\700105_Matrix_Runtime_Flow_Bundle_Document_Type_To_Evidence_Map.md | 700105_Matrix_Runtime_Flow_Bundle_Document_Type_To_Evidence_Map. | active |
-| docs\700000_runtime_flow_bundle\700106_Report_Runtime_Flow_Bundle_Readiness_Status_Report.md | 700106_Report_Runtime_Flow_Bundle_Readiness_Status_Report. | active |
-| docs\700000_runtime_flow_bundle\700107_Template_Runtime_Flow_Bundle_Controlled_Evidence_Cover_Sheet.md | 700107_Template_Runtime_Flow_Bundle_Controlled_Evidence_Cover_Sheet. | active |
-| docs\700000_runtime_flow_bundle\700108_Audit_Runtime_Flow_Bundle_Governance_Compliance_Audit.md | 700108_Audit_Runtime_Flow_Bundle_Governance_Compliance_Audit. | active |
-| docs\700000_runtime_flow_bundle\700109_Plan_Runtime_Flow_Bundle_Evidence_Expansion_Sequencing.md | 700109_Plan_Runtime_Flow_Bundle_Evidence_Expansion_Sequencing. | active |
-| docs\700000_runtime_flow_bundle\700110_Boundary_External_Integration_Boundary_Master_Control.md | 700110_Boundary_External_Integration_Boundary_Master_Control. | active |
-| docs\700000_runtime_flow_bundle\700111_Matrix_External_Integration_System_To_Flow_Map.md | 700111_Matrix_External_Integration_System_To_Flow_Map. | active |
-| docs\700000_runtime_flow_bundle\700112_Checklist_External_Integration_Boundary_Readiness_Check.md | 700112_Checklist_External_Integration_Boundary_Readiness_Check. | active |
-| docs\700000_runtime_flow_bundle\700113_Register_External_Integration_Provider_Contact_And_Owner_Register.md | 700113_Register_External_Integration_Provider_Contact_And_Owner_Register. | active |
-| docs\700000_runtime_flow_bundle\700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet.md | 700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700115_Audit_External_Integration_Boundary_Compliance_Audit.md | 700115_Audit_External_Integration_Boundary_Compliance_Audit. | active |
-| docs\700000_runtime_flow_bundle\700116_Report_External_Integration_Open_Risk_Report.md | 700116_Report_External_Integration_Open_Risk_Report. | active |
-| docs\700000_runtime_flow_bundle\700117_Template_External_Integration_Evidence_Request_Template.md | 700117_Template_External_Integration_Evidence_Request_Template. | active |
-| docs\700000_runtime_flow_bundle\700118_Runbook_External_Integration_Evidence_Collection_Runbook.md | 700118_Runbook_External_Integration_Evidence_Collection_Runbook. | active |
-| docs\700000_runtime_flow_bundle\700119_Handoff_External_Integration_To_Runtime_Flow_Handoff.md | 700119_Handoff_External_Integration_To_Runtime_Flow_Handoff. | active |
-| docs\700000_runtime_flow_bundle\700120_Overview_POS_Provider_Runtime_Flow_Overview.md | 700120_Overview_POS_Provider_Runtime_Flow_Overview. | active |
-| docs\700000_runtime_flow_bundle\700121_Matrix_POS_Provider_Request_Response_State_Matrix.md | 700121_Matrix_POS_Provider_Request_Response_State_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist.md | 700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet.md | 700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700124_Report_POS_Provider_Runtime_Flow_Exception_Report.md | 700124_Report_POS_Provider_Runtime_Flow_Exception_Report. | active |
-| docs\700000_runtime_flow_bundle\700125_Overview_VAN_PG_Runtime_Evidence_Model.md | 700125_Overview_VAN_PG_Runtime_Evidence_Model. | active |
-| docs\700000_runtime_flow_bundle\700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix.md | 700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700127_Checklist_VAN_PG_Runtime_Evidence_Checklist.md | 700127_Checklist_VAN_PG_Runtime_Evidence_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet.md | 700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700129_Audit_VAN_PG_Runtime_Evidence_Audit.md | 700129_Audit_VAN_PG_Runtime_Evidence_Audit. | active |
-| docs\700000_runtime_flow_bundle\700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow.md | 700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow. | active |
-| docs\700000_runtime_flow_bundle\700131_Matrix_Payment_State_Transition_To_Evidence_Matrix.md | 700131_Matrix_Payment_State_Transition_To_Evidence_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700132_Checklist_Payment_Flow_Verification_Checklist.md | 700132_Checklist_Payment_Flow_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet.md | 700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700134_Report_Payment_Flow_Exception_And_Reconciliation_Report.md | 700134_Report_Payment_Flow_Exception_And_Reconciliation_Report. | active |
-| docs\700000_runtime_flow_bundle\700135_Overview_KDS_Event_Projection_Flow_Overview.md | 700135_Overview_KDS_Event_Projection_Flow_Overview. | active |
-| docs\700000_runtime_flow_bundle\700136_Matrix_KDS_Event_To_Kitchen_Ticket_Matrix.md | 700136_Matrix_KDS_Event_To_Kitchen_Ticket_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700137_Checklist_KDS_Event_Projection_Verification_Checklist.md | 700137_Checklist_KDS_Event_Projection_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700138_Overview_Kiosk_Order_Submission_Flow_Overview.md | 700138_Overview_Kiosk_Order_Submission_Flow_Overview. | active |
-| docs\700000_runtime_flow_bundle\700139_Matrix_Kiosk_Order_To_POS_And_KDS_Map.md | 700139_Matrix_Kiosk_Order_To_POS_And_KDS_Map. | active |
-| docs\700000_runtime_flow_bundle\700140_Checklist_Kiosk_Order_Submission_Verification_Checklist.md | 700140_Checklist_Kiosk_Order_Submission_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700141_Overview_External_Order_App_Intake_Flow_Overview.md | 700141_Overview_External_Order_App_Intake_Flow_Overview. | active |
-| docs\700000_runtime_flow_bundle\700142_Matrix_External_Order_App_To_Store_Runtime_Map.md | 700142_Matrix_External_Order_App_To_Store_Runtime_Map. | active |
-| docs\700000_runtime_flow_bundle\700143_Checklist_External_Order_App_Intake_Verification_Checklist.md | 700143_Checklist_External_Order_App_Intake_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow.md | 700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow. | active |
-| docs\700000_runtime_flow_bundle\700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix.md | 700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700146_Checklist_Webhook_Verification_And_Replay_Checklist.md | 700146_Checklist_Webhook_Verification_And_Replay_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700147_Evidence_Webhook_Retry_Replay_Evidence_Packet.md | 700147_Evidence_Webhook_Retry_Replay_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700148_Report_Webhook_Failure_And_Replay_Report.md | 700148_Report_Webhook_Failure_And_Replay_Report. | active |
-| docs\700000_runtime_flow_bundle\700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow.md | 700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow. | active |
-| docs\700000_runtime_flow_bundle\700150_Matrix_Settlement_File_Field_To_Ledger_Map.md | 700150_Matrix_Settlement_File_Field_To_Ledger_Map. | active |
-| docs\700000_runtime_flow_bundle\700151_Checklist_Settlement_Reconciliation_Verification_Checklist.md | 700151_Checklist_Settlement_Reconciliation_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700152_Evidence_Settlement_File_Intake_Evidence_Packet.md | 700152_Evidence_Settlement_File_Intake_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700153_Report_Settlement_Reconciliation_Exception_Report.md | 700153_Report_Settlement_Reconciliation_Exception_Report. | active |
-| docs\700000_runtime_flow_bundle\700154_Governance_Idempotency_Duplicate_Prevention_Control.md | 700154_Governance_Idempotency_Duplicate_Prevention_Control. | active |
-| docs\700000_runtime_flow_bundle\700155_Matrix_Duplicate_Prevention_Key_And_State_Matrix.md | 700155_Matrix_Duplicate_Prevention_Key_And_State_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700156_Checklist_Idempotency_Verification_Checklist.md | 700156_Checklist_Idempotency_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700157_Runbook_Dead_Letter_Replay_Recovery_Runbook.md | 700157_Runbook_Dead_Letter_Replay_Recovery_Runbook. | active |
-| docs\700000_runtime_flow_bundle\700158_Matrix_Dead_Letter_To_Recovery_Action_Matrix.md | 700158_Matrix_Dead_Letter_To_Recovery_Action_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700159_Evidence_Dead_Letter_Replay_Evidence_Packet.md | 700159_Evidence_Dead_Letter_Replay_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700160_Runbook_Partial_Failure_Timeout_Provider_Outage_Runbook.md | 700160_Runbook_Partial_Failure_Timeout_Provider_Outage_Runbook. | active |
-| docs\700000_runtime_flow_bundle\700161_Matrix_Provider_Outage_To_Degraded_Mode_Matrix.md | 700161_Matrix_Provider_Outage_To_Degraded_Mode_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700162_Report_Timeout_And_Provider_Outage_Exception_Report.md | 700162_Report_Timeout_And_Provider_Outage_Exception_Report. | active |
-| docs\700000_runtime_flow_bundle\700163_Evidence_Financial_Audit_Trail_Evidence_Packet.md | 700163_Evidence_Financial_Audit_Trail_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700164_Matrix_Financial_Audit_Trail_Event_To_Ledger_Matrix.md | 700164_Matrix_Financial_Audit_Trail_Event_To_Ledger_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700165_Audit_Financial_Audit_Trail_Completeness_Audit.md | 700165_Audit_Financial_Audit_Trail_Completeness_Audit. | active |
-| docs\700000_runtime_flow_bundle\700166_Evidence_Consumer_Protection_Evidence_Packet.md | 700166_Evidence_Consumer_Protection_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700167_Checklist_Consumer_Protection_Verification_Checklist.md | 700167_Checklist_Consumer_Protection_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700168_Boundary_Security_Signature_Verification_Boundary.md | 700168_Boundary_Security_Signature_Verification_Boundary. | active |
-| docs\700000_runtime_flow_bundle\700169_Checklist_Security_Signature_Verification_Checklist.md | 700169_Checklist_Security_Signature_Verification_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700170_Register_Runtime_Owner_And_Escalation_Matrix.md | 700170_Register_Runtime_Owner_And_Escalation_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700171_Matrix_Runtime_Escalation_Severity_And_Action_Matrix.md | 700171_Matrix_Runtime_Escalation_Severity_And_Action_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700172_Evidence_Test_Coverage_Evidence_Packet.md | 700172_Evidence_Test_Coverage_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700173_Matrix_Test_Coverage_To_Runtime_Flow_Matrix.md | 700173_Matrix_Test_Coverage_To_Runtime_Flow_Matrix. | active |
-| docs\700000_runtime_flow_bundle\700174_Checklist_Release_Gate_And_Rollback_Gate_Checklist.md | 700174_Checklist_Release_Gate_And_Rollback_Gate_Checklist. | active |
-| docs\700000_runtime_flow_bundle\700175_Template_Release_Gate_Decision_Record_Template.md | 700175_Template_Release_Gate_Decision_Record_Template. | active |
-| docs\700000_runtime_flow_bundle\700176_Runbook_Rollback_Gate_Runtime_Flow_Runbook.md | 700176_Runbook_Rollback_Gate_Runtime_Flow_Runbook. | active |
-| docs\700000_runtime_flow_bundle\700177_Evidence_Post_Incident_Evidence_Packet.md | 700177_Evidence_Post_Incident_Evidence_Packet. | active |
-| docs\700000_runtime_flow_bundle\700178_Report_Post_Incident_Runtime_Flow_Closeout_Report.md | 700178_Report_Post_Incident_Runtime_Flow_Closeout_Report. | active |
 | docs\700000_runtime_flow_bundle\700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md | 700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1. | active |
 
 ## 100 docs/750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime
