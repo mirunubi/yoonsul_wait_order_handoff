@@ -1,14 +1,18 @@
 # 601211_Overview_Caller_Authorization_Resolver_Pilot.md
 
-Status: Draft
+Status: **Stage 4 완료, Stage 5 이후 보류** — 결정적 선행조건 발견으로 재설계 필요, 후속 Human 결정 대기 (2026-07-18)
 Lifecycle: Overview
-Stage: 1.5 (Claude Code role)
+Stage: 1.5 → 4 완료, Stage 5 착수 보류
 Owner: TBD
 Last Updated: 2026-07-18
 
 ## Change ID
 
 `caller_authorization_resolver_pilot`
+
+## ⚠ 최종 상태 — 이 워크패킷은 여기서 멈춘다 (2026-07-18)
+
+**Claude Code + Cursor의 완전 독립 재확인으로 결론이 일치했다**: 이 문서(§5/§6)가 설계한 `resolve_store_staff_actor()`는 **삭제되지 않았다 — "직원 인증 다리(bridge) 부재"라는 선행조건이 해결되기 전까지 구현 보류 상태로 남는다.** `staff_login()`(`0097`)의 커스텀 세션 시스템(`auth_sessions`)과 Supabase JWT/`current_actor_id()`(`0022`) 사이에 이 프로젝트 어디에도 연결이 없다는 것이 확인됐다 — §5가 전제한 "JWT의 `sub` = `staff.id`"라는 가정 자체가 현재 이 코드베이스에서 성립할 근거가 없다(신규 Open Item (f), 최우선/CRITICAL). 이 발견 이후 이 워크패킷은 resolver 설계를 더 진행하지 않고 여기서 멈춘다 — 대안(택1) 설계는 오늘 하지 않는다.
 
 ## §0 번호 확인 — 신규 프로그램 배정
 
@@ -111,7 +115,9 @@ $function$
 
 **결론**: 이 프로젝트는 이미 `auth.uid()`와 동등한, 안전하게 구현된 자체 래퍼(`current_actor_id()`)를 갖고 있다 — Cursor의 "486개 RPC 중 `auth.uid()` 리터럴 사용 0건"이라는 관찰은 정확하지만, "이 프로젝트에 신뢰 가능한 JWT 기반 신원 확인 수단이 전혀 없다"는 뜻으로 오독하면 안 된다 — 그 수단은 **존재하지만 거의 안 쓰인다**(라이브 재확인: `current_actor_id()`를 실제로 호출하는 파일은 전체 마이그레이션 중 `0143` 단 하나뿐, `grep -rl "current_actor_id()" sql/migrations/*.sql` → 정의 파일(`0022`) + 소비 파일(`0143`) 2건). Resolver 설계는 이 기존의 신뢰 가능한 원시 함수를 재사용해야 하며, 새로운 신원 확인 메커니즘을 발명할 필요가 없다(§5).
 
-## §5 Resolver 설계 — `resolve_store_staff_actor()`
+## §5 Resolver 설계 — `resolve_store_staff_actor()` — **[보류: 전제조건 미충족, §8 (f)]**
+
+**이 섹션의 설계는 삭제되지 않았다 — "직원 인증 다리 부재"(§8 (f)) 문제가 해결되기 전까지 구현으로 진행할 수 없는 상태로 보류된다.** 이하 §5.1-§5.3의 설계 자체는 그 당시(§4까지의 확인 결과 기준) 유효한 논리적 귀결이었으나, 이후 추가 조사(Claude Code + Cursor 완전 독립 재확인, ⚠ 최종 상태 참고)에서 "JWT의 `sub` = `staff.id`"라는 이 설계의 핵심 전제 자체가 이 코드베이스에서 실제로 성립한다는 증거가 없음이 밝혀졌다 — `current_actor_id()`가 신뢰 가능하다는 §4의 결론은 여전히 유효하지만(`current_actor_id()` 자체는 정확히 JWT `sub`를 반환한다), **그 `sub` 값을 특정 `staff.id`로 연결하는 로그인 흐름이 이 프로젝트 어디에도 없다.** 즉 §5의 resolver가 실행될 실제 운영 환경에서는, 정상적으로 로그인한 스태프의 JWT `sub`가 애초에 그 사람의 `staff.id`와 같은 값일 이유가 없다 — 이 설계를 지금 구현하면 "항상 실패하거나(스태프가 존재하지 않는 것처럼 보임) 우연의 일치로만 성공하는" 함수가 된다.
 
 ### §5.1 시그니처와 반환 계약
 
@@ -169,7 +175,9 @@ resolve_store_staff_actor(
 
 `0143` 자체는 이번 워크패킷에서 수정하지 않는다(범위 밖, §7 확정 범위). 향후(별도 워크패킷) `0143`을 이 신규 resolver를 호출하도록 리팩터링할 수 있다는 가능성만 Open Item으로 남긴다 — 지금은 순수 신규 함수 설계 + `call_next_waiting_customer()` 1곳 파일럿 적용만 확정한다.
 
-## §6 파일럿 적용 대상 — `call_next_waiting_customer()`만
+## §6 파일럿 적용 대상 — `call_next_waiting_customer()`만 — **[보류: §5와 동일한 전제조건 미충족으로 진행 불가]**
+
+**§5가 보류 상태이므로 이 파일럿 적용도 함께 보류된다.** 아래 설계는 §5의 resolver가 실제로 신뢰 가능해질 때(§8 (f)의 세 가지 대안 중 하나가 결정·구현된 이후)까지 적용할 수 없다.
 
 `600670_record_waiting_call_grant_correction`이 이미 이 함수의 실제 라이브 시그니처를 확정했다(`p_tenant_id uuid, p_store_id uuid, p_actor_id uuid default null, p_locale text default 'ko', p_correlation_id text default null`) — 시그니처 자체는 바꾸지 않는다(하위호환, §6.1). 함수 본문 맨 앞에서 `resolve_store_staff_actor(p_tenant_id, p_store_id, p_actor_id)`를 호출하고, 실패 시 즉시 그 `error_key`를 반환한다. 성공 시 resolver가 반환한 `actor_id`(JWT 기반, 호출자가 주장한 값이 아님)를 이후 `_record_waiting_call()` 호출의 `p_actor_id` 인자로 사용한다.
 
@@ -202,6 +210,21 @@ resolve_store_staff_actor(
 
 (e) 여러 매장에 걸쳐 일하는 실제 직원을 위한 UX(로그인 후 매장 선택/전환 방식)가 이 1행=1매장 모델과 어떻게 상호작용하는지는 이번 조사 범위 밖 — Flutter/스태프 앱 설계 문서 확인 필요.
 
+(f) **[신규, 2026-07-18, 최우선/CRITICAL — `caller_authorization_foundation` 프로그램 전체의 진짜 선행조건]** 직원 인증 다리(bridge) 부재. Claude Code와 Cursor가 완전 독립적으로 재확인해 결론이 일치했다:
+
+- `staff_login()`(`0097`)은 커스텀 세션 시스템(무작위 hex `session_token`/`refresh_token`, `catchmenu_common.auth_sessions`에 해시 저장)을 구현하지만, Supabase Auth의 JWT/`request.jwt.claims`/`auth.uid()` 어디와도 연결되지 않는다 — `0097` 전체 어디에도 그런 참조가 없다.
+- `catchmenu_common.auth_sessions` 테이블은 라이브 확인 결과 **0행**(어떤 종류의 세션도 이 DB에 한 번도 기록된 적 없음).
+- `0143`(이 프로젝트에서 `current_actor_id()`를 실제로 쓰는 유일한 함수)은 라이브 감사기록(`catchmenu_ledger.audit_records where audit_type='kds_no_payment_policy_released'`) 재확인 결과 **0건** — 이 함수 자체가 역사상 단 한 번도 실행된 적이 없다. 즉 "JWT `sub`가 `staff.id`와 일치한다"는 이 함수의 전제 자체가 실전에서 단 한 번도 검증된 적이 없다.
+- `staff_login()`을 호출하는 클라이언트 코드는 `catchmenu_app`(Flutter, 실제 소스 14개 파일 전수 확인)과 `apps/staff-web/`(내용물 없음, `.gitkeep`만 존재) 어디에도 없다 — 실호출자 0건.
+- `supabase/config.toml`의 `[auth.hook.custom_access_token]`은 의도적으로 끈 것이 아니라 Supabase CLI가 생성하는 기본 템플릿 그대로(전체 커밋 이력 중 이 파일을 건드린 커밋은 "CLI-generated" 라벨의 단 1건뿐, `custom_access_token`을 언급하는 커밋 메시지/설계문서 0건) — 즉 "한 번도 구현되지 않은 상태"이지 "결정 후 비활성화"가 아니다.
+
+**결론**: `resolve_store_staff_actor()`(§5)가 전제하는 "JWT `sub` = `staff.id`" 연결은 이 프로젝트 어디에도 실제로 존재하지 않는다. **해결 방법은 최소 3가지 대안 중 하나(또는 조합)이며, 이번 조사는 판단/설계를 하지 않고 사실만 기록한다**:
+1. `staff` 테이블에 Supabase `auth.users.id`를 가리키는 연결 컬럼을 추가하고, 실제 로그인 시(예: Supabase `signInWithPassword`/`signInAnonymously` 등)이 컬럼을 채우는 흐름을 설계한다.
+2. `auth.hook.custom_access_token` 훅을 실제로 구현해, 로그인 시점에 `staff.id`(또는 그 매핑)를 JWT의 커스텀 클레임으로 주입한다.
+3. Resolver 자체를 `auth_sessions`(커스텀 세션 시스템) 기반으로 재설계해, Supabase JWT를 아예 경유하지 않고 이 프로젝트 자체 토큰 체계로 신원을 해석한다.
+
+이 Open Item의 해결이 `caller_authorization_foundation` 프로그램 전체(이 파일럿 워크패킷뿐 아니라 향후 확장될 나머지 waiting 5함수 + 오늘 신규 4워크패킷 RPC 전부, Open Item (a))의 진짜 선행조건이다 — 이 문제를 해결하지 않고는 어떤 resolver 설계도 실전에서 의미 있게 작동하지 않는다.
+
 ## Module Domain Tags
 
 - SQL (예정 — 이번 턴은 조사/설계만, `.sql` 생성/수정 없음)
@@ -210,3 +233,5 @@ resolve_store_staff_actor(
 ## Snapshot Decision
 
 **확정, `601212_Logic.md`로 이어짐.** `0143`의 3단계 패턴을 "검증된 전사표준"으로 가정하지 않고 전체 본문을 다시 읽어 재검증했다(§3) — `staff` 테이블이 유일한 authoritative source임을 확인했고(§3.1), 직원-매장 관계가 다대다가 아니라 1행=1매장(별도 조인 테이블 없음)임을 라이브 스키마 전수 검색으로 확인했으며(§3.2), `staff_status`(4개 값) + 별도 `is_active`의 이중 비활성화 플래그 존재를 확인했고(§3.3), JWT claim과 DB membership이 "AND" 관계(둘 다 필요)임을 확인했다(§3.4). `catchmenu_common.current_actor_id()`가 Supabase 자체 `auth.uid()`와 기능적으로 동일함을 라이브 함수 정의 직접 대조로 확인했다 — 이 프로젝트에 이미 신뢰 가능한 JWT 기반 신원 확인 원시 함수가 존재하지만 거의 쓰이지 않고 있었을 뿐이다(§4). 이를 재사용하는 `resolve_store_staff_actor()` resolver를 설계했다 — 호출자가 주장하는 `requested_actor_id`가 아니라 JWT에서 해석한 `actor_id`로 `staff` 조회를 수행하는 것이 핵심 원칙이다(§5). `call_next_waiting_customer()`를 유일한 파일럿 적용 대상으로 확정했고, 실호출자 0건이라 호환성 부담이 없음을 재확인했다(§6). 나머지 5개 waiting 함수와 오늘 신규 4워크패킷의 RPC들은 전부 Open Item으로 명시적으로 이월했다(§7/§8). `.sql` 파일은 생성·수정하지 않았다.
+
+**(최종 정정, 2026-07-18 — 이 워크패킷은 여기서 멈춤)** 위 §5/§6 설계 완료 이후, Claude Code와 Cursor가 완전 독립적으로 "직원 인증 다리 부재" 문제를 재확인해 결론이 일치했다 — `staff_login()`/`auth_sessions`(커스텀 세션 시스템)와 Supabase JWT/`current_actor_id()` 사이에 이 프로젝트 어디에도 연결이 없으며, `0143`조차 역사상 한 번도 실행된 적 없다(감사기록 0건, `auth_sessions` 0행). §5/§6의 resolver/파일럿 설계는 **삭제되지 않았다 — 이 선행조건이 해결되기 전까지 구현 보류 상태로 남는다**(신규 Open Item (f), 최우선/CRITICAL). 이 발견 이후 이 세션은 대안 설계(택1: staff-auth.users 연결 컬럼, custom_access_token 훅 구현, 또는 auth_sessions 기반 재설계)를 오늘 진행하지 않고 여기서 멈추며, Fable(장문맥 모델)을 이용한 전체 시스템 블라인드 역설계 논의로 전환됐다.
