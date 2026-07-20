@@ -1,11 +1,11 @@
 # 601443 — Consolidated Owner Decision Registry: Cross-Domain
 
-- Domains: `domain_01_customer_handoff`, `domain_02_payment_ledger_kds` (slices A/B/C/D1/D2/D3 — **6/6 COMPLETED**)
-- Source reports: Domain 01 `601427`, `601429`, `601431`, `601434`, `601435`, `601437`; Domain 02 `601440`, `601442`, `601445`, `601449`, `601450`, `601451`
+- Domains: `domain_01_customer_handoff`, `domain_02_payment_ledger_kds` (**6/6 COMPLETED**), `domain_03_waiting_call_no_show` (**2/2 COMPLETED**)
+- Source reports: Domain 01 `601427`, `601429`, `601431`, `601434`, `601435`, `601437`; Domain 02 `601440`, `601442`, `601445`, `601449`, `601450`, `601451`; Domain 03 `601454`, `601455`
 - Inherited registry: `601438_Consolidated_Owner_Decision_Registry_Domain_01.md` (preserved unchanged)
-- Scope: 12개 완료 슬라이스의 Owner Decision Queue 및 Regular Workpacket Recommendation Queue 통합·중복 제거
+- Scope: 14개 완료 슬라이스의 Owner Decision Queue 및 Regular Workpacket Recommendation Queue 통합·중복 제거
 - Status: Owner decision input — cross-domain expansion
-- Rule: 새 Finding이나 새 처분을 만들지 않고 기존 12개 검사 결과와 Human 확정 기록만 재구성
+- Rule: 새 Finding이나 새 처분을 만들지 않고 기존 14개 검사 결과와 Human 확정 기록만 재구성
 
 ## A. 교차 슬라이스 반복 패턴
 
@@ -101,7 +101,7 @@
 | Payment→KDS release | 6월 004000 정책에는 7월 구현의 capacity gate와 실제 상태 vocabulary가 없음 | 004000을 현행 three-path + capacity-gated 모델로 갱신하거나 superseded planning으로 표시 [`PKDS-F01`] |
 | Payment confirmation authority | 004000과 Financial Trust Room은 단일 provider authority를 전제하지만 구현은 `confirm_payment`와 `confirm_payment_from_provider` 이중 경로 | 단일 authority 또는 명시적 dual-pipeline contract 결정 [`PKDS-F02`, `FTR-F03`, `PAY-F02`] |
 | Payment ledger model | 정책은 append-only/WORM/double-entry이고 구현은 mutable single-row `payment_ledger` | mutable MVP를 interim으로 ratify하고 WORM roadmap을 일정화하거나 canonical intent에서 퇴역 [`FTR-F01`] |
-| No-show KDS fate | Human이 600632에서 `HOLD→NO_SHOW_GRACE→auto-CANCELLED`로 이미 결정 | 새 정책 결정 없음; 특허/상위 문서만 현행화 [`WAIT-F03`] |
+| No-show KDS fate | Human이 600632에서 `HOLD→NO_SHOW_GRACE→auto-CANCELLED` 구현 방향을 결정했으나, EWP-F01이 006410 single-stage / 006520 session-level staff-confirmed / 0161 ticket-level automatic이라는 3중 불일치를 확인 | 구현 방향을 재결정하는 것이 아니라 **노쇼 모델 최종 확정 과제**로 006410/006520/0161과 특허/상위 문서를 canonical model에 맞춰 정합화 [`WAIT-F03`, `EWP-F01`] |
 
 **단일 거버넌스 Workpacket 제안:** `reverse_canonicalization_for_verified_runtime` — 구현 변경이 아니라, Owner 결정 상태에 따라 상위 정본문서를 현재 runtime contract에 맞춰 재작성·supersede하는 별도 트랙이다.
 
@@ -198,10 +198,26 @@ No-show KDS fate는 구현에서 `HOLD→NO_SHOW_GRACE→auto-CANCELLED`로 이�
 ### B11. Four-Side Skeleton + Data Governance (`domain_02` slice_D3)
 
 1. **Actor-identity ownership:** session/JWT→staff identity contract의 design owner를 지정하고 010554 audit mesh의 선행조건으로 둔다. [`FSD-F01`, `CRP-F02`, `601210`]
-2. **Canonical refund vocabulary:** skeleton `REFUND_*`, room `REVERSAL_*`, shipped CHECK 중 canonical을 결정하고 0098을 정정한다. [`FSD-F02`, `SCP-F02`, `PAY-F01`]
+2. **Refund vocabulary finding — superseded/refined:** FSD-F02의 “implementation invention” 진단은 SLB-F01로 정정됐다. 0098은 dominant `REFUND_*` corpus를 따르며, outlier인 `chk_ledger_status`와 010412 `REVERSAL_*`를 정합화한다. [`SLB-F01`, `SCP-F02`, `PAY-F01`; `FSD-F02` superseded]
 3. **KDS late-binding design authority:** upper-skeleton ancestor가 없는 payment→KDS gate의 정본 authority를 문서화한다. [`FSD-F04`, `KDS-F07`]
 4. **Skeleton roadmap:** 010350 §12의 잘못된 room 번호를 교정하거나 superseded로 표시한다. [`FSD-F03`]
 5. **Placeholder/readme disposition:** 010520을 채우거나 퇴역하고 010300/010500 generated Readme를 재작성한다. [`FSD-F05`]
+
+### B12. Entrance Waiting Policy (`domain_03` slice_A)
+
+1. **No-show model finalization:** 006410 single-stage, 006520 session-level staff-confirmed grace, 0161 ticket-level automatic grace를 WAIT-F03의 Human 결정에 맞춰 하나의 canonical model로 정합화한다. [`EWP-F01`, `WAIT-F03`]
+2. **Waiting-status client wiring:** `get_waiting_status`를 `waiting_status_screen.dart`에 연결해 006510 §8/§12의 shared Store Runtime truth를 구현한다. [`EWP-F02`, `WAIT-F09`]
+3. **Preorder→table state contract:** allowed-state whitelist를 Owner가 확정해 진행 중인 600680에 입력한다. [`EWP-F03`, `WAIT-F01`]
+4. **Waiting evidence scope:** 약 21개 evidence event 요구와 SYSTEM-trigger actor attribution을 확정한다. [`EWP-F04`]
+5. **Customer status vocabulary:** 네 개의 overlapping status table을 하나의 canonical mapping으로 통합한다. [`EWP-F05`]
+
+### B13. Store / Legal Boundary (`domain_03` slice_B)
+
+1. **Refund-state reconciliation:** dominant design vocabulary에 맞춰 `chk_ledger_status`를 확장하거나 0098과 corpus를 기존 8값으로 재작성한다. [`SLB-F01`, `SCP-F02`, `PAY-F01`; FSD-F02 정정]
+2. **Seating→table linkage:** WAIT-F01/600680 이후 waiting-originated seating이 `dining_tables.current_session_id`를 반드시 연결하도록 위치를 결정한다. [`SLB-F02`]
+3. **Limited-quantity waiting preorder:** 004120 §32 MVP를 구현하거나 quantity-control 부재를 공식 승인한다. [`SLB-F03`]
+4. **Deposit/no-show legal evidence:** deposit-bearing no-show 전에 refund path와 §23 evidence packet을 요구할지 결정하고 missing 10726 SOP를 작성한다. [`SLB-F04`]
+5. **Four-model no-show ruling:** legal auto-cancel, operational staff-confirmed, base single-stage, implementation ticket-grace 모델을 하나로 정합화한다. [`SLB-F05`, `EWP-F01`, `WAIT-F03`]
 
 ## C. CRITICAL 4건 — 최우선 개별 항목
 
@@ -227,7 +243,16 @@ Domain 02에는 새 CRITICAL이 없으므로 위 CRITICAL 4건 표는 변경하�
 | `SCP-F02` / `PAY-F01` | refund pipeline이 CHECK 제약과 네 가지 방식으로 충돌 | `request_refund`, `confirm_refund`, `chk_ledger_status`, `chk_audit_decision` | 구현은 caller 0인 latent 상태; `0098` 이후 재정의 없음 | **유형 A 최우선:** `REFUND_PENDING`/`REFUND_FAILED` constraint 확장 및 canonical refund engine 결정 |
 | `SCP-F01` | D2의 coding gate도 실제 구현을 전혀 구속하지 못해 D1 패턴이 반복 확정됨 | 010224–010226 gate ↔ 0013/0014/0016/0037/0052/0062/0098/0114 | 34개 정책 모두 deferred; 금지된 구현은 같은 날짜 출하 | D1+D2 실제 승인경로 기록 및 never-opened gate 퇴역/재정의 |
 | `FSD-F01` / `CRP-F02` / `601210` | caller authorization과 audit actor identity에 design owner 및 JWT→staff bridge가 없음 | `current_actor_id()`, staff-scoped RPCs, 010554 four-layer audit mesh | 추상 원칙·구현 bridge 부재·audit의 unverified actor 전제가 3개 슬라이스에서 독립 확인 | **최우선 아키텍처 WP:** caller identity/session→staff contract를 통합 정의 |
-| `FSD-F02` / `SCP-F02` / `PAY-F01` | invalid refund literal의 skeleton→room→SQL 3단계 계보가 완성됨 | 010320 `REFUND_*` → 010412 `REVERSAL_*` → 0098/0014 CHECK | `REFUND_PENDING`은 설계 어디에도 없고 `REFUND_FAILED`는 non-schema skeleton에서 유입; caller 0 latent blocker | 유형 A refund correction에 최종 통합하고 canonical vocabulary를 결정 |
+| `FSD-F02` — **superseded by SLB-F01** | D3의 “`REFUND_PENDING`은 설계 어디에도 없다” 일반화가 후속 독립 slice에서 반박됨 | 실제로 `REFUND_PENDING` ≥10 docs, `REFUND_FAILED` 6 docs; 0098은 dominant corpus를 따름 | FSD-F02의 implementation-invention framing은 폐기; CHECK failure 관찰 자체는 유효 | 아래 SLB-F01/SCP-F02/PAY-F01 유형 A 항목으로 대체 |
+
+### C3. Domain 03 HIGH 4건 — 최우선 항목
+
+| Finding | 한 줄 요약 | 영향받는 실제 함수 / 경로 | 현재 상태 | 기존 보고서의 권장 조치 |
+|---|---|---|---|---|
+| `EWP-F02` / `WAIT-F09` | client-local waiting model이 shared Store Runtime truth 정책을 위반 | `waiting_status_screen.dart`, `get_waiting_status` | server RPC는 존재하고 client wiring만 intentional deferral 상태 | **유형 A 즉시실행:** RPC 연결 및 006510 §12 mapping 구현 |
+| `EWP-F01` / `WAIT-F03` | no-show grace의 object·actor·trigger가 세 모델에서 서로 다름 | `mark_no_show`, `process_expired_no_shows`, 006410/006520 | Human 구현 방향은 있으나 상위 계약이 미정합 | canonical no-show model 최종 확정 및 문서/구현 정합화 |
+| `SLB-F01` / `SCP-F02` / `PAY-F01` | 구현은 dominant refund vocabulary를 따랐고 schema CHECK가 outlier임 | 0098 `request_refund`/`confirm_refund`, 0014 `chk_ledger_status` | `REFUND_PENDING` ≥10 docs, `REFUND_FAILED` 6 docs; FSD-F02의 “invention” 진단은 superseded | **유형 A 최우선:** 0098을 유지하고 `chk_ledger_status`를 확장하는 저비용 해법 우선 |
+| `SLB-F02` | waiting-origin seating이 physical table을 연결하지 않아 occupancy guards가 fail-open | `seat_waiting_customer`, `bind_table_to_session`, 0048/0162 guards | `current_session_id` sole writer는 bind RPC; WAIT-F01이 preorder linkage를 차단 | 600680 완료 후 seating→table linkage fix 실행 |
 
 ## D. 권장 처리 순서
 
@@ -310,7 +335,7 @@ B의 항목은 위 10개에 억지로 합치지 않는다. 먼저 Owner가 정�
 | 순서 | Workpacket 후보 | 커버 범위 | 우선순위 |
 |---:|---|---|---|
 | FSD-WP1 | Caller identity/session→staff contract | `FSD-F01`, `CRP-F02`, `601210` | HIGH |
-| FSD-WP2 | Refund vocabulary canonicalization + 0098 repair | `FSD-F02`, `SCP-F02`, `PAY-F01` | HIGH |
+| FSD-WP2 | Refund vocabulary finding — **SLB-WP1로 superseded/refined** | `FSD-F02` 정정 → `SLB-F01`, `SCP-F02`, `PAY-F01` | HIGH |
 | FSD-WP3 | Payment→KDS late-binding design authority | `FSD-F04`, `KDS-F07` | MEDIUM |
 | FSD-WP4 | Skeleton/room repo-wide numbering reconciliation | `FSD-F03`, `SCP-F04`, `FSC-F03`, `CRP-F04`, `FTR-F04` | MEDIUM |
 | FSD-WP5 | 010520 fill/retire + generated Readme regeneration | `FSD-F05` | LOW |
@@ -319,7 +344,7 @@ B의 항목은 위 10개에 억지로 합치지 않는다. 먼저 Owner가 정�
 
 | 순서 | 통합 과제 | 통합 Finding / 근거 | 우선순위 |
 |---:|---|---|---|
-| D02-1 | Refund pipeline CHECK correction + canonical vocabulary/engine | `FSD-F02`, `SCP-F02`, `PAY-F01` | **HIGH — 유형 A 최우선 즉시실행** |
+| D02-1 | Refund pipeline CHECK correction; 0098 유지 | `SLB-F01`, `SCP-F02`, `PAY-F01`; FSD-F02 superseded | **HIGH — 유형 A 최우선 즉시실행** |
 | D02-2 | Caller identity/session→staff authorization architecture | `FSD-F01`, `CRP-F02`, `601210` | **HIGH — 최우선 아키텍처** |
 | D02-3 | Payment-confirmation authority canonicalization | `PKDS-F02`, `FTR-F03`, `PAY-F02` | HIGH |
 | D02-4 | Current Payment→KDS gate 정본화 | `PKDS-F01`, `FSD-F04`, `KDS-F07` | HIGH |
@@ -332,16 +357,62 @@ B의 항목은 위 10개에 억지로 합치지 않는다. 먼저 Owner가 정�
 
 **Domain 02 최종 압축:** 슬라이스별 후보를 **10개 통합 과제**로 재구성했다. 실제 착수는 전체 domain_02~13 검사 후 프로젝트 관점에서 재조정한다는 기존 Human 보류 원칙을 유지한다.
 
+### D9. Slice domain_03/A Regular Workpacket 후보 추가 (Owner-gated)
+
+| 순서 | Workpacket 후보 | 커버 범위 | 우선순위 |
+|---:|---|---|---|
+| EWP-WP1 | No-show model finalization | `EWP-F01`, `WAIT-F03` | HIGH |
+| EWP-WP2 | Waiting-status client wiring | `EWP-F02`, `WAIT-F09` | HIGH |
+| EWP-WP3 | Preorder→table allowed-state contract for 600680 | `EWP-F03`, `WAIT-F01` | MEDIUM |
+| EWP-WP4 | Waiting evidence coverage + SYSTEM actor attribution | `EWP-F04` | MEDIUM |
+| EWP-WP5 | Customer-facing status mapping canonicalization | `EWP-F05` | MEDIUM |
+
+**후보 재산정:** Slice A의 5개 후보를 추가해 문서에 기록된 raw 후보는 31→**36개**다. EWP-WP1은 WAIT-F03, EWP-WP2는 WAIT-F09, EWP-WP3는 WAIT-F01/600680과 통합해 중복 실행하지 않는다.
+
+### D10. 진행 중 600680 경고 — 상위 상태계약 부재
+
+`EWP-F03`은 006530 §10이 preorder→table binding의 allowed-state whitelist를 정의하지 않고, 006410의 preorder lifecycle에도 `ORDER_CONFIRMED`가 없음을 확인했다. 따라서 600680은 `create_pre_order`와 `bind_table_to_session`의 상태게이트를 정정하면서 참조할 상위 계약 없이 진행되고 있었다. **600680 구현·승인 전에 Owner가 allowed-state whitelist를 명시적 입력으로 제공해야 한다.**
+
+### D11. Slice domain_03/B Regular Workpacket 후보 추가 (Owner-gated)
+
+| 순서 | Workpacket 후보 | 커버 범위 | 우선순위 |
+|---:|---|---|---|
+| SLB-WP1 | Refund-state CHECK reconciliation | `SLB-F01`, `SCP-F02`, `PAY-F01`; FSD-F02 superseded | HIGH |
+| SLB-WP2 | Seating→table linkage fix after 600680 | `SLB-F02`, `WAIT-F01` | HIGH |
+| SLB-WP3 | Limited-quantity MVP for waiting preorder | `SLB-F03` | MEDIUM |
+| SLB-WP4 | No-show notice/evidence packet + 10726 | `SLB-F04` | MEDIUM |
+| SLB-WP5 | Four-model canonical no-show ruling | `SLB-F05`, `EWP-F01`, `WAIT-F03` | MEDIUM |
+
+**후보 재산정:** Slice B의 5개 후보를 추가해 문서에 기록된 raw 후보는 36→**41개**다. SLB-WP1은 기존 refund correction을 재정정하고, SLB-WP5는 EWP-WP1과 통합한다.
+
+### D12. Domain 03 완료 후 통합 권장 순서
+
+| 순서 | 통합 과제 | 통합 Finding / 근거 | 우선순위 |
+|---:|---|---|---|
+| D03-1 | Refund CHECK constraint expansion; 0098 유지 | `SLB-F01`, `SCP-F02`, `PAY-F01`; FSD-F02 정정 | **HIGH — 유형 A 최우선** |
+| D03-2 | 600680 preorder state-gate correction + allowed-state upper contract | `WAIT-F01`, `EWP-F03` | CRITICAL / MEDIUM — 선행 |
+| D03-3 | Seating→table linkage | `SLB-F02` | **HIGH — 600680 이후** |
+| D03-4 | Waiting-status client wiring | `EWP-F02`, `WAIT-F09` | HIGH — 즉시실행 |
+| D03-5 | Four-model canonical no-show reconciliation | `SLB-F05`, `EWP-F01`, `WAIT-F03` | HIGH / MEDIUM |
+| D03-6 | Waiting-preorder limited-quantity MVP | `SLB-F03` | MEDIUM |
+| D03-7 | Legal notice/evidence packet + missing 10726 | `SLB-F04` | MEDIUM |
+| D03-8 | Waiting evidence coverage + SYSTEM actor attribution | `EWP-F04` | MEDIUM |
+| D03-9 | Customer-facing status vocabulary | `EWP-F05` | MEDIUM |
+| D03-10 | Numbering/lifecycle/readme cleanup | `EWP-F06`, `SLB-F06` | LOW |
+
+**Domain 03 최종 압축:** 10개 통합 과제로 재구성했다. 실행 의존성은 **D03-2(600680) → D03-3(seating/table link)**이며, D03-1과 D03-4는 독립적인 저비용 실행 후보다.
+
 ## E. 역방향 정본화 대상 목록
 
 ### E0. 유형 A — 진짜 버그, 설계 이미 완비
 
 | Finding | 대상 | 설계 / 인프라 상태 | 구현 상태 | 처리 판단 |
 |---|---|---|---|---|
-| **`FSD-F02` / `SCP-F02` / `PAY-F01`** | Refund pipeline 3-layer lineage + CHECK constraint expansion | skeleton 010320의 non-schema `REFUND_*` → room 010412의 superseding `REVERSAL_*` → shipped 0098의 invalid `REFUND_PENDING`/`REFUND_FAILED`; 네 가지 실패 메커니즘 확정 | `request_refund`/`confirm_refund`는 구현됐으나 caller 0인 latent blocker; `0098` 이후 supersede 없음 | **최우선 즉시 실행 후보.** `chk_ledger_status` 확장, audit constraint 정합화, canonical refund vocabulary/engine 결정을 하나로 통합 |
+| **`EWP-F02` / `WAIT-F09`** | Waiting-status client wiring | 006510 §8/§12가 native app의 client-local waiting model을 금지하고 12-state customer mapping을 제공; server `get_waiting_status` 존재 | `waiting_status_screen.dart`는 SharedPreferences만 읽고 RPC 0회; intentional deferral comment 존재 | **즉시 실행 후보.** 새 설계 없이 `get_waiting_status` 연결 및 canonical status mapping 구현 |
+| **`SLB-F01` / `SCP-F02` / `PAY-F01`** | Refund CHECK constraint expansion; implementation vocabulary vindicated | `REFUND_PENDING`은 ≥10개, `REFUND_FAILED`는 6개 설계문서의 dominant vocabulary; 0098은 이를 따르고 0014 CHECK와 010412 `REVERSAL_*`가 outlier | `request_refund`/`confirm_refund`는 caller 0인 latent blocker; CHECK 때문에 23514/unreachable confirm 발생 | **최우선 즉시 실행 후보.** lowest-friction 해법은 0098을 유지하고 `chk_ledger_status`를 확장; audit constraint도 함께 정합화. FSD-F02의 “implementation invention” 진단은 superseded |
 | **`CRP-F01`** | Webhook/provider-callback idempotency | 010660 §28에 구체적 정책이 있고 010610에 `idempotency_key`/`payload_hash` envelope가 있으며 `catchmenu_common.idempotency_keys`(0004)도 존재 | Gateway·RLS·delivery에는 연결됐으나 payment-confirmation path에는 미연결 | **최우선 즉시 실행 후보.** 역방향 정본화가 아니라 기존 설계·인프라를 `confirm_payment_from_provider`에 연결하는 구현 작업 |
 
-FSD-F02/SCP-F02/PAY-F01과 CRP-F01은 “구현은 있으나 정본문서가 없음” 유형이 아니다. 전자는 3단계 vocabulary 계보와 constraint/RPC 충돌이 확정됐고 후자는 정책·인프라 연결만 빠진 구현 결함 후보이므로 아래 역방향 정본화 목록과 분리한다.
+SLB-F01/SCP-F02/PAY-F01과 CRP-F01은 “구현은 있으나 정본문서가 없음” 유형이 아니다. 전자는 dominant design vocabulary와 schema CHECK의 충돌이 확정됐고 후자는 정책·인프라 연결만 빠진 구현 결함 후보이므로 아래 역방향 정본화 목록과 분리한다.
 
 ### E0-2. 유형 B — Owner 결정 후 역방향 정본화
 
@@ -351,12 +422,12 @@ FSD-F02/SCP-F02/PAY-F01과 CRP-F01은 “구현은 있으나 정본문서가 없
 |---|---|---|---|---|
 | `FTR-F01` / `CRP-F03` | Payment ledger model | 실제는 mutable UPDATE; slice_B 상위 정책은 append-only/WORM/double-entry. Slice C는 요구사항을 “append-only amendment + before/after history”로 좁힘 | **미결정이나 선택지 축소됨** — 전체 WORM/복식부기 재설계와 mutable 원장 단순 인정 사이에 amendment/history table이라는 저비용 중간 해법 존재 | 재결정 시 amendment/history table을 우선 검토하고, 결정 후 canonical ledger 문서 및 `kds_release_authorized`를 현행화 |
 | `FTR-F03` | Payment confirmation authority | 실제는 direct + provider 두 경로; 상위 정책은 provider-only | **미결정** — single authority vs explicit dual pipeline | 결정 후 010411/010417 및 Payment→KDS contract 현행화 |
-| `WAIT-F03` | No-show KDS fate | `HOLD→NO_SHOW_GRACE→auto-CANCELLED` 구현·Human 결정 완료 | **이미 결정됨** — 600632에서 Human 확인 | 새 정책 결정 없이 특허/상위 문서만 업데이트 |
+| `WAIT-F03` / `EWP-F01` / `SLB-F05` | No-show model finalization | Human은 `HOLD→NO_SHOW_GRACE→auto-CANCELLED` 구현 방향을 결정했으나 006410/006520/010802/0161은 네 모델. Legal SOP의 auto-cancel은 구현 방향과 가깝고 operational policy만 staff-confirmed | **구현 방향은 결정됨, legal/operational/implementation 상위계약 정합화는 미완료** | 구현을 다시 결정하지 않고 canonical model을 최종 명시한 뒤 006410/006520/010802 및 특허/상위 문서를 현행화 |
 
 ### E1. 상태 구분 원칙
 
 - **미결정 항목 (`FTR-F01`, `FTR-F03`):** 문서를 먼저 임의 현행화하지 않는다. Owner가 canonical model을 결정한 뒤 역방향 정본화를 수행한다.
-- **이미 결정된 항목 (`WAIT-F03`):** 구현이나 정책을 다시 결정하지 않는다. 기존 Human 결정을 상위 특허·정본문서에 반영하는 문서 작업만 남는다.
+- **구현 방향이 결정된 항목 (`WAIT-F03` / `EWP-F01` / `SLB-F05`):** 구현 방향을 다시 결정하지 않는다. 네 모델의 object·actor·trigger 불일치를 해소하도록 canonical no-show model을 최종 명시하고 legal/operational/implementation 상위 문서를 정합화한다.
 
 ### E2. FTR-F01 선택지 축소 기록
 

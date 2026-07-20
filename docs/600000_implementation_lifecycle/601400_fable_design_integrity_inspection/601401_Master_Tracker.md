@@ -30,7 +30,7 @@
 |---|---|---|---|---|---|---|---|---|---|
 | 01 | `domain_01_customer_handoff` | **DONE** (2026-07-19) | 100% (495 files scoped) | **DONE** (2026-07-19) | Fable in-session → Opus 4.8 auto-transition (2026-07-19) | `601411`/`601412`/`601413`; slice_01 → **`601429`**; slice_02 → **`601431`**; slice_03 → **`601434`**; slice_04 → **`601427`**; slice_05 → **`601435`**; slice_06 → **`601437`** | 2026-07-19 | `990000_legacy_quarantine` partial overlap excluded from primary handoff path unless referenced | **6/6 슬라이스 완료 — COMPLETED** |
 | 02 | `domain_02_payment_ledger_kds` | **DONE** (2026-07-20) | 100% (6/6 slices) | **DONE** (2026-07-20) | Opus 4.8 (2026-07-19/20) | slice_A → **`601440`**; slice_B → **`601442`**; slice_C → **`601445`**; slice_D1 → **`601449`**; slice_D2 → **`601450`**; slice_D3 → **`601451`** | 2026-07-20 | — | **6/6 슬라이스 완료 — COMPLETED** |
-| 03 | `domain_03_waiting_call_no_show` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
+| 03 | `domain_03_waiting_call_no_show` | **DONE** (2026-07-20) | 100% (2/2 slices) | **DONE** (2026-07-20) | Opus 4.8 (2026-07-20) | slice_A → **`601454`**; slice_B → **`601455`** | 2026-07-20 | — | **2/2 슬라이스 완료 — COMPLETED** |
 | 04 | `domain_04_order_cancel_refund` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
 | 05 | `domain_05_menu_option_personalization` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
 | 06 | `domain_06_pos_provider_gateway` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
@@ -612,6 +612,123 @@ Downstream slices (waiting / payment / KDS-DID / runtime / app) should be checke
 - payment→KDS late-binding gate는 구현됐으나 upper-design ancestor가 없고, 보존할 불변조건은 010106 §12/010226 §13에 분산돼 있다.
 - 6개 슬라이스 검사는 처분을 실행하지 않고 Owner Decision Registry와 정규 Workpacket 후보를 위한 증거 상태로 완료한다.
 
+## 3.5 Domain 03 — Fable slice inspection progress
+
+| Slice | Input | Fable Output | Review Date | Findings (C/H/M/L) | Status |
+|---|---|---|---|---|---|
+| **`slice_A_entrance_waiting_policy`** | core MD bundle **`601452`** (4 policy MD) + SQL concat (`0150`) | **[601454](domain_03_waiting_call_no_show/slice_A_entrance_waiting_policy/601454_Report_Fable_Design_Integrity_Inspection_Slice_A_Entrance_Waiting_Policy.md)** | **2026-07-20** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+| **`slice_B_store_legal_boundary`** | core MD bundle **`601453`** (2 policy MD) + SQL concat (`0162`, `0048`) | **[601455](domain_03_waiting_call_no_show/slice_B_store_legal_boundary/601455_Report_Fable_Design_Integrity_Inspection_Slice_B_Store_Legal_Boundary.md)** | **2026-07-20** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+
+### slice_A finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | EWP-F01, EWP-F02 |
+| MEDIUM | 3 | EWP-F03, EWP-F04, EWP-F05 |
+| LOW | 1 | EWP-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 HIGH — EWP-F02 / EWP-F01
+
+- **EWP-F02 — 즉시실행:** 006510 §8/§12는 native app이 별도 waiting model을 만들지 말고 Store Runtime truth를 공유하도록 명시하지만, `waiting_status_screen.dart`는 SharedPreferences만 읽고 RPC를 호출하지 않는다. 이미 존재하는 `get_waiting_status`를 연결하면 되며 WAIT-F09와 통합한다.
+- **EWP-F01 — 노쇼 모델 최종 확정:** 006410의 single-stage, 006520의 session-level staff-confirmed grace, 0161의 ticket-level automatic grace가 서로 다르다. WAIT-F03의 Human 결정을 유지하더라도 두 상위 문서를 최종 canonical model에 맞춰 정합화해야 한다.
+
+### 600680 진행 경고 — EWP-F03
+
+006530 §10에는 preorder→table linkage의 order/session allowed-state whitelist가 없고, 006410 lifecycle에는 `ORDER_CONFIRMED`도 없다. 따라서 600680은 `create_pre_order`/`bind_table_to_session` 상태게이트를 정정하면서 참조할 상위 계약 없이 진행되고 있었다. **allowed-state whitelist를 Owner 입력으로 600680에 전달해야 한다.**
+
+### 특기사항 — 건강한 정책 레이어
+
+- 네 정책은 2026-07-10 작성되고 구현은 0150(07-11), 0161(07-16)에 이어져, 지금까지 검사한 레이어 중 유일하게 문서가 실제 구현보다 먼저 작성된 design-then-build 사례다.
+- 선언된 baseline dependency 5개가 모두 실제 파일로 해소된다. Finding은 존재하지만 작성순서와 인용 정합성은 가장 건강하다.
+
+### slice_A Owner Decision Queue (5 items)
+
+1. session-level staff-confirmed grace와 ticket-level automatic grace 중 canonical no-show model을 확정하고 006410/006520/0161을 정합화한다. [EWP-F01]
+2. preorder→table allowed-state whitelist를 정의해 600680 입력으로 제공한다. [EWP-F03]
+3. 네 customer-facing status table 중 canonical vocabulary를 선택한다. [EWP-F05]
+4. waiting evidence 21-event 요구의 범위와 SYSTEM transition actor attribution을 확정한다. [EWP-F04]
+5. `get_waiting_status` client wiring을 승인한다. [EWP-F02]
+
+### slice_A Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | No-show model reconciliation; WAIT-F03 통합 | EWP-F01 |
+| **WP-2** | **HIGH** | Waiting-status client wiring; WAIT-F09 통합 | EWP-F02 |
+| WP-3 | MEDIUM | Preorder→table allowed-state contract; 600680 입력 | EWP-F03 |
+| WP-4 | MEDIUM | Waiting evidence coverage + SYSTEM actor attribution | EWP-F04 |
+| WP-5 | MEDIUM | Customer-facing status tables canonicalization | EWP-F05 |
+
+### slice_B finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | SLB-F01, SLB-F02 |
+| MEDIUM | 3 | SLB-F03, SLB-F04, SLB-F05 |
+| LOW | 1 | SLB-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 HIGH — SLB-F01 / SLB-F02
+
+- **SLB-F01 — 환불 진단 재정정:** `REFUND_PENDING`은 적어도 10개 설계문서, `REFUND_FAILED`는 6개 설계문서에 존재한다. 구현 0098은 지배적인 표준어휘를 따랐고 진짜 이상치는 이를 허용하지 않은 `chk_ledger_status`와 별도 `REVERSAL_*` rename이다. 최저비용 해법은 CHECK 제약을 설계 corpus의 상태로 확장하고 0098을 유지하는 것이다. FSD-F02의 과도한 일반화를 대체한다.
+- **SLB-F02 — seating→table link 부재:** `seat_waiting_customer`는 `dining_tables.current_session_id`를 쓰지 않고 유일한 writer는 `bind_table_to_session`이다. waiting-origin seating 후 네 occupancy guard가 모두 fail-open하며, WAIT-F01 때문에 preorder session은 linker 호출도 거부된다. 600680 완료 후 table linkage fix를 순서화해야 한다.
+
+### 노쇼 모델 네 번째 등장 — SLB-F05
+
+010802 legal SOP의 auto-cancel-after-grace는 구현 0161과 방향이 일치하지만, 006520의 staff-confirmed model과 충돌한다. 기존 006410/006520/0161에 legal SOP가 추가되어 네 모델이 됐으며, WAIT-F03/EWP-F01 통합과제에 SLB-F05를 포함한다.
+
+### 자기정정 및 검증방법 교훈
+
+Opus는 전날 FSD-F02에서 “`REFUND_PENDING`이 설계문서 어디에도 없다”고 과도하게 일반화했지만, 독립적인 legal-boundary slice에서 010802 §4를 앵커로 다시 확인해 같은 세션 안에서 오류를 스스로 정정했다. **슬라이스별 독립 검증과 이전 결론에 대한 앵커링 방지 원칙이 동일 AI 세션에서도 실제로 작동한 사례**로 기록한다.
+
+### slice_B Owner Decision Queue (5 items)
+
+1. `chk_ledger_status`를 dominant refund vocabulary로 확장할지, 0098과 corpus를 기존 8값으로 재작성할지 결정한다. [SLB-F01]
+2. waiting seating의 table link 위치를 결정하고 WAIT-F01/600680 이후 실행한다. [SLB-F02]
+3. waiting preorder limited-quantity MVP를 구현하거나 quantity control 부재를 공식 승인한다. [SLB-F03]
+4. deposit-bearing no-show 전에 refund path와 legal evidence packet을 요구할지 결정하고 missing 10726 SOP를 작성한다. [SLB-F04]
+5. legal auto-cancel과 operational staff-confirmed 모델 중 canonical no-show model을 확정한다. [SLB-F05]
+
+### slice_B Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | Refund-state CHECK reconciliation; SCP-F02/FSD-F02 정정 | SLB-F01 |
+| **WP-2** | **HIGH** | Seating→table linkage fix; 600680 이후 | SLB-F02 |
+| WP-3 | MEDIUM | Waiting-preorder limited-quantity MVP | SLB-F03 |
+| WP-4 | MEDIUM | No-show notice/evidence packet + 10726 | SLB-F04 |
+| WP-5 | MEDIUM | Four-model canonical no-show ruling | SLB-F05 |
+
+## 3.6 Domain 03 — completed synthesis
+
+**상태:** `domain_03_waiting_call_no_show` **2/2 슬라이스 완료 — COMPLETED**.
+
+### 누적 Finding 총계
+
+| Severity | Slice A | Slice B | Total |
+|---|---:|---:|---:|
+| CRITICAL | 0 | 0 | **0** |
+| HIGH | 2 | 2 | **4** |
+| MEDIUM | 3 | 3 | **6** |
+| LOW | 1 | 1 | **2** |
+| **Total** | **6** | **6** | **12** |
+
+### 반복 교차 슬라이스 패턴
+
+1. **No-show canonical ambiguity:** EWP-F01/WAIT-F03에 SLB-F05가 합류해 operational/legal/implementation의 네 모델이 확인됐다.
+2. **Preorder→table contract/linkage gap:** EWP-F03은 allowed-state 상위계약 부재를, SLB-F02는 실제 physical table link 부재와 occupancy guard fail-open을 확인했다. 두 작업 모두 600680과 순서 의존성이 있다.
+3. **Refund diagnosis correction:** SLB-F01이 PAY-F01/SCP-F02/FSD-F02 계보를 재검증해 구현이 dominant vocabulary를 따랐고 schema CHECK가 outlier임을 확정했다.
+4. **Policy-to-runtime contrast:** Slice A는 구현보다 먼저 작성되고 dependency가 깨끗한 건강한 정책층이지만 no-show 내부모순이 있고, Slice B의 legal SOP는 구현 방향과 더 가깝지만 evidence/limited-quantity/table-link contract가 미구현이다.
+
+### Domain-level closing assessment
+
+- Domain 03의 최우선 실행 순서는 refund CHECK reconciliation, 600680 완료, seating→table linkage, waiting-status client wiring이다.
+- Plain waiting no-show는 refund pipeline에 의존하지 않지만 deposit-bearing no-show와 reversal은 broken refund/evidence path에 노출된다.
+- 두 슬라이스 검사는 구현을 변경하지 않고 Owner Decision Registry와 정규 Workpacket 후보를 위한 증거 상태로 완료한다.
+
 ## 4. Structural issue summary (Domain 01 — fact counts)
 
 | Issue class | Count (2026-07-19 scan) |
@@ -648,3 +765,6 @@ Detail: `601412_Register_Stage1_Structural_Issues_Customer_Handoff.md`.
 - 2026-07-20: **domain_02_payment_ledger_kds slice_D2_static_catalog_runtime_planning** inspection complete — Opus 4.8 reviewer output saved verbatim as `601450` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). SCP-F02/PAY-F01 refund constraint failure promoted to the highest-priority type-A immediate implementation candidate; SCP-F01 confirmed the D1/D2 59-document governance-theatre pattern; `010226` §13 recorded alongside `010106` §12 as preserve-before-retire content. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3. Domain 02 remains in progress.
 - 2026-07-20: **domain_02_payment_ledger_kds slice_D3_four_side_skeleton_data_governance** inspection complete — Opus 4.8 reviewer output saved verbatim as `601451` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 2, LOW 2). FSD-F01 closed the caller-authorization ownership gap across 010500/010600/implementation; FSD-F02 completed the three-layer refund vocabulary lineage. Opus's commit-date≠authoring-date self-correction was retained as a methodology lesson. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3.
 - 2026-07-20: **domain_02_payment_ledger_kds COMPLETED — 6/6 slices**. Cumulative findings: 36 (CRITICAL 0, HIGH 12, MEDIUM 16, LOW 8). Repeated governance-theatre, numbering drift, refund-pipeline, and caller-authorization patterns consolidated in §3.4 and `601443`.
+- 2026-07-20: **domain_03_waiting_call_no_show slice_A_entrance_waiting_policy** inspection complete — Opus 4.8 reviewer output saved verbatim as `601454` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). EWP-F02/WAIT-F09 recorded as an immediate client-wiring candidate; EWP-F01/WAIT-F03 recorded as a three-model no-show reconciliation; EWP-F03 added as an allowed-state-contract warning to in-progress 600680. This is the first inspected layer verified to precede its implementation and to have clean baseline dependency resolution. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.5. Domain 03 remains in progress.
+- 2026-07-20: **domain_03_waiting_call_no_show slice_B_store_legal_boundary** inspection complete — Opus 4.8 reviewer output saved verbatim as `601455` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). SLB-F01 corrected FSD-F02's refund-vocabulary overgeneralization and identified `chk_ledger_status` as the outlier; SLB-F02 exposed the missing seating→table link and four fail-open occupancy guards; SLB-F05 extended no-show ambiguity to four models. The within-session self-correction was retained as an independent-verification/anti-anchoring lesson. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.5.
+- 2026-07-20: **domain_03_waiting_call_no_show COMPLETED — 2/2 slices**. Cumulative findings: 12 (CRITICAL 0, HIGH 4, MEDIUM 6, LOW 2). No-show, preorder/table linkage, refund-diagnosis correction, and policy-to-runtime patterns consolidated in §3.6 and `601443`.
