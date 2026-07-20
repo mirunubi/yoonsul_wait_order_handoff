@@ -3,7 +3,7 @@
 - Program: `601400_fable_design_integrity_inspection`
 - Created: 2026-07-19
 - Owner role: Cursor (Eyes Only inventory/classification), Fable execution TBD
-- Status: **Domain 01 COMPLETED — 6/6 slices inspected** (2026-07-19)
+- Status: **Domains 01–02 COMPLETED — each 6/6 slices inspected** (Domain 02 completed 2026-07-20)
 - Sibling program: `601300_fable_blind_reverse_engineering_audit` (separate track — blind code reverse-engineering)
 - 운영안 canonical 위치: [`000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md`](../../000700_ai_agent_prelearning_and_project_context/000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md)
 
@@ -29,7 +29,7 @@
 | # | Domain folder | Stage 1 Inventory | Evidence Complete % | Stage 2 Classification | Fable Run ID | Output File | Review Date | Files Omitted | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | 01 | `domain_01_customer_handoff` | **DONE** (2026-07-19) | 100% (495 files scoped) | **DONE** (2026-07-19) | Fable in-session → Opus 4.8 auto-transition (2026-07-19) | `601411`/`601412`/`601413`; slice_01 → **`601429`**; slice_02 → **`601431`**; slice_03 → **`601434`**; slice_04 → **`601427`**; slice_05 → **`601435`**; slice_06 → **`601437`** | 2026-07-19 | `990000_legacy_quarantine` partial overlap excluded from primary handoff path unless referenced | **6/6 슬라이스 완료 — COMPLETED** |
-| 02 | `domain_02_payment_ledger_kds` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
+| 02 | `domain_02_payment_ledger_kds` | **DONE** (2026-07-20) | 100% (6/6 slices) | **DONE** (2026-07-20) | Opus 4.8 (2026-07-19/20) | slice_A → **`601440`**; slice_B → **`601442`**; slice_C → **`601445`**; slice_D1 → **`601449`**; slice_D2 → **`601450`**; slice_D3 → **`601451`** | 2026-07-20 | — | **6/6 슬라이스 완료 — COMPLETED** |
 | 03 | `domain_03_waiting_call_no_show` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
 | 04 | `domain_04_order_cancel_refund` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
 | 05 | `domain_05_menu_option_personalization` | NOT_STARTED | — | NOT_STARTED | — | — | — | — | FOLDER_ONLY |
@@ -343,6 +343,275 @@ Downstream slices (waiting / payment / KDS-DID / runtime / app) should be checke
 - 동시에 phantom-column runtime blockers, caller-less latent RPC, stale indexes, superseded source body, empty scaffold 문서가 공존한다.
 - Domain 01 검사는 설계·구현 처분을 확정하지 않고, Owner Decision Queue와 정규 Workpacket 후보로 이관할 근거를 완성한 상태로 종료한다.
 
+## 3.3 Domain 02 — Fable slice inspection progress
+
+| Slice | Input | Fable Output | Review Date | Findings (C/H/M/L) | Status |
+|---|---|---|---|---|---|
+| **`slice_A_kitchen_release_gate`** | core MD bundle **`601439`** + SQL concat (9 migrations) | **[601440](domain_02_payment_ledger_kds/slice_A_kitchen_release_gate/601440_Report_Fable_Design_Integrity_Inspection_Slice_A_Kitchen_Release_Gate.md)** | **2026-07-19** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+| **`slice_B_financial_trust_room`** | core MD bundle **`601441`** (26 policy MD; no SQL) | **[601442](domain_02_payment_ledger_kds/slice_B_financial_trust_room/601442_Report_Fable_Design_Integrity_Inspection_Slice_B_Financial_Trust_Room.md)** | **2026-07-19** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+| **`slice_C_cross_room_plumbing`** | core MD bundle **`601444`** (22 policy MD; no SQL) | **[601445](domain_02_payment_ledger_kds/slice_C_cross_room_plumbing/601445_Report_Fable_Design_Integrity_Inspection_Slice_C_Cross_Room_Plumbing.md)** | **2026-07-20** | **6 (0 / 2 / 2 / 2)** | **FABLE_DONE** |
+| **`slice_D1_foundation_static_catalog`** | core MD bundle **`601446`** (24 policy MD; no SQL) | **[601449](domain_02_payment_ledger_kds/slice_D1_foundation_static_catalog/601449_Report_Fable_Design_Integrity_Inspection_Slice_D1_Foundation_Static_Catalog.md)** | **2026-07-20** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+| **`slice_D2_static_catalog_runtime_planning`** | core MD bundle **`601447`** (35 policy MD; no SQL) | **[601450](domain_02_payment_ledger_kds/slice_D2_static_catalog_runtime_planning/601450_Report_Fable_Design_Integrity_Inspection_Slice_D2_Static_Catalog_Runtime_Planning.md)** | **2026-07-20** | **6 (0 / 2 / 3 / 1)** | **FABLE_DONE** |
+| **`slice_D3_four_side_skeleton_data_governance`** | core MD bundle **`601448`** (21 policy MD; no SQL) | **[601451](domain_02_payment_ledger_kds/slice_D3_four_side_skeleton_data_governance/601451_Report_Fable_Design_Integrity_Inspection_Slice_D3_Four_Side_Skeleton_Data_Governance.md)** | **2026-07-20** | **6 (0 / 2 / 2 / 2)** | **FABLE_DONE** |
+
+### slice_A finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | PKDS-F01, PKDS-F02 |
+| MEDIUM | 3 | Report §9.2/§9.6 findings |
+| LOW | 1 | PKDS-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 HIGH — PKDS-F01 / PKDS-F02
+
+- **PKDS-F01:** 6월 정책 레이어와 7월 구현이 불일치한다. 실제 구현의 핵심인 capacity gate가 정책에 전혀 없으므로, 004000 정책을 현행화하거나 superseded planning으로 명시할지 Owner 결정이 필요하다.
+- **PKDS-F02:** domain_01의 PAY-F02 dual confirmation pipeline은 의도된 설계가 아니라 정책 승인 없는 **undesigned drift**임이 확인됐다. 단일 confirmation entry 또는 명시적 two-pipeline contract 결정이 필요하며, `601438`의 B3-1 항목과 연결한다.
+
+### Owner Decision Queue (4 items)
+
+1. 004000 정책을 shipped three-path + capacity-gated release 및 실제 상태명으로 갱신하거나 "superseded planning"으로 표시한다. [PKDS-F01]
+2. `confirm_payment` / `confirm_payment_from_provider`에 대해 단일 canonical entry 또는 명시적 two-pipeline contract를 결정하고 정책을 소급 정합화한다. [PKDS-F02]
+3. alcohol handling의 deferred 상태를 확인하고, 향후 범위 포함 시 004013의 7개 상태를 실제 `kds_tickets` 스키마와 정합화한다. [PKDS-F04]
+4. 004099/004090 번호 mismap과 stale related-folder 경로를 수정하고 22개 문서에 lifecycle metadata를 추가할지 결정한다. [PKDS-F05/F06]
+
+### Regular Workpacket Recommendation Queue (4 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | 현행 three-path + capacity-gate에 맞는 Payment→KDS release 설계 문서 작성 및 004016/004260 supersede | PKDS-F01 |
+| **WP-2** | **HIGH** | Payment-confirmation canonicalization / two-pipeline design contract | PKDS-F02 |
+| WP-3 | MEDIUM | 004010 그룹 index number-mismap·stale cross-ref·lifecycle metadata 정리 | PKDS-F05/F06 |
+| WP-4 | MEDIUM / FUTURE | 범위 승인 시 alcohol KDS-hold와 실제 스키마 정합화 | PKDS-F04 |
+
+### slice_B finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | FTR-F01, FTR-F03 |
+| MEDIUM | 3 | FTR-F02, FTR-F04, FTR-F05 |
+| LOW | 1 | FTR-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 HIGH — FTR-F01 / FTR-F03
+
+- **FTR-F01:** 최상위 원장 설계철학은 append-only·INSERT-only·WORM·double-entry를 요구하지만, 실제 `payment_ledger`는 단일 mutable row를 `UPDATE`하며 금액과 상태를 누적 변경한다. MVP mutable ledger를 승인된 interim으로 볼지, WORM/double-entry 목표를 일정화하거나 canonical intent에서 퇴역시킬지 결정이 필요하다.
+- **FTR-F03:** Financial Trust Room은 provider-verified 단일 confirmation authority만 설계했고 manual/staff/POS confirmation을 financial truth로 인정하지 않는다. 따라서 직접 `confirm_payment` 경로는 설계의도 문서 체계에서 승인된 적이 없으며, PKDS-F02/PAY-F02와 **3중 교차확인**된다.
+
+### 새로운 교차 패턴 — payment→KDS gate의 설계 부재
+
+실제 결제→KDS 게이트의 핵심인 `kds_release_authorized`가 이 최상위 원장 설계문서 26개 어디에도 없다. 이는 CH-F11에서 특허 Logic도 KDS HOLD 개념을 알지 못했던 것과 동일한 클래스다. 상위 설계 문서와 실제 KDS release control 사이에 명시적 계약이 없다.
+
+### slice_B Owner Decision Queue (5 items)
+
+1. MVP mutable `payment_ledger`를 interim으로 승인하고 WORM/double-entry/hash-chain kernel을 일정화하거나 퇴역시킨다. [FTR-F01]
+2. 단일 confirmation authority 또는 명시적 dual-pipeline contract를 결정한다. [FTR-F03]
+3. canonical payment-ledger 설계에 여전법 storage prohibition(no PAN/CVV, PG-result-fields-only)을 추가한다. [FTR-F02]
+4. `104xx`/`10609x` 내부 번호와 실제 `010xxx` 파일명을 정합화하고 dangling reference를 교정한다. [FTR-F04]
+5. Physical-AI/Franchise-OS 확장 문서를 Financial Trust Room 밖의 적절한 도메인으로 재분류한다. [FTR-F05]
+
+### slice_B Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | canonical payment-ledger 설계 정합화 및 `kds_release_authorized` 원장 레벨 문서화 | FTR-F01 |
+| **WP-2** | **HIGH** | Payment-confirmation canonicalization / dual-pipeline design contract | FTR-F03, PKDS-F02, PAY-F02 |
+| WP-3 | MEDIUM | 여전법 payment-ledger storage-prohibition contract 작성 | FTR-F02 |
+| WP-4 | MEDIUM | 010400 numbering/provenance·lifecycle metadata·dangling-reference 정리 | FTR-F04/F06 |
+| WP-5 | MEDIUM | future Physical-AI/Franchise-OS 문서 재분류 | FTR-F05 |
+
+### slice_C finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | CRP-F01, CRP-F02 |
+| MEDIUM | 2 | CRP-F03, CRP-F04 |
+| LOW | 2 | CRP-F05, CRP-F06 |
+| **Total** | **6** | **0 / 2 / 2 / 2** |
+
+### ⚠ 최우선 HIGH — CRP-F01 / CRP-F02
+
+- **CRP-F01:** webhook/provider-callback idempotency는 010660 §28의 설계가 구체적이고, `catchmenu_common.idempotency_keys` 인프라도 이미 존재하지만 payment-confirmation 경로에만 연결되지 않았다. 새 설계가 필요 없는 가장 실행가치 높은 항목이며, `confirm_payment_from_provider`에 idempotency key 또는 provider payload hash를 연결하는 즉시 구현 후보로 기록한다.
+- **CRP-F02:** caller authorization 원칙은 존재하지만 actor/staff id 자체를 tamperable parameter로 다루지 않고, API gateway/reverse proxy/service mesh를 가정한다. 실제 direct client→Postgres `SECURITY DEFINER` RPC 구조와 맞지 않으며, JWT `sub`→`staff.id` bridge 및 Postgres-RPC 전용 보안계약이 필요하다.
+
+### FTR-F04 / CRP-F04 정본 모호성 — 해결됨(거짓양성)
+
+- 반복 인용된 `10141`은 5자리 내부 ID이고 실제 대상은 **`010004`**이며, 물리적 `010141`은 내부 ID `10041`인 별개의 Windows Installer 정책이다. 5자리 내부 ID와 6자리 파일명의 우연한 충돌을 파일 참조로 오인한 거짓양성이다. [FSC-F03]
+- `10609`/`10609A~10609O` 계보는 유실된 것이 아니라 slice_B의 **`010451~010466`과 동일물**이다.
+- `10600` self-ID는 물리적 `010611_Index`와 생성형 `010600_Readme` 사이에서 충돌한다. 실제 원인은 repo-wide rename/move를 제안했으나 적용되지 않은 `010105`이며, FTR-F04/CRP-F04의 `10141` dead-link 의심은 해결됐다. [FSC-F03/FSC-F04]
+
+### slice_C Owner Decision Queue (5 items)
+
+1. 기존 010660 §28 및 0004 인프라를 payment-confirmation path에 연결한다. [CRP-F01]
+2. no-client-supplied actor-id 규칙, direct Postgres-RPC security model, auth-user→`staff.id` bridge를 확정한다. [CRP-F02]
+3. payment-ledger amendment/history table을 추가하거나 mutable-in-place를 공식 승인하고 010601을 수정한다. [CRP-F03]
+4. `10141`→`010004`, `10609x` cross-folder lineage, `10600` collision을 정리한다. [CRP-F04]
+5. four-source audit의 POS-terminal/OS-runtime 포함 여부를 확정하거나 two-source audit으로 재정의한다. [CRP-F03]
+
+### slice_C Regular Workpacket Recommendation Queue (4 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | `confirm_payment_from_provider`에 provider-callback idempotency 연결 | CRP-F01 |
+| **WP-2** | **HIGH** | JWT auth-user→`staff.id` bridge + caller rule + Postgres-RPC security architecture | CRP-F02 |
+| WP-3 | MEDIUM | Payment-ledger amendment/history table | CRP-F03, FTR-F01 |
+| WP-4 | MEDIUM | 010600 numbering/reference·generated Readme·lifecycle metadata 정리 | CRP-F04/F05 |
+
+### slice_D1 finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | FSC-F01, FSC-F02 |
+| MEDIUM | 3 | FSC-F03, FSC-F04, FSC-F05 |
+| LOW | 1 | FSC-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 HIGH — FSC-F01 / FSC-F02
+
+- **FSC-F01:** 승인 trigger는 매우 정밀하게 정의됐지만 실제 구현은 동일 시기에 그 게이트가 명시적으로 금지한 SQL·payment·KDS·production mutation 범주로 출하됐다. 승인게이트가 모호했던 것이 아니라 실제 작업을 구속하지 못한 **무효화된 거버넌스 게이트**다.
+- **FSC-F02:** 제품라인 우선순위 1–6은 만들어지지 않았고, 후순위이자 명시적 제외 대상인 payment/POS-KDS adapter와 문서에 없는 Flutter 구현이 먼저 출하됐다. 계획 문서와 실제 구현의 교집합이 거의 없다.
+
+### CRP-F04 / FTR-F04 해소 확인 — FSC-F03
+
+- `10141`은 5자리 내부 ID로서 `010004`를 가리키며, 물리적 `010141`은 내부 ID `10041`인 별개 문서다. 따라서 기존 dead-link 의심은 **해결됨(거짓양성)**이다.
+- 이 혼동의 실제 원인은 적용되지 않은 repo-wide rename/move 계획 `010105`이며, 단순 zero-padding이 실제이지만 무관한 파일에 연결되는 구조다. [FSC-F03/FSC-F04]
+
+### 보존 필요 항목
+
+- **`010106` §12:** `POS_ACCEPTED_NOT_PAYMENT_CONFIRMED`, `KDS_COMPLETED_NOT_SETTLED` 등을 포함한 KDS-payment 결합 불변조건의 원본 출처다.
+- **`010140` §11:** `FeatureAllowed = ProviderCapability AND TenantFeaturePlan AND StoreRuntimeConfiguration AND PolicyGate AND RuntimeFeatureFlag AND AuthorityBoundary AND EvidenceRequirement AND AuditRequirement` capability-gating formula의 원본이다.
+- 원본 게이트·제품계획을 historical로 격하하기 전에 위 내용을 새 정본 문서로 추출·보존해야 한다.
+
+### slice_D1 Owner Decision Queue (5 items)
+
+1. 010110/010153–010157 authorization chain을 historical로 퇴역하거나 실제 미래 작업을 구속하도록 재정의한다. [FSC-F01]
+2. 010146/010147/010149/010151 제품라인을 delivered system에 맞춰 재기준화하거나 superseded로 표시한다. [FSC-F02]
+3. `0052`와 `0114` 중 canonical kiosk 구현을 지정하거나 둘 다 실제 kiosk client가 생길 때까지 퇴역한다. [FSC-F05]
+4. 5↔6자리 번호 drift를 repo-wide로 정리하고 `010105`를 pending이 아닌 superseded로 표시한다. [FSC-F03/FSC-F04]
+5. 폴더 퇴역 전에 `010106` §12와 `010140` §11의 불변조건·공식을 현행 정본문서로 승격한다. [§9.7]
+
+### slice_D1 Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | never-operative authorization gate의 지위 및 실제 승인경로 정합화 | FSC-F01 |
+| **WP-2** | **HIGH** | delivered reality 기준 product-line registry 재기준화 | FSC-F02 |
+| WP-3 | MEDIUM | duplicate caller-less kiosk RPC canonicalization / retirement | FSC-F05 |
+| WP-4 | MEDIUM | repo-wide numbering remediation 및 `010105` 퇴역 | FSC-F03/FSC-F04 |
+| WP-5 | LOW | generated Readme 교체 및 010154 title/body mismatch 정리 | FSC-F06 |
+
+### slice_D2 finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | SCP-F01, SCP-F02 |
+| MEDIUM | 3 | SCP-F03, SCP-F04, SCP-F05 |
+| LOW | 1 | SCP-F06 |
+| **Total** | **6** | **0 / 2 / 3 / 1** |
+
+### ⚠ 최우선 즉시구현 후보 — SCP-F02 / PAY-F01
+
+- **SCP-F02:** 환불 파이프라인은 `REFUND_PENDING`/`REFUND_FAILED`가 `chk_ledger_status`에 없고, audit decision에도 `REFUND_PENDING`이 없으며, `confirm_refund`가 법적으로 존재할 수 없는 pending row를 찾는 등 네 가지 정확한 실패 메커니즘을 가진다.
+- PAY-F01의 기존 환불 결함을 독립적으로 재확인했다. 핵심 저비용 수정 후보는 **`chk_ledger_status`에 `REFUND_PENDING`/`REFUND_FAILED`를 추가**하는 것이며, 유형 A의 최우선 즉시실행 후보로 기록한다.
+
+### ⚠ 반복 패턴 확정 — SCP-F01
+
+- D1과 D2 합계 59개 문서에서 coding-authorization gate가 실제 구현과 같은 날짜에 열리지 않은 채 금지 범주의 구현이 출하됐다.
+- D2의 34개 정책 문서는 모두 `CODING_DEFERRED`이고 gate는 `CODING_NOT_AUTHORIZED`로 끝난다. D1의 FSC-F01과 결합해 **거버넌스 연극**이 단일 사례가 아닌 반복 패턴으로 확정됐다.
+
+### 보존 필요 항목 추가
+
+- **`010226` §13:** `POS_ACCEPTED_NOT_PAYMENT_CONFIRMED`, `KDS_COMPLETED_NOT_SETTLED`, `EVIDENCE_NOT_APPROVAL`, `PGVECTOR_NOT_PROOF`를 포함하는 KDS-payment 결합 불변조건이다.
+- D1의 `010106` §12와 동일 계열이므로 두 원본을 함께 새 정본문서로 승격한 뒤 해당 planning corpus를 historical로 격하한다.
+
+### slice_D2 Owner Decision Queue (5 items)
+
+1. `REFUND_PENDING`/`REFUND_FAILED`를 ledger/audit 제약과 정합화하고 세 refund engine 중 canonical 하나를 선택한다. [SCP-F02]
+2. 010200 gate chain을 historical로 퇴역하거나 실제 승인경로와 미래 작업에 맞게 재정의한다. [SCP-F01]
+3. shipped flat-key/enum vocabulary와 planned dotted/safe-state vocabulary 중 canonical을 결정한다. [SCP-F03]
+4. 존재하지 않는 `09560`–`09650` dependency reference를 해소하거나 제거한다. [SCP-F04]
+5. 폴더 퇴역 전에 `010226` §13을 D1의 `010106` §12와 함께 현행 정본문서로 승격한다. [§9.6]
+
+### slice_D2 Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | Refund pipeline constraint reconciliation + engine canonicalization + caller wiring | SCP-F02 |
+| **WP-2** | **HIGH** | D1+D2 governance reconciliation 및 never-opened gate 퇴역 | SCP-F01 |
+| WP-3 | MEDIUM | shipped `message_catalog`/enum 기준 i18n/status catalog canonicalization | SCP-F03 |
+| WP-4 | MEDIUM | repo-wide numbering/citation remediation | SCP-F04 |
+| WP-5 | LOW | policy/handoff 중복제거·generated Readme 교체·header date 추가 | SCP-F05/F06 |
+
+### slice_D3 finding summary
+
+| Severity | Count | Primary findings |
+|---|---:|---|
+| CRITICAL | 0 | — |
+| HIGH | 2 | FSD-F01, FSD-F02 |
+| MEDIUM | 2 | FSD-F03, FSD-F04 |
+| LOW | 2 | FSD-F05, FSD-F06 |
+| **Total** | **6** | **0 / 2 / 2 / 2** |
+
+### ⚠ 최우선 HIGH — FSD-F01 / FSD-F02
+
+- **FSD-F01:** 010554의 audit mesh가 모든 layer를 actor/staff id로 연결하면서도 신뢰 가능한 actor identity의 서버 측 유도·검증 방법을 정의하지 않는다. 010500 security suite도 identity를 다루지 않고, CRP-F02의 추상 원칙에도 실제 JWT `sub`→`staff.id` bridge가 없다. caller authorization의 설계 owner가 corpus 전체에 없다는 점이 최종 확정됐다.
+- **FSD-F02:** refund vocabulary는 skeleton `REFUND_*` → room `REVERSAL_*` → shipped SQL의 invalid `REFUND_PENDING`/`REFUND_FAILED`로 drift했다. PAY-F01과 SCP-F02가 확인한 CHECK 실패의 정확한 3단계 계보가 완성됐다.
+
+### 방법론 교훈 — commit 날짜 ≠ 작성 날짜
+
+- D1/D2 보고서의 “구현과 같은 날짜에 authored” 표현은 과장이었다. git 날짜는 bulk-import 시점이며, 내부 ID 계보는 06-21 commit의 010300이 06-18 commit의 010400보다 상위 선행 문서임을 증명한다.
+- 정확한 표현은 **같은 날짜에 first committed**다. D1/D2 gate가 `CODING_NOT_AUTHORIZED`로 끝나고 실제 구현이 금지 범주를 차지한다는 finding의 본질은 유지되지만, 동시 작성·동시성 추론은 사용하지 않는다.
+
+### slice_D3 Owner Decision Queue (5 items)
+
+1. session/JWT→staff actor-identity contract의 design owner를 지정한다. [FSD-F01]
+2. `REVERSAL_*`/`REFUND_*`/shipped CHECK 중 canonical refund vocabulary를 결정하고 0098을 정정한다. [FSD-F02]
+3. skeleton ancestor가 없는 payment→KDS late-binding gate의 design authority를 문서화한다. [FSD-F04]
+4. 010350 §12의 잘못된 room numbering을 교정하거나 superseded로 표시한다. [FSD-F03]
+5. `010520`을 채우거나 퇴역하고 generated Readme 및 010105 apply-state 모순을 정리한다. [FSD-F05]
+
+### slice_D3 Regular Workpacket Recommendation Queue (5 items — Owner-gated candidates)
+
+| ID | Priority | Title | Finding |
+|---|---|---|---|
+| **WP-1** | **HIGH** | Caller identity/session→staff contract; CRP-F02 및 601210 통합 | FSD-F01 |
+| **WP-2** | **HIGH** | Refund vocabulary canonicalization + 0098 repair; SCP-F02/PAY-F01 통합 | FSD-F02 |
+| WP-3 | MEDIUM | Payment→KDS late-binding gate design authority 문서화 | FSD-F04 |
+| WP-4 | MEDIUM | Skeleton/room repo-wide numbering reconciliation | FSD-F03 |
+| WP-5 | LOW | 010520 보완/퇴역 및 010300/010500 Readme 재생성 | FSD-F05 |
+
+## 3.4 Domain 02 — completed synthesis
+
+**상태:** `domain_02_payment_ledger_kds` **6/6 슬라이스 완료 — COMPLETED**.
+
+### 누적 Finding 총계
+
+| Severity | A | B | C | D1 | D2 | D3 | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| CRITICAL | 0 | 0 | 0 | 0 | 0 | 0 | **0** |
+| HIGH | 2 | 2 | 2 | 2 | 2 | 2 | **12** |
+| MEDIUM | 3 | 3 | 2 | 3 | 3 | 2 | **16** |
+| LOW | 1 | 1 | 2 | 1 | 1 | 2 | **8** |
+| **Total** | **6** | **6** | **6** | **6** | **6** | **6** | **36** |
+
+### 반복 교차 슬라이스 패턴
+
+1. **거버넌스 연극 2회:** FSC-F01/SCP-F01. D1/D2 gate는 never-opened 상태로 실제 구현을 구속하지 못했다. 단, “같은 날 작성”이 아니라 “같은 날 first committed”로 자기정정한다.
+2. **5자리/6자리 번호·계보 drift 5회 누적:** FTR-F04, CRP-F04, FSC-F03, SCP-F04, FSD-F03. wrong-but-plausible collision, silently dangling foundation, stale room roadmap이 같은 계열로 확인됐다.
+3. **환불 파이프라인 3중 확인:** PAY-F01 → SCP-F02 → FSD-F02. invalid CHECK literal의 runtime failure, 정책과 무관한 compensation chain, skeleton→room→SQL vocabulary drift가 하나의 계보로 연결됐다.
+4. **Caller authorization 3중 확인:** caller-authorization foundation `601210`, CRP-F02, FSD-F01. 추상 원칙, 구현 bridge 부재, audit mesh의 unverified actor 전제가 독립적으로 같은 architecture gap을 확정한다.
+
+### Domain-level closing assessment
+
+- Domain 02에는 새 CRITICAL이 없지만 refund constraint와 caller identity는 최우선 HIGH 실행·아키텍처 과제다.
+- payment→KDS late-binding gate는 구현됐으나 upper-design ancestor가 없고, 보존할 불변조건은 010106 §12/010226 §13에 분산돼 있다.
+- 6개 슬라이스 검사는 처분을 실행하지 않고 Owner Decision Registry와 정규 Workpacket 후보를 위한 증거 상태로 완료한다.
+
 ## 4. Structural issue summary (Domain 01 — fact counts)
 
 | Issue class | Count (2026-07-19 scan) |
@@ -372,3 +641,10 @@ Detail: `601412_Register_Stage1_Structural_Issues_Customer_Handoff.md`.
 - 2026-07-19: **slice_05_runtime_flow** design-integrity inspection complete — Opus 4.8 reviewer output `601435` saved from formal §9.1 through the closing baseline (4 findings: CRITICAL 0, HIGH 1, MEDIUM 1, LOW 2). RUN-F01 (79/81 content-empty template shells) flagged as the headline finding; the same high-volume/empty-content pattern recorded for special attention in future inspections of domains 5–9; Owner Decision Queue ×3; Workpacket candidates WP-1–WP-4 recorded in Master Tracker §3.1.
 - 2026-07-19: **slice_06_app_layer** design-integrity inspection complete — Opus 4.8 reviewer output `601437` saved from formal §9.1 through the domain closing note (5 findings: CRITICAL 0, HIGH 0, MEDIUM 3, LOW 2). The false would-be CRITICAL caused by reading 0116 without the later 0149 `CREATE OR REPLACE` was explicitly refuted and retained as a methodology lesson.
 - 2026-07-19: **domain_01_customer_handoff COMPLETED — 6/6 slices**. Reported cumulative Finding total 59; recurring phantom-column/index-drift/CREATE-OR-REPLACE residue/TTL/verification-rigor patterns consolidated in §3.2.
+- 2026-07-19: **domain_02_payment_ledger_kds slice_A_kitchen_release_gate** inspection complete — Opus 4.8 reviewer output saved as `601440` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). PKDS-F01/PKDS-F02 flagged as the two highest-priority findings; Owner Decision Queue ×4 and Workpacket candidates WP-1–WP-4 recorded in §3.3. Domain 02 remains in progress.
+- 2026-07-19: **domain_02_payment_ledger_kds slice_B_financial_trust_room** inspection complete — Opus 4.8 reviewer output saved as `601442` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). FTR-F01/FTR-F03 flagged as the two highest-priority findings; the missing top-level `kds_release_authorized` design contract recorded as a CH-F11-class cross-pattern; Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3. Domain 02 remains in progress.
+- 2026-07-20: **domain_02_payment_ledger_kds slice_C_cross_room_plumbing** inspection complete — Opus 4.8 reviewer output saved as `601445` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 2, LOW 2). CRP-F01 flagged as the highest-value ready-to-implement item; CRP-F02 recorded as a policy+implementation+architecture mismatch; FTR-F04 provenance resolved to `10141→010004` and `10609x→010451–010466`. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-4 recorded in §3.3. Domain 02 remains in progress.
+- 2026-07-20: **domain_02_payment_ledger_kds slice_D1_foundation_static_catalog** inspection complete — Opus 4.8 reviewer output saved verbatim as `601449` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). FSC-F01/FSC-F02 flagged as the two highest-priority findings; CRP-F04/FTR-F04 `10141` dead-link suspicion closed as a false positive by FSC-F03, with unapplied `010105` identified as the numbering-drift source. `010106` §12 and `010140` §11 recorded as preserve-before-retire content. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3. Domain 02 remains in progress.
+- 2026-07-20: **domain_02_payment_ledger_kds slice_D2_static_catalog_runtime_planning** inspection complete — Opus 4.8 reviewer output saved verbatim as `601450` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 3, LOW 1). SCP-F02/PAY-F01 refund constraint failure promoted to the highest-priority type-A immediate implementation candidate; SCP-F01 confirmed the D1/D2 59-document governance-theatre pattern; `010226` §13 recorded alongside `010106` §12 as preserve-before-retire content. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3. Domain 02 remains in progress.
+- 2026-07-20: **domain_02_payment_ledger_kds slice_D3_four_side_skeleton_data_governance** inspection complete — Opus 4.8 reviewer output saved verbatim as `601451` (6 findings: CRITICAL 0, HIGH 2, MEDIUM 2, LOW 2). FSD-F01 closed the caller-authorization ownership gap across 010500/010600/implementation; FSD-F02 completed the three-layer refund vocabulary lineage. Opus's commit-date≠authoring-date self-correction was retained as a methodology lesson. Owner Decision Queue ×5 and Workpacket candidates WP-1–WP-5 recorded in §3.3.
+- 2026-07-20: **domain_02_payment_ledger_kds COMPLETED — 6/6 slices**. Cumulative findings: 36 (CRITICAL 0, HIGH 12, MEDIUM 16, LOW 8). Repeated governance-theatre, numbering drift, refund-pipeline, and caller-authorization patterns consolidated in §3.4 and `601443`.
