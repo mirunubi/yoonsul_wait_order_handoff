@@ -81,9 +81,19 @@ where conrelid = 'catchmenu_hq.stores'::regclass and conname = 'uq_stores_tenant
 `601501` §2.7.1의 "실제 차단자는 GRANT + PostgREST"라는 주장을 **DDL 적용 전에** 확인한다.
 
 ```sql
--- (a) catchmenu_hq 테이블에 대한 테이블 권한이 정말 0건인가
+-- (a) catchmenu_hq 테이블에 "부여된" 테이블 권한이 정말 0건인가
+--     ⚠️ grantee <> 'postgres' 필수 — postgres는 테이블 소유자 권한이 카탈로그에
+--        자동 노출되는 것이며 실제 부여된 GRANT가 아니므로 제외한다 (§1.3.1)
 select count(*) from information_schema.role_table_grants
-where table_schema = 'catchmenu_hq';
+where table_schema = 'catchmenu_hq'
+  and grantee <> 'postgres';
+
+-- (a-2) 0건이 아닐 때 누구에게 무엇이 부여됐는지 확인 (증거용)
+select grantee, table_name, privilege_type
+from information_schema.role_table_grants
+where table_schema = 'catchmenu_hq'
+  and grantee <> 'postgres'
+order by grantee, table_name;
 
 -- (b) 스키마 USAGE 분포
 select r.rolname, has_schema_privilege(r.rolname, 'catchmenu_hq', 'USAGE') as usage
@@ -93,10 +103,30 @@ from pg_roles r where r.rolname in ('authenticated','service_role','anon');
 select rolname, rolbypassrls from pg_roles where rolname = 'service_role';
 ```
 
-**기대**: (a) `0`. (b) `authenticated`=`true`, `service_role`=`false`. (c) `rolbypassrls`=`true`.
+**기대**: (a) `0`, (a-2) 0행. (b) `authenticated`=`true`, `service_role`=`false`. (c) `rolbypassrls`=`true`.
 
 > (b)가 예상과 다르면 — 특히 `service_role`이 `true`로 나오면 — `601501` §2.7.1의 서술이 라이브와
 > 어긋나는 것이므로 **Stop Condition**이다. 설계를 고치고 재승인받아야 한다.
+
+#### §1.3.1 ⚠️ `grantee <> 'postgres'` 필터가 필요한 이유 (2026-08-10 게이트 실패 반영)
+
+**발생한 일**: Stage 8 사전 게이트에서 이 쿼리가 필터 없이 실행되어 **112건**이 나왔고,
+"GRANT 0건" 기대와 어긋나 중단됐다.
+
+**원인**: 112건은 **전부 `postgres`(테이블 소유자)의 권한**이었다.
+PostgreSQL은 테이블 소유자의 권한을 `information_schema.role_table_grants`에 **자동으로 노출**한다 —
+이는 누군가 `GRANT`문을 실행해 부여한 권한이 아니라 **소유권에서 파생된 카탈로그 표현**이다.
+`grantee <> 'postgres'`로 걸러낸 실제 부여 GRANT는 **0건**으로, `601501` §2.7.1의 설계 서술은 정확했다.
+
+**판정 분류**: **`TEST_SCOPE_ERROR`** — TestPlan 체크쿼리의 범위 오류였다.
+**`REAL_DEFECT`가 아니다.** 설계·스키마·접근제어에는 문제가 없었다.
+
+> **Stage 9 재검증자에게**: 이 항목이 과거에 한 번 오탐을 낸 지점이다.
+> `role_table_grants`를 조회하는 모든 검증(§1.3, **§3.1**)에는 `grantee <> 'postgres'`가 있어야 한다.
+> 필터 없는 결과를 결함으로 보고하지 말 것.
+>
+> **소유자가 `postgres`가 아닌 것으로 나오면** 그것은 별개의 중대한 신호다 —
+> `601505` §2.3(소유자 배포 전제)과 §4.1(Open Item (o))의 붕괴를 뜻하므로 **Stop Condition**이다.
 
 ### §1.4 cron baseline
 
@@ -179,13 +209,39 @@ where schemaname='catchmenu_hq' and tablename='owners' and indexdef ilike '%uniq
 ### §3.1 신규 4테이블에 GRANT가 없는가 (설계결정 §2.7.3)
 
 ```sql
+-- ⚠️ grantee <> 'postgres' 필수 — §1.3.1과 동일한 이유
+--    신규 4테이블도 postgres 소유이므로, 필터가 없으면 소유자 권한이 그대로 잡혀
+--    "GRANT가 부여됐다"는 오탐이 발생한다 (§3.1.1)
 select table_name, grantee, privilege_type
 from information_schema.role_table_grants
 where table_schema = 'catchmenu_hq'
   and table_name in ('owners','legal_entities',
-                     'legal_entity_person_roles','legal_entity_representatives');
+                     'legal_entity_person_roles','legal_entity_representatives')
+  and grantee <> 'postgres';
 ```
-**기대**: **0행**. 1행이라도 있으면 **FAIL**(설계결정 위반 — `601505` §4 Forbidden).
+**기대**: **0행**. 1행이라도 있으면 **FAIL**(설계결정 위반 — `601505` §2.1/§4.4).
+
+#### §3.1.1 ⚠️ 이 쿼리는 §1.3과 **같은 원인으로 오탐이 나는 자리**다 (v2 정정)
+
+본 TestPlan 초판의 §3.1에는 `grantee <> 'postgres'` 필터가 **없었다**. §1.3(a)와 정확히 같은 결함이다.
+
+**DDL 적용 후에는 §1.3보다 확실하게 터진다**: 신규 4테이블은 `postgres` 소유로 생성되므로
+(`601505` §2.3 배포 전제), 소유자 권한이 즉시 카탈로그에 노출된다 →
+필터가 없으면 **4테이블 × 권한종류만큼 행이 나오고 무조건 FAIL**한다.
+
+§1.3의 게이트 실패를 고치면서 §3.1을 함께 고치지 않으면, **바로 다음 검증 단계에서 같은 오탐이 재발**한다.
+두 쿼리는 반드시 같이 수정한다.
+
+**보조 확인 — 소유자가 실제로 `postgres`인지**(§1.3.1의 Stop Condition과 연결):
+
+```sql
+select tablename, tableowner from pg_tables
+where schemaname = 'catchmenu_hq'
+  and tablename in ('owners','legal_entities',
+                    'legal_entity_person_roles','legal_entity_representatives');
+```
+**기대**: 4행 전부 `tableowner = 'postgres'`.
+아니면 `601505` §2.3 배포 전제가 깨진 것이므로 **Stop Condition**(§9.3).
 
 ### §3.2 `authenticated` 직접 SELECT 거부
 
@@ -712,6 +768,7 @@ where n.nspname like 'catchmenu%';
 | `isolate_tenant()` **직접 호출** 시 23514 CHECK 위반 | 0090은 `tenant_status`에 `'ISOLATED'`를 쓴다. 그 RPC 수정은 **0-A-2 소관**이며, DB가 막는 것은 **의도된 동작**(§6.3). 단 이 확인을 위해 **실제 호출하지 말 것**(§4.1.1) — 정적 확인으로 충분 |
 | `manage_subscription()` 어떤 액션이든 **42703**(`tenants.company_name`) 실패 | `company_name` phantom은 **별개의 기존 결함**이며 이번 범위 밖(`601505` §4.5.1). `tenant_status`와 무관하다 |
 | ACTIVATE 분기가 CHECK로 보호되지 않음 | **알려진 잠재 위험**(§6.2A). 0-A-2/0-A-3 공통 완료조건으로 이관됨(`601505` §8A.1). 이번 DDL이 만든 문제가 아니다 |
+| `role_table_grants`에 **`postgres` grantee 행이 다수 존재** | **소유자 권한의 카탈로그 자동 노출**이지 부여된 GRANT가 아니다(§1.3.1). `grantee <> 'postgres'` 필터로 조회할 것. 2026-08-10 게이트에서 이 오탐으로 한 번 중단된 이력이 있다 — **`TEST_SCOPE_ERROR`이지 `REAL_DEFECT`가 아니다** |
 | `onboard_tenant()` 여전히 실패 | 4개 독립 결함, 실호출자 0건 — **0-A-3 소관**(`601501` §6.2) |
 | `pg_cron_jobs`에 `is_registered=true`인데 `pg_cron_job_id IS NULL`인 38행 | **0-A-2 승계 항목**(`601503` §5.3). 이번 범위 밖 |
 | `stores.legal_entity_id`가 전 행 NULL | 백필은 시드 생성 시점에 수행(§4.2). NOT NULL 승격 판정은 5단계 말미(Open Item (h)) |
@@ -727,6 +784,7 @@ where n.nspname like 'catchmenu%';
 - §8.2에서 `cron.job`이 0행이 아니게 됨
 - §6.2A에서 `manage_subscription()`의 `company_name` 참조가 **이미 제거돼 있음**(ACTIVATE 방벽 부재)
 - §9.1A의 계약 위반 6가지 중 하나라도 발견
+- §3.1.1 보조 확인에서 신규 4테이블의 `tableowner`가 **`postgres`가 아님**(`601505` §2.3 배포 전제 붕괴)
 
 ## §10 증거 수집 (§48 D단계)
 
