@@ -185,8 +185,8 @@ create index if not exists idx_lepr_legal_entity
   on catchmenu_hq.legal_entity_person_roles (legal_entity_id) where is_active = true;
 ```
 
-> **v3에서 제거된 것**: `is_legal_representative`, `representation_mode`, `chk_lepr_representative_consistency`.
-> 전부 §2.5로 이관됐다.
+> **v3에 있었으나 v4에서 제거된 것**: `is_legal_representative`, `representation_mode`,
+> `chk_lepr_representative_consistency`. 전부 §2.5의 `legal_entity_representatives`로 이관됐다.
 
 #### §2.4.1 재부여 가능성 — 부분 UNIQUE
 
@@ -378,14 +378,39 @@ alter table catchmenu_hq.legal_entity_representatives  force  row level security
 
 **5단계 검증 항목**: 신규 4테이블에 GRANT가 **부여되지 않았음**을 확인할 것(있으면 결함).
 
-#### §2.8.4 Open Item (l) 해소 — `SECURITY DEFINER` 접근 가능
+#### §2.8.4 Open Item (l) — **조건부 해소** (`SECURITY DEFINER` 접근)
 
-v3는 "`SECURITY DEFINER` 함수가 이 테이블에 접근 가능한지 미확인"으로 남기고 5단계 실행검증을 요구했다. **해소한다**:
+v3는 "`SECURITY DEFINER` 함수가 이 테이블에 접근 가능한지 미확인"으로 남기고 5단계 실행검증을 요구했다.
+**조건부로 해소한다**:
 
-`SECURITY DEFINER` 함수는 소유자 `postgres` 권한으로 실행되고, **`postgres`는 `BYPASSRLS`를 가지며
-스키마·테이블 소유자**이므로 `force row level security`와 GRANT 부재에 관계없이 **정상 접근한다**.
+`SECURITY DEFINER` 함수는 **소유자 권한**으로 실행된다. 소유자가 `postgres`이면 `postgres`는 `BYPASSRLS`를 갖고
+스키마·테이블 소유자이므로 `force row level security`와 GRANT 부재에 관계없이 **정상 접근**하며,
 후속 워크패킷의 RPC는 별도 조치 없이 이 테이블들을 읽고 쓸 수 있다.
-→ **Open Item (l) 삭제(해소)**. v3가 걸어둔 해당 실행검증 요구도 함께 철회한다.
+
+**소유권의 실제 근거 상태 (직접 확인)**:
+
+| 확인 대상 | 결과 |
+|---|---|
+| `sql/migrations/*.sql`의 명시적 소유자 지정(`owner to postgres`) | **0건** |
+| 클라우드 백업 덤프의 `ALTER FUNCTION ... OWNER TO "postgres"` | 623건 |
+
+**소유자를 `postgres`로 고정하는 선언이 마이그레이션 어디에도 없다.** 현재 `postgres` 소유인 것은
+"마이그레이션을 `postgres`로 실행해 왔다"는 **운영 관행의 결과**일 뿐 계약이 아니다.
+
+> **⚠️ 전제 조건 (2차 검증 지적 반영)**: 이 해소는 **"함수 소유자를 `postgres`로 유지한다"는 배포 계약**에 의존한다.
+> 다음 중 하나라도 발생하면 **해소는 무효가 되고 접근이 막힌다**:
+>
+> - 후속 워크패킷이 RPC를 `postgres` 아닌 역할 소유로 생성/변경
+> - 배포 파이프라인이 마이그레이션을 다른 역할로 실행해 그 역할이 소유자가 됨
+> - Supabase 정책 변경으로 `postgres`의 `BYPASSRLS`가 사라짐
+>
+> **따라서 Open Item (l)은 "삭제"가 아니라 "배포 계약 항목으로 전환"한다**(§7 (o)).
+> GRANT를 주지 않는 설계(§2.8.3)를 택한 이상 **소유자 전제가 이 테이블들의 유일한 접근 경로**이므로,
+> 이 전제가 깨지면 조용히 "아무도 못 쓰는 테이블"이 된다.
+>
+> **5단계 검증 항목**: 신규 RPC 생성 시 `select proname, proowner::regrole from pg_proc where ...`로
+> 소유자가 `postgres`인지 확인할 것. v3가 걸어둔 "RLS 때문에 접근 불가할 수 있다"는 검증 요구는 철회하되,
+> **소유자 확인 검증으로 대체**한다.
 
 ## §3 적용 순서 (§49.2)
 
@@ -463,9 +488,20 @@ v3는 승격을 "0단계 종료 판정"으로 미뤘다. v4는 **5단계 말미(
 
 ### §5.2 cron 실측 — 로컬 확인 완료 / 클라우드 미확인 (A-1)
 
-2차 검증의 로컬 DB 실측 결과:
+2차 검증의 로컬 DB 실측 결과(실행 중인 로컬 DB에서 재확인):
 
-- **`cron.job` 0행** — 로컬에 실제로 스케줄된 pg_cron 작업이 **하나도 없다**.
+| 측정 | 값 |
+|---|---|
+| `pg_cron_jobs` 총 행수 | **47행** |
+| 그중 `is_registered = true` | **38행** |
+| 그 38행 중 `pg_cron_job_id IS NULL` | **38행 전부** |
+| `cron.job` 행수 | **0행** |
+
+`is_registered = true`인 38행이 **전부 `pg_cron_job_id IS NULL`** 이라는 것이 결정적이다 —
+`pg_cron_job_id`는 등록 함수가 `cron.schedule()`의 반환값으로만 채우는 컬럼이므로(0072 L219–230),
+NULL이라는 것은 **그 행에 대해 `cron.schedule()`이 단 한 번도 호출된 적이 없다**는 직접 증거다.
+`cron.job` 0행과 정확히 일치하며, §5.3의 역논리 설명을 데이터로 확증한다.
+
 - `pg_cron_jobs` 카탈로그의 0120 행이 migration 파일과 불일치(§5.1).
 
 > **범위 한정**: 위는 **로컬 DB 실측**이며 **클라우드(운영) DB는 미확인**이다(§7 (m)).
@@ -578,9 +614,10 @@ end $$;
 | (i) | `store_groups` `DISTRICT` 도입 | 프랜차이즈 나선 | — |
 | (j) | `franchise_brands` 사업자축 중첩 해소 | 브랜드 나선 | — |
 | (k) | `stores.extra_metadata` / `stores.brand_id` | 후속 / 브랜드 나선 | — |
-| ~~(l)~~ | ~~`SECURITY DEFINER` 접근 가능 여부~~ | — | **해소(§2.8.4)** |
+| ~~(l)~~ | ~~`SECURITY DEFINER` 접근 가능 여부~~ | — | **조건부 해소 → (o)로 전환(§2.8.4)** |
 | (m) | **클라우드 확인 3건**: `pg_cron` 등록 상태 / `pg_cron_jobs` 카탈로그 값 / PostgreSQL 버전 | 5단계 착수 전 | **로컬은 실측 완료** |
 | (n) | `pg_cron_jobs.is_registered` 역논리 결함 수정 | 0-A-2 | **A-1 신규** |
+| (o) | **배포 계약: RPC 함수 소유자를 `postgres`로 유지** — 마이그레이션에 명시 선언 0건이므로 관행에만 의존 중. 명문화 여부 판단 + 5단계 소유자 확인 검증 | **5단계 + 배포 정책** | **2차 검증 지적, (l) 대체** |
 
 ## §8 근거 문서 목록 (§46)
 
