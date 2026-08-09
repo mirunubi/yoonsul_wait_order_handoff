@@ -1,8 +1,8 @@
 # 601502_Overview_Operational_Authority_Foundation_Ddl.md
 
-Status: Draft
+Status: Draft (v4)
 Lifecycle: Overview
-Stage: 4 (설계문서 정합화 — `000701_Guide_Controlled_AI_Development_Pipeline.md` §47.1 6단계 나선의 4단계)
+Stage: 4 (설계문서 정합화 — `000701` §47.1 6단계 나선의 4단계)
 Domain: Operational Authority Foundation (0단계 / 하위 나선 0-A)
 Last Updated: 2026-08-09
 
@@ -10,164 +10,254 @@ Last Updated: 2026-08-09
 
 `operational_authority_foundation_ddl`
 
-## §0 배경 — 이 워크패킷이 존재하는 이유
+## 개정 이력
 
-§47.3이 정의한 0단계(운영 권위 기반)의 첫 하위 나선 **0-A(Tenant/Company/HQ/Store)** 의 산출물이다.
-0단계 목표는 "SaaS 전체 구현"이 아니라 **이후 어떤 도메인을 만들어도 다시 흔들리지 않을 최소 권위 구조를 확정**하는 것이다(§47.3, §47.6-1).
+| 버전 | 변경 | 근거 |
+|---|---|---|
+| v2 | 최초 Overview (`companies`/`owner_companies` 기준) | 3단계 1차 대조 |
+| v3 | LegalEntity 중심 모델 전면 재작성 + AV 7개 반영 | 외부 검토(ChatGPT+Gemini) + AV |
+| **v4** | **접근제어 사실 정정**(차단 계층은 GRANT+PostgREST), **대표권 테이블 분리**(`legal_entity_representatives`), A-1~A-9 반영 | **3단계 2차 검증** |
 
-진행 경위:
+**v4에서 정정된 v3의 사실 1건**: "0021 패턴과 동일한 deny-by-default RLS" 서술이 **차단 메커니즘을 잘못 지목**했다
+(`601501` §2.7). 신규 테이블이 4개로 늘었다(대표권 분리).
+
+## §0 배경
+
+§47.3이 정의한 0단계(운영 권위 기반)의 첫 하위 나선 **0-A**의 산출물이다.
+0단계 목표는 "SaaS 전체 구현"이 아니라 **이후 어떤 도메인을 만들어도 다시 흔들리지 않을 최소 권위 구조 확정**이다(§47.3, §47.6-1).
 
 | 나선 단계 | 수행 | 산출물 |
 |---|---|---|
-| 1단계 업무규칙 선언 | Human | Owner/Company 전역화, Company↔Tenant 직접연결 금지, store_groups 재사용 등 7개 규칙 |
-| 2단계 ERD 초안 | Cursor 증거수집(§48) + Claude Code | `601501_ERD` v1 |
-| **3단계 인접도메인 대조** | **Opus 5 (별도 세션 — §47.1 세션 분리 요건 충족)** + ChatGPT 교차검증 | B-1/B-2(차단), A-1~A-7(수정후진행) |
-| 2단계 재작업 | Claude Code | `601501_ERD` **v2** (검증결과 전량 반영) |
-| **4단계 설계문서 정합화** | Claude Code 작성 + **Human 승인 대기** | **본 문서 + `601503_Logic`** |
+| 1단계 업무규칙 선언 | Human | Owner/사업주체 전역화, Tenant 직접연결 금지, store_groups 재사용 |
+| 2단계 ERD 초안 | Cursor(§48) + Claude Code | `601501` v1 |
+| 3단계 대조 (1차) | Opus 5 (별도 세션 — §47.1) | B-1/B-2, A-1~A-7 → v2 |
+| 외부 검토 + AV | ChatGPT + Gemini / Architecture Verification | LegalEntity 중심 모델 확정 → v3 |
+| **3단계 대조 (2차)** | **별도 세션 검증** | **접근제어 정정 + 대표권 분리 + A-1~A-9 → 본 v4** |
+| 4단계 설계문서 정합화 | Claude Code (Human 승인 대기) | `601502`/`601503` v4 |
+| 5단계 SQL 구현 | Codex (승인 후) | — |
 
-> §47.1 세션 분리 요건은 이번 나선에서 실제로 준수되었다 — 3단계는 ERD를 작성한 세션과 분리된 새 세션에서 수행됐고,
-> 그 결과 ERD v1이 놓친 B-1(1컬럼 구조의 원리적 한계)이 발견됐다. 이 요건 자체가 이번 나선 중 §47.1에 명문화됐다.
+### §0.1 상위 정합 — `003020`의 실현
+
+`003020`/`009030`/`009070`/`007040`이 "company와 legal_entity를 자동 동일시하지 말 것"을 규정해 왔으나
+**어느 쪽도 물리 테이블로 존재하지 않았다**. 0-A는 그중 `legal_entity` 축을 실체화한다.
+
+| 003020의 축 | v4 구현체 |
+|---|---|
+| `legal_entity` (계약·세무·정산 권한) | **`legal_entities` 신규** |
+| `company` (브랜드 그룹핑) | 기존 `franchise_brands` — **`store_groups` 아님**(A-3) |
+| `operating_group` (지역·운영 그룹핑) | 기존 `store_groups`(`REGION`만) |
+
+> `entity_type='CORPORATION'`은 **법인격의 종류**이지 `003020`의 "company 축"이 아니다.
+> 어휘 충돌 경고 전문은 `601501` §0.3.
 
 ## §1 해결하는 문제
 
-### §1.1 구조적 공백 — 사업자·소유자 개념의 부재
+### §1.1 법적 사업주체 개념의 부재
 
-`companies`/`owners` 테이블이 migration·라이브 어디에도 없다. 그 결과 "누가 이 매장의 법적 운영 주체인가"를
-DB가 표현하지 못하고, 여러 RPC가 **존재하지 않는 컬럼(phantom)** 에 그 정보를 쓰려다 실패한다.
-`tenants.company_name`/`business_number`/`ceo_name`(0112), `tenants.owner_name`(0082),
-`stores.extra_metadata`(0060)가 전부 같은 공백의 증상이다(`601501` §3).
+"누가 이 매장의 법적 책임 주체인가"를 DB가 표현하지 못한다. 여러 RPC가 **존재하지 않는 컬럼**에 그 정보를
+쓰려다 실패한다 — `tenants.company_name`/`business_number`/`ceo_name`(0112), `tenants.owner_name`(0082),
+`stores.extra_metadata`(0060)가 전부 같은 공백의 증상이다.
 
-핵심은 단순 컬럼 누락이 아니다 — 1단계 업무규칙 3(**한 Tenant에 여러 Company 가능**)에 의해
-tenant 단위 `company_name`은 **정의 자체가 불가능**하다. 즉 phantom 컬럼을 그냥 `tenants`에 추가하는 것은
-오답이며, 별도 축(전역 Company)으로 분리해야만 한다.
+단순 컬럼 누락이 아니다. 1단계 업무규칙(한 Tenant에 복수 사업주체 가능)에 의해 tenant 단위 `company_name`은
+**정의 자체가 불가능**하므로, phantom 컬럼을 `tenants`에 그냥 추가하는 것은 오답이다.
+`ceo_name`도 마찬가지다 — 법인은 공동/각자대표가 가능하고 대표권에 유효기간이 있으므로,
+정확한 답은 **`legal_entity_representatives`의 활성 행 집합**이다.
 
-### §1.2 상태축 충돌 — `tenant_status` 상호 파괴 (B-1)
+### §1.2 상태축 충돌 — `tenant_status` 상호 파괴
 
-`tenant_status` 하나에 **구독 생명주기**와 **보안 격리**라는 직교하는 두 축을 밀어넣은 결과,
-두 RPC가 같은 컬럼을 서로 다른 의미로 덮어쓴다(라이브 코드 확인, `601501` §3.3):
+`tenant_status` 하나에 **구독 생명주기**와 **보안 격리**라는 직교하는 두 축을 넣은 결과,
+`manage_subscription()` SUSPEND(0112 L595)가 쓴 값을 `isolate_tenant()`(0090 L1283–1295)가 즉시 덮어쓰고,
+격리 해제 시 무조건 `'ACTIVE'`로 되돌려 구독상태를 소실시킨다.
+1컬럼으로는 `ACTIVE`+`ISOLATED`를 **원리적으로 표현할 수 없다**.
 
-- `manage_subscription()` SUSPEND(0112 L592–597)가 `'SUSPENDED'`를 쓴 **직후** `isolate_tenant()`(L599–606)가 `'ISOLATED'`로 **즉시 파괴**
-- 격리 해제 시 `isolate_tenant()`(0090 L1283–1286)가 무조건 `'ACTIVE'`로 되돌려 **격리 전 구독상태 소실**
+### §1.3 같은 결함의 예방 — "하나의 사실은 한 곳에만"
 
-1컬럼으로는 `ACTIVE`+`ISOLATED` 같은 동시상태를 **원리적으로 표현할 수 없다** — 이것이 근본원인이다.
+§1.2의 교훈을 신규 설계에 두 번 적용한다:
 
-### §1.3 왜 지금 고쳐야 하는가
+1. **Store의 법적 주체**는 `company_id`/`owner_id` 두 갈래로 나누지 않고 **`legal_entity_id` 하나**로 통일.
+2. **법적 대표권**은 `is_legal_representative`+`representation_mode` 두 컬럼이 아니라
+   **`legal_entity_representatives`의 행 존재 여부** 하나로 판정(v4 신규 — `601501` §2.5).
 
-0-B(Staff identity) 이후 모든 나선이 store/tenant 경계 위에서 동작한다. 권위 구조가 확정되지 않은 채
-상위 도메인을 쌓으면 §47.4의 탈출조건 5번("한 Workpacket이 인접 도메인 4개 이상을 동시에 수정")에 직행한다.
+v3는 2번을 CHECK 제약으로 봉합하려 했다. **제약으로 봉합해야 하는 모순은 애초에 표현 가능해선 안 된다**는 것이
+2차 검증의 판정이며, v4는 구조 자체를 바꿨다.
 
-## §2 함께 봐야 하는 파일 (구현 컨텍스트)
+## §2 함께 봐야 하는 파일
 
-| 파일 | 왜 봐야 하는가 |
+| 파일 | 왜 |
 |---|---|
-| `sql/migrations/0002_create_hq_tenant_store.sql` | `tenants`/`stores` 실제 정의. 컬럼 추가 대상 |
-| `sql/migrations/0021_enable_rls.sql` | deny-by-default RLS 패턴 — 신규 3개 테이블이 그대로 따름 |
-| `sql/migrations/0077_create_multistore_rpc.sql` | `store_groups`/`store_group_members` — 재사용 대상(신규 생성 금지) |
-| `sql/migrations/0085_create_franchise_os_foundation_rpc.sql` | `franchise_brands` — **읽기 전용 참조**, 축 구분용(`601501` §0.2) |
-| `sql/migrations/0090`/`0112` | `tenant_status` 상호 파괴 지점. **본 워크패킷에서 수정하지 않음**(§3) |
-| `sql/migrations/0120`/`0123`/`0129` | `WHERE tenant_status='ACTIVE'` 필터. **본 워크패킷에서 수정하지 않음**(§3) |
-| `sql/migrations/0034_seed_data.sql` | 시드 tenant/store — 백필 대상 확인용 |
+| `0002_create_hq_tenant_store.sql` | `tenants`/`stores` 원형 — 컬럼 추가 대상 |
+| **`supabase/config.toml`** | **PostgREST 노출 스키마 — 실제 1차 차단 계층(§4.3)** |
+| `0022_create_rls_policies.sql` | `grant usage on schema`(L614–623), `is_service_role()` — 접근제어 사실 근거 |
+| `0021_enable_rls.sql` | enable+force. **0022와 짝을 이룸 — "정책 0개" 선례 아님** |
+| `0072_create_pg_cron_schedules.sql` | `pg_cron_jobs` 카탈로그 + **`is_registered` 역논리 결함 근거(§4.2)** |
+| `0077_create_multistore_rpc.sql` | `store_groups` 재사용(신규 생성 금지) |
+| `0085_...franchise_os_foundation_rpc.sql` | `franchise_brands` — **읽기 전용**, 축 구분 |
+| `0082`/`0090`/`0112` | phantom·상호 파괴 지점. **본 워크패킷에서 수정하지 않음** |
+| `0120`/`0123`/`0129` | `tenant_status='ACTIVE'` 필터. **수정하지 않음**(§4.2 승계) |
+| `003020`/`009030`/`009070`/`007040` | 상위 개념축 정합 |
 
-## §3 범위 절단 — **DDL 전용** (A-7, 재논의 금지)
+## §3 범위 절단 — **DDL 전용** (재논의 금지)
 
-3단계 검증에서 "범위 비대화"가 지적됐다. 본 워크패킷의 5단계(SQL 구현)는 **DDL 전용**으로 절단한다.
+### §3.1 포함
 
-### §3.1 포함 (INCLUDE)
-
-**신규 테이블 3개** (전부 `catchmenu_hq` 스키마, deny-by-default RLS 포함)
+**신규 테이블 4개** (`catchmenu_hq` 스키마) — v3의 3개에서 대표권 분리로 **4개가 됨**
 1. `catchmenu_hq.owners`
-2. `catchmenu_hq.companies`
-3. `catchmenu_hq.owner_companies`
+2. `catchmenu_hq.legal_entities`
+3. `catchmenu_hq.legal_entity_person_roles`
+4. **`catchmenu_hq.legal_entity_representatives`** (v4 신규)
 
-**신규 컬럼 3개** (전부 가법적 ADD COLUMN)
+**신규 컬럼 3개** (전부 가법적)
 1. `catchmenu_hq.tenants.tenant_status`
 2. `catchmenu_hq.tenants.isolation_state`
-3. `catchmenu_hq.stores.company_id`
+3. `catchmenu_hq.stores.legal_entity_id`
 
-부수적으로 위 대상에 직접 딸린 것만: PK/FK/CHECK/부분 UNIQUE 인덱스, `set_updated_at` 트리거,
-`enable/force row level security`, `comment on`.
+부수적으로 위 대상에 직접 딸린 것만: PK/FK/CHECK/부분 UNIQUE 인덱스, 생성컬럼(`brn_normalized`/`crn_normalized`),
+`set_updated_at` 트리거, `enable/force row level security`, `comment on`.
 
-### §3.2 제외 (EXCLUDE — 전부 별도 후속 워크패킷)
+**명시적 비포함 — GRANT**: 신규 4개 테이블에 **어떤 역할에도 테이블 권한을 부여하지 않는다**(§4.3, `601501` §2.7.3).
 
-| 제외 항목 | 이유 | 이월 대상 |
+### §3.2 제외 — 전부 별도 후속 워크패킷
+
+| 제외 항목 | 이유 | 이월 |
 |---|---|---|
-| `isolate_tenant()` / `manage_subscription()` 재작성 | RPC 로직 변경. DDL과 섞으면 실패 시 원인 분리 불가 | 후속 워크패킷 (0-A-2) |
-| `0120`/`0123`/`0129`의 `tenant_status='ACTIVE'` 필터 보강 | 위와 동일. **단 §4.2 위험 반드시 승계** | 후속 워크패킷 (0-A-2) |
-| `onboard_tenant()` 재설계 | 4개 독립 결함, 실호출자 0건(`601501` §3.5) | 후속 워크패킷 (0-A-3) |
-| `provision_tenant()`(0082) 재작성 | owner/company 생성 흐름 재구성 필요 | 후속 워크패킷 (0-A-3) |
-| `0060`의 `extra_metadata` 참조 정리 | franchisee 정보 이전 판정 필요 | 후속 워크패킷 |
-| `stores.brand_id` 추가 | 브랜드 축 = 미래 나선 소관(§47.2) | 브랜드 나선 |
-| 신규 3개 테이블의 RLS **정책(policy)** 부여 | deny-by-default로 안전하게 닫힘. 정책식은 0-C 소관 | 0-C (Authorization) |
-| `owners`/`companies` 대상 CRUD RPC | 0-A는 구조 확정까지 | 후속 워크패킷 |
-| `store_groups` REGION 행 실제 생성 | 데이터 시드, DDL 아님 | 후속 |
+| `isolate_tenant()` / `manage_subscription()` 재작성 | RPC 로직. DDL과 섞으면 실패 원인 분리 불가 | 0-A-2 |
+| `0112`의 21개 `tenant_status` 지점 정합화 | **공개 파라미터(L248) 시그니처 결정 + 대시보드 집계 정의 포함** — 단순 치환 아님 | 0-A-2 |
+| `0120`/`0123`/`0129` 필터 보강 | 위와 동일. §4.2 승계 필수 | 0-A-2 |
+| **`pg_cron_jobs.is_registered` 역논리 결함 수정** | **cron 등록 로직 결함 — DDL 아님(v4 신규)** | **0-A-2** |
+| `onboard_tenant()` 재설계 | 파라미터명 불일치 등 독립 결함 다수, 실호출자 0건 | 0-A-3 |
+| `provision_tenant()`(0082) 재작성 | owner/legal_entity 생성 흐름 재구성 | 0-A-3 |
+| `0060`의 `extra_metadata` 정리 | franchisee 정보 이전 판정 필요 | 후속 |
+| `stores.brand_id` 추가 | 브랜드 축 = 미래 나선(§47.2) | 브랜드 나선 |
+| 신규 테이블 **GRANT 및 RLS 정책** | 쓰는 RPC가 생길 때 최소권한으로 | 0-C / 후속 |
+| `owners`/`legal_entities` CRUD RPC | 0-A는 구조 확정까지 | 후속 |
+| 대표권 **행간** 정합성 강제(SOLE 2명 방지 등) | 행 CHECK로 불가 — 트리거/RPC 소관 | 후속(`601501` §2.5.2) |
 
 **절단 근거**: DDL은 `CREATE OR REPLACE FUNCTION`보다 **먼저** 적용돼야 한다(§49.2, PL/pgSQL 지연바인딩).
-DDL과 RPC 재작성을 한 마이그레이션에 섞으면 이 순서 요건이 파일 내부 순서 문제로 숨어버리고,
-실패 시 "스키마 문제인가 로직 문제인가"를 분리할 수 없다.
+섞으면 이 순서 요건이 파일 내부 순서 문제로 숨고, 실패 시 "스키마 문제인가 로직 문제인가"를 분리할 수 없다.
 
 ## §4 영향 범위와 위험
 
 ### §4.1 기존 동작 보존
 
-- 신규 테이블 3개: 참조하는 기존 코드 **0건** → 기존 동작 영향 없음.
-- `stores.company_id`: nullable 추가 → 기존 `insert`/`select *` 영향 없음. `uq_stores_tenant_code`는 **tenant 단위 그대로 유지**(`601501` §2.2).
-- `tenants` 컬럼 2개: nullable이 아닌 `NOT NULL DEFAULT`이나, PostgreSQL 11+ 는 기본값 있는 컬럼 추가를 테이블 재작성 없이 처리한다(메타데이터 전용). 기존 행은 전부 default 값을 얻는다.
+- 신규 테이블 4개: 참조하는 기존 코드 **0건** → 영향 없음.
+- `stores.legal_entity_id`: nullable 추가 → 기존 `insert`/`select *` 영향 없음. `uq_stores_tenant_code`는 tenant 단위 그대로.
+- `tenants` 컬럼 2개: `NOT NULL DEFAULT` 추가이나 PostgreSQL 11+ 는 테이블 재작성 없이 처리(메타데이터 전용).
 
-### §4.2 ⚠️ 승계 필수 위험 — 배치 작업의 조용한 활성화
+### §4.2 ⚠️ 승계 필수 위험 — "조용한 활성화"와 cron 실측 (A-1)
 
-현재 `tenant_status` 컬럼은 **존재하지 않으므로**, 이를 참조하는 `0120`(pg_cron `sql_command` 문자열 내부)/
-`0123`/`0129`의 쿼리는 **실행 시점에 오류로 실패**하고 있다.
+**(a) 파일 정의상 영향 지점 — Claude Code 직접 확인**
 
-본 워크패킷이 컬럼을 추가하면 이 쿼리들은 **오류 없이 성공하기 시작한다**. `default 'TRIAL'`이므로
-기존 tenant는 전부 `TRIAL`이 되어 `WHERE tenant_status='ACTIVE'`는 **0행을 반환**한다 —
-즉 "실패"가 "조용한 0행 처리"로 바뀐다. 이후 누군가 tenant를 `ACTIVE`로 바꾸는 순간
-대사(reconciliation)/감사패킷 배치가 **예고 없이 실제로 돌기 시작**한다.
+`tenant_status`가 없는 현재 아래 쿼리는 **실행 시 오류로 실패**한다. 컬럼 추가 후에는 **오류 없이 0행 반환**으로 바뀐다(`default 'TRIAL'`).
 
-또한 2컬럼 분리로 인해 `ACTIVE` + `ISOLATED`인 테넌트가 표현 가능해지므로,
-이 필터들은 **격리된 테넌트까지 배치 대상에 포함**하게 된다 → `AND isolation_state='NONE'` 보강 필요.
+| 파일 | 지점 | 종류 |
+|---|---|---|
+| 0120 | L898, L916, L926 | `pg_cron_jobs.sql_command` 내부 `$sql$` (LAYER1/LAYER2) |
+| 0129 | L873–885 | 동상 (`HOURLY_METRICS`) |
+| 0123 | L636 / 0129 L885 | 함수·뷰 내부 필터 |
 
-**처분**: 이 보강은 §3.2에 따라 본 워크패킷 범위 밖이나, **0-A-2 후속 워크패킷의 필수 선행 항목으로 승계**한다.
-0-A DDL 병합 후 tenant를 `ACTIVE`로 전환하기 전에 0-A-2가 완료돼야 한다 — 이 순서를 `601503_Logic` §5에 못박는다.
+**(b) 실측 결과 — 로컬 확인 완료 / 클라우드 미확인**
 
-### §4.3 남은 미결
+2차 검증에서 로컬 DB를 실측한 결과:
 
-- `stores.company_id` 백필: 1호점 사업자번호 **미확정**(Human 확인, 2026-08-09) → `business_number IS NULL`인
-  company 행으로 먼저 생성 가능하도록 부분 UNIQUE 채택(`601501` §2.4 D-1). 백필 자체의 시점/방법은 `601503` §4.
-- 존재탐지 오라클(A-6): 사업자번호 중복 오류 메시지 설계는 RPC 워크패킷/0-C 소관.
+- **`cron.job` 0행** — 로컬에는 **실제로 스케줄된 pg_cron 작업이 하나도 없다**.
+- **`pg_cron_jobs` 카탈로그의 0120 행이 migration 파일 내용과 다르다** — 카탈로그가 파일의 최신 상태를 반영하지 않는다.
 
-## §5 완료 정의 (Definition of Done)
+> **범위 한정**: 위는 **로컬 DB 실측**이며 **클라우드(운영) DB는 미확인**이다.
+> 클라우드 상태는 5단계 착수 전 별도 확인 항목으로 남긴다(`601501` §7 Open Item (m)).
 
-1. 신규 테이블 3개 + 신규 컬럼 3개가 라이브에 존재하고, 제약/인덱스/트리거/RLS가 `601503_Logic` §2와 일치한다.
-2. 기존 RPC/배치 동작이 **본 변경으로 인해 새로 깨지지 않는다**(이미 깨져 있던 것은 그대로 — 수리는 0-A-2/0-A-3).
-3. §4.2 위험이 0-A-2 워크패킷에 문서로 승계됐다.
-4. `000005`/`000007` 등록 완료(§5.11 트리플 업데이트).
+**(c) `is_registered` 역논리 결함 — v4 신규 발견 (0-A-2 승계)**
+
+등록 함수는 `where is_registered = false`인 행만 순회해 `cron.schedule`을 호출하고, 성공 시 `is_registered = true`로
+갱신한다([0072](sql/migrations/0072_create_pg_cron_schedules.sql) L201–206, L226–230).
+그런데 **0120/0129의 시드 INSERT는 처음부터 `is_registered = true`로 행을 넣는다.**
+
+결과: 이 행들은 **등록 루프가 영원히 집어가지 않는다** — 카탈로그는 "등록됨"이라 주장하지만 `cron.schedule`은
+한 번도 호출된 적이 없다. **(b)의 `cron.job` 0행과 정확히 일치**하는 설명이다.
+`is_registered`는 실제로는 "등록 여부"가 아니라 "등록 시도 제외 플래그"로 동작하고 있으며,
+그 이름과 의미가 반대다.
+
+→ **0-A-2 승계 항목 신규 추가**(`601501` §7 Open Item (n)). 본 워크패킷 범위 밖이다.
+
+**(d) 2컬럼 분리가 추가로 만드는 문제**
+
+분리 후 `ACTIVE`+`ISOLATED`가 표현 가능해지므로 `WHERE tenant_status='ACTIVE'` 필터는
+**격리된 테넌트까지 포함**하게 된다 → `AND isolation_state='NONE'` 보강 필요.
+
+**처분**: (a)~(d) 전부 §3.2에 따라 본 워크패킷 범위 밖이나 **0-A-2의 필수 선행 항목으로 승계**한다.
+**어떤 tenant를 `ACTIVE`로 승격하기 전에 0-A-2가 완료돼야 한다** — `601503` §5에 못박는다.
+
+### §4.3 접근제어 — v3 서술의 정정 (B-1)
+
+> **v3 §4.3 폐기**: v3는 신규 테이블이 "0021 패턴의 deny-by-default RLS로 닫혀 있다"고 서술했다.
+> **차단 계층을 잘못 지목한 것**이다.
+
+실제 차단자는 RLS가 아니라 아래 두 계층이다:
+
+| 계층 | 상태 | 근거 |
+|---|---|---|
+| **PostgREST 노출 스키마** | `catchmenu_hq` **미노출** | `supabase/config.toml` `[api] schemas = ["public","graphql_public"]` |
+| **GRANT (테이블 권한)** | `catchmenu_hq` **16개 테이블 전부 테이블권한 0건** | migration 전수 검색 결과 해당 GRANT 없음 |
+
+- `service_role`: `BYPASSRLS=true`이나 **`catchmenu_hq` 스키마 USAGE 자체가 없다** → 진입 불가.
+- `authenticated`: 스키마 USAGE는 있으나(0022 L615) **테이블 권한이 없다** → 접근 불가.
+
+**설계 결정**: 신규 4개 테이블에 **GRANT를 주지 않는다**. 0-A는 구조 확정까지이고, 접근이 필요해지는 시점에
+최소 권한만 부여하는 것이 순서다. 지금 열면 0-C가 **이미 열린 문을 닫는 작업**부터 해야 한다.
+
+**해소된 미결**: `SECURITY DEFINER` 함수는 소유자 `postgres`(BYPASSRLS 보유, 스키마·테이블 소유자) 권한으로
+실행되므로 **별도 조치 없이 정상 접근**한다 — v3의 Open Item (l)은 해소됐다(`601501` §2.7.4).
+
+### §4.4 미결
+
+- `stores.legal_entity_id` 백필 및 **NOT NULL 승격 시점을 5단계 말미로 앞당기는 판정**(`601503` §4.3, A-8).
+- 대표권 **행간** 모순(같은 법인 SOLE 2명 등)은 행 CHECK로 막을 수 없음 — 트리거/RPC 소관(`601501` §2.5.2).
+- `is_active` ↔ `effective_from/to` 이중 진실원천 — 0-A는 잠정 계약, 근본 해소는 이월(`601501` §2.5.3).
+- 클라우드 `pg_cron` 상태 미확인.
+
+## §5 완료 정의
+
+1. 신규 테이블 4개 + 신규 컬럼 3개가 라이브에 존재하고, 제약/인덱스/생성컬럼/트리거/RLS가 `601503` §2와 일치한다.
+2. **신규 테이블에 GRANT가 부여되지 않았음**이 확인된다(§4.3 설계 결정).
+3. 재실행(idempotent)해도 오류 없이 같은 결과다(`601503` §6).
+4. 기존 RPC/배치가 **본 변경으로 새로 깨지지 않는다**(이미 깨져 있던 것은 그대로 — 수리는 0-A-2/0-A-3).
+5. §4.2 위험(특히 `is_registered` 역논리)과 §4.4 미결이 0-A-2로 문서 승계됐다.
+6. `000005`/`000007` 등록 완료(§5.11 트리플 업데이트).
 
 ## §6 근거 문서 목록 (§46)
 
-| 문서/파일 | 이 설계에서의 역할 |
-|---|---|
-| `docs/000700_.../000701_Guide_Controlled_AI_Development_Pipeline.md` §46/§47.1/§47.2/§47.3/§47.4/§47.6/§48/§49.2 | 나선 방법론, 세션 분리 요건, 범위 가드레일, `ADD COLUMN` 선행순서 |
-| `docs/.../601500_.../601501_ERD_Tenant_Company_HQ_Store.md` (v2) | 본 워크패킷의 ERD·스키마계약·phantom 정리 원본 |
-| `docs/000001_Md_Rules.md` §5.4.1/§5.4.2/§5.4.3 | Overview/Logic 문서 규격 및 lifecycle 순서 |
-| `sql/migrations/0002_create_hq_tenant_store.sql` | `tenants`(L8–24), `stores`(L43–76), `uq_stores_tenant_code`(L60), `chk_tenants_plan`(L21–23) |
-| `sql/migrations/0021_enable_rls.sql` | deny-by-default RLS 패턴 |
-| `sql/migrations/0034_seed_data.sql` | 시드 tenant `YOONSUL_TEST`(L24–25), `윤슬 울산 1호점`(L52–55) |
-| `sql/migrations/0060_create_franchise_hq_rpc.sql` | `stores.extra_metadata` phantom(L235, L946) |
-| `sql/migrations/0077_create_multistore_rpc.sql` | `store_groups`(L25–78), `store_group_members`(L126–155) |
-| `sql/migrations/0082_create_saas_billing_rpc.sql` | `provision_tenant` owner/tenant_status phantom(L429, L479–483) |
-| `sql/migrations/0085_create_franchise_os_foundation_rpc.sql` | `franchise_brands`(L123–160) — 축 구분 근거, **미변경** |
-| `sql/migrations/0090_create_multitenant_isolation_rpc.sql` | `isolate_tenant` 상태 덮어쓰기(L1283–1286, L1293–1295) |
-| `sql/migrations/0112_create_hq_admin_rpc.sql` | 상호 파괴(L592–606), `tenant_status` SELECT(L533), `brand_id`(L456–458), `onboard_tenant`(L373–384) |
-| `sql/migrations/0120_create_reconciliation_pipeline.sql` | `pg_cron_jobs.sql_command` 내부 필터(L898/916/926) |
-| `sql/migrations/0123_create_ai_customer_center_v2.sql` | `tenant_status='ACTIVE'` 필터(L636) |
-| `sql/migrations/0129_create_launch_readiness_package.sql` | `tenant_status='ACTIVE'` 필터(L885) |
-| `sql/migrations/0137`/`0138` | `'Run onboard_tenant()'` 문자열 언급(실호출 아님 근거) |
+`601501` §8의 근거 목록 전체를 승계한다. 본 Overview가 직접 인용한 항목:
+
+| 문서/파일 | 인용 지점 | 역할 |
+|---|---|---|
+| `000701` §46/§47.1/§47.2/§47.3/§47.4/§47.6/§48/§49.2 | — | 나선 방법론, 세션 분리, 가드레일, D단계, ADD COLUMN 선행 |
+| `000001_Md_Rules.md` §5.4.1~§5.4.3 | — | lifecycle 문서 규격 |
+| `601501_ERD_Tenant_Company_HQ_Store.md` (v4) | 전체 | 설계 원본 |
+| **`supabase/config.toml`** | `[api] schemas`(L7–13) | **PostgREST 미노출 — §4.3** |
+| `0022_create_rls_policies.sql` | L614–623, L78–89, L282–294, L606–611 | 스키마 USAGE 분포, `is_service_role()` |
+| `0021_enable_rls.sql` | 전체 | 0022와 짝 — "정책 0개" 선례 아님 |
+| **`0072_create_pg_cron_schedules.sql`** | **L29–66, L201–206, L226–230** | **`is_registered` 역논리 결함 근거 — §4.2(c)** |
+| `docs/003000_saas_runtime/003020_...Context_Model.md` | §2, §3, §4, §6 | LegalEntity 중심 모델 상위 근거 |
+| `docs/009000_.../009030_Register_Conceptual_Entity_Master.md` | L18, L19, L21 | 개념 엔터티 정의 |
+| `docs/009000_.../009070_Matrix_Context_Entity_Alignment_Model.md` | L5, L19–22, L30, L33 | **company≠operating_group(A-3)** |
+| `docs/007000_admin_console/007040_Policy_Admin_Screen_...md` | L21, L40 | 관리자 화면 축 구분 |
+| `0002_create_hq_tenant_store.sql` | L8–24, L21–23, L43–76, L60 | `tenants`/`stores` 원형 |
+| `0034_seed_data.sql` | L24–25, L52–55 | 시드 tenant/store |
+| `0060_create_franchise_hq_rpc.sql` | L235, L946 | `extra_metadata` phantom |
+| `0077_create_multistore_rpc.sql` | L25–78, L126–155 | `store_groups` 재사용 |
+| `0082_create_saas_billing_rpc.sql` | L88–112, L426–438, L465, L477–486, L490, L500 | `provision_tenant` 실제 시그니처 |
+| `0085_...franchise_os_foundation_rpc.sql` | L123–160 | `franchise_brands` — 미변경 |
+| `0090_create_multitenant_isolation_rpc.sql` | L1283–1286, L1293–1295 | 상호 파괴 |
+| `0112_create_hq_admin_rpc.sql` | 21개 지점(`601501` §8), L414–424 | 파급범위 |
+| `0120_create_reconciliation_pipeline.sql` | L898, L916, L926 | cron 문자열 필터 |
+| `0123_create_ai_customer_center_v2.sql` | L636 | 필터 |
+| `0129_create_launch_readiness_package.sql` | L873–885 | `HOURLY_METRICS` |
+| `0137`/`0138` | L64 / L59 | `onboard_tenant` 실호출 아님 근거 |
 
 ## Module Domain Tags
 
-`hq`, `tenant`, `store`, `company`, `owner`, `rls`, `ddl`
+`hq`, `tenant`, `store`, `legal_entity`, `owner`, `representative`, `rls`, `grant`, `ddl`
 
 ## Snapshot Decision
 
-본 Overview는 `601501_ERD` v2를 유일한 설계 원본으로 삼는다. ERD v2와 본 문서가 충돌하면 **ERD v2가 우선**하며,
-그 충돌 자체를 4단계 승인 전 해소해야 한다.
+본 Overview는 `601501_ERD` v4를 유일한 설계 원본으로 삼는다. 충돌 시 **ERD v4가 우선**하며,
+그 충돌은 4단계 승인 전 해소해야 한다.

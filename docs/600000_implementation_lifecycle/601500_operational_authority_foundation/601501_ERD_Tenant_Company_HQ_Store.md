@@ -1,78 +1,114 @@
 # 601501 ERD — 0-A Tenant / Company / HQ / Store
 
-- **나선**: 0단계(운영 권위 기반) · **하위 나선 0-A** Tenant / Company / HQ / Store
-- **단계**: §47.1 6단계 나선 중 **2단계 (ERD)** — 3단계 검증 반영 완료본
+- **나선**: 0단계(운영 권위 기반) · **하위 나선 0-A**
+- **단계**: §47.1 6단계 나선 중 **2단계 (ERD)**
 - **작성**: Claude Code
-- **상태**: **v2 (3단계 인접도메인 대조 반영)**. 4단계 설계문서(601502 Overview / 601503 Logic)로 이관됨
-- **선행 근거**: §48 Cursor 증거수집, 1단계 Human 업무규칙 선언, 3단계 인접도메인 대조(Opus 5, 별도 세션 — §47.1 세션 분리 요건 충족)
+- **상태**: **v4 (3단계 2차 검증 반영 — 접근제어 사실 정정 + 대표권 테이블 분리)**
+- **선행 근거**: §48 증거수집, 1단계 Human 선언, 3단계 인접도메인 대조 1차(Opus 5) 및 **2차**, 외부 검토(ChatGPT+Gemini) 합의, Architecture Verification
 
-> **가드레일 준수(§47.2, §47.6)**: `.sql` 생성/수정 없음. `franchise_brands`(0085) 변경 없음.
+> **가드레일(§47.2, §47.6)**: `.sql` 생성/수정 없음. `franchise_brands`(0085) 변경 없음.
 
 ## 개정 이력
 
 | 버전 | 변경 | 근거 |
 |---|---|---|
-| v1 | 최초 ERD 초안 | 1단계 업무규칙 + §48 증거수집 |
-| **v2** | B-1(tenant_status/isolation_state 2컬럼 분리), B-2(RLS deny-by-default 확정, "RLS 미정" 삭제), A-1~A-7 전량 반영 | 3단계 인접도메인 대조(Opus 5) + ChatGPT 교차검증 |
+| v1 | 최초 ERD 초안 (`companies`/`owner_companies`) | 1단계 선언 + §48 증거수집 |
+| v2 | B-1(tenant_status 2컬럼 분리), B-2(RLS deny-by-default), A-1~A-7 | 3단계 1차 대조(Opus 5) |
+| v3 | **LegalEntity 중심 모델** 전면 재작성, AV 7개 반영(v2의 `TRIAL_30` 오진·`service_role` 설명 정정 포함) | 외부 검토 합의 + AV |
+| **v4** | **B-1 접근제어 서술 전면 재작성**(실제 차단 계층은 RLS가 아니라 GRANT+PostgREST), **B-2 `legal_entity_representatives` 별도 테이블 분리**, A-1~A-9 반영 | **3단계 2차 검증** |
+
+**v3 → v4에서 정정된 사실 2건**:
+- v3 §2.6의 "0021 패턴과 동일한 deny-by-default" 서술은 **차단 메커니즘을 잘못 지목**했다 → §2.7에서 전면 재작성.
+- v3 §2.4의 대표권 표현(`is_legal_representative` + `representation_mode` 2컬럼 + 정합성 CHECK)은
+  **"하나의 사실을 두 컬럼에 저장"하는 구조**였다 → §2.5에서 별도 테이블로 분리.
 
 ---
 
 ## §0. 확정 업무규칙 및 축 정의
 
-### §0.1 1단계 Human 선언 (그대로 반영)
+### §0.1 최종 확정 구조
 
-| # | 규칙 | ERD 반영 |
+```text
+Owner(사람) ↔(N:M)↔ LegalEntity(법적 사업주체, 사업자번호 보유) ↔(1:N)↔ Store
+```
+
+**핵심 원칙 2가지 (재논의 금지)**:
+
+1. **법인(`CORPORATION`)은 별도 테이블이 아니라 `legal_entities.entity_type`의 한 값이다.**
+   개인사업자·법인·조합·비영리는 전부 같은 테이블의 서로 다른 `entity_type`이며, 법적 사업주체를 담는 테이블은 **`legal_entities` 하나뿐**이다. (A-2)
+2. **Store는 항상 정확히 1개의 LegalEntity에만 연결된다.** `company_id`/`owner_id`로 갈라지는 **두 갈래 FK 분기가 없다** — `legal_entity_id` 하나로 통일한다.
+
+원칙 2의 이유: 두 갈래 FK를 두면 "이 매장의 법적 책임 주체가 누구인가"에 대한 답이 두 곳에 생기고,
+둘이 어긋나는 순간 어느 쪽이 진실인지 판정할 방법이 없다. 이는 §3의 `tenant_status` 상호 파괴와
+**정확히 같은 종류의 결함**이다 — 하나의 사실을 두 곳에 저장하면 반드시 갈라진다.
+v4의 §2.5(대표권 테이블 분리)도 **같은 원칙을 대표권에 적용한 결과**다.
+
+### §0.2 1단계 Human 선언과의 대응
+
+| # | 1단계 선언 | v4 반영 |
 |---|---|---|
-| 1 | **Tenant** 1개 — 브랜드 전체 경계, 기존 유지(0002) | `tenants` 유지 + 상태컬럼 2개 추가(§3.3) |
-| 2 | **Owner**(사람) — 전역(tenant 무관), 신규 | `owners` 신규 |
-| 3 | **Company**(사업자/법인) — 전역, 신규. Tenant에 직접 연결 안 함 → Store 경유 간접 | `companies` 신규, `stores.company_id`로만 연결 |
-| 4 | **owner_companies** — Owner↔Company N:M | `owner_companies` 신규 |
-| 5 | **운영본부(지역)** — 신규 테이블 금지, `store_groups` 재사용 | `group_type='REGION'`만 사용(§0.3) |
-| 6 | **stores** — 기존 유지, `company_id`만 추가 | `stores.company_id` FK 신규 |
-| 7 | **HQ** — 별도 테이블 아님, `catchmenu_hq` 스키마 자체가 HQ | 변경 없음 |
+| 1 | Tenant 1개, 기존 유지 | `tenants` 유지 + 상태컬럼 2개 추가(§3) |
+| 2 | Owner(사람) 전역, 신규 | `owners` 신규 |
+| 3 | 사업주체 전역·신규, Tenant 직접연결 금지 | **`legal_entities`** — 전역, `stores.legal_entity_id`로만 연결 |
+| 4 | Owner↔사업주체 N:M | **`legal_entity_person_roles`**(역할·지분) + **`legal_entity_representatives`**(대표권) |
+| 5 | 운영본부는 `store_groups` 재사용 | `group_type='REGION'`만(§0.5) |
+| 6 | `stores`에 운영주체 FK 1개 | **`stores.legal_entity_id`** |
+| 7 | HQ는 `catchmenu_hq` 스키마 자체 | 변경 없음 |
 
-**핵심 위상**: `Owner ─(N:M)─ Company ─(1:N)─ Store ─(N:1)─ Tenant`.
-Company와 Tenant 사이에 **직접 관계선이 없다** — 같은 Company가 서로 다른 Tenant 매장을 운영할 수 있다.
+### §0.3 상위 개념문서와의 정합 — 003020의 실현
 
-### §0.2 축 정의 — 사업자 축 vs 브랜드 축 (A-2, F-5)
+이번 나선은 **`003020`이 선언해 둔 company/legal_entity 분리 원칙을 LegalEntity 중심 모델로 실현한 것**이다.
 
-`companies`(신규)와 `franchise_brands`(0085, 기존)는 **이름이 비슷해 혼동되기 쉬우나 서로 다른 축**이다.
-어휘 혼동을 막기 위해 다음 2열 표를 이 도메인의 확정 정의로 고정한다.
+`003020` §2/§3, `009030` L18–19, `009070` L19–20, `007040` L21/L40이 공통 규정하는 바:
+`legal_entity` = 계약·세무·정산 권한 맥락 / `company` = 브랜드·운영 그룹핑 맥락, 두 축은 **parallel context axes**,
+명시 금지 = "do not assume one company equals one legal_entity"(`003020` §3), "Do not treat company as legal entity automatically"(`007040` L40).
 
-| **사업자 축 — `companies` (0-A 소관)** | **브랜드 축 — `franchise_brands` (미래 브랜드 나선 소관)** |
+| 003020의 축 | v4 구현체 | 비고 |
+|---|---|---|
+| `legal_entity` (계약·세무·정산 권한) | **`legal_entities` (신규, 본 나선)** | 사업자번호를 보유하는 유일한 테이블 |
+| `company` (브랜드 그룹핑) | 기존 `franchise_brands` | **`store_groups`는 여기 해당하지 않음** (A-3) |
+| `operating_group` (지역·운영 그룹핑) | 기존 `store_groups` | `group_type='REGION'`만 사용 |
+| `tenant` | 기존 `tenants` | SaaS 경계 |
+| `store` | 기존 `stores` | `legal_entity_id`로 법적 주체와 연결 |
+
+> **A-3 정정**: v3는 company 축의 구현체로 `franchise_brands`와 `store_groups`를 **함께** 적었으나,
+> `003020`/`009070`은 `company`와 `operating_group`을 **서로 다른 축**으로 규정한다.
+> `store_groups`는 `operating_group` 축의 구현체이지 company 축이 아니다 → 매핑에서 분리했다.
+
+> **⚠️ 어휘 충돌 경고 (삭제 금지)**: `entity_type='CORPORATION'`은 **법인격의 종류(legal form)** 이며,
+> `003020`이 말하는 **"company 축(브랜드 그룹핑)"과 전혀 다른 개념**이다. §0.1 원칙 1은 법인격 어휘 안에서만
+> 성립하며, `003020`의 company 축을 legal_entity로 흡수한다는 뜻이 **아니다**.
+> 이 프로젝트가 반복적으로 당해온 어휘 혼동의 정확한 재발 지점이다.
+
+### §0.4 사업자 축 vs 브랜드 축
+
+| **사업자 축 — `legal_entities` (0-A 소관)** | **브랜드 축 — `franchise_brands` (브랜드 나선 소관)** |
 |---|---|
-| 법인격 (`legal_entity_type`) | 상표·브랜드명 (`brand_name`/`brand_code`) |
-| 사업자번호 (`business_number`) | 로열티 정책 (`royalty_rate_pct`) |
-| 대표자 (`ceo_name`) | 브랜드 가이드 (`brand_guidelines_url`/`brand_color`/`brand_logo_url`) |
-| 계약 주체 — **누가 법적 책임을 지는가** | 멤버십·메뉴 공유 범위 (`shared_membership`/`shared_menu_template`) |
+| 법인격 종류 (`entity_type`) | 상표·브랜드명 (`brand_name`/`brand_code`) |
+| 사업자등록번호 (`business_registration_number`) | 로열티 정책 (`royalty_rate_pct`) |
+| 법인등기번호 (`corporate_registration_number`) | 브랜드 가이드 (`brand_guidelines_url` 등) |
+| 대표권 (`legal_entity_representatives`) | 멤버십·메뉴 공유 (`shared_membership` 등) |
+| **누가 법적 책임을 지는가** | **어떤 간판을 달고 무엇을 공유하는가** |
 
-한 줄 판별식: **`companies`는 "누가 법적 책임을 지는가", `franchise_brands`는 "어떤 간판을 달고 무엇을 공유하는가".**
+**기존 중첩 기록(해소하지 않음)**: `franchise_brands`의 `hq_contact_*`, `contract_start_date`/`contract_end_date`는
+0-A 이전부터 존재하던 사업자축 중첩이며 **해소는 브랜드 나선 소관**이다(§47.2).
 
-**기존 중첩 기록(해소하지 않음)**: `franchise_brands`는 이미 사업자 축 성격의 필드를 일부 포함한다 —
-`hq_contact_name` / `hq_contact_email` / `hq_contact_phone`(연락 주체), `contract_start_date` /
-`contract_end_date`(계약 기간). 이는 **0-A 이전부터 이미 존재하던 중첩**이며, **해소는 브랜드 나선 소관**이다.
-0-A에서는 이 필드들을 건드리지 않고, 중첩이 존재한다는 사실만 기록한다(§47.2 먼 미래 상세설계 금지).
+### §0.5 store_groups 사용 범위
 
-### §0.3 store_groups 사용 범위 (A-3, F-6)
-
-- **0-A는 `group_type='REGION'`만 사용한다.** `'DISTRICT'`는 **0-A에서 사용하지 않는다**.
-- `'DISTRICT'` 도입 **판정 조건**(이월): "실제 프랜차이즈 가맹계약이 체결되어, 하나의 REGION 아래에
-  **독립된 관리 권역이 2개 이상** 생기고, 그 권역별로 별도 관리자·성과집계가 필요해지는 시점".
-  이 조건이 성립하기 전에는 REGION 하나로 충분하며, 계층(`parent_group_id`)도 사용하지 않는다.
-- `'BRAND'`/`'FRANCHISE'`/`'CUSTOM'`도 0-A 미사용(기존 CHECK 값은 그대로 두되 사용만 하지 않음).
+- 0-A는 **`group_type='REGION'`만** 사용. `DISTRICT`/`BRAND`/`FRANCHISE`/`CUSTOM` 미사용, 계층(`parent_group_id`) 미사용.
+- `DISTRICT` 도입 판정조건(이월): "실제 가맹계약 체결로 하나의 REGION 아래 **독립 관리 권역이 2개 이상** 생기고, 권역별 별도 관리자·성과집계가 필요해지는 시점".
 
 ---
 
 ## §1. Mermaid ERD
 
-> 기존 테이블은 라이브 스키마 그대로. `NEW` 표시가 0-A 신규 요소.
-> `UK` 뒤 괄호는 유니크 제약의 범위(단일/복합/부분).
-
 ```mermaid
 erDiagram
-    OWNERS ||--o{ OWNER_COMPANIES : "참여(N:M)"
-    COMPANIES ||--o{ OWNER_COMPANIES : "참여(N:M)"
-    COMPANIES ||--o{ STORES : "운영(1:N, NEW company_id)"
+    OWNERS ||--o{ LEGAL_ENTITY_PERSON_ROLES : "역할 보유(N:M)"
+    LEGAL_ENTITIES ||--o{ LEGAL_ENTITY_PERSON_ROLES : "역할 부여(N:M)"
+    OWNERS ||--o{ LEGAL_ENTITY_REPRESENTATIVES : "대표권 보유(N:M)"
+    LEGAL_ENTITIES ||--o{ LEGAL_ENTITY_REPRESENTATIVES : "대표 지정(N:M)"
+    LEGAL_ENTITIES ||--o{ STORES : "운영(1:N, NEW legal_entity_id)"
     TENANTS ||--o{ STORES : "소속(1:N)"
     TENANTS ||--o{ STORE_GROUPS : "보유(1:N)"
     STORE_GROUPS ||--o{ STORE_GROUP_MEMBERS : "구성(1:N)"
@@ -82,30 +118,47 @@ erDiagram
     OWNERS {
         uuid id PK "NEW"
         text owner_name "NOT NULL"
-        text contact_phone_hash "nullable, UNIQUE 없음(§2.3 D-2)"
+        text contact_phone_hash "nullable, UNIQUE 없음(§2.4)"
         text contact_email "nullable"
         boolean is_active "NOT NULL default true"
         timestamptz created_at "NOT NULL default now()"
         timestamptz updated_at "NOT NULL default now()"
     }
 
-    COMPANIES {
+    LEGAL_ENTITIES {
         uuid id PK "NEW"
-        text company_name "NOT NULL"
-        text business_number "nullable, UK(부분: WHERE NOT NULL)"
-        text legal_entity_type "NOT NULL CHECK CORPORATION/SOLE_PROPRIETOR"
-        text ceo_name "nullable"
-        text ceo_phone_hash "nullable"
-        boolean is_active "NOT NULL default true"
+        text entity_type "NOT NULL CHECK SOLE_PROPRIETOR/CORPORATION/PARTNERSHIP/NON_PROFIT"
+        text legal_name "NOT NULL"
+        text business_registration_number "nullable, 표기 그대로"
+        text brn_normalized "GENERATED STORED 숫자만, UK(부분 WHERE NOT NULL)"
+        text corporate_registration_number "nullable, 표기 그대로"
+        text crn_normalized "GENERATED STORED 숫자만, UK(부분 WHERE NOT NULL)"
+        text tax_id "nullable, UNIQUE 없음"
+        text status "NOT NULL default ACTIVE CHECK ACTIVE/SUSPENDED/CLOSED"
         timestamptz created_at "NOT NULL default now()"
         timestamptz updated_at "NOT NULL default now()"
     }
 
-    OWNER_COMPANIES {
+    LEGAL_ENTITY_PERSON_ROLES {
         uuid id PK "NEW"
+        uuid legal_entity_id FK "NOT NULL -> legal_entities.id, UK(복합부분)"
         uuid owner_id FK "NOT NULL -> owners.id, UK(복합부분)"
-        uuid company_id FK "NOT NULL -> companies.id, UK(복합부분)"
-        text relation_role "NOT NULL CHECK REPRESENTATIVE/CO_OWNER/INVESTOR"
+        text role_type "NOT NULL CHECK OWNER/REPRESENTATIVE/DIRECTOR/EXECUTIVE/INVESTOR, UK(복합부분)"
+        numeric ownership_percent "nullable CHECK 0..100"
+        date effective_from "NOT NULL default current_date"
+        date effective_to "nullable CHECK >= effective_from"
+        boolean is_active "NOT NULL default true, UK 조건컬럼"
+        timestamptz created_at "NOT NULL default now()"
+        timestamptz updated_at "NOT NULL default now()"
+    }
+
+    LEGAL_ENTITY_REPRESENTATIVES {
+        uuid id PK "NEW - 법적 대표권의 유일한 진실원천"
+        uuid legal_entity_id FK "NOT NULL -> legal_entities.id, UK(복합부분)"
+        uuid owner_id FK "NOT NULL -> owners.id, UK(복합부분)"
+        text representation_mode "NOT NULL CHECK SOLE/JOINT/INDIVIDUAL"
+        date effective_from "NOT NULL default current_date"
+        date effective_to "nullable CHECK >= effective_from"
         boolean is_active "NOT NULL default true, UK 조건컬럼"
         timestamptz created_at "NOT NULL default now()"
         timestamptz updated_at "NOT NULL default now()"
@@ -113,7 +166,7 @@ erDiagram
 
     TENANTS {
         uuid id PK
-        text tenant_code "NOT NULL UK(단일)"
+        text tenant_code "NOT NULL UK"
         text tenant_name "NOT NULL"
         text tenant_type "NOT NULL CHECK BRAND/FRANCHISE/INDEPENDENT/TEST"
         text plan_tier "NOT NULL CHECK LITE/STANDARD/PRO/ENTERPRISE"
@@ -127,7 +180,7 @@ erDiagram
     STORES {
         uuid id PK
         uuid tenant_id FK "NOT NULL -> tenants.id, UK(복합)"
-        uuid company_id FK "NEW nullable -> companies.id"
+        uuid legal_entity_id FK "NEW nullable -> legal_entities.id (5단계 말미 NOT NULL 승격 검토)"
         text store_code "NOT NULL, UK(복합: tenant_id+store_code)"
         text store_name "NOT NULL"
         text store_type "NOT NULL CHECK DINE_IN/TAKEOUT/HYBRID/DELIVERY_ONLY"
@@ -146,10 +199,10 @@ erDiagram
     STORE_GROUPS {
         uuid id PK
         uuid tenant_id FK "NOT NULL -> tenants.id, UK(복합)"
-        text group_code "NOT NULL, UK(복합: tenant_id+group_code)"
+        text group_code "NOT NULL, UK(복합)"
         text group_name "NOT NULL"
         text group_type "NOT NULL CHECK REGION/BRAND/FRANCHISE/DISTRICT/CUSTOM (0-A는 REGION만)"
-        uuid parent_group_id FK "nullable -> store_groups.id (0-A 미사용)"
+        uuid parent_group_id FK "nullable, 0-A 미사용"
         int depth "NOT NULL default 0"
         uuid group_manager_id "nullable"
         text group_manager_name "nullable"
@@ -166,7 +219,7 @@ erDiagram
         uuid id PK
         uuid tenant_id FK "NOT NULL -> tenants.id"
         uuid group_id FK "NOT NULL -> store_groups.id, UK(복합)"
-        uuid store_id FK "NOT NULL -> stores.id, UK(복합: group_id+store_id)"
+        uuid store_id FK "NOT NULL -> stores.id, UK(복합)"
         text member_role "NOT NULL CHECK LEADER/MEMBER/HQ"
         timestamptz joined_at "NOT NULL default now()"
         uuid joined_by "nullable"
@@ -178,258 +231,401 @@ erDiagram
 
 ### §1.1 관계 요약
 
-| 관계 | 카디널리티 | 연결 컬럼 | 비고 |
+| 관계 | 카디널리티 | 연결 | 비고 |
 |---|---|---|---|
-| Owner ↔ Company | N:M | `owner_companies(owner_id, company_id)` | 신규 |
-| Company → Store | 1:N | `stores.company_id` (NEW, nullable) | 운영 주체 |
+| Owner ↔ LegalEntity (역할) | N:M | `legal_entity_person_roles` | 역할 종류·지분·유효기간 |
+| Owner ↔ LegalEntity (대표권) | N:M | **`legal_entity_representatives`** | **법적 대표권의 유일한 진실원천** |
+| LegalEntity → Store | **1:N** | `stores.legal_entity_id` | Store당 정확히 1개 |
 | Tenant → Store | 1:N | `stores.tenant_id` | 기존 |
-| Tenant → StoreGroup | 1:N | `store_groups.tenant_id` | 기존, REGION만 사용 |
-| StoreGroup ↔ Store | N:M | `store_group_members(group_id, store_id)` | 기존 |
-| StoreGroup → StoreGroup | 1:N | `store_groups.parent_group_id` | 기존, **0-A 미사용** |
-| **Company ↔ Tenant** | **직접 없음** | (stores 경유 간접) | 업무규칙 3 |
+| Tenant → StoreGroup | 1:N | `store_groups.tenant_id` | 기존, REGION만 |
+| StoreGroup ↔ Store | N:M | `store_group_members` | 기존 |
+| **LegalEntity ↔ Tenant** | **직접 없음** | (stores 경유 간접) | 같은 사업주체가 서로 다른 Tenant 매장 운영 가능 |
 
 ---
 
 ## §2. 스키마 계약표
 
-### §2.1 신규 테이블 제약
-
-**owners** (전역 — `tenant_id` 컬럼 없음)
+### §2.1 `legal_entities` (신규)
 
 | 컬럼 | 타입 | NOT NULL | UNIQUE | CHECK / 비고 |
 |---|---|---|---|---|
 | id | uuid | ✓ (PK) | PK | `default gen_random_uuid()` |
-| owner_name | text | ✓ | — | |
-| contact_phone_hash | text | — | **없음**(§2.3 D-2 판정) | PII 평문 저장 금지 → 해시 |
-| contact_email | text | — | 없음 | |
-| is_active | boolean | ✓ | — | `default true` |
+| entity_type | text | ✓ | — | CHECK `('SOLE_PROPRIETOR','CORPORATION','PARTNERSHIP','NON_PROFIT')` |
+| legal_name | text | ✓ | — | 법적 상호(브랜드명 아님 — §0.4) |
+| business_registration_number | text | ✗ | — | 사업자등록번호. **표기 그대로 저장**(하이픈 보존) |
+| `brn_normalized` | text | ✗ | **부분 UK** `WHERE NOT NULL` | **생성컬럼** — §2.2 |
+| corporate_registration_number | text | ✗ | — | 법인등기번호. **표기 그대로 저장** |
+| `crn_normalized` | text | ✗ | **부분 UK** `WHERE NOT NULL` | **생성컬럼 (A-6, v4 신규)** — §2.2 |
+| tax_id | text | ✗ | **없음** | 국내에선 사업자번호와 동일값인 경우가 많아 유일성 미부여 |
+| status | text | ✓ | — | `default 'ACTIVE'` CHECK `('ACTIVE','SUSPENDED','CLOSED')` — 사업자 자체 상태(휴업/폐업). `tenants.tenant_status`·`stores.store_status`와 **별개 축** |
 | created_at / updated_at | timestamptz | ✓ | — | `default now()` + `set_updated_at` 트리거 |
 
-**companies** (전역 — `tenant_id` 컬럼 없음)
+**CHECK — 개인사업자의 법인등기번호 금지**: `entity_type <> 'SOLE_PROPRIETOR' or corporate_registration_number is null`.
 
-| 컬럼 | 타입 | NOT NULL | UNIQUE | CHECK / 비고 |
-|---|---|---|---|---|
-| id | uuid | ✓ (PK) | PK | |
-| company_name | text | ✓ | — | 0112 `p_company_name` 대응 |
-| business_number | text | **✗ (nullable)** | **부분 UK** `WHERE business_number IS NOT NULL` | **Human 결정(2026-08-09)** — §2.4 |
-| legal_entity_type | text | ✓ | — | CHECK `('CORPORATION','SOLE_PROPRIETOR')` |
-| ceo_name | text | — | — | 0112 `p_ceo_name` 대응 |
-| ceo_phone_hash | text | — | — | 0112 `p_ceo_phone_hash` 대응 |
-| is_active | boolean | ✓ | — | `default true` |
-| created_at / updated_at | timestamptz | ✓ | — | `default now()` + 트리거 |
+> **A-7 판단 명시**: **`CORPORATION`에 `corporate_registration_number`를 요구하지 않는다**(NOT NULL 강제 없음).
+> 법인 설립 등기 전이거나 번호를 아직 확보하지 못한 시점에도 `legal_entities` 행을 만들 수 있어야 하며,
+> 이는 `business_registration_number`를 nullable로 둔 것과 **같은 이유·같은 원칙**이다
+> (제약이 업무 절차를 앞질러 막지 않도록 한다). 역방향 금지(개인사업자는 CRN 불가)만 강제한다.
 
-**owner_companies** (N:M)
+### §2.2 등록번호 정규화 — BRN·CRN 동일 방식 (A-6)
 
-| 컬럼 | 타입 | NOT NULL | UNIQUE | CHECK / 비고 |
-|---|---|---|---|---|
-| id | uuid | ✓ (PK) | PK | |
-| owner_id | uuid | ✓ | 복합부분 UK | FK → `owners.id` |
-| company_id | uuid | ✓ | 복합부분 UK | FK → `companies.id` |
-| relation_role | text | ✓ | — | CHECK `('REPRESENTATIVE','CO_OWNER','INVESTOR')`, `default 'REPRESENTATIVE'` |
-| is_active | boolean | ✓ | UK 조건컬럼 | `default true` |
+**문제**: `123-45-67890` / `1234567890` / `123 45 67890`은 같은 번호지만 문자열로는 다르다.
+raw 컬럼에 UNIQUE를 걸면 **표기만 다른 중복 등록이 통과**한다. 법인등기번호도 동일 문제를 갖는다.
 
-### §2.2 기존 테이블 변경(가법적 추가만)
-
-| 테이블 | 추가 컬럼 | NOT NULL | 비고 |
-|---|---|---|---|
-| `tenants` | `tenant_status text` | ✓ `default 'TRIAL'` | CHECK `('ACTIVE','TRIAL','SUSPENDED','CANCELLED','TERMINATED')` — 구독 생명주기 축 |
-| `tenants` | `isolation_state text` | ✓ `default 'NONE'` | CHECK `('NONE','ISOLATED')` — 보안 격리 축 |
-| `stores` | `company_id uuid` | ✗ (nullable) | FK → `companies.id` |
-
-**기존 제약 유지 선언(A-1)**: `uq_stores_tenant_code (tenant_id, store_code)`는 **tenant 단위 유지**한다.
-`company_id` 추가로 인해 store_code 유일성 범위를 company 단위로 바꾸지 **않는다** — 같은 Company가 서로 다른
-Tenant에서 같은 `store_code`를 쓰는 것은 정상이며, 유일성 경계는 계속 Tenant다.
-
-### §2.3 신규 3개 테이블의 RLS — deny-by-default 확정 (B-2)
-
-`owners` / `companies` / `owner_companies` 3개 테이블은 **0021_enable_rls.sql의 deny-by-default 패턴을 그대로 적용**한다:
-
-- `enable row level security` + `force row level security` 둘 다 적용
-- **정책(policy)을 만들지 않는다** → `authenticated` 역할의 직접 `select`/`insert`/`update`/`delete` 전부 차단
-- 접근은 `SECURITY DEFINER` RPC(소유자 `postgres`) 및 `service_role` 경로로만 — 0021이 이미 확립한 패턴과 동일
-
-> 이 3개 테이블은 **전역(tenant 무관)** 이므로 기존 `catchmenu_hq` 테이블들이 쓰는
-> `tenant_id = catchmenu_common.current_tenant_id()` 형태의 정책식을 **그대로 쓸 수 없다**.
-> 이것은 미해결 공백이 아니라 **deny-by-default로 안전하게 닫힌 상태**이며, 정책 부여는 0-C 소관이다.
-
-**0-C(Authorization) 후보 정책식 — 조인 기반(stores 경유)**:
+**채택 — 생성컬럼(stored generated column) + 그 컬럼에 부분 UNIQUE, 두 번호에 동일 적용**:
 
 ```text
--- companies: 내 tenant의 매장을 운영하는 company만 보이게
-USING (
-  exists (
-    select 1 from catchmenu_hq.stores s
-    where s.company_id = companies.id
-      and s.tenant_id = catchmenu_common.current_tenant_id()
-  )
-)
+brn_normalized text generated always as (
+  nullif(regexp_replace(coalesce(business_registration_number,''), '[^0-9]', '', 'g'), '')
+) stored
 
--- owners: owner_companies -> companies -> stores 2단 조인
-USING (
-  exists (
-    select 1
-    from catchmenu_hq.owner_companies oc
-    join catchmenu_hq.stores s on s.company_id = oc.company_id
-    where oc.owner_id = owners.id
-      and oc.is_active = true
-      and s.tenant_id = catchmenu_common.current_tenant_id()
-  )
-)
+crn_normalized text generated always as (
+  nullif(regexp_replace(coalesce(corporate_registration_number,''), '[^0-9]', '', 'g'), '')
+) stored
 ```
 
-0-C에서 반드시 함께 판단할 것: (a) 조인 정책의 성능(인덱스 `stores.company_id` 필요),
-(b) `company_id IS NULL`인 store만 가진 company는 어떤 정책으로도 안 보이게 되는 문제,
-(c) 이 정책이 "다른 tenant도 이 company를 쓴다"는 사실을 노출하지 않는지.
+**`nullif(..., '')`이 설계의 핵심이다.** 없으면 원본이 NULL인 행들이 전부 `''`로 정규화되어 **서로 충돌**한다
+→ 번호 미확정 사업주체를 2건 이상 만들 수 없게 된다. v2에서 "placeholder가 UNIQUE 슬롯을 점유한다"며 배제했던
+함정이, 정규화를 도입하며 **다른 얼굴로 재등장**하는 지점이다.
 
-### §2.4 유니크 제약 3건 판정 (A-5 / D-1~D-4)
+**v3 → v4 변경(A-6)**: v3는 CRN에만 정규화를 적용하지 않고 raw 컬럼에 부분 UNIQUE를 걸었다.
+이는 "같은 번호의 표기 변형이 중복 등록된다"는 **BRN에서 이미 해결한 문제를 CRN에 그대로 남겨두는 것**이므로
+동일 방식으로 통일했다. raw 컬럼은 두 번호 모두 입력 표기 그대로 보존한다(대외 문서 표기 일치 목적).
 
-| # | 대상 | 판정 | 근거 |
+**표현식 인덱스 대신 생성컬럼인 이유**: (a) RPC가 정규화값으로 직접 조회 가능, (b) 정규화 규칙이 인덱스 정의에
+숨지 않고 **스키마에 드러남**.
+
+### §2.3 `legal_entity_person_roles` (신규 — 대표권 컬럼 제거됨)
+
+| 컬럼 | 타입 | NOT NULL | UNIQUE | CHECK / 비고 |
+|---|---|---|---|---|
+| id | uuid | ✓ (PK) | PK | |
+| legal_entity_id | uuid | ✓ | 복합부분 UK | FK → `legal_entities.id` |
+| owner_id | uuid | ✓ | 복합부분 UK | FK → `owners.id` |
+| role_type | text | ✓ | 복합부분 UK | CHECK `('OWNER','REPRESENTATIVE','DIRECTOR','EXECUTIVE','INVESTOR')` |
+| ownership_percent | numeric(5,2) | ✗ | — | CHECK `null or (0 <= x <= 100)` |
+| effective_from | date | ✓ | — | `default current_date` |
+| effective_to | date | ✗ | — | CHECK `null or effective_to >= effective_from` |
+| is_active | boolean | ✓ | UK 조건컬럼 | `default true` |
+
+**복합 부분 UNIQUE**: `UNIQUE (legal_entity_id, owner_id, role_type) WHERE is_active = true`
+— 같은 사람이 같은 법인에서 OWNER와 DIRECTOR를 동시에 가질 수 있고(정상), 역할 종료 후 재부여가 가능하다
+(전체 UNIQUE면 종료 이력 행이 슬롯을 영구 점유해 재부여 불가).
+
+> **v3에서 제거된 컬럼**: `is_legal_representative`, `representation_mode`, 그리고 이 둘을 묶던
+> `chk_lepr_representative_consistency`. 전부 §2.5의 별도 테이블로 이관됐다.
+
+### §2.4 `owners` (신규)
+
+| 컬럼 | 타입 | NOT NULL | UNIQUE | 비고 |
+|---|---|---|---|---|
+| id | uuid | ✓ (PK) | PK | |
+| owner_name | text | ✓ | — | |
+| contact_phone_hash | text | ✗ | **없음** | PII 평문 금지 → 해시 |
+| contact_email | text | ✗ | 없음 | |
+| is_active | boolean | ✓ | — | `default true` |
+| created_at / updated_at | timestamptz | ✓ | — | 트리거 |
+
+**유니크를 걸지 않는 판정(계승)**: 동명이인·번호 공유(가족/법인 대표번호)·번호 변경이 전부 정상 시나리오다.
+전역 유니크는 이 정상 케이스를 DB 레벨에서 거부하고 **존재탐지 오라클**을 만든다 → 중복 방지는 0-C 절차 소관.
+
+### §2.5 `legal_entity_representatives` (신규 — B-2, v4의 핵심 변경)
+
+**법적 대표권의 유일한 진실원천.**
+
+| 컬럼 | 타입 | NOT NULL | UNIQUE | CHECK / 비고 |
+|---|---|---|---|---|
+| id | uuid | ✓ (PK) | PK | |
+| legal_entity_id | uuid | ✓ | 복합부분 UK | FK → `legal_entities.id` |
+| owner_id | uuid | ✓ | 복합부분 UK | FK → `owners.id` |
+| representation_mode | text | ✓ | — | CHECK `('SOLE','JOINT','INDIVIDUAL')` — **`'NONE'` 값이 사라졌다** |
+| effective_from | date | ✓ | — | `default current_date` |
+| effective_to | date | ✗ | — | CHECK `null or effective_to >= effective_from` |
+| is_active | boolean | ✓ | UK 조건컬럼 | `default true` |
+
+**복합 부분 UNIQUE**: `UNIQUE (legal_entity_id, owner_id) WHERE is_active = true`
+
+#### §2.5.1 왜 별도 테이블인가 — v3 설계의 결함
+
+v3는 대표권을 `legal_entity_person_roles`의 **두 컬럼**(`is_legal_representative` boolean + `representation_mode`)으로
+표현하고, 둘의 모순을 `chk_lepr_representative_consistency` CHECK로 막았다. 이 구조의 문제:
+
+- **하나의 사실("이 사람은 이 법인의 법적 대표다")이 두 컬럼에 분산**되어 있었다.
+  CHECK가 필요했다는 것 자체가 구조가 잘못됐다는 신호다 — 제약으로 봉합해야 하는 모순은 애초에 표현 가능해선 안 된다.
+- `representation_mode='NONE'`이라는 **"대표가 아님"을 뜻하는 값**이 대표방식 도메인에 섞여 있었다.
+  대표방식이라는 개념에 "대표 아님"은 속하지 않는다.
+- 대표권에는 고유한 유효기간(`effective_from`/`to`)이 있는데, 역할의 유효기간과 **같은 행을 공유**해야 했다.
+  대표권만 종료하고 이사 역할은 유지하는 정상 시나리오를 표현할 수 없었다.
+
+**v4 판정**: "법적 대표인가"는 **`legal_entity_representatives`에 활성 행이 존재하는지로만** 판정한다.
+사실이 한 곳에만 존재하도록 복원한 것이며, §0.1 원칙 2("하나의 사실을 두 곳에 저장하면 갈라진다")를
+대표권에 적용한 결과다. `representation_mode`는 이제 **행이 존재할 때만 의미를 갖는** 순수한 대표방식 값이 되어
+`'NONE'`이 불필요해졌고, 정합성 CHECK 자체가 사라졌다.
+
+`representation_mode` 의미: `SOLE`=단독대표, `JOINT`=공동대표(2인 이상 공동 행사), `INDIVIDUAL`=각자대표(각자 단독 행사).
+
+#### §2.5.2 이 테이블도 막지 못하는 것 (A-4 — 반드시 기록)
+
+별도 테이블 분리로 **v3의 구조적 결함은 해소됐으나**, 다음은 **여전히 행 단위 CHECK로 막을 수 없다**:
+
+| 막지 못하는 모순 | 이유 |
+|---|---|
+| **같은 법인에 `SOLE`(단독대표) 대표가 2명 이상** | 여러 행에 걸친 조건. 행 CHECK는 다른 행을 볼 수 없다 |
+| `SOLE`과 `JOINT`가 같은 법인에 혼재 | 동상 |
+| 대표가 **0명인 법인**(법인격상 필수인데 없음) | 존재하지 않는 행은 CHECK로 검사 불가 |
+
+→ **§7 Open Item (c)** 로 기록. RPC/트리거 소관이며 0-A 범위 밖이다.
+이를 적어두지 않으면 "테이블을 분리했으니 대표권 정합성이 보장된다"는 **잘못된 안심**이 생긴다.
+분리가 해결한 것은 *한 행 내부의 모순*이고, *행 사이의 모순*은 그대로 남아 있다.
+
+#### §2.5.3 `is_active` ↔ `effective_to` 이중 진실원천 (A-5)
+
+`legal_entity_person_roles`와 `legal_entity_representatives` **양쪽 모두** 종료 상태를 두 가지로 표현할 수 있다:
+`is_active = false` **또는** `effective_to < current_date`. 둘이 어긋나면(예: `is_active=true`인데 `effective_to`가 과거)
+어느 쪽이 진실인지 판정 불가다. **§0.1 원칙 2 위반이 두 신규 테이블에 남아 있는 셈**이다.
+
+0-A에서 즉시 해소하지 않는 이유: 부분 UNIQUE 인덱스가 `WHERE is_active = true`에 의존하는데,
+날짜 기반 술어(`effective_to is null or effective_to >= current_date`)는 **`current_date`가 STABLE이라 인덱스 술어로 사용 불가**하다.
+따라서 `is_active`를 제거하려면 유일성 보장 방식 자체를 재설계해야 한다(배타 제약 `EXCLUDE`+`daterange` 등).
+
+**0-A 잠정 계약**: `is_active`를 **유일성 판정의 진실원천**으로 삼고, `effective_from`/`to`는 **이력 기록용**으로 둔다.
+둘의 동기화는 RPC 책임이다. 근본 해소는 §7 Open Item (b)로 이월한다.
+
+### §2.6 기존 테이블 변경 (가법적 추가만)
+
+| 테이블 | 추가 | NOT NULL | 비고 |
 |---|---|---|---|
-| D-1 | `companies.business_number` | **nullable + 부분 UNIQUE** (`WHERE business_number IS NOT NULL`) | Human 결정(2026-08-09). 1호점 실제 사업자번호가 **아직 미확정**이므로 NOT NULL은 즉시 걸림돌이 되고, placeholder를 넣으면 그 가짜값이 UNIQUE 슬롯을 점유해 2건 이상 만들 수 없다. 부분 UNIQUE는 "실제 번호끼리는 전역 유일"을 보장하면서 미확정 상태를 허용한다. 번호 확정 후 NOT NULL 승격은 가법적으로 가능. |
-| D-2 | `owners.contact_phone_hash` 부분 유니크 여부 | **걸지 않음** | 사람에게는 안정적 자연키가 없다 — 동명이인, 번호 공유(가족/법인 대표번호), 번호 변경이 모두 정상이다. 전역 유니크를 걸면 "이 번호의 사람이 이미 등록됨"을 알려주는 **존재탐지 오라클**이 되고(§4-2와 동일 위험), 정상 케이스를 DB 레벨에서 거부한다. 중복 owner 방지는 RPC/운영 절차(0-C) 소관으로 이월. |
-| D-3 | `owner_companies(owner_id, company_id)` **재가입 불가 문제** | **부분 UNIQUE** (`WHERE is_active = true`) | 전체 UNIQUE로 걸면 관계를 `is_active=false`로 종료한 뒤 **같은 Owner가 같은 Company에 다시 참여할 수 없다**(이력 행이 슬롯을 영구 점유). 부분 인덱스는 "동시에 활성인 관계는 최대 1건"만 강제하고, 종료된 이력 행은 여러 건 남을 수 있게 한다 — 재가입 가능. |
-| D-4 | `stores` 기존 `uq_stores_tenant_code` | **tenant 단위 유지**(변경 없음) | §2.2 참조 |
+| `tenants` | `tenant_status text` | ✓ `default 'TRIAL'` | CHECK 5값 — 구독 생명주기 축 |
+| `tenants` | `isolation_state text` | ✓ `default 'NONE'` | CHECK 2값 — 보안 격리 축 |
+| `stores` | `legal_entity_id uuid` | ✗ (nullable) | FK → `legal_entities.id`. **5단계 말미 NOT NULL 승격 검토**(§5.2, A-8) |
+
+**기존 제약 유지 선언**: `uq_stores_tenant_code (tenant_id, store_code)`는 **tenant 단위 그대로 유지**한다.
+`legal_entity_id`를 이 유니크 키에 넣지 않는다.
+
+### §2.7 접근제어 — 실제 차단 계층 (B-1, v4 전면 재작성)
+
+> **⚠️ v3 §2.6 서술 폐기**: v3는 "0021 패턴과 동일한 deny-by-default"라며 **RLS를 차단 메커니즘으로 지목**했다.
+> 2차 검증 결과 **이는 차단 계층을 잘못 짚은 것**이다. 아래가 실제 사실이다.
+
+#### §2.7.1 실제 차단은 RLS가 아니라 GRANT + PostgREST 노출 제한이다
+
+| 계층 | 실제 상태 | 확인 근거 |
+|---|---|---|
+| **① PostgREST 노출 스키마** | `catchmenu_hq`가 **API에 노출되지 않음** | `supabase/config.toml` `[api] schemas = ["public", "graphql_public"]` |
+| **② GRANT (테이블 권한)** | `catchmenu_hq`의 **16개 테이블 전부 테이블 권한 GRANT 0건** | migration 전수 검색 결과 `grant ... on ... catchmenu_hq.<table>` **0건** |
+| ③ RLS | enable/force되어 있으나 **①②에 도달조차 못 하므로 실질 차단자가 아님** | — |
+
+**역할별 실제 상태**:
+
+- **`service_role`**: `BYPASSRLS = true`이지만 **`catchmenu_hq` 스키마에 USAGE 자체가 없다**
+  (0022 L614–623의 `grant usage on schema` 대상은 `authenticated`뿐). → RLS를 우회할 수 있어도 **스키마에 진입할 수 없다**.
+- **`authenticated`**: 스키마 USAGE는 있으나(0022 L615) **테이블 권한이 없다** → 테이블에 접근 불가.
+
+즉 **RLS가 없더라도 이 테이블들은 이미 접근 불가**다. RLS는 3차 방어선이지 1차 차단자가 아니다.
+
+#### §2.7.2 "0021 패턴과 동일" 서술 삭제 — 이 저장소 최초 사례
+
+0021은 `enable`+`force`를 걸고 **0022가 그 테이블들에 정책을 붙이는 짝**으로 설계돼 있다.
+즉 0021 단독이 "정책 0개" 상태로 남는 것이 아니다.
+
+**본 워크패킷의 신규 3개 테이블은 이 저장소에서 최초로 "force RLS + 정책 0개"로 남는 사례다.**
+선례가 없으므로 "기존 패턴을 따랐다"고 서술할 수 없으며, **의도된 신규 설계 결정**으로 명시한다.
+
+#### §2.7.3 명시적 설계 결정 — 신규 3테이블에 GRANT를 주지 않는다
+
+**결정**: `owners` / `legal_entities` / `legal_entity_person_roles` / `legal_entity_representatives`에
+`authenticated`·`service_role` 어느 역할에도 **테이블 권한을 부여하지 않는다.**
+
+근거: 0-A는 **구조 확정**까지이고 이 테이블들을 읽고 쓰는 RPC는 후속 워크패킷 소관이다(§47.6-1).
+접근이 필요해지는 시점에 **필요한 최소 권한만** 부여하는 것이 순서다.
+지금 GRANT를 주면 "쓰는 곳이 없는데 열려 있는 테이블"이 생기고, 0-C가 접근제어를 설계할 때
+**이미 열린 문을 닫는 작업**부터 해야 한다.
+
+#### §2.7.4 Open Item (l) 해소 — `SECURITY DEFINER` 접근 가능
+
+v3는 "`SECURITY DEFINER` 함수가 이 테이블에 접근 가능한지 미확인"으로 남겼다. **해소한다**:
+
+`SECURITY DEFINER` 함수는 소유자 `postgres` 권한으로 실행되고, **`postgres`는 `BYPASSRLS`를 가지며
+스키마·테이블 소유자**이므로 `force row level security`와 GRANT 부재에 관계없이 **정상 접근한다**.
+따라서 후속 워크패킷의 RPC는 별도 조치 없이 이 테이블들을 읽고 쓸 수 있다.
+→ **§7 Open Item (l) 삭제(해소)**.
+
+#### §2.7.5 0-C 후보 정책식 (참고 — 접근이 필요해질 때)
+
+```text
+-- legal_entities: 내 tenant의 매장을 운영하는 법적 주체만
+using (exists (
+  select 1 from catchmenu_hq.stores s
+  where s.legal_entity_id = legal_entities.id
+    and s.tenant_id = catchmenu_common.current_tenant_id()
+))
+```
+
+0-C 판단 필요: (a) 조인 성능(`idx_stores_legal_entity_id` 전제), (b) `legal_entity_id IS NULL`인 store만 가진
+주체는 어떤 정책으로도 안 보이는 문제, (c) 교차 tenant 존재 노출 여부. **정책 이전에 GRANT가 선행 조건**이다.
 
 ---
 
-## §3. phantom 컬럼 정리 방안
+## §3. `tenants` 상태 2컬럼 분리 (B-1 v2에서 계승)
 
-### §3.1 `tenants.company_name` / `business_number` / `ceo_name` (phantom)
-
-- **참조**: 0112 `t.company_name`/`t.business_number`/`t.ceo_name`(L288–290), 사업자번호 중복확인을
-  `from catchmenu_hq.tenants where business_number = ...`(L401–404)로 수행.
-- **실제**: `tenants`(0002)는 8컬럼뿐 — 세 컬럼 모두 **없음**.
-- **정리**: 이 값들은 **Company의 속성**이다. 업무규칙 3(한 Tenant에 여러 Company 가능)에 의해
-  tenant 단위 "company_name"은 **정의 자체가 불가능**하다. → `companies`로 이관, 조회는 `stores.company_id` 조인.
-  중복확인은 `companies.business_number` 부분 UNIQUE가 DB 레벨에서 보장.
-
-### §3.2 `tenants.owner_name` / `owner_email` / `owner_phone` (phantom)
-
-- **참조**: 0082 `p_owner_name` 수신 후 해당 컬럼에 기록 시도(L429, L479–483).
-- **실제**: 없음.
-- **정리**: `owners` + `owner_companies` 조인으로 대체.
-
-### §3.3 `tenants.tenant_status` → **2개 컬럼으로 분리** (B-1, 최종 재확정)
-
-**추가할 컬럼 2개**:
-
-| 컬럼 | 정의 | 축 | 소관 |
+| 컬럼 | 정의 | 축 | 단독 기록자 |
 |---|---|---|---|
-| `tenant_status` | `text NOT NULL default 'TRIAL'` CHECK `('ACTIVE','TRIAL','SUSPENDED','CANCELLED','TERMINATED')` | 구독 생명주기 | 과금/구독 |
-| `isolation_state` | `text NOT NULL default 'NONE'` CHECK `('NONE','ISOLATED')` | 보안 격리 | 보안 |
+| `tenant_status` | `NOT NULL default 'TRIAL'` CHECK `('ACTIVE','TRIAL','SUSPENDED','CANCELLED','TERMINATED')` | 구독 생명주기 | `manage_subscription()` |
+| `isolation_state` | `NOT NULL default 'NONE'` CHECK `('NONE','ISOLATED')` | 보안 격리 | `isolate_tenant()` |
 
-**두 축은 직교(orthogonal)하며 동시 표현 가능하다** — 예: `TRIAL` + `ISOLATED`, `ACTIVE` + `ISOLATED`.
+**직교 — 동시 표현 가능**: `TRIAL`+`ISOLATED`, `ACTIVE`+`ISOLATED`, `SUSPENDED`+`ISOLATED` 전부 유효.
 
-**근거(라이브 코드 확인)**: 1컬럼 구조는 "구독상태 + 격리여부"를 동시에 표현할 수 없다는 **원리적 한계**를 가지며,
-이것이 아래 상호 파괴의 진짜 원인이다:
+**근본원인**: `isolate_tenant()`(0090 L1283–1286)가 `'ISOLATED'`/`'ACTIVE'`를 `tenant_status`에 덮어쓴다(L1293–1295).
+`manage_subscription()` SUSPEND(0112 L595)가 `'SUSPENDED'`를 쓴 직후 `isolate_tenant()`를 호출(L599–606)해
+**자기가 쓴 값을 즉시 파괴**하고, 해제 시엔 무조건 `'ACTIVE'`로 되돌려 **구독상태를 소실**시킨다.
 
-1. `catchmenu_common.isolate_tenant()`(0090)는 `v_new_status := case p_isolate when true then 'ISOLATED' else 'ACTIVE' end`(L1283–1286)로 계산해 `tenant_status`에 덮어쓴다(L1293–1295).
-2. `manage_subscription()`(0112)의 `SUSPEND` 분기는 `tenant_status='SUSPENDED'`를 쓴 **직후**(L592–597) `isolate_tenant(p_isolate := true)`를 호출한다(L599–606) → 방금 쓴 `'SUSPENDED'`가 **즉시 `'ISOLATED'`로 파괴**된다.
-3. 격리 해제 시 `isolate_tenant()`는 무조건 `'ACTIVE'`로 되돌린다 → **격리 전 구독상태(TRIAL/SUSPENDED 등)가 소실**된다.
+**CHECK 값의 실증 근거**: 0112가 이미 `'ACTIVE'`(L102,160,611,904)/`'TRIAL'`(L105,831)/
+`'SUSPENDED'`(L108,595,828)/`'CANCELLED'`(L625,823)를 실제 사용한다 — 5값 중 4값은 기존 코드에서 역산됐다.
+`'TERMINATED'`만 `tenants` 맥락 사용처가 **없다**(0053/0074/0076/0085의 것은 staff/pos/franchise 맥락)
+→ **전방 호환용 신규 값**임을 명시한다.
 
-**분리 후 RPC 동작 원칙**(5단계가 아닌 **후속 RPC 워크패킷**에서 구현 — §4 범위절단 참조):
-
-- `isolate_tenant()`는 **`isolation_state`만** 변경하고 `tenant_status`는 **그대로 보존**한다.
-- **격리 해제 시 `tenant_status`를 자동으로 `'ACTIVE'`로 되돌리지 않는다** — 격리 전 값을 그대로 유지한다.
+**후속 RPC 계약(본 워크패킷 구현 아님)**:
+- `isolate_tenant()`는 `isolation_state`만 변경, `tenant_status`는 읽지도 쓰지도 않는다.
+- **격리 해제 시 `tenant_status`를 자동으로 `'ACTIVE'`로 되돌리지 않는다**.
 - `manage_subscription()`은 `tenant_status`만 변경한다.
 
-**파급 범위 — `WHERE tenant_status = 'ACTIVE'` 필터 (6개 파일 전체)**: §5 근거목록 참조.
-2컬럼 분리 후 이 필터들은 **격리된 테넌트까지 포함하게 되므로** `AND isolation_state = 'NONE'` 보강이 필요하다.
-특히 0120은 필터가 **`pg_cron_jobs.sql_command` 내부의 `$sql$...$sql$` 문자열**에 들어있어
-컴파일 시점 검증이 되지 않는다 — 문자열 내부까지 함께 수정해야 한다.
+---
 
-### §3.4 `stores.extra_metadata` (phantom)
+## §4. phantom 컬럼 정리 방안
 
-- **참조**: 0060 `insert ... extra_metadata`(L235), 주석 "Stores franchisee info in extra_metadata"(L946).
-- **실제**: 없음.
-- **정리**: 0060이 `extra_metadata`에 넣던 franchisee 정보는 이제 정식 홈(`companies`/`owners`/`owner_companies`)이
-  생겼다. → 구조화 정보는 관계 테이블로 이전. 진짜 비구조적 잔여 정보가 남는지는 0060 재설계 워크패킷에서 판정하며,
-  **0-A DDL 범위에서 `extra_metadata` 컬럼을 추가하지 않는다**(§4 범위절단).
-
-### §3.5 `catchmenu_common.onboard_tenant()` — 재설계 대상 (A-4, F-7)
-
-`onboard_tenant()`은 **서로 독립적인 4개의 이유로 현재 비작동 상태**다. 어느 하나를 고쳐도 나머지가 남는다:
-
-| # | 결함 | 위치 |
-|---|---|---|
-| 1 | `tenants.business_number` 조회 — 컬럼 없음 | 0112 L401–404 |
-| 2 | `provision_tenant(p_company_name/p_business_number/p_ceo_name)` 전달 — 수신측 `tenants`에 대응 컬럼 없음 | 0112 L414–417 |
-| 3 | `update stores set brand_id = ...` — `stores.brand_id` 컬럼 없음 | 0112 L456–458 |
-| 4 | `p_plan_tier default 'TRIAL_30'` — `chk_tenants_plan` CHECK 허용값 `('LITE','STANDARD','PRO','ENTERPRISE')`에 **없음** | 0112 L378 vs 0002 L21–23 |
-
-**실호출자 0건** — 저장소 전체 검색 결과 애플리케이션 코드(Flutter/TS/JS/Python) 어디에서도 호출하지 않으며,
-`service_role`에만 GRANT되어 있고, 0137/0138의 헬스체크 문자열(`'Run onboard_tenant()'`)만 이름을 언급한다.
-
-→ **판정: 재설계 대상.** 부분 수정이나 "조건부 no-op 격리" 같은 우회는 채택하지 않는다
-(v1 초안의 해당 대안은 삭제됨). 재설계는 0-A DDL 범위 밖의 **별도 후속 워크패킷**이다.
-
-### §3.6 `stores.brand_id` (phantom) — 0-A 범위 밖, 이월
-
-- **참조**: 0112 L456–458. **실제**: `stores`에 없음(`brand_id`는 `menu_templates`에만 존재).
-- **정리**: 브랜드-매장 연결은 **브랜드 축(§0.2) = 미래 브랜드 나선 소관**. 0-A에서 추가하면 §47.2 위반.
-  → **0-A 미추가**, §3.5의 재설계 워크패킷에서 함께 판정.
-
-### §3.7 정리 요약표
-
-| phantom 참조 | 참조 RPC | 정리 방향 | 0-A DDL에서 컬럼 추가? |
+| phantom 참조 | 참조 위치 | 정리 방향 | 0-A DDL 추가? |
 |---|---|---|---|
-| `tenants.company_name` | 0112 | `companies`로 이관 | ✗ (companies 신설) |
-| `tenants.business_number` | 0112 | `companies.business_number` 부분 UK | ✗ (companies 신설) |
-| `tenants.ceo_name` | 0112 | `companies.ceo_name` | ✗ (companies 신설) |
-| `tenants.owner_name/email/phone` | 0082 | `owners`+`owner_companies` 조인 | ✗ (owners 신설) |
-| `tenants.tenant_status` | 0090/0112/0120/0123/0129 | **2컬럼 분리 후 실제 추가** | **✓ tenants ×2** |
-| `stores.extra_metadata` | 0060 | 관계 테이블로 이전 | ✗ (0-A 미추가) |
-| `stores.brand_id` | 0112 | 브랜드 나선 이월 | ✗ (0-A 미추가) |
+| `tenants.company_name` | 0112 L288, L346, L533, L677, L690 | `legal_entities.legal_name` + `stores.legal_entity_id` 조인 | ✗ |
+| `tenants.business_number` | 0112 L289, L404 | `legal_entities.business_registration_number` + `brn_normalized` 부분 UK | ✗ |
+| `tenants.ceo_name` | 0112 L290 | **`legal_entity_representatives` 활성 행 조인** | ✗ |
+| `tenants.owner_name/email/phone` | 0082 L479–483 | `owners` + `legal_entity_person_roles` 조인 | ✗ |
+| `tenants.tenant_status` | 0082/0090/0112/0120/0123/0129 | **2컬럼 분리 후 실제 추가** | **✓ ×2** |
+| `stores.extra_metadata` | 0060 L235, L946 | 구조화 정보는 `legal_entities`/`owners`로 이전 | ✗ |
+| `stores.brand_id` | 0112 L456–458 | 브랜드 축 = 브랜드 나선 소관 | ✗ |
+
+`ceo_name`이 단순 컬럼 이관이 아닌 이유: 법인은 대표자가 복수일 수 있고(공동/각자대표) 대표권에는 유효기간이 있다.
+단일 `ceo_name` 컬럼은 이 현실을 표현할 수 없으며, **`legal_entity_representatives`의 활성 행 집합**이 정확한 답이다.
 
 ---
 
-## §4. 3단계 검증 결과 — 최종 처분
+## §5. MVP 시드 및 백필 방향 (설계만 — 실제 값은 5단계)
 
-| 항목 | 검증 결과 | 처분 |
+### §5.1 시드 설계
+
+| 대상 | 설계값 | 제약 통과 |
 |---|---|---|
-| **B-1** | tenant_status 단일컬럼의 원리적 한계 | 2컬럼 분리 확정(§3.3) — **해소** |
-| **B-2** | 전역 테이블 RLS "미정" 표현 | deny-by-default 확정(§2.3), "미정" 삭제 — **해소** |
-| **A-1** (F-4) | `stores.company_id` 백필 | ADD COLUMN 선행순서 명시(601503 Logic §3), `uq_stores_tenant_code` tenant 단위 유지 선언(§2.2) |
-| **A-2** (F-5) | companies↔franchise_brands 어휘 혼동 | 축 정의 2열 표(§0.2), 기존 중첩 기록 |
-| **A-3** (F-6) | store_groups 사용 범위 | REGION만 사용, DISTRICT 판정조건 명시(§0.3) |
-| **A-4** (F-7) | 0112 부분수정 가능성 | 4개 독립 결함 + 실호출자 0건 → 재설계 대상(§3.5), no-op 대안 삭제 |
-| **A-5** (D-1~4) | 유니크 제약 | 3건 판정표(§2.4), Mermaid 반영(§1) |
-| **A-6** (F-3) | `business_number` 전역 UNIQUE가 기존 어휘/FK와 충돌하는가 | **정정: 충돌 없음.** `business_number`를 참조하는 실제 FK나 유일성 계약이 기존 스키마에 **존재하지 않으므로**, 이는 기존 계약과의 충돌이 아니라 **유일성 의미론의 신규 정의**다. 다만 **존재탐지 오라클 위험**을 기록한다 — 사업자번호 중복 오류를 그대로 노출하면 "이 사업자번호가 이미 등록됨"을 미인증 호출자가 알아낼 수 있다. 오류 메시지 설계는 RPC 워크패킷/0-C 소관. |
-| **A-7** | 범위 비대화 | 5단계를 **DDL 전용**으로 절단(601502 Overview §3) |
+| Owner | 1명 (정영석) | — |
+| LegalEntity | `entity_type='SOLE_PROPRIETOR'`, `business_registration_number=NULL` | `brn_normalized`도 NULL → 부분 UK 미적용 ✓ / `corporate_registration_number` **반드시 NULL** ✓ |
+| 역할 | `legal_entity_person_roles`: `role_type='OWNER'` | 부분 UK ✓ |
+| **대표권** | **`legal_entity_representatives`: `representation_mode='SOLE'` 1행** | 부분 UK ✓ / v4에서 별도 행이 됨 |
+| Store | 기존 store 1개에 `legal_entity_id` 설정 | FK ✓ |
+
+`ownership_percent`는 단독 사업주이므로 `100` 또는 `NULL` — 5단계 확정.
+
+### §5.2 `stores.legal_entity_id` NOT NULL 승격 시점 (A-8)
+
+v3는 승격을 "0단계 종료 판정"으로 미뤘다. v4는 **5단계 말미(시드 1건 생성 직후)로 앞당기는 것을 검토**한다.
+
+**앞당기기 유리한 근거**: 라이브 `stores` 행이 사실상 시드 1건뿐이므로, 그 1건에 `legal_entity_id`를 채우면
+**즉시 전 행이 NOT NULL 조건을 만족**한다. 나중으로 미루면 그 사이에 `legal_entity_id=NULL`인 store가
+추가로 생겨 승격이 더 어려워질 수 있다 — **가장 쉬운 시점은 지금**이다.
+
+**신중해야 할 근거**: NOT NULL 승격은 **가법적이지 않다**(기존 INSERT 경로가 이 컬럼을 채우지 않으면 즉시 실패).
+`stores`에 INSERT하는 기존 RPC 전수 조사가 선행돼야 한다.
+
+→ **판정 자체를 5단계 말미로 이관**하되, 그 시점에 위 두 근거를 대조해 결정한다. §7 Open Item (h).
+
+**FK 검사와 RLS 관계 기록(A-8)**: `stores.legal_entity_id`의 FK 무결성 검사는 **RLS가 적용되지 않는다**
+(PostgreSQL의 참조 무결성 검사는 시스템 내부에서 수행되며 RLS 정책을 우회한다).
+따라서 `legal_entities`가 deny-by-default 상태여도 **FK는 정상 작동**한다.
+반대로 이는 **FK 존재 자체가 정보 노출 경로**가 될 수 있음을 뜻한다(존재하지 않는 id로 INSERT 시 FK 위반 오류) —
+0-C 오류 메시지 설계 시 함께 고려할 것.
 
 ---
 
-## §5. 근거 목록 (§46)
+## §6. 검증 결과 처분 요약
+
+| 항목 | 처분 | 위치 |
+|---|---|---|
+| **B-1** 접근제어 서술 | 전면 재작성 — 실제 차단은 GRANT+PostgREST, RLS 아님. "0021 패턴 동일" 삭제, GRANT 미부여 설계결정 명시, Open Item (l) 해소 | §2.7 |
+| **B-2** 대표권 분리 | `legal_entity_representatives` 신규 테이블, roles에서 2컬럼 제거 | §2.5 |
+| **A-1** cron 실측 | `601503` §5에 반영 — `cron.job` 0행(로컬), 0120 카탈로그 불일치, `is_registered` 역논리 결함 신규 승계 | `601503` §5 |
+| **A-2** 원칙1 재서술 | "Company" 단어 제거 → "법인은 `entity_type`의 한 값" | §0.1 |
+| **A-3** 매핑표 정정 | company 축에서 `store_groups` 삭제, `franchise_brands`만 | §0.3 |
+| **A-4** 대표권 잔여 허점 | 별도 테이블로 근본 해결됐으나 행간 모순(SOLE 2명 등)은 여전 → Open Item | §2.5.2 |
+| **A-5** `is_active`↔`effective_*` | 두 신규 테이블 모두 이중 진실원천 → 잠정 계약 + Open Item | §2.5.3 |
+| **A-6** CRN 정규화 | BRN과 동일한 생성컬럼 방식 적용 | §2.2 |
+| **A-7** CORPORATION의 CRN | NOT NULL 요구하지 않음 — 판단 명시 | §2.1 |
+| **A-8** NOT NULL 승격 | 5단계 말미로 앞당기기 검토 + FK/RLS 관계 기록 | §5.2 |
+| **A-9** PG 17.6 | `SET EXPRESSION` 경로 실재 → Open Item (d) 긴급도 하향 | `601503` §6.3 |
+
+---
+
+## §7. Open Items
+
+| # | 항목 | 소관 | v4 변동 |
+|---|---|---|---|
+| (a) | `is_active` vs `tenant_status` 진실원천 정리 | 0-A-2 | — |
+| (b) | `is_active` ↔ `effective_from/to` 이중 진실원천 근본 해소(두 신규 테이블) | 후속 | **A-5 신규** |
+| (c) | 대표권 **행간** 모순(같은 법인에 SOLE 2명, 대표 0명 등) 방지 | RPC/트리거 | **A-4 신규** |
+| (d) | 등록번호 정규화 표현식·형식 CHECK 최종 확정 | 5단계 착수 전 | **긴급도 하향**(A-9) |
+| (e) | `ownership_percent` 법인별 합계 ≤ 100 검증 | RPC/트리거 | — |
+| (f) | 등록번호 중복 오류의 존재탐지 오라클 차단 | 0-C | — |
+| (g) | `owners` 중복 등록 방지 절차 | 0-C | — |
+| (h) | `stores.legal_entity_id` NOT NULL 승격 판정 | **5단계 말미** | **A-8 앞당김** |
+| (i) | `store_groups` `DISTRICT` 도입 | 브랜드/프랜차이즈 나선 | — |
+| (j) | `franchise_brands` 사업자축 중첩 해소 | 브랜드 나선 | — |
+| (k) | `stores.extra_metadata` / `stores.brand_id` | 후속 / 브랜드 나선 | — |
+| ~~(l)~~ | ~~`SECURITY DEFINER` 접근 가능 여부~~ | — | **해소(§2.7.4)** |
+| (m) | 라이브(클라우드) `pg_cron` 등록 상태 확인 | 5단계 착수 전 | **로컬은 실측 완료**(A-1) |
+| (n) | `pg_cron_jobs.is_registered` 역논리 결함 수정 | 0-A-2 | **A-1 신규** |
+
+---
+
+## §8. 근거 목록 (§46)
 
 **방법론**
-- `docs/000700_.../000701_Guide_Controlled_AI_Development_Pipeline.md` — §47.1(6단계 나선 + 세션 분리 요건), §47.2(먼 미래 상세설계 금지), §46(근거목록), §48(증거수집), §49.2(`ADD COLUMN`을 `CREATE OR REPLACE`보다 먼저 — PL/pgSQL 지연바인딩)
+- `000701_...` — §46, §47.1(세션 분리 요건), §47.2, §47.3, §47.4, §47.6, §48(5단계 분류·D단계), §49.2(`ADD COLUMN` 선행)
+- `000001_Md_Rules.md` — §5.4.1~§5.4.3
 
-**기존 스키마 (그대로 표현)**
-- `sql/migrations/0002_create_hq_tenant_store.sql` — `tenants`(L8–24, `chk_tenants_plan` L21–23), `stores`(L43–76, `uq_stores_tenant_code` L60)
-- `sql/migrations/0021_enable_rls.sql` — deny-by-default RLS 패턴(enable+force, 정책 없음)
-- `sql/migrations/0077_create_multistore_rpc.sql` — `store_groups`(L25–78, `chk_group_type` L63–71), `store_group_members`(L126–155)
-- `sql/migrations/0085_create_franchise_os_foundation_rpc.sql` — `franchise_brands`(L123–160, 브랜드 축 / **참조만, 미변경**)
-- `sql/migrations/0034_seed_data.sql` — 시드 tenant `YOONSUL_TEST`(L24–25), `윤슬 울산 1호점`(L52–55)
-
-**`tenant_status` 참조 6개 파일 전량 (B-1 파급범위)**
-| 파일 | 위치 | 성격 |
+**상위 개념문서**
+| 문서 | 인용 | 역할 |
 |---|---|---|
-| `0082_create_saas_billing_rpc.sql` | L479–483 | `provision_tenant` INSERT 대상 컬럼 |
-| `0090_create_multitenant_isolation_rpc.sql` | L1283–1286(`v_new_status` 계산), L1293–1295(UPDATE) | 격리 축이 구독 축을 덮어쓰는 지점 |
-| `0112_create_hq_admin_rpc.sql` | L533(SELECT), L592–597(SUSPEND UPDATE), L599–606(isolate 호출) | 상호 파괴 발생 지점 |
-| `0120_create_reconciliation_pipeline.sql` | L898, L916, L926 | **`pg_cron_jobs.sql_command` 내부 `$sql$` 문자열** — 컴파일 검증 안 됨 |
-| `0123_create_ai_customer_center_v2.sql` | L636 | `WHERE t.tenant_status = 'ACTIVE'` |
-| `0129_create_launch_readiness_package.sql` | L885 | `WHERE t.tenant_status = 'ACTIVE'` |
+| `docs/003000_saas_runtime/003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | §2 축 정의표, §3, §4, §6 | LegalEntity 중심 모델의 상위 근거 |
+| `docs/009000_data_model_state_machine/009030_Register_Conceptual_Entity_Master.md` | L18, L19, L21 | 개념 엔터티 정의 |
+| `docs/009000_data_model_state_machine/009070_Matrix_Context_Entity_Alignment_Model.md` | L5, L19–22, L30, L33 | **company≠operating_group 축 구분 근거(A-3)** |
+| `docs/007000_admin_console/007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md` | L21, L40 | 관리자 화면 축 구분 |
 
-> `isolation_state`는 신규 컬럼이므로 기존 참조가 0건이다. 단, 위 6개 파일의 `tenant_status='ACTIVE'` 필터는
-> **두 컬럼 모두**를 고려해 `AND isolation_state='NONE'`으로 보강해야 하므로, 동일한 6개 파일이
-> `isolation_state`의 영향범위이기도 하다.
+**접근제어 근거 (v4 핵심 — B-1)**
+| 파일 | 인용 | 역할 |
+|---|---|---|
+| **`supabase/config.toml`** | `[api] schemas = ["public","graphql_public"]` (L7–13) | **PostgREST가 `catchmenu_hq`를 노출하지 않음 — 1차 차단자** |
+| `0022_create_rls_policies.sql` | L614–623(`grant usage on schema ... to authenticated`), L78–89(`is_service_role()`), L282–294/L606–611(서비스전용 정책 실례) | **`authenticated`만 스키마 USAGE 보유 / `service_role`은 USAGE 없음** |
+| migration 전수 검색 | `grant ... on ... catchmenu_hq.<table>` **0건** | **16개 테이블 테이블권한 GRANT 부재 — 2차 차단자** |
+| `0021_enable_rls.sql` | 전체 | enable+force. **0022와 짝을 이루는 구조이며 "정책 0개" 선례가 아님** |
 
-**기타 phantom 참조**
-- `sql/migrations/0060_create_franchise_hq_rpc.sql` — `stores.extra_metadata`(L235, L946)
-- `sql/migrations/0112_create_hq_admin_rpc.sql` — `stores.brand_id`(L456–458), `onboard_tenant` 시그니처(L373–384, `p_plan_tier default 'TRIAL_30'` L378)
-- `sql/migrations/0137_patch_missing_functions.sql`(L64), `0138_patch_integration_functions.sql`(L59) — `'Run onboard_tenant()'` 문자열 언급(실호출 아님)
+**기존 스키마**
+- `0002_create_hq_tenant_store.sql` — `tenants`(L8–24), `stores`(L43–76, `uq_stores_tenant_code` L60)
+- `0072_create_pg_cron_schedules.sql` — `pg_cron_jobs` 카탈로그(L29–66), **등록 루프 `where is_registered = false`(L201–206) 및 등록 후 `true` 갱신(L226–230) — A-1 역논리 결함 근거**
+- `0077_create_multistore_rpc.sql` — `store_groups`(L25–78), `store_group_members`(L126–155)
+- `0085_...franchise_os_foundation_rpc.sql` — `franchise_brands`(L123–160) — **참조만, 미변경**
+- `0034_seed_data.sql` — `YOONSUL_TEST`(L24–25), `윤슬 울산 1호점`(L52–55)
+
+**`tenant_status` 참조 6개 파일 전량**
+| 파일 | 위치 |
+|---|---|
+| `0082_create_saas_billing_rpc.sql` | L88–112(`subscription_plans` 시드, `TRIAL_30`=plan_code), L426–438(실제 시그니처), L465, L477–486, L490, L500 |
+| `0090_create_multitenant_isolation_rpc.sql` | L1283–1286, L1293–1295 |
+| `0112_create_hq_admin_rpc.sql` | **21개 지점** — UPDATE 3(L595/611/625), 집계 6(L102/105/108/823/828/831), 필터 4(L160/271–272/337–338/904), 출력 6(L194/291/362/533/665/670), 공개 파라미터 1(L248) / `provision_tenant` 오호출 L414–424 |
+| `0120_create_reconciliation_pipeline.sql` | L898, L916, L926 (`sql_command` 내부 `$sql$`) |
+| `0123_create_ai_customer_center_v2.sql` | L636 |
+| `0129_create_launch_readiness_package.sql` | L873–885(`HOURLY_METRICS`), L885 |
+
+**기타**
+- `0060_create_franchise_hq_rpc.sql` — `stores.extra_metadata`(L235, L946)
+- `0053`/`0074`/`0076`/`0085` — `'TERMINATED'` 사용 맥락(tenants 맥락 아님)
+- `0137`/`0138` — `'Run onboard_tenant()'` 문자열(실호출 아님)
 
 **후속 문서**
-- `601502_Overview_Operational_Authority_Foundation_Ddl.md` — 4단계 Overview
-- `601503_Logic_Operational_Authority_Foundation_Ddl.md` — 4단계 Logic
+- `601502_Overview_Operational_Authority_Foundation_Ddl.md` (v4)
+- `601503_Logic_Operational_Authority_Foundation_Ddl.md` (v4)
