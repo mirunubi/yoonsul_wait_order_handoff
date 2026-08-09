@@ -504,6 +504,58 @@ rollback;
 | 4 | `CANCELLED` | `NONE` | 성공 |
 | 5 | `TERMINATED` | `NONE` | 성공 (기존 사용처 없는 전방호환 값 — `601503` §2.6) |
 
+### §6.2A ⚠️ ACTIVATE 경로 정적 검증 (실행 금지 — 원문 읽기만)
+
+**이 항목은 RPC를 호출하지 않는다.** `manage_subscription()`/`isolate_tenant()` 호출은
+`601505` §4.1.1(호출 금지)에 저촉되므로, **0112 원문을 읽는 정적 검증**으로 수행한다.
+
+#### §6.2A.1 확인 절차
+
+```sql
+-- 함수 원문을 DB에서 직접 읽는다 (실행하지 않는다)
+select pg_get_functiondef(p.oid)
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'catchmenu_common' and p.proname = 'manage_subscription';
+```
+
+또는 파일 원문 확인:
+
+```bash
+sed -n '532,536p;548p;592,619p' sql/migrations/0112_create_hq_admin_rpc.sql
+```
+
+#### §6.2A.2 확인해야 할 4가지 사실
+
+| # | 확인 대상 | 기대 | 근거 라인 |
+|---|---|---|---|
+| 1 | 테넌트 조회 SELECT가 `case p_action`보다 **앞**에 있는가 | L533 SELECT < L548 CASE | 0112 L533 / L548 |
+| 2 | 그 SELECT가 `tenants.company_name`(phantom)을 참조하는가 | `select id, company_name, tenant_status` | 0112 **L533** |
+| 3 | ACTIVATE 분기가 `tenant_status='ACTIVE'`를 **직접 UPDATE**하는가 | 존재 | 0112 L608–613 |
+| 4 | ACTIVATE 분기가 `isolate_tenant(p_isolate := false)`를 호출하는가 | 존재 (→ `v_new_status='ACTIVE'`) | 0112 L615–619 / 0090 L1283–1286 |
+
+#### §6.2A.3 판정
+
+**PASS 조건**: 위 4가지가 전부 사실로 확인되고, 다음 결론이 성립한다:
+
+> **현재**: 1·2에 의해 `manage_subscription()`의 **모든 분기가 42703으로 도달 불가**하다 →
+> ACTIVATE의 실질 위험은 **낮다**.
+> **잠재**: 3·4에 의해 ACTIVATE 경로에는 **CHECK라는 안전망이 없다**(`'ACTIVE'`는 허용값) →
+> L533의 phantom 참조가 해소되는 순간 **조용히 §4.3을 위반**한다.
+
+**어긋날 경우**:
+
+| 발견 | 처분 |
+|---|---|
+| SELECT가 CASE **뒤에** 있음 | `601505` §4.5.1의 전제가 틀림 → 설계 서술 정정 후 재승인 |
+| `company_name` 참조가 **이미 제거됨** | **방벽이 없다** → ACTIVATE가 즉시 위험. **Stop Condition**(§9.3) |
+| ACTIVATE 분기에 `tenant_status` 기록이 없음 | 위험 서술이 과대 → `601505` §4.5.1/§8A.1 정정 |
+
+#### §6.2A.4 이 검증이 산출하는 것
+
+`601505` §8A.1(0-A-2/0-A-3 공통 완료조건)의 **근거 문서**가 된다 —
+"phantom 해소와 ACTIVATE 수정을 분리 배포하지 않는다"는 요구가 추측이 아니라
+**원문 확인에 기반한다**는 것을 Stage 9 재검증자가 확인할 수 있어야 한다.
+
 ### §6.3 CHECK 위반
 
 ```sql
@@ -633,13 +685,33 @@ where n.nspname like 'catchmenu%';
 4. **§6.2** — `TRIAL`+`ISOLATED` 동시 표현 → 2컬럼 직교 성립
 5. **§8.1** — DDL 재실행 무오류 → 멱등성 성립
 
+### §9.1A ⚠️ 계약 위반으로 즉시 FAIL 처리하는 것
+
+다음은 **DDL의 기술적 결함이 아니더라도 즉시 FAIL**이다 — `601505`의 계약 조항 위반이기 때문이다.
+
+| # | 발견 | 위반 조항 | 확인 방법 |
+|---|---|---|---|
+| 1 | **`manage_subscription('ACTIVATE')`의 실제 실행 흔적** | §4.1.1(호출 금지) + §4.3(ACTIVE 승격 금지) | `tenant_status='ACTIVE'`인 행 존재(§6.1), 감사로그·`pg_stat_statements` |
+| 2 | **`isolate_tenant()`/`manage_subscription()`의 신규 호출자 발견** | §4.5(신규 호출자 배포 금지) | `601505` §7.1의 (a)(b)(c) 명령 |
+| 3 | `tenant_status='ACTIVE'`인 tenant가 1건이라도 존재 | §4.3 | §6.1 |
+| 4 | 신규 4테이블에 GRANT 존재 | §2.1 | §3.1 |
+| 5 | `git diff`에 기존 `.sql` 수정이 포함됨 | §4.1 / §5 | §7.2-3 |
+| 6 | `catchmenu%` 스키마의 함수 수 증가 | §4.4(`CREATE OR REPLACE FUNCTION` 금지) | §8.3 |
+
+> **1번의 판정 주의**: §6.2A에 따라 현재 ACTIVATE는 42703으로 도달 불가하므로 **정상적으로는 실행 흔적이
+> 있을 수 없다.** 흔적이 있다는 것은 (a) 누군가 phantom 컬럼 문제를 우회했거나, (b) 계약 밖 수정이
+> 있었다는 뜻이다 — 어느 쪽이든 **그 자체가 계약 위반이며 Stop Condition**이다(§9.3).
+> "결과적으로 아무 문제 없었다"는 면책 사유가 되지 않는다. 계약은 결과가 아니라 **행위**를 규율한다.
+
 ### §9.2 FAIL이 아닌 것 (오인 방지)
 
 다음은 **이번 워크패킷의 결함이 아니다**. 검증자가 결함으로 보고하지 않도록 명시한다:
 
 | 현상 | 이유 |
 |---|---|
-| `isolate_tenant()` 호출 시 CHECK 위반으로 실패 | 0090은 `tenant_status`에 `'ISOLATED'`를 쓴다. 그 RPC 수정은 **0-A-2 소관**이며, DB가 이를 막는 것은 **의도된 동작**(§6.3) |
+| `isolate_tenant()` **직접 호출** 시 23514 CHECK 위반 | 0090은 `tenant_status`에 `'ISOLATED'`를 쓴다. 그 RPC 수정은 **0-A-2 소관**이며, DB가 막는 것은 **의도된 동작**(§6.3). 단 이 확인을 위해 **실제 호출하지 말 것**(§4.1.1) — 정적 확인으로 충분 |
+| `manage_subscription()` 어떤 액션이든 **42703**(`tenants.company_name`) 실패 | `company_name` phantom은 **별개의 기존 결함**이며 이번 범위 밖(`601505` §4.5.1). `tenant_status`와 무관하다 |
+| ACTIVATE 분기가 CHECK로 보호되지 않음 | **알려진 잠재 위험**(§6.2A). 0-A-2/0-A-3 공통 완료조건으로 이관됨(`601505` §8A.1). 이번 DDL이 만든 문제가 아니다 |
 | `onboard_tenant()` 여전히 실패 | 4개 독립 결함, 실호출자 0건 — **0-A-3 소관**(`601501` §6.2) |
 | `pg_cron_jobs`에 `is_registered=true`인데 `pg_cron_job_id IS NULL`인 38행 | **0-A-2 승계 항목**(`601503` §5.3). 이번 범위 밖 |
 | `stores.legal_entity_id`가 전 행 NULL | 백필은 시드 생성 시점에 수행(§4.2). NOT NULL 승격 판정은 5단계 말미(Open Item (h)) |
@@ -653,6 +725,8 @@ where n.nspname like 'catchmenu%';
 - §4.1에서 `postgres` 아닌 소유자의 `SECURITY DEFINER` 함수 발견
 - §4.2에서 함수 경유 접근도 **실패**
 - §8.2에서 `cron.job`이 0행이 아니게 됨
+- §6.2A에서 `manage_subscription()`의 `company_name` 참조가 **이미 제거돼 있음**(ACTIVATE 방벽 부재)
+- §9.1A의 계약 위반 6가지 중 하나라도 발견
 
 ## §10 증거 수집 (§48 D단계)
 
@@ -674,7 +748,8 @@ Stage 9 재검증자가 같은 명령으로 재현할 수 있도록 **실행한 
 | `0022_create_rls_policies.sql` | L614–623 | §1.3 스키마 USAGE baseline |
 | `0034_seed_data.sql` | L24–25, L52–55 | §6.1/§7.1 시드 대상 |
 | `0072_create_pg_cron_schedules.sql` | L201–206, L219–230 | §1.4/§8.2 cron baseline |
-| `0090_create_multitenant_isolation_rpc.sql` | L1283–1295 | §6.3/§9.2 의도된 실패 근거 |
+| `0090_create_multitenant_isolation_rpc.sql` | L1283–1286(`v_new_status` 계산), L1293–1295(UPDATE) | §6.3/§9.2 의도된 실패 근거, §6.2A.2-4 `'ACTIVE'` 허용값 근거 |
+| `0112_create_hq_admin_rpc.sql` | **L533**(`company_name` phantom SELECT), **L548**(`case p_action`), **L592–606**(SUSPEND), **L608–619**(ACTIVATE), L622–634(CANCEL) | **§6.2A 정적 검증 대상** — 분기 도달 불가 및 잠재 위험 근거 |
 
 ## Module Domain Tags
 

@@ -202,8 +202,16 @@ comment on table / column           (신규 대상만)
 
 **이 함수는 0-A-2 완료 전까지 어떤 경로로도 호출되어서는 안 된다.**
 
-"경로"에는 예외가 없다 — RPC 직접 호출, `manage_subscription()`의 SUSPEND/ACTIVATE 분기를 통한 간접 호출
-(0112 L599–606), 관리자 화면, 배치, 수동 SQL, 테스트 스크립트 전부를 포함한다.
+"경로"에는 예외가 없다 — RPC 직접 호출, `manage_subscription()`을 통한 간접 호출, 관리자 화면, 배치,
+수동 SQL, 테스트 스크립트 전부를 포함한다. 간접 호출 지점은 다음 두 곳이다(라인 직접 확인):
+
+| 분기 | 분기 범위 | `isolate_tenant()` 호출 지점 | 인자 |
+|---|---|---|---|
+| `SUSPEND` | 0112 **L592–606** | L599–605 | `p_isolate := true` → `'ISOLATED'` 기록 시도 |
+| `ACTIVATE` | 0112 **L608–619** | L615–619 | `p_isolate := false` → `'ACTIVE'` 기록 (**CHECK에 걸리지 않음** — §4.5.1) |
+
+두 분기 모두 현재는 L533의 phantom 컬럼 때문에 도달 불가하나(§4.5.1), 그것은 **우연한 방벽**이지
+설계된 보호가 아니다. 금지는 방벽의 존재와 무관하게 유효하다.
 
 **이것은 "실호출자가 0건이니 괜찮다"가 아니다.** 실호출자 0건은 **현재 시점의 관측 사실**일 뿐
 장래를 보장하지 않는다. 계약이 요구하는 것은 관측이 아니라 **금지**다 —
@@ -263,30 +271,62 @@ DDL 병합 시점의 "실호출자 0건"은 그 시점의 사실일 뿐이다. �
 
 | # | 대상 | 위치 | DDL 적용 후 실제 거동 |
 |---|---|---|---|
-| 1 | `catchmenu_common.isolate_tenant(p_isolate := true)` | 0090 L1283–1295 | `tenant_status`에 `'ISOLATED'` 기록 시도 → **23514로 시끄럽게 실패** |
-| 2 | `manage_subscription()` **SUSPEND** 분기 | 0112 L592–605 | `'SUSPENDED'` 기록 직후 `isolate_tenant(true)` 호출 → **23514로 실패**(간접) |
-| 3 | `manage_subscription()` **ACTIVATE** 분기 | 0112 L607–619 | ⚠️ **실패하지 않는다** — §4.5.1 참조 |
+| 1 | `catchmenu_common.isolate_tenant(p_isolate := true)` **직접 호출** | 0090 L1283–1295 | `tenant_status`에 `'ISOLATED'` 기록 시도 → **23514로 시끄럽게 실패** |
+| 2 | `manage_subscription()` **SUSPEND** 분기 | 0112 L592–606 | **분기에 도달하지 못한다** — L533에서 먼저 42703(§4.5.1) |
+| 3 | `manage_subscription()` **ACTIVATE** 분기 | 0112 L608–619 | **분기에 도달하지 못한다** — 그러나 **잠재(latent) 위험**(§4.5.1) |
 
-#### §4.5.1 ⚠️ ACTIVATE는 실패하지 않는다 — 오히려 더 위험하다
+#### §4.5.1 ⚠️ `manage_subscription()`은 **현재 모든 분기가 도달 불가**다 — 그러나 ACTIVATE는 잠재 위험이다
 
-`isolate_tenant()`는 `p_isolate = false`일 때 `v_new_status := 'ACTIVE'`를 계산한다(0090 L1283–1286).
-`'ACTIVE'`는 `chk_tenants_status`의 **허용값이므로 CHECK 위반이 일어나지 않는다.**
+**현재 시점의 정확한 사실 (직접 확인)**:
 
-따라서 ACTIVATE 분기는 DDL 적용 후에도 **오류 없이 성공하며**, `tenant_status`를 `'ACTIVE'`로 만든다
-(0112 L608–613의 직접 UPDATE + L615–619의 `isolate_tenant(false)`, **두 번 기록**).
+`manage_subscription()`은 `case p_action` 분기(L548)에 들어가기 **전에**, L533에서 테넌트를 조회한다:
 
-이것은 §4.3(**tenant를 `ACTIVE`로 승격하는 행위 금지**)을 **정확히 위반**하며,
-그 결과 대사·감사패킷·시간별메트릭 배치가 실제 대상을 갖게 된다.
+```sql
+-- 0112 L532-536
+-- 테넌트 조회
+select id, company_name, tenant_status      -- L533  ← company_name은 phantom
+into v_tenant
+from catchmenu_hq.tenants
+where id = p_tenant_id;
+```
 
-> **판단**: SUSPEND는 23514로 **시끄럽게 실패**해 즉시 눈에 띄지만, ACTIVATE는 **조용히 성공**해
-> §4.3 위반을 만든다. **조용한 쪽이 더 위험하다** — 세 경로 중 ACTIVATE를 가장 강하게 막아야 한다.
+`tenants.company_name`은 **존재하지 않는 컬럼**이며(`601501` §4), 이번 워크패킷 범위 밖이다.
+따라서 이 SELECT는 실행 시 **`42703 undefined_column`으로 실패**하고,
+`SUSPEND`/`ACTIVATE`/`CANCEL`/`UPGRADE` **어느 분기도 도달하지 못한다.**
+
+> **v4 초안 정정**: 앞선 서술은 "ACTIVATE가 DDL 적용 후 즉시 조용히 성공한다"고 적었으나 **부정확했다.**
+> 42703이 L533에서 먼저 발생하므로 **지금 당장의 실질 위험은 낮다.**
+> 이 정정은 SUSPEND 경로에도 동일하게 적용된다 — SUSPEND 역시 23514가 아니라 **42703으로 먼저 실패**한다.
+> **23514가 실제로 발생하는 것은 `isolate_tenant()`를 직접 호출할 때뿐이다.**
+
+**그러나 이것은 잠재(latent) 위험이다 — 사라진 것이 아니다**:
+
+`isolate_tenant()`는 `p_isolate = false`일 때 `v_new_status := 'ACTIVE'`를 계산하며(0090 L1283–1286),
+`'ACTIVE'`는 `chk_tenants_status`의 **허용값**이다. 즉 ACTIVATE 경로에는 **CHECK라는 안전망이 없다.**
+지금 막고 있는 것은 오직 L533의 phantom 컬럼이라는 **우연한 방벽**뿐이다.
+
+**위험이 현실화되는 시점**: 누군가 L533의 `company_name` 참조를 해소하는 순간,
+ACTIVATE 분기가 정상 도달 가능해지고 **CHECK 위반 없이 조용히 `tenant_status='ACTIVE'`를 기록**하며
+(L608–613 직접 UPDATE + L615–619 `isolate_tenant(false)`, **두 번 기록**) §4.3을 위반한다.
+
+**가장 위험한 시나리오 — 부분 수정(partial fix)**:
+
+L533은 `manage_subscription()` **내부**에 있으므로 이 함수를 통째로 재작성하는 **0-A-2**가 정상 경로다.
+0-A-2는 ACTIVATE 로직도 함께 고치므로 위험이 발생하지 않는다.
+**진짜 위험은 "phantom 컬럼만 정리하는" 좁은 수정**이다 — `company_name` 참조만 걷어내고
+ACTIVATE 분기의 `tenant_status` 기록은 그대로 두면, **방벽만 제거되고 위험만 남는다.**
+
+**따라서 다음을 0-A-2와 0-A-3 **양쪽의 필수 완료조건**에 추가한다**(§8A):
+
+> **`tenants.company_name` phantom 참조(0112 L533 포함)를 해소하는 어떤 워크패킷도,
+> 같은 변경 안에서 ACTIVATE 분기의 `tenant_status='ACTIVE'` 기록 문제를 반드시 함께 해결해야 한다.
+> 둘을 분리해서 배포하지 않는다.**
 
 #### §4.5.2 CANCEL 분기
 
-`manage_subscription()` CANCEL 분기(0112 L622–634)는 `'CANCELLED'`를 기록하고 `isolate_tenant()`를
-**호출하지 않는다**. `'CANCELLED'`는 허용값이므로 CHECK 위반도, §4.3 위반도 없다.
-다만 `manage_subscription()` 전체가 0-A-2의 재작성 대상이므로 **신규 호출자를 추가하지 않는다**는
-원칙은 동일하게 적용한다.
+CANCEL 분기(0112 L622–634)는 `'CANCELLED'`(허용값)를 기록하고 `isolate_tenant()`를 **호출하지 않는다**.
+방벽이 걷힌 뒤에도 CHECK 위반·§4.3 위반이 없다. 다만 `manage_subscription()` 전체가 0-A-2 재작성
+대상이므로 **신규 호출자를 추가하지 않는다**는 원칙은 동일하게 적용한다.
 
 **적용 범위**: SQL 마이그레이션, RPC, Flutter/앱 코드, 관리자 화면, 배치·cron, 운영 스크립트 — **전부**.
 "임시로 한 번만", "테스트 목적으로"도 포함한다.
@@ -444,6 +484,25 @@ Stage 8 구현 후 다음을 **전부** 수행해야 완료로 간주한다:
 | 5 | `0112` 집계 6곳의 "격리된 ACTIVE 테넌트" 분류 정의 |
 | 6 | `pg_cron_jobs.is_registered` 역논리 결함 수정(Open Item (n)) |
 | 7 | `is_active` vs `tenant_status` 진실원천 정리(Open Item (a)) |
+| 8 | **⚠️ ACTIVATE 분기의 `tenant_status='ACTIVE'` 기록 문제 해결** — §8A.1 |
+
+### §8A.1 ⚠️ 0-A-2 / 0-A-3 **공통** 필수 완료조건 — phantom 해소와 ACTIVATE는 함께 고친다
+
+> **`tenants.company_name` phantom 참조(0112 **L533** 포함)를 해소하는 어떤 워크패킷도,
+> 같은 변경 안에서 ACTIVATE 분기(L608–619)의 `tenant_status='ACTIVE'` 기록 문제를
+> 반드시 함께 해결해야 한다. 둘을 분리해서 배포하지 않는다.**
+
+**근거**(§4.5.1): 현재 ACTIVATE 경로를 막고 있는 것은 CHECK가 아니라 **L533의 phantom 컬럼이라는 우연한 방벽**뿐이다.
+`isolate_tenant(p_isolate := false)`가 기록하는 `'ACTIVE'`는 `chk_tenants_status`의 허용값이므로
+**CHECK는 이 경로를 막지 못한다.**
+
+따라서 `company_name`만 정리하는 **부분 수정(partial fix)** 은 **방벽만 제거하고 위험을 남긴다** —
+그 순간부터 ACTIVATE는 오류 없이 조용히 §4.3을 위반한다.
+
+| 워크패킷 | 이 조건이 적용되는 이유 |
+|---|---|
+| **0-A-2** | `manage_subscription()` 전체를 재작성한다 → L533과 ACTIVATE를 **동시에** 다루므로 정상 경로. 다만 "tenant_status 로직만 고치고 company_name은 나중에" 식 분할 금지 |
+| **0-A-3** | `tenants.company_name` phantom 계열(`onboard_tenant`/`provision_tenant`)을 다룬다 → **0112 L533을 함께 건드릴 가능성이 높다.** 건드린다면 ACTIVATE도 함께 해결해야 한다 |
 
 **0-A-2 완료가 해제하는 금지 조항**: §4.1.1(호출 금지), §4.3(ACTIVE 승격 금지), §4.5(신규 호출자 배포 금지).
 셋 다 **0-A-2 검증 통과 + 별도 Human 판단**으로만 해제된다.
@@ -486,7 +545,8 @@ DETAIL: Failing row contains (..., tenant_status = 'ISOLATED', ...)
 | `chk_tenants_status`에 `'ISOLATED'`를 추가 | 2컬럼 분리를 무효화한다. **원래 결함으로 되돌아간다** |
 | `isolate_tenant()`를 즉석에서 수정 | 0-A-2의 설계 대상이다. 즉석 수정은 계약 위반(§4.1) |
 | CHECK 제약을 제거 | 동상 |
-| `manage_subscription('ACTIVATE')`로 우회 | **더 나쁘다** — 조용히 성공하며 §4.3을 위반한다(§4.5.1) |
+| `manage_subscription('ACTIVATE')`로 우회 | 현재는 42703으로 먼저 실패하나(§4.5.1), **방벽이 걷히면 조용히 §4.3을 위반한다** |
+| `tenants.company_name`만 추가/우회해 `manage_subscription()`을 되살리기 | **가장 위험한 부분 수정**(§8A.1) — ACTIVATE 방벽만 제거된다 |
 
 ### 해야 할 것
 
@@ -496,12 +556,16 @@ DETAIL: Failing row contains (..., tenant_status = 'ISOLATED', ...)
 
 ### 참고 — 어떤 것이 실패하고 어떤 것이 성공하는가
 
-| 호출 | DDL 적용 후 |
-|---|---|
-| `isolate_tenant(p_isolate := true)` | **23514 실패**(시끄러움 — 즉시 인지됨) |
-| `manage_subscription('SUSPEND')` | **23514 실패**(간접) |
-| `manage_subscription('ACTIVATE')` | ⚠️ **성공한다** — 그러나 §4.3 위반(조용함 — 더 위험) |
-| `manage_subscription('CANCEL')` | 성공(허용값). 단 신규 호출은 §4.5로 금지 |
+| 호출 | 현재(0-A 병합 직후) | L533 phantom 해소 후 |
+|---|---|---|
+| `isolate_tenant(p_isolate := true)` **직접** | **23514 실패**(시끄러움 — 즉시 인지) | 동일 (0-A-2가 고칠 때까지) |
+| `manage_subscription('SUSPEND')` | **42703 실패** — L533에서 분기 도달 전 | 23514 실패 |
+| `manage_subscription('ACTIVATE')` | **42703 실패** — 분기 도달 전 | ⚠️ **조용히 성공 → §4.3 위반**(§8A.1) |
+| `manage_subscription('CANCEL')` | **42703 실패** — 분기 도달 전 | 성공(허용값). 신규 호출은 §4.5로 금지 |
+
+> **읽는 법**: 지금 `manage_subscription()`의 어떤 액션을 호출해도 `42703 undefined_column
+> (tenants.company_name)`이 뜬다 — 이는 `tenant_status`와 무관한 **별개의 기존 결함**이다.
+> `23514`를 실제로 보려면 `isolate_tenant()`를 직접 호출해야 한다.
 
 ---
 
