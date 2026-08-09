@@ -34,7 +34,7 @@ Human 최종 승인(2026-08-09): **"DDL만 진행하고, `isolate_tenant()`는 0
 
 | # | 안전장치 | 위치 | 무엇을 막는가 |
 |---|---|---|---|
-| ① | 호출 금지 단정 | **§4.1.1** | "어떤 경로로도 호출 금지" — 애매한 권고가 아닌 금지 |
+| ① | 호출 금지 단정 | **§4.1.1** | "어떤 경로로도 호출 금지" — 애매한 권고가 아닌 금지. **간접 경로 2개 함수/3지점**(`manage_subscription` 0112, **`detect_threat` 0121**) |
 | ② | 병합 직전 최종 재확인 게이트 | **§7.1** | 확인 시점과 적용 시점 사이에 생긴 호출자 |
 | ③ | 신규 호출자 배포 금지 | **§4.5** | 0-A~0-A-2 기간 중 봉인이 조용히 무력화되는 것 |
 | ④ | 0-A-2를 다음 필수 워크패킷으로 지정 | **§8A** | 부채가 무기한 이월되는 것 |
@@ -202,16 +202,57 @@ comment on table / column           (신규 대상만)
 
 **이 함수는 0-A-2 완료 전까지 어떤 경로로도 호출되어서는 안 된다.**
 
-"경로"에는 예외가 없다 — RPC 직접 호출, `manage_subscription()`을 통한 간접 호출, 관리자 화면, 배치,
-수동 SQL, 테스트 스크립트 전부를 포함한다. 간접 호출 지점은 다음 두 곳이다(라인 직접 확인):
+"경로"에는 예외가 없다 — RPC 직접 호출, 다른 함수를 통한 간접 호출, 관리자 화면, 배치,
+수동 SQL, 테스트 스크립트 전부를 포함한다.
 
-| 분기 | 분기 범위 | `isolate_tenant()` 호출 지점 | 인자 |
-|---|---|---|---|
-| `SUSPEND` | 0112 **L592–606** | L599–605 | `p_isolate := true` → `'ISOLATED'` 기록 시도 |
-| `ACTIVATE` | 0112 **L608–619** | L615–619 | `p_isolate := false` → `'ACTIVE'` 기록 (**CHECK에 걸리지 않음** — §4.5.1) |
+**알려진 간접 호출 지점 — SQL 함수 3곳 / 2개 함수**(라인 직접 확인, 2026-08-09):
 
-두 분기 모두 현재는 L533의 phantom 컬럼 때문에 도달 불가하나(§4.5.1), 그것은 **우연한 방벽**이지
-설계된 보호가 아니다. 금지는 방벽의 존재와 무관하게 유효하다.
+| # | 호출 함수 | 파일·라인 | 호출 지점 | 인자 |
+|---|---|---|---|---|
+| 1 | `manage_subscription()` **SUSPEND** 분기 | 0112 L592–606 | **L600–606** | `p_isolate := true` → `'ISOLATED'` 기록 시도 |
+| 2 | `manage_subscription()` **ACTIVATE** 분기 | 0112 L608–619 | **L616–620** | `p_isolate := false` → `'ACTIVE'` 기록(**CHECK에 안 걸림** — §4.5.1) |
+| 3 | **`detect_threat()`** | **0121 L872–882** | **L876–882** | `p_isolate := true`, FATAL 위협 시 자동 격리 |
+
+**3번 `detect_threat()`(0121)은 사전 게이트에서 뒤늦게 발견된 경로다.**
+`p_threat_severity = 'FATAL'`이고 `p_tenant_id`가 있을 때 **테넌트를 자동 격리**한다 — 즉
+사람이 의도적으로 호출하지 않아도 **보안 이벤트가 트리거하는 경로**다.
+`manage_subscription()`과 **동일한 금지가 그대로 적용된다.**
+
+> **현재 상태**: `detect_threat()`도 실호출자 0건(dormant)이다 — 0121 보안 파이프라인 전체가
+> 인프라만 깔리고 실제 연동되지 않았다. 또한 §4.1.2의 파라미터명 불일치로 **호출 자체가 이미 깨져 있다.**
+> 그러나 이는 **우연한 방벽**이지 설계된 보호가 아니다. 금지는 방벽의 존재와 무관하게 유효하다.
+
+> **⚠️ 이 목록이 완전하다고 단정하지 않는다.** 3번은 v4 계약 작성 시점에 **누락됐다가 게이트에서 발견됐다.**
+> 같은 누락이 또 있을 수 있으므로, §7.1의 재확인은 **매번 grep을 새로 실행**해야 하며
+> 이 표를 근거로 생략할 수 없다.
+
+#### §4.1.2 ⚠️ 세 호출부 전부 파라미터명이 틀려 있다 (신규 발견)
+
+`isolate_tenant()`의 **실제 시그니처**(0090 L1256–1263):
+
+```sql
+catchmenu_common.isolate_tenant(
+  p_tenant_id        uuid,
+  p_isolation_reason text,                 -- ← 기본값 없음 = 필수 인자
+  p_isolate          boolean default true,
+  p_actor_id         uuid    default null,
+  p_locale           text    default 'ko'
+)
+```
+
+**그런데 위 3개 호출부가 전부 `p_reason :=`을 쓴다** — 존재하지 않는 파라미터명이며,
+필수 인자 `p_isolation_reason`은 전달되지 않는다:
+
+| 호출부 | 전달 인자 | 결과 |
+|---|---|---|
+| 0112 L600–606 (SUSPEND) | `p_tenant_id`, `p_isolate`, **`p_reason`** | **42883** function does not exist |
+| 0112 L616–620 (ACTIVATE) | `p_tenant_id`, `p_isolate`, **`p_reason`** | **42883** |
+| 0121 L876–882 (`detect_threat`) | `p_tenant_id`, `p_isolate`, **`p_reason`** | **42883** |
+
+**함의**: `isolate_tenant()`에 실제로 도달해 `23514`를 발생시키려면 **파라미터명을 올바르게 지정한
+직접 호출**이어야 한다. 간접 경로 3곳은 그 전에 `42883`으로 죽는다.
+
+이 불일치는 **이번 워크패킷 범위 밖**(0090/0112/0121 수정 금지 — §4.1)이며, Open Item (p)로 기록한다.
 
 **이것은 "실호출자가 0건이니 괜찮다"가 아니다.** 실호출자 0건은 **현재 시점의 관측 사실**일 뿐
 장래를 보장하지 않는다. 계약이 요구하는 것은 관측이 아니라 **금지**다 —
@@ -302,12 +343,29 @@ where id = p_tenant_id;
 **그러나 이것은 잠재(latent) 위험이다 — 사라진 것이 아니다**:
 
 `isolate_tenant()`는 `p_isolate = false`일 때 `v_new_status := 'ACTIVE'`를 계산하며(0090 L1283–1286),
-`'ACTIVE'`는 `chk_tenants_status`의 **허용값**이다. 즉 ACTIVATE 경로에는 **CHECK라는 안전망이 없다.**
-지금 막고 있는 것은 오직 L533의 phantom 컬럼이라는 **우연한 방벽**뿐이다.
+`'ACTIVE'`는 `chk_tenants_status`의 **허용값**이다. 즉 **ACTIVATE 경로에는 CHECK라는 안전망이 없다.**
+지금 막고 있는 것은 전부 **우연한 방벽**이다.
 
-**위험이 현실화되는 시점**: 누군가 L533의 `company_name` 참조를 해소하는 순간,
-ACTIVATE 분기가 정상 도달 가능해지고 **CHECK 위반 없이 조용히 `tenant_status='ACTIVE'`를 기록**하며
-(L608–613 직접 UPDATE + L615–619 `isolate_tenant(false)`, **두 번 기록**) §4.3을 위반한다.
+**현재 ACTIVATE를 막고 있는 방벽 2겹** (둘 다 설계된 보호가 아님):
+
+| 방벽 | 위치 | 오류 | 성격 |
+|---|---|---|---|
+| ① `tenants.company_name` phantom | 0112 **L533** (분기 도달 전) | **42703** | 별개의 기존 결함 |
+| ② `p_reason` 파라미터명 불일치 | 0112 **L616–620** (분기 내부) | **42883** | §4.1.2 — 별개의 기존 결함 |
+
+방벽 ②의 작동 방식: `perform isolate_tenant(... p_reason := ...)`이 예외를 던지면 **PL/pgSQL 함수 전체가
+중단되고 롤백**되므로, L608–613에서 이미 실행된 `update tenants set tenant_status='ACTIVE'`도 **함께 되돌려진다.**
+즉 방벽 ①만 제거해도 ACTIVATE는 여전히 `tenant_status`를 남기지 못한다.
+
+**위험이 현실화되는 시점 — 방벽 ①과 ②가 모두 제거될 때**:
+
+두 방벽이 모두 사라지면 ACTIVATE 분기는 **CHECK 위반 없이 조용히 `tenant_status='ACTIVE'`를 기록**하며
+(L608–613 직접 UPDATE + L616–620 `isolate_tenant(false)`, **두 번 기록**) §4.3을 위반한다.
+
+> **방벽이 2겹이라는 사실이 안심의 근거가 되어서는 안 된다.** 둘 다 **다른 목적의 결함**이며,
+> 그 결함을 고치는 것은 **정상적이고 바람직한 작업**이다 — 즉 두 방벽은 언젠가 반드시 제거된다.
+> 특히 방벽 ②는 `p_reason` → `p_isolation_reason` **기계적 일괄 치환**으로 제거되기 쉽고,
+> 그 치환은 3개 호출부(§4.1.2)를 **한 번에** 뚫는다.
 
 **가장 위험한 시나리오 — 부분 수정(partial fix)**:
 
@@ -405,14 +463,19 @@ docs/ (601500 폴더 및 000005/000007 외)  -- 다른 도메인 문서
 
 **확인 명령 (전부 실행하고 결과 원문을 캡처)**:
 
+> **⚠️ 이 절차는 아래 "알려진 경로" 표를 근거로 생략할 수 없다.** 표는 2026-08-09 시점의 관측이며,
+> 실제로 `detect_threat()`(0121)는 **v4 계약 작성 시 누락됐다가 이 게이트에서 발견됐다**(§4.1.1).
+> **매번 grep을 새로 실행**해서 목록 자체를 다시 만든다. "지난번에 2개였으니 2개일 것"으로 처리하지 않는다.
+
 ```bash
 # (a) 저장소 전체 — 앱/스크립트/SQL 어디에도 호출자가 없는가
-grep -rn "isolate_tenant" --include=* . | grep -v "^./docs" | grep -v cloud_backup
-grep -rn "manage_subscription" --include=* . | grep -v "^./docs" | grep -v cloud_backup
+grep -rn "isolate_tenant" --include=* . | grep -v "^./docs" | grep -v cloud_backup | grep -v "^./sql/scratch"
+grep -rn "manage_subscription" --include=* . | grep -v "^./docs" | grep -v cloud_backup | grep -v "^./sql/scratch"
+grep -rn "detect_threat" --include=* . | grep -v "^./docs" | grep -v cloud_backup | grep -v "^./sql/scratch"
 ```
 
 ```sql
--- (b) DB 내부 — 다른 함수 본문이 호출하지 않는가
+-- (b) DB 내부 — 다른 함수 본문이 호출하지 않는가 (⭐ 목록을 여기서 새로 만든다)
 select n.nspname, p.proname
 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
 where n.nspname like 'catchmenu%'
@@ -422,20 +485,32 @@ where n.nspname like 'catchmenu%'
 -- (c) pg_cron 작업 문자열이 호출하지 않는가
 select job_code from catchmenu_common.pg_cron_jobs
 where sql_command ilike '%isolate_tenant%'
-   or sql_command ilike '%manage_subscription%';
+   or sql_command ilike '%manage_subscription%'
+   or sql_command ilike '%detect_threat%';
 ```
 
 **기대 결과**:
 
 | 확인 | 기대 |
 |---|---|
-| (a) 앱·스크립트·SQL 호출자 | **0건** (`0112`의 `manage_subscription` 내부 호출과 `0090`의 정의 자체는 제외) |
-| (b) 다른 함수 본문의 호출 | **`manage_subscription`만** (0112) — 그 외 0건 |
+| (a) 앱·스크립트·운영 스크립트의 **실호출자** | **0건**. (0090의 정의 자체, 0112/0121의 내부 호출, 0095 L791/809/827의 **주석·문자열 언급**은 실호출이 아니므로 제외) |
+| (b) 다른 함수 본문의 호출 | **`manage_subscription`(0112)과 `detect_threat`(0121) 2개만** — 그 외가 나오면 **신규 경로 발견** |
 | (c) cron `sql_command` | **0건** |
 
-**하나라도 예상과 다르면 §6의 Stop Condition으로 처리한다** — 새 호출자가 발견되면 DDL을 적용하지 않고
-Human 판단을 받는다. 선택지는 (i) 그 호출자를 제거·비활성화 후 진행, (ii) 0-A-2를 먼저 착수,
-(iii) 본 워크패킷 범위 재조정이며, **"호출자가 있지만 그냥 진행"은 선택지가 아니다.**
+**알려진 경로 (2026-08-09 관측 — 이 표는 기대값이지 완전성 보증이 아니다)**:
+
+| 함수 | 파일·라인 | 상태 |
+|---|---|---|
+| `manage_subscription()` | 0112 L600–606(SUSPEND), L616–620(ACTIVATE) | 실호출자 0건(dormant) + §4.1.2 파라미터 불일치 |
+| `detect_threat()` | 0121 L876–882 | 실호출자 0건(dormant — 0121 보안 파이프라인 전체가 인프라만 존재) + §4.1.2 파라미터 불일치 |
+
+**하나라도 예상과 다르면 §6의 Stop Condition으로 처리한다.** 특히 **(b)에서 위 2개 외의 함수가 나오면
+세 번째 경로 발견**이며, DDL을 적용하지 않고 Human 판단을 받는다.
+선택지는 (i) 그 호출자를 제거·비활성화 후 진행, (ii) 0-A-2를 먼저 착수, (iii) 범위 재조정이며,
+**"호출자가 있지만 그냥 진행"은 선택지가 아니다.**
+
+발견된 경로가 2개보다 많으면 **§4.1.1의 표를 갱신하고 재승인**을 받는다 — 계약서가 실제보다
+좁은 경로만 금지하고 있는 상태로 구현에 들어가지 않는다.
 
 ### §7.2 구현 후 검증
 
@@ -460,6 +535,31 @@ Stage 8 구현 후 다음을 **전부** 수행해야 완료로 간주한다:
 | (m) | 클라우드 확인 3건(`pg_cron` 상태 / 카탈로그 값 / PG 버전) | **5단계 착수 전** |
 | (n) | `pg_cron_jobs.is_registered` 역논리 결함 | **0-A-2** |
 | (o) | **`SECURITY DEFINER` 소유자 `postgres` 배포 계약 명문화** | 배포 정책 판단 |
+| (p) | **`isolate_tenant()` 호출부 3곳의 파라미터명 불일치**(`p_reason` → `p_isolation_reason`) | **§8A.2 참조** |
+
+### §8.1 Open Item (p) — `isolate_tenant()` 파라미터명 불일치 (신규)
+
+**사실**(§4.1.2): `isolate_tenant()`의 필수 인자는 `p_isolation_reason`(0090 L1259)인데,
+알려진 호출부 **3곳 전부**가 존재하지 않는 `p_reason`을 쓴다 —
+0112 L600–606(SUSPEND), 0112 L616–620(ACTIVATE), 0121 L876–882(`detect_threat`).
+세 곳 모두 실행 시 **42883**으로 실패한다.
+
+**본 워크패킷 범위 밖이다** — 0090/0112/0121 수정은 §4.1이 금지한다.
+
+**처리 규정 — 워크패킷 이름이 아니라 행위로 규정한다**(§8A.1과 동일한 방식):
+
+> **`isolate_tenant()` 호출부의 파라미터명을 수정하는 어떤 작업이든**
+> (0-A-2든, 0121 보안 파이프라인 실연동 작업이든, 기계적 일괄 치환이든)
+> **같은 변경 안에서 `tenant_status`/`isolation_state` 분리 문제를 반드시 함께 해결해야 한다.
+> 파라미터명만 고쳐 배포하지 않는다.**
+
+**근거**: 파라미터명 불일치는 현재 ACTIVATE를 막는 **방벽 ②**다(§4.5.1).
+`p_reason` → `p_isolation_reason` 치환은 **가장 기계적이고 무해해 보이는 수정**이면서
+**3개 호출부를 한 번에 뚫는다.** "이름만 맞춰놨다"는 커밋 하나가 §4.3 위반 경로를 열 수 있다.
+
+**0121 보안 파이프라인 실연동 시 특히 주의**: `detect_threat()`는 사람이 호출하는 함수가 아니라
+**FATAL 위협 이벤트가 자동 트리거**하는 경로다(0121 L872–882). 연동되는 순간 사람의 의도와 무관하게
+호출되므로, 연동 작업은 **반드시 0-A-2 완료 이후**여야 한다.
 
 ---
 
@@ -503,6 +603,17 @@ Stage 8 구현 후 다음을 **전부** 수행해야 완료로 간주한다:
 |---|---|
 | **0-A-2** | `manage_subscription()` 전체를 재작성한다 → L533과 ACTIVATE를 **동시에** 다루므로 정상 경로. 다만 "tenant_status 로직만 고치고 company_name은 나중에" 식 분할 금지 |
 | **0-A-3** | `tenants.company_name` phantom 계열(`onboard_tenant`/`provision_tenant`)을 다룬다 → **0112 L533을 함께 건드릴 가능성이 높다.** 건드린다면 ACTIVATE도 함께 해결해야 한다 |
+| **0121 보안 파이프라인 실연동 작업** | `detect_threat()`를 실제로 연동한다 → **FATAL 위협이 자동으로 `isolate_tenant()`를 트리거**하게 된다. §8.1 참조 — **0-A-2 완료 이후에만 착수** |
+
+### §8A.2 방벽 ②(파라미터명) 제거에도 같은 규칙이 적용된다
+
+§8A.1은 방벽 ①(phantom 컬럼)에 대한 규칙이다. **방벽 ②(파라미터명 불일치)에도 동일한 규칙이 적용된다** —
+상세는 **§8.1 Open Item (p)**. 요약하면:
+
+> `isolate_tenant()` 호출부의 **파라미터명을 수정하는 어떤 작업이든**,
+> 같은 변경 안에서 `tenant_status`/`isolation_state` 문제를 함께 해결해야 한다.
+
+두 방벽은 서로 다른 결함이므로 **서로 다른 작업이 각각 제거할 수 있다.** 따라서 규칙도 양쪽에 건다.
 
 **0-A-2 완료가 해제하는 금지 조항**: §4.1.1(호출 금지), §4.3(ACTIVE 승격 금지), §4.5(신규 호출자 배포 금지).
 셋 다 **0-A-2 검증 통과 + 별도 Human 판단**으로만 해제된다.
@@ -556,16 +667,21 @@ DETAIL: Failing row contains (..., tenant_status = 'ISOLATED', ...)
 
 ### 참고 — 어떤 것이 실패하고 어떤 것이 성공하는가
 
-| 호출 | 현재(0-A 병합 직후) | L533 phantom 해소 후 |
-|---|---|---|
-| `isolate_tenant(p_isolate := true)` **직접** | **23514 실패**(시끄러움 — 즉시 인지) | 동일 (0-A-2가 고칠 때까지) |
-| `manage_subscription('SUSPEND')` | **42703 실패** — L533에서 분기 도달 전 | 23514 실패 |
-| `manage_subscription('ACTIVATE')` | **42703 실패** — 분기 도달 전 | ⚠️ **조용히 성공 → §4.3 위반**(§8A.1) |
-| `manage_subscription('CANCEL')` | **42703 실패** — 분기 도달 전 | 성공(허용값). 신규 호출은 §4.5로 금지 |
+| 호출 | 현재(0-A 병합 직후) | 방벽 ①(L533 phantom) 해소 후 | 방벽 ①+②(파라미터명) 모두 해소 후 |
+|---|---|---|---|
+| `isolate_tenant(..., p_isolation_reason := ...)` **직접·인자 정확** | **23514 실패**(시끄러움 — 즉시 인지) | 동일 | 동일 (0-A-2가 고칠 때까지) |
+| `isolate_tenant(..., p_reason := ...)` **직접·인자 오류** | **42883 실패** | 동일 | — |
+| `manage_subscription('SUSPEND')` | **42703** — 분기 도달 전 | **42883**(방벽 ②) | 23514 실패 |
+| `manage_subscription('ACTIVATE')` | **42703** — 분기 도달 전 | **42883**(방벽 ②, 롤백됨) | ⚠️ **조용히 성공 → §4.3 위반** |
+| `manage_subscription('CANCEL')` | **42703** — 분기 도달 전 | 성공(허용값, `isolate_tenant` 미호출) | 동일. 신규 호출은 §4.5로 금지 |
+| `detect_threat(p_threat_severity := 'FATAL', ...)` | 42883(방벽 ②) — 그 전에 dormant | 동일 | 23514 실패 |
 
-> **읽는 법**: 지금 `manage_subscription()`의 어떤 액션을 호출해도 `42703 undefined_column
-> (tenants.company_name)`이 뜬다 — 이는 `tenant_status`와 무관한 **별개의 기존 결함**이다.
-> `23514`를 실제로 보려면 `isolate_tenant()`를 직접 호출해야 한다.
+> **읽는 법**:
+> - 지금 `manage_subscription()`의 어떤 액션을 호출해도 `42703 undefined_column (tenants.company_name)`이 뜬다 —
+>   `tenant_status`와 무관한 **별개의 기존 결함**이다.
+> - `23514`를 실제로 보려면 `isolate_tenant()`를 **파라미터명까지 정확히 지정해 직접** 호출해야 한다.
+>   간접 경로 3곳은 그 전에 `42883`으로 죽는다(§4.1.2).
+> - **가장 오른쪽 열이 위험 지점이다.** 두 방벽은 모두 "고쳐야 마땅한 별개 결함"이므로 언젠가 제거된다.
 
 ---
 
@@ -635,6 +751,10 @@ Conditions:
 | `0021`/`0022` | 0022 L614–623, L78–89 | §2.2 최초 사례 근거, USAGE 분포 |
 | `0072_create_pg_cron_schedules.sql` | L201–206, L219–230 | §4.4 cron 금지 근거 |
 | `0082`/`0090`/`0112`/`0120`/`0123`/`0129` | `601501` §8의 지점 목록 | §4.1 금지 대상 |
+| `0090_create_multitenant_isolation_rpc.sql` | **L1256–1263**(`isolate_tenant` 실제 시그니처, `p_isolation_reason` 필수), L1283–1286, L1293–1295 | **§4.1.2 파라미터 불일치 근거** |
+| `0112_create_hq_admin_rpc.sql` | L533, L548, L592–606(**호출 L600–606**), L608–619(**호출 L616–620**), L622–634 | §4.1.1/§4.5.1 방벽 ①② 근거 |
+| **`0121_create_security_pipeline.sql`** | **L872–882**(FATAL 시 `isolate_tenant` 자동 호출, **호출 L876–882**), L1589(주석) | **§4.1.1 세 번째 경로 — 게이트에서 발견** |
+| `0095_create_pgcron_monitoring_rpc.sql` | L791, L809, L827 | `isolate_tenant` **문자열 언급만**(실호출 아님) — §7.1 판정 시 오탐 방지 |
 | `0085_...franchise_os_foundation_rpc.sql` | L123–160 | §4.2 금지 대상 |
 | `0034_seed_data.sql` | L24–25, L52–55 | §2.4 백필 대상 |
 
