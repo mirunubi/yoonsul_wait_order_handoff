@@ -20,6 +20,39 @@ This document is documentation-only and does not approve database, API, UI, Supa
 | `operating_group` | Operational grouping such as region, franchise group, or tourist zone. | Store operations and reporting context. | Not necessarily legal or billing entity. | Groups stores and managers. | Whether needed in early MVP. |
 | `store` | Actual operating location where waiting, Mini Kiosk, and handoff occur. | Store runtime context. | Not the same as tenant or company. | Belongs to tenant; uses runtime/config/menu/integration. | Whether standalone MVP store can skip full hierarchy. |
 
+### ⚠️ 2026-08-11 개정 — 구현 대응 (0-A `601500`)
+
+위 §2 개념 엔터티가 실제로 구현된 결과는 다음과 같다(마이그레이션 `0168`/`0169`, 2026-08-11 완료).
+
+| 개념 엔터티 | 실제 구현 | 상태 |
+|---|---|---|
+| `legal_entity` | **`catchmenu_hq.legal_entities`** (신규) | 구현됨 — 사업자등록번호 보유 |
+| `company` | 기존 `catchmenu_hq.franchise_brands` | **신규 테이블 없음** — 브랜드 축이 담당 |
+| `operating_group` | 기존 `catchmenu_hq.store_groups` (`group_type='REGION'`만) | 부분 사용 |
+| `tenant` / `store` | 기존 `catchmenu_hq.tenants` / `stores` | 기존 유지 + `stores.legal_entity_id` FK 신규 |
+| **(신규) 자연인** | **`catchmenu_hq.owners`** | 본 문서에 대응 개념 없음 — 아래 주의 |
+| **(신규) 대표권** | **`catchmenu_hq.legal_entity_representatives`** | 동상 |
+| **(신규) 조직 역할** | **`catchmenu_hq.legal_entity_person_roles`** | 동상 |
+
+본 문서의 **`company` = "Not automatically legal entity"** 원칙은 구현에서 지켜졌다 —
+두 축이 서로 다른 테이블(`franchise_brands` / `legal_entities`)로 분리돼 있다.
+
+> **⚠️ `owners` 명칭 주의** (`601501` §2.4.1): `catchmenu_hq.owners`는
+> **"법적 사업주체와 관계를 맺는 자연인(natural person)"** 을 뜻한다.
+> **SaaS 계정 소유자(tenant admin)도 아니고, 지분 보유자도 아니다.**
+> 로그인·세션·권한 주체는 0-B(staff identity)/0-C(authorization) 소관이며,
+> `owners` 행을 계정으로 재활용해서는 안 된다.
+
+> **⚠️ 4개 개념 분리** (`601501` §0.6): 소유권(지분) · 대표권 · 조직역할 · 사업자등록 식별자는
+> **서로 독립된 개념**이며 하나에서 다른 하나를 추론할 수 없다.
+> 이 중 **소유권(지분)만 아직 모델링되지 않았다.**
+
+> **전역 테이블 주의**: 위 신규 4개 테이블에는 **`tenant_id` 컬럼이 없다.**
+> Owner/LegalEntity가 여러 tenant에 걸칠 수 있는 전역 개념이기 때문이며,
+> 판별 기준과 요건은 `010004` §4.1 참조.
+
+근거: `601501_ERD_Tenant_Company_HQ_Store.md` §0.6/§2.4.1, `sql/migrations/0168`.
+
 ## 3 Entity Group: Runtime Configuration
 
 | entity | meaning | ownership/context | what it is not | likely relationships | open questions |

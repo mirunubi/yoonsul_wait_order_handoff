@@ -89,6 +89,67 @@ Minimum context fields should include:
 
 Objects without required context must be treated as unsafe.
 
+### 4.1 Global Tables — "tenant-owned가 아닌 객체"의 판별 기준 (2026-08-11 해설 추가)
+
+> **이 절은 §4의 규칙을 바꾸지 않는다.** §4가 이미 사용하던 **`tenant-owned`** 라는 한정어의
+> 판별 기준을 명시하는 **해설**이다.
+
+**원 규칙의 범위를 먼저 확인한다** — §4와 §25는 처음부터 *모든 객체*가 아니라 **tenant-owned 객체**로
+범위가 좁혀져 있었다:
+
+| 위치 | 원문 |
+|---|---|
+| §4 표 | `` `tenant_id` `` \| Required for all **tenant-owned** objects |
+| §25 Anti-Patterns | Avoid: "tenant id optional on **tenant-owned** objects" |
+
+또한 §4 표에는 `` `legal_entity_id` `` \| *"Required when settlement/legal ownership matters"* 가
+**이미 포함**돼 있다. 즉 법적 주체를 별도 축으로 다루는 것은 본 문서가 원래부터 전제한 바다.
+
+**따라서 아래는 예외(exception)가 아니라, `tenant-owned`에 해당하지 않는 객체를 식별하는 기준이다.**
+
+#### 판별 기준
+
+> **하나의 행이 여러 tenant에 걸쳐 동일한 실체를 가리키는가?**
+> 그렇다면 그 객체는 tenant-owned가 아니며, `tenant_id`를 가져서는 안 된다.
+
+`tenant_id`를 붙이면 **같은 실체가 tenant마다 중복 생성**되어 오히려 무결성이 깨진다.
+"어느 tenant의 것인가"라는 질문 자체가 성립하지 않는 객체가 존재한다.
+
+#### 첫 사례 — 0-A 워크패킷(`601500`)의 신규 4테이블 (`sql/migrations/0168`)
+
+`catchmenu_hq.owners` / `legal_entities` / `legal_entity_person_roles` / `legal_entity_representatives`
+
+**왜 tenant-owned가 아닌가** — 0-A 1단계에서 확정된 업무규칙:
+
+- **Owner(자연인)와 LegalEntity(법적 사업주체)는 전역 개념이다.**
+  하나의 법적 사업주체가 **서로 다른 tenant에 소속된 매장들을 동시에 운영할 수 있다.**
+- 따라서 LegalEntity는 특정 tenant에 종속되지 않으며, tenant와의 관계는
+  **`stores.legal_entity_id`를 통해서만 간접적으로** 드러난다.
+- LegalEntity에 `tenant_id`를 부여하면, 같은 사업자가 tenant마다 다른 행으로 중복 등록되고
+  **사업자등록번호 유일성이 tenant 경계에서 깨진다.**
+
+#### 전역 테이블이 충족해야 할 요건 (전부 필수)
+
+| # | 요건 | 근거 |
+|---|---|---|
+| 1 | **클라이언트가 될 수 있는 역할에 테이블 GRANT를 부여하지 않는다** (`authenticated`/`service_role`/`anon`) | `601505` §2.1 |
+| 2 | 접근은 **`SECURITY DEFINER` 함수 경유만** 허용한다 | `601501` §2.7 |
+| 3 | 그 함수는 **`601503` §9의 6대 규칙**을 지킨다 — 전용 owner role(`catchmenu_authority_owner`) / `search_path` 고정(**`public` 제외**) / `PUBLIC EXECUTE` 회수 / schema-qualified 참조 / **함수 내부 tenant 권한 검증** | `601503` §9 |
+| 4 | RLS는 `enable`+`force`로 걸고, 정책은 0-C가 설계하기 전까지 두지 않는다 | `601501` §2.7.2 |
+
+#### ⚠️ 3번의 tenant 검증이 이 판별의 핵심이다
+
+전역 테이블에는 `tenant_id`가 없으므로 **RLS만으로는 tenant를 구분할 근거가 테이블 안에 없다.**
+그리고 `SECURITY DEFINER`는 RLS를 우회한다. 따라서 함수 내부에서 호출자의 tenant 권한을
+직접 검증하지 않으면 **"tenant A가 tenant B의 법적 주체를 조회"하는 confused deputy**가 된다.
+검증은 `stores.legal_entity_id`를 경유한다(`601503` §9.3).
+
+> **base table GRANT 제거가 multi-tenant isolation을 자동 보장하지 않는다** —
+> 잘못 작성된 `SECURITY DEFINER` 함수 하나가 격리를 뚫는다.
+
+근거: `601501_ERD_Tenant_Company_HQ_Store.md` §0.1/§2.7, `601503_Logic_...Ddl.md` §9,
+`601510_AuditReview_Stage11B_Blind_Audit.md` 조건 ②, `sql/migrations/0168`·`0169`.
+
 ---
 
 ## 5. MD-Level Isolation Rule

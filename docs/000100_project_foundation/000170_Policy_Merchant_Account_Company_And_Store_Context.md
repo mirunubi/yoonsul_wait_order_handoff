@@ -382,6 +382,55 @@ Core rule:
 Same physical location may have separate system identities.
 The relationship must be explicit.
 
+### ⚠️ 2026-08-11 개정 — 아래 §14 / §15 / §16 상태 어휘는 SUPERSEDED
+
+아래 세 절의 상태값 목록은 **"Suggested"(제안) 단계에서 작성된 것이며, 실제 구현된 어휘가 아니다.**
+0-A 워크패킷(`601500`, 마이그레이션 `0168`/`0169`, 2026-08-11 완료)이 확정한 실제 어휘는 다음과 같다.
+
+**구현된 상태 축 3개**
+
+| 축 | 컬럼 | 허용값 | 단위 |
+|---|---|---|---|
+| 구독 생명주기 | `catchmenu_hq.tenants.tenant_status` | `ACTIVE`/`TRIAL`/`SUSPENDED`/`CANCELLED`/`TERMINATED` | **tenant** |
+| **보안 격리** | `catchmenu_hq.tenants.isolation_state` | `NONE`/`ISOLATED` | **tenant** — 구독 축과 **직교**(동시 표현 가능) |
+| 매장 운영 | `catchmenu_hq.stores.store_status` | `PREPARING`/`ACTIVE`/`SUSPENDED`/`CLOSED` | **store** |
+
+**서비스 가능 판정은 두 축의 AND다**(`601501` §3.1):
+
+```text
+serviceable := tenant_status IN ('ACTIVE','TRIAL') AND isolation_state = 'NONE'
+```
+
+**한쪽만 확인하는 코드는 격리를 무력화하므로 금지**한다.
+
+#### 어휘 대응 — 1:1 치환이 아니다
+
+| 본문의 어휘 | 실제 구현 | 성격 |
+|---|---|---|
+| §14 `STORE_SERVICE_PENDING` / `STORE_TRIAL_ACTIVE` / `STORE_TRIAL_EXPIRED` / `STORE_ACTIVE_PAID` / `STORE_TERMINATION_PENDING` / `STORE_REACTIVATION_PENDING` | **미구현** | **store 단위 *서비스* 상태 축 자체가 없다.** 구독 상태는 tenant 단위에만 존재 |
+| §14 `STORE_SUSPENDED` | `stores.store_status = 'SUSPENDED'` | 값은 대응하나 의미 축이 다르다(서비스 → 운영) |
+| §14 `STORE_TERMINATED` | **미구현** | `TERMINATED`는 store에 없고 `tenants.tenant_status`에만 있다 |
+| §15 `PRE_OPEN`/`OPEN`/`TEMPORARILY_CLOSED`/`CLOSED` | `stores.store_status`의 `PREPARING`/`ACTIVE`/`SUSPENDED`/`CLOSED` | **값 이름이 다르다** |
+| §15 `MOVED` / `UNKNOWN` | **미구현** | |
+| §16 `TRIAL_NOT_STARTED`/`TRIAL_PENDING`/`TRIAL_ACTIVE`/`TRIAL_EXTENDED`/`TRIAL_EXPIRED`/`CONVERTED`/`DECLINED`/`NOT_USING`/`UNREACHABLE`/`RECOVERY_REQUIRED` | `tenants.tenant_status = 'TRIAL'` **단일 값** | **10개 세분값이 1개로 축약**됐다 |
+
+#### 미구현 항목 — 백로그 후보와 트리거 조건
+
+**이 문서의 §14–§16이 틀렸다는 뜻이 아니다.** 정책 의도로서는 유효하며, **구현이 아직 그만큼
+세분화되지 않았을 뿐**이다. 아래는 폐기가 아니라 **백로그 후보**이며, 각 트리거 조건이 성립하면 착수한다.
+
+| # | 백로그 후보 | **트리거 조건** |
+|---|---|---|
+| 1 | **store 단위 서비스 상태 축**(§14 전체) | **매장별 개별 과금이 필요해지면** — 한 tenant 안에서 매장마다 다른 요금·정지 상태를 가져야 할 때 |
+| 2 | **체험 상태 10개 세분화**(§16) | **체험 정책이 단순 `TRIAL` 이상으로 세분화되면** — 연장/전환/거절 등을 상태로 구분해 추적해야 할 때 |
+| 3 | `MOVED` / `UNKNOWN`(§15) | **실제 운영 중 이 상태가 필요한 사례가 발생하면** — 이전/소재불명 매장을 별도로 표기해야 할 때 |
+
+코드를 작성할 때는 위 "실제 구현" 열을 따른다. 세분화가 필요해지면 별도 워크패킷으로 확장한다.
+
+근거: `601501_ERD_Tenant_Company_HQ_Store.md` §3/§3.1/§3.2, `sql/migrations/0002`·`0168`.
+
+---
+
 14\. Store Service Status
 
 Store service status should be tracked independently from merchant account status.

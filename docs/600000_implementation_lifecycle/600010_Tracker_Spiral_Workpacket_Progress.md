@@ -37,6 +37,7 @@ Last Updated: 2026-08-10
 |---|---|---|---|---|
 | **0-A** Tenant/LegalEntity/HQ/Store | `601500_operational_authority_foundation` | **Stage 12** (Human Merge) | ✅ **완료** (2026-08-11, Human 최종승인) | 2026-08-11 |
 | **0-B** Staff identity / session | 미배정 | — | **착수 가능** (0-A 완료로 선행조건 해소) | 2026-08-11 |
+| **0-A 역전파** 상위 정본문서 정합화 | `601600_upstream_doctrine_backpropagation` | **Stage 1** (업무규칙 선언 + 개정 적용) | **1단계 완료** — 확인필요 4건 해소, 5개 문서 개정삽입 적용됨 | 2026-08-11 |
 
 ### §1.1 0-A / 601500 완료 기록
 
@@ -105,8 +106,9 @@ Last Updated: 2026-08-10
 | 나선 | 범위 | 상태 |
 |---|---|---|
 | 0-A | Tenant / Company / HQ / Store | ✅ **완료 (2026-08-11)** — §1 등재 |
-| **0-A-2** | RPC·배치 정합(`isolate_tenant`/`manage_subscription`/필터/`is_registered`) | ⭐ **다음 필수 착수** (0-A 완료로 선행조건 해소, **0-B보다 우선**) |
+| **0-A-2** | RPC·배치 정합(`isolate_tenant`/`manage_subscription`/필터/`is_registered`) | ⭐ **다음 필수 착수** (0-A 완료로 선행조건 해소, **0-B보다 우선**). ⚠️ **착수 시 `601601` §5.1 필독 — 과금 로직 의존 금지 제약을 1단계 업무규칙에 재선언할 것** |
 | 0-A-3 | `onboard_tenant` / `provision_tenant` 재설계 | 미착수 |
+| **0-A 역전파** | 상위 정본문서(`000150`/`000170`/`003020`/`009030`/`010004`) 역전파 — 문서 전용, `.sql` 없음 | **Stage 1 진행중**(`601600`) |
 | **0-B** | Staff identity / session | **착수 가능** (0-A 완료). 다만 §8A 순서상 **0-A-2 이후** 권장 |
 | **0-C** | Authorization (caller-authorization 공백 해결) — ⚠️ **착수 전 §1.2 필독** | 미착수 |
 | 0-D | Customer identity 기반 | 미착수 |

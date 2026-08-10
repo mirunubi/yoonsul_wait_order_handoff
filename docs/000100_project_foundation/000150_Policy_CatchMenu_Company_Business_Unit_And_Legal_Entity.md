@@ -7,6 +7,55 @@ This document defines the project foundation topic indicated by its filename and
 
 Legacy path: $old.
 
+### ⚠️ 2026-08-11 개정 — 이 문서의 개념이 실제로 어떻게 실현됐는가
+
+본 문서가 다루는 **company / business_unit / legal_entity** 개념은,
+0-A 워크패킷(`601500`, 마이그레이션 `0168`/`0169`, 2026-08-11 완료)에서 다음과 같이 실현됐다.
+
+| 본 문서의 개념 | 실제 구현 | 비고 |
+|---|---|---|
+| **legal entity**(계약·세무·정산 주체) | **`catchmenu_hq.legal_entities`** (신규) | 사업자등록번호를 보유하는 **유일한** 테이블 |
+| **company**(브랜드·운영 그룹핑) | 기존 `catchmenu_hq.franchise_brands` | **신규 테이블을 만들지 않았다** |
+| business unit / operating group | 기존 `catchmenu_hq.store_groups` (`group_type='REGION'`만 사용) | |
+| (신규) 자연인 | `catchmenu_hq.owners` | 본 문서에 대응 개념 없음 |
+| (신규) 대표권 | `catchmenu_hq.legal_entity_representatives` | 동상 |
+| (신규) 조직 역할 | `catchmenu_hq.legal_entity_person_roles` | 동상 |
+
+> **⚠️ 어휘 함정**: `legal_entities.entity_type = 'CORPORATION'`은 **법인격의 종류(legal form)** 를 뜻하며,
+> 본 문서·`003020`이 말하는 **"company 축(브랜드 그룹핑)"과 전혀 다른 개념**이다.
+> "법인 = Company"로 읽으면 두 축이 뒤섞인다.
+
+#### 사업자 축 vs 브랜드 축 (`601501` §0.4에서 이전)
+
+| **사업자 축 — `legal_entities`** | **브랜드 축 — `franchise_brands`** |
+|---|---|
+| 법인격 종류 (`entity_type`) | 상표·브랜드명 (`brand_name`/`brand_code`) |
+| 사업자등록번호 (`business_registration_number`) | 로열티 정책 (`royalty_rate_pct`) |
+| 법인등기번호 (`corporate_registration_number`) | 브랜드 가이드 (`brand_guidelines_url` 등) |
+| 대표권 (`legal_entity_representatives`) | 멤버십·메뉴 공유 (`shared_membership` 등) |
+| **누가 법적 책임을 지는가** | **어떤 간판을 달고 무엇을 공유하는가** |
+
+#### 사업자등록번호의 경계 (`601501` §2.1.1)
+
+**사업자등록번호는 등록의 식별자이지 법적 정체성의 근본 존재론이 아니다.**
+한 법인이 복수 사업장·등록단위를 가질 수 있고, 개인사업자는 사업체와 자연인이 완전히 분리되지 않는다.
+현재 구현은 **1:1 MVP 단순화**이며, **동일성 판단 기준은 `business_registration_number`가 아니라
+`legal_entities.id`** 다.
+
+#### 아직 모델링되지 않은 것 — 소유권(지분)
+
+**소유권 · 대표권 · 조직역할 · 사업자등록 식별자는 서로 독립된 4개 개념**이다(`601501` §0.6).
+대표이사가 지분 0%일 수 있고, 60% 주주가 대표가 아닐 수도 있다.
+
+이 중 **소유권(지분)만 아직 모델링되지 않았다.** 필요해지면 별도 테이블이 필요하다(Open Item).
+
+> **`legal_entity_person_roles.ownership_percent` 컬럼을 소유권 모델로 사용하지 말 것** —
+> 역할 테이블에 소유권 컬럼이 얹힌 개념 혼재이며, 현재 **사용 금지** 상태다(`601501` §2.3.1).
+
+근거: `601501_ERD_Tenant_Company_HQ_Store.md` §0.4/§0.6/§2.1.1/§2.3.1, `sql/migrations/0168`.
+
+---
+
 1\. Purpose
 
 This document defines how CatchMenu / Wait Order Handoff models company, business unit, and legal entity boundaries.
