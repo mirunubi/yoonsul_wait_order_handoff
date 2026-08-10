@@ -230,6 +230,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000700_ai_agent_prelearning_and_project_context\000714_Readme_Implementation_Lifecycle_Governance.md | 000714_Readme_Implementation_Lifecycle_Governance. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000715_ContentVerificationLog.md | 000715_ContentVerificationLog. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md | 000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000717_Guide_Pipeline_Rules_Summary.md | 000717_Guide — 새 세션·새 도구가 작업 전에 읽는 규칙 요약(`000701`/`000001`/`000002` 발췌, 전문 대체 아님). 절대금지 5건(Stage 7 없이 Stage 8 금지 / 1단계 Human 전담 / migration 수정금지 / frozen snapshot 소급수정 금지 / 인코딩 정규화 금지), 6단계 나선 착수순서(§48 증거수집 선행), §46 근거의무, 파일명 규격, §5.11 동반갱신, 600000 대역 현재 권위상태, 전문 참조 트리거. | active |
 
 ## 6 docs/000800_pos_gateway_and_provider_integration_foundation
 

@@ -217,6 +217,7 @@ docs/
   |   +--- 000714_Readme_Implementation_Lifecycle_Governance.md
   |   +--- 000715_ContentVerificationLog.md
   |   \--- 000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md
+  |   +--- 000717_Guide_Pipeline_Rules_Summary.md
   +--- 000800_pos_gateway_and_provider_integration_foundation/
   |   +--- 000800_Readme_POS_Gateway_And_Provider_Integration_Foundation.md
   |   +--- 000801_Boundary_POS_Gateway_Order_Payment_Provider_And_Runtime_Authority.md
