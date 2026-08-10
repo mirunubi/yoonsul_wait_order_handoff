@@ -1627,7 +1627,13 @@ docs/
   |   |   |   +--- 601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md
   |   |   +--- 601100_Readme_Store_Admin_Console.md
   |   |   +--- 601102_NavigationMap_Store_Admin_Console.md
+  |   +--- 601200_caller_authorization_foundation/
+  |   |   +--- 601210_caller_authorization_resolver_pilot/
+  |   |   |   +--- 601211_Overview_Caller_Authorization_Resolver_Pilot.md
+  |   |   |   +--- 601212_Logic_Caller_Authorization_Resolver_Pilot.md
+  |   |   +--- 601200_Readme_Caller_Authorization_Foundation.md
   |   +--- 601300_fable_blind_reverse_engineering_audit/
+  |   |   +--- 601300_Readme_Fable_Blind_Reverse_Engineering_Audit.md
   |   |   +--- 601310_domain_00_common_auth/
   |   |   |   +--- 601311_PassA_Blind_Reverse_Engineering_Common_Auth.md
   |   |   |   +--- 601312_PassB_Intent_Comparison_Common_Auth.md
@@ -1655,6 +1661,7 @@ docs/
   |   |   +--- 601301_Master_Tracker.md
   |   |   +--- 601390_Modularization_Integration_Plan.md
   |   +--- 601400_fable_design_integrity_inspection/
+  |   |   +--- 601400_Readme_Fable_Design_Integrity_Inspection.md
   |   |   +--- domain_01_customer_handoff/
   |   |   |   +--- 601411_Register_Stage1_File_Inventory_Customer_Handoff.md
   |   |   |   +--- 601411_Inventory_Customer_Handoff.ndjson
@@ -1679,7 +1686,7 @@ docs/
   |   |   +--- domain_13_physical_ai/
   |   |   +--- 601401_Master_Tracker.md
   |   +--- 601500_operational_authority_foundation/
-  |   |   +--- 601500_Baseline_Summary.md
+  |   |   +--- 601500_Readme_Operational_Authority_Foundation.md
   |   |   +--- 601501_ERD_Tenant_Company_HQ_Store.md
   |   |   +--- 601502_Overview_Operational_Authority_Foundation_Ddl.md
   |   |   +--- 601503_Logic_Operational_Authority_Foundation_Ddl.md
@@ -1691,6 +1698,7 @@ docs/
   |   |   +--- 601509_AuditReview_Operational_Authority_Foundation_Ddl.md
   |   |   +--- 601510_AuditReview_Stage11B_Blind_Audit.md
   |   |   +--- 601511_AuditReview_Stage11A_Final.md
+  |   |   +--- 601512_Baseline_Summary.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

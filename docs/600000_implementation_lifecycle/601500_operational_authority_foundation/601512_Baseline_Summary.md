@@ -1,11 +1,16 @@
-# 601500_Baseline_Summary.md — 0-A 현재 기준선 (Current Baseline)
+# 601512_Baseline_Summary.md — 0-A 현재 기준선 (Current Baseline)
 
 > **용도**: 며칠 공백 후 이 워크패킷을 다시 이어갈 때 **이 문서만 읽고 복구**하기 위한 1페이지 요약.
 > 상세는 각 항목의 참조 문서로 간다. **이 문서와 `601501`(ERD v4)이 충돌하면 `601501`이 우선한다.**
 >
-> **이 문서가 601500 폴더의 Readme 역할을 겸한다** (2026-08-10 확정) — 폴더번호 슬롯(`601500`)을 사용하며
-> 폴더 개요·문서 지도(§7)를 담으므로, `601500_Readme_…`를 **별도로 생성하지 않는다.**
-> 워크패킷 진행 상태는 상위 트래커 `600010_Tracker_Spiral_Workpacket_Progress.md`에서 함께 추적된다.
+> **2026-08-11 개명**: 본 문서는 원래 `601500_Baseline_Summary.md`였고 폴더의 Readme 역할을 겸한다고 처리했으나,
+> `000000_Readme_Root.md` §4("각 하위 폴더의 첫 번째 파일은 `{폴더번호}_Readme_{폴더명}.md` 이어야 합니다")와
+> `000001_Md_Rules.md` §5.12("Readme-less folder로 우회하지 말 것")에 **미준수**였다.
+> 슬롯을 비우기 위해 **`601512`로 개명**하고 `601500_Readme_Operational_Authority_Foundation.md`를 신설했다.
+>
+> - **폴더 개요·경계·문서 목록** → `601500_Readme_Operational_Authority_Foundation.md`
+> - **진행 상태·복구용 기준선(본 문서)** → 그 Readme에서 링크된다
+> - 전 나선 진행 현황 → `600010_Tracker_Spiral_Workpacket_Progress.md`
 
 - **워크패킷**: 601500 / 0단계(운영 권위 기반) 하위 나선 **0-A** — Tenant / LegalEntity / HQ / Store
 - **Last Updated**: 2026-08-10

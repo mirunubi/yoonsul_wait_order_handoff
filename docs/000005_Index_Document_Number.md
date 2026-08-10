@@ -2840,10 +2840,19 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601143_TestPlan_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601143_TestPlan — sibling-overwrite correction verification plan. | active |
 | docs\600000_implementation_lifecycle\601100_store_admin_console\601140_allergen_info_and_sibling_overwrite_correction\601144_ChangeContract_Allergen_Info_And_Sibling_Overwrite_Correction.md | 601144_ChangeContract — sibling-overwrite correction boundary, APPROVED, ACCEPT, implemented as a second in-place sync of 0110 (audit section locally uncommitted). | active |
 
+## 146A docs/600000_implementation_lifecycle/601200_caller_authorization_foundation
+
+| File | Purpose | Status |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601200_caller_authorization_foundation\601200_Readme_Caller_Authorization_Foundation.md | 601200_Readme — 호출자 인가(caller authorization) 기반 폴더 진입점. 목적(서버가 세션에서 권한을 도출, 클라이언트 파라미터 불신), 0-B/0-C/0-A와의 경계, 601210 파일럿 목록, **0-C 착수 게이트(601503 §9)** 참조, §5.2.1 Boundary Reference Documents. | active |
+| docs\600000_implementation_lifecycle\601200_caller_authorization_foundation\601210_caller_authorization_resolver_pilot\601211_Overview_Caller_Authorization_Resolver_Pilot.md | 601211_Overview — caller authorization resolver 파일럿 맥락. **Stage 4 완료 후 Stage 5 이후 보류**(2026-07-18) — 결정적 선행조건 발견으로 재설계 필요, Human 결정 대기. 601300 Pass A의 Known Prior Finding으로 블라인드 감사 입력에서 제외됨. | active |
+| docs\600000_implementation_lifecycle\601200_caller_authorization_foundation\601210_caller_authorization_resolver_pilot\601212_Logic_Caller_Authorization_Resolver_Pilot.md | 601212_Logic — caller authorization resolver 파일럿 설계. **Stage 4 완료 후 Stage 5 이후 보류**(2026-07-18), 601211과 동일 상태·동일 Change ID(`caller_authorization_resolver_pilot`). | active |
+
 ## 147 docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit
 
 | File | Purpose | Status |
 |---|---|---|
+| docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601300_Readme_Fable_Blind_Reverse_Engineering_Audit.md | 601300_Readme — 블라인드 역설계 감사 프로그램 폴더 진입점. 목적(코드만으로 의도 역구성 후 설계와 대조), 601400과의 구분표, Pass A/B/C 구조, Known Prior Finding·Pass 불변성 원칙, §5.2.1 Boundary Reference Documents. | active |
 | docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601301_Master_Tracker.md | 601301_Master_Tracker — Fable blind reverse-engineering audit program, 6-domain × Pass A/B/C progress table, Known Prior Finding warning (601210/601211/601212 withheld from Pass A), Pass immutability principle, Modularization Entry Gate. | active |
 | docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601310_domain_00_common_auth\601311_PassA_Blind_Reverse_Engineering_Common_Auth.md | Domain 00 (common/auth) Pass A — PLACEHOLDER, NOT_STARTED. | active |
 | docs\600000_implementation_lifecycle\601300_fable_blind_reverse_engineering_audit\601310_domain_00_common_auth\601312_PassB_Intent_Comparison_Common_Auth.md | Domain 00 (common/auth) Pass B — PLACEHOLDER, NOT_STARTED. | active |
@@ -2869,6 +2878,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 
 | File | Purpose | Status |
 |---|---|---|
+| docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\601400_Readme_Fable_Design_Integrity_Inspection.md | 601400_Readme — 설계무결성 검사 프로그램 폴더 진입점. 목적(문서·SQL·계약 포함, 옳고그름 판단 없이 사실만 기록), 601300과의 구분, **601401 트래커 범위 경계**(구현 워크패킷은 600010 소관), §5.2.1 Boundary Reference Documents. | active |
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\601401_Master_Tracker.md | 601401_Master_Tracker — Fable design integrity inspection program, 13-domain progress table, Domain 01 Customer Handoff Stage 1/2 complete. | active |
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601411_Register_Stage1_File_Inventory_Customer_Handoff.md | 601411_Register — Customer Handoff Stage 1 full file inventory (495 files, metadata table). | active |
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\601411_Inventory_Customer_Handoff.ndjson | Machine-readable Stage 1 inventory (495 JSON lines). | active |
@@ -2887,7 +2897,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 
 | 파일 | 요약 | 상태 |
 |---|---|---|
-| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601500_Baseline_Summary.md | 601500_Baseline_Summary — 0-A 현재 기준선 1페이지 요약(공백 후 빠른 복구용). 확정사항(Owner↔LegalEntity N:M, Store→LegalEntity 단일 FK, tenant_status/isolation_state 직교, GRANT 없음, DDL 전용), 금지 7함수 호출경로 3단계 전이, Stop 이력 2건(EVIDENCE_GAP/TEST_SCOPE_ERROR), 미해결 5건, 문서 지도. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601500_Readme_Operational_Authority_Foundation.md | 601500_Readme — 0-A(운영 권위 기반) 폴더 진입점. 폴더 목적·경계(0-A-2/0-A-3/0-C/브랜드나선과의 구분), 문서목록 601500~601512, 완료≠안전 경고, 0-C 착수 게이트(601503 §9), §5.2.1 Boundary Reference Documents 12건. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601501_ERD_Tenant_Company_HQ_Store.md | 601501_ERD v4 — 0단계 나선 0-A ERD, LegalEntity 중심 모델(3단계 2차 검증 반영). 신규 테이블 4개(owners/legal_entities/legal_entity_person_roles/legal_entity_representatives) + stores.legal_entity_id 단일 FK, tenants 상태 2컬럼 분리, 대표권 별도 테이블 분리, 접근제어 실체 정정(차단자는 GRANT+PostgREST 미노출이지 RLS 아님), BRN/CRN 정규화 생성컬럼. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601502_Overview_Operational_Authority_Foundation_Ddl.md | 601502_Overview v4 — 0-A DDL 워크패킷 맥락(§47 나선 4단계). 003020 분리원칙 실현, DDL 전용 범위절단(신규 테이블 4 + 컬럼 3, GRANT 미부여 설계결정), cron 로컬 실측(cron.job 0행)과 is_registered 역논리 결함 0-A-2 승계. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601504_TestPlan_Operational_Authority_Foundation_Ddl.md | 601504_TestPlan — 0-A DDL 검증계획(Stage 5). pre-flight 라이브대조, deny-by-default 실동작(service_role 포함 거부/SECURITY DEFINER 경유 성공), BRN·CRN 정규화 UNIQUE, 역할 재부여, 대표권 부분UNIQUE, tenant_status×isolation_state 직교조합, 멱등성, cron 무영향. 핵심 5항목 PASS 기준. | active |
@@ -2898,4 +2908,5 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601509_AuditReview_Operational_Authority_Foundation_Ddl.md | 601509_AuditReview — Stage 11A 1차 감사(Claude 단독). APPROVE_WITH_NOTES(잠정) — §13.7-13.10에 따라 Stage 11B 블라인드 감사 전까지 확정 아님. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601510_AuditReview_Stage11B_Blind_Audit.md | 601510_AuditReview — **Stage 11B 완전독립 ChatGPT 블라인드 감사, 판정 BLOCK**(좁은 범위). 재승인 조건 4가지(전용 NOLOGIN owner role / SECURITY DEFINER search_path·PUBLIC EXECUTE·tenant 경계 / SOLE 대표 partial unique DB강제 / ownership·representation·role·registration identity 개념 분리) + 추가 발견 위험 4건. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601511_AuditReview_Stage11A_Final.md | 601511_AuditReview — Stage 11A 재감사 최종, **APPROVE_WITH_NOTES로 Stage 11 종결**(2026-08-11). 조건 ①③④ 충족·②는 0-C 게이트로 이월, 금융사고 반례 분석, 이월 항목(ACTIVE+ISOLATED 과금정책 / CI 기계적 강제 부재). | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601512_Baseline_Summary.md | 601512_Baseline_Summary — 0-A 현재 기준선 1페이지 요약(공백 후 빠른 복구용). **구 601500_Baseline_Summary, 2026-08-11 개명**(폴더 Readme 슬롯 확보). 확정사항·금지 7함수 호출경로·Stop 이력·미해결 항목·문서 지도. | active |
 | docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601503_Logic_Operational_Authority_Foundation_Ddl.md | 601503_Logic v4 — 0-A DDL 설계(§47 나선 4단계). legal_entities/owners/roles/representatives 의사DDL, BRN+CRN 정규화 생성컬럼(nullif 함정), 대표권 행존재 판정·행간모순 한계 기록, GRANT 미부여 + SECURITY DEFINER 접근 해소, NOT NULL 승격 5단계말미 검토, pg_constraint 가드 멱등성, PG17.6 SET EXPRESSION 경로. | active |

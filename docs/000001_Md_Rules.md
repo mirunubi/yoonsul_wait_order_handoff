@@ -490,9 +490,9 @@ quarantine, or restructure is incomplete until all four references
 ## 5.12 Folder Number Slot Exhaustion Rule
 
 When a folder's own numeric band has no free slot for a compliant Readme
-(per §5.2's "each subfolder's first file must be
-`{folder_number}_Readme_{name}.md`" rule), do not squat an adjacent number
-or skip the Readme requirement. Instead:
+(per `000000_Readme_Root.md` §4's "각 하위 폴더의 첫 번째 파일은
+`{폴더번호}_Readme_{폴더명}.md` 이어야 합니다" rule), do not squat an adjacent
+number or skip the Readme requirement. Instead:
 
 1. Check whether the folder can be renumbered within its band's wider
    reserved range (per `000002` §4's six-digit namespace bands) to free
