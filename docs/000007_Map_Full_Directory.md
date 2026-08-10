@@ -1699,6 +1699,9 @@ docs/
   |   |   +--- 601510_AuditReview_Stage11B_Blind_Audit.md
   |   |   +--- 601511_AuditReview_Stage11A_Final.md
   |   |   +--- 601512_Baseline_Summary.md
+  |   +--- 601600_upstream_doctrine_backpropagation/
+  |   |   +--- 601600_Readme_Upstream_Doctrine_Backpropagation.md
+  |   |   +--- 601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
