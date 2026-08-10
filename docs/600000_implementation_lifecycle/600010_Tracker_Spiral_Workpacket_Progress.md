@@ -35,24 +35,37 @@ Last Updated: 2026-08-10
 
 | 나선 | 워크패킷 | 현재 Stage | 최종 상태 | 최종 갱신일 |
 |---|---|---|---|---|
-| **0-A** Tenant/LegalEntity/HQ/Store | `601500_operational_authority_foundation` | **Stage 10** (Documentation) | **진행중** (Stage 11–12 대기) | 2026-08-10 |
+| **0-A** Tenant/LegalEntity/HQ/Store | `601500_operational_authority_foundation` | **Stage 12** (Human Merge) | ✅ **완료** (2026-08-11, Human 최종승인) | 2026-08-11 |
+| **0-B** Staff identity / session | 미배정 | — | **착수 가능** (0-A 완료로 선행조건 해소) | 2026-08-11 |
 
-### §1.1 진행중 워크패킷 상세
+### §1.1 0-A / 601500 완료 기록
 
-**0-A / 601500** — 남은 관문:
+**전 Stage 통과** (2026-08-11 Stage 12 Human 승인으로 종결):
 
-| Stage | 내용 | 담당 | 상태 |
-|---|---|---|---|
-| 11A | 계약 충족 확인 ("왜 맞는가") | Claude | 미착수 |
-| **11B** | **ChatGPT 블라인드 역설계 감사 ("왜 틀릴 수 있는가")** — `000701` §13.8, **모든 워크패킷 의무** | ChatGPT (**새 대화창 필수**) | **미착수** |
-| 11C | 11A/11B 대조(Conflict Analysis) | Human | 미착수 |
-| 12 | 최종 diff 확인, 병합/릴리스 승인 | Human | 미착수 |
+| Stage | 산출물 | 결과 |
+|---|---|---|
+| 8 | `0168` + `0169` | 적용 완료 |
+| 9 | `601506` / `601507` | 차단 우려사항 없음 (Cursor + Claude Code, §37에 따라 Codex 제외) |
+| 10 | `601507` / `601508` | 문서화 완료 |
+| 11A | `601509` → **`601511`(재감사 최종)** | **`APPROVE_WITH_NOTES`** |
+| **11B** | **`601510`** | **`BLOCK`** → 조건 ①③④ 충족, ②는 0-C로 이월(§1.2) → **해소** |
+| 12 | Human | ✅ **승인 (2026-08-11)** |
 
-**병합 전 미해결 항목**: Open Item (m) 클라우드 미검증(`pg_cron` 상태 / 카탈로그 값 / PostgreSQL 버전).
-상세는 `601507` §6, `601508` §3.3.
+**적용된 마이그레이션 2개**: `0168`(신규 테이블 4 + 컬럼 3), `0169`(전용 owner role + SOLE 유일성).
 
-**병합 후 필수 후속**: **0-A-2가 다음 필수 착수 워크패킷**이다(`601505` §8A) —
-`isolate_tenant()`가 의도적 장애 상태로 남은 채 병합되므로 다른 나선(0-B 등)보다 우선한다.
+**완료 시점에도 남아 있는 것 (이월, 계속 추적)**:
+
+| 항목 | 이월처 |
+|---|---|
+| **Stage 11B 조건 ②**(`SECURITY DEFINER` search_path/PUBLIC EXECUTE/tenant 경계) | **0-C — §1.2 게이트** |
+| Open Item (m) 클라우드 미검증(`pg_cron` / 카탈로그 / PG 버전) | 클라우드 배포 시 |
+| `tenant` `ACTIVE`+`ISOLATED` 동시상태의 **과금정책 미정** | **0-A-2 착수 전 결정 필요**(`601511`) |
+| "행위기준 완료조건"의 **기계적 강제(CI) 부재** | 프로젝트 전체 구조적 공백(`601511`) |
+
+> **⚠️ 완료가 곧 안전은 아니다**: 0-A는 `isolate_tenant()`를 **의도적 장애 상태**로 남긴 채 병합됐다.
+> `601505` §4의 금지 조항(호출 금지·`ACTIVE` 승격 금지·신규 호출자 배포 금지)은 **0-A-2 완료까지 계속 유효**하다.
+
+**다음 필수 워크패킷**: **0-A-2** — `601505` §8A에 따라 **0-B보다 우선**한다.
 
 ### §1.2 ⚠️ 0-C 착수 필수 선행조건 — `601503` §9 게이트 (미충족 시 반려)
 
@@ -91,10 +104,10 @@ Last Updated: 2026-08-10
 
 | 나선 | 범위 | 상태 |
 |---|---|---|
-| 0-A | Tenant / Company / HQ / Store | §1 등재 |
-| **0-A-2** | RPC·배치 정합(`isolate_tenant`/`manage_subscription`/필터/`is_registered`) | **0-A 병합 후 필수 착수** |
+| 0-A | Tenant / Company / HQ / Store | ✅ **완료 (2026-08-11)** — §1 등재 |
+| **0-A-2** | RPC·배치 정합(`isolate_tenant`/`manage_subscription`/필터/`is_registered`) | ⭐ **다음 필수 착수** (0-A 완료로 선행조건 해소, **0-B보다 우선**) |
 | 0-A-3 | `onboard_tenant` / `provision_tenant` 재설계 | 미착수 |
-| 0-B | Staff identity / session | 미착수 |
+| **0-B** | Staff identity / session | **착수 가능** (0-A 완료). 다만 §8A 순서상 **0-A-2 이후** 권장 |
 | **0-C** | Authorization (caller-authorization 공백 해결) — ⚠️ **착수 전 §1.2 필독** | 미착수 |
 | 0-D | Customer identity 기반 | 미착수 |
 | 0-E | Menu definition (seed_menu 포함) | 미착수 |

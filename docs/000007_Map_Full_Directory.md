@@ -1688,6 +1688,9 @@ docs/
   |   |   +--- 601506_Verification_Operational_Authority_Foundation_Ddl.md
   |   |   +--- 601507_Verification_Operational_Authority_Foundation_Ddl.md
   |   |   +--- 601508_Audit_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601509_AuditReview_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601510_AuditReview_Stage11B_Blind_Audit.md
+  |   |   +--- 601511_AuditReview_Stage11A_Final.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

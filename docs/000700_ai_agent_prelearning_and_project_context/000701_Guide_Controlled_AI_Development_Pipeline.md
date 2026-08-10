@@ -3286,10 +3286,12 @@ Stage 4(Architecture Verification)에서 검증자는 이 근거 문서 목록�
 **하위 나선 (순서대로)**:
 
 - **0-A** Tenant / Company / HQ / Store
-  - **현재 상태 (2026-08-10): Stage 10 완료, Stage 11(11A+11B)–12 대기** — 워크패킷 `601500_operational_authority_foundation`, 마이그레이션 `0168`(로컬 적용, Stage 9 독립검증 차단 우려사항 없음). **아직 완료가 아니다** — §13.7-13.8의 Stage 11B(ChatGPT 블라인드 감사, 모든 워크패킷 의무)와 Stage 12(Human 병합)를 통과해야 완료로 표기한다.
-  - **파생 워크패킷(0-B보다 선행)**: **0-A-2**(RPC·배치 정합 — `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered`), **0-A-3**(`onboard_tenant`/`provision_tenant` 재설계). 0-A가 `isolate_tenant()`를 의도적 장애 상태로 남긴 채 병합되므로 **0-A-2는 0-B보다 먼저 착수한다**.
+  - ✅ **완료 (2026-08-11)** — 워크패킷 `601500_operational_authority_foundation`, 마이그레이션 `0168`+`0169`. Stage 9 독립검증 차단 우려사항 없음, Stage 11B 블라인드 감사 `BLOCK` → 조건 충족 후 `601511`에서 `APPROVE_WITH_NOTES`로 종결, **Stage 12 Human 병합 승인**. 이 워크패킷은 §13.7-13.8의 Stage 11B를 실제로 거친 첫 사례이며, 11B가 4개 조건(전용 owner role / SECURITY DEFINER 보안경계 / SOLE 대표 DB강제 / 개념 분리)을 잡아냈다.
+  - **⚠️ 완료했으나 이월된 것**: (1) **Stage 11B 조건 ②**(`SECURITY DEFINER` search_path·PUBLIC EXECUTE·tenant 경계) — 0-A에 대상 함수가 없어 이행 불가, **0-C의 착수 게이트**로 이월(`601503` §9). (2) `isolate_tenant()`가 **의도적 장애 상태**로 남아 있어 `601505` §4의 금지 조항이 **0-A-2 완료까지 유효**하다.
+  - **파생 워크패킷(0-B보다 선행)**: **0-A-2**(RPC·배치 정합 — `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered`), **0-A-3**(`onboard_tenant`/`provision_tenant` 재설계). **0-A-2는 0-B보다 먼저 착수한다.**
   - 전 나선 진행 현황은 `docs/600000_implementation_lifecycle/600010_Tracker_Spiral_Workpacket_Progress.md`에서 추적한다.
 - **0-B** Staff identity / session
+  - **착수 가능 (2026-08-11)** — 0-A 완료로 선행조건이 해소됐다. 다만 위 파생 워크패킷 규칙에 따라 **0-A-2를 먼저 착수**하는 것이 순서다.
 - **0-C** Authorization (caller-authorization 공백 해결 포함 — "서버가 신뢰가능한 세션에서 권한을 도출해야지, 클라이언트가 보낸 파라미터를 그대로 믿으면 안 된다"는 원칙을 실제 RPC 아키텍처에 구현)
 - **0-D** Customer identity 기반
 - **0-E** Menu definition (seed_menu 포함)
