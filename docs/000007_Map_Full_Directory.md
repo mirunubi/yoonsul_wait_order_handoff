@@ -32,10 +32,8 @@ docs/
   +--- 000001_Md_Rules.md
   +--- 000002_Naming_Rules.md
   +--- 000004_Report_Final_Documentation_Structure_Integrity_Audit.md
-  +--- 000005_Document_Number_Index.md
   +--- 000005_Index_Document_Number.md
   +--- 000006_Plan_Top_Level_Folder_Consolidation.md
-  +--- 000007_Full_Directory_Map.md
   +--- 000007_Map_Full_Directory.md
   +--- 000008_Report_Docs_Directory_Redesign_v0_2_Audit_And_Move_Plan.md
   +--- 000009_Report_Root_Governance_Rules_Correction_Readme_Index_And_Overview_Logic_Module_Model.md
@@ -1708,6 +1706,7 @@ docs/
   |   |   +--- 604000_Readme_Workpackets.md
   |   +--- 600000_Readme_Implementation_Lifecycle.md
   |   +--- 600010_Tracker_Spiral_Workpacket_Progress.md
+  |   +--- 600020_Governance_Implementation_Lifecycle_Authority_Reset.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   \--- 700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md

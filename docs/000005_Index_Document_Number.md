@@ -2384,6 +2384,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600000_Readme_Implementation_Lifecycle.md | 600000_Readme_Implementation_Lifecycle. | active |
 | docs\600000_implementation_lifecycle\600010_Tracker_Spiral_Workpacket_Progress.md | 600010_Tracker — §47 나선 구현 워크패킷 전체 진행 트래커(전 나선 공통, 루트 배치). 나선/워크패킷/현재Stage/최종상태/갱신일 표, 601401(601400 검사 프로그램 전용)과의 구분 명시, 완료는 Stage 12 통과 후에만 기록하는 규칙, 나선 로드맵(0-A~1-4 + 파생 0-A-2/0-A-3). | active |
+| docs\600000_implementation_lifecycle\600020_Governance_Implementation_Lifecycle_Authority_Reset.md | 600020_Governance — 600000 대역 권위 계층 재설정 판정문(2026-08-10). 0-A(601500) AUTHORITY SUSPENDED(Stage 7 미수행·1단계 Human 선언 부재·000150/000170 미대조·완료일 오기), 0-A-2/0-A-3/0-B HOLD, 600000 대역 NON-AUTHORITATIVE BY DEFAULT(예방적 판정, 전수감사 아님). 감사 finding·raw evidence는 증거로 유지하되 APPROVE/COMPLETE 판정은 역사적 기록으로만 보존. migration 불변 여부는 §14.5로 개별 판정. 해제조건 4개(Source/Order/Validation/Gate). | active |
 
 ## 103 docs/600000_implementation_lifecycle/604000_workpackets
 

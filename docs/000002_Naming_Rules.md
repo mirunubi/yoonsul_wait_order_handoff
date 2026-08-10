@@ -378,15 +378,15 @@ The six-digit namespace reservation is:
 - `950000~989999`: reclassification, duplicate, conflict, and manual review.
 - `990000~999999`: legacy, quarantine, import archive, and delete candidate hold.
 
-Legacy five-digit landing folders are migration targets:
+Legacy five-digit landing folders — **전부 6자리로 이관 완료** (2026-08-10 실측 확인):
 
-- `docs/15000_membership_loyalty/` — membership / loyalty / coupon / point band reserved.
-- `docs/17000_ui_screen_composition/` — UI screen composition / wording / wireframe / design band reserved.
-- `docs/22000_implementation_planning/` — implementation planning / build sequence / QA band reserved.
-- `docs/24000_deployment_operations/` — deployment / operations / support planning band reserved.
-- `docs/26000_analytics_reporting_bi/` — analytics / report / BI band reserved.
-- `docs/28000_future_expansion/` — active future expansion reference folder.
-- `docs/30000_future_saas_modules/` — future SaaS modules / long-term reserved band.
+- `docs/015000_membership_loyalty/` (구 `15000_`) — membership / loyalty / coupon / point band reserved.
+- `docs/017000_ui_screen_composition/` (구 `17000_`) — UI screen composition / wording / wireframe / design band reserved.
+- `docs/022000_implementation_planning/` (구 `22000_`) — implementation planning / build sequence / QA band reserved.
+- `docs/024000_deployment_operations/` (구 `24000_`) — deployment / operations / support planning band reserved.
+- `docs/026000_analytics_reporting_bi/` (구 `26000_`) — analytics / report / BI band reserved.
+- `docs/028000_future_expansion/` (구 `28000_`) — active future expansion reference folder.
+- `docs/030000_future_saas_modules/` (구 `30000_`) — future SaaS modules / long-term reserved band.
 
 New docs must use the six-digit namespace reservation.
 
@@ -413,7 +413,7 @@ Examples:
 ## 5.1 Filename Casing Note
 
 - Filename casing may use readable Title Case for acronyms such as Ui, Api, Pos, Scm unless a domain later standardizes otherwise.
-- Filename casing must remain consistent with actual paths in `00005` and `00007`.
+- Filename casing must remain consistent with actual paths in `000005` and `000007`.
 - Case-only renames should be handled manually and carefully because Git/Windows may not detect them reliably.
 
 ## 6 Internal Title Rule
