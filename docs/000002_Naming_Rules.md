@@ -37,7 +37,7 @@ DocumentType must appear immediately after the numeric prefix.
 Correct:
 
 ```text
-0006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
+006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
 100300_SOP_Entrance_Waiting_Assist_Device_Operation.md
 005420_Checklist_First_Store_POS_Equipment_Decision_And_Provider_Procurement.md
 ```
@@ -45,11 +45,11 @@ Correct:
 Wrong:
 
 ```text
-006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md
-005420_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md
-06510 Entrance Waiting Assist Device Policy.md
-06510-Policy-Entrance-Waiting-Assist-Device.md
-06510_Korean_Title_Policy.md
+0006510_Policy_Entrance_Waiting_Assist_Device_Customer_Link_Web_App_Native_App_And_Order_Runtime_Boundary.md   <- 7자리, 자릿수 초과
+005420_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md   <- DocumentType 중복 (앞 Policy + 뒤 Checklist)
+06510 Entrance Waiting Assist Device Policy.md   <- 공백 구분 + 5자리
+06510-Policy-Entrance-Waiting-Assist-Device.md   <- 하이픈 구분
+06510_Korean_Title_Policy.md   <- DocumentType이 맨 뒤
 ```
 
 ## 1.2 Approved DocumentType Prefix Values
@@ -406,9 +406,9 @@ Readme documents use the folder number and domain name.
 Examples:
 
 - `000100_Readme_Project_Foundation.md`
-- `0001000_Readme_MVP_Scope.md`
-- `0005000_Readme_Customer_Handoff_Flow.md`
-- `0003000_Readme_SaaS_Runtime.md`
+- `001000_Readme_MVP_Scope.md`
+- `005000_Readme_Customer_Handoff_Flow.md`
+- `003000_Readme_SaaS_Runtime.md`
 
 ## 5.1 Filename Casing Note
 
