@@ -20,6 +20,20 @@ This document is documentation-only and does not approve database, API, UI, Supa
 | `operating_group` | Operational grouping such as region, franchise group, or tourist zone. | Store operations and reporting context. | Not necessarily legal or billing entity. | Groups stores and managers. | Whether needed in early MVP. |
 | `store` | Actual operating location where waiting, Mini Kiosk, and handoff occur. | Store runtime context. | Not the same as tenant or company. | Belongs to tenant; uses runtime/config/menu/integration. | Whether standalone MVP store can skip full hierarchy. |
 
+> ⛔ **AUTHORITY SUSPENDED (2026-08-10)**
+>
+> 아래 블록은 0-A 워크패킷(`601500`)의 설계 결과를 반영한 것이나,
+> 그 워크패킷의 권위가 보류되었다 — 판정 전문은 `600020` §1.1.
+>
+> | 구분 | 현재 상태 |
+> |---|---|
+> | 구현 대응표 · 테이블명 · 판정식 · 상태값 목록 | ⛔ **권위 없음. 인용 금지** |
+> | 개념 구분 경고 (어휘 함정 · 4개념 분리 · 명칭 주의 등) | ✅ **유효** — `601510` 블라인드 감사 finding |
+>
+> 완료일 `2026-08-11`은 오기다. 실제 커밋은 `2026-08-10 16:14:09 KST`.
+>
+> 새 0-A는 이 블록을 답안지로 사용하지 않는다. 원천 설계문서 검증부터 다시 시작한다.
+
 ### ⚠️ 2026-08-11 개정 — 구현 대응 (0-A `601500`)
 
 위 §2 개념 엔터티가 실제로 구현된 결과는 다음과 같다(마이그레이션 `0168`/`0169`, 2026-08-11 완료).

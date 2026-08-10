@@ -23,6 +23,23 @@ It does not define physical schema, API implementation, or billing implementatio
 | operating_group | Regional, franchise, direct-operated, or tourist-zone operational grouping. | Operational grouping for stores and delegated settings. | Not legal settlement authority by default. | Parallel/context axis to company/legal_entity. | Optional initially; must be modeled as future axis. |
 | store | Operational unit where handoff runtime executes. | Waiting, Mini Kiosk, order candidate, and staff confirmation context. | Not tenant, not legal_entity alone. | Belongs to tenant; may link to operating_group and company/legal context. | Required. |
 
+> ⛔ **AUTHORITY SUSPENDED (2026-08-10)**
+>
+> 아래 블록은 0-A 워크패킷(`601500`)의 설계 결과를 반영한 것이나,
+> 그 워크패킷의 권위가 보류되었다 — 판정 전문은 `600020` §1.1.
+>
+> | 구분 | 현재 상태 |
+> |---|---|
+> | 구현 대응표 · 테이블명 · 판정식 · 상태값 목록 | ⛔ **권위 없음. 인용 금지** |
+> | 개념 구분 경고 (어휘 함정 · 4개념 분리 · 명칭 주의 등) | ✅ **유효** — `601510` 블라인드 감사 finding |
+>
+> 완료일 `2026-08-11`은 오기다. 실제 커밋은 `2026-08-10 16:14:09 KST`.
+>
+> 새 0-A는 이 블록을 답안지로 사용하지 않는다. 원천 설계문서 검증부터 다시 시작한다.
+>
+> **§6 Open Decisions 는 다시 열린다.** 아래 블록에 "0-A의 답"으로 기재된 결정은
+> 권위가 없으며, 새 0-A의 1단계 업무규칙 선언에서 Human이 다시 정한다.
+
 ### ⚠️ 2026-08-11 개정 — 이 축 모델의 구현 결과 (0-A `601500`)
 
 본 문서가 규정한 축 분리는 **LegalEntity 중심 모델**로 실현됐다(마이그레이션 `0168`/`0169`, 2026-08-11 완료).
