@@ -3279,6 +3279,27 @@ Stage 4(Architecture Verification)에서 검증자는 이 근거 문서 목록�
 
 #### 0단계: 운영 권위 기반 (Operational Authority Foundation)
 
+> ### ⛔ 2026-08-10 권위 재설정 (본 절 전체에 적용)
+>
+> 아래 0-A 항목의 `✅ 완료 (2026-08-11)` 및 0-B의 `착수 가능` 기록은
+> **역사적 기록이며 현재 권위가 없다.**
+>
+> | 항목 | 현재 상태 |
+> |---|---|
+> | 0-A | ⛔ **AUTHORITY SUSPENDED** |
+> | 0-A-2 / 0-A-3 | ⛔ **HOLD** |
+> | 0-B | ⛔ **HOLD** — 착수가능 근거였던 0-A 완료가 권위보류됨 |
+>
+> **사유 요약**: Stage 7(Human Approval) 미수행(`601505` §10이 `Stage 7 대기`로 기록된 상태에서
+> `0168`/`0169` 적용), §47.1 1단계 Human 업무규칙 선언이 독립 문서로 부재,
+> 원천 설계문서 `000150`/`000170` 인용 0건.
+> 완료일 `2026-08-11`은 오기이며 실제 커밋은 `2026-08-10 16:14:09 KST`다.
+>
+> **판정 전문**: `docs/600000_implementation_lifecycle/600020_Governance_Implementation_Lifecycle_Authority_Reset.md`
+>
+> 새 0-A는 §48 증거수집 → §47.1 1단계 Human 업무규칙 선언 → 2단계 ERD 순서로 다시 시작한다.
+> 기존 `601500` 산출물을 답안지로 사용하지 않는다.
+
 "SaaS 기초"라고 부르지 **않는다** — AI가 SaaS 전체 구현으로 확대 해석할 위험을 방지하기 위함이다.
 
 **0단계 목표**: 모든 SaaS 기능을 완성하는 게 아니라, 이후 어떤 도메인을 만들어도 다시 흔들리지 않을 최소 권위 구조를 확정하고, tenant 1개 / store 1개로 실제 작동시키는 것.
@@ -3290,6 +3311,7 @@ Stage 4(Architecture Verification)에서 검증자는 이 근거 문서 목록�
   - **⚠️ 완료했으나 이월된 것**: (1) **Stage 11B 조건 ②**(`SECURITY DEFINER` search_path·PUBLIC EXECUTE·tenant 경계) — 0-A에 대상 함수가 없어 이행 불가, **0-C의 착수 게이트**로 이월(`601503` §9). (2) `isolate_tenant()`가 **의도적 장애 상태**로 남아 있어 `601505` §4의 금지 조항이 **0-A-2 완료까지 유효**하다.
   - **파생 워크패킷(0-B보다 선행)**: **0-A-2**(RPC·배치 정합 — `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered`), **0-A-3**(`onboard_tenant`/`provision_tenant` 재설계). **0-A-2는 0-B보다 먼저 착수한다.**
   - 전 나선 진행 현황은 `docs/600000_implementation_lifecycle/600010_Tracker_Spiral_Workpacket_Progress.md`에서 추적한다.
+  - ⛔ **2026-08-10 권위보류**: 위 완료 기록은 역사적 기록이다. Stage 7 미수행·1단계 Human 선언 부재·원천 설계문서 미대조로 현재 권위가 없다. `600020` §1.1 참조. 파생 워크패킷 0-A-2/0-A-3 및 0-B도 함께 HOLD(`600020` §1.2).
 - **0-B** Staff identity / session
   - **착수 가능 (2026-08-11)** — 0-A 완료로 선행조건이 해소됐다. 다만 위 파생 워크패킷 규칙에 따라 **0-A-2를 먼저 착수**하는 것이 순서다.
 - **0-C** Authorization (caller-authorization 공백 해결 포함 — "서버가 신뢰가능한 세션에서 권한을 도출해야지, 클라이언트가 보낸 파라미터를 그대로 믿으면 안 된다"는 원칙을 실제 RPC 아키텍처에 구현)
