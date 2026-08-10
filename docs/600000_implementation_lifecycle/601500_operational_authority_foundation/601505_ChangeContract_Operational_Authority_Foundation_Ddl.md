@@ -1,6 +1,6 @@
 # 601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
 
-Status: Draft (Human 승인 대기 / Stage 6 계약검증 대기)
+Status: **v3** (사전 게이트를 마이그레이션별로 분리 — `0169` 착수 게이트 신설)
 Lifecycle: ChangeContract
 Stage: 5 (Contract Drafting — Claude Code, `000701` §3 L253)
 Domain: Operational Authority Foundation (0단계 / 하위 나선 0-A)
@@ -16,6 +16,33 @@ Last Updated: 2026-08-09
 그 외 어떤 기존 객체도 건드리지 않는다.
 
 **한 줄 경계**: 이 워크패킷은 **구조를 만들 뿐, 그 구조를 쓰는 코드는 하나도 만들지 않는다.**
+
+> ### ⚠️ 이 문서를 다음 버전으로 갱신할 때의 필수 원칙 (v3 신설)
+>
+> **마이그레이션을 추가할 때마다(`0169`, `0170`, …), 그 마이그레이션 착수 **직전의 정확한 DB 상태**를
+> 사전 게이트(§6)에 **새로 적어야 한다.** 앞선 마이그레이션의 게이트를 재사용하지 말 것.**
+>
+> 이유: 사전 게이트는 *"지금 적용하려는 변경이 아직 없는 상태"* 를 기술한다.
+> `0168`이 적용된 뒤 `0168`의 게이트를 그대로 돌리면 **이미 적용된 변경을 "있으면 안 되는 것"으로 판정**해
+> **정상 상태에서 Stop이 발동**한다. 실제로 `0169` 착수 시 이 문제가 발생했다(§6.1.1).
+>
+> 갱신 시 체크: ① 새 게이트 절 신설(§6.N) ② 이전 게이트는 "통과 완료, 재실행 금지"로 표시
+> ③ 실측값으로 기대치를 채울 것(문서에서 추정하지 말 것).
+
+### §0.2 개정 이력
+
+| 버전 | 변경 | 근거 |
+|---|---|---|
+| 원안 | 신규 테이블 4 + 컬럼 3, `0168` 단독. **모든 GRANT 금지** | Stage 5 |
+| **v2** | **`0169` 범위 추가**(§1.5) — SOLE 부분 UNIQUE + `catchmenu_authority_owner` role/GRANT. §2.1의 GRANT 금지를 **"클라이언트 도달 가능 역할" 기준으로 정밀화**(§2.1.1 예외). §6.4 `BYPASSRLS` Stop Condition 신설 | `601510`(Stage 11B) 조건 ①③ + **Human 승인 2026-08-10** |
+| **v3** | **사전 게이트를 마이그레이션별로 분리** — 기존 §6.1(0168 기준)을 **§6.0(통과 완료·재실행 금지)** 으로 보존하고, **§6.1을 `0169` 착수 게이트로 신설**(2026-08-10 실측 기준 12항목 + 검증 쿼리). 서두에 **재발방지 원칙** 추가 | `0169` 착수 시 오발동한 Stop(§6.1.1, `TEST_SCOPE_ERROR`) |
+
+**대상 마이그레이션 2개**:
+
+| 파일 | 상태 | 내용 |
+|---|---|---|
+| `0168_create_operational_authority_foundation.sql` | **적용 완료**(2026-08-09), Stage 9 검증 통과 | 신규 테이블 4 + 컬럼 3 |
+| **`0169_authority_owner_role_and_sole_representative_uniqueness.sql`** | **미작성** — Stage 8 대기 | SOLE 부분 UNIQUE + 전용 owner role (§1.5) |
 
 | 항목 | 값 |
 |---|---|
@@ -98,19 +125,94 @@ comment on table / column           (신규 대상만)
 
 ---
 
+### §1.5 ⭐ `0169` 허용 범위 (v2 신설 — Stage 11B BLOCK 조건 ①③, Human 승인 2026-08-10)
+
+`0168`은 **이미 적용됐으므로 수정하지 않는다**(배포된 migration 불변 원칙).
+Stage 11B 보강은 **신규 파일 `0169` 단독**으로 수행한다.
+
+**파일(안)**: `sql/migrations/0169_authority_owner_role_and_sole_representative_uniqueness.sql`
+
+| # | 허용 항목 | 조건 | 멱등성 |
+|---|---|---|---|
+| 1 | `uq_ler_sole_active` **부분 UNIQUE 인덱스** — `legal_entity_representatives (legal_entity_id) WHERE representation_mode='SOLE' AND is_active=true` | ③ | `create unique index **if not exists**` |
+| 2 | `catchmenu_authority_owner` **role 생성** — `NOLOGIN` + **`BYPASSRLS`** | ① | `pg_roles` 존재 가드(`DO` 블록) |
+| 3 | 위 role에 `catchmenu_hq` **스키마 USAGE** | ① | `grant`는 반복 실행 무해 |
+| 4 | 위 role에 **신규 4테이블 `SELECT/INSERT/UPDATE/DELETE`** | ① | 동상 |
+| 5 | **`grant catchmenu_authority_owner to postgres`** (향후 `ALTER FUNCTION … OWNER TO` 수행에 필요한 멤버십) | ① | 동상 |
+
+**허용 동사 추가**(§1.4에 대한 0169 한정 확장):
+
+```text
+create role … nologin bypassrls   (pg_roles 가드 내부에서만)
+grant usage on schema …           (catchmenu_authority_owner 대상만)
+grant select, insert, update, delete on <신규 4테이블>   (catchmenu_authority_owner 대상만)
+grant <role> to postgres          (catchmenu_authority_owner 대상만)
+create unique index if not exists (uq_ler_sole_active 하나만)
+comment on role                   (선택)
+```
+
+**적용 순서**: 1(인덱스) → 2(role 가드) → 3·4·5(GRANT) → comment.
+`0169`에는 `ADD COLUMN`이 없으므로 §49.2의 컬럼 선행 규칙은 해당 사항이 없다.
+워크패킷 간 순서는 유지된다: `0168` → **`0169`** → 0-A-2(RPC) → 0-C(함수·정책).
+
+#### §1.5.1 `0169`가 **하지 않는** 것 (조건 ②는 0-C 소관)
+
+| 하지 않음 | 이유 |
+|---|---|
+| **함수 생성** | **0-A에는 함수가 하나도 없다.** 본 워크패킷은 DDL 전용 |
+| **`ALTER FUNCTION … OWNER TO`** | 대상 함수가 없다 → 0-C가 함수를 만들 때 수행 |
+| **`REVOKE … FROM PUBLIC` / `GRANT EXECUTE`** | 동상 |
+| **`SET search_path` 고정** | 동상 |
+| **함수 내부 tenant 경계 검증 구현** | 동상 |
+| 기존 4테이블 **소유권 이전**(`ALTER TABLE … OWNER TO`) | 0169 범위 밖. 테이블 소유자는 `postgres` 유지, 접근은 GRANT로 |
+| `0168` 수정 | 배포된 migration 불변 |
+
+> **조건 ②(search_path / PUBLIC EXECUTE / tenant 경계)는 0169에서 이행할 수 없다** —
+> 대상이 되는 함수가 존재하지 않기 때문이다. 대신 **0-C의 필수 규칙으로 명문화**되어 있다:
+> `601503` **§9**(필수 6항목·표준 골격·CI 검증 쿼리 3종), `601501` §2.7.6.
+> **0-C가 이 규칙을 지키지 않으면 조건 ②는 미충족 상태로 남는다.**
+
 ## §2 명시적 설계 결정 — 계약 조항
 
-### §2.1 신규 4테이블에 **어떤 GRANT도 부여하지 않는다** (`601501` §2.7.3)
+### §2.1 신규 4테이블에 **클라이언트 도달 가능 역할의 GRANT를 부여하지 않는다** (v2 정정)
+
+> **v2 변경(2026-08-10)**: 원안 제목은 "**어떤** GRANT도 부여하지 않는다"였으나,
+> Stage 11B 조건 ①에 따라 **함수 전용 소유자 role 하나에 대한 예외**가 생겼다(§2.1.1).
+> 금지의 **취지는 그대로**다 — 바뀐 것은 대상 범위의 정밀화이지 완화가 아니다.
 
 `owners` / `legal_entities` / `legal_entity_person_roles` / `legal_entity_representatives`에 대해
-`authenticated`·`service_role`·`anon` **어느 역할에도** `SELECT`/`INSERT`/`UPDATE`/`DELETE`/`ALL`을
-부여하지 않는다.
+**`authenticated` · `service_role` · `anon` 등 클라이언트가 될 수 있는 어떤 역할에도**
+`SELECT`/`INSERT`/`UPDATE`/`DELETE`/`ALL`을 부여하지 않는다.
 
 **근거**: 0-A는 구조 확정까지이며, 이 테이블을 읽고 쓰는 RPC는 후속 워크패킷 소관이다(§47.6-1).
 접근이 필요해지는 시점에 최소 권한만 부여하는 것이 순서다. 지금 GRANT를 주면 "쓰는 곳이 없는데
 열려 있는 테이블"이 생기고, 0-C가 접근제어를 설계할 때 **이미 열린 문을 닫는 작업**부터 해야 한다.
 
-**검증**: `601504` §3.1이 GRANT 0행을 확인한다. 1행이라도 있으면 계약 위반이다.
+#### §2.1.1 ⭐ 유일한 예외 — `catchmenu_authority_owner` (Human 승인 2026-08-10)
+
+| 항목 | 값 |
+|---|---|
+| 역할명 | `catchmenu_authority_owner` |
+| 속성 | **`NOLOGIN`** + **`BYPASSRLS`** |
+| 부여 범위 | `catchmenu_hq` 스키마 `USAGE` + 신규 4테이블 `SELECT/INSERT/UPDATE/DELETE` + `postgres`에 역할 멤버십 |
+| 근거 | `601510`(Stage 11B) **조건 ①** — SECURITY DEFINER 소유자를 전용 NOLOGIN role로 고정 |
+| 이행 | **`0169`** (§1.5) |
+
+**왜 §2.1의 금지에 저촉되지 않는가**:
+
+- 이 역할은 **`NOLOGIN`이다.** PostgREST·JWT·클라이언트 어느 경로로도 **이 역할이 될 수 없다.**
+- 금지의 목적은 *"클라이언트가 base table에 직접 도달하는 것"* 을 막는 것이며,
+  로그인 불가 역할에는 그 위험이 존재하지 않는다.
+- **현행보다 권한이 좁아진다** — 지금은 함수가 `postgres`(슈퍼유저급) 권한으로 돌지만,
+  0169 이후에는 `catchmenu_hq` 4테이블로 범위가 한정된 전용 역할로 돈다.
+  또한 소유권이 "관행"이 아니라 **migration에 명시**된다.
+
+> **`BYPASSRLS`가 필수인 이유**: §6.4 및 `601503` §2.9.3 참조. 이것이 빠지면
+> **함수가 오류 없이 0행을 반환**한다(로컬 실측 확인).
+
+**검증**: `601504` §3.1의 GRANT 0행 확인은 이제
+**`grantee NOT IN ('postgres', 'catchmenu_authority_owner')`** 기준으로 수행한다.
+그 외 grantee가 1행이라도 있으면 계약 위반이다.
 
 ### §2.2 RLS 정책(policy)을 만들지 않는다
 
@@ -118,7 +220,13 @@ comment on table / column           (신규 대상만)
 (0021은 0022가 정책을 붙이는 짝 구조다), **의도된 신규 설계 결정**이다(`601501` §2.7.2).
 정책식 설계는 0-C 소관이다.
 
-### §2.3 ⚠️ 배포 전제 조건 — `SECURITY DEFINER` 함수 소유자는 `postgres`여야 한다 (Open Item (o))
+### §2.3 ⚠️ 배포 전제 조건 — `SECURITY DEFINER` 함수 소유자 (Open Item (o))
+
+> **v2 갱신(2026-08-10)**: 아래 원안은 *"소유자를 `postgres`로 유지"* 를 전제로 삼았다.
+> Stage 11B 조건 ①에 따라 **목표 소유자가 `catchmenu_authority_owner`로 바뀐다**(§2.1.1).
+> `0169`가 역할을 신설하고, **실제 소유권 이전은 함수가 생기는 0-C에서 수행**한다(§1.5.1).
+> 그때까지는 아래 원안(=`postgres` 소유)이 여전히 현행 상태이며, 원안의 위험 분석도 그대로 유효하다.
+> 최종 규칙은 `601503` §9.1(필수 6항목)이 정의한다.
 
 §2.1에 따라 GRANT를 주지 않으므로, **이 4개 테이블의 유일한 접근 경로는
 `postgres` 소유의 `SECURITY DEFINER` 함수뿐**이다.
@@ -287,9 +395,13 @@ catchmenu_common.isolate_tenant(
 
 | 금지 | 이유 |
 |---|---|
-| 신규 4테이블에 **GRANT 부여** | §2.1 설계 결정 |
+| 신규 4테이블에 **클라이언트 도달 가능 역할**(`authenticated`/`service_role`/`anon` 등)의 **GRANT 부여** | §2.1 설계 결정. **`catchmenu_authority_owner`는 예외**(§2.1.1 / §1.5) |
+| **`catchmenu_authority_owner` 외의 신규 role 생성** | 0169가 허용하는 role은 **이 하나뿐**(§1.5) |
+| **`catchmenu_authority_owner`에 `LOGIN` 속성 부여** | 로그인 가능해지는 순간 §2.1의 금지 취지가 무너진다 — **NOLOGIN 필수** |
 | 신규 4테이블에 **RLS 정책 생성** | §2.2 — 0-C 소관 |
-| `CREATE OR REPLACE FUNCTION` **일체** | 본 워크패킷은 DDL 전용 |
+| `CREATE OR REPLACE FUNCTION` **일체** | 본 워크패킷은 DDL 전용. **0169도 함수를 만들지 않는다**(§1.5.1) |
+| **`ALTER FUNCTION … OWNER TO` / `REVOKE … FROM PUBLIC` / `GRANT EXECUTE` / `SET search_path`** | 대상 함수가 존재하지 않는다. **0-C 필수 규칙**(`601503` §9)으로 이월 |
+| 기존 4테이블 **소유권 이전**(`ALTER TABLE … OWNER TO`) | §1.5.1 — 0169 범위 밖 |
 | `stores.legal_entity_id`를 **NOT NULL로 생성/승격** | §2.5 — 전수 조사 선행 필요 |
 | `stores.extra_metadata` / `stores.brand_id` 추가 | 후속/브랜드 나선 소관 |
 | `tenants.is_active` 삭제·의미 변경 | 가법 원칙, 진실원천 정리는 0-A-2 |
@@ -415,21 +527,84 @@ docs/ (601500 폴더 및 000005/000007 외)  -- 다른 도메인 문서
 다음 중 **하나라도** 발생하면 구현을 중단하고, 발견 사실을 기록해 Human 재승인을 받는다.
 "작은 차이니 맞춰서 진행"은 금지한다 — 라이브와 설계의 불일치는 이 프로젝트가 반복적으로 당해온 결함 유형이다.
 
-### §6.1 라이브 스키마가 `601501`/`601502`/`601503` 서술과 어긋남 (핵심 조건)
+> ### ⚠️ 사전 게이트는 **마이그레이션마다 따로** 있다 (v3 구조 변경, 2026-08-10)
+>
+> 사전 게이트는 **"그 마이그레이션을 적용하기 직전의 DB 상태"** 를 기술한다.
+> 따라서 **마이그레이션이 늘어나면 게이트도 함께 늘어나야 한다** — 앞선 게이트를 그대로 재사용하면
+> **이미 적용된 변경을 "있으면 안 되는 것"으로 판정**해 잘못된 Stop이 발동한다.
+>
+> | 게이트 | 대상 | 상태 |
+> |---|---|---|
+> | **§6.0** | `0168` 적용 직전 | **통과 완료(2026-08-09)** — 역사적 기록으로 보존, 재실행 대상 아님 |
+> | **§6.1** | **`0169` 적용 직전** | **현행 게이트** |
 
-| 확인 지점 | 설계 서술 | 어긋나면 |
+### §6.0 `0168` 사전 게이트 — 이미 통과함 (역사적 기록, 재실행 금지)
+
+> **이 표는 `0168` 적용 **전**의 상태 기준이다. `0168`이 적용된 지금 이 표로 검사하면
+> 전 항목이 "어긋남"으로 나오며, 그것은 **정상**이다.** 재실행하지 말 것.
+
+| 확인 지점 | 당시 기대 | 결과 |
 |---|---|---|
-| `tenants` 컬럼 수 | 8개 | 중단 |
-| `stores` 컬럼 수 | 15개 | 중단 |
-| `catchmenu_hq` 테이블 수 | 16개 | 중단 |
-| `uq_stores_tenant_code` 정의 | `(tenant_id, store_code)` | 중단 |
-| `tenant_status`/`isolation_state`/`legal_entity_id` | **존재하지 않아야 함** | **존재하면 중단** |
-| 신규 4테이블 | **존재하지 않아야 함** | **존재하면 중단** |
-| `catchmenu_hq` 테이블 권한 GRANT | 0건 | **0건이 아니면 중단** |
-| `service_role`의 `catchmenu_hq` USAGE | 없음 | **있으면 중단** |
-| `franchise_brands` 정의 | 0085 L123–160과 동일 | 중단 |
+| `tenants` 컬럼 수 | 8개 | ✅ 통과 |
+| `stores` 컬럼 수 | 15개 | ✅ 통과 |
+| `catchmenu_hq` 테이블 수 | 16개 | ✅ 통과 |
+| `uq_stores_tenant_code` 정의 | `(tenant_id, store_code)` | ✅ 통과 |
+| `tenant_status`/`isolation_state`/`legal_entity_id` | 존재하지 않아야 함 | ✅ 통과 |
+| 신규 4테이블 | 존재하지 않아야 함 | ✅ 통과 |
+| `catchmenu_hq` 테이블 권한 GRANT | 0건 | ✅ 통과(`grantee <> 'postgres'` 기준 — `601504` §1.3.1) |
+| `service_role`의 `catchmenu_hq` USAGE | 없음 | ✅ 통과 |
+| `franchise_brands` 정의 | 0085 L123–160과 동일 | ✅ 통과 |
 
-(`601504` §1이 이 전부를 pre-flight로 실행한다.)
+### §6.1 `0169` 사전 게이트 — **현행** (v3 신설, 2026-08-10 실측 기준)
+
+`0169`는 **`0168`이 이미 적용된 상태에서** 진행한다. 따라서 아래가 **착수 전 정상 상태**다.
+
+| # | 확인 지점 | 기대 (0169 착수 전) | 어긋나면 |
+|---|---|---|---|
+| 1 | `catchmenu_hq` 테이블 수 | **20개** (기존 16 + `0168` 신규 4) | 중단 |
+| 2 | `tenants` 컬럼 수 | **10개** (8 + `tenant_status` + `isolation_state`) | 중단 |
+| 3 | `stores` 컬럼 수 | **16개** (15 + `legal_entity_id`) | 중단 |
+| 4 | 신규 4테이블 | **4개 전부 존재** | **없으면 중단**(`0168` 미적용) |
+| 5 | `uq_ler_sole_active` 인덱스 | **미존재** | **존재하면 중단**(`0169` 이미 적용됨) |
+| 6 | `catchmenu_authority_owner` role | **미존재** | **존재하면 중단**(동상) |
+| 7 | `legal_entity_representatives` 행수 | **0행** | 0행이 아니면 중단 — SOLE 인덱스가 기존 데이터와 충돌할 수 있음 |
+| 8 | `uq_stores_tenant_code` 정의 | `(tenant_id, store_code)` **불변** | 중단 |
+| 9 | 신규 4테이블 GRANT (`grantee <> 'postgres'`) | **0건** | 0건이 아니면 중단 |
+| 10 | `service_role`의 `catchmenu_hq` USAGE | **없음** | 있으면 중단 |
+| 11 | `franchise_brands` 정의 | 0085 L123–160과 동일 | 중단 |
+| 12 | `tenant_status='ACTIVE'`인 tenant | **0건** (§4.3) | 있으면 중단 |
+
+**검증 쿼리**:
+
+```sql
+select (select count(*) from pg_tables where schemaname='catchmenu_hq')                            as hq_tables,          -- 20
+       (select count(*) from information_schema.columns
+          where table_schema='catchmenu_hq' and table_name='tenants')                              as tenants_cols,       -- 10
+       (select count(*) from information_schema.columns
+          where table_schema='catchmenu_hq' and table_name='stores')                               as stores_cols,        -- 16
+       (select count(*) from pg_tables where schemaname='catchmenu_hq'
+          and tablename in ('owners','legal_entities',
+                            'legal_entity_person_roles','legal_entity_representatives'))           as new4_present,       -- 4
+       (select count(*) from pg_indexes
+          where schemaname='catchmenu_hq' and indexname='uq_ler_sole_active')                      as uq_sole_exists,     -- 0
+       (select count(*) from pg_roles where rolname='catchmenu_authority_owner')                   as authority_role,     -- 0
+       (select count(*) from catchmenu_hq.legal_entity_representatives)                            as ler_rows,           -- 0
+       (select count(*) from catchmenu_hq.tenants where tenant_status='ACTIVE')                    as active_tenants;     -- 0
+```
+
+**2026-08-10 실측 결과**: `20 / 10 / 16 / 4 / 0 / 0 / 0` — **전 항목 기대와 일치**(항목 12 별도 확인 0건).
+
+#### §6.1.1 이 게이트가 신설된 경위 (`TEST_SCOPE_ERROR`)
+
+`0169` 착수 전 Codex가 §6.1 체크를 실행해 **Stop Condition이 발동**했다.
+원인은 §6.1이 **`0168` 적용 *전*** 기준(16테이블 / 8컬럼 / 15컬럼 / 신규객체 없음)으로 작성돼 있었고,
+`0169`는 **`0168` 적용 *후*** 에 진행되므로 **기준 시점 자체가 어긋난 것**이었다.
+
+**분류: `TEST_SCOPE_ERROR` — `REAL_DEFECT`가 아니다.**
+스키마·설계·구현에는 문제가 없었고, **문서를 v2로 갱신할 때 사전 게이트의 기준 시점을 함께 옮기지 않은 것**이 원인이다.
+
+> **`601504` §1.3.1의 GRANT 오판과 같은 계열의 실패**다 — 둘 다 *"검사 기준이 실제와 어긋나 정상을 결함으로 판정"* 했다.
+> 이번에는 **기준의 시점(when)** 이, 그때는 **기준의 범위(who)** 가 어긋났다.
 
 ### §6.2 검증 중 중단 조건
 
@@ -446,6 +621,39 @@ docs/ (601500 폴더 및 000005/000007 외)  -- 다른 도메인 문서
 
 - 신규 컬럼을 쓰려면 기존 RPC를 고쳐야 한다는 판단이 드는 순간 → **그것이 0-A-2의 정의다.** 중단하고 이월.
 - 인접 도메인 4개 이상을 동시에 건드려야 하는 상황 → §47.4 탈출조건 5번. 중단하고 Human 판단.
+
+### §6.4 ⚠️ `0169` 전용 Stop Condition — `BYPASSRLS` 누락 (v2 신설, 실증된 함정)
+
+**`catchmenu_authority_owner`를 `NOLOGIN`만 주고 `BYPASSRLS` 없이 생성하면 안 된다.**
+
+**실증 근거**(로컬, 2026-08-10, `legal_entities`에 행 1건 삽입 후 `authenticated`로 SECDEF 함수 호출, 전부 ROLLBACK):
+
+| 함수 소유 role | 테이블 `SELECT` 권한 | 결과 |
+|---|---|---|
+| `NOLOGIN`, **`BYPASSRLS` 없음** | 부여함 | **`0`** ← 오류가 아니라 **조용히 전량 필터** |
+| `NOLOGIN`, **`BYPASSRLS` 있음** | 부여함 | **`1`** ← 정상 |
+
+원인: 신규 4테이블은 `FORCE ROW LEVEL SECURITY` + **정책 0개**(§2.2)다.
+`FORCE`는 소유자에게도 RLS를 적용하므로, 정책이 없으면 `BYPASSRLS` 없는 역할은 **모든 행이 걸러진다.**
+`postgres`가 지금 동작하는 이유도 오직 `rolbypassrls = t` 때문이다.
+
+**이것이 Stop Condition인 이유**: 실패가 **조용하다.** 예외도, 로그도, 오류코드도 없이
+빈 결과만 돌아온다. 0-C에서 함수를 만든 뒤에야 증상이 나타나고, 그때는 원인이 0169까지 거슬러 올라간다.
+
+**Stage 8 체크 항목 (0169 적용 직후 필수)**:
+
+```sql
+select rolname, rolcanlogin, rolbypassrls
+from pg_roles where rolname = 'catchmenu_authority_owner';
+```
+
+| 기대 | 값 |
+|---|---|
+| `rolcanlogin` | **`f`** (LOGIN이면 §4.4 위반 — 즉시 중단) |
+| `rolbypassrls` | **`t`** (`f`이면 본 Stop Condition 발동 — 즉시 중단) |
+
+**해제 경로**: 0-C가 이 역할을 위한 RLS 정책을 만들면 `BYPASSRLS`를 회수할 수 있다 → Open Item (o).
+**그전까지는 `BYPASSRLS`를 회수하지 않는다.**
 
 ---
 
@@ -518,7 +726,21 @@ Stage 8 구현 후 다음을 **전부** 수행해야 완료로 간주한다:
 
 1. `601504_TestPlan` §1~§8 전 항목 실행 및 **원문 증거 캡처**(오류코드·행수 포함, §48 D단계).
 2. `601504` §9.1의 **핵심 5항목** 전부 PASS.
-3. `git diff` 상 변경 파일이 **신규 마이그레이션 1개 + 문서**뿐임을 확인 — 기존 `.sql` 수정 0건.
+3. `git diff` 상 변경 파일이 **신규 마이그레이션 + 문서**뿐임을 확인 — 기존 `.sql` 수정 0건
+   (`0168` 적용분 + **`0169` 신규**, `0168` 자체 수정은 0건이어야 함).
+
+### §7.3 `0169` 전용 검증 항목 (v2 신설)
+
+| # | 확인 | 기대 |
+|---|---|---|
+| 1 | `catchmenu_authority_owner` 속성 (§6.4) | `rolcanlogin = f`, **`rolbypassrls = t`** |
+| 2 | 신규 4테이블 GRANT (`grantee NOT IN ('postgres','catchmenu_authority_owner')`) | **0행** |
+| 3 | `catchmenu_authority_owner`의 4테이블 권한 | `SELECT/INSERT/UPDATE/DELETE` 존재 |
+| 4 | `uq_ler_sole_active` 존재 및 술어 | `WHERE representation_mode='SOLE' AND is_active=true` |
+| 5 | **SOLE 2명 거부 실동작** — 같은 법인에 활성 `SOLE` 2건 INSERT | **두 번째가 `23505`** (트랜잭션 후 ROLLBACK) |
+| 6 | `SOLE` 1명 + `JOINT` 1명 동시 | **허용됨**(알려진 미해소 — `601501` §2.5.4) |
+| 7 | `0169` 재실행 멱등성 | 오류 0건 |
+| 8 | 신규 함수 생성 0건 | `catchmenu%` 함수 수 불변 |
 4. `000005`/`000007` 트리플 업데이트 완료.
 5. §9.2의 "FAIL이 아닌 것" 목록을 검증자가 결함으로 오보고하지 않았는지 확인.
 
@@ -618,9 +840,23 @@ Stage 8 구현 후 다음을 **전부** 수행해야 완료로 간주한다:
 **0-A-2 완료가 해제하는 금지 조항**: §4.1.1(호출 금지), §4.3(ACTIVE 승격 금지), §4.5(신규 호출자 배포 금지).
 셋 다 **0-A-2 검증 통과 + 별도 Human 판단**으로만 해제된다.
 
-**후속 문서 작업(본 워크패킷 범위 밖, 별도 수행)**: 이 의존관계(`601500` → `0-A-2`)를
-`601401_Master_Tracker.md`에도 기록할 것. 워크패킷 간 순서 의존이 계약서 안에만 있으면
-트래커만 보는 사람에게는 보이지 않는다.
+**후속 문서 작업(본 워크패킷 범위 밖) — 2026-08-10 정정**:
+
+> ⚠️ 본 문단은 원래 "이 의존관계를 `601401_Master_Tracker.md`에도 기록할 것"이라고 적었으나
+> **잘못된 지시였다.** Stage 10에서 확인한 결과 `601401`은 **`601400_fable_design_integrity_inspection`
+> 프로그램(13개 도메인 설계무결성 *검사*) 전용 트래커**이며, 0-A 나선의 **구현 워크패킷**인 601500과는
+> 계보가 다르다. 해당 트래커에 기록하면 잘못된 프로그램의 진행표를 오염시킨다.
+
+의존관계(`601500` → `0-A-2`)가 계약서 안에만 있으면 밖에서 보이지 않는다는 **문제의식 자체는 유효**하다.
+현재 이 의존관계가 기록된 위치는 다음과 같으며, 별도의 구현 워크패킷 마스터 트래커는 **존재하지 않는다**:
+
+| 위치 | 내용 |
+|---|---|
+| 본 문서 §8A | 0-A-2 필수 착수 지정 + 완료 항목 8개 |
+| `601500_Baseline_Summary.md` §6 | "0-A-2가 다음 필수 착수 워크패킷" |
+| `000005` / `000007` | 문서 색인 (진행 상태는 담지 않음) |
+
+**미결 판단**: 구현 워크패킷 전용 진행 트래커를 신설할지 여부는 Human 결정 사항으로 남긴다.
 
 ---
 
@@ -707,7 +943,7 @@ DETAIL: Failing row contains (..., tenant_status = 'ISOLATED', ...)
 | # | 확인 항목 | 상태 |
 |---|---|---|
 | 1 | **범위 절단** — DDL만 하고 RPC를 전부 미루는가? (미루면 `isolate_tenant()`가 장애 상태로 남는다) | ✅ **승인됨(2026-08-09)** — 단 §0.1의 안전장치 5가지를 계약에 명시하는 조건. Cursor+Codex 교차검증 반영 |
-| 2 | **GRANT 미부여 결정**(§2.1)에 동의하는가? | 대기 |
+| 2 | **GRANT 미부여 결정**(§2.1)에 동의하는가? | ✅ **승인됨(2026-08-10)** — 단 `catchmenu_authority_owner` 예외 포함(§2.1.1). Stage 11B 조건 ① 이행을 위한 **`0169` GRANT 확장 승인** |
 | 3 | **`ACTIVE` 승격 금지**(§4.3)를 0-A-2 완료까지 유지하는 데 동의하는가? | 대기 |
 | 4 | **소유자 배포 전제**(§2.3)를 코드로 명문화할지, Open Item(o)로 둘지? | 대기 |
 | 5 | **0-A-2를 다음 필수 착수 워크패킷으로 고정**(§8A)하는 데 동의하는가? | 대기 |
@@ -740,7 +976,9 @@ Conditions:
 
 | 문서/파일 | 인용 | 역할 |
 |---|---|---|
-| `000701` §3(L92/L253/L254 단계 소유자), §37(계약검증 작성자 제외), §46, §47.2, §47.4, §47.6, §48, §49.2 | — | 파이프라인·가드레일·근거목록 |
+| `000701` §3(L92/L253/L254 단계 소유자), §13.7–§13.8(Dual Anchor / Stage 11B 의무), §37(계약검증 작성자 제외), §46, §47.2, §47.4, §47.6, §48, §49.2 | — | 파이프라인·가드레일·근거목록 |
+| **`601510_AuditReview_Stage11B_Blind_Audit.md`** | §3(BLOCKER 방어선 5개), §4(SOLE partial unique), 최종판정 조건 ①~④ | **v2 개정의 직접 근거** |
+| `601509_AuditReview_...md` | Stage 11A 판정(`APPROVE_WITH_NOTES`) | 11B와의 대조 대상(§13.9 Stage 11C) |
 | `000001_Md_Rules.md` §5.4.1~§5.4.3 | — | ChangeContract 문서 규격 |
 | `601501_ERD...md` (v4) | §0.1, §2.1–§2.7, §3, §7 | 설계 원본 (충돌 시 우선) |
 | `601502_Overview...md` (v4) | §3.1, §3.2, §4.2, §4.3, §5 | 범위 절단·위험 승계 |

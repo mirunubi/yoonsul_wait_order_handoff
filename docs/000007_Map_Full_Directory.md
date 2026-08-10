@@ -1678,11 +1678,22 @@ docs/
   |   |   +--- domain_12_saas_multitenant/
   |   |   +--- domain_13_physical_ai/
   |   |   +--- 601401_Master_Tracker.md
+  |   +--- 601500_operational_authority_foundation/
+  |   |   +--- 601500_Baseline_Summary.md
+  |   |   +--- 601501_ERD_Tenant_Company_HQ_Store.md
+  |   |   +--- 601502_Overview_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601503_Logic_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601504_TestPlan_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601506_Verification_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601507_Verification_Operational_Authority_Foundation_Ddl.md
+  |   |   +--- 601508_Audit_Operational_Authority_Foundation_Ddl.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
   |   |   +--- 604000_Readme_Workpackets.md
   |   +--- 600000_Readme_Implementation_Lifecycle.md
+  |   +--- 600010_Tracker_Spiral_Workpacket_Progress.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   \--- 700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md

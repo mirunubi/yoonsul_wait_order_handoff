@@ -1,6 +1,6 @@
 # 601503_Logic_Operational_Authority_Foundation_Ddl.md
 
-Status: Draft (v4)
+Status: Draft (v5)
 Lifecycle: Logic
 Stage: 4 (설계문서 정합화 — `000701` §47.1 6단계 나선의 4단계)
 Domain: Operational Authority Foundation (0단계 / 하위 나선 0-A)
@@ -17,6 +17,7 @@ Last Updated: 2026-08-09
 | v2 | 최초 Logic (`companies`/`owner_companies` 기준) |
 | v3 | LegalEntity 중심 모델 전면 재작성 + AV 7개 반영 |
 | **v4** | **§2.7 접근제어 전면 재작성**(GRANT+PostgREST가 실제 차단자), **§2.5 대표권 별도 테이블**, CRN 정규화(A-6), NOT NULL 승격 앞당김(A-8), PG 17.6 반영(A-9), cron 실측·`is_registered` 역논리(A-1) |
+| **v5** | **Stage 11B BLOCK 4개 조건 반영** — **§2.9 `0169` 마이그레이션 초안 신설**(전용 owner role + SOLE 부분 UNIQUE), **§9 `SECURITY DEFINER` 작성 규칙 신설**(0-C 필수), CI 검증 체크리스트, Open Item 8건 추가 |
 
 > 본 문서는 **설계**다. `.sql` 파일은 5단계(Codex 구현)에서 작성한다.
 > 아래 코드블록은 설계 의도를 고정하기 위한 **의사 DDL**이며, 그대로 복사 실행을 전제하지 않는다.
@@ -412,6 +413,105 @@ v3는 "`SECURITY DEFINER` 함수가 이 테이블에 접근 가능한지 미확�
 > 소유자가 `postgres`인지 확인할 것. v3가 걸어둔 "RLS 때문에 접근 불가할 수 있다"는 검증 요구는 철회하되,
 > **소유자 확인 검증으로 대체**한다.
 
+## §2.9 ⭐ `0169` 마이그레이션 초안 (v5 신설 — Stage 11B BLOCK 조건 ①③)
+
+> **본 절은 설계 초안이다.** 실제 `.sql` 작성은 **Codex의 Stage 8 몫**이며,
+> 본 문서는 `.sql` 파일을 만들지 않는다(`601505` §1.1 원칙 유지).
+> `0168`은 이미 적용됐으므로 **수정하지 않는다**(배포된 migration 불변 원칙) — 보강은 **신규 파일 `0169`** 로 한다.
+
+**파일명(안)**: `sql/migrations/0169_authority_owner_role_and_sole_representative_uniqueness.sql`
+
+### §2.9.1 조건 ③ — SOLE 대표 유일성 부분 UNIQUE
+
+```sql
+-- 의사 DDL
+create unique index if not exists uq_ler_sole_active
+  on catchmenu_hq.legal_entity_representatives (legal_entity_id)
+  where representation_mode = 'SOLE' and is_active = true;
+```
+
+- `create unique index **if not exists**` → **멱등**(§6 표 기준, 별도 가드 불필요).
+- 대상 테이블은 현재 **0행**이므로 기존 데이터와 충돌하지 않는다.
+- 컬럼명은 실제 스키마(`representation_mode`/`is_active`)를 따른다 — `601510` 원문의
+  `representation_type`/`active`는 감사자의 표기이며 실제 컬럼명이 아니다(`601501` §2.5.4).
+
+### §2.9.2 조건 ① — 전용 NOLOGIN owner role 신설
+
+```sql
+-- 의사 DDL (role은 트랜잭션 밖 카탈로그 객체이므로 존재 여부 가드 필요)
+do $ddl$
+begin
+  if not exists (select 1 from pg_roles where rolname = 'catchmenu_authority_owner') then
+    create role catchmenu_authority_owner nologin bypassrls;   -- §2.9.3 근거
+  end if;
+end
+$ddl$;
+
+grant usage on schema catchmenu_hq to catchmenu_authority_owner;
+
+grant select, insert, update, delete on
+  catchmenu_hq.owners,
+  catchmenu_hq.legal_entities,
+  catchmenu_hq.legal_entity_person_roles,
+  catchmenu_hq.legal_entity_representatives
+to catchmenu_authority_owner;
+
+-- 함수 소유권 이전에 필요한 멤버십 (postgres가 SET ROLE 할 수 있어야 ALTER FUNCTION OWNER 가능)
+grant catchmenu_authority_owner to postgres;
+```
+
+> **`601505` §2.1(신규 4테이블에 GRANT 금지)과의 관계**: §2.1은 **`authenticated`/`service_role`/`anon`**
+> 즉 **클라이언트 도달 가능 역할**에 대한 금지였다. `catchmenu_authority_owner`는 **NOLOGIN**이라
+> 어떤 클라이언트도 이 역할이 될 수 없으므로 §2.1의 취지를 위반하지 않는다.
+> 다만 계약 문언상 확장이므로 **`601505` 갱신 및 Human 재승인이 필요**하다(§2.9.4).
+
+### §2.9.3 ⚠️ `BYPASSRLS`가 필요한 이유 — 실측 근거
+
+**전용 role에 `BYPASSRLS`가 없으면 `SECURITY DEFINER` 함수가 오류 없이 0행을 반환한다.**
+
+로컬 실측(2026-08-10, `legal_entities`에 행 1건 삽입 후 `authenticated`로 함수 호출, 전부 ROLLBACK):
+
+| 함수 소유 role | 테이블 `SELECT` 권한 | 결과 |
+|---|---|---|
+| NOLOGIN, `BYPASSRLS` **없음** | 부여함 | **`0`** ← FORCE RLS + 정책 0개가 전량 필터 |
+| NOLOGIN, `BYPASSRLS` **있음** | 부여함 | **`1`** ← 정상 |
+
+원인은 §2.8의 설계 그 자체다 — `FORCE ROW LEVEL SECURITY` + **정책 0개**이므로
+`BYPASSRLS`가 없는 역할은 소유자든 아니든 **모든 행이 걸러진다**. `postgres`가 지금 동작하는 이유도
+오직 `rolbypassrls = t` 때문이다.
+
+**보안상 평가**: `catchmenu_authority_owner`에 `BYPASSRLS`를 주는 것은 **현행보다 권한을 좁히는 변경**이다.
+
+| | 현행(`postgres` 소유) | 0169 이후 |
+|---|---|---|
+| 로그인 | 가능 | **NOLOGIN** |
+| 권능 범위 | DB 전역(슈퍼유저급) | **`catchmenu_hq` 4테이블 + BYPASSRLS** |
+| 감사 가능성 | "관행"(마이그레이션에 선언 0건) | **migration에 명시 선언** |
+
+**회수 경로**: 0-C가 이 역할을 위한 RLS 정책을 만들면 `BYPASSRLS`를 회수할 수 있다 → Open Item (o).
+
+### §2.9.4 0169가 하지 **않는** 것
+
+| 항목 | 이유 |
+|---|---|
+| 기존 4테이블의 **소유권 이전**(`ALTER TABLE … OWNER TO`) | 0169 범위 밖. 테이블 소유자는 `postgres` 유지, 접근은 GRANT로 부여 |
+| **함수 생성 및 소유권 이전** | **0-A에는 함수가 하나도 없다**. `ALTER FUNCTION … OWNER TO`는 0-C가 함수를 만들 때 수행(§9) |
+| `EXECUTE` 권한 조정 / `search_path` 고정 | 동상 — 대상 함수가 없다. **0-C 필수 규칙으로 §9에 명문화** |
+| `0168` 수정 | 배포된 migration 불변 원칙 |
+
+### §2.9.5 0169 적용 순서
+
+1. `uq_ler_sole_active` 부분 UNIQUE 생성 (§2.9.1)
+2. `catchmenu_authority_owner` role 생성 가드 (§2.9.2)
+3. 스키마 USAGE + 4테이블 권한 GRANT
+4. `postgres`에 역할 멤버십 부여
+5. `comment on role`(선택)
+
+§49.2의 `ADD COLUMN` 선행 규칙은 0169에 해당 사항이 없다(컬럼 추가 없음). 다만 **함수 생성보다 먼저**여야 하므로
+워크패킷 간 순서는 유지된다: `0168`(DDL) → **`0169`(보안경계·불변조건)** → 0-A-2(RPC) → 0-C(함수·정책).
+
+---
+
 ## §3 적용 순서 (§49.2)
 
 **`ADD COLUMN`은 `CREATE OR REPLACE FUNCTION`보다 먼저** 적용돼야 한다 — PL/pgSQL은 지연 바인딩이라
@@ -617,7 +717,150 @@ end $$;
 | ~~(l)~~ | ~~`SECURITY DEFINER` 접근 가능 여부~~ | — | **조건부 해소 → (o)로 전환(§2.8.4)** |
 | (m) | **클라우드 확인 3건**: `pg_cron` 등록 상태 / `pg_cron_jobs` 카탈로그 값 / PostgreSQL 버전 | 5단계 착수 전 | **로컬은 실측 완료** |
 | (n) | `pg_cron_jobs.is_registered` 역논리 결함 수정 | 0-A-2 | **A-1 신규** |
-| (o) | **배포 계약: RPC 함수 소유자를 `postgres`로 유지** — 마이그레이션에 명시 선언 0건이므로 관행에만 의존 중. 명문화 여부 판단 + 5단계 소유자 확인 검증 | **5단계 + 배포 정책** | **2차 검증 지적, (l) 대체** |
+| (o) | ~~함수 소유자 `postgres` 유지 배포 계약~~ → **전용 role `catchmenu_authority_owner`로 대체**(§2.9.2). **`BYPASSRLS` 회수는 0-C 정책 생성 후** | **0169 + 0-C** | **v5 강화(조건 ①)** |
+| (q) | 소유권(지분) 모델링 — `ownership_percent` **사용 금지**(`601501` §2.3.1) | 소유권 워크패킷 | **v5(조건 ④)** |
+| (r) | LegalEntity : 사업자등록 1:N 확장(`601501` §2.1.1) | 미정 | **v5(조건 ④)** |
+| (s) | `serviceable()` 공통 판정 헬퍼 — 두 축 개별 확인 금지(`601501` §3.1) | **0-A-2** | **v5(11B §1)** |
+| (t) | 상태 전이 RPC 강제 — `TERMINATED` terminal, 격리해제가 부활 금지(`601501` §3.2) | **0-A-2** | **v5(11B §1)** |
+| (u) | `stores.legal_entity_id` 시간성 — 과거 주문·정산 기록 재해석 위험 | 미정 | **v5(11B 추가1)** |
+| (v) | 삭제 정책 — `ON DELETE CASCADE` 위험, dissolved lifecycle 권장 | 미정 | **v5(11B 추가2)** |
+| (w) | default 자동승인 패턴 경계(본 워크패킷은 `TRIAL`/`NONE`이라 안전) | 상시 | **v5(11B 추가3)** |
+| (x) | "Owner" 명칭 모호성 — `601501` §2.4.1 선언 참조 | 0-C | **v5(11B 추가4)** |
+| (y) | **§9.3 tenant 검증과 백필의 순서 의존** — `stores.legal_entity_id` 백필 전에는 검증이 **모든 요청을 거부**한다 | **0-C 착수 전** | **v5 신규 발견** |
+
+## §9 ⭐ `SECURITY DEFINER` 함수 작성 규칙 — 0-C 필수 (v5 신설, BLOCK 조건 ①②)
+
+> **적용 대상**: `catchmenu_hq.owners` / `legal_entities` / `legal_entity_person_roles` /
+> `legal_entity_representatives` 4개 테이블에 접근하는 **모든** `SECURITY DEFINER` 함수.
+> **0-A에는 함수가 없으므로 지금 이행할 것이 없다.** 본 절은 **0-C가 함수를 만들 때 반드시 지킬 규칙**이다.
+
+### §9.1 필수 6항목 (하나라도 누락 시 반려)
+
+| # | 규칙 | 이유 |
+|---|---|---|
+| 1 | 함수 소유자를 **`catchmenu_authority_owner`** 로 지정 | 소유자가 `postgres`(슈퍼유저급)이면 사고 시 피해 범위가 DB 전역 |
+| 2 | migration에 **`alter function … owner to catchmenu_authority_owner;` 를 명시** | 소유권을 "관행"이 아니라 **코드로 고정**(v4 Open Item (o)의 근본 원인 제거) |
+| 3 | **`revoke all on function … from public;`** 후 필요한 role에만 `grant execute` | PostgreSQL 함수는 기본적으로 `PUBLIC`에 `EXECUTE`가 부여된다 — **명시 회수하지 않으면 누구나 호출 가능** |
+| 4 | **`set search_path = catchmenu_hq, pg_catalog`** 고정 (`public` 제외) | §9.2 — 권한상승 취약점 방지 |
+| 5 | 함수 본문의 **모든 테이블·함수 참조를 schema-qualified** 로 작성 | 4번과 짝. `search_path` 고정만으로는 실수를 못 막는다 |
+| 6 | 함수 내부에서 **호출자의 tenant 권한을 명시적으로 검증** | §9.3 — confused deputy 방지 |
+
+**표준 형태(0-C용 골격)**:
+
+```sql
+create or replace function catchmenu_hq.<fn_name>(...)
+returns ...
+language plpgsql
+security definer
+set search_path = catchmenu_hq, pg_catalog      -- 4번
+as $$
+begin
+  -- 6번: tenant 권한 검증을 함수 최상단에서 먼저 수행 (§9.3)
+  ...
+end
+$$;
+
+alter function catchmenu_hq.<fn_name>(...) owner to catchmenu_authority_owner;   -- 1,2번
+revoke all on function catchmenu_hq.<fn_name>(...) from public;                  -- 3번
+grant execute on function catchmenu_hq.<fn_name>(...) to authenticated;          -- 3번(필요 role만)
+```
+
+### §9.2 왜 `search_path`가 소유자보다 위험한가
+
+`601510` 원문:
+
+> *"SECURITY DEFINER 함수에 부적절한 search_path가 붙으면 '접근불능'이 아니라 '권한상승 취약점'으로
+> 발전 가능(호출자가 자기 search_path 앞쪽 스키마에 동명 가짜테이블을 만들면 함수가 그걸 참조,
+> postgres 권한으로 실행됨)."*
+
+**실패 심각도의 비대칭**을 인지할 것:
+
+| 규칙 위반 | 최악의 결과 |
+|---|---|
+| 1번(소유자) 위반 | 함수가 **동작하지 않음** 또는 피해 범위가 넓어짐 |
+| **4·5번(`search_path`) 위반** | **공격자가 함수 소유자 권한으로 임의 코드 실행** |
+
+따라서 4·5번은 1번보다 **우선순위가 높다**. `search_path`에 **`public`을 포함하지 말 것** —
+`public`은 기본적으로 누구나 객체를 만들 수 있는 스키마다.
+
+### §9.3 tenant 경계 검증 — confused deputy 방지 (필수 6번)
+
+**이 4개 테이블에는 `tenant_id` 컬럼이 없다**(전역 테이블 — `601501` §0.1 업무규칙 3).
+따라서 **RLS가 있어도 tenant를 구분할 근거가 테이블 안에 없고**, `SECURITY DEFINER`는 RLS를 우회한다.
+
+> `601510`: *"잘못 작성된 SECURITY DEFINER 하나가 'tenant A가 tenant B의 legal entity를 조회'하는
+> confused deputy가 될 수 있다."*
+
+**필수 검증 패턴** — 호출자가 넘긴 `legal_entity_id`가 **자기 tenant의 store와 연결되어 있는지**를
+`stores.legal_entity_id` 경유로 확인한다:
+
+```sql
+-- 함수 최상단에서 먼저 수행
+if not exists (
+  select 1 from catchmenu_hq.stores s
+  where s.legal_entity_id = p_legal_entity_id
+    and s.tenant_id = catchmenu_common.current_tenant_id()
+) then
+  -- 권한 없음 처리 (존재 여부를 노출하지 않는 일반화된 오류로)
+end if;
+```
+
+**금지**: `legal_entity_id`를 파라미터로 받아 **검증 없이 조회하는 함수**.
+이는 그 자체로 confused deputy이며, 0-C 검증에서 반려 사유다.
+
+> **주의**: 위 패턴은 `stores.legal_entity_id`가 채워져 있어야 작동한다. 현재 전 행 NULL이므로
+> (백필 전) 이 검증은 **모든 요청을 거부**한다. 백필(§4.2)과 0-C 함수 작성의 순서 의존을 인지할 것.
+
+### §9.4 CI / migration verification 체크리스트 (BLOCK 조건 ① 후반)
+
+`601510` 요구: *"CI/migration verification에서 pg_proc.proowner/ACL/prosecdef 검사 + 실제 application role로 smoke test."*
+
+**검증 쿼리(0-C 이후 상시 실행 대상)**:
+
+```sql
+-- (1) SECURITY DEFINER 함수의 소유자·search_path 일괄 점검
+select n.nspname, p.proname,
+       pg_get_userbyid(p.proowner) as owner,
+       p.prosecdef,
+       p.proconfig                          -- search_path 설정 확인
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+where n.nspname like 'catchmenu%' and p.prosecdef = true
+order by owner, n.nspname, p.proname;
+
+-- (2) PUBLIC EXECUTE가 남아있는 SECURITY DEFINER 함수 (0건이어야 함)
+select n.nspname, p.proname, p.proacl
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+where n.nspname like 'catchmenu%' and p.prosecdef = true
+  and (p.proacl is null or array_to_string(p.proacl, ',') like '%=X/%');
+
+-- (3) search_path 미설정 SECURITY DEFINER 함수 (0건이어야 함)
+select n.nspname, p.proname
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+where n.nspname like 'catchmenu%' and p.prosecdef = true
+  and (p.proconfig is null
+       or not exists (select 1 from unnest(p.proconfig) c where c like 'search\_path=%'));
+```
+
+| 검사 | 기대 | 위반 시 |
+|---|---|---|
+| (1) 4테이블 접근 함수의 `owner` | `catchmenu_authority_owner` | 반려 |
+| (1) `proconfig`에 `search_path` | 존재하고 `public` 미포함 | **반려(최우선)** |
+| (2) `PUBLIC` EXECUTE | **0건** | 반려 |
+| (3) `search_path` 미설정 | **0건** | **반려(최우선)** |
+| smoke test | 실제 application role로 호출 시 의도한 결과 | 반려 |
+
+> **(2)의 주의**: `proacl`이 `NULL`이면 **기본 ACL = `PUBLIC`에 `EXECUTE` 부여**를 뜻한다.
+> "ACL이 비어 있으니 안전"이 아니라 **"명시 회수를 안 했다"** 는 뜻이므로 위반으로 판정한다.
+
+**smoke test 추가 항목**: `catchmenu_authority_owner`의 `BYPASSRLS` 속성이 살아 있는지 확인
+(§2.9.3 — 이것이 빠지면 함수가 **오류 없이 0행**을 반환한다).
+
+```sql
+select rolname, rolcanlogin, rolbypassrls from pg_roles where rolname = 'catchmenu_authority_owner';
+-- 기대: rolcanlogin = f, rolbypassrls = t (0-C가 정책을 만들어 회수하기 전까지)
+```
+
+---
 
 ## §8 근거 문서 목록 (§46)
 

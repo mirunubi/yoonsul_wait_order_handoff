@@ -1,6 +1,6 @@
 # 601502_Overview_Operational_Authority_Foundation_Ddl.md
 
-Status: Draft (v4)
+Status: Draft (v5)
 Lifecycle: Overview
 Stage: 4 (설계문서 정합화 — `000701` §47.1 6단계 나선의 4단계)
 Domain: Operational Authority Foundation (0단계 / 하위 나선 0-A)
@@ -17,6 +17,29 @@ Last Updated: 2026-08-09
 | v2 | 최초 Overview (`companies`/`owner_companies` 기준) | 3단계 1차 대조 |
 | v3 | LegalEntity 중심 모델 전면 재작성 + AV 7개 반영 | 외부 검토(ChatGPT+Gemini) + AV |
 | **v4** | **접근제어 사실 정정**(차단 계층은 GRANT+PostgREST), **대표권 테이블 분리**(`legal_entity_representatives`), A-1~A-9 반영 | **3단계 2차 검증** |
+| **v5** | **Stage 11B BLOCK 4개 조건 반영** — 범위에 **`0169` 신규 마이그레이션 추가**(§3.1), 4개 개념 분리 선언, SECURITY DEFINER 보안경계, SOLE 대표 DB 강제 | **Stage 11B 블라인드 감사**(`601510`) |
+
+## §0.0 Stage 11B BLOCK 대응 (v5)
+
+Stage 11A(Claude 단독)는 `APPROVE_WITH_NOTES`였으나, **§13.7의 Dual Anchor Principle에 따라 필수인
+Stage 11B(ChatGPT 완전독립 블라인드 감사)가 `BLOCK`** 을 냈다(`601510`).
+*"재설계 워크패킷 아님 — 보안경계와 법적 데이터모델 불변조건을 한 단계 더 잠그면 괜찮은 0-A 기반"* 이라는
+**좁은 범위의 BLOCK**이며, 4개 조건 충족 시 즉시 `APPROVE_WITH_NOTES` 전환 가능하다.
+
+| 조건 | 요구 | 대응 | 이행 수단 |
+|---|---|---|---|
+| ① | SECURITY DEFINER owner 전용 NOLOGIN role 고정 + CI drift 검증 | `601501` §2.7.6 / `601503` §2.9.2, §9.4 | **`0169`**(role 신설) + 0-C(함수) |
+| ② | search_path / PUBLIC EXECUTE / tenant 경계 검증 | `601501` §2.7.6 / `601503` §9.1–§9.3 | **0-C 필수 규칙 명문화**(0-A에 함수 없음) |
+| ③ | SOLE 대표 불변조건 partial unique index 강제 | `601501` §2.5.4 / `601503` §2.9.1 | **`0169`** |
+| ④ | ownership / representation / role / registration identity 개념 분리 선언 | `601501` §0.6, §2.1.1, §2.3.1, §2.4.1 | **문서(v5)** |
+
+**11B가 드러낸 v4의 판단 오류 1건**: v4 §2.5.2는 SOLE 2명 문제를 "행 CHECK로 못 막으므로 RPC 소관"으로
+이월했으나, **부분 UNIQUE 인덱스로 DB가 막을 수 있었다**. 이 설계가 이미 3곳에서 쓰던 도구였다
+(`601501` §2.5.3). **제약 수단을 CHECK로만 상정한 것이 누락의 원인**이다.
+
+**v5에서 새로 발견한 함정 1건**: 조건 ①을 문자 그대로 이행해 전용 NOLOGIN role을 만들면,
+그 role에 `BYPASSRLS`가 없는 한 **함수가 오류 없이 0행을 반환**한다(로컬 실측 — `601503` §2.9.3).
+`FORCE RLS` + 정책 0개 설계의 직접적 귀결이며, **조용한 실패**라 발견이 늦다.
 
 **v4에서 정정된 v3의 사실 1건**: "0021 패턴과 동일한 deny-by-default RLS" 서술이 **차단 메커니즘을 잘못 지목**했다
 (`601501` §2.7). 신규 테이블이 4개로 늘었다(대표권 분리).
@@ -114,7 +137,24 @@ v3는 2번을 CHECK 제약으로 봉합하려 했다. **제약으로 봉합해�
 부수적으로 위 대상에 직접 딸린 것만: PK/FK/CHECK/부분 UNIQUE 인덱스, 생성컬럼(`brn_normalized`/`crn_normalized`),
 `set_updated_at` 트리거, `enable/force row level security`, `comment on`.
 
-**명시적 비포함 — GRANT**: 신규 4개 테이블에 **어떤 역할에도 테이블 권한을 부여하지 않는다**(§4.3, `601501` §2.7.3).
+**명시적 비포함 — GRANT**: 신규 4개 테이블에 **클라이언트 도달 가능 역할**(`authenticated`/`service_role`/`anon`)의
+테이블 권한을 부여하지 않는다(§4.3, `601501` §2.7.3).
+
+### §3.1A `0169` — Stage 11B BLOCK 대응 마이그레이션 (v5 신설)
+
+`0168`은 이미 적용됐으므로 **수정하지 않는다**(배포된 migration 불변). 보강은 **신규 파일 `0169`** 로 한다.
+
+| 포함 | 조건 |
+|---|---|
+| `uq_ler_sole_active` 부분 UNIQUE — 법인당 활성 `SOLE` 대표 최대 1명 | ③ |
+| `catchmenu_authority_owner` **NOLOGIN + BYPASSRLS** role 신설 | ① |
+| 해당 role에 `catchmenu_hq` USAGE + 4테이블 권한 + `postgres` 멤버십 | ① |
+
+> **계약 확장 주의**: 위 GRANT는 `601505` §2.1의 금지 대상(클라이언트 도달 가능 역할)이 **아니다** —
+> `catchmenu_authority_owner`는 **NOLOGIN**이라 어떤 클라이언트도 이 역할이 될 수 없다.
+> 다만 계약 문언상 확장이므로 **`601505` 갱신 + Human 재승인이 필요**하다.
+
+상세 의사 DDL은 `601503` §2.9. **실제 `.sql` 작성은 Codex의 Stage 8 몫**이다.
 
 ### §3.2 제외 — 전부 별도 후속 워크패킷
 

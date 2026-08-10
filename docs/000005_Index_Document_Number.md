@@ -2383,6 +2383,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | file path | purpose | current status |
 | --- | --- | --- |
 | docs\600000_implementation_lifecycle\600000_Readme_Implementation_Lifecycle.md | 600000_Readme_Implementation_Lifecycle. | active |
+| docs\600000_implementation_lifecycle\600010_Tracker_Spiral_Workpacket_Progress.md | 600010_Tracker — §47 나선 구현 워크패킷 전체 진행 트래커(전 나선 공통, 루트 배치). 나선/워크패킷/현재Stage/최종상태/갱신일 표, 601401(601400 검사 프로그램 전용)과의 구분 명시, 완료는 Stage 12 통과 후에만 기록하는 규칙, 나선 로드맵(0-A~1-4 + 파생 0-A-2/0-A-3). | active |
 
 ## 103 docs/600000_implementation_lifecycle/604000_workpackets
 
@@ -2881,3 +2882,17 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_04_customer_handoff_policy\601427_Report_Fable_Design_Integrity_Inspection_Slice_04_Customer_Handoff_Policy.md | 601427_Report — Fable design integrity inspection result for slice_04 (verbatim §9.1–§9.9; 16 findings). | active |
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_05_runtime_flow\601425_Slice_Input_Package_Runtime_Flow.md | 601425 — Fable slice package: runtime flow (700000) + migrations + 601412/601413 excerpts. | active |
 | docs\600000_implementation_lifecycle\601400_fable_design_integrity_inspection\domain_01_customer_handoff\slices\slice_06_app_layer\601426_Slice_Input_Package_App_Layer.md | 601426 — Fable slice package: Flutter/app layer (600200 + catchmenu_app) + migrations + excerpts. | active |
+
+## 149 docs/600000_implementation_lifecycle/601500_operational_authority_foundation
+
+| 파일 | 요약 | 상태 |
+|---|---|---|
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601500_Baseline_Summary.md | 601500_Baseline_Summary — 0-A 현재 기준선 1페이지 요약(공백 후 빠른 복구용). 확정사항(Owner↔LegalEntity N:M, Store→LegalEntity 단일 FK, tenant_status/isolation_state 직교, GRANT 없음, DDL 전용), 금지 7함수 호출경로 3단계 전이, Stop 이력 2건(EVIDENCE_GAP/TEST_SCOPE_ERROR), 미해결 5건, 문서 지도. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601501_ERD_Tenant_Company_HQ_Store.md | 601501_ERD v4 — 0단계 나선 0-A ERD, LegalEntity 중심 모델(3단계 2차 검증 반영). 신규 테이블 4개(owners/legal_entities/legal_entity_person_roles/legal_entity_representatives) + stores.legal_entity_id 단일 FK, tenants 상태 2컬럼 분리, 대표권 별도 테이블 분리, 접근제어 실체 정정(차단자는 GRANT+PostgREST 미노출이지 RLS 아님), BRN/CRN 정규화 생성컬럼. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601502_Overview_Operational_Authority_Foundation_Ddl.md | 601502_Overview v4 — 0-A DDL 워크패킷 맥락(§47 나선 4단계). 003020 분리원칙 실현, DDL 전용 범위절단(신규 테이블 4 + 컬럼 3, GRANT 미부여 설계결정), cron 로컬 실측(cron.job 0행)과 is_registered 역논리 결함 0-A-2 승계. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601504_TestPlan_Operational_Authority_Foundation_Ddl.md | 601504_TestPlan — 0-A DDL 검증계획(Stage 5). pre-flight 라이브대조, deny-by-default 실동작(service_role 포함 거부/SECURITY DEFINER 경유 성공), BRN·CRN 정규화 UNIQUE, 역할 재부여, 대표권 부분UNIQUE, tenant_status×isolation_state 직교조합, 멱등성, cron 무영향. 핵심 5항목 PASS 기준. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601505_ChangeContract_Operational_Authority_Foundation_Ddl.md | 601505_ChangeContract — 0-A DDL 계약(Stage 5). Allowed: 신규 테이블4+컬럼3 DDL만(신규 마이그레이션 1파일). Forbidden: 기존 RPC(0082/0090/0112/0120/0123/0129) 수정, franchise_brands 수정, tenant ACTIVE 승격(0-A-2 전), GRANT 부여, RLS 정책 생성. SECURITY DEFINER 소유자 postgres 배포전제. Stop Conditions 포함. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601506_Verification_Operational_Authority_Foundation_Ddl.md | 601506_Verification — Stage 9 독립검증 raw 결과 원문 수록(Cursor + Claude Code, §37에 따라 구현자 Codex 제외). 종합 판정 차단 우려사항 없음, 로컬 DB 한정. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601507_Verification_Operational_Authority_Foundation_Ddl.md | 601507_Verification — Stage 10 정리된 검증 기록(Claude Code 중요문서). 커밋 33251448 단일파일 확인, checksum 무결성, 설계 대조 전항목 일치, 계약 Forbidden 준수, TestPlan 핵심5항목 재현결과, 관찰사항 3건(순서편차/사후검증한계/부재증명한계), 클라우드 미검증 한정. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601508_Audit_Operational_Authority_Foundation_Ddl.md | 601508_Audit 초안 — Stage 10 산출(Claude Code). 판정 없음(ACCEPT/REJECT는 Stage 11 Claude 단독 권한). 재도출 대상 8항목, 쟁점후보 5건, 금융사고 반례 시나리오 5건, 계약준수 체크리스트, 11B ChatGPT 블라인드 감사 미착수 경고. | active |
+| docs\600000_implementation_lifecycle\601500_operational_authority_foundation\601503_Logic_Operational_Authority_Foundation_Ddl.md | 601503_Logic v4 — 0-A DDL 설계(§47 나선 4단계). legal_entities/owners/roles/representatives 의사DDL, BRN+CRN 정규화 생성컬럼(nullif 함정), 대표권 행존재 판정·행간모순 한계 기록, GRANT 미부여 + SECURITY DEFINER 접근 해소, NOT NULL 승격 5단계말미 검토, pg_constraint 가드 멱등성, PG17.6 SET EXPRESSION 경로. | active |

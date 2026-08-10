@@ -1,0 +1,54 @@
+---
+description: Eyes-Only verification tiers — read-only auto-run; DB-write verification needs one Human approval per batch.
+alwaysApply: true
+---
+
+# Cursor Verification Auto-Run (Eyes Only)
+
+When the user assigns **verification, audit, independent re-run, or Eyes Only** work (no implementation, no doc/source edits unless explicitly requested):
+
+## Tier A — auto-run (no per-command approval)
+
+Run **immediately** without waiting:
+
+- Read-only git: `git status`, `git diff`, `git log`, `git show`, `git diff --check`
+- Read-only inventory: `rg`/`grep`, read-only `python` scans
+- Binary compare: `cmd /c fc /b ...` for diff checks
+
+## Tier B — one approval per verification batch, then proceed
+
+**DB write paths** (even with `BEGIN ... ROLLBACK`, temp `__test_*` fixtures, or read-only-looking calls that mutate shared Docker state) require **one explicit Human approval for that verification batch** before the first such command:
+
+- `docker exec ... psql ...` when SQL may INSERT/UPDATE/DELETE or call write RPCs
+- `docker cp` of verification SQL into the container
+- Any migration re-apply or function body sync on live local DB
+
+After Human approves **once** for the stated verification scope (e.g. "Stage 9 independent re-run, local Docker only"), **do not re-ask for each subsequent command** in the same batch unless scope changes (different container, production target, or repo source edit).
+
+Prefer `BEGIN ... ROLLBACK`, fresh `__test_*` prefixes, and temp SQL cleanup when practical.
+
+## Temp files — self-delete only (Cursor-owned)
+
+At the end of a verification task (or before ending the turn when verification is complete), **delete temporary artifacts that this Cursor agent created in the current task**:
+
+- Repo-root scratch such as `.tmp_*` / `.tmp_curs*` SQL or scripts written for `docker cp` / `psql -f`
+- Any other one-off verification file this agent explicitly created in the same conversation turn sequence
+
+**Do not delete** temp or scratch files created by other AI agents or prior sessions, including but not limited to:
+
+- Antigravity scratch (`__test_ant_*`, paths under `.gemini/antigravity/`, etc.)
+- Claude Code / other verifier prefixes (e.g. `__test_cur113_*`, `.tmp_cur113_*`) unless **this** Cursor session created that exact file in **this** task
+- Pre-existing `.tmp_*` files present before the current verification task started
+
+When unsure of ownership: **leave the file** and note it in the report; do not delete.
+
+## Never auto-run or assume approval
+
+- `git commit`, `git push`, amend, reset, force push
+- Edits to tracked repo source unless the task explicitly authorizes implementation
+- `Set-Content`, encoding changes, formatters, broad repo-wide replace
+- Non-local or production databases outside `supabase_db_yoonsul_wait_order_handoff`
+
+## Alignment
+
+Read-only tier mirrors Antigravity intent; DB-write tier requires explicit one-shot verification approval. Backed by `.cursor/permissions.json` (read-only allowlist only) + Cursor **Settings → Agents → Approvals**.

@@ -2,6 +2,10 @@
 
 > **용도**: 며칠 공백 후 이 워크패킷을 다시 이어갈 때 **이 문서만 읽고 복구**하기 위한 1페이지 요약.
 > 상세는 각 항목의 참조 문서로 간다. **이 문서와 `601501`(ERD v4)이 충돌하면 `601501`이 우선한다.**
+>
+> **이 문서가 601500 폴더의 Readme 역할을 겸한다** (2026-08-10 확정) — 폴더번호 슬롯(`601500`)을 사용하며
+> 폴더 개요·문서 지도(§7)를 담으므로, `601500_Readme_…`를 **별도로 생성하지 않는다.**
+> 워크패킷 진행 상태는 상위 트래커 `600010_Tracker_Spiral_Workpacket_Progress.md`에서 함께 추적된다.
 
 - **워크패킷**: 601500 / 0단계(운영 권위 기반) 하위 나선 **0-A** — Tenant / LegalEntity / HQ / Store
 - **Last Updated**: 2026-08-10
@@ -136,9 +140,57 @@
 |---|---|---|
 | (m) | **클라우드** `pg_cron` 등록 상태 / `pg_cron_jobs` 카탈로그 값 / PostgreSQL 버전 — 로컬만 실측됨 | 5단계 착수 전 |
 | (h) | `stores.legal_entity_id` `NOT NULL` 승격 판정 + `stores` INSERT 경로 전수조사 | 5단계 말미 |
-| (o) | `SECURITY DEFINER` 소유자 `postgres` 배포 계약 — 마이그레이션에 명시 선언 **0건**, 관행에만 의존 | 배포 정책 |
+| (o) | `SECURITY DEFINER` 소유자 — `0169`가 **`catchmenu_authority_owner`** 신설로 대체. `BYPASSRLS` 회수는 0-C 정책 생성 후 | 0-C |
 | (p) | `isolate_tenant()` 호출부 3곳의 파라미터명 불일치 | 0-A-2 / 0121 연동 작업 |
 | (n) | `pg_cron_jobs.is_registered` 역논리 결함 | 0-A-2 |
+
+---
+
+## 5A. ⚠️ 다음 나선(0-C) 착수 전 필독 — `601503` §9 게이트
+
+> **Stage 11B(`601510`) 4개 조건 중 ②는 아직 미충족이다.**
+> 0-A에는 함수가 하나도 없어 **적용 대상 자체가 없었기 때문**이며,
+> **0-C가 이행하지 않으면 영구히 미충족으로 남는다.** 조건 ①③은 `0169`로 충족됐다.
+
+**이 4개 테이블에 접근하는 `SECURITY DEFINER` 함수를 만드는 어떤 작업이든**
+— **워크패킷 이름이 "0-C"인지와 무관하게** — `601503` §9의 **필수 6규칙**을 지켜야 한다:
+
+`owners` / `legal_entities` / `legal_entity_person_roles` / `legal_entity_representatives`
+
+| # | 규칙 |
+|---|---|
+| 1 | 함수 소유자를 **`catchmenu_authority_owner`** 로 지정 |
+| 2 | migration에 **`alter function … owner to catchmenu_authority_owner;`** 명시 |
+| 3 | **`revoke all on function … from public;`** 후 필요 role에만 `grant execute` |
+| 4 | **`set search_path = catchmenu_hq, pg_catalog`** 고정 (**`public` 제외**) |
+| 5 | 모든 테이블·함수 참조를 **schema-qualified** 로 작성 |
+| 6 | 함수 내부에서 **호출자 tenant 권한을 명시적으로 검증**(confused deputy 방지) |
+
+### ⚠️ `search_path` 위반이 소유자 위반보다 위험하다
+
+| 위반 | 최악의 결과 |
+|---|---|
+| 1번(소유자) | 함수가 **동작하지 않음** |
+| **4·5번(`search_path`)** | **공격자가 함수 소유자 권한으로 임의 코드 실행**(권한상승 취약점) |
+
+호출자가 자기 `search_path` 앞쪽 스키마에 **동명 가짜 테이블**을 만들면 함수가 그것을 참조한다
+(`601510` §3, `601503` §9.2). 따라서 **4·5번을 1번보다 먼저 챙긴다.**
+
+### 함수 생성 후 필수 실행 — `601503` §9.4 CI 검증 쿼리 3종
+
+| # | 검사 | 기대 |
+|---|---|---|
+| 1 | `SECURITY DEFINER` 함수의 `proowner` / `proconfig` | owner=`catchmenu_authority_owner`, `search_path` 존재·`public` 미포함 |
+| 2 | `PUBLIC` EXECUTE 잔존 함수 | **0건** (`proacl`이 `NULL`이면 **기본 PUBLIC 부여** — 위반) |
+| 3 | `search_path` 미설정 함수 | **0건** |
+
+> **추가 권고**(0169 Stage 9 검증에서 발견): CI 항목에
+> **"`catchmenu_authority_owner`의 멤버가 `postgres` 하나뿐인지"** 를 더할 것.
+> `postgres`는 이 role에 `admin_option`을 갖고 있어 다른 role에 부여할 수 있고,
+> `authenticated`에 부여되는 순간 §2.3의 접근 경계가 무너진다.
+
+**부수 의존**: 6번의 tenant 검증은 `stores.legal_entity_id`를 경유한다.
+**백필 전에는 이 검증이 모든 요청을 거부**하므로 백필(Open Item (h))과의 순서를 확인할 것(`601503` §7 (y)).
 
 ---
 
@@ -155,9 +207,10 @@
 
 | 무엇을 알고 싶은가 | 어디를 볼 것인가 |
 |---|---|
-| 테이블 구조·제약·ERD | `601501_ERD_Tenant_Company_HQ_Store.md` (**v4, 설계 원본**) |
-| 왜 이 워크패킷이 있는가·범위 절단 | `601502_Overview_...Ddl.md` (v4) |
-| 의사 DDL·적용 순서·멱등성 | `601503_Logic_...Ddl.md` (v4) |
+| **0-C에서 `SECURITY DEFINER` 함수를 만들 때 지킬 규칙** | **§5A** → `601503` **§9**(필수 6규칙·표준 골격·CI 쿼리 3종) |
+| 테이블 구조·제약·ERD | `601501_ERD_Tenant_Company_HQ_Store.md` (**v5, 설계 원본**) |
+| 왜 이 워크패킷이 있는가·범위 절단 | `601502_Overview_...Ddl.md` (v5) |
+| 의사 DDL·적용 순서·멱등성·**§9 보안규칙** | `601503_Logic_...Ddl.md` (v5) |
 | 무엇을 어떻게 검증하는가 | `601504_TestPlan_...Ddl.md` |
 | 무엇이 허용/금지인가·Stop Condition | `601505_ChangeContract_...Ddl.md` |
 | 실제 DDL | `sql/migrations/0168_create_operational_authority_foundation.sql` |

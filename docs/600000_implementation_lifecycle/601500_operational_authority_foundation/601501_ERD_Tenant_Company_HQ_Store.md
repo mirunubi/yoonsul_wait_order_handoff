@@ -3,7 +3,7 @@
 - **나선**: 0단계(운영 권위 기반) · **하위 나선 0-A**
 - **단계**: §47.1 6단계 나선 중 **2단계 (ERD)**
 - **작성**: Claude Code
-- **상태**: **v4 (3단계 2차 검증 반영 — 접근제어 사실 정정 + 대표권 테이블 분리)**
+- **상태**: **v5 (Stage 11B 블라인드 감사 BLOCK 4개 조건 반영)**
 - **선행 근거**: §48 증거수집, 1단계 Human 선언, 3단계 인접도메인 대조 1차(Opus 5) 및 **2차**, 외부 검토(ChatGPT+Gemini) 합의, Architecture Verification
 
 > **가드레일(§47.2, §47.6)**: `.sql` 생성/수정 없음. `franchise_brands`(0085) 변경 없음.
@@ -16,6 +16,16 @@
 | v2 | B-1(tenant_status 2컬럼 분리), B-2(RLS deny-by-default), A-1~A-7 | 3단계 1차 대조(Opus 5) |
 | v3 | **LegalEntity 중심 모델** 전면 재작성, AV 7개 반영(v2의 `TRIAL_30` 오진·`service_role` 설명 정정 포함) | 외부 검토 합의 + AV |
 | **v4** | **B-1 접근제어 서술 전면 재작성**(실제 차단 계층은 RLS가 아니라 GRANT+PostgREST), **B-2 `legal_entity_representatives` 별도 테이블 분리**, A-1~A-9 반영 | **3단계 2차 검증** |
+| **v5** | **Stage 11B BLOCK 4개 조건 반영** — ①② SECURITY DEFINER 보안경계(전용 owner role·search_path·PUBLIC EXECUTE·tenant 검증, §2.7.6), ③ **SOLE 대표 유일성 DB 강제**(§2.5.4), ④ **4개 개념 분리 선언**(§0.6). 추가로 §3에 서비스가능 판정규칙·상태 전이 규칙 명문화 | **Stage 11B (ChatGPT 완전독립 블라인드 감사)** — `601510` |
+
+**v5가 대응하는 BLOCK 조건 4가지** (`601510` 최종판정):
+
+| 조건 | 요구 | v5 반영 위치 | 이행 시점 |
+|---|---|---|---|
+| ① | SECURITY DEFINER owner를 전용 NOLOGIN 역할로 고정 + CI/migration drift 검증 | **§2.7.6**, `601503` §2.9/§9 | **0169**(role 신설) + 0-C(함수 생성 시) |
+| ② | search_path / PUBLIC EXECUTE / tenant 경계 검증 | **§2.7.6**, `601503` §9 | **0-C 필수 규칙으로 명문화**(0-A에는 함수 없음) |
+| ③ | SOLE 대표 불변조건을 partial unique index로 DB enforcement | **§2.5.4**, `601503` §2.9 | **0169** |
+| ④ | ownership / representation / person role / business registration identity가 서로 다른 개념임을 명확히 선언 | **§0.6**, §2.1, §2.3 | **본 문서 v5** |
 
 **v3 → v4에서 정정된 사실 2건**:
 - v3 §2.6의 "0021 패턴과 동일한 deny-by-default" 서술은 **차단 메커니즘을 잘못 지목**했다 → §2.7에서 전면 재작성.
@@ -98,6 +108,31 @@ v4의 §2.5(대표권 테이블 분리)도 **같은 원칙을 대표권에 적�
 - 0-A는 **`group_type='REGION'`만** 사용. `DISTRICT`/`BRAND`/`FRANCHISE`/`CUSTOM` 미사용, 계층(`parent_group_id`) 미사용.
 - `DISTRICT` 도입 판정조건(이월): "실제 가맹계약 체결로 하나의 REGION 아래 **독립 관리 권역이 2개 이상** 생기고, 권역별 별도 관리자·성과집계가 필요해지는 시점".
 
+### §0.6 ⚠️ 4개 개념은 서로 다르다 — 혼동 금지 (v5 신설, BLOCK 조건 ④)
+
+Stage 11B 감사가 지적한 핵심: **"대표자(Representative)와 소유자(Owner)는 같은 개념이 아니다 —
+대표이사가 지분 0%일 수 있고 60% 주주가 대표가 아닐 수도 있다."**
+
+Person ↔ LegalEntity 사이에는 **서로 독립적인 4개 개념**이 존재하며, 하나를 다른 하나로 추론해서는 안 된다.
+
+| # | 개념 | 뜻 | v5에서의 담당 | 상태 |
+|---|---|---|---|---|
+| 1 | **소유권** (economic ownership, 지분) | 누가 얼마를 **소유**하는가 | **없음 — 미모델링** | **Open Item (q)** |
+| 2 | **대표권** (legal representation authority) | 누가 법적으로 **대표**하는가 | `legal_entity_representatives` | 구현됨 |
+| 3 | **역할** (employment / organizational role) | 조직 내 **직위·역할** | `legal_entity_person_roles` | 구현됨 |
+| 4 | **사업자등록 식별자** (business registration identity) | 등록된 **식별번호** | `legal_entities.business_registration_number` | 구현됨(§2.1 경계 참조) |
+
+**금지되는 추론 (전부 틀림)**:
+
+- ~~"대표권이 있으니 지분이 있다"~~ — 지분 0%인 전문경영인 대표가 정상
+- ~~"지분이 있으니 대표다"~~ — 60% 주주가 대표가 아닐 수 있음
+- ~~"OWNER 역할이니 소유자다"~~ — `role_type='OWNER'`는 **3번(역할)** 이지 **1번(소유권)이 아니다**
+- ~~"사업자번호가 있으니 법인격이 하나다"~~ — §2.1 참조
+
+> **소유권(1번)은 이번 나선에서 모델링하지 않는다.** 필요해지면 별도 테이블
+> (예: `legal_entity_ownership_stakes` — 지분율·의결권·취득일 등)이 필요하며, 이는 Open Item (q)다.
+> **`legal_entity_person_roles.ownership_percent` 컬럼을 소유권 모델로 사용하지 말 것** — §2.3 경고 참조.
+
 ---
 
 ## §1. Mermaid ERD
@@ -156,7 +191,7 @@ erDiagram
         uuid id PK "NEW - 법적 대표권의 유일한 진실원천"
         uuid legal_entity_id FK "NOT NULL -> legal_entities.id, UK(복합부분)"
         uuid owner_id FK "NOT NULL -> owners.id, UK(복합부분)"
-        text representation_mode "NOT NULL CHECK SOLE/JOINT/INDIVIDUAL"
+        text representation_mode "NOT NULL CHECK SOLE/JOINT/INDIVIDUAL, SOLE는 법인당 1명(UK 0169)"
         date effective_from "NOT NULL default current_date"
         date effective_to "nullable CHECK >= effective_from"
         boolean is_active "NOT NULL default true, UK 조건컬럼"
@@ -262,6 +297,25 @@ erDiagram
 
 **CHECK — 개인사업자의 법인등기번호 금지**: `entity_type <> 'SOLE_PROPRIETOR' or corporate_registration_number is null`.
 
+#### §2.1.1 ⚠️ 사업자등록번호의 존재론적 경계 (v5 신설, BLOCK 조건 ④)
+
+Stage 11B 원문 인용:
+
+> *"사업자등록번호는 등록의 식별자이지 법적정체성의 근본 존재론이 아니다."*
+> *"개인사업자는 사업체와 자연인이 완전히 별개 법인격이 아니고, 하나의 법인이 여러 사업장/등록단위를 가질 수 있다.
+> Legal Entity와 Business/Tax Registration을 1:1로 가정하지 않는 게 안전."*
+
+**현재 설계의 명시적 한계**:
+
+- v5는 `legal_entities` **1행 : 사업자등록번호 최대 1개**를 전제한다 — **MVP 단순화이지 도메인 진실이 아니다.**
+- 실제로는 **한 법인이 복수 사업장(종된 사업장)·복수 등록단위**를 가질 수 있다.
+- **개인사업자**의 경우 사업체와 자연인이 법적으로 완전히 분리되지 않는다 — `legal_entities` 행과
+  `owners` 행이 사실상 같은 실체를 가리키면서도 **별개 행으로 표현**된다는 점을 인지할 것.
+
+**따라서 금지되는 사용법**: `business_registration_number`를 **법적 주체의 동일성 판단 기준(identity key)으로
+사용하지 말 것.** 그것은 등록 사실의 식별자일 뿐이며, 동일성의 기준은 `legal_entities.id`다.
+1:N(법인 : 등록단위) 확장이 필요해지면 별도 테이블 분리가 필요하다 — Open Item (r).
+
 > **A-7 판단 명시**: **`CORPORATION`에 `corporate_registration_number`를 요구하지 않는다**(NOT NULL 강제 없음).
 > 법인 설립 등기 전이거나 번호를 아직 확보하지 못한 시점에도 `legal_entities` 행을 만들 수 있어야 하며,
 > 이는 `business_registration_number`를 nullable로 둔 것과 **같은 이유·같은 원칙**이다
@@ -315,6 +369,23 @@ crn_normalized text generated always as (
 > **v3에서 제거된 컬럼**: `is_legal_representative`, `representation_mode`, 그리고 이 둘을 묶던
 > `chk_lepr_representative_consistency`. 전부 §2.5의 별도 테이블로 이관됐다.
 
+#### §2.3.1 ⚠️ `ownership_percent`는 개념 혼재다 — 사용 금지 (v5 신설)
+
+§0.6의 4개 개념 분리를 적용하면, **이 테이블(3번 역할)에 `ownership_percent`(1번 소유권)가 들어있는 것은
+개념 혼재**다. Stage 11B가 "현재 소유권(지분) 자체를 모델링하는 구조가 없다"고 지적한 것과 정면으로 맞물린다 —
+구조가 없는 게 아니라 **엉뚱한 테이블에 컬럼 하나로 얹혀 있었다.**
+
+| 항목 | 판단 |
+|---|---|
+| 컬럼 물리적 존재 | 0168에 이미 적용됨(`numeric(5,2)`, CHECK 0–100) |
+| **v5 사용 정책** | **사용하지 않는다.** 이 컬럼에 값을 쓰지 말 것 (현재 전 행 0건이므로 오염 없음) |
+| 소유권이 실제로 필요해지면 | 별도 테이블 `legal_entity_ownership_stakes` 신설 — Open Item (q) |
+| 컬럼 제거 여부 | **0-A에서 제거하지 않는다**(가법 원칙, `601505` §4.1). 제거·이관은 소유권 모델링 워크패킷 소관 |
+
+**왜 지금 제거하지 않는가**: 제거는 가법적 변경이 아니고, `601505` 계약의 Allowed 범위 밖이다.
+값이 0건인 상태에서 "쓰지 않는다"는 정책만으로 오염을 막을 수 있으며,
+실제 제거는 소유권 테이블 설계와 함께 판단하는 것이 옳다.
+
 ### §2.4 `owners` (신규)
 
 | 컬럼 | 타입 | NOT NULL | UNIQUE | 비고 |
@@ -328,6 +399,26 @@ crn_normalized text generated always as (
 
 **유니크를 걸지 않는 판정(계승)**: 동명이인·번호 공유(가족/법인 대표번호)·번호 변경이 전부 정상 시나리오다.
 전역 유니크는 이 정상 케이스를 DB 레벨에서 거부하고 **존재탐지 오라클**을 만든다 → 중복 방지는 0-C 절차 소관.
+
+#### §2.4.1 ⚠️ "Owner"가 뜻하는 것 — 명시 선언 (v5 신설, 11B 추가발견 4)
+
+Stage 11B 지적: *"SaaS에서 흔한 'tenant admin / account owner'와 법적 'beneficial owner / shareholder /
+proprietor'는 다른 의미. 어느 쪽인지 명확히 해야 향후 권한 시스템에서 혼란을 방지한다."*
+
+**선언**: 본 설계의 `catchmenu_hq.owners`는 **"법적 사업주체와 관계를 맺는 자연인(natural person)"** 을 뜻한다.
+
+| `owners`가 뜻하는 것 | `owners`가 뜻하지 **않는** 것 |
+|---|---|
+| 실존하는 **사람**(자연인) | SaaS **계정 소유자** / tenant 관리자 |
+| `legal_entities`와 역할·대표권으로 연결되는 주체 | **로그인 주체**(그것은 0-B의 staff identity 소관) |
+| — | **지분 보유자**(그것은 §0.6의 1번 — 미모델링) |
+
+**따라서 `owners`는 인증·권한 주체가 아니다.** 로그인·세션·권한은 **0-B(staff identity) / 0-C(authorization)** 가
+별도 개념으로 다루며, `owners` 행을 계정으로 재활용해서는 안 된다.
+
+> 테이블명이 `owners`인 것은 1단계 Human 선언의 어휘를 따른 것이나, §0.6에 비추면
+> **`persons`가 더 정확한 이름**이었다. 개명은 §33(permanent from creation)과 가법 원칙에 걸리므로 하지 않고,
+> **본 선언으로 의미를 고정**한다. 향후 권한 시스템 설계 시 이 문단을 근거로 삼을 것 — Open Item (x).
 
 ### §2.5 `legal_entity_representatives` (신규 — B-2, v4의 핵심 변경)
 
@@ -364,19 +455,50 @@ v3는 대표권을 `legal_entity_person_roles`의 **두 컬럼**(`is_legal_repre
 
 `representation_mode` 의미: `SOLE`=단독대표, `JOINT`=공동대표(2인 이상 공동 행사), `INDIVIDUAL`=각자대표(각자 단독 행사).
 
-#### §2.5.2 이 테이블도 막지 못하는 것 (A-4 — 반드시 기록)
+#### §2.5.2 행 단위 CHECK로 막을 수 없는 것 (v5에서 일부 해소)
 
-별도 테이블 분리로 **v3의 구조적 결함은 해소됐으나**, 다음은 **여전히 행 단위 CHECK로 막을 수 없다**:
+별도 테이블 분리로 **한 행 내부의 모순은 해소**됐으나, 행 사이의 모순은 CHECK로 막을 수 없다.
+**v5는 그중 SOLE 유일성을 부분 UNIQUE 인덱스로 해소한다**(§2.5.4).
 
-| 막지 못하는 모순 | 이유 |
-|---|---|
-| **같은 법인에 `SOLE`(단독대표) 대표가 2명 이상** | 여러 행에 걸친 조건. 행 CHECK는 다른 행을 볼 수 없다 |
-| `SOLE`과 `JOINT`가 같은 법인에 혼재 | 동상 |
-| 대표가 **0명인 법인**(법인격상 필수인데 없음) | 존재하지 않는 행은 CHECK로 검사 불가 |
+| 모순 | 행 CHECK | v5 상태 |
+|---|---|---|
+| 같은 법인에 `SOLE`(단독대표) **2명 이상** | 불가 | ✅ **해소** — §2.5.4 부분 UNIQUE |
+| `SOLE`과 `JOINT`가 같은 법인에 **혼재** | 불가 | ❌ **미해소** — Open Item (c) |
+| 대표가 **0명**인 법인 | 불가(존재하지 않는 행) | ❌ **미해소** — Open Item (c) |
+| 복잡한 공동대표 조합(A+B 서명, A 또는 B+C 등) | 불가 | **MVP 범위 밖**(`601510` §4 명시) |
 
-→ **§7 Open Item (c)** 로 기록. RPC/트리거 소관이며 0-A 범위 밖이다.
-이를 적어두지 않으면 "테이블을 분리했으니 대표권 정합성이 보장된다"는 **잘못된 안심**이 생긴다.
-분리가 해결한 것은 *한 행 내부의 모순*이고, *행 사이의 모순*은 그대로 남아 있다.
+#### §2.5.3 v4 서술의 정정 — "CHECK로 못 막는다" ≠ "DB로 못 막는다"
+
+v4 §2.5.2는 SOLE 2명 문제를 "행 CHECK로 막을 수 없으므로 RPC/트리거 소관"으로 이월했다.
+**Stage 11B가 이 판단을 반박했고, 그 반박이 옳다**:
+
+> *"'CHECK로 못막는다' ≠ 'DB로 못막는다'. partial unique index로 충분히 방어 가능 …
+> 시드 0건인 지금이 가장 싸게 고칠 시점."*
+
+v4는 **제약 수단을 CHECK로만 상정**해 DB 강제 가능성을 조기에 포기했다.
+부분 UNIQUE 인덱스는 이미 이 설계가 3곳에서 쓰고 있던 도구였다(§2.2, §2.3, §2.5).
+**같은 도구를 SOLE 불변조건에 적용할 생각을 하지 못한 것이 v4의 누락**이다.
+
+#### §2.5.4 ⭐ SOLE 대표 유일성 — DB 강제 (v5 신설, BLOCK 조건 ③)
+
+```text
+unique index uq_ler_sole_active
+  on catchmenu_hq.legal_entity_representatives (legal_entity_id)
+  where representation_mode = 'SOLE' and is_active = true
+```
+
+**보장하는 것**: 한 법인에 **동시에 활성인 `SOLE` 대표는 최대 1명**.
+
+**보장하지 않는 것(명시)**:
+- `SOLE` 1명 + `JOINT` 2명이 **동시에 존재**하는 모순은 막지 못한다(서로 다른 부분 인덱스 술어).
+- 대표가 **0명**인 법인도 막지 못한다.
+- → Open Item (c)로 유지. 다만 **가장 흔하고 가장 위험한 케이스(단독대표 2명)는 DB가 막는다.**
+
+> **`601510` 원문의 컬럼명 주의**: 감사 원문은 `representation_type` / `active`로 적었으나,
+> 실제 스키마의 컬럼명은 **`representation_mode` / `is_active`** 다. 위 인덱스는 실제 컬럼명을 따른다.
+
+**적용 시점**: **0169**. 현재 이 테이블은 **0행**이므로 인덱스 추가가 기존 데이터와 충돌하지 않는다 —
+`601510`이 지적한 *"시드 0건인 지금이 가장 싸게 고칠 시점"* 그대로다.
 
 #### §2.5.3 `is_active` ↔ `effective_to` 이중 진실원천 (A-5)
 
@@ -471,6 +593,80 @@ v3는 "`SECURITY DEFINER` 함수가 이 테이블에 접근 가능한지 미확�
 > GRANT를 주지 않는 설계(§2.7.3)를 택한 이상, **소유자 전제가 이 테이블들의 유일한 접근 경로**이므로
 > 이 전제가 깨지면 조용히 "아무도 못 쓰는 테이블"이 된다.
 
+#### §2.7.6 ⭐ SECURITY DEFINER 보안 경계 (v5 신설, BLOCK 조건 ①②)
+
+Stage 11B의 BLOCKER 지적: *"문제는 함수 소유자가 '시스템의 일부'인데 이걸 문서 경고로만 남긴 것."*
+v4는 소유자 전제를 Open Item (o)로 **기록만** 했다. v5는 이를 **강제 가능한 형태**로 바꾼다.
+
+##### 요구 방어선 5개 (`601510` §3)
+
+| # | 요구 | 0-A(0169)에서 가능한 것 | 0-C에서 반드시 할 것 |
+|---|---|---|---|
+| 1 | 함수 owner를 **전용 NOLOGIN role**로 고정 | ✅ **role 신설**(`catchmenu_authority_owner`) | 함수 생성 시 이 role 소유로 |
+| 2 | `ALTER FUNCTION … OWNER TO …`를 migration에 명시 | — (함수 없음) | ✅ 필수 |
+| 3 | `EXECUTE`를 `PUBLIC`에서 제거, 필요 role만 GRANT | — | ✅ 필수 |
+| 4 | `search_path` 함수별 고정 + 모든 참조 schema-qualified | — | ✅ 필수 |
+| 5 | CI/migration verification에서 `proowner`/ACL/`prosecdef` 검사 | ✅ **체크리스트 명문화** | ✅ 실행 |
+
+**0-A는 DDL 전용이라 함수가 하나도 없다.** 따라서 0169가 할 수 있는 것은 **①(role 신설)과 ⑤(체크리스트)** 이고,
+②③④는 **0-C의 필수 요구사항으로 명문화**한다(`601503` §9).
+
+##### ⚠️ `search_path`가 owner보다 위험하다 (원문 인용)
+
+> *"SECURITY DEFINER 함수에 부적절한 search_path가 붙으면 '접근불능'이 아니라 '권한상승 취약점'으로 발전 가능
+> (호출자가 자기 search_path 앞쪽 스키마에 동명 가짜테이블을 만들면 함수가 그걸 참조, postgres 권한으로 실행됨)."*
+
+이것이 ①(owner 고정)보다 ④(search_path 고정)를 **더 시급하게** 만든다 —
+owner 문제는 최악이 "안 됨"이지만, search_path 문제는 최악이 **"공격자가 postgres 권한을 얻음"** 이다.
+
+**0-C 고정값**: `set search_path = catchmenu_hq, pg_catalog` (필요 스키마만, **`public` 제외**).
+
+##### ⚠️⚠️ 전용 owner role 도입 시의 함정 — 실측 확인 (v5 신규 발견)
+
+**전용 NOLOGIN role을 만들어 함수 소유자로 지정하면, 그 role에 `BYPASSRLS`가 없는 한
+이 4개 테이블에서 함수가 조용히 0행을 반환한다.** 오류가 아니라 **빈 결과**다.
+
+로컬 실측(2026-08-10, 행 1건 삽입 후 `authenticated`로 호출):
+
+| 함수 소유 role | 결과 |
+|---|---|
+| NOLOGIN, **`BYPASSRLS` 없음** (테이블 `SELECT` 권한은 부여) | **`0`** ← RLS가 조용히 전량 필터 |
+| NOLOGIN, **`BYPASSRLS` 있음** | **`1`** ← 정상 |
+
+원인: 이 4개 테이블은 `FORCE ROW LEVEL SECURITY` + **정책 0개**(§2.7.2)다.
+`FORCE`는 소유자에게도 RLS를 적용하므로, 정책이 없으면 **모든 행이 걸러진다.**
+`postgres`가 지금 동작하는 이유는 오직 `rolbypassrls = t` 때문이다.
+
+**따라서 `catchmenu_authority_owner`는 다음 중 하나를 반드시 갖춰야 한다**:
+
+| 선택지 | 내용 | 평가 |
+|---|---|---|
+| **(a)** | role에 `BYPASSRLS` 부여 | **0169 채택 권고** — `postgres`(슈퍼유저급)보다 **좁은 권한**이고, NOLOGIN이며, 권능이 명시적·감사 가능 |
+| (b) | 이 role을 위한 RLS 정책 생성 | 0-C 소관. 정책이 생기면 (a)의 `BYPASSRLS`를 회수하는 경로가 열린다 |
+| (c) | `FORCE` 해제 | **채택 안 함** — 방어선을 낮춘다 |
+
+> **이 함정을 문서화하지 않으면**: 0169가 조건 ①을 문자 그대로 이행(`NOLOGIN` role 신설 + 소유권 이전)한 순간,
+> 0-C에서 만든 함수가 **오류 없이 빈 결과를 반환**하고, 그 원인을 찾는 데 오래 걸린다.
+> **조용한 실패는 시끄러운 실패보다 비싸다.**
+
+##### tenant 경계 — confused deputy (BLOCK 조건 ② 후반)
+
+> *"SECURITY DEFINER는 RLS를 우회하므로, 이 4개 테이블이 tenant간 공유영역이라면 함수 내부에서
+> tenant authority를 직접 검증해야 한다. base table GRANT 제거가 multi-tenant isolation을 자동 보장하지 않는다 —
+> 잘못 작성된 SECURITY DEFINER 하나가 'tenant A가 tenant B의 legal entity를 조회'하는 confused deputy가 될 수 있다."*
+
+이 지적은 **본 설계의 구조상 특히 유효**하다: `owners`/`legal_entities`/`legal_entity_person_roles`/
+`legal_entity_representatives`는 **전역 테이블로 `tenant_id` 컬럼이 없다**(§0.1 업무규칙 3).
+즉 **RLS가 걸려 있어도 tenant를 구분할 근거가 테이블 자체에 없다.**
+
+**0-C 필수 설계 원칙 (v5 명문화)**:
+
+> 이 4개 테이블을 조회·변경하는 **모든** `SECURITY DEFINER` 함수는,
+> 호출자의 tenant 권한을 **함수 내부에서 명시적으로 검증**해야 한다.
+> 검증 경로는 `stores.legal_entity_id`를 경유한다 —
+> "요청된 `legal_entity_id`가 `current_tenant_id()`의 store와 연결되어 있는가".
+> **이 검증 없이 `legal_entity_id`를 파라미터로 받아 조회하는 함수는 confused deputy다.**
+
 #### §2.7.5 0-C 후보 정책식 (참고 — 접근이 필요해질 때)
 
 ```text
@@ -509,6 +705,40 @@ using (exists (
 - `isolate_tenant()`는 `isolation_state`만 변경, `tenant_status`는 읽지도 쓰지도 않는다.
 - **격리 해제 시 `tenant_status`를 자동으로 `'ACTIVE'`로 되돌리지 않는다**.
 - `manage_subscription()`은 `tenant_status`만 변경한다.
+
+### §3.1 서비스 가능 판정 규칙 (v5 신설 — Stage 11B §1)
+
+Stage 11B는 2컬럼 분리를 ACCEPT하면서 다음을 요구했다:
+*"'서비스가능여부 = lifecycle 허용상태 AND isolation_state=NONE'이라는 공통 판정규칙이 시스템 전체에서
+일관되게 적용돼야 함 — 일부 RPC가 한쪽만 확인하면 격리가 뚫린다."*
+
+**공통 판정 규칙 (0-A-2가 단일 함수로 구현할 것)**:
+
+```text
+serviceable(tenant) := tenant_status IN ('ACTIVE', 'TRIAL')
+                       AND isolation_state = 'NONE'
+```
+
+- **두 축을 각각 따로 확인하는 코드를 금지**한다. 한쪽만 보는 RPC가 하나라도 있으면 격리가 무력화된다.
+- 0-A-2는 이를 **하나의 헬퍼 함수로 만들어 모든 호출부가 그것만 쓰도록** 해야 한다
+  (`601505` §8A 완료 항목에 편입 — `601503` §7 (s)).
+
+### §3.2 상태 전이 규칙 (v5 신설 — Stage 11B §1 요구)
+
+Stage 11B가 명시를 요구한 3가지에 대한 **설계 선언**(0-A-2 구현 시 이 정의를 따른다):
+
+| 항목 | 선언 |
+|---|---|
+| **`CANCELLED` vs `TERMINATED`** | `CANCELLED` = **구독 해지**(고객 의사·미납 등). **재활성 가능**. `TERMINATED` = **계약 종료**(영구). **재활성 불가** |
+| **`TERMINATED` → `ACTIVE` 역전이** | **금지(terminal state)**. 다시 서비스하려면 신규 tenant를 생성한다 |
+| **격리 해제가 `tenant_status`를 바꾸는 것** | **금지.** `TERMINATED`+`ISOLATED`에서 `isolation_state`만 `NONE`이 되어도 `tenant_status`는 `TERMINATED`로 남아야 하며, **tenant가 되살아나서는 안 된다** |
+
+> 마지막 항목이 §3의 2컬럼 분리가 실제로 지켜지는지를 가르는 지점이다 —
+> v4까지의 `isolate_tenant()`는 해제 시 무조건 `'ACTIVE'`를 썼으므로(0090 L1283–1286),
+> **`TERMINATED` 테넌트를 격리 해제하는 것만으로 되살릴 수 있었다.**
+>
+> **이 전이 규칙은 CHECK로 강제되지 않는다**(상태 전이는 행 단위 제약으로 표현 불가).
+> 0-A-2가 RPC 레벨에서 강제해야 하며, DB는 값의 유효성만 보장한다 — Open Item (t).
 
 ---
 
@@ -600,7 +830,15 @@ v3는 승격을 "0단계 종료 판정"으로 미뤘다. v4는 **5단계 말미(
 | ~~(l)~~ | ~~`SECURITY DEFINER` 접근 가능 여부~~ | — | **조건부 해소 → (o)로 전환(§2.7.4)** |
 | (m) | 라이브(클라우드) `pg_cron` 등록 상태 / 카탈로그 값 / PG 버전 확인 | 5단계 착수 전 | **로컬은 실측 완료**(A-1) |
 | (n) | `pg_cron_jobs.is_registered` 역논리 결함 수정 | 0-A-2 | **A-1 신규** |
-| (o) | **배포 계약: RPC 함수 소유자를 `postgres`로 유지** — 마이그레이션에 명시 선언 0건, 관행에만 의존 중 | **5단계 + 배포 정책** | **2차 검증 지적, (l) 대체** |
+| (o) | ~~배포 계약: RPC 함수 소유자를 `postgres`로 유지~~ → **전용 role `catchmenu_authority_owner`로 대체·강화**(§2.7.6). **`BYPASSRLS` 필요 여부 판단 포함** | **0169 + 0-C** | **v5에서 강화(조건 ①②)** |
+| (q) | **소유권(지분) 모델링** — `legal_entity_ownership_stakes` 등 별도 테이블 필요 가능성. `legal_entity_person_roles.ownership_percent`는 **사용 금지**(§2.3.1) | 소유권 워크패킷 | **v5 신규(조건 ④)** |
+| (r) | **LegalEntity : 사업자등록 1:N 확장** — 한 법인이 복수 사업장·등록단위를 갖는 경우(§2.1.1) | 미정 | **v5 신규(조건 ④)** |
+| (s) | **`serviceable()` 공통 판정 헬퍼** — 두 축을 각각 확인하는 코드 금지(§3.1) | **0-A-2** | **v5 신규(11B §1)** |
+| (t) | **상태 전이 규칙 RPC 강제** — `TERMINATED` terminal, 격리해제가 부활시키지 않을 것(§3.2). CHECK로 표현 불가 | **0-A-2** | **v5 신규(11B §1)** |
+| (u) | **`stores.legal_entity_id`의 시간성** — 운영법인 A→B 변경 시 과거 주문·정산·세금자료가 B 소관으로 재해석될 위험. `effective_from`/`to` 또는 거래시점 snapshot 필요 가능성 | 미정 | **v5 신규(11B 추가발견 1)** |
+| (v) | **삭제 정책** — `legal_entity`는 상위 권위 객체이므로 `ON DELETE CASCADE` 위험. `inactive`/`dissolved` lifecycle 권장 | 미정 | **v5 신규(11B 추가발견 2)** |
+| (w) | **default 자동승인 패턴 경계** — 기존 데이터에 무조건 default를 부여하는 backfill이 "사실상 권한 자동승인 migration"이 될 위험. **본 워크패킷은 `TRIAL`/`NONE`으로 시작해 안전**하나 향후 유사 패턴의 경계로 기록 | 상시 | **v5 신규(11B 추가발견 3)** |
+| (x) | **"Owner" 명칭 모호성** — SaaS 계정 소유자 vs 법적·경제적 소유자. §2.4.1 선언 참조 | 0-C(권한 시스템) | **v5 신규(11B 추가발견 4)** |
 
 ---
 

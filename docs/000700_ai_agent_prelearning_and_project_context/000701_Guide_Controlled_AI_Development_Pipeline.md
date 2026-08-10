@@ -3264,6 +3264,9 @@ Stage 4(Architecture Verification)에서 검증자는 이 근거 문서 목록�
 1. **업무규칙 선언** (Human 전담, AI 위임 불가) — 이 도메인에서 무엇을 사실로 삼을지 짧게 선언한다.
 2. **ERD 초안** (AI: Cursor 조사 + Claude Code 작성) — 선언을 바탕으로 Mermaid ERD를 작성하고, 기존 구현부가 있으면 실제 스키마와 대조한다.
 3. **인접 도메인 대조** (AI: Opus/Fable) — 이미 확정된 인접 도메인 설계문서/ERD와 어휘·FK 충돌 여부를 검증한다 (V모델의 핵심 짝짓기).
+
+   **중요 — 세션 분리 요건**: 3단계는 반드시 2단계(ERD 초안)를 작성한 세션과 완전히 분리된 새 세션(새 대화창, 사전 맥락 0)에서 수행해야 한다. 같은 모델(예: Opus)을 쓰더라도, 같은 대화 세션 안에서 "방금 만든 ERD를 검증해달라"고 요청하면 설계자 자신이 검증하는 것과 마찬가지로 앵커링 편향이 생겨 검증 효과가 약해진다. 이 요건은 §13.7-13.10(Dual Anchor Principle)에 이미 확립된 원칙을 6단계 나선의 3단계에 명시적으로 재적용한 것이다. Claude Code에서 모델을 Opus로 전환하여 같은 세션에서 검증하는 것은 이 요건을 충족하지 않는다 — 반드시 새로운 채팅창(웹/모바일 Fable 또는 Opus, 또는 완전히 새로 시작한 Claude Code 세션)을 열어야 한다.
+
 4. **설계문서 정합화** (AI 작성 + Human 승인) — Overview/Logic을 작성하고, §46 근거문서목록을 의무 첨부한다.
 5. **SQL 구현 + 이중검증** (Codex 구현, Cursor + Codex 검증) — 기존 13단계 파이프라인(§3)의 Stage 4-9를 그대로 재사용한다.
 6. **나선 종료 판정** (Human) — 이번 나선 종료 여부를 짧게 판정하고, 추가로 "이번에 건드린 게 이전에 끝난 도메인의 확정 계약과 충돌하는지"를 1줄 확인한 후 다음 나선으로 넘어간다.
@@ -3283,6 +3286,9 @@ Stage 4(Architecture Verification)에서 검증자는 이 근거 문서 목록�
 **하위 나선 (순서대로)**:
 
 - **0-A** Tenant / Company / HQ / Store
+  - **현재 상태 (2026-08-10): Stage 10 완료, Stage 11(11A+11B)–12 대기** — 워크패킷 `601500_operational_authority_foundation`, 마이그레이션 `0168`(로컬 적용, Stage 9 독립검증 차단 우려사항 없음). **아직 완료가 아니다** — §13.7-13.8의 Stage 11B(ChatGPT 블라인드 감사, 모든 워크패킷 의무)와 Stage 12(Human 병합)를 통과해야 완료로 표기한다.
+  - **파생 워크패킷(0-B보다 선행)**: **0-A-2**(RPC·배치 정합 — `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered`), **0-A-3**(`onboard_tenant`/`provision_tenant` 재설계). 0-A가 `isolate_tenant()`를 의도적 장애 상태로 남긴 채 병합되므로 **0-A-2는 0-B보다 먼저 착수한다**.
+  - 전 나선 진행 현황은 `docs/600000_implementation_lifecycle/600010_Tracker_Spiral_Workpacket_Progress.md`에서 추적한다.
 - **0-B** Staff identity / session
 - **0-C** Authorization (caller-authorization 공백 해결 포함 — "서버가 신뢰가능한 세션에서 권한을 도출해야지, 클라이언트가 보낸 파라미터를 그대로 믿으면 안 된다"는 원칙을 실제 RPC 아키텍처에 구현)
 - **0-D** Customer identity 기반

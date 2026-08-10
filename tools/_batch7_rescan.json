@@ -1,0 +1,2307 @@
+{
+  "batch7_mentions": {
+    "file_count": 174,
+    "label_counts": {
+      "7A": 167,
+      "7B": 165,
+      "7C": 83,
+      "7D": 84,
+      "7J": 1,
+      "7L": 1,
+      "7M": 1,
+      "7N": 2,
+      "7O": 1,
+      "7Q": 2,
+      "7R": 2,
+      "7X": 2
+    },
+    "by_folder": {
+      "docs": [
+        "7A",
+        "7B",
+        "7C",
+        "7L",
+        "7M",
+        "7N",
+        "7O",
+        "7Q",
+        "7R",
+        "7X"
+      ],
+      "docs/015000_membership_loyalty": [
+        "7J"
+      ],
+      "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow": [
+        "7A",
+        "7B",
+        "7D"
+      ],
+      "docs/700000_runtime_flow_bundle": [
+        "7A",
+        "7B",
+        "7D"
+      ],
+      "docs/990000_legacy_quarantine/600100_readme_governance": [
+        "7A",
+        "7B",
+        "7C"
+      ],
+      "docs/990000_legacy_quarantine/609000_archive_review": [
+        "7A",
+        "7B",
+        "7C"
+      ]
+    },
+    "files": [
+      {
+        "path": "docs/000000_Readme_Root.md",
+        "folder": "docs",
+        "labels": [
+          "7A",
+          "7B",
+          "7M",
+          "7O",
+          "7Q",
+          "7R"
+        ]
+      },
+      {
+        "path": "docs/000005_Index_Document_Number.md",
+        "folder": "docs",
+        "labels": [
+          "7X"
+        ]
+      },
+      {
+        "path": "docs/000007_Map_Full_Directory.md",
+        "folder": "docs",
+        "labels": [
+          "7X"
+        ]
+      },
+      {
+        "path": "docs/000060_Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan.md",
+        "folder": "docs",
+        "labels": [
+          "7A"
+        ]
+      },
+      {
+        "path": "docs/000061_Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap.md",
+        "folder": "docs",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/000062_Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan.md",
+        "folder": "docs",
+        "labels": [
+          "7A",
+          "7B",
+          "7C",
+          "7L",
+          "7N"
+        ]
+      },
+      {
+        "path": "docs/000063_Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate.md",
+        "folder": "docs",
+        "labels": [
+          "7C",
+          "7N"
+        ]
+      },
+      {
+        "path": "docs/000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout.md",
+        "folder": "docs",
+        "labels": [
+          "7R"
+        ]
+      },
+      {
+        "path": "docs/000065_Report_Batch_7R_Untracked_Migration_And_Leftover_Docs_Disposition_Review.md",
+        "folder": "docs",
+        "labels": [
+          "7Q"
+        ]
+      },
+      {
+        "path": "docs/015000_membership_loyalty/015000_Index_Membership_Loyalty_Coupon_And_Customer_Identity_Expansion_Wave_1.md",
+        "folder": "docs/015000_membership_loyalty",
+        "labels": [
+          "7J"
+        ]
+      },
+      {
+        "path": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601425_Slice_Input_Package_slice_05_runtime_flow.md",
+        "folder": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601433_MD_Bundle_slice_05_runtime_flow.md",
+        "folder": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601435_Report_Fable_Design_Integrity_Inspection_Slice_05_Runtime_Flow.md",
+        "folder": "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow",
+        "labels": [
+          "7A",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700000_Readme_Runtime_Flow_Bundle.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700105_Matrix_Runtime_Flow_Bundle_Document_Type_To_Evidence_Map.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700106_Report_Runtime_Flow_Bundle_Readiness_Status_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700107_Template_Runtime_Flow_Bundle_Controlled_Evidence_Cover_Sheet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700108_Audit_Runtime_Flow_Bundle_Governance_Compliance_Audit.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700109_Plan_Runtime_Flow_Bundle_Evidence_Expansion_Sequencing.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700110_Boundary_External_Integration_Boundary_Master_Control.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700111_Matrix_External_Integration_System_To_Flow_Map.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700112_Checklist_External_Integration_Boundary_Readiness_Check.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700113_Register_External_Integration_Provider_Contact_And_Owner_Register.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700115_Audit_External_Integration_Boundary_Compliance_Audit.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700116_Report_External_Integration_Open_Risk_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700117_Template_External_Integration_Evidence_Request_Template.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700118_Runbook_External_Integration_Evidence_Collection_Runbook.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700119_Handoff_External_Integration_To_Runtime_Flow_Handoff.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700120_Overview_POS_Provider_Runtime_Flow_Overview.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700121_Matrix_POS_Provider_Request_Response_State_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700124_Report_POS_Provider_Runtime_Flow_Exception_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700125_Overview_VAN_PG_Runtime_Evidence_Model.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700127_Checklist_VAN_PG_Runtime_Evidence_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700129_Audit_VAN_PG_Runtime_Evidence_Audit.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700131_Matrix_Payment_State_Transition_To_Evidence_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700132_Checklist_Payment_Flow_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700134_Report_Payment_Flow_Exception_And_Reconciliation_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700135_Overview_KDS_Event_Projection_Flow_Overview.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700136_Matrix_KDS_Event_To_Kitchen_Ticket_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700137_Checklist_KDS_Event_Projection_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700138_Overview_Kiosk_Order_Submission_Flow_Overview.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700139_Matrix_Kiosk_Order_To_POS_And_KDS_Map.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700140_Checklist_Kiosk_Order_Submission_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700141_Overview_External_Order_App_Intake_Flow_Overview.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700142_Matrix_External_Order_App_To_Store_Runtime_Map.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700143_Checklist_External_Order_App_Intake_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700146_Checklist_Webhook_Verification_And_Replay_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700147_Evidence_Webhook_Retry_Replay_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700148_Report_Webhook_Failure_And_Replay_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700150_Matrix_Settlement_File_Field_To_Ledger_Map.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700151_Checklist_Settlement_Reconciliation_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700152_Evidence_Settlement_File_Intake_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700153_Report_Settlement_Reconciliation_Exception_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700154_Governance_Idempotency_Duplicate_Prevention_Control.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700155_Matrix_Duplicate_Prevention_Key_And_State_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700156_Checklist_Idempotency_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700157_Runbook_Dead_Letter_Replay_Recovery_Runbook.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700158_Matrix_Dead_Letter_To_Recovery_Action_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700159_Evidence_Dead_Letter_Replay_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700160_Runbook_Partial_Failure_Timeout_Provider_Outage_Runbook.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700161_Matrix_Provider_Outage_To_Degraded_Mode_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700162_Report_Timeout_And_Provider_Outage_Exception_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700163_Evidence_Financial_Audit_Trail_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700164_Matrix_Financial_Audit_Trail_Event_To_Ledger_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700165_Audit_Financial_Audit_Trail_Completeness_Audit.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700166_Evidence_Consumer_Protection_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700167_Checklist_Consumer_Protection_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700168_Boundary_Security_Signature_Verification_Boundary.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700169_Checklist_Security_Signature_Verification_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700170_Register_Runtime_Owner_And_Escalation_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700171_Matrix_Runtime_Escalation_Severity_And_Action_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700172_Evidence_Test_Coverage_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700173_Matrix_Test_Coverage_To_Runtime_Flow_Matrix.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700174_Checklist_Release_Gate_And_Rollback_Gate_Checklist.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700175_Template_Release_Gate_Decision_Record_Template.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700176_Runbook_Rollback_Gate_Runtime_Flow_Runbook.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700177_Evidence_Post_Incident_Evidence_Packet.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700178_Report_Post_Incident_Runtime_Flow_Closeout_Report.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/700000_runtime_flow_bundle/700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md",
+        "folder": "docs/700000_runtime_flow_bundle",
+        "labels": [
+          "7A",
+          "7B",
+          "7D"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600100_Governance_Implementation_Lifecycle_Master_Control_Policy.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600104_Checklist_Implementation_Lifecycle_Governance_Preflight_Check.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600105_Matrix_Implementation_Lifecycle_Document_Type_To_Gate_Map.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600106_Report_Implementation_Lifecycle_Readiness_Status_Summary.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600107_Template_Implementation_Lifecycle_Controlled_Handoff_Cover_Sheet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600108_Audit_Implementation_Lifecycle_Governance_Compliance_Review.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600109_Plan_Implementation_Lifecycle_Wave_Execution_Sequencing.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600110_Checklist_Code_Handoff_Readiness_Master_Check.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600111_Template_Code_Handoff_Readiness_Request_Template.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600112_Matrix_Code_Handoff_Readiness_Evidence_To_Gate_Map.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600113_Report_Code_Handoff_Readiness_Open_Item_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600114_Register_Code_Handoff_Readiness_Blocker_Register.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600115_Runbook_Code_Handoff_Readiness_Document_Packet_Assembly.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600116_Evidence_Code_Handoff_Readiness_Approval_Evidence_Packet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600117_Handoff_Code_Handoff_Readiness_To_Reviewer_Packet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600118_Checklist_Code_Handoff_Readiness_No_Implementation_Guard.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600119_Report_Code_Handoff_Readiness_Closeout_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600120_WorkPackage_WorkPackage_Intake_Request_Envelope.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600121_Template_WorkPackage_Intake_Problem_Statement_Template.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600122_Checklist_WorkPackage_Intake_Readiness_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600123_Matrix_WorkPackage_Intake_Source_To_Output_Map.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600124_Register_WorkPackage_Intake_Open_Question_Register.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600125_Evidence_WorkPackage_Intake_Evidence_Bundle.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600126_Handoff_WorkPackage_Intake_To_Implementation_Planning_Handoff.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600127_Report_WorkPackage_Intake_Rejection_And_Deferral_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600128_Plan_WorkPackage_Intake_Prioritization_Plan.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600129_Audit_WorkPackage_Intake_Traceability_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600130_Evidence_Dependency_Graph_Source_Document_Evidence.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600131_Matrix_Dependency_Graph_Node_And_Edge_Review_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600132_Checklist_Dependency_Graph_Completeness_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600133_Audit_Dependency_Graph_Change_Impact_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600134_Report_Dependency_Graph_Risk_And_Gap_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600135_Evidence_Runtime_Flow_Diagram_Source_Evidence.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600136_Matrix_Runtime_Flow_Diagram_To_Module_Trace_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600137_Checklist_Runtime_Flow_Diagram_Review_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600138_Report_Runtime_Flow_Diagram_Missing_Evidence_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600139_Audit_Runtime_Flow_Diagram_No_Code_Change_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600140_Evidence_Module_Impact_Map_Source_Evidence.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600141_Matrix_Module_Impact_Map_Module_To_Document_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600142_Checklist_Module_Impact_Map_Completeness_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600143_Report_Module_Impact_Map_Risk_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600144_Audit_Module_Impact_Map_Review_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600145_Evidence_Test_Coverage_Map_Source_Evidence.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600146_Matrix_Test_Coverage_Map_Test_To_Document_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600147_Checklist_Test_Coverage_Map_Gap_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600148_Report_Test_Coverage_Map_Missing_Coverage_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600149_Audit_Test_Coverage_Map_Review_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600150_Boundary_Codex_Implementation_Boundary_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600151_Checklist_Codex_Implementation_Boundary_Preflight_Check.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600152_Audit_Codex_Implementation_Boundary_Compliance_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600153_Boundary_Cursor_Search_Boundary_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600154_Checklist_Cursor_Search_Boundary_Preflight_Check.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600155_Audit_Cursor_Search_Boundary_Compliance_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600156_Boundary_Claude_Review_Boundary_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600157_Checklist_Claude_Review_Boundary_Preflight_Check.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600158_Audit_Claude_Review_Boundary_Compliance_Audit.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600159_Governance_Human_Approval_Gate_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600160_Template_Human_Approval_Gate_Decision_Record_Template.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600161_Register_Human_Approval_Gate_Approver_Register.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600162_Checklist_Local_Verification_Gate_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600163_Runbook_Local_Verification_Gate_Runbook.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600164_Evidence_Local_Verification_Gate_Evidence_Packet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600165_Audit_Audit_Review_Gate_Control.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600166_Checklist_Audit_Review_Gate_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600167_Report_Audit_Review_Gate_Findings_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600168_Checklist_Commit_Readiness_Gate_Checklist.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600169_Template_Commit_Readiness_Gate_Commit_Message_Template.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600170_Report_Commit_Readiness_Gate_Closeout_Report.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600171_Evidence_Rollback_Evidence_Packet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600172_Runbook_Rollback_Evidence_Collection_Runbook.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600173_Register_Release_Hold_And_Waiver_Register.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600174_Template_Release_Hold_Waiver_Request_Template.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600175_Evidence_Post_Implementation_Evidence_Packet.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600176_Matrix_Diff_Review_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600177_Governance_Safety_No_Runtime_Without_Approval_Guardrail.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/600100_readme_governance/600178_Matrix_Cross_Document_Traceability_Matrix.md",
+        "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      },
+      {
+        "path": "docs/990000_legacy_quarantine/609000_archive_review/609001_Archive_Implementation_Lifecycle_Expansion_Wave_1_Manifest.md",
+        "folder": "docs/990000_legacy_quarantine/609000_archive_review",
+        "labels": [
+          "7A",
+          "7B",
+          "7C"
+        ]
+      }
+    ]
+  },
+  "batch7_folders_already_handled": {
+    "docs/015000_membership_loyalty": [
+      "7J"
+    ],
+    "docs/700000_runtime_flow_bundle": [
+      "7A",
+      "7B",
+      "7D"
+    ]
+  },
+  "batch7_folders_new_or_other": {
+    "docs": [
+      "7A",
+      "7B",
+      "7C",
+      "7L",
+      "7M",
+      "7N",
+      "7O",
+      "7Q",
+      "7R",
+      "7X"
+    ],
+    "docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow": [
+      "7A",
+      "7B",
+      "7D"
+    ],
+    "docs/990000_legacy_quarantine/600100_readme_governance": [
+      "7A",
+      "7B",
+      "7C"
+    ],
+    "docs/990000_legacy_quarantine/609000_archive_review": [
+      "7A",
+      "7B",
+      "7C"
+    ]
+  },
+  "relaxed_suspects_all": [
+    {
+      "folder": "docs/000100_project_foundation",
+      "file_count": 12,
+      "median_bytes": 16560,
+      "within_10pct_ratio": 0.333,
+      "dominant_body_ratio": 0.583,
+      "unique_body_hashes": 6,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/003000_saas_runtime",
+      "file_count": 17,
+      "median_bytes": 14675,
+      "within_10pct_ratio": 0.412,
+      "dominant_body_ratio": 0.529,
+      "unique_body_hashes": 9,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/010000_runtime_foundation_and_cross_room_architecture/010200_static_catalog_runtime_planning",
+      "file_count": 35,
+      "median_bytes": 22691,
+      "within_10pct_ratio": 0.8,
+      "dominant_body_ratio": 0.029,
+      "unique_body_hashes": 35,
+      "matrix_count": 4,
+      "matrix_sample_with_table": 4,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/012000_implementation_mapping",
+      "file_count": 29,
+      "median_bytes": 25696,
+      "within_10pct_ratio": 0.793,
+      "dominant_body_ratio": 0.483,
+      "unique_body_hashes": 16,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/020000_validation_security_audit/020999_archive_duplicate_review/020991_superseded_by_foundation_security",
+      "file_count": 3,
+      "median_bytes": 21854,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 0.333,
+      "unique_body_hashes": 3,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601100_store_admin_console/601110_store_admin_sql_layer_reconciliation",
+      "file_count": 4,
+      "median_bytes": 44725,
+      "within_10pct_ratio": 0.75,
+      "dominant_body_ratio": 0.25,
+      "unique_body_hashes": 4,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin",
+      "file_count": 3,
+      "median_bytes": 338,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did",
+      "file_count": 3,
+      "median_bytes": 334,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms",
+      "file_count": 3,
+      "median_bytes": 330,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/700000_runtime_flow_bundle",
+      "file_count": 81,
+      "median_bytes": 3325,
+      "within_10pct_ratio": 0.975,
+      "dominant_body_ratio": 0.123,
+      "unique_body_hashes": 22,
+      "matrix_count": 16,
+      "matrix_sample_with_table": 0,
+      "already_handled": true
+    },
+    {
+      "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+      "file_count": 79,
+      "median_bytes": 2395,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 0.127,
+      "unique_body_hashes": 20,
+      "matrix_count": 9,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/990000_legacy_quarantine/605000_pos_gateway_package/605900_final_closeout_archive",
+      "file_count": 194,
+      "median_bytes": 14065,
+      "within_10pct_ratio": 0.763,
+      "dominant_body_ratio": 0.005,
+      "unique_body_hashes": 194,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/_migration_history/004900_security_runtime_test_catalog_duplicate_review/004999_archive_duplicate_review",
+      "file_count": 5,
+      "median_bytes": 21249,
+      "within_10pct_ratio": 0.8,
+      "dominant_body_ratio": 0.2,
+      "unique_body_hashes": 5,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    }
+  ],
+  "relaxed_suspects_new": [
+    {
+      "folder": "docs/000100_project_foundation",
+      "file_count": 12,
+      "median_bytes": 16560,
+      "within_10pct_ratio": 0.333,
+      "dominant_body_ratio": 0.583,
+      "unique_body_hashes": 6,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/003000_saas_runtime",
+      "file_count": 17,
+      "median_bytes": 14675,
+      "within_10pct_ratio": 0.412,
+      "dominant_body_ratio": 0.529,
+      "unique_body_hashes": 9,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/010000_runtime_foundation_and_cross_room_architecture/010200_static_catalog_runtime_planning",
+      "file_count": 35,
+      "median_bytes": 22691,
+      "within_10pct_ratio": 0.8,
+      "dominant_body_ratio": 0.029,
+      "unique_body_hashes": 35,
+      "matrix_count": 4,
+      "matrix_sample_with_table": 4,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/012000_implementation_mapping",
+      "file_count": 29,
+      "median_bytes": 25696,
+      "within_10pct_ratio": 0.793,
+      "dominant_body_ratio": 0.483,
+      "unique_body_hashes": 16,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/020000_validation_security_audit/020999_archive_duplicate_review/020991_superseded_by_foundation_security",
+      "file_count": 3,
+      "median_bytes": 21854,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 0.333,
+      "unique_body_hashes": 3,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601100_store_admin_console/601110_store_admin_sql_layer_reconciliation",
+      "file_count": 4,
+      "median_bytes": 44725,
+      "within_10pct_ratio": 0.75,
+      "dominant_body_ratio": 0.25,
+      "unique_body_hashes": 4,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin",
+      "file_count": 3,
+      "median_bytes": 338,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did",
+      "file_count": 3,
+      "median_bytes": 334,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms",
+      "file_count": 3,
+      "median_bytes": 330,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 1.0,
+      "unique_body_hashes": 1,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+      "file_count": 79,
+      "median_bytes": 2395,
+      "within_10pct_ratio": 1.0,
+      "dominant_body_ratio": 0.127,
+      "unique_body_hashes": 20,
+      "matrix_count": 9,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/990000_legacy_quarantine/605000_pos_gateway_package/605900_final_closeout_archive",
+      "file_count": 194,
+      "median_bytes": 14065,
+      "within_10pct_ratio": 0.763,
+      "dominant_body_ratio": 0.005,
+      "unique_body_hashes": 194,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    },
+    {
+      "folder": "docs/_migration_history/004900_security_runtime_test_catalog_duplicate_review/004999_archive_duplicate_review",
+      "file_count": 5,
+      "median_bytes": 21249,
+      "within_10pct_ratio": 0.8,
+      "dominant_body_ratio": 0.2,
+      "unique_body_hashes": 5,
+      "matrix_count": 0,
+      "matrix_sample_with_table": 0,
+      "already_handled": false
+    }
+  ],
+  "global_duplicate_body_clusters": [
+    {
+      "body_hash": "3a97bb5a9bce8c47",
+      "file_count": 16,
+      "folder_count": 6,
+      "folders": [
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms"
+      ],
+      "sample_files": [
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601312_PassB_Intent_Comparison_Common_Auth.md",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601313_PassC_Confirmed_Gaps_And_Disposition_Common_Auth.md",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601322_PassB_Intent_Comparison_Payment.md",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601323_PassC_Confirmed_Gaps_And_Disposition_Payment.md",
+        "docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md"
+      ]
+    },
+    {
+      "body_hash": "2654415bc0b1e55f",
+      "file_count": 10,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md",
+        "docs/700000_runtime_flow_bundle/700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md",
+        "docs/700000_runtime_flow_bundle/700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md",
+        "docs/700000_runtime_flow_bundle/700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md",
+        "docs/700000_runtime_flow_bundle/700104_Checklist_Runtime_Flow_Bundle_Governance_Preflight_Check.md"
+      ]
+    },
+    {
+      "body_hash": "663da43533f29508",
+      "file_count": 10,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700110_Boundary_External_Integration_Boundary_Master_Control.md",
+        "docs/700000_runtime_flow_bundle/700111_Matrix_External_Integration_System_To_Flow_Map.md",
+        "docs/700000_runtime_flow_bundle/700112_Checklist_External_Integration_Boundary_Readiness_Check.md",
+        "docs/700000_runtime_flow_bundle/700113_Register_External_Integration_Provider_Contact_And_Owner_Register.md",
+        "docs/700000_runtime_flow_bundle/700114_Evidence_External_Integration_Contract_And_Spec_Evidence_Packet.md"
+      ]
+    },
+    {
+      "body_hash": "1c86cdd8b44db49e",
+      "file_count": 10,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600100_Governance_Implementation_Lifecycle_Master_Control_Policy.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600104_Checklist_Implementation_Lifecycle_Governance_Preflight_Check.md"
+      ]
+    },
+    {
+      "body_hash": "b6af02a735b54afd",
+      "file_count": 10,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600110_Checklist_Code_Handoff_Readiness_Master_Check.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600111_Template_Code_Handoff_Readiness_Request_Template.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600112_Matrix_Code_Handoff_Readiness_Evidence_To_Gate_Map.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600113_Report_Code_Handoff_Readiness_Open_Item_Report.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600114_Register_Code_Handoff_Readiness_Blocker_Register.md"
+      ]
+    },
+    {
+      "body_hash": "05bb7495aa686227",
+      "file_count": 10,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600120_WorkPackage_WorkPackage_Intake_Request_Envelope.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600121_Template_WorkPackage_Intake_Problem_Statement_Template.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600122_Checklist_WorkPackage_Intake_Readiness_Checklist.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600123_Matrix_WorkPackage_Intake_Source_To_Output_Map.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600124_Register_WorkPackage_Intake_Open_Question_Register.md"
+      ]
+    },
+    {
+      "body_hash": "54a9746a36baee9e",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700120_Overview_POS_Provider_Runtime_Flow_Overview.md",
+        "docs/700000_runtime_flow_bundle/700121_Matrix_POS_Provider_Request_Response_State_Matrix.md",
+        "docs/700000_runtime_flow_bundle/700122_Checklist_POS_Provider_Runtime_Flow_Verification_Checklist.md",
+        "docs/700000_runtime_flow_bundle/700123_Evidence_POS_Provider_Approval_And_Cancel_Evidence_Packet.md",
+        "docs/700000_runtime_flow_bundle/700124_Report_POS_Provider_Runtime_Flow_Exception_Report.md"
+      ]
+    },
+    {
+      "body_hash": "2bd1c1b5432c9118",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700125_Overview_VAN_PG_Runtime_Evidence_Model.md",
+        "docs/700000_runtime_flow_bundle/700126_Matrix_VAN_PG_Message_To_Audit_Field_Matrix.md",
+        "docs/700000_runtime_flow_bundle/700127_Checklist_VAN_PG_Runtime_Evidence_Checklist.md",
+        "docs/700000_runtime_flow_bundle/700128_Evidence_VAN_PG_Provider_Response_Evidence_Packet.md",
+        "docs/700000_runtime_flow_bundle/700129_Audit_VAN_PG_Runtime_Evidence_Audit.md"
+      ]
+    },
+    {
+      "body_hash": "62b3f447c1979c72",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700130_Overview_Payment_Authorization_Capture_Cancel_Refund_Flow.md",
+        "docs/700000_runtime_flow_bundle/700131_Matrix_Payment_State_Transition_To_Evidence_Matrix.md",
+        "docs/700000_runtime_flow_bundle/700132_Checklist_Payment_Flow_Verification_Checklist.md",
+        "docs/700000_runtime_flow_bundle/700133_Evidence_Payment_Cancel_Refund_Reversal_Evidence_Packet.md",
+        "docs/700000_runtime_flow_bundle/700134_Report_Payment_Flow_Exception_And_Reconciliation_Report.md"
+      ]
+    },
+    {
+      "body_hash": "8f4da858de38ea23",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700144_Overview_Webhook_Receive_Verify_Retry_Replay_Flow.md",
+        "docs/700000_runtime_flow_bundle/700145_Matrix_Webhook_Event_To_Idempotency_Key_Matrix.md",
+        "docs/700000_runtime_flow_bundle/700146_Checklist_Webhook_Verification_And_Replay_Checklist.md",
+        "docs/700000_runtime_flow_bundle/700147_Evidence_Webhook_Retry_Replay_Evidence_Packet.md",
+        "docs/700000_runtime_flow_bundle/700148_Report_Webhook_Failure_And_Replay_Report.md"
+      ]
+    },
+    {
+      "body_hash": "674c4a4965a6dcc8",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/700000_runtime_flow_bundle"
+      ],
+      "sample_files": [
+        "docs/700000_runtime_flow_bundle/700149_Overview_Settlement_File_Intake_And_Reconciliation_Flow.md",
+        "docs/700000_runtime_flow_bundle/700150_Matrix_Settlement_File_Field_To_Ledger_Map.md",
+        "docs/700000_runtime_flow_bundle/700151_Checklist_Settlement_Reconciliation_Verification_Checklist.md",
+        "docs/700000_runtime_flow_bundle/700152_Evidence_Settlement_File_Intake_Evidence_Packet.md",
+        "docs/700000_runtime_flow_bundle/700153_Report_Settlement_Reconciliation_Exception_Report.md"
+      ]
+    },
+    {
+      "body_hash": "d26bb3a9e4262c3d",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600130_Evidence_Dependency_Graph_Source_Document_Evidence.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600131_Matrix_Dependency_Graph_Node_And_Edge_Review_Matrix.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600132_Checklist_Dependency_Graph_Completeness_Checklist.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600133_Audit_Dependency_Graph_Change_Impact_Audit.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600134_Report_Dependency_Graph_Risk_And_Gap_Report.md"
+      ]
+    },
+    {
+      "body_hash": "06b1bec95fccbf5c",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600135_Evidence_Runtime_Flow_Diagram_Source_Evidence.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600136_Matrix_Runtime_Flow_Diagram_To_Module_Trace_Matrix.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600137_Checklist_Runtime_Flow_Diagram_Review_Checklist.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600138_Report_Runtime_Flow_Diagram_Missing_Evidence_Report.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600139_Audit_Runtime_Flow_Diagram_No_Code_Change_Audit.md"
+      ]
+    },
+    {
+      "body_hash": "1d8babcc7d422bb6",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600140_Evidence_Module_Impact_Map_Source_Evidence.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600141_Matrix_Module_Impact_Map_Module_To_Document_Matrix.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600142_Checklist_Module_Impact_Map_Completeness_Checklist.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600143_Report_Module_Impact_Map_Risk_Report.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600144_Audit_Module_Impact_Map_Review_Audit.md"
+      ]
+    },
+    {
+      "body_hash": "007c82975da93a4d",
+      "file_count": 5,
+      "folder_count": 1,
+      "folders": [
+        "docs/990000_legacy_quarantine/600100_readme_governance"
+      ],
+      "sample_files": [
+        "docs/990000_legacy_quarantine/600100_readme_governance/600145_Evidence_Test_Coverage_Map_Source_Evidence.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600146_Matrix_Test_Coverage_Map_Test_To_Document_Matrix.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600147_Checklist_Test_Coverage_Map_Gap_Checklist.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600148_Report_Test_Coverage_Map_Missing_Coverage_Report.md",
+        "docs/990000_legacy_quarantine/600100_readme_governance/600149_Audit_Test_Coverage_Map_Review_Audit.md"
+      ]
+    }
+  ],
+  "planning_docs": [
+    {
+      "path": "docs/000000_Readme_Root.md",
+      "labels_mentioned": [
+        "7A",
+        "7B",
+        "7M",
+        "7O",
+        "7Q",
+        "7R"
+      ],
+      "wave_lines_sample": [
+        "| 000060 | Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan | Batch 7A docs 번호 밴드 밀도·갭 스캔 보고 |",
+        "| 000061 | Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap | Batch 7B 결측 번호 밴드 확장 로드맵 보고 |",
+        "| 000062 | Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan | Batch 7M 확장 후 문서 수량 조정·최종 갭 스캔 보고 |",
+        "| 000063 | Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate | Batch 7O 확장 웨이브 스테이징 검증·커밋 준비 게이트 보고 |",
+        "| 000064 | Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout | Batch 7Q 커밋 후 재집계·2300+ docs 마일스톤 종료 보고 |",
+        "| 000065 | Report_Batch_7R_Untracked_Migration_And_Leftover_Docs_Disposition_Review | Batch 7R 미추적 이동·남은 문서 처리 검토 보고 |"
+      ]
+    },
+    {
+      "path": "docs/000005_Index_Document_Number.md",
+      "labels_mentioned": [
+        "7X"
+      ],
+      "wave_lines_sample": [
+        "> History (2026-07-20): 697 empty template-shell documents from `Batch 7X Expansion Wave 1` were removed after mechanical verification; see commit `1bf7be7a`. Their intentionally vacant number ranges are retained in Git history."
+      ]
+    },
+    {
+      "path": "docs/000007_Map_Full_Directory.md",
+      "labels_mentioned": [
+        "7X"
+      ],
+      "wave_lines_sample": [
+        "> History (2026-07-20): 697 empty template-shell documents from `Batch 7X Expansion Wave 1` were removed after mechanical verification; see commit `1bf7be7a`. Their intentionally vacant number ranges are retained in Git history."
+      ]
+    },
+    {
+      "path": "docs/000060_Report_Batch_7A_Docs_Number_Band_Density_Gap_Scan.md",
+      "labels_mentioned": [
+        "7A"
+      ],
+      "wave_lines_sample": [
+        "Batch 7A is a read-only density and gap scan for the docs six-digit numbering system. This report was generated from `git ls-files docs` and does not rename files, move files, delete files, edit H1 headings, edit internal links, run a formatter, or create runtime implementation."
+      ]
+    },
+    {
+      "path": "docs/000061_Report_Batch_7B_Missing_Number_Band_Expansion_Roadmap.md",
+      "labels_mentioned": [
+        "7A",
+        "7B",
+        "7C"
+      ],
+      "wave_lines_sample": [
+        "Batch 7B defines a report-only expansion roadmap for filling the missing and low-density six-digit documentation bands identified by Batch 7A. The goal is to add enough future Markdown documents for the tracked docs corpus to exceed 2300 Markdown files while prioritizing MVP readiness, implementation handoff, security/audit evidence, runtime operations, POS/KDS/payment coverage, AI customer center coverage, SOP governance, and future/deferred domains.",
+        "## 2. Batch 7A Baseline",
+        "The current tracked Markdown count is 1478. To exceed 2300 Markdown files, the minimum required addition is 822 Markdown files. Batch 7B recommends a buffered target of 2320 tracked Markdown files, requiring 842 additional Markdown files.",
+        "Note: Batch 7A used \"822 additional\" as the gap to reach the 2300 threshold. Batch 7B uses 842 to exceed the threshold with a small governance buffer.",
+        "Batch 7B allocates 842 future Markdown documents. This brings the projected tracked Markdown count from 1478 to 2320.",
+        "## 16. Proposed Batch 7C~7Z Plan",
+        "| 7C | 600000 implementation lifecycle evidence and handoff expansion wave 1 | 80 | Generate docs |",
+        "| 7D | 600000 implementation lifecycle governance and closeout expansion wave 2 | 80 | Generate docs |",
+        "| 7E | 600000 implementation lifecycle exception, waiver, and audit expansion wave 3 | 60 | Generate docs |",
+        "| 7F | 700000 runtime flow registry, dependency graph, and test coverage expansion | 80 | Generate docs |",
+        "| 7G | 012000 and 013000 mapping/API projection backfill | 60 | Generate docs |",
+        "| 7H | 023000 implementation planning bootstrap | 35 | Generate docs |",
+        "| 7I | 016000 and 015000 MVP/membership critical backfill | 65 | Generate docs |",
+        "| 7J | 018000 and 019000 admin/runtime missing band bootstrap | 70 | Generate docs |",
+        "| 7K | 007000, 017000, 027000 admin/UI/runtime monitoring backfill | 80 | Generate docs |"
+      ]
+    },
+    {
+      "path": "docs/000062_Report_Batch_7M_Post_Expansion_Docs_Count_Reconciliation_And_Final_Gap_Scan.md",
+      "labels_mentioned": [
+        "7A",
+        "7B",
+        "7C",
+        "7L",
+        "7N"
+      ],
+      "wave_lines_sample": [
+        "This report reconciles the Batch 7C through Batch 7L documentation expansion waves against the Batch 7B target of exceeding 2320 tracked docs Markdown files.",
+        "- Git tracked count remains 1478 because the Batch 7A through Batch 7L expansion files are still untracked in the working tree.",
+        "## Batch 7C Through 7L Folder Verification",
+        "| 7C | docs/600000_implementation_lifecycle | 80 | Yes | Pass |",
+        "| 7D | docs/700000_runtime_flow_bundle | 80 | Yes | Pass |",
+        "| 7E | docs/012000_pos_gateway_runtime_flow_implementation_package | 80 | Yes | Pass |",
+        "| 7F | docs/023000_implementation_planning | 80 | Yes | Pass |",
+        "| 7G | docs/016000_admin_console_saas_operations_control | 80 | Yes | Pass |",
+        "| 7H | docs/018000_ai_customer_center_sop_knowledge_automation | 80 | Yes | Pass |",
+        "| 7I | docs/019000_data_model_state_machine_runtime_event_contract | 80 | Yes | Pass |",
+        "| 7J | docs/015000_membership_loyalty | 80 | Yes | Pass |",
+        "| 7K | docs/027000_deployment_operations_release_runtime_control | 80 | Yes | Pass |",
+        "| 7L | docs/025000_security_audit_evidence_financial_grade_control | 80 | Yes | Pass |",
+        "- Recommended next batch: Batch 7N Final Gap Closure Expansion Wave 1."
+      ]
+    },
+    {
+      "path": "docs/000063_Report_Batch_7O_Expansion_Waves_Staging_Validation_And_Commit_Readiness_Gate.md",
+      "labels_mentioned": [
+        "7C",
+        "7N"
+      ],
+      "wave_lines_sample": [
+        "This report validates the Batch 7C through Batch 7N expansion waves for staging and commit readiness without staging or committing files.",
+        "Use one documentation-only commit for the complete Batch 7 expansion set after review. If the reviewer prefers smaller commits, use the following staging groups in order:",
+        "docs: add batch 7 documentation expansion waves"
+      ]
+    },
+    {
+      "path": "docs/000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout.md",
+      "labels_mentioned": [
+        "7R"
+      ],
+      "wave_lines_sample": [
+        "This report closes out the Batch 7 documentation expansion after commit and confirms the 2300+ tracked docs Markdown milestone.",
+        "- Latest commit message: docs: add batch 7 documentation expansion waves",
+        "## Batch 7 Expansion Folder Count Summary",
+        "| 7C | docs/600000_implementation_lifecycle | 80 | 80 | Pass |",
+        "| 7D | docs/700000_runtime_flow_bundle | 80 | 80 | Pass |",
+        "| 7E | docs/012000_pos_gateway_runtime_flow_implementation_package | 80 | 80 | Pass |",
+        "| 7F | docs/023000_implementation_planning | 80 | 80 | Pass |",
+        "| 7G | docs/016000_admin_console_saas_operations_control | 80 | 80 | Pass |",
+        "| 7H | docs/018000_ai_customer_center_sop_knowledge_automation | 80 | 80 | Pass |",
+        "| 7I | docs/019000_data_model_state_machine_runtime_event_contract | 80 | 80 | Pass |",
+        "| 7J | docs/015000_membership_loyalty | 80 | 80 | Pass |",
+        "| 7K | docs/027000_deployment_operations_release_runtime_control | 80 | 80 | Pass |",
+        "| 7L | docs/025000_security_audit_evidence_financial_grade_control | 80 | 80 | Pass |",
+        "| 7N | docs/028000_operations_sop_store_runbook_support_closure | 50 | 50 | Pass |",
+        "96c0cf7 docs: add batch 7 documentation expansion waves"
+      ]
+    },
+    {
+      "path": "docs/000065_Report_Batch_7R_Untracked_Migration_And_Leftover_Docs_Disposition_Review.md",
+      "labels_mentioned": [
+        "7Q"
+      ],
+      "wave_lines_sample": [
+        "| `docs/000064_Report_Batch_7Q_Post_Commit_Recount_And_2300_Plus_Docs_Milestone_Closeout.md` | `commit_docs_closeout_candidate` | Batch 7Q milestone closeout; confirms commit 96c0cf7, tracked docs Markdown count 2332, and 2300+ milestone pass. | Commit as docs closeout evidence. |",
+        "- `docs/000064` is the canonical Batch 7Q closeout and should be kept with the Batch 7 reports."
+      ]
+    }
+  ]
+}

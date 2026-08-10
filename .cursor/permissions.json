@@ -1,0 +1,15 @@
+{
+  "terminalAllowlist": [
+    "git status*",
+    "git diff*",
+    "git log*",
+    "git show*",
+    "git diff --check*",
+    "cmd /c fc*",
+    "python *"
+  ],
+  "autoRun": {
+    "allow_instructions": "Eyes-Only verification for yoonsul_wait_order_handoff — auto-run WITHOUT asking only for read-only work: git status/diff/log/show, grep/rg inventory, read-only python scans, binary file compare (fc). Do NOT auto-run docker exec/psql, docker cp, or any command that writes to a database (including BEGIN...ROLLBACK fixture SQL, INSERT/UPDATE/DELETE, migration apply, or temp SQL upload). Those require one explicit Human approval for the verification batch first; after that single approval, continue the same approved verification run without re-asking per command.",
+    "block_instructions": "Block git commit, git push, git reset --hard, force push, Set-Content on tracked docs, encoding normalization, formatters, applying migrations to non-local targets, rm -rf on repo source, deleting temp/scratch files not created by the current Cursor verification task (other AI agents' __test_ant_*, .tmp_cur113_*, .gemini/antigravity scratch, etc.), and any command that exfiltrates secrets or writes production state outside approved local Docker verification."
+  }
+}

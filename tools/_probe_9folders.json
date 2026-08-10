@@ -1,0 +1,308 @@
+[
+  {
+    "folder": "docs/011500_pos_gateway_runtime_flow_implementation_package",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "011601_Overview_POS_Gateway_Implementation_Package_Readiness_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "011605_Matrix_POS_Gateway_Implementation_Package_Document_Type_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "011604_Checklist_POS_Gateway_Implementation_Package_Governance_Preflight.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.061,
+    "matrix_files_checked": {
+      "011605_Matrix_POS_Gateway_Implementation_Package_Document_Type_Map.md": false,
+      "011617_Matrix_POS_Runtime_Flow_Module_To_Document_Matrix.md": false,
+      "011621_Matrix_POS_Dependency_Graph_Node_Edge_Matrix.md": false
+    },
+    "readme": "011500_Readme_POS_Gateway_Runtime_Flow_Implementation_Package.md",
+    "readme_self_desc_excerpt": "Defines the POS Gateway runtime flow implementation package documentation lane, including readiness, handoff, dependency, evidence, verification, audit, and closeout artifacts. | - This folder owns `011500~011999` before the next sibling folder `docs/012000_implementation_mapping/`.",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/015000_membership_loyalty",
+    "file_count": 86,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "015101_Overview_Membership_Loyalty_Operating_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "015105_Matrix_Customer_Identity_Field_To_Owner_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "015103_Checklist_Membership_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.524,
+    "matrix_files_checked": {
+      "015105_Matrix_Customer_Identity_Field_To_Owner_Map.md": false,
+      "015109_Matrix_Customer_Consent_To_Benefit_Action_Map.md": false,
+      "015113_Matrix_Phone_Token_Device_Field_Map.md": false
+    },
+    "readme": "015000_Readme_Membership_Loyalty.md",
+    "readme_self_desc_excerpt": "This folder is the active documentation domain for membership, loyalty, coupon, stamp, and point boundaries under the `15000~16999` band. | Membership may become an optional SaaS module later for stores without their own membership system.",
+    "wave_batch_marker_in_readme": false,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/016000_admin_console_saas_operations_control",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "016101_Overview_Admin_Console_Operations_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "016105_Matrix_SaaS_Tenant_Control_Role_To_Action_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "016103_Checklist_Admin_Console_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.082,
+    "matrix_files_checked": {
+      "016105_Matrix_SaaS_Tenant_Control_Role_To_Action_Map.md": false,
+      "016109_Matrix_Store_Control_Status_To_Admin_Action_Map.md": false,
+      "016113_Matrix_Operator_Permission_To_Admin_Screen_Map.md": false
+    },
+    "readme": "016000_Readme_Admin_Console_And_SaaS_Operations_Control.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for admin console controls and SaaS operations administration for CatchMenu / Catch & Order. | - Admin console operating model and governance boundary (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/018000_ai_customer_center_sop_knowledge_automation",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "018101_Overview_AI_Customer_Center_Operating_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "018105_Matrix_Digital_SOP_Knowledge_Source_To_Answer_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "018103_Checklist_AI_Customer_Center_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.068,
+    "matrix_files_checked": {
+      "018105_Matrix_Digital_SOP_Knowledge_Source_To_Answer_Map.md": false,
+      "018109_Matrix_Question_Classification_Category_To_Routing_Map.md": false,
+      "018114_Matrix_Known_SOP_Answer_To_Evidence_Map.md": false
+    },
+    "readme": "018000_Readme_AI_Customer_Center_And_SOP_Knowledge_Automation.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for AI customer center governance and SOP knowledge automation for CatchMenu / Catch & Order. | - AI customer center operating model and governance boundary (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/019000_data_model_state_machine_runtime_event_contract",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "019101_Overview_Data_Model_Documentation_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "019105_Matrix_Runtime_State_Machine_Owner_To_State_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "019103_Checklist_Data_Model_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.076,
+    "matrix_files_checked": {
+      "019105_Matrix_Runtime_State_Machine_Owner_To_State_Map.md": false,
+      "019109_Matrix_Event_Contract_Source_To_Consumer_Map.md": false,
+      "019113_Matrix_Order_State_Transition_Rules.md": false
+    },
+    "readme": "019000_Readme_Data_Model_State_Machine_And_Runtime_Event_Contract.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for data models, runtime state machines, and runtime event contracts for CatchMenu / Catch & Order. | - Data model documentation model and governance boundary (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/023000_implementation_planning",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "023101_Overview_Development_Readiness_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "023105_Matrix_Implementation_Planning_Document_Type_To_Gate_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "023104_Checklist_Implementation_Planning_Governance_Preflight.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.07,
+    "matrix_files_checked": {
+      "023105_Matrix_Implementation_Planning_Document_Type_To_Gate_Map.md": false,
+      "023111_Matrix_MVP_Scope_To_Implementation_Readiness_Matrix.md": false,
+      "023116_Matrix_WorkPackage_Dependency_And_Order_Matrix.md": false
+    },
+    "readme": "023000_Readme_Implementation_Planning_And_Development_Readiness.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for implementation planning and development readiness for CatchMenu / Catch & Order. It is the expansion band that follows `022000_implementation_planning` — th | - Development readiness model and planning governance boundary (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/025000_security_audit_evidence_financial_grade_control",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "025101_Overview_Security_Audit_Evidence_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "025105_Matrix_Financial_Grade_Control_To_Evidence_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "025103_Checklist_Security_Audit_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.065,
+    "matrix_files_checked": {
+      "025105_Matrix_Financial_Grade_Control_To_Evidence_Map.md": false,
+      "025109_Matrix_Secure_Coding_Control_To_Source_Map.md": false,
+      "025113_Matrix_Secret_Handling_Control_Map.md": false
+    },
+    "readme": "025000_Readme_Security_Audit_Evidence_And_Financial_Grade_Control.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for security audit evidence and financial-grade control for CatchMenu / Catch & Order. | - Security audit governance and financial-grade control master policy (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/027000_deployment_operations_release_runtime_control",
+    "file_count": 81,
+    "samples": [
+      {
+        "type": "Overview",
+        "file": "027101_Overview_Deployment_Operations_Operating_Model.md"
+      },
+      {
+        "type": "Matrix",
+        "file": "027105_Matrix_Release_Runtime_Control_Gate_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "027103_Checklist_Deployment_Operations_Governance_Preflight_Check.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.076,
+    "matrix_files_checked": {
+      "027105_Matrix_Release_Runtime_Control_Gate_Map.md": false,
+      "027109_Matrix_Environment_Readiness_Target_Map.md": false,
+      "027117_Matrix_Database_Migration_Release_Risk_Map.md": false
+    },
+    "readme": "027000_Readme_Deployment_Operations_And_Release_Runtime_Control.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for deployment operations and release runtime control for CatchMenu / Catch & Order. | - Deployment operations operating model and release runtime control governance (no runtime implementation)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  },
+  {
+    "folder": "docs/029000_operations_sop_store_runbook_support_closure",
+    "file_count": 51,
+    "samples": [
+      {
+        "type": "Matrix",
+        "file": "029101_Matrix_Operations_SOP_Bridge_Source_To_Runbook_Map.md"
+      },
+      {
+        "type": "Checklist",
+        "file": "029102_Checklist_Operations_SOP_Bridge_Readiness_Check.md"
+      },
+      {
+        "type": "Evidence",
+        "file": "029105_Evidence_Store_Opening_Operation_Evidence_Packet.md"
+      }
+    ],
+    "body_identical_after_strip": false,
+    "body_similarity_ratio": 0.068,
+    "matrix_files_checked": {
+      "029101_Matrix_Operations_SOP_Bridge_Source_To_Runbook_Map.md": false,
+      "029128_Matrix_Field_Incident_Escalation_Severity_Map.md": false,
+      "029143_Matrix_Evidence_Packet_Operation_Handoff_Map.md": false
+    },
+    "readme": "029000_Readme_Operations_SOP_Store_Runbook_And_Support_Closure.md",
+    "readme_self_desc_excerpt": "This folder is the documentation domain for operations SOP bridges, store runbooks, and support closure procedures for CatchMenu / Catch & Order. | - Operations SOP bridge master control and readiness (`029100`-`029102`)",
+    "wave_batch_marker_in_readme": true,
+    "impl_grep": {
+      "hints_sampled": [],
+      "migration_hits": [],
+      "any_migration_hit": false
+    },
+    "verdict": "실제내용 있음"
+  }
+]

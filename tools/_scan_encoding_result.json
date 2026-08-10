@@ -1,0 +1,484 @@
+﻿{
+  "scan_root": "D:\\workspace\\yoonsul_wait_order_handoff\\docs",
+  "scanned_at_utc": "2026-07-18T19:17:26.846552+00:00",
+  "replacement_char": [
+    {
+      "path": "docs/000006_Plan_Top_Level_Folder_Consolidation.md",
+      "count": 3
+    },
+    {
+      "path": "docs/990000_legacy_quarantine/604000_workpackets/604250_scope_d_00_payment_ledger_confirm_payment_schema_drift_alignment/604251_ImpactScope_Scope_D_00_PaymentLedger_ConfirmPayment_SchemaDrift_Alignment.md",
+      "count": 15
+    },
+    {
+      "path": "docs/990000_legacy_quarantine/604000_workpackets/604280_cross_scope_0042_delivery_order_intake_baseline_replay_blocker/604285_ChangeContract_Cross_Scope_0042_Delivery_Order_Intake_Baseline_Replay_Blocker.md",
+      "count": 3
+    }
+  ],
+  "utf8_strict_failures": [
+    {
+      "path": "docs/directory_tree.txt",
+      "error": "'utf-8' codec can't decode byte 0xff in position 0: invalid start byte",
+      "byte_offset": 0
+    }
+  ],
+  "template_clone_suspects": [
+    {
+      "folder": "docs/011500_pos_gateway_runtime_flow_implementation_package",
+      "file_count": 81,
+      "median_bytes": 3876,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "11500-11678",
+      "max_numeric_gap": 99,
+      "initial_sequential_streak": 2,
+      "sample_files": [
+        "011500_Readme_POS_Gateway_Runtime_Flow_Implementation_Package.md",
+        "011501_Index_POS_Gateway_Runtime_Flow_Implementation_Package_Expansion_Wave_1.md",
+        "011600_Governance_POS_Gateway_Implementation_Package_Master_Control.md",
+        "011601_Overview_POS_Gateway_Implementation_Package_Readiness_Model.md",
+        "011602_Boundary_POS_Gateway_Implementation_Package_No_Runtime_Change_Boundary.md"
+      ],
+      "size_min": 3845,
+      "size_max": 10453
+    },
+    {
+      "folder": "docs/015000_membership_loyalty",
+      "file_count": 86,
+      "median_bytes": 2868,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.919,
+      "prefixed_count": 86,
+      "prefix_range": "15000-15178",
+      "max_numeric_gap": 50,
+      "initial_sequential_streak": 7,
+      "sample_files": [
+        "015000_Index_Membership_Loyalty_Coupon_And_Customer_Identity_Expansion_Wave_1.md",
+        "015000_Readme_Membership_Loyalty.md",
+        "015010_Boundary_Membership_Loyalty_Product.md",
+        "015020_Lightweight_Coupon_And_Stamp_Future_Model.md",
+        "015030_Boundary_Point_Ledger_And_Wallet_Non_Implementation.md"
+      ],
+      "size_min": 2320,
+      "size_max": 5151
+    },
+    {
+      "folder": "docs/016000_admin_console_saas_operations_control",
+      "file_count": 81,
+      "median_bytes": 2482,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "16000-16179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "016000_Readme_Admin_Console_And_SaaS_Operations_Control.md",
+        "016100_Governance_Admin_Console_Master_Control.md",
+        "016101_Overview_Admin_Console_Operations_Model.md",
+        "016102_Boundary_Admin_Console_No_Runtime_Implementation_Boundary.md",
+        "016103_Checklist_Admin_Console_Governance_Preflight_Check.md"
+      ],
+      "size_min": 1292,
+      "size_max": 5511
+    },
+    {
+      "folder": "docs/018000_ai_customer_center_sop_knowledge_automation",
+      "file_count": 81,
+      "median_bytes": 2502,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "18000-18179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "018000_Readme_AI_Customer_Center_And_SOP_Knowledge_Automation.md",
+        "018100_Governance_AI_Customer_Center_Master_Control.md",
+        "018101_Overview_AI_Customer_Center_Operating_Model.md",
+        "018102_Boundary_AI_Customer_Center_No_Runtime_Implementation_Boundary.md",
+        "018103_Checklist_AI_Customer_Center_Governance_Preflight_Check.md"
+      ],
+      "size_min": 1378,
+      "size_max": 5631
+    },
+    {
+      "folder": "docs/019000_data_model_state_machine_runtime_event_contract",
+      "file_count": 81,
+      "median_bytes": 2903,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "19000-19179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "019000_Readme_Data_Model_State_Machine_And_Runtime_Event_Contract.md",
+        "019100_Governance_Data_Model_Master_Control.md",
+        "019101_Overview_Data_Model_Documentation_Model.md",
+        "019102_Boundary_Data_Model_No_Runtime_Implementation_Boundary.md",
+        "019103_Checklist_Data_Model_Governance_Preflight_Check.md"
+      ],
+      "size_min": 1271,
+      "size_max": 5335
+    },
+    {
+      "folder": "docs/023000_implementation_planning",
+      "file_count": 81,
+      "median_bytes": 3239,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "23000-23179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "023000_Readme_Implementation_Planning_And_Development_Readiness.md",
+        "023100_Governance_Implementation_Planning_Master_Control.md",
+        "023101_Overview_Development_Readiness_Model.md",
+        "023102_Boundary_Implementation_Planning_No_Runtime_Change_Boundary.md",
+        "023103_Register_Implementation_Planning_Owner_And_Approver_Register.md"
+      ],
+      "size_min": 1730,
+      "size_max": 8409
+    },
+    {
+      "folder": "docs/025000_security_audit_evidence_financial_grade_control",
+      "file_count": 81,
+      "median_bytes": 2796,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "25000-25179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "025000_Readme_Security_Audit_Evidence_And_Financial_Grade_Control.md",
+        "025100_Governance_Security_Audit_Master_Control.md",
+        "025101_Overview_Security_Audit_Evidence_Model.md",
+        "025102_Boundary_Security_Audit_No_Runtime_Implementation_Boundary.md",
+        "025103_Checklist_Security_Audit_Governance_Preflight_Check.md"
+      ],
+      "size_min": 1185,
+      "size_max": 5418
+    },
+    {
+      "folder": "docs/027000_deployment_operations_release_runtime_control",
+      "file_count": 81,
+      "median_bytes": 2752,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "27000-27179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "027000_Readme_Deployment_Operations_And_Release_Runtime_Control.md",
+        "027100_Governance_Deployment_Operations_Master_Control.md",
+        "027101_Overview_Deployment_Operations_Operating_Model.md",
+        "027102_Boundary_Deployment_Operations_No_Runtime_Implementation_Boundary.md",
+        "027103_Checklist_Deployment_Operations_Governance_Preflight_Check.md"
+      ],
+      "size_min": 1211,
+      "size_max": 5212
+    },
+    {
+      "folder": "docs/029000_operations_sop_store_runbook_support_closure",
+      "file_count": 51,
+      "median_bytes": 2424,
+      "within_5pct_count": 49,
+      "within_5pct_ratio": 0.961,
+      "prefixed_count": 51,
+      "prefix_range": "29000-29149",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "029000_Readme_Operations_SOP_Store_Runbook_And_Support_Closure.md",
+        "029100_Governance_Operations_SOP_Bridge_Master_Control.md",
+        "029101_Matrix_Operations_SOP_Bridge_Source_To_Runbook_Map.md",
+        "029102_Checklist_Operations_SOP_Bridge_Readiness_Check.md",
+        "029103_Runbook_Store_Opening_Operations_Runbook.md"
+      ],
+      "size_min": 1913,
+      "size_max": 3780
+    },
+    {
+      "folder": "docs/700000_runtime_flow_bundle",
+      "file_count": 81,
+      "median_bytes": 3325,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 0.975,
+      "prefixed_count": 81,
+      "prefix_range": "700000-700179",
+      "max_numeric_gap": 100,
+      "initial_sequential_streak": 1,
+      "sample_files": [
+        "700000_Readme_Runtime_Flow_Bundle.md",
+        "700100_Governance_Runtime_Flow_Bundle_Master_Governance_Control.md",
+        "700101_Overview_Runtime_Flow_Bundle_Evidence_Readiness_Model.md",
+        "700102_Boundary_Runtime_Flow_Bundle_No_Runtime_Implementation_Boundary.md",
+        "700103_Register_Runtime_Flow_Bundle_Owner_And_Escalation_Register.md"
+      ],
+      "size_min": 2178,
+      "size_max": 8601
+    },
+    {
+      "folder": "docs/990000_legacy_quarantine/600100_readme_governance",
+      "file_count": 79,
+      "median_bytes": 2395,
+      "within_5pct_count": 79,
+      "within_5pct_ratio": 1.0,
+      "prefixed_count": 79,
+      "prefix_range": "600100-600178",
+      "max_numeric_gap": 1,
+      "initial_sequential_streak": 79,
+      "sample_files": [
+        "600100_Governance_Implementation_Lifecycle_Master_Control_Policy.md",
+        "600101_Overview_Implementation_Lifecycle_Documentation_Readiness_Model.md",
+        "600102_Boundary_Implementation_Lifecycle_No_Runtime_Change_Control.md",
+        "600103_Register_Implementation_Lifecycle_Owner_And_Approver_Map.md",
+        "600104_Checklist_Implementation_Lifecycle_Governance_Preflight_Check.md"
+      ],
+      "size_min": 2370,
+      "size_max": 2451
+    }
+  ],
+  "mtime_surges": {
+    "total_md_files": 3140,
+    "distinct_hours": 122,
+    "distinct_days": 21,
+    "median_files_per_hour": 4,
+    "top_20_hours": [
+      [
+        "2026-06-19 06:00",
+        555
+      ],
+      [
+        "2026-06-18 21:00",
+        347
+      ],
+      [
+        "2026-06-18 20:00",
+        266
+      ],
+      [
+        "2026-06-21 07:00",
+        190
+      ],
+      [
+        "2026-06-19 08:00",
+        166
+      ],
+      [
+        "2026-07-11 01:00",
+        160
+      ],
+      [
+        "2026-06-19 05:00",
+        158
+      ],
+      [
+        "2026-06-21 08:00",
+        110
+      ],
+      [
+        "2026-06-18 22:00",
+        109
+      ],
+      [
+        "2026-06-20 15:00",
+        102
+      ],
+      [
+        "2026-07-14 22:00",
+        81
+      ],
+      [
+        "2026-06-19 09:00",
+        69
+      ],
+      [
+        "2026-06-21 00:00",
+        59
+      ],
+      [
+        "2026-06-20 14:00",
+        54
+      ],
+      [
+        "2026-06-20 16:00",
+        53
+      ],
+      [
+        "2026-07-10 02:00",
+        50
+      ],
+      [
+        "2026-07-08 11:00",
+        41
+      ],
+      [
+        "2026-07-10 03:00",
+        37
+      ],
+      [
+        "2026-07-10 17:00",
+        29
+      ],
+      [
+        "2026-07-10 14:00",
+        24
+      ]
+    ],
+    "top_20_days": [
+      [
+        "2026-06-19",
+        949
+      ],
+      [
+        "2026-06-18",
+        724
+      ],
+      [
+        "2026-06-21",
+        410
+      ],
+      [
+        "2026-06-20",
+        209
+      ],
+      [
+        "2026-07-11",
+        185
+      ],
+      [
+        "2026-07-10",
+        145
+      ],
+      [
+        "2026-07-14",
+        90
+      ],
+      [
+        "2026-07-05",
+        66
+      ],
+      [
+        "2026-07-18",
+        51
+      ],
+      [
+        "2026-07-08",
+        46
+      ],
+      [
+        "2026-07-16",
+        38
+      ],
+      [
+        "2026-07-13",
+        36
+      ],
+      [
+        "2026-07-19",
+        34
+      ],
+      [
+        "2026-07-06",
+        33
+      ],
+      [
+        "2026-07-12",
+        29
+      ],
+      [
+        "2026-07-01",
+        27
+      ],
+      [
+        "2026-07-15",
+        22
+      ],
+      [
+        "2026-07-09",
+        14
+      ],
+      [
+        "2026-07-02",
+        14
+      ],
+      [
+        "2026-07-17",
+        11
+      ]
+    ],
+    "surge_hours_threshold": "max(50, median*3)=50",
+    "surge_hours": [
+      [
+        "2026-06-19 06:00",
+        555
+      ],
+      [
+        "2026-06-18 21:00",
+        347
+      ],
+      [
+        "2026-06-18 20:00",
+        266
+      ],
+      [
+        "2026-06-21 07:00",
+        190
+      ],
+      [
+        "2026-06-19 08:00",
+        166
+      ],
+      [
+        "2026-07-11 01:00",
+        160
+      ],
+      [
+        "2026-06-19 05:00",
+        158
+      ],
+      [
+        "2026-06-21 08:00",
+        110
+      ],
+      [
+        "2026-06-18 22:00",
+        109
+      ],
+      [
+        "2026-06-20 15:00",
+        102
+      ],
+      [
+        "2026-07-14 22:00",
+        81
+      ],
+      [
+        "2026-06-19 09:00",
+        69
+      ],
+      [
+        "2026-06-21 00:00",
+        59
+      ],
+      [
+        "2026-06-20 14:00",
+        54
+      ],
+      [
+        "2026-06-20 16:00",
+        53
+      ],
+      [
+        "2026-07-10 02:00",
+        50
+      ]
+    ]
+  }
+}
