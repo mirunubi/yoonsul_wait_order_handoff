@@ -99,3 +99,4 @@ tools/missing_from_000005.txt
 tmp_cloud_backfill/
 tools/__pycache__/
 .claude/
+docs/directory_only_tree.txt
