@@ -189,13 +189,134 @@ TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
 
 **집계**: 본문 키워드 히트 137건 / A-1 등재 21건(문서 18 + 역전파 블록 3) / 단순 참조 제외 119건.
 
-**B. SQL 객체** — 미수행
+**B. SQL 객체**
 
-**C. 문서-SQL 일치** — 미수행
+**B-1. 라이브 DB 객체**
+
+| 종류 | 스키마 | 실명 | 비고 |
+|---|---|---|---|
+| TABLE | catchmenu_hq | franchise_brands | 24컬럼, RLS ENABLE+FORCE |
+| COLUMN | catchmenu_hq | franchise_brands.id | uuid, PK, default `gen_random_uuid()` |
+| COLUMN | catchmenu_hq | franchise_brands.tenant_id | uuid, NOT NULL, FK→tenants |
+| COLUMN | catchmenu_hq | franchise_brands.brand_code | text, NOT NULL |
+| COLUMN | catchmenu_hq | franchise_brands.brand_name | text, NOT NULL |
+| COLUMN | catchmenu_hq | franchise_brands.brand_type | text, NOT NULL, default `FRANCHISE` |
+| COLUMN | catchmenu_hq | franchise_brands.parent_brand_id | nullable self-FK |
+| COLUMN | catchmenu_hq | franchise_brands.brand_level | integer, default 1 |
+| COLUMN | catchmenu_hq | franchise_brands.hq_store_id | nullable FK→stores |
+| COLUMN | catchmenu_hq | franchise_brands.hq_contact_name/email/phone | text, nullable |
+| COLUMN | catchmenu_hq | franchise_brands.contract_start_date/end_date | date, nullable |
+| COLUMN | catchmenu_hq | franchise_brands.royalty_rate_pct | numeric, nullable |
+| COLUMN | catchmenu_hq | franchise_brands.brand_color/logo_url/guidelines_url | text, nullable |
+| COLUMN | catchmenu_hq | franchise_brands.shared_membership/shared_menu_template | boolean, default false |
+| COLUMN | catchmenu_hq | franchise_brands.active_store_count | integer, default 0 |
+| COLUMN | catchmenu_hq | franchise_brands.brand_status | text, default `ACTIVE` |
+| COLUMN | catchmenu_hq | franchise_brands.is_active | boolean, default true |
+| COLUMN | catchmenu_hq | franchise_brands.created_at/updated_at | timestamptz, default `now()` |
+| CHECK | catchmenu_hq | chk_brand_type | 허용값 `FRANCHISE` / `CHAIN` / `VIRTUAL_BRAND` / `LICENSE` |
+| CHECK | catchmenu_hq | chk_brand_status | 허용값 `ACTIVE` / `SUSPENDED` / `TERMINATED` / `PENDING` |
+| UNIQUE | catchmenu_hq | uq_brand_code | `(tenant_id, brand_code)` |
+| INDEX | catchmenu_hq | idx_brands_parent | `(parent_brand_id) WHERE parent_brand_id IS NOT NULL` |
+| INDEX | catchmenu_hq | idx_brands_tenant | `(tenant_id, brand_type) WHERE is_active=true` |
+| FUNCTION | catchmenu_hq | assign_store_to_brand | SECURITY DEFINER · `catchmenu_hq, catchmenu_ledger, catchmenu_common` |
+| FUNCTION | catchmenu_hq | bulk_policy_distribution | SECURITY DEFINER · `catchmenu_hq, catchmenu_common, catchmenu_ledger` |
+| FUNCTION | catchmenu_hq | create_franchise_brand | SECURITY DEFINER · `catchmenu_hq, catchmenu_ledger, catchmenu_audit, catchmenu_common` |
+| FUNCTION | catchmenu_hq | create_menu_template | SECURITY DEFINER · `catchmenu_hq, catchmenu_ledger, catchmenu_audit, catchmenu_common` |
+| FUNCTION | catchmenu_hq | get_franchise_admin_dashboard | SECURITY DEFINER · `catchmenu_hq, catchmenu_pos, catchmenu_payment, catchmenu_common` |
+| FUNCTION | catchmenu_hq | get_franchise_dashboard | SECURITY DEFINER · `catchmenu_hq, catchmenu_pos, catchmenu_payment, catchmenu_common` |
+| FUNCTION | catchmenu_hq | get_franchise_os_dashboard | SECURITY DEFINER · `catchmenu_hq, catchmenu_pos, catchmenu_payment, catchmenu_common` |
+| FUNCTION | catchmenu_hq | get_menu_compliance_report | SECURITY DEFINER · `catchmenu_hq, catchmenu_pos, catchmenu_common` |
+| FUNCTION | catchmenu_hq | get_policy_compliance_summary | SECURITY DEFINER · `catchmenu_hq, catchmenu_common` |
+| FUNCTION | catchmenu_hq | publish_franchise_policy | SECURITY DEFINER · `catchmenu_hq, catchmenu_ledger, catchmenu_audit, catchmenu_common` |
+| FUNCTION | catchmenu_hq | request_hq_approval | SECURITY DEFINER · `catchmenu_hq, catchmenu_ledger, catchmenu_common` |
+
+`franchise_brands`를 직접 참조하는 함수는 11개이며 전부 `SECURITY DEFINER`다.
+
+**B-2. migration 출처**
+
+| 객체 | migration 파일 | 라인 |
+|---|---|---:|
+| franchise_brands | `0085_create_franchise_os_foundation_rpc.sql` | L123 |
+| franchise_brands 인덱스 | `0085_create_franchise_os_foundation_rpc.sql` | L186, L190 |
+| franchise_brands RLS | `0085_create_franchise_os_foundation_rpc.sql` | L194, L196 |
+| 후속 정의/검증 | `0133_create_final_validation_package.sql` | L124, L140–148 |
+| create_franchise_brand | `0085_create_franchise_os_foundation_rpc.sql` | L654 |
+| assign_store_to_brand | `0085_create_franchise_os_foundation_rpc.sql` | L789 |
+
+**B-3. 라이브 DB ↔ migration 불일치**
+
+| 객체 | 라이브 | migration | 비고 |
+|---|---|---|---|
+| 조사된 Company 구조 객체 | 있음 | 있음 | 존재 여부 불일치 **없음** |
+
+**B-4. RLS / GRANT**
+
+| 테이블 | RLS | FORCE | 비-postgres GRANT |
+|---|---|---|---|
+| franchise_brands | true | true | 없음 |
+
+**B-5. SQL 대응물이 없는 문서 어휘**
+
+| 문서 어휘 | 출처(A-4) | SQL 대응물 | 비고 |
+|---|---|---|---|
+| companies | `000150` §26 (A-4 `business_unit`·`company` 계열) | 없음 | `franchise_brands`·`legal_entities`가 별도로 존재하나 Codex는 동일성 판단 안 함 |
+| business_units | `000150` §2 | 없음 | — |
+| merchant_companies | `000170` §6 (`merchant_company`) | 없음 | — |
+
+**C. 문서-SQL 일치**
+
+**C-1. 문서 어휘 ↔ SQL 객체 대응**
+
+| A-4 어휘 | 출처 문서 | SQL 객체 | 대응 상태 |
+|---|---|---|---|
+| company | `003020` §2 | `catchmenu_hq.franchise_brands` (후보) | 판정불가 — Codex 동일성 미판정, `601501` 매핑은 권위보류 |
+| merchant_company | `000170` §6 | 없음 | 미구현 |
+| platform company context | `000140` §23 | 없음 | 미구현 |
+| business_unit | `000150` §2 | 없음 | 미구현 |
+| legal_entity | `000150`, `003020` §2 | `catchmenu_hq.legal_entities` | 일치 |
+| operating_group | `003020` §2 | `catchmenu_hq.store_groups` | 이름다름 |
+| franchise_brands | `601501` §0.3–§0.4 | `catchmenu_hq.franchise_brands` | 일치 |
+| legal_entities | `601501` §0.3 | `catchmenu_hq.legal_entities` | 일치 |
+| store_groups | `601501` §0.5 | `catchmenu_hq.store_groups` | 일치 |
+
+**C-2. 문서 서술 ↔ SQL 실측 불일치**
+
+| # | 문서 서술 (출처 §) | SQL 실측 | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `000150` §26: `companies`/`business_units`가 "Actual schema may be designed later" | 두 이름의 테이블 모두 없음 | 문서가 예고한 스키마가 존재하지 않음 |
+| 2 | `600020` §1.1 사유 4: 1차 0-A가 `000150`/`000170`을 인용 0건 | SQL 실명은 `franchise_brands`·`legal_entities`이며 `companies`/`business_units`/`merchant_companies`와 접점 없음 | 원천 문서 어휘와 SQL 실명 사이에 대응 이력이 없다는 사실이 인용 0건과 정합 |
+| 3 | `003020` §2: company와 legal_entity는 병렬 축 | `franchise_brands.tenant_id`는 NOT NULL FK→tenants, `legal_entities`에는 tenant 계열 컬럼 없음 | 두 축의 tenant 종속성이 비대칭 |
+| 4 | `601501` §0.4: `hq_contact_*`가 사업자축에 중첩 | `franchise_brands.hq_contact_name/email/phone` 실재 | 문서 지적과 실측 부합 |
+| 5 | `003020` §2: company ≠ legal_entity | `chk_brand_type` 허용값은 `FRANCHISE`/`CHAIN`/`VIRTUAL_BRAND`/`LICENSE`, `chk_legal_entities_entity_type`은 `SOLE_PROPRIETOR`/`CORPORATION`/`PARTNERSHIP`/`NON_PROFIT` | 두 축의 분류 체계가 겹치지 않음 — 문서의 축 분리 서술과 부합 |
+
+**C-3. 문서에 없는 SQL 객체 (초과구현)**
+
+| SQL 객체 | 어느 문서에도 정의 없음 | 비고 |
+|---|---|---|
+| `franchise_brands.royalty_rate_pct` | 로열티율 | 계약 조건이 브랜드 테이블에 존재 |
+| `franchise_brands.contract_start_date/end_date` | 계약 기간 | 동상 |
+| `franchise_brands.shared_membership/shared_menu_template` | 공유 플래그 | |
+| `franchise_brands.parent_brand_id`, `brand_level` | 브랜드 계층 | A-4 어휘에 계층 개념 없음 |
+| `franchise_brands.active_store_count` | 집계 캐시 컬럼 | |
+| `franchise_brands.brand_color/logo_url/guidelines_url` | 브랜드 자산 | |
+| `chk_brand_type` 값 `CHAIN`/`VIRTUAL_BRAND`/`LICENSE` | 브랜드 유형 3종 | 문서에 유형 분류 없음 |
+| `chk_brand_status` 값 4종 | 브랜드 상태 축 | 문서에 브랜드 상태 축 없음 |
+| Company 참조 함수 11개 | 정책 배포·대시보드·승인 | 어느 A 문서에도 함수 계약 정의 없음 |
 
 **D. 로컬 실행 검증** — 미수행
 
+D단계 확인 항목:
+
+- `franchise_brands`가 `company` 축의 구현체인지 (C-1 판정불가 해소). 실제 행 데이터의 의미 확인 필요.
+- RLS ENABLE+FORCE 상태에서 비-postgres 접근이 실제로 차단되는지 (B-4 비-postgres GRANT 없음).
+- 11개 `SECURITY DEFINER` 함수가 실제 호출 시 성공하는지.
+
 **E. 호출자·권한 통합** — 미수행
+
+E단계 확인 항목:
+
+- 11개 함수의 실제 호출자가 존재하는지, 권한검사가 의도대로 작동하는지.
+- `franchise_brands.tenant_id`와 `legal_entities`의 tenant 비대칭(C-2 #3)이 런타임 격리에 미치는 영향.
 
 ---
 
@@ -270,7 +391,7 @@ TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
 | owner relationship | `000170` §2 scope | Merchant Account↔owner 관계 필드군 | |
 | legal_entity_representatives | `601501` §2.5 | 대표권의 유일한 진실원천 | 권위보류 |
 | ownership (economic) | `601501` §0.6 #1 | 지분 — 미모델링 Open Item | 권위보류 |
-| role_type OWNER | `601501` §0.6 | 조직 역할이며 economic ownership 아님 | 권위보류 |
+| role_type OWNER | `601501` §0.6 | 조직 역할이며 economic ownership 아님 | `TERM_COLLISION` — 테이블명 `owners`와 같은 단어이나 다른 개념. B단계 실측: `chk_lepr_role_type` 허용값에 `OWNER` 존재 (2026-08-11 추가) · 권위보류 |
 | ownership_percent | `601501` §2.3.1 | 사용 금지 — 소유권 모델 아님 | 권위보류 |
 
 **A-5. Contradictions**
@@ -304,13 +425,141 @@ TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
 **정정 기록**: Cursor 조사의 "권위보류 14건"은 감사·검증 산출물이 개념원천과 합산된 수치다.
 재분류 결과 SUSPENDED 15건 중 A-2는 `601501`·`601503` **2건**뿐이며, A-3이 8건, A-6이 5건이다.
 
-**B. SQL 객체** — 미수행
+**B. SQL 객체**
 
-**C. 문서-SQL 일치** — 미수행
+**B-1. 라이브 DB 객체**
+
+| 종류 | 스키마 | 실명 | 비고 |
+|---|---|---|---|
+| TABLE | catchmenu_hq | owners | 7컬럼, RLS ENABLE+FORCE |
+| TABLE | catchmenu_hq | legal_entities | 11컬럼, RLS ENABLE+FORCE |
+| TABLE | catchmenu_hq | legal_entity_person_roles | 10컬럼, RLS ENABLE+FORCE |
+| TABLE | catchmenu_hq | legal_entity_representatives | 9컬럼, RLS ENABLE+FORCE |
+| COLUMN | catchmenu_hq | owners.* | `id uuid PK`, `owner_name text NOT NULL`, `contact_phone_hash text NULL`, `contact_email text NULL`, `is_active boolean default true`, `created_at/updated_at timestamptz default now()` |
+| COLUMN | catchmenu_hq | legal_entities.* | `id uuid PK`, `entity_type text`, `legal_name text`, `business_registration_number text NULL`, `brn_normalized text GENERATED`, `corporate_registration_number text NULL`, `crn_normalized text GENERATED`, `tax_id text NULL`, `status text default ACTIVE`, `created_at/updated_at` |
+| COLUMN | catchmenu_hq | legal_entity_person_roles.* | `id uuid PK`, `legal_entity_id FK`, `owner_id FK`, `role_type text`, `ownership_percent numeric NULL`, `effective_from date default CURRENT_DATE`, `effective_to date NULL`, `is_active boolean default true`, `created_at/updated_at` |
+| COLUMN | catchmenu_hq | legal_entity_representatives.* | `id uuid PK`, `legal_entity_id FK`, `owner_id FK`, `representation_mode text`, `effective_from date default CURRENT_DATE`, `effective_to date NULL`, `is_active boolean default true`, `created_at/updated_at` |
+| CHECK | catchmenu_hq | chk_legal_entities_entity_type | 허용값 `SOLE_PROPRIETOR` / `CORPORATION` / `PARTNERSHIP` / `NON_PROFIT` |
+| CHECK | catchmenu_hq | chk_legal_entities_status | 허용값 `ACTIVE` / `SUSPENDED` / `CLOSED` |
+| CHECK | catchmenu_hq | chk_legal_entities_crn_not_for_sole | `entity_type <> 'SOLE_PROPRIETOR' OR corporate_registration_number IS NULL` |
+| CHECK | catchmenu_hq | chk_lepr_role_type | 허용값 `OWNER` / `REPRESENTATIVE` / `DIRECTOR` / `EXECUTIVE` / `INVESTOR` |
+| CHECK | catchmenu_hq | chk_lepr_ownership_percent | NULL 또는 `0 ≤ ownership_percent ≤ 100` |
+| CHECK | catchmenu_hq | chk_lepr_effective_range | `effective_to IS NULL OR effective_to >= effective_from` |
+| CHECK | catchmenu_hq | chk_ler_representation_mode | 허용값 `SOLE` / `JOINT` / `INDIVIDUAL` |
+| CHECK | catchmenu_hq | chk_ler_effective_range | `effective_to IS NULL OR effective_to >= effective_from` |
+| UNIQUE | catchmenu_hq | uq_legal_entities_brn_normalized | `(brn_normalized) WHERE brn_normalized IS NOT NULL` |
+| UNIQUE | catchmenu_hq | uq_legal_entities_crn_normalized | `(crn_normalized) WHERE crn_normalized IS NOT NULL` |
+| UNIQUE | catchmenu_hq | uq_lepr_active | `(legal_entity_id, owner_id, role_type) WHERE is_active=true` |
+| UNIQUE | catchmenu_hq | uq_ler_active | `(legal_entity_id, owner_id) WHERE is_active=true` |
+| UNIQUE | catchmenu_hq | uq_ler_sole_active | `(legal_entity_id) WHERE representation_mode='SOLE' AND is_active=true` |
+| FUNCTION | — | (없음) | 네 테이블을 직접 참조하는 라이브 함수 **0개** |
+
+**B-2. migration 출처**
+
+| 객체 | migration 파일 | 라인 |
+|---|---|---:|
+| legal_entities | `0168_create_operational_authority_foundation.sql` | L5 |
+| BRN partial UNIQUE | 동일 | L54–56 |
+| CRN partial UNIQUE | 동일 | L58–60 |
+| owners | 동일 | L62 |
+| legal_entity_person_roles | 동일 | L72 |
+| uq_lepr_active | 동일 | L104 |
+| legal_entity_representatives | 동일 | L119 |
+| uq_ler_active | 동일 | L140 |
+| RLS ENABLE/FORCE | 동일 | L210–224 |
+| uq_ler_sole_active | `0169_authority_owner_role_and_sole_representative_uniqueness.sql` | L5–8 |
+| catchmenu_authority_owner role | 동일 | L17 |
+| 네 테이블 GRANT | 동일 | L29–32 |
+
+**B-3. 라이브 DB ↔ migration 불일치**
+
+| 객체 | 라이브 | migration | 비고 |
+|---|---|---|---|
+| 네 테이블 | 있음 | 있음 | **없음** |
+| uq_ler_sole_active | 있음 | 있음 | **없음** |
+| catchmenu_authority_owner GRANT | 있음 | 있음 | **없음** |
+| Owner 관련 함수 | 0개 | `0168`/`0169`에 생성 없음 | **없음** |
+
+**B-4. RLS / GRANT**
+
+| 테이블 | RLS | FORCE | 비-postgres GRANT |
+|---|---|---|---|
+| owners | true | true | `catchmenu_authority_owner`: SELECT/INSERT/UPDATE/DELETE |
+| legal_entities | true | true | `catchmenu_authority_owner`: SELECT/INSERT/UPDATE/DELETE |
+| legal_entity_person_roles | true | true | `catchmenu_authority_owner`: SELECT/INSERT/UPDATE/DELETE |
+| legal_entity_representatives | true | true | `catchmenu_authority_owner`: SELECT/INSERT/UPDATE/DELETE |
+
+총 16개 grant 행이며 전부 `is_grantable=NO`. `catchmenu_authority_owner`는 `nologin` + `bypassrls`(`0169` L17–19)이며 `postgres`에 부여됨(`0169` L35).
+
+**B-5. SQL 대응물이 없는 문서 어휘**
+
+| 문서 어휘 | 출처(A-4) | SQL 대응물 | 비고 |
+|---|---|---|---|
+| persons | A-4 미등재 (Codex B단계에서 후보로 제시) | 없음 | `owners`가 존재하나 Codex는 동일성 판단 안 함 |
+| primary_owner_user_id | `000170` §4 | 없음 | `tenants` 10컬럼에 해당 컬럼 없음 |
+| runtime owner | `005121` §3 | 없음 | 책임 매트릭스 개념이며 SQL 대응물 성격 아님 |
+| store_owner | `007010` §3 | 없음 | |
+| Document Owner (metadata) | 다수 Readme | 없음 | 문서 메타필드 |
+
+**C. 문서-SQL 일치**
+
+**C-1. 문서 어휘 ↔ SQL 객체 대응**
+
+| A-4 어휘 | 출처 문서 | SQL 객체 | 대응 상태 |
+|---|---|---|---|
+| owners (table) | `601501` §2.4.1 | `catchmenu_hq.owners` | 일치 |
+| legal_entity_representatives | `601501` §2.5 | `catchmenu_hq.legal_entity_representatives` | 일치 |
+| role_type OWNER | `601501` §0.6 | `chk_lepr_role_type` 허용값 `OWNER` | 일치 |
+| ownership_percent | `601501` §2.3.1 | `legal_entity_person_roles.ownership_percent` + `chk_lepr_ownership_percent` | 초과구현 — 문서는 "사용 금지" 상태로 서술 |
+| ownership (economic) | `601501` §0.6 #1 | `legal_entity_person_roles.ownership_percent` | 초과구현 — 문서는 "미모델링 Open Item" |
+| primary_owner_user_id | `000170` §4 | 없음 | 미구현 |
+| owner relationship | `000170` §2 | 없음 | 미구현 |
+| runtime owner | `005121` §3 | 없음 | 미구현 |
+| store_owner | `007010` §3 | 없음 | 미구현 |
+| Document Owner (metadata) | 다수 Readme | 없음 | 미구현 |
+| persons | A-4 미등재 (Codex B-5) | 없음 | 미구현 |
+
+**C-2. 문서 서술 ↔ SQL 실측 불일치**
+
+| # | 문서 서술 (출처 §) | SQL 실측 | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `601512` §2.3: 접근은 postgres 소유 `SECURITY DEFINER` 함수 경유만 | 네 테이블 참조 함수 **0개**. 비-postgres GRANT는 `catchmenu_authority_owner` 하나뿐 | 서술된 접근 경로가 SQL에 존재하지 않음. 의도적 미구현인지 미완인지는 **판정하지 않음** |
+| 2 | `601501` §2.3.1: `ownership_percent` 사용 금지 | `ownership_percent numeric(5,2)` 및 `chk_lepr_ownership_percent`(0~100) 실재 | 금지 서술과 컬럼·제약 존재가 공존 |
+| 3 | `601501` §0.6: `role_type` `OWNER`는 조직 역할이며 economic ownership 아님 | `chk_lepr_role_type`에 `OWNER` 존재. 동일 테이블에 `ownership_percent` 공존 | 역할 축과 지분 축이 같은 테이블에 함께 존재 |
+| 4 | `0168` L210–225: RLS ENABLE+FORCE 선언. `0168` 헤더 L3은 "No RPC rewrites, data promotion, grants, or RLS policies" | RLS true / FORCE true이나 **정책 0개**. 유일한 비-postgres GRANT 대상 `catchmenu_authority_owner`는 `bypassrls` | 정책 없는 FORCE RLS와 `bypassrls` 역할의 조합이 실제로 어떤 접근 결과를 내는지 **미확인** |
+| 5 | `601510`: Owner ≠ Representative ≠ shareholder 구분 필요 | `owners` / `legal_entity_representatives` / `role_type` / `ownership_percent`로 분리 존재 | 분리 구조는 있으나 shareholder 축은 컬럼 1개뿐이며 그 컬럼이 §2.3.1에서 사용 금지 |
+| 6 | `601501` §2.5: 대표권의 유일한 진실원천 | `uq_ler_sole_active` = `(legal_entity_id) WHERE representation_mode='SOLE' AND is_active=true` | SOLE 유일성만 제약. `JOINT`/`INDIVIDUAL`은 `uq_ler_active`로 (법인, 사람) 쌍만 제한 |
+
+**C-3. 문서에 없는 SQL 객체 (초과구현)**
+
+| SQL 객체 | 어느 문서에도 정의 없음 | 비고 |
+|---|---|---|
+| `legal_entities.tax_id` | 세무 식별자 | A 문서 어휘에 없음 |
+| `legal_entities.brn_normalized` / `crn_normalized` | 정규화 생성 컬럼 | GENERATED ALWAYS STORED |
+| `chk_legal_entities_crn_not_for_sole` | 개인사업자 법인등록번호 금지 규칙 | 업무규칙이나 문서 선언 없음 |
+| `chk_legal_entities_status` 값 3종 | 법인 상태 축 | 문서에 법인 상태 축 없음 |
+| `role_type` 값 `DIRECTOR` / `EXECUTIVE` / `INVESTOR` | 조직 역할 3종 | 문서는 OWNER/REPRESENTATIVE만 언급 |
+| `representation_mode` 값 `JOINT` / `INDIVIDUAL` | 대표 유형 2종 | 문서는 SOLE 유일성만 서술 |
+| `owners.contact_phone_hash` / `contact_email` | 연락처 | 개인정보 취급 규칙 미기술 |
+| `effective_from` / `effective_to` 시간 경계 | 역할·대표권 유효기간 | 문서에 시간 축 서술 없음 |
+| `catchmenu_authority_owner` 역할 | DB 역할 | `nologin` + `bypassrls` |
 
 **D. 로컬 실행 검증** — 미수행
 
+D단계 확인 항목:
+
+- 정책 0개 + FORCE RLS + `bypassrls` 역할 조합에서 실제 SELECT/INSERT가 누구에게 성공하는지 (C-2 #4).
+- `ownership_percent`에 실제 값이 들어 있는지, 사용 금지 서술이 데이터로도 지켜졌는지 (C-2 #2).
+- `uq_ler_sole_active` 위반 시도가 실제로 거부되는지 (C-2 #6).
+- `role_type` 5종·`representation_mode` 3종 중 실제로 사용된 값 분포 (C-3).
+
 **E. 호출자·권한 통합** — 미수행
+
+E단계 확인 항목:
+
+- 함수 0개 상태에서 애플리케이션이 네 테이블에 어떤 경로로 접근하는지, 또는 접근하지 않는지 (C-2 #1).
+- `catchmenu_authority_owner`를 실제로 사용하는 주체가 있는지 (`nologin`이므로 `SET ROLE` 경유 여부).
+- `601512` §2.3이 서술한 함수 경유 접근이 구현 예정인지 폐기됐는지 — 1단계 Human 결정 대상.
 
 ---
 
@@ -416,13 +665,131 @@ TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
 
 **집계**: 본문 키워드 히트 704건 / A-1 등재 22건 / 단순 참조 제외 684건.
 
-**B. SQL 객체** — 미수행
+**B. SQL 객체**
 
-**C. 문서-SQL 일치** — 미수행
+**B-1. 라이브 DB 객체**
+
+| 종류 | 스키마 | 실명 | 비고 |
+|---|---|---|---|
+| TABLE | catchmenu_hq | tenants | 10컬럼, RLS ENABLE+FORCE |
+| COLUMN | catchmenu_hq | tenants.id | uuid PK, default `gen_random_uuid()` |
+| COLUMN | catchmenu_hq | tenants.tenant_code | text NOT NULL, UNIQUE |
+| COLUMN | catchmenu_hq | tenants.tenant_name | text NOT NULL |
+| COLUMN | catchmenu_hq | tenants.tenant_type | text NOT NULL, default `BRAND` |
+| COLUMN | catchmenu_hq | tenants.plan_tier | text NOT NULL, default `STANDARD` |
+| COLUMN | catchmenu_hq | tenants.is_active | boolean NOT NULL, default true |
+| COLUMN | catchmenu_hq | tenants.created_at/updated_at | timestamptz NOT NULL, default `now()` |
+| COLUMN | catchmenu_hq | tenants.tenant_status | text NOT NULL, default `TRIAL` |
+| COLUMN | catchmenu_hq | tenants.isolation_state | text NOT NULL, default `NONE` |
+| CHECK | catchmenu_hq | chk_tenants_type | 허용값 `BRAND` / `FRANCHISE` / `INDEPENDENT` / `TEST` |
+| CHECK | catchmenu_hq | chk_tenants_plan | 허용값 `LITE` / `STANDARD` / `PRO` / `ENTERPRISE` |
+| CHECK | catchmenu_hq | chk_tenants_status | 허용값 `ACTIVE` / `TRIAL` / `SUSPENDED` / `CANCELLED` / `TERMINATED` |
+| CHECK | catchmenu_hq | chk_tenants_isolation_state | 허용값 `NONE` / `ISOLATED` |
+| FUNCTION | catchmenu_audit | run_isolation_audit | SECURITY DEFINER · `catchmenu_audit, catchmenu_common, catchmenu_hq, catchmenu_pos, catchmenu_payment, catchmenu_kds, catchmenu_store, catchmenu_ledger` |
+| FUNCTION | catchmenu_common | get_hq_dashboard | SECURITY DEFINER · `catchmenu_common, catchmenu_hq` |
+| FUNCTION | catchmenu_common | get_saas_revenue_report | SECURITY DEFINER · `catchmenu_common, catchmenu_hq` |
+| FUNCTION | catchmenu_common | get_store_bootstrap | SECURITY DEFINER · `catchmenu_common, catchmenu_hq, catchmenu_store, catchmenu_pos, catchmenu_kds, catchmenu_agent, catchmenu_ledger` |
+| FUNCTION | catchmenu_common | get_system_health_all | SECURITY DEFINER · `catchmenu_common, catchmenu_hq` |
+| FUNCTION | catchmenu_common | get_tenant_list | SECURITY DEFINER · `catchmenu_common, catchmenu_hq` |
+| FUNCTION | catchmenu_common | isolate_tenant | SECURITY DEFINER · `catchmenu_common, catchmenu_hq, catchmenu_ledger, catchmenu_audit` |
+| FUNCTION | catchmenu_common | manage_subscription | SECURITY DEFINER · `catchmenu_common, catchmenu_hq, catchmenu_ledger` |
+| FUNCTION | catchmenu_common | onboard_tenant | SECURITY DEFINER · `catchmenu_common, catchmenu_hq, catchmenu_store` |
+| FUNCTION | catchmenu_common | provision_tenant | SECURITY DEFINER · `catchmenu_common, catchmenu_hq, catchmenu_store, catchmenu_ledger` |
+
+`catchmenu_hq.tenants`를 직접 참조하는 함수는 10개이며 전부 `SECURITY DEFINER`다.
+
+**B-2. migration 출처**
+
+| 객체 | migration 파일 | 라인 |
+|---|---|---:|
+| tenants | `0002_create_hq_tenant_store.sql` | L8 |
+| 초기 제약/트리거 | 동일 | L8–39 |
+| RLS ENABLE/FORCE | `0021_enable_rls.sql` | L10–12 |
+| tenant_status | `0168_create_operational_authority_foundation.sql` | L151–152 |
+| isolation_state | 동일 | L154–155 |
+| 상태 CHECK | 동일 | L165–190 |
+| provision_tenant | `0082_create_saas_billing_rpc.sql` | L426 |
+| get_tenant_health | `0090_create_multitenant_isolation_rpc.sql` | L1097 |
+| isolate_tenant | 동일 | L1257 |
+| get_hq_dashboard | `0112_create_hq_admin_rpc.sql` | L75 |
+| get_tenant_list | 동일 | L247 |
+| onboard_tenant | 동일 | L374 |
+| manage_subscription | 동일 | L507 |
+
+**B-3. 라이브 DB ↔ migration 불일치**
+
+| 객체 | 라이브 | migration | 비고 |
+|---|---|---|---|
+| tenants 구조 | 있음 | 있음 | 존재 여부 불일치 **없음** |
+| tenant_status / isolation_state | 있음 | `0168`에 있음 | **없음** |
+| 위 10개 함수 | 있음 | 선언/후속 정의 존재 | 존재 여부 불일치 **없음** |
+
+**B-4. RLS / GRANT**
+
+| 테이블 | RLS | FORCE | 비-postgres GRANT |
+|---|---|---|---|
+| tenants | true | true | 없음 |
+
+**B-5. SQL 대응물이 없는 문서 어휘**
+
+| 문서 어휘 | 출처(A-4) | SQL 대응물 | 비고 |
+|---|---|---|---|
+| merchant_accounts | `000170` §4 (`merchant_account`) | 없음 | `tenants`가 존재하나 Codex는 동일성 판단 안 함 |
+| service_status | `000170` §4 | 없음 | `tenants` 10컬럼에 없음 |
+| trial_status | `000170` §4 | 없음 | `tenant_status`의 값 `TRIAL`은 존재하나 별도 컬럼 아님 |
+
+**C. 문서-SQL 일치**
+
+**C-1. 문서 어휘 ↔ SQL 객체 대응**
+
+| A-4 어휘 | 출처 문서 | SQL 객체 | 대응 상태 |
+|---|---|---|---|
+| tenant | `003020` §2 | `catchmenu_hq.tenants` | 일치 |
+| tenants (table) | `601501` §0.2 | `catchmenu_hq.tenants` | 일치 |
+| tenant_id | `010004` §4 | `franchise_brands.tenant_id`, `stores.tenant_id`, `store_groups.tenant_id`, `store_group_members.tenant_id` | 일치 |
+| tenant_status | `601501` §3 | `tenants.tenant_status` + `chk_tenants_status` | 일치 |
+| isolation_state | `601501` §3 | `tenants.isolation_state` + `chk_tenants_isolation_state` | 일치 |
+| multi-tenant | `010004` §2 | 조사된 9테이블 전부 RLS ENABLE+FORCE | 일치 |
+| merchant_account | `000170` §4 | `catchmenu_hq.tenants` (후보) | 이름다름 |
+| service_status | `000170` §4 | 없음 | 미구현 |
+| trial_status | `000170` §4 | `tenants.tenant_status` 값 `TRIAL` | 이름다름 |
+
+**C-2. 문서 서술 ↔ SQL 실측 불일치**
+
+| # | 문서 서술 (출처 §) | SQL 실측 | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `000170` §4: `service_status`·`trial_status`를 merchant_account의 권장 필드로 기술 | 두 컬럼 없음. `TRIAL`은 `tenant_status`의 허용값 중 하나 | 문서는 독립 상태 축 2개, SQL은 단일 컬럼의 값 |
+| 2 | `003020` §2: tenant 최상위 / `000170` §4: merchant_account 최상위 | SQL 최상위는 `tenants`. `merchant_accounts` 없음 | 두 문서 명칭 중 하나만 SQL에 존재. **어느 쪽이 옳은지는 판정하지 않음** |
+| 3 | `601501` §3: `tenant_status`와 `isolation_state`는 직교 | 두 컬럼 모두 NOT NULL + 독립 CHECK | 문서 서술과 실측 부합 |
+| 4 | `010004` §4: tenant-owned 객체는 `tenant_id` 필수 | `legal_entities`·`owners`·`legal_entity_person_roles`·`legal_entity_representatives`에 `tenant_id` 없음 | `601601` §4.2가 지적한 "모든 객체" 오독 지점과 동일 위치 |
+| 5 | `000170` §4: merchant_account에 owner 관계 필드군 | `tenants` 10컬럼에 owner 계열 컬럼 없음 | 문서 필드군이 SQL에 부재 |
+| 6 | `010004` §2: multi-tenant 격리 | `tenants` RLS true/FORCE true, 비-postgres GRANT 없음, 참조 함수 10개 전부 SECURITY DEFINER | 접근이 실제로 함수 경유로만 이뤄지는지 **미확인** |
+
+**C-3. 문서에 없는 SQL 객체 (초과구현)**
+
+| SQL 객체 | 어느 문서에도 정의 없음 | 비고 |
+|---|---|---|
+| `tenants.tenant_type` + `chk_tenants_type` 4종 | tenant 유형 축 | A-4 어휘에 tenant 유형 개념 없음 |
+| `tenants.plan_tier` + `chk_tenants_plan` 4종 | 요금제 등급 축 | `003010` §3은 package를 tenant-level로만 서술 |
+| `tenants.tenant_code` UNIQUE | 테넌트 코드 | |
+| `tenants.is_active` | `tenant_status`와 별개의 활성 플래그 | 상태 축 중복 가능성 |
+| 참조 함수 10개 | 프로비저닝·격리·구독관리·대시보드 | 어느 A 문서에도 함수 계약 정의 없음 |
 
 **D. 로컬 실행 검증** — 미수행
 
+D단계 확인 항목:
+
+- `tenants.is_active`와 `tenant_status`가 실제 데이터에서 어떤 관계인지 (C-3, 상태 축 중복 가능성).
+- `isolate_tenant` 호출이 `isolation_state`를 실제로 변경하는지 (C-2 #3).
+- 전역 4테이블에 `tenant_id`가 없는 상태에서 cross-tenant 조회가 실제로 발생 가능한지 (C-2 #4).
+
 **E. 호출자·권한 통합** — 미수행
+
+E단계 확인 항목:
+
+- 10개 함수의 실제 호출자와 권한검사 경로.
+- 비-postgres GRANT가 없는 상태에서 애플리케이션이 `tenants`를 어떻게 읽는지 (C-2 #6).
+- `merchant_account` 어휘를 쓰는 문서(`000170`)가 실제 런타임 어느 지점을 가리키는지 — 1단계 Human 결정 대상.
 
 ---
 
@@ -498,13 +865,121 @@ HQ는 본문과 DB 스키마명(`catchmenu_hq`)으로만 등장한다. 이 사�
 
 **집계**: 본문 키워드 히트 375건 / A-1 등재 7건 / 단순 참조 제외 367건.
 
-**B. SQL 객체** — 미수행
+**B. SQL 객체**
 
-**C. 문서-SQL 일치** — 미수행
+**B-1. 라이브 DB 객체**
+
+| 종류 | 스키마 | 실명 | 비고 |
+|---|---|---|---|
+| SCHEMA | — | catchmenu_hq | 존재 |
+| TABLE | catchmenu_hq | store_groups | 16컬럼, RLS ENABLE+FORCE |
+| TABLE | catchmenu_hq | store_group_members | 10컬럼, RLS ENABLE+FORCE |
+| COLUMN | catchmenu_hq | store_groups.* | `id`, `tenant_id`, `group_code`, `group_name`, `group_type`, `parent_group_id`, `depth`, `group_manager_id`, `group_manager_name`, `shared_menu_enabled`, `shared_inventory_enabled`, `cross_store_transfer_enabled`, `performance_metric`, `is_active`, `created_at`, `updated_at` |
+| COLUMN | catchmenu_hq | store_group_members.* | `id`, `tenant_id`, `group_id`, `store_id`, `member_role`, `joined_at`, `joined_by`, `is_active`, `created_at`, `updated_at` |
+| CHECK | catchmenu_hq | chk_group_type | 허용값 `REGION` / `BRAND` / `FRANCHISE` / `DISTRICT` / `CUSTOM` |
+| CHECK | catchmenu_hq | chk_performance_metric | 허용값 `REVENUE` / `ORDER_COUNT` / `CUSTOMER_COUNT` / `PROFIT` |
+| CHECK | catchmenu_hq | chk_member_role | 허용값 `LEADER` / `MEMBER` / `HQ` |
+| UNIQUE | catchmenu_hq | uq_store_group_code | `(tenant_id, group_code)` |
+| UNIQUE | catchmenu_hq | uq_group_member | `(group_id, store_id)` |
+| FUNCTION | catchmenu_hq | (38개) | `add_compliance_check_item`만 SECURITY INVOKER · `proconfig=NULL`. 나머지 37개는 SECURITY DEFINER이며 각 함수에 명시적 `search_path` 존재 |
+| FUNCTION | catchmenu_common | get_hq_dashboard | SECURITY DEFINER |
+| FUNCTION | catchmenu_store | get_multistore_inventory, request_stock_transfer | SECURITY DEFINER |
+| FUNCTION | extensions / graphql_public | grant_pg_graphql_access, set_graphql_placeholder, graphql | 이름에 `hq`가 포함된 extension/graphql 보조 함수 3개 |
+
+HQ 함수 분류 결과 총 **44개**.
+`catchmenu_hq` 스키마 38개 실명: `add_compliance_check_item`, `apply_menu_template`, `apply_policy_to_stores`, `assign_store_to_brand`, `broadcast_brand_cms`, `broadcast_hq_notice`, `bulk_policy_distribution`, `compare_store_performance`, `compare_store_revenue`, `create_franchise_brand`, `create_franchise_policy`, `create_franchise_store`, `create_menu_template`, `create_store_group`, `detect_policy_violations`, `distribute_menu_template`, `distribute_menu_to_stores`, `escalate_violation`, `get_brand_store_overview`, `get_franchise_admin_dashboard`, `get_franchise_compliance_report`, `get_franchise_dashboard`(overload 2), `get_franchise_os_dashboard`, `get_franchise_settlement_report`, `get_menu_compliance_report`, `get_policy_compliance_summary`, `get_store_group_dashboard`, `process_hq_approval`, `publish_franchise_policy`, `request_hq_approval`, `request_menu_override`, `rollback_policy`, `run_compliance_check`(overload 2), `send_hq_notice`, `set_kpi_targets`, `sync_hq_menu_template`.
+
+**B-2. migration 출처**
+
+| 객체 | migration 파일 | 라인 |
+|---|---|---:|
+| catchmenu_hq schema | 선행 schema migration | SQL 검색에서 다수 사용 확인 (단일 출처 미특정) |
+| store_groups | `0077_create_multistore_rpc.sql` | L26 |
+| store_groups 인덱스 | 동일 | L80, L84 |
+| store_groups RLS | 동일 | L88–90 |
+| store_group_members | 동일 | L127 |
+| store_group_members 인덱스 | 동일 | L158, L162 |
+| store_group_members RLS | 동일 | L166–168 |
+| create_store_group | 동일 | L363 |
+| get_store_group_dashboard | 동일 | L501 |
+
+**B-3. 라이브 DB ↔ migration 불일치**
+
+| 객체 | 라이브 | migration | 비고 |
+|---|---|---|---|
+| catchmenu_hq schema | 있음 | 있음 | **없음** |
+| store_groups | 있음 | 있음 | **없음** |
+| store_group_members | 있음 | 있음 | **없음** |
+| 조사된 HQ 함수 | 있음 | 관련 migration 정의 있음 | 존재 여부 불일치 **없음** |
+
+**B-4. RLS / GRANT**
+
+| 테이블 | RLS | FORCE | 비-postgres GRANT |
+|---|---|---|---|
+| store_groups | true | true | 없음 |
+| store_group_members | true | true | 없음 |
+
+**B-5. SQL 대응물이 없는 문서 어휘**
+
+| 문서 어휘 | 출처(A-4) | SQL 대응물 | 비고 |
+|---|---|---|---|
+| HQ라는 단일 테이블 | Codex B단계 후보 | 없음 | `catchmenu_hq` 스키마와 HQ 관련 복수 테이블이 존재 |
+| CatchMenu HQ | `000140` §23, `000150` | 없음 | administrative surface/UI 개념 |
+| 본사 | `900160` 등 patent 대역 | 없음 | franchise operations 권한 개념 |
+| franchise_hq | `014016` | 없음 | |
+
+**C. 문서-SQL 일치**
+
+**C-1. 문서 어휘 ↔ SQL 객체 대응**
+
+| A-4 어휘 | 출처 문서 | SQL 객체 | 대응 상태 |
+|---|---|---|---|
+| HQ | `601501` §0.2 #7 | SCHEMA `catchmenu_hq` | 일치 |
+| catchmenu_hq | `601311`, `601501` §2.7 | SCHEMA `catchmenu_hq` | 일치 |
+| member_role HQ | `601501` ERD | `chk_member_role` 허용값 `HQ` | 일치 |
+| hq_contact_* | `601501` §0.4 | `franchise_brands.hq_contact_name/email/phone` | 일치 |
+| CatchMenu HQ | `000140` §23, `000150` | 없음 | 미구현 |
+| 본사 | `900160` 등 | 없음 | 미구현 |
+| franchise_hq | `014016` | 없음 | 미구현 |
+
+**C-2. 문서 서술 ↔ SQL 실측 불일치**
+
+| # | 문서 서술 (출처 §) | SQL 실측 | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `601501` §0.2 #7: HQ = `catchmenu_hq` 스키마 자체, 변경 없음 | 스키마 존재. 그 아래 HQ 관련 함수 44개, `store_groups`·`store_group_members` 2테이블 존재 | "HQ = 스키마"라는 단일 정의로는 44개 함수와 2테이블의 소속·경계를 설명하지 않음 |
+| 2 | A단계 결과: HQ가 스키마 / admin UI / 프랜차이즈 본사 3갈래 | SQL에 존재하는 것은 `catchmenu_hq` 스키마 1개뿐 | 3갈래 중 2갈래는 SQL 대응물 없음 |
+| 3 | `601501` §0.5: 0-A에서 `store_groups`는 `group_type='REGION'`만 사용 | `chk_group_type` 허용값은 `REGION`/`BRAND`/`FRANCHISE`/`DISTRICT`/`CUSTOM` 5종 | 문서가 서술한 사용 범위와 제약이 허용하는 범위가 다름 |
+| 4 | `601501` §2.7: `catchmenu_hq`는 PostgREST 미노출 | Codex 조사에 노출 여부 항목 없음 | **미확인** |
+| 5 | `601501`: HQ 변경 없음 | `franchise_brands.hq_contact_*`, `store_group_members.member_role='HQ'`, `franchise_brands.hq_store_id` 존재 | HQ 개념이 스키마명 외에 컬럼·값 형태로 3곳에 분산 존재 |
+
+**C-3. 문서에 없는 SQL 객체 (초과구현)**
+
+| SQL 객체 | 어느 문서에도 정의 없음 | 비고 |
+|---|---|---|
+| `store_groups.depth`, `parent_group_id` | 그룹 계층 | A-4 어휘에 계층 개념 없음 |
+| `store_groups.group_manager_id/name` | 그룹 관리자 | 권한 축과의 관계 미기술 |
+| `store_groups.shared_menu_enabled` / `shared_inventory_enabled` / `cross_store_transfer_enabled` | 그룹 공유 플래그 3종 | |
+| `chk_performance_metric` 4종 | 성과 지표 축 | |
+| `chk_group_type` 값 `BRAND`/`FRANCHISE`/`DISTRICT`/`CUSTOM` | 그룹 유형 4종 | `601501`은 REGION만 서술 |
+| `store_group_members.joined_by`, `joined_at` | 가입 이력 | |
+| HQ 함수 44개 | 정책 배포·컴플라이언스·승인·공지·KPI | 어느 A 문서에도 함수 계약 정의 없음 |
+| `catchmenu_hq.add_compliance_check_item` | 유일한 SECURITY INVOKER 함수 (`proconfig=NULL`) | 나머지 37개와 보안 속성이 다름 |
 
 **D. 로컬 실행 검증** — 미수행
 
+D단계 확인 항목:
+
+- `catchmenu_hq`의 PostgREST 노출 여부 (C-2 #4, 현재 미확인).
+- `add_compliance_check_item`이 SECURITY INVOKER·`search_path` 미설정 상태에서 실제로 어떻게 동작하는지 (C-3).
+- `store_groups.group_type`에 실제로 사용된 값 분포 — REGION 외 값이 쓰이는지 (C-2 #3).
+
 **E. 호출자·권한 통합** — 미수행
+
+E단계 확인 항목:
+
+- HQ 함수 44개의 실제 호출자와 권한검사 경로.
+- `member_role='HQ'`가 실제 권한 판정에 쓰이는지, 단순 라벨인지.
+- HQ 3갈래(스키마·admin UI·프랜차이즈 본사) 중 무엇을 이 프로젝트의 HQ로 삼을지 — 1단계 Human 결정 대상 (C-2 #2).
 
 ---
 
@@ -605,13 +1080,149 @@ HQ는 본문과 DB 스키마명(`catchmenu_hq`)으로만 등장한다. 이 사�
 
 **집계**: 본문 키워드 히트 1,212건 / A-1 등재 19건 / 단순 참조 제외 1,194건.
 
-**B. SQL 객체** — 미수행
+**B. SQL 객체**
 
-**C. 문서-SQL 일치** — 미수행
+**B-1. 라이브 DB 객체**
+
+| 종류 | 스키마 | 실명 | 비고 |
+|---|---|---|---|
+| TABLE | catchmenu_hq | stores | 16컬럼, RLS ENABLE+FORCE |
+| COLUMN | catchmenu_hq | stores.id | uuid PK, default `gen_random_uuid()` |
+| COLUMN | catchmenu_hq | stores.tenant_id | uuid NOT NULL, FK→tenants |
+| COLUMN | catchmenu_hq | stores.store_code | text NOT NULL |
+| COLUMN | catchmenu_hq | stores.store_name | text NOT NULL |
+| COLUMN | catchmenu_hq | stores.store_type | text NOT NULL, default `DINE_IN` |
+| COLUMN | catchmenu_hq | stores.store_status | text NOT NULL, default `PREPARING` |
+| COLUMN | catchmenu_hq | stores.address/phone | text nullable |
+| COLUMN | catchmenu_hq | stores.timezone | text NOT NULL, default `Asia/Seoul` |
+| COLUMN | catchmenu_hq | stores.business_hours | jsonb nullable |
+| COLUMN | catchmenu_hq | stores.is_active | boolean default true |
+| COLUMN | catchmenu_hq | stores.opened_on/closed_on | date nullable |
+| COLUMN | catchmenu_hq | stores.created_at/updated_at | timestamptz default `now()` |
+| COLUMN | catchmenu_hq | stores.legal_entity_id | uuid nullable, FK→legal_entities |
+| CHECK | catchmenu_hq | chk_stores_type | 허용값 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY` |
+| CHECK | catchmenu_hq | chk_stores_status | 허용값 `PREPARING` / `ACTIVE` / `SUSPENDED` / `CLOSED` |
+| CHECK | catchmenu_hq | chk_stores_hours_object | NULL 또는 `jsonb_typeof(business_hours)='object'` |
+| UNIQUE | catchmenu_hq | uq_stores_tenant_code | `(tenant_id, store_code)` |
+| INDEX | catchmenu_hq | idx_stores_tenant_id | `(tenant_id)` |
+| INDEX | catchmenu_hq | idx_stores_tenant_status | `(tenant_id, store_status) WHERE is_active=true` |
+| INDEX | catchmenu_hq | idx_stores_legal_entity_id | `(legal_entity_id) WHERE legal_entity_id IS NOT NULL` |
+| FK | catchmenu_hq | fk_stores_legal_entity_id | `stores.legal_entity_id` → `legal_entities.id` |
+| FUNCTION | (8개 스키마) | `catchmenu_hq.stores` 직접 참조 함수 **151개** | 전부 SECURITY DEFINER. 각 함수에 명시적 `search_path` 존재. **라이브 카탈로그 기준이며 migration 텍스트로는 검증 불가** — 전수 나열은 생략하고 아래 스키마별 집계로 대신함 |
+
+스키마별 집계 (대상별 중복 집계 포함):
+
+| 스키마 | 함수 수 |
+|---|---:|
+| catchmenu_agent | 3 |
+| catchmenu_audit | 2 |
+| catchmenu_common | 18 |
+| catchmenu_hq | 21 |
+| catchmenu_integrations | 17 |
+| catchmenu_payment | 8 |
+| catchmenu_pos | 19 |
+| catchmenu_store | 46 |
+| 기타 관련 스키마 | 17 |
+| **합계** | **151** |
+
+대표 실명 패턴: `bootstrap_*`, `create_*order*`, `get_*store*`, `open_store`, `close_store`, `register_*`, `update_*` 및 결제·정산·배달·POS 계열 함수.
+**전수 나열 생략**: 151개 전건 실명은 본 등록부에 기재하지 않는다. 필요 시 D/E 단계에서 대상을 좁혀 재조회한다.
+
+**B-2. migration 출처**
+
+| 객체 | migration 파일 | 라인 |
+|---|---|---:|
+| stores | `0002_create_hq_tenant_store.sql` | L43 |
+| 초기 인덱스 | 동일 | L78, L81 |
+| RLS ENABLE/FORCE | `0021_enable_rls.sql` | L15–17 |
+| stores.legal_entity_id | `0168_create_operational_authority_foundation.sql` | L157–158 |
+| FK 제약 | 동일 | L195–201 |
+| legal_entity_id 인덱스 | 동일 | L206–208 |
+| get_store_bootstrap | `0024_create_store_bootstrap_rpc.sql` | L10 |
+| create_franchise_store | `0060_create_franchise_hq_rpc.sql` | L166 |
+| get_store_settings | `0049_create_store_settings_rpc.sql` | L158 |
+
+`stores`를 참조하는 함수는 다수 RPC migration에 분산되어 있으며, `0024`부터 `0159`까지 선언·후속 패치가 존재한다.
+
+**B-3. 라이브 DB ↔ migration 불일치**
+
+| 객체 | 라이브 | migration | 비고 |
+|---|---|---|---|
+| stores 구조 | 있음 | 있음 | 존재 여부 불일치 **없음** |
+| legal_entity_id / FK / 인덱스 | 있음 | `0168`에 있음 | **없음** |
+| 직접 참조 함수 | 151개 | 관련 RPC migration들에 정의/패치 존재 | 존재 여부 기준 불일치 **없음**. 개수 일치 여부는 미대조 |
+
+**B-4. RLS / GRANT**
+
+| 테이블 | RLS | FORCE | 비-postgres GRANT |
+|---|---|---|---|
+| stores | true | true | 없음 |
+
+**B-5. SQL 대응물이 없는 문서 어휘**
+
+| 문서 어휘 | 출처(A-4) | SQL 대응물 | 비고 |
+|---|---|---|---|
+| merchant_stores | `000170` §7 (`merchant_store`) | 없음 | `stores`가 존재하나 Codex는 동일성 판단 안 함 |
+| store_runtime | `003030` §2 | Codex 조사 9테이블에 없음 | 타 스키마 미조사이므로 부재로 단정하지 않음 |
+| service_status (store 범위) | `000170` §7 | 없음 | `store_status`는 존재 |
+| store_owner | `007010` §3.5 | 없음 | |
+
+**C. 문서-SQL 일치**
+
+**C-1. 문서 어휘 ↔ SQL 객체 대응**
+
+| A-4 어휘 | 출처 문서 | SQL 객체 | 대응 상태 |
+|---|---|---|---|
+| store | `003010` §4 | `catchmenu_hq.stores` | 일치 |
+| stores (table) | `601501` | `catchmenu_hq.stores` | 일치 |
+| store_id | `010004` §4 | `store_group_members.store_id`, `franchise_brands.hq_store_id` | 일치 |
+| store_status | `000170` §7 | `stores.store_status` + `chk_stores_status` | 일치 |
+| store_groups | `601501` §0.5 | `catchmenu_hq.store_groups` | 일치 |
+| legal_entity_id | `601501` §0.1 | `stores.legal_entity_id` + `fk_stores_legal_entity_id` + `idx_stores_legal_entity_id` | 일치 |
+| merchant_store | `000170` §7 | `catchmenu_hq.stores` (후보) | 이름다름 |
+| service_status | `000170` §7 | 없음 | 미구현 |
+| store_owner | `007010` §3.5 | 없음 | 미구현 |
+| store_runtime | `003030` §2 | 조사 범위 내 없음 | 판정불가 — Codex 조사 9테이블 외 미조사 |
+
+**C-2. 문서 서술 ↔ SQL 실측 불일치**
+
+| # | 문서 서술 (출처 §) | SQL 실측 | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `601501` §0.1 #2: `stores.legal_entity_id` 단일 FK | nullable uuid + FK + 부분 인덱스 실재 | 구조는 부합. 단 **151개 참조 함수 중 `legal_entity_id`를 인식하는 함수가 몇 개인지는 이번 조사에 없음 — 미확인** |
+| 2 | `000170` §7: `merchant_store` + `merchant_store_id` | SQL은 `stores` + `id`/`store_code` | 명칭 불일치. **어느 쪽이 옳은지는 판정하지 않음** |
+| 3 | `000170` §8: merchant_company optional (trial) | `stores`에 company 계열 FK 없음. `legal_entity_id` 1개뿐 | 문서의 2축(company/legal) 중 SQL은 legal 1축만 구현 |
+| 4 | `003030`: `store_runtime` profile stack | Codex 조사 9테이블에 대응물 없음 | **미확인** — 타 스키마 미조사 |
+| 5 | `000170` §7: `service_status`를 merchant_store 권장 필드로 기술 | `stores`에 해당 컬럼 없음. `store_status` 1개뿐 | `601601` §4.3이 지적한 "구현된 적 없음"과 동일 지점 |
+| 6 | `009030` §2: standalone MVP는 full hierarchy 생략 가능 | `stores.tenant_id`는 NOT NULL, `legal_entity_id`는 nullable | tenant는 필수, legal_entity는 선택 — 계층 생략 가능 범위가 두 축에서 다름 |
+
+**C-3. 문서에 없는 SQL 객체 (초과구현)**
+
+| SQL 객체 | 어느 문서에도 정의 없음 | 비고 |
+|---|---|---|
+| `stores.business_hours` jsonb + `chk_stores_hours_object` | 영업시간 구조 | jsonb 스키마 계약 미정의 |
+| `stores.timezone` default `Asia/Seoul` | 타임존 | 다국가 확장 시 기준 미기술 |
+| `stores.opened_on` / `closed_on` | 개폐점 일자 | `store_status`와의 관계 미기술 |
+| `chk_stores_type` 값 4종 | 매장 유형 축 | A-4 어휘에 매장 유형 개념 없음 |
+| `stores.is_active` | `store_status`와 별개 활성 플래그 | 상태 축 중복 가능성 |
+| `stores.address` / `phone` | 매장 연락 정보 | |
+| 참조 함수 151개 | 전 도메인 런타임 | 어느 A 문서에도 함수 계약 정의 없음 |
 
 **D. 로컬 실행 검증** — 미수행
 
+D단계 확인 항목:
+
+- **`stores.legal_entity_id`를 참조하는 함수가 151개 중 몇 개인지 (C-2 #1, 현재 미확인).** 0-A가 추가한 FK가 런타임에 반영됐는지 판단하려면 필요.
+- `store_runtime` 대응물이 타 스키마에 존재하는지 (C-2 #4, 판정불가 해소).
+- `stores.is_active`와 `store_status`의 실제 데이터 관계 (C-3, 상태 축 중복 가능성).
+- `business_hours` jsonb의 실제 구조가 일관된지 (C-3).
+
 **E. 호출자·권한 통합** — 미수행
+
+E단계 확인 항목:
+
+- 151개 함수 중 `legal_entity_id`를 읽거나 쓰는 함수의 호출자와 권한검사 경로.
+- 비-postgres GRANT가 없는 상태에서 애플리케이션이 `stores`를 어떻게 읽는지.
+- `merchant_store` 어휘를 쓰는 `000170`이 실제 런타임 어느 지점을 가리키는지 — 1단계 Human 결정 대상.
 
 ---
 
@@ -675,8 +1286,8 @@ HQ는 본문과 DB 스키마명(`catchmenu_hq`)으로만 등장한다. 이 사�
 |---|---|---|---|
 | A 문서 인벤토리 | Cursor | 2026-08-11 | Company/Owner/Tenant/HQ/Store 5개 |
 | A 재분류·기입 | Claude Code | 2026-08-11 | A-1~A-6 구조로 재편 |
-| B SQL 객체 탐색 |  |  |  |
-| C 문서-SQL 대조 |  |  |  |
+| B SQL 객체 탐색 | Codex | 2026-08-11 | 라이브DB + migration, 읽기전용 |
+| C 문서-SQL 대조 | Claude Code | 2026-08-11 | A·B 대조 |
 | D 로컬 실행 검증 |  |  |  |
 | E 호출자·권한 통합 |  |  |  |
 
