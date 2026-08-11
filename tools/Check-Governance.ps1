@@ -60,12 +60,13 @@
 .PARAMETER StrictStage7
     Escalate G15 findings from WARN to ERROR.
 
-    G15 requires a workpacket header in migration files.
-    This is not yet codified in 000701 s6.11 - that table lists
-    twelve document artifacts and does not include .sql files.
-    Only 0168 and 0169 carry such a header today; the other 167
-    migrations predate the practice and cannot be edited (s14.5).
-    Runs as WARN until the rule is added. Use -StrictStage7 to escalate.
+    G15 checks the workpacket header required by 000701 s6.11.1
+    (Migration Workpacket Header Rule, 2026-08-11). The rule is
+    not retroactive: the 167 migrations predating it carry no
+    header and are reported as NO_HEADER, not as violations,
+    because s14.5 forbids editing them.
+    Runs as WARN by default so that existing findings do not block
+    commits. Use -StrictStage7 or GOVERNANCE_STRICT=1 to escalate.
 
 .EXAMPLE
     powershell -File tools\Check-Governance.ps1
@@ -217,7 +218,7 @@ $CheckCatalog = [ordered]@{
     'G12' = @{ Sev = 'WARN';   Text = 'Directory-map drift against 000007 (name-level)   (000001 s5, s5.1)' }
     'G13' = @{ Sev = 'ERROR';  Text = 'Relative markdown link points at a missing file   (000001 s5.9)' }
     'G14' = @{ Sev = 'ERROR';  Text = 'Group C DocumentType used outside the 600000 band (000002 s1.2)' }
-    'G15' = @{ Sev = 'WARN';   Text = 'Stage 7 gate - migration applied without approval (000701 s10)' }
+    'G15' = @{ Sev = 'WARN';   Text = 'Stage 7 gate - migration without approval (000701 s10, s6.11.1)' }
 }
 if ($StrictStage7) { $CheckCatalog['G15'].Sev = 'ERROR' }
 
@@ -875,17 +876,18 @@ else {
 }
 
 # ---------------------------------------------------------------------------
-# G15 - Stage 7 gate: migration applied without human approval (000701 s10)
+# G15 - Stage 7 gate: migration applied without human approval
+#       (000701 s10, s6.11.1)
 #
 # Background: on 2026-08-10 it was confirmed that 0168/0169 were applied and the
 # packet ran to Stage 12 while 601505 s10 still recorded "Stage 7 (Human
 # Approval) | pending". 000701 s10.1 defines Stage 7 as the approval gate
 # between design and implementation. This check catches that shape.
 #
-# Scope caveat: requiring a workpacket header in .sql is NOT yet codified -
-# 000701 s6.11 lists twelve document artifacts and no .sql. Migrations without a
-# header are tallied as NO_HEADER and never counted as violations, because
-# 000701 s14.5 forbids editing them retroactively.
+# The workpacket header itself is required by 000701 s6.11.1 (Migration
+# Workpacket Header Rule, 2026-08-11). That rule is not retroactive: the 167
+# migrations predating it carry no header, are tallied as NO_HEADER, and are
+# never counted as violations, because 000701 s14.5 forbids editing them.
 # ---------------------------------------------------------------------------
 
 $g15NoHeader          = 0
@@ -1079,8 +1081,8 @@ foreach ($bl in $bandLetters) {
             Write-Output '  grandfathering is applied; see 000002 s1.2 for the title-component rule.'
         }
         if ($cid -eq 'G15') {
-            Write-Output '  Requiring a workpacket header in .sql is not yet codified (000701 s6.11'
-            Write-Output '  lists document artifacts only). Runs as WARN; -StrictStage7 escalates.'
+            Write-Output '  Workpacket header required by 000701 s6.11.1 (2026-08-11), not retroactive.'
+            Write-Output '  Runs as WARN; -StrictStage7 or GOVERNANCE_STRICT=1 escalates to ERROR.'
         }
         if ($cid -eq 'G09') {
             Write-Output ('  ERROR = missing H1 or H1/filename number mismatch. WARN = normalized' )
@@ -1191,7 +1193,7 @@ Write-Output ''
 Write-Output ' G15 STAGE 7 GATE COVERAGE'
 Write-Output $sep2
 Write-Output ('  migrations checked   {0,6} carry a workpacket header' -f $g15Checked)
-Write-Output ('  NO_HEADER            {0,6} no workpacket header - NOT a violation (000701 s14.5)' -f $g15NoHeader)
+Write-Output ('  NO_HEADER            {0,6} (predates s6.11.1; not a violation - 000701 s14.5)' -f $g15NoHeader)
 Write-Output ('  CONTRACT_NOT_FOUND   {0,6} header present but no ChangeContract located' -f $g15ContractNotFound)
 Write-Output ('  APPROVAL_UNPARSEABLE {0,6} contract found but Stage 7 state not parseable' -f $g15Unparseable)
 if ($StrictStage7) { Write-Output '  mode                 STRICT - G15 counted as ERROR' }
@@ -1210,8 +1212,9 @@ Write-Output '    600000-band artifacts relocated by quarantine, not misused Doc
 Write-Output '  * Link and existence checks resolve against ALL files on disk, including'
 Write-Output '    excluded ones, so exclusions never manufacture missing-target findings.'
 Write-Output '  * G15 reads sql/migrations/*.sql headers and the matching ChangeContract.'
-Write-Output '    Migrations with no workpacket header are tallied, never counted as'
-Write-Output '    violations - 000701 s14.5 forbids editing them retroactively.'
+Write-Output '    The header is required by 000701 s6.11.1 (2026-08-11), which is not'
+Write-Output '    retroactive: migrations predating it are tallied as NO_HEADER, never'
+Write-Output '    counted as violations - 000701 s14.5 forbids editing them.'
 Write-Output '  * Exit code is always 0. This is a report, not a CI gate.'
 Write-Output ''
 
