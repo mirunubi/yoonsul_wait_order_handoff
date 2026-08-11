@@ -42,6 +42,16 @@
 .PARAMETER IncludeExcluded
     Also scan the paths that are excluded by default (see Exclusions below).
 
+.PARAMETER StrictStage7
+    Escalate G15 findings from WARN to ERROR.
+
+    G15 requires a workpacket header in migration files.
+    This is not yet codified in 000701 s6.11 - that table lists
+    twelve document artifacts and does not include .sql files.
+    Only 0168 and 0169 carry such a header today; the other 167
+    migrations predate the practice and cannot be edited (s14.5).
+    Runs as WARN until the rule is added. Use -StrictStage7 to escalate.
+
 .EXAMPLE
     powershell -File tools\Check-Governance.ps1
 
@@ -61,7 +71,8 @@ param(
     [string] $Root,
     [string] $Band,
     [int]    $Top = 50,
-    [switch] $IncludeExcluded
+    [switch] $IncludeExcluded,
+    [switch] $StrictStage7
 )
 
 Set-StrictMode -Version 2.0
@@ -81,6 +92,19 @@ if (-not (Test-Path -LiteralPath $Root -PathType Container)) {
     throw "docs root not found: $Root"
 }
 $Root = (Resolve-Path -LiteralPath $Root).ProviderPath.TrimEnd('\')
+$RepoRoot = Split-Path -Parent $Root
+$MigrationsDir = Join-Path $RepoRoot 'sql\migrations'
+
+# ---------------------------------------------------------------------------
+# Korean literals used by G15, assembled from code points so this source file
+# stays pure ASCII. PowerShell 5.1 decodes BOM-less scripts as ANSI and would
+# corrupt literal Hangul.
+# ---------------------------------------------------------------------------
+
+$KoWorkpacket = [string]([char]0xC6CC) + [string]([char]0xD06C) + [string]([char]0xD328) + [string]([char]0xD0B7)  # workpacket
+$KoPending    = [string]([char]0xB300) + [string]([char]0xAE30)                                                   # pending / waiting
+$KoNotStarted = [string]([char]0xBBF8) + [string]([char]0xCC29) + [string]([char]0xC218)                          # not started
+$KoApproved   = [string]([char]0xC2B9) + [string]([char]0xC778)                                                   # approved
 
 # ---------------------------------------------------------------------------
 # Exclusions
@@ -153,7 +177,9 @@ $CheckCatalog = [ordered]@{
     'G12' = @{ Sev = 'WARN';   Text = 'Directory-map drift against 000007 (name-level)   (000001 s5, s5.1)' }
     'G13' = @{ Sev = 'ERROR';  Text = 'Relative markdown link points at a missing file   (000001 s5.9)' }
     'G14' = @{ Sev = 'ERROR';  Text = 'Group C DocumentType used outside the 600000 band (000002 s1.2)' }
+    'G15' = @{ Sev = 'WARN';   Text = 'Stage 7 gate - migration applied without approval (000701 s10)' }
 }
+if ($StrictStage7) { $CheckCatalog['G15'].Sev = 'ERROR' }
 
 $BandTitles = [ordered]@{
     'A' = '[A] docs root and 000000-099999 bands'
@@ -276,16 +302,36 @@ function Add-Finding {
         [string] $CheckId,
         [string] $RelPath,
         [string] $Detail,
-        [string] $Severity
+        [string] $Severity,
+        [string] $BandOverride,
+        [string] $ScopePath
     )
-    if (-not (Test-InScope $RelPath)) { return }
+    # G15 findings live under sql/, not docs/, so band and -Band scoping cannot
+    # be derived from the displayed path. Callers pass ScopePath - the governing
+    # docs-relative path, e.g. the ChangeContract - so both work normally. When
+    # even that is unavailable, BandOverride supplies the letter alone.
+    if ($ScopePath -and $ScopePath.Length -gt 0) {
+        if (-not (Test-InScope $ScopePath)) { return }
+        $bandLetter = Get-BandLetter $ScopePath
+    }
+    elseif ($BandOverride -and $BandOverride.Length -gt 0) {
+        $bandLetter = $BandOverride
+        if ($null -ne $FilterLetter -and $bandLetter -ne $FilterLetter) { return }
+        # a numeric -Band filter cannot be evaluated without a docs path
+        if ($null -ne $FilterNumber) { return }
+    }
+    else {
+        if (-not (Test-InScope $RelPath)) { return }
+        $bandLetter = Get-BandLetter $RelPath
+    }
+
     if (-not $Severity -or $Severity.Length -eq 0) {
         $Severity = $CheckCatalog[$CheckId].Sev
     }
     $null = $Findings.Add([pscustomobject]@{
         Check    = $CheckId
         Severity = $Severity
-        Band     = (Get-BandLetter $RelPath)
+        Band     = $bandLetter
         Path     = $RelPath
         Detail   = $Detail
     })
@@ -766,6 +812,152 @@ else {
 }
 
 # ---------------------------------------------------------------------------
+# G15 - Stage 7 gate: migration applied without human approval (000701 s10)
+#
+# Background: on 2026-08-10 it was confirmed that 0168/0169 were applied and the
+# packet ran to Stage 12 while 601505 s10 still recorded "Stage 7 (Human
+# Approval) | pending". 000701 s10.1 defines Stage 7 as the approval gate
+# between design and implementation. This check catches that shape.
+#
+# Scope caveat: requiring a workpacket header in .sql is NOT yet codified -
+# 000701 s6.11 lists twelve document artifacts and no .sql. Migrations without a
+# header are tallied as NO_HEADER and never counted as violations, because
+# 000701 s14.5 forbids editing them retroactively.
+# ---------------------------------------------------------------------------
+
+$g15NoHeader          = 0
+$g15ContractNotFound  = 0
+$g15Unparseable       = 0
+$g15Checked           = 0
+
+function Get-HeadingRefFor {
+    param([string[]] $Lines, [int] $Index)
+    for ($i = $Index; $i -ge 0; $i--) {
+        if ($Lines[$i] -match '^#{1,6}\s+(.*)$') {
+            $h = $Matches[1]
+            if ($h -match '(\d+)') { return ('s' + $Matches[1]) }
+            return $h.Trim()
+        }
+    }
+    return ''
+}
+
+function Get-Stage7State {
+    param([string[]] $Lines)
+
+    # (a) an "Approval State" style table row for Stage 7
+    for ($i = 0; $i -lt $Lines.Count; $i++) {
+        if ($Lines[$i] -match '^\|\s*Stage\s*7\b[^|]*\|([^|]*)\|') {
+            $cell = ($Matches[1] -replace '\*', '').Trim()
+            $ref  = Get-HeadingRefFor $Lines $i
+            if ($cell -match '(?i)approved' -or $cell.Contains($KoApproved)) {
+                return @{ Kind = 'APPROVED'; State = $cell; Ref = $ref }
+            }
+            if ($cell -match '(?i)pending' -or $cell.Contains($KoPending) -or $cell.Contains($KoNotStarted)) {
+                return @{ Kind = 'PENDING'; State = $cell; Ref = $ref }
+            }
+        }
+    }
+
+    # (b) a Human Approval decision checkbox line
+    for ($i = 0; $i -lt $Lines.Count; $i++) {
+        if ($Lines[$i] -match '(?i)^\s*Decision\s*:') {
+            $ln  = $Lines[$i]
+            $ref = Get-HeadingRefFor $Lines $i
+            if ($ln -match '(?i)\[[xX]\]\s*APPROVE') {
+                return @{ Kind = 'APPROVED'; State = 'Decision [x] APPROVE'; Ref = $ref }
+            }
+            if ($ln -match '\[\s*\]') {
+                return @{ Kind = 'PENDING'; State = 'Decision checkboxes all empty'; Ref = $ref }
+            }
+        }
+    }
+
+    # (c) a bare APPROVED (YYYY-MM-DD) stamp
+    for ($i = 0; $i -lt $Lines.Count; $i++) {
+        if ($Lines[$i] -match '(?i)APPROVED\s*\((\d{4}-\d{2}-\d{2})\)') {
+            return @{ Kind = 'APPROVED'; State = ('APPROVED (' + $Matches[1] + ')'); Ref = (Get-HeadingRefFor $Lines $i) }
+        }
+    }
+
+    return @{ Kind = 'UNPARSEABLE'; State = ''; Ref = '' }
+}
+
+function Find-ChangeContract {
+    param([string] $WpNumber)
+    # 1) folders whose name starts with the workpacket number
+    $dirs = @(Get-ChildItem -LiteralPath $Root -Recurse -Directory -ErrorAction SilentlyContinue |
+              Where-Object { $_.Name -like ($WpNumber + '*') } |
+              Where-Object { $null -eq (Get-ExclusionReason (Get-RelPath $_.FullName)) })
+    foreach ($dd in $dirs) {
+        $hit = @(Get-ChildItem -LiteralPath $dd.FullName -Recurse -File -Filter '*ChangeContract*.md' -ErrorAction SilentlyContinue |
+                 Where-Object { $null -eq (Get-ExclusionReason (Get-RelPath $_.FullName)) })
+        if ($hit.Count -gt 0) { return $hit[0] }
+    }
+    # 2) fallback: any ChangeContract whose filename carries the number
+    $hit2 = @(Get-ChildItem -LiteralPath $Root -Recurse -File -Filter '*ChangeContract*.md' -ErrorAction SilentlyContinue |
+              Where-Object { $_.Name -like ('*' + $WpNumber + '*') } |
+              Where-Object { $null -eq (Get-ExclusionReason (Get-RelPath $_.FullName)) })
+    if ($hit2.Count -gt 0) { return $hit2[0] }
+    return $null
+}
+
+if (Test-Path -LiteralPath $MigrationsDir -PathType Container) {
+    $wpRegex = '(?i)(?:Workpacket|' + $KoWorkpacket + ')\s*:?\s*(\d{6})'
+    $migFiles = @(Get-ChildItem -LiteralPath $MigrationsDir -File -Filter '*.sql' -ErrorAction SilentlyContinue | Sort-Object Name)
+
+    foreach ($mf in $migFiles) {
+        $head = $null
+        try { $head = (Get-Content -LiteralPath $mf.FullName -TotalCount 5 -Encoding UTF8) -join "`n" } catch { continue }
+
+        if ($head -notmatch $wpRegex) { $g15NoHeader++; continue }
+        $wp = $Matches[1]
+        $g15Checked++
+
+        $migRel = 'sql/migrations/' + $mf.Name
+        $bandOf = Get-BandLetter ($wp + '_x/y')
+
+        $cc = Find-ChangeContract $wp
+        if ($null -eq $cc) {
+            $g15ContractNotFound++
+            $sev = 'WARN'
+            if ($StrictStage7) { $sev = 'ERROR' }
+            Add-Finding 'G15' $migRel ("workpacket {0} -> no ChangeContract document found`nCONTRACT_NOT_FOUND" -f $wp) $sev $bandOf ''
+            continue
+        }
+
+        $ccLines = $null
+        try { $ccLines = [System.IO.File]::ReadAllText($cc.FullName, [System.Text.Encoding]::UTF8) -split "`r?`n" }
+        catch { $ccLines = @() }
+
+        $state = Get-Stage7State $ccLines
+        $ccRel = Get-RelPath $cc.FullName
+        $ccNum = 'ChangeContract'
+        if ($cc.Name -match '^(\d{6})') { $ccNum = $Matches[1] }
+
+        if ($state.Kind -eq 'APPROVED') { continue }
+
+        if ($state.Kind -eq 'UNPARSEABLE') {
+            $g15Unparseable++
+            Add-Finding 'G15' $migRel ("workpacket {0} -> {1}`nStage 7 state could not be parsed`nAPPROVAL_UNPARSEABLE" -f $wp, $cc.Name) 'WARN' '' $ccRel
+            continue
+        }
+
+        # PENDING - the gate was open when the migration landed
+        $sev = 'WARN'
+        if ($StrictStage7) { $sev = 'ERROR' }
+        $detail = ("workpacket {0} -> {1}" -f $wp, $cc.Name) + "`n" +
+                  ("Stage 7 state: {0}  ({1} {2})" -f $state.State, $ccNum, $state.Ref) + "`n" +
+                  ("contract: {0}" -f $ccRel) + "`n" +
+                  'MIGRATION_WITHOUT_APPROVAL'
+        Add-Finding 'G15' $migRel $detail $sev '' $ccRel
+    }
+}
+else {
+    Write-Output ('WARNING: {0} not found - G15 skipped.' -f $MigrationsDir)
+}
+
+# ---------------------------------------------------------------------------
 # Report
 # ---------------------------------------------------------------------------
 
@@ -822,6 +1014,10 @@ foreach ($bl in $bandLetters) {
             Write-Output '  REVIEW LIST ONLY - these are not asserted violations. No date-based'
             Write-Output '  grandfathering is applied; see 000002 s1.2 for the title-component rule.'
         }
+        if ($cid -eq 'G15') {
+            Write-Output '  Requiring a workpacket header in .sql is not yet codified (000701 s6.11'
+            Write-Output '  lists document artifacts only). Runs as WARN; -StrictStage7 escalates.'
+        }
         if ($cid -eq 'G09') {
             Write-Output ('  ERROR = missing H1 or H1/filename number mismatch. WARN = normalized' )
             Write-Output ('  similarity below {0:P0}. Separators and case are stripped before comparing.' -f $H1SimilarityFloor)
@@ -835,7 +1031,9 @@ foreach ($bl in $bandLetters) {
         Write-Output $sep2
         foreach ($r in $shown) {
             Write-Output ('  [{0,-6}] {1}' -f $r.Severity, $r.Path)
-            Write-Output ('      {0}' -f $r.Detail)
+            foreach ($dl in ($r.Detail -split "`n")) {
+                Write-Output ('      {0}' -f $dl)
+            }
         }
     }
 }
@@ -925,6 +1123,15 @@ else {
     }
 }
 Write-Output ('  RANGE_UNDETERMINED {0,6} folders not judged by G05' -f $rangeUndetermined.Count)
+Write-Output ''
+Write-Output ' G15 STAGE 7 GATE COVERAGE'
+Write-Output $sep2
+Write-Output ('  migrations checked   {0,6} carry a workpacket header' -f $g15Checked)
+Write-Output ('  NO_HEADER            {0,6} no workpacket header - NOT a violation (000701 s14.5)' -f $g15NoHeader)
+Write-Output ('  CONTRACT_NOT_FOUND   {0,6} header present but no ChangeContract located' -f $g15ContractNotFound)
+Write-Output ('  APPROVAL_UNPARSEABLE {0,6} contract found but Stage 7 state not parseable' -f $g15Unparseable)
+if ($StrictStage7) { Write-Output '  mode                 STRICT - G15 counted as ERROR' }
+else               { Write-Output '  mode                 default - G15 counted as WARN (-StrictStage7 to escalate)' }
 Write-Output $sep
 Write-Output ''
 Write-Output 'Notes:'
@@ -938,6 +1145,9 @@ Write-Output '  * G14 never fires under 990000_legacy_quarantine: those Group C 
 Write-Output '    600000-band artifacts relocated by quarantine, not misused DocumentTypes.'
 Write-Output '  * Link and existence checks resolve against ALL files on disk, including'
 Write-Output '    excluded ones, so exclusions never manufacture missing-target findings.'
+Write-Output '  * G15 reads sql/migrations/*.sql headers and the matching ChangeContract.'
+Write-Output '    Migrations with no workpacket header are tallied, never counted as'
+Write-Output '    violations - 000701 s14.5 forbids editing them retroactively.'
 Write-Output '  * Exit code is always 0. This is a report, not a CI gate.'
 Write-Output ''
 
