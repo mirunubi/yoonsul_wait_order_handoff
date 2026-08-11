@@ -1,6 +1,6 @@
 # 601701_Register_Stage0_Evidence_Collection.md
 
-Status: Draft
+Status: Active
 Lifecycle: Register
 Last Updated: 2026-08-11
 
@@ -44,13 +44,24 @@ Last Updated: 2026-08-11
 - 로컬검증: `성공` / `실패` / `미확인`
 - 재사용 판정: `그대로재사용` / `부분재사용` / `수정후재사용` / `재작성필요`
 
+> ⚠️ **재사용 판정의 의미**
+>
+> 이 열은 **현재 SQL 자산의 상태 기록**이다. 새 0-A의 설계 결론이 아니다.
+> 1단계 Human 업무규칙 선언과 2단계 ERD는 이 판정에 구속되지 않는다(`600020` §2).
+> `601500`을 답안지로 사용하지 않는다는 원칙은 그대로 유효하다.
+>
+> A~E 5단계가 전부 기록된 뒤에 기입되었다(§48.3).
+
+**로컬검증 열 기입 규칙**: 해당 대상의 D-1 항목이 **전부** 실행되어 성공한 경우에만 `성공`으로 적는다.
+미실행·범위밖 항목이 하나라도 있으면 `미확인`으로 적고, 그 사실을 아래 판정 근거에 명시한다.
+
 | 대상 | 문서 | DDL | RPC | 호출자/권한검사 | 로컬검증 | 재사용 판정 |
 |---|---|---|---|---|---|---|
-| Company |  |  |  |  |  |  |
-| Owner |  |  |  |  |  |  |
-| Tenant |  |  |  |  |  |  |
-| HQ |  |  |  |  |  |  |
-| Store |  |  |  |  |  |  |
+| Company | 있음 | 있음 | 있음 | 불완전 | 미확인 | 부분재사용 |
+| Owner | 있음 | 있음 | 없음 | 없음 | 미확인 | 수정후재사용 |
+| Tenant | 있음 | 있음 | 있음 | 있음 | 미확인 | 부분재사용 |
+| HQ | 있음 | 있음 | 있음 | 있음 | 미확인 | 부분재사용 |
+| Store | 있음 | 있음 | 있음 | 있음 | 성공 | 부분재사용 |
 | User identity |  |  |  |  |  |  |
 | Customer identity |  |  |  |  |  |  |
 | Staff identity |  |  |  |  |  |  |
@@ -60,6 +71,18 @@ Last Updated: 2026-08-11
 | Membership |  |  |  |  |  |  |
 | Menu seed |  |  |  |  |  |  |
 | Dining table |  |  |  |  |  |  |
+
+`User identity` 이하 9개 대상은 A~E 조사를 수행하지 않았으므로 비워 둔다.
+
+**판정 근거**
+
+| 대상 | 판정 | 근거 |
+|---|---|---|
+| Company | 부분재사용 | `franchise_brands`·RLS 2정책·DB 호출자 2개가 실재하나, **`company` 축과의 동일성은 판정불가**(C-1)이며 0행이라 행 의미로도 확인 불가(D-1 #1). `companies`/`business_units`/`merchant_company` 3건 미구현. 어긋나는 지점은 특정됨 |
+| Owner | 수정후재사용 | 4테이블 DDL과 제약 12건은 실재하나 **RLS 정책 0·함수 0·호출자 0·데이터 0행**. `601512` §2.3이 서술한 함수 경유 접근이 미구현(C-2 #1). `ownership_percent`는 문서상 사용 금지인데 컬럼·CHECK 존재(C-2 #2). 구조는 유지 가능하나 접근 계층 전체가 부재 |
+| Tenant | 부분재사용 | `tenants`·RLS 1정책·함수 10개·DB 호출자 5개가 실재하고 role 차단도 확인됨. 다만 방벽 2건이 특정됨 — `manage_subscription`이 존재하지 않는 `company_name` 조회, `isolate_tenant` 호출부·정의부 파라미터명 불일치(D-3). `service_status`/`trial_status` 미구현, `merchant_account` 이름다름 |
+| HQ | 부분재사용 | 스키마·2테이블·함수 44개·DB 호출자 11개가 실재. 다만 **HQ 3갈래 중 SQL 대응은 스키마 1개뿐**이고 나머지 2갈래는 미구현(C-1). `member_role='HQ'`는 데이터 0행이고 함수 소스에 `'HQ'` 리터럴 0건이라 권한 판정에 쓰이는지 미확인(E-3) |
+| Store | 부분재사용 | D 항목 4건 전부 성공한 유일한 대상. `stores`·RLS 1정책·함수 151개·DB 호출자 63개·앱 RPC 2개가 실재. 다만 **0-A가 추가한 `legal_entity_id`를 참조하는 함수 0개, 백필 0행**(C-2 #1). `merchant_store` 이름다름, `service_status`·`store_owner`·`store_runtime` 미구현 |
 
 ## §4 대상별 상세
 
@@ -326,12 +349,33 @@ TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
 | `franchise_brands` 행 수 | 0행 | 운영 데이터 미투입은 의도적 판단(문서 정합성 우선). 결함 아님 |
 | `franchise_brands` RLS | ENABLE + FORCE, 비-postgres GRANT 없음 | B-4와 일치 |
 
-**E. 호출자·권한 통합** — 미수행
+**E. 호출자·권한 통합**
 
-E단계 확인 항목:
+**E-1. 호출자**
 
-- 11개 함수의 실제 호출자가 존재하는지, 권한검사가 의도대로 작동하는지.
-- `franchise_brands.tenant_id`와 `legal_entities`의 tenant 비대칭(C-2 #3)이 런타임 격리에 미치는 영향.
+| 구분 | 건수 | 실명 또는 대표 | 비고 |
+|---|---:|---|---|
+| DB 내 함수 호출자 | 2 | `catchmenu_common.onboard_tenant` → `create_franchise_brand` / `catchmenu_hq.request_menu_override` → `request_hq_approval` | 11개 대상 함수 중 **2개만** 호출됨. 나머지 9개는 DB 내 호출자 없음 |
+| 앱 코드 RPC 호출 | 0 | — | `apps`·`packages`·`catchmenu_app`·`supabase`·`tests` 검색 결과 0건 |
+| 앱 코드 직접 테이블 접근 | 0 | — | `.from('franchise_brands')` 0건 |
+
+**E-2. 권한검사 실측**
+
+| 항목 | 실측 | 판정 |
+|---|---|---|
+| `authenticated` → `franchise_brands` 직접 SELECT | `ERROR: permission denied for table franchise_brands` | 차단됨 |
+| `anon` → `franchise_brands` 직접 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `service_role` → `franchise_brands` 직접 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `franchise_brands` RLS 정책 | 2개. `roles={authenticated}`, `qual=(tenant_id = catchmenu_common.current_tenant_id())`, `with_check=NULL` | 허용됨 — tenant 일치 시에만 |
+| tenant 비대칭(C-2 #3)의 런타임 격리 영향 | `franchise_brands` 0행, `legal_entities` 0행, `tenants` 1행 | 미확인(데이터부재) |
+
+스키마 전역 권한검사 실측은 §4.4 HQ의 E-2에 모아 기록했다.
+
+**E-3. 확인하지 못한 항목**
+
+| # | 항목 | 사유 | 대안 확인 방법 |
+|---|---|---|---|
+| 1 | Company/legal_entity tenant 비대칭의 실제 격리 영향 | **미확인(데이터부재)** — 관련 테이블 0행, tenant 1행. 운영 데이터 미투입은 의도적 판단(문서 정합성 우선). 결함 아님 | 다중 tenant·법인·브랜드 데이터가 존재하는 허가된 격리 환경에서 조회 결과 비교 |
 
 ---
 
@@ -590,12 +634,32 @@ E단계 확인 항목:
 | `authenticated` → `owners` | `ERROR: permission denied for table owners` | |
 | `service_role` → `catchmenu_hq` | `ERROR: permission denied for schema catchmenu_hq` | 스키마 단계에서 차단 |
 
-**E. 호출자·권한 통합** — 미수행
+**E. 호출자·권한 통합**
 
-E단계 확인 항목:
+**E-1. 호출자**
 
-- 함수 0개 상태에서 애플리케이션이 네 테이블에 어떤 경로로 접근하는지, 또는 접근하지 않는지 (C-2 #1). D-1 #1에서 `authenticated`·`service_role` 차단은 확인됨 — 남은 질문은 실제 접근 경로의 존재 여부.
-- `601512` §2.3이 서술한 함수 경유 접근이 구현 예정인지 폐기됐는지 — 1단계 Human 결정 대상.
+| 구분 | 건수 | 실명 또는 대표 | 비고 |
+|---|---:|---|---|
+| DB 내 함수 호출자 | 0 | — | 네 테이블을 참조하는 DB 함수 자체가 0개이므로 호출자도 0 |
+| 앱 코드 RPC 호출 | 0 | — | 호출 대상 함수가 존재하지 않음 |
+| 앱 코드 직접 테이블 접근 | 0 | — | `owners`/`legal_entities`/`legal_entity_person_roles`/`legal_entity_representatives` 모두 `.from()`·테이블명 참조 0건 |
+
+**E-2. 권한검사 실측**
+
+| 항목 | 실측 | 판정 |
+|---|---|---|
+| `authenticated` → 네 테이블 SELECT | `ERROR: permission denied for table <table>` (4테이블 동일) | 차단됨 |
+| `anon` → 네 테이블 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `service_role` → 네 테이블 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| 네 테이블 RLS 정책 | **0개**. `catchmenu_hq`에서 정책이 0개인 테이블은 이 4개뿐 | 차단됨 — FORCE RLS + 정책 부재이므로 비소유자 접근은 전부 거부 |
+| `catchmenu_authority_owner` 멤버십 | `postgres`만 true. `authenticated`/`anon`/`service_role` 전부 false | 차단됨 |
+| 애플리케이션의 네 테이블 접근 가능 여부 | 참조 함수 0개 + 코드 참조 0건 + 세 client role 전부 차단 | 차단됨 — 접근 경로 자체가 존재하지 않음 |
+
+**E-3. 확인하지 못한 항목**
+
+| # | 항목 | 사유 | 대안 확인 방법 |
+|---|---|---|---|
+| 1 | `601512` §2.3이 서술한 함수 경유 접근이 구현 예정인지 폐기됐는지 | **미확인(Human 결정 필요)** — 현재 호출자 0개라는 사실만 확인 가능하며, 미래 의도는 코드·DB에서 확인할 수 없음 | 1단계 Human 업무규칙 선언에서 결정 |
 
 ---
 
@@ -839,14 +903,33 @@ E단계 확인 항목:
 | `pg_cron` | extension `1.6.4` 설치. `catchmenu_common.pg_cron_jobs` 존재 | 횡단 항목 |
 | `pg_cron_jobs.is_registered` 분포 | `false` 9건 / `true` 38건. 양쪽 모두 `pg_cron_job_id` 전건 NULL | `cron.job` 실제 행 수 **0** |
 
-**E. 호출자·권한 통합** — 미수행
+**E. 호출자·권한 통합**
 
-E단계 확인 항목:
+**E-1. 호출자**
 
-- 10개 함수의 실제 호출자와 권한검사 경로.
-- 비-postgres GRANT가 없는 상태에서 애플리케이션이 `tenants`를 어떻게 읽는지 (C-2 #6).
-- `merchant_account` 어휘를 쓰는 문서(`000170`)가 실제 런타임 어느 지점을 가리키는지 — 1단계 Human 결정 대상.
-- 전역 4테이블에 `tenant_id`가 없는 상태에서 cross-tenant 조회가 실제로 발생 가능한지 — D-1 #3에서 **범위밖(E)** 로 이관됨.
+| 구분 | 건수 | 실명 또는 대표 | 비고 |
+|---|---:|---|---|
+| DB 내 함수 호출자 | 5 | `generate_security_report` → `run_isolation_audit` / `detect_threat`·`manage_subscription` → `isolate_tenant` / `run_opening_checklist` → `onboard_tenant` / `onboard_tenant` → `provision_tenant` | 10개 대상 함수 중 **4개만** 호출됨. `isolate_tenant`·`detect_threat`·`manage_subscription`은 호출하지 않고 정의 문자열 관계만 조회 |
+| 앱 코드 RPC 호출 | 0 | — | Tenant 함수의 앱 직접 호출 0건 |
+| 앱 코드 직접 테이블 접근 | 0 | — | `.from('tenants')` 0건 |
+
+**E-2. 권한검사 실측**
+
+| 항목 | 실측 | 판정 |
+|---|---|---|
+| `authenticated` → `tenants` 직접 SELECT | `ERROR: permission denied for table tenants` (`HINT: GRANT SELECT ON catchmenu_hq.tenants TO authenticated;`) | 차단됨 |
+| `anon` / `service_role` → `tenants` 직접 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `tenants` RLS 정책 | 1개. `qual=(id = catchmenu_common.current_tenant_id())`, `with_check=NULL` | 허용됨 — tenant 일치 시에만 |
+| 애플리케이션의 `tenants` 읽기 경로 (C-2 #6) | 직접 `.from('tenants')` 0건 + Tenant 함수 앱 호출 0건 + 세 client role 전부 차단 | 차단됨 — 현재 앱에서 도달 경로 없음 |
+| `merchant_account`가 가리키는 실제 런타임 지점 | 비문서 코드 경로에서 `merchant_account` 참조 0건, 동명 SQL 테이블 0개 | 미확인(코드베이스부재) |
+| 전역 4테이블 cross-tenant 조회 실제 발생 가능성 | `tenants` 1행, 전역 4테이블 모두 0행이라 교차 tenant 결과 생성 불가 | 미확인(데이터부재) |
+
+**E-3. 확인하지 못한 항목**
+
+| # | 항목 | 사유 | 대안 확인 방법 |
+|---|---|---|---|
+| 1 | 전역 4테이블의 실제 cross-tenant 조회 | **미확인(데이터부재)** — 전역 테이블 0행, tenant 1행. 운영 데이터 미투입은 의도적 판단(문서 정합성 우선). 결함 아님 | 다중 tenant 테스트 데이터가 있는 허가된 격리 환경 |
+| 2 | `merchant_account` 문서 어휘의 런타임 지점 | **미확인(코드베이스부재)** — 코드·DB 어디에도 해당 명칭 경로가 없음 | 1단계 Human 업무규칙 선언에서 어휘 채택 여부 결정 |
 
 ---
 
@@ -1047,14 +1130,43 @@ HQ 함수 분류 결과 총 **44개**.
 | `add_compliance_check_item` 본문 | `pg_temp.compliance_check_items`에 INSERT | `catchmenu_hq` 38개 함수 중 유일한 SECURITY INVOKER (`proconfig=NULL`)라는 B단계 관찰과 정합 |
 | `catchmenu_hq` 스키마 | 존재 | PostgREST 노출 여부는 미확인 (E) |
 
-**E. 호출자·권한 통합** — 미수행
+**E. 호출자·권한 통합**
 
-E단계 확인 항목:
+**E-1. 호출자**
 
-- HQ 함수 44개의 실제 호출자와 권한검사 경로.
-- `member_role='HQ'`가 실제 권한 판정에 쓰이는지, 단순 라벨인지. (D-1 #3에서 `store_groups` 0행이므로 데이터로는 판정 불가)
-- HQ 3갈래(스키마·admin UI·프랜차이즈 본사) 중 무엇을 이 프로젝트의 HQ로 삼을지 — 1단계 Human 결정 대상 (C-2 #2).
-- `catchmenu_hq`의 PostgREST 노출 여부 — D-1 #1에서 **범위밖(E)** 로 이관됨.
+| 구분 | 건수 | 실명 또는 대표 | 비고 |
+|---|---:|---|---|
+| DB 내 함수 호출자 | 11 | `run_compliance_check` → `add_compliance_check_item` / `distribute_menu_to_stores` → `apply_menu_template` / `bulk_policy_distribution`·`process_hq_approval`·`rollback_policy` → `apply_policy_to_stores` / `sync_hq_menu_template` → `broadcast_hq_notice` / `detect_policy_violations` → `run_compliance_check`(2 overloads) / `grant_pg_graphql_access`·`set_graphql_placeholder` → `graphql` | 44개 대상 함수 중 **9개만** 호출됨 |
+| 앱 코드 RPC 호출 | 0 | — | HQ 함수명 직접 호출 0건 |
+| 앱 코드 직접 테이블 접근 | 0 | — | `.from('store_groups')`·`.from('store_group_members')` 0건 |
+
+**E-2. 권한검사 실측**
+
+이 표에는 HQ 고유 항목과 함께 **`catchmenu_hq` 스키마 전역 실측**을 모아 기록한다.
+Company / Owner / Tenant / Store의 E-2는 각 대상 테이블 고유 항목만 담는다.
+
+| 항목 | 실측 | 판정 |
+|---|---|---|
+| PostgREST 노출 스키마 (C-2 #4 해소) | `[api].enabled=true`. `[api].schemas` = `public`, `graphql_public`. `[api].extra_search_path` = `public`, `extensions`. **`catchmenu_hq` 미포함** | 차단됨 |
+| `authenticated` → 대상 9테이블 SELECT | 9개 모두 `ERROR: permission denied for table <table>` | 차단됨 |
+| `anon` → 대상 9테이블 SELECT | 9개 모두 `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `service_role` → 대상 9테이블 SELECT | 9개 모두 `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `catchmenu_hq` RLS 정책 총량 | **18개 / 16개 테이블**. 18개 전부 `tenant_id` 표현 포함, 16개 테이블이 `tenant_id` 필터 보유 | 허용됨 — tenant 일치 시에만 |
+| 정책 0개 테이블 | **신규 전역 4테이블만** (`owners`·`legal_entities`·`legal_entity_person_roles`·`legal_entity_representatives`) | 차단됨 — FORCE RLS + 정책 부재 |
+| 대상 9테이블 참조 함수 | **164개**, 전부 `SECURITY DEFINER`. `SECURITY INVOKER` 0개 | 허용됨 — 함수 경유 접근만 가능 |
+| 함수 소유자 | 164개 **전부 `postgres`**. `catchmenu_authority_owner` 소유 **0개** | 허용됨 — `601503` §9 규칙 1 미충족 (§4.15) |
+| `search_path` | 164개 전부 명시적 (`proconfig NULL` 0개). **`public` 포함 0개** | 차단됨 — `public` 경유 권한상승 경로 없음 |
+| `PUBLIC` EXECUTE | **20개 잔존** (`proacl NULL` 0개). grantee별: `postgres` 164 / `authenticated` 157 / `PUBLIC` 20 / `service_role` 6 | 허용됨 — `601503` §9.4 CI 기대값(0건)과 다름 (§4.15) |
+| `catchmenu_authority_owner` 멤버 | `postgres`만. `authenticated`/`anon`/`service_role` 전부 비멤버 | 차단됨 |
+| `member_role='HQ'`의 권한 판정 사용 여부 | `store_group_members` 0행. 관련 함수 12개 중 `member_role` 토큰 5개, **`'HQ'` 리터럴 사용 0개** | 미확인(데이터부재) |
+| HQ 3갈래 중 채택 개념 | DB·코드 존재 조사로 개념 선택을 확정할 수 없음 | 미확인(Human 결정 필요) |
+
+**E-3. 확인하지 못한 항목**
+
+| # | 항목 | 사유 | 대안 확인 방법 |
+|---|---|---|---|
+| 1 | `member_role='HQ'`의 실제 권한 판정 | **미확인(데이터부재)** — 데이터 0행, 함수 소스에 `'HQ'` 리터럴 0건. 운영 데이터 미투입은 의도적 판단(문서 정합성 우선). 결함 아님 | 해당 역할 데이터와 호출 경로가 생긴 환경에서 검증 |
+| 2 | HQ 3갈래 중 채택 개념 | **미확인(Human 결정 필요)** — 존재 조사로 개념 선택 불가 | 1단계 Human 업무규칙 선언에서 결정 |
 
 ---
 
@@ -1309,16 +1421,72 @@ E단계 확인 항목:
 | `store_runtime` 명칭 테이블·함수 | **0개** | C-1·C-2 #4의 판정불가가 실측으로 확정됨 |
 | `business_hours` 구조 | `mon`~`sun` 7키, 각 값은 `open`/`close` 객체 | 1행 기준. jsonb 스키마 계약은 여전히 문서 미정의 |
 
-**E. 호출자·권한 통합** — 미수행
+**E. 호출자·권한 통합**
 
-E단계 확인 항목:
+**E-1. 호출자**
 
-- 비-postgres GRANT가 없는 상태에서 애플리케이션이 `stores`를 어떻게 읽는지.
-- `merchant_store` 어휘를 쓰는 `000170`이 실제 런타임 어느 지점을 가리키는지 — 1단계 Human 결정 대상.
+| 구분 | 건수 | 실명 또는 대표 | 비고 |
+|---|---:|---|---|
+| DB 내 함수 호출자 | 63 | 63개 호출자가 151개 대상 함수 중 **41개**를 호출 | 대상별 중복 집계. 실명 전수는 기록하지 않음 |
+| 앱 코드 RPC 호출 | 2 | `bootstrap_customer_app_v2` (`catchmenu_app/lib/features/waiting/screens/waiting_register_screen.dart:63-65`, RpcCaller, schema `catchmenu_store`) / `register_waiting` (동 파일 `:101-103`, RpcCaller, schema `catchmenu_pos`) | 두 함수 모두 `catchmenu_hq.stores` 직접 참조 함수 집합에 포함 |
+| 앱 코드 직접 테이블 접근 | 0 | — | `.from('stores')` 0건 |
+
+**E-2. 권한검사 실측**
+
+| 항목 | 실측 | 판정 |
+|---|---|---|
+| `authenticated` → `stores` 직접 SELECT | `ERROR: permission denied for table stores` | 차단됨 |
+| `anon` / `service_role` → `stores` 직접 SELECT | `ERROR: permission denied for schema catchmenu_hq` | 차단됨 |
+| `stores` RLS 정책 | 1개. `qual=(tenant_id = catchmenu_common.current_tenant_id())`, `with_check=NULL` | 허용됨 — tenant 일치 시에만 |
+| 애플리케이션의 `stores` 읽기 경로 | 직접 접근 0건. `SECURITY DEFINER` 함수 2개(RPC) 경유만 존재 | 허용됨 — 함수 경유로 한정 |
+| `merchant_store`가 가리키는 실제 런타임 지점 | 비문서 코드 경로에서 `merchant_store` 참조 0건, 동명 SQL 테이블 0개 | 미확인(코드베이스부재) |
+
+스키마 전역 권한검사 실측은 §4.4 HQ의 E-2에 모아 기록했다.
+
+**E-3. 확인하지 못한 항목**
+
+| # | 항목 | 사유 | 대안 확인 방법 |
+|---|---|---|---|
+| 1 | `merchant_store` 문서 어휘의 런타임 지점 | **미확인(코드베이스부재)** — 코드·DB 어디에도 해당 명칭 경로가 없음 | 1단계 Human 업무규칙 선언에서 어휘 채택 여부 결정 |
 
 D 결과로 해소되어 E 목록에서 제거한 항목:
 
 - ~~151개 함수 중 `legal_entity_id`를 읽거나 쓰는 함수의 호출자와 권한검사 경로~~ — D-1 #1에서 해당 함수가 **0개**로 확정되어 추적 대상이 존재하지 않음.
+
+---
+
+## §4.15 `601503` §9 SECURITY DEFINER 6규칙 현황 (횡단)
+
+이 표는 특정 대상이 아니라 전 대상에 걸친 실측이다.
+`601510` Stage 11B 조건 ②이며 `601512` §5A가 0-C로 이월한 항목이다.
+
+| # | 규칙 | 실측 | 충족 |
+|---|---|---|---|
+| 1 | 함수 소유자를 `catchmenu_authority_owner` 로 | 164개 전부 `postgres` 소유 | ❌ |
+| 2 | migration에 `alter function ... owner to ...` 명시 | (1이 미충족이므로 해당 없음) | ❌ |
+| 3 | `revoke all from public` 후 필요 role에만 grant | `PUBLIC` EXECUTE 20개 잔존 | ⚠️ 부분 |
+| 4 | `set search_path = catchmenu_hq, pg_catalog` 고정, `public` 제외 | 164개 전부 명시적, `public` 포함 0개 | ✅ |
+| 5 | 모든 참조를 schema-qualified | (본 조사 범위 밖 — 함수 본문 정적분석 필요) | 미확인 |
+| 6 | 함수 내부에서 호출자 tenant 권한 명시 검증 | (본 조사 범위 밖) | 미확인 |
+
+> `601512` §5A는 "4·5번이 1번보다 시급하다"고 기록했다.
+> 실측 결과 **시급한 4번은 충족, 덜 시급한 1번은 미충족**이다.
+> 위험도 관점에서 현재 상태는 `601510`이 우려한 최악(search_path 위반으로 인한
+> 권한상승)에는 해당하지 않는다. 사실 기록이며 판정이 아니다.
+
+`PUBLIC` EXECUTE 20개는 `601503` §9.4 CI 쿼리 2번의 기대값(0건)과 다르다.
+해당 함수 20개의 실명은 아래와 같다.
+
+| # | 스키마 | 함수명 |
+|---|---|---|
+| — | 미확인 | **Codex E단계 조사 결과에 실명 목록이 없다.** grantee별 EXECUTE 집계(`PUBLIC` 20개)만 보고되었고 `aclexplode(proacl)` 전개 결과의 함수 실명은 기재되지 않았다 |
+
+**후속 조회 필요**: 아래 형태의 읽기 전용 쿼리로 20개 실명을 확정해야 한다. 확정 전까지 이 표를 인용하지 않는다.
+
+```text
+pg_proc × aclexplode(proacl) 에서 grantee=0(PUBLIC) AND privilege_type='EXECUTE' 인
+함수의 nspname · proname · identity arguments 를 나열
+```
 
 ---
 
@@ -1386,7 +1554,8 @@ D 결과로 해소되어 E 목록에서 제거한 항목:
 | C 문서-SQL 대조 | Claude Code | 2026-08-11 | A·B 대조 |
 | D 로컬 실행 검증 | Codex | 2026-08-11 | 읽기전용, 금지함수 미호출 |
 | D 결과 기입 | Claude Code | 2026-08-11 | 미확인 사유 2종 분리 |
-| E 호출자·권한 통합 |  |  |  |
+| E 호출자·권한 통합 | Codex | 2026-08-11 | 읽기전용, config.toml 읽기만 |
+| E 결과 기입·§3 판정 | Claude Code | 2026-08-11 | A~E 완료 후 판정 |
 
 **Actor 배정 근거**: `000701` §34(도구별 특성) / §37(원작자 검증 배제).
 한글 본문 작성은 Cursor에게 맡기지 않는다(`000001` §1, `000701` §34.1).
@@ -1404,8 +1573,13 @@ D 결과로 해소되어 E 목록에서 제거한 항목:
 
 ## §7 완료 조건
 
-- [ ] 14개 대상 전부 A~E가 기록됨 (미확인도 명시적으로 기록)
-- [ ] §3 요약표 14행이 전부 채워짐
-- [ ] 재사용 판정이 A~E 완료 후에 기입됨
-- [ ] §48.3 금지사항 3건 위반 없음
-- [ ] §5 수행 기록에 actor와 날짜가 기입됨
+- [ ] 14개 대상 전부 A~E가 기록됨 (미확인도 명시적으로 기록) — **미충족**: Company/Owner/Tenant/HQ/Store 5개만 기록. §4.6~§4.14 9개 미조사
+- [ ] §3 요약표 14행이 전부 채워짐 — **미충족**: 조사한 5행만 기입. 나머지 9행은 근거가 없어 비움
+- [x] 재사용 판정이 A~E 완료 후에 기입됨 — 기록된 5개 대상에 한해 A~E 5단계 완료 후 기입
+- [x] §48.3 금지사항 3건 위반 없음 — 문서 존재만으로 구현 간주 없음 / 단계 건너뛴 결론 없음 / 전 대상 표 형식 유지
+- [x] §5 수행 기록에 actor와 날짜가 기입됨 — A~E 및 기입 작업 7행 전부 actor·날짜 기재
+
+**잔여 항목** (완료 조건 1·2 해소에 필요):
+
+- §4.6~§4.14 9개 대상(User identity / Customer identity / Staff identity / Session / Role / Permission / Membership / Menu seed / Dining table)의 A~E 조사
+- §4.15 `PUBLIC` EXECUTE 20개 함수 실명 확정
