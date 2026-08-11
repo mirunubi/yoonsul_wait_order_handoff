@@ -65,65 +65,553 @@ Last Updated: 2026-08-11
 
 각 대상마다 A~E를 빠짐없이 기록한다. 확인하지 못한 항목은 `미확인`으로 적고 비워두지 않는다.
 
+**하위 절 구조 (전 대상 공통)**
+
+- **A. 문서 증거** — A-1 Discovery Inventory / A-2 Concept Source / A-3 Findings·Evidence / A-4 Vocabulary / A-5 Contradictions / A-6 Excluded
+- **B~E** — SQL 객체 / 문서-SQL 일치 / 로컬 실행 검증 / 호출자·권한 통합
+
+**A-1 열 값**
+
+- 분류: `Doctrine` / `Design` / `Audit` / `Verification` / `Baseline` / `Scope` / `Template` / `Reference`
+- 권위: `ACTIVE` / `SUSPENDED` / `HISTORICAL`
+- 처분: `A-2`(개념원천) / `A-3`(발견) / `A-6`(제외)
+
+**A-2 포함 기준**
+
+포함은 (a) 해당 개념의 의미를 직접 정의하거나, (b) 업무규칙 또는 관계를 독립적으로 선언하는 문서로 한정한다.
+Readme / Tracker / Template / Baseline Summary, 현 워크패킷(`601700`/`601701`)이 생성한 문서는 A-1에만 남긴다.
+TestPlan / Verification / Module / Audit / AuditReview 는 A-3으로 보낸다.
+`AUTHORITY SUSPENDED` 블록의 내용도 A-3으로 보낸다 — 감사 finding을 원천정의로 승격시키면 역전파가 반복된다.
+
+**권위 열 표기 규칙**: 그 산출물 자체의 현재 지위를 적는다.
+`600020` §1.4에 따라 finding의 증거 가치는 판정의 권위와 별개로 유지되므로, 필요한 경우 발견 내용 칸에 병기한다.
+
 ### §4.1 Company
 
-**A 문서**
+**A. 문서 증거**
 
-| 문서 경로 | 무엇을 규정하는가 |
-|---|---|
-|  |  |
+**A-1. Discovery Inventory**
 
-**B SQL 객체**
+| # | 문서 경로 | 분류 | 권위 | 처분 |
+|---|---|---|---|---|
+| 1 | `docs/000100_project_foundation/000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | Doctrine | ACTIVE | A-2 |
+| 2 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | Doctrine | ACTIVE | A-2 |
+| 3 | `docs/003000_saas_runtime/003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | Doctrine | ACTIVE | A-2 |
+| 4 | `docs/009000_data_model_state_machine/009030_Register_Conceptual_Entity_Master.md` | Doctrine | ACTIVE | A-2 |
+| 5 | `docs/009000_data_model_state_machine/009070_Matrix_Context_Entity_Alignment_Model.md` | Doctrine | ACTIVE | A-2 |
+| 6 | `docs/007000_admin_console/007010_Policy_Admin_Console_Context_And_Role_Model.md` | Doctrine | ACTIVE | A-2 |
+| 7 | `docs/007000_admin_console/007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md` | Doctrine | ACTIVE | A-2 |
+| 8 | `docs/000100_project_foundation/000140_Guide_Organization_Core.md` | Doctrine | ACTIVE | A-2 |
+| 9 | `docs/000100_project_foundation/000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md` | Doctrine | ACTIVE | A-2 |
+| 10 | `docs/000100_project_foundation/000200_Boundary_Organization_Core_MVP_Cutline.md` | Scope | ACTIVE | A-6 |
+| 11 | `docs/010000_runtime_foundation_and_cross_room_architecture/010100_foundation_static_catalog_package/010145_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md` | Reference | ACTIVE | A-6 |
+| 12 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601501_ERD_Tenant_Company_HQ_Store.md` | Design | SUSPENDED | A-2 |
+| 13 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601502_Overview_Operational_Authority_Foundation_Ddl.md` | Scope | SUSPENDED | A-6 |
+| 14 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601503_Logic_Operational_Authority_Foundation_Ddl.md` | Design | SUSPENDED | A-2 |
+| 15 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | Scope | SUSPENDED | A-6 |
+| 16 | `docs/600000_implementation_lifecycle/601600_upstream_doctrine_backpropagation/601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md` | Audit | SUSPENDED | A-3 |
+| 17 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601700_Readme_Operational_Authority_Foundation_V2.md` | Scope | SUSPENDED | A-6 |
+| 18 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601701_Register_Stage0_Evidence_Collection.md` | Template | SUSPENDED | A-6 |
+| 19 | `000150` 2026-08-11 역전파 블록 (동일 파일 내 별도 블록) | Audit | SUSPENDED | A-3 |
+| 20 | `003020` 2026-08-11 역전파 블록 (동일 파일 내 별도 블록) | Audit | SUSPENDED | A-3 |
+| 21 | `009030` 2026-08-11 역전파 블록 (동일 파일 내 별도 블록) | Audit | SUSPENDED | A-3 |
 
-| 종류 | 실명 | 위치(migration 또는 라이브DB) |
-|---|---|---|
-|  |  |  |
+**파일명 검색 결과**: `*Company*` 4건 — `000150` / `000170` / `003020` / `601501`. 전부 위 표에 포함.
 
-**C 문서-SQL 일치**
+**A-2. Concept Source**
 
-| 항목 | 문서 | 실제 | 일치 |
+| # | 문서 경로 | 무엇을 정의하는가 | 권위 |
 |---|---|---|---|
-|  |  |  |  |
+| 1 | `000150` | CatchMenu 운영 company · business unit · legal entity 경계, 사업부 vs 법인 분리, 외부 SaaS·Franchise OS 격리 | ACTIVE |
+| 2 | `000170` §6 | `merchant_company` 정의, merchant_account↔company↔store 3계층 | ACTIVE |
+| 3 | `003020` §2 | 5축 중 company = 브랜드·운영 그룹핑, legal_entity와 병렬 축 | ACTIVE |
+| 4 | `009030` §2 | 개념 엔터티 `company`: "Not automatically legal entity" | ACTIVE |
+| 5 | `009070` §2 | company vs operating_group vs legal_entity 축 정렬 (물리 스키마 비정의) | ACTIVE |
+| 6 | `007010` §2 | Admin Console company 축 = operating company or brand entity | ACTIVE |
+| 7 | `007040` §3 | Company List/Detail 화면, company ≠ legal_entity 금지 규칙 | ACTIVE |
+| 8 | `000140` §23 | platform company context 및 CatchMenu HQ와의 관계 | ACTIVE |
+| 9 | `000190` | CatchMenu company 경계 vs Franchise OS 권한 유입 방지 | ACTIVE |
+| 10 | `601501` §0.3–§0.6 | company 축 = `franchise_brands`, legal_entity = `legal_entities`, 4개념 분리 | SUSPENDED |
+| 11 | `601503` | DDL·접근제어·company/legal_entity 테이블 규칙 | SUSPENDED |
 
-**D 로컬 실행 검증**
+**A-3. Findings / Evidence**
 
-| 실행한 쿼리 | 결과 |
+| # | 출처 문서 | 발견 내용 | 권위 |
+|---|---|---|---|
+| 1 | `600020` §2.2 | `000150` §26의 `companies`/`business_units`가 "Actual schema may be designed later" 상태로 방치 | ACTIVE |
+| 2 | `000150` 역전파 블록 층 A | 어휘 함정: `legal_entities.entity_type='CORPORATION'`은 법인격 종류(legal form)이며 company 축(브랜드 그룹핑)과 다른 개념 | 층 A 유효 / 층 B(구현 대응표) 권위 없음 |
+| 3 | `003020` 역전파 블록 층 A | company 축과 legal_entity 축 혼동 경고 | 층 A 유효 / 층 B 권위 없음 |
+| 4 | `009030` 역전파 블록 층 A | 개념 등록부에 없던 신규 개념(자연인·대표권·조직 역할)이 존재한다는 경고 | 층 A 유효 / 층 B 권위 없음 |
+| 5 | `601601` §4.2·§4.3 | 원천 설계문서 노후 사례 기록 | SUSPENDED (finding 증거가치는 `600020` §1.4로 유지) |
+| 6 | `601510` Stage 11B 블라인드 감사 | 4개념 분리 문제 finding | 판정 HISTORICAL / finding 증거 유지 (`600020` §1.4) |
+
+**A-4. Vocabulary**
+
+| 어휘 | 출처 | 정의 | 비고 |
+|---|---|---|---|
+| company | `003020` §2 | Operating company or brand entity; not automatically legal_entity | `TERM_COLLISION` — 아래 3개 항목과 같은 단어, 다른 개념 |
+| merchant_company | `000170` §6 | Business entity behind one or more stores; billing/contract/tax reference | `TERM_COLLISION` |
+| platform company context | `000140` §23 | CatchMenu HQ가 관리하는 플랫폼 company 맥락 | `TERM_COLLISION` |
+| business_unit | `000150` §2 | 사업부·operating division; legal entity와 분리 | |
+| legal_entity | `000150`, `003020` §2 | 계약·세무·정산 주체; company와 병렬 축 | |
+| operating_group | `003020` §2 | 지역·가맹·직영 그룹; company와 다른 축 | |
+| franchise_brands | `601501` §0.3–§0.4 | company 축 구현체로 기술 | 권위보류 |
+| legal_entities | `601501` §0.3 | legal_entity 축 구현체; `entity_type='CORPORATION'`은 법인격 종류 | 권위보류 |
+| store_groups | `601501` §0.5 | operating_group 축; `group_type='REGION'`만 | 권위보류 |
+
+**A-5. Contradictions**
+
+| # | 문서 A | 문서 B | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `000170` §4: 최상위 `merchant_account` | `003020` §2: 최상위 `tenant` | SaaS 고객 경계 명칭·계층 불일치 |
+| 2 | `000170` §6: `merchant_company` | `003020` §2: `company` = brand/operating grouping | 동일 계층에 다른 명칭 |
+| 3 | `003020` §2: company ≠ legal_entity (추상 축) | `601501` §0.3: company=`franchise_brands`, legal=`legal_entities` (구체 테이블) | 추상 축 선언 vs 구체 테이블 매핑 |
+| 4 | `000150` §2: `business_unit` | `003020` §2: `operating_group` | 유사 역할, 다른 용어 |
+| 5 | `000150`·`003020` 본문 | 동일 파일 2026-08-11 역전파 블록 | 본문은 "Actual schema may be designed later" 성격, 블록은 `0168`/`franchise_brands` 매핑 주장 — 동일 파일 내 이중 서술 |
+| 6 | `600020` §2.2: 원천 설계문서 검증된 적 없음 | `000150`·`003020` 역전파 블록: 0-A 구현 결과 반영 | 동일 문서군에 "미검증"과 "구현 반영" 공존 |
+
+**A-6. Excluded**
+
+| 문서 경로 | 제외 사유 |
 |---|---|
-|  |  |
+| `000200_Boundary_Organization_Core_MVP_Cutline.md` | MVP 범위 컷라인 선언; company 개념 정의 아님 |
+| `010145_Policy_Franchise_OS_Capability_Inheritance_And_Tenant_Store_Assembly.md` | company·brand 축 참조만 |
+| `601502_Overview_Operational_Authority_Foundation_Ddl.md` | 0-A 범위·맥락 문서 |
+| `601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | 허용/금지 계약 문서 |
+| `601700_Readme_Operational_Authority_Foundation_V2.md` | 워크패킷 범위 선언 |
+| `601701_Register_Stage0_Evidence_Collection.md` | 현 워크패킷 자기참조 (빈 템플릿) |
+| `docs/014000_pos_provider_integration_strategy/014690_Template_POS_Provider_Official_Verification_Request.md` | company 필드 언급, 개념 정의 없음 |
+| `docs/021000_financial_security_monitoring_catalog/021540_Policy_Universal_Integration_Reconciliation_And_Idempotency_Catalog.md` | tenant/company 교차 참조만 |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010451_Policy_Financial_Risk_Boundary.md` | legal entity 맥락 언급, company 축 미정의 |
+| `docs/000005_Index_Document_Number.md` | 인덱스·등록 메타 |
+| `docs/000007_Map_Full_Directory.md` | 디렉터리 맵 |
+| (기타 114건) | POS/결제/배포/거버넌스 등에서 company·legal_entity 단순 참조 |
 
-**E 호출자·권한**
+**집계**: 본문 키워드 히트 137건 / A-1 등재 21건(문서 18 + 역전파 블록 3) / 단순 참조 제외 119건.
 
-| 호출 지점 | 권한검사 | 비고 |
-|---|---|---|
-|  |  |  |
+**B. SQL 객체** — 미수행
 
-**발견 사항 (문서 노후·모순 포함)**
+**C. 문서-SQL 일치** — 미수행
 
--
+**D. 로컬 실행 검증** — 미수행
+
+**E. 호출자·권한 통합** — 미수행
 
 ---
 
 ### §4.2 Owner
 
-(§4.1과 동일 구조)
+**A. 문서 증거**
+
+**A-1. Discovery Inventory**
+
+| # | 문서 경로 | 분류 | 권위 | 처분 |
+|---|---|---|---|---|
+| 1 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | Doctrine | ACTIVE | A-2 |
+| 2 | `docs/010000_runtime_foundation_and_cross_room_architecture/010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` §4.1 판별 기준 | Doctrine | ACTIVE | A-2 |
+| 3 | `docs/005000_customer_handoff_and_implementation_readiness/005100_implementation_readiness_and_provider_verification/005121_Policy_Runtime_Owner_Registry_And_Implementation_Responsibility_Matrix.md` | Doctrine | ACTIVE | A-2 |
+| 4 | `docs/007000_admin_console/007010_Policy_Admin_Console_Context_And_Role_Model.md` | Doctrine | ACTIVE | A-2 |
+| 5 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601501_ERD_Tenant_Company_HQ_Store.md` | Design | SUSPENDED | A-2 |
+| 6 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601503_Logic_Operational_Authority_Foundation_Ddl.md` | Design | SUSPENDED | A-2 |
+| 7 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601502_Overview_Operational_Authority_Foundation_Ddl.md` | Scope | SUSPENDED | A-6 |
+| 8 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | Scope | SUSPENDED | A-6 |
+| 9 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601504_TestPlan_Operational_Authority_Foundation_Ddl.md` | Verification | SUSPENDED | A-3 |
+| 10 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601506_Verification_Operational_Authority_Foundation_Ddl.md` | Verification | SUSPENDED | A-3 |
+| 11 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601507_Verification_Operational_Authority_Foundation_Ddl.md` | Verification | SUSPENDED | A-3 |
+| 12 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601508_Audit_Operational_Authority_Foundation_Ddl.md` | Audit | SUSPENDED | A-3 |
+| 13 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601509_AuditReview_Operational_Authority_Foundation_Ddl.md` | Audit | SUSPENDED | A-3 |
+| 14 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601510_AuditReview_Stage11B_Blind_Audit.md` | Audit | SUSPENDED | A-3 |
+| 15 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601511_AuditReview_Stage11A_Final.md` | Audit | SUSPENDED | A-3 |
+| 16 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601500_Readme_Operational_Authority_Foundation.md` | Scope | SUSPENDED | A-6 |
+| 17 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601512_Baseline_Summary.md` | Baseline | SUSPENDED | A-6 |
+| 18 | `docs/600000_implementation_lifecycle/601600_upstream_doctrine_backpropagation/601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md` | Audit | SUSPENDED | A-3 |
+| 19 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601701_Register_Stage0_Evidence_Collection.md` | Template | SUSPENDED | A-6 |
+| 20 | `009030` 2026-08-11 역전파 블록 (`owners` 신규 개념) | Audit | SUSPENDED | A-3 |
+| 21 | `010004` §4.1 "첫 사례" 블록 (전역 4테이블) | Audit | SUSPENDED | A-3 |
+
+**파일명 검색 결과**: `*Owner*` 다수. 그중 `005121`(runtime owner)만 정의 문서로 등재.
+`601443_Consolidated_Owner_Decision_Registry_Cross_Domain.md`는 의사결정 등록부 명칭이며 자연인 Owner를 정의하지 않아 A-6.
+
+**A-2. Concept Source**
+
+| # | 문서 경로 | 무엇을 정의하는가 | 권위 |
+|---|---|---|---|
+| 1 | `000170` §2·§4 | `primary_owner_user_id`, Merchant Account↔owner 관계 필드군 | ACTIVE |
+| 2 | `010004` §4.1 판별 기준 | tenant-owned가 아닌 객체의 판별 기준 (하나의 행이 여러 tenant에 걸쳐 동일 실체를 가리키는가) | ACTIVE |
+| 3 | `005121` §3–§5 | runtime owner = 구현·증거·릴리즈 책임 주체 (인물/테이블 아님) | ACTIVE |
+| 4 | `007010` §3 | Admin Console 역할 `store_owner` | ACTIVE |
+| 5 | `601501` §0.6·§2.4·§2.5 | `catchmenu_hq.owners` = 법적 사업주체와 관계 맺는 자연인; 소유권·대표권·역할·BRN 4개념 분리 | SUSPENDED |
+| 6 | `601503` §9 | `owners`/`legal_entity_representatives`/`legal_entity_person_roles` DDL 및 SECURITY DEFINER 규칙 | SUSPENDED |
+
+**A-3. Findings / Evidence**
+
+| # | 출처 문서 | 발견 내용 | 권위 |
+|---|---|---|---|
+| 1 | `601510` Stage 11B 블라인드 감사 | Owner ≠ Representative ≠ shareholder 구분 필요; `SECURITY DEFINER` 보안경계; SOLE 대표 유일성 | 판정 HISTORICAL / finding 증거 유지 (`600020` §1.4) |
+| 2 | `601509` Stage 11A 감사 | 0-A 산출물 감사 지적 | 판정 HISTORICAL |
+| 3 | `601511` Stage 11A Final | `APPROVE_WITH_NOTES` 판정 | 역사적 판정, 현재 권위 없음 (`600020` §1.4) |
+| 4 | `601508` Audit 초안 | 감사 초안 기록 | SUSPENDED |
+| 5 | `601504` TestPlan | owners·representatives 검증 케이스 정의 | SUSPENDED |
+| 6 | `601506` Verification (Stage 9) | 검증 실행 기록 | SUSPENDED |
+| 7 | `601507` Verification (Stage 10) | 검증 정리 기록 | SUSPENDED |
+| 8 | `601601` | `owners` 명칭 주의, 4개념 분리 관련 상위 문서 개정 초안 | SUSPENDED |
+| 9 | `009030` 역전파 블록 층 A | 개념 등록부에 원래 없던 "자연인"이 신규 등장했다는 경고 | 층 A 유효 / 층 B 권위 없음 |
+| 10 | `010004` §4.1 "첫 사례" 블록 | 전역 4테이블(`owners` 등)에 `tenant_id`가 없다는 기술 | 권위 없음 (`600020` §1.1) |
+
+**A-4. Vocabulary**
+
+| 어휘 | 출처 | 정의 | 비고 |
+|---|---|---|---|
+| owners (table) | `601501` §2.4.1 | 법적 사업주체와 관계 맺는 자연인; tenant admin·지분 보유자 아님 | `TERM_COLLISION` · 권위보류 |
+| primary_owner_user_id | `000170` §4 | Merchant Account의 primary owner user (계정) | `TERM_COLLISION` |
+| runtime owner | `005121` §3 | 런타임 영역별 책임·증거·릴리즈 담당 주체 | `TERM_COLLISION` |
+| store_owner | `007010` §3 | Admin Console 역할 | `TERM_COLLISION` |
+| Document Owner (metadata) | 다수 Readme | 문서 메타 `Owner: TBD` | `TERM_COLLISION` — 개념 Owner 아님 |
+| owner relationship | `000170` §2 scope | Merchant Account↔owner 관계 필드군 | |
+| legal_entity_representatives | `601501` §2.5 | 대표권의 유일한 진실원천 | 권위보류 |
+| ownership (economic) | `601501` §0.6 #1 | 지분 — 미모델링 Open Item | 권위보류 |
+| role_type OWNER | `601501` §0.6 | 조직 역할이며 economic ownership 아님 | 권위보류 |
+| ownership_percent | `601501` §2.3.1 | 사용 금지 — 소유권 모델 아님 | 권위보류 |
+
+**A-5. Contradictions**
+
+| # | 문서 A | 문서 B | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `000170`: `primary_owner_user_id` (계정·user) | `601501` §2.4.1: `owners` (자연인, 비로그인) | 동일 "Owner" 어휘, 다른 개념 |
+| 2 | `005121`: runtime owner (책임 매트릭스) | `601501`: `owners` 테이블 | 동일 영어 Owner, 다른 도메인 |
+| 3 | `601501` §0.6: economic ownership 미모델링 | `601501` §2.3: `ownership_percent` 컬럼 존재 | 동일 설계 lineage 내 컬럼 vs 정책 기술 모순 |
+| 4 | `009030` §2 본문: owner 개념 없음 | `009030` 역전파 블록: `owners` 신규 | 동일 파일 내 개념 등록부 확장 |
+| 5 | `007010`: `store_owner` 역할 | `601501`: owners ≠ SaaS 계정 소유자 | Admin 역할 vs 법적 person |
+
+**A-6. Excluded**
+
+| 문서 경로 | 제외 사유 |
+|---|---|
+| `601502_Overview_Operational_Authority_Foundation_Ddl.md` | 0-A 범위·접근제어 맥락 문서 |
+| `601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | 4테이블 변경 계약·금지 조항 |
+| `601500_Readme_Operational_Authority_Foundation.md` | 폴더 진입점 |
+| `601512_Baseline_Summary.md` | 진행·복구 기준선 |
+| `601701_Register_Stage0_Evidence_Collection.md` | 현 워크패킷 자기참조 |
+| `docs/000001_Md_Rules.md` | 문서 Lifecycle `Owner:` 메타필드 |
+| `docs/600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601443_Consolidated_Owner_Decision_Registry_Cross_Domain.md` | Owner = 의사결정 등록부 명칭 |
+| `docs/014000_pos_provider_integration_strategy/014720_Governance_POS_Provider_Integration_Decision_Gate.md` | decision owner (담당자) |
+| `docs/000100_project_foundation/000180_Policy_Operator_Assignment_And_Backup_Responsibility.md` | operator assignment; owners 미정의 |
+| `docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601311_PassA_Blind_Reverse_Engineering_Common_Auth.md` | catchmenu_hq 스키마 서술; owners 정의 없음 |
+| (기타 1,134건) | `Owner: TBD`, workpackage owner, copyright owner 등 메타·책임·일반 영어 |
+
+**집계**: 본문 키워드 히트 1,159건(`owner|representative|ownership|소유|사업주|대표`) / A-1 등재 21건 / 단순 참조 제외 1,139건.
+
+**정정 기록**: Cursor 조사의 "권위보류 14건"은 감사·검증 산출물이 개념원천과 합산된 수치다.
+재분류 결과 SUSPENDED 15건 중 A-2는 `601501`·`601503` **2건**뿐이며, A-3이 8건, A-6이 5건이다.
+
+**B. SQL 객체** — 미수행
+
+**C. 문서-SQL 일치** — 미수행
+
+**D. 로컬 실행 검증** — 미수행
+
+**E. 호출자·권한 통합** — 미수행
 
 ---
 
 ### §4.3 Tenant
 
-(§4.1과 동일 구조)
+**A. 문서 증거**
+
+**A-1. Discovery Inventory**
+
+| # | 문서 경로 | 분류 | 권위 | 처분 |
+|---|---|---|---|---|
+| 1 | `docs/003000_saas_runtime/003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | Doctrine | ACTIVE | A-2 |
+| 2 | `docs/003000_saas_runtime/003010_Guide_Tenant_Store_Runtime_And_Package_Model.md` | Doctrine | ACTIVE | A-2 |
+| 3 | `docs/009000_data_model_state_machine/009030_Register_Conceptual_Entity_Master.md` | Doctrine | ACTIVE | A-2 |
+| 4 | `docs/009000_data_model_state_machine/009070_Matrix_Context_Entity_Alignment_Model.md` | Doctrine | ACTIVE | A-2 |
+| 5 | `docs/010000_runtime_foundation_and_cross_room_architecture/010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` | Doctrine | ACTIVE | A-2 |
+| 6 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010640_Policy_Tenant_Scope_Envelope.md` | Doctrine | ACTIVE | A-2 |
+| 7 | `docs/007000_admin_console/007010_Policy_Admin_Console_Context_And_Role_Model.md` | Doctrine | ACTIVE | A-2 |
+| 8 | `docs/012000_implementation_mapping/012020_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md` | Doctrine | ACTIVE | A-2 |
+| 9 | `docs/012000_implementation_mapping/012021_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md` | Doctrine | ACTIVE | A-2 |
+| 10 | `docs/020000_validation_security_audit/020170_Governance_Cross_Tenant_Isolation_And_Data_Leakage_Prevention.md` | Doctrine | ACTIVE | A-2 |
+| 11 | `docs/004900_security_runtime_test_catalog/004920_Policy_Tenant_Store_RLS_Access_Control_Test_Catalog.md` | Verification | ACTIVE | A-3 |
+| 12 | `docs/014000_pos_provider_integration_strategy/014097_Policy_SaaS_Admin_Tenant_Store_Directory.md` | Reference | ACTIVE | A-6 |
+| 13 | `docs/026000_analytics_reporting_bi/026040_Boundary_Cross_Tenant_Benchmark_And_Data_Sharing.md` | Doctrine | ACTIVE | A-2 |
+| 14 | `docs/010000_runtime_foundation_and_cross_room_architecture/010400_financial_trust_room/010461_Policy_Multi_Tenant_Finance_SaaS.md` | Doctrine | ACTIVE | A-2 |
+| 15 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | Doctrine | ACTIVE | A-2 |
+| 16 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601501_ERD_Tenant_Company_HQ_Store.md` | Design | SUSPENDED | A-2 |
+| 17 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601503_Logic_Operational_Authority_Foundation_Ddl.md` | Design | SUSPENDED | A-2 |
+| 18 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | Scope | SUSPENDED | A-6 |
+| 19 | `docs/600000_implementation_lifecycle/601600_upstream_doctrine_backpropagation/601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md` | Audit | SUSPENDED | A-3 |
+| 20 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601701_Register_Stage0_Evidence_Collection.md` | Template | SUSPENDED | A-6 |
+| 21 | `000170` 2026-08-11 역전파 블록 (§14/§15/§16 SUPERSEDED 선언, 이후 철회) | Audit | SUSPENDED | A-3 |
+| 22 | `003020` 2026-08-11 역전파 블록 | Audit | SUSPENDED | A-3 |
+
+**파일명 검색 결과**: `*Tenant*` 27건. 그중 정의·규정 문서만 위 표에 등재했고, POS Gateway tenant binding 등 tenant 사용 맥락 문서는 A-6.
+
+**A-2. Concept Source**
+
+| # | 문서 경로 | 무엇을 정의하는가 | 권위 |
+|---|---|---|---|
+| 1 | `003020` §2–§3 | tenant = SaaS customer boundary·contract scope; store/legal entity와 비동치 | ACTIVE |
+| 2 | `003010` §3 | Tenant principle — billing·admin·package는 tenant-level | ACTIVE |
+| 3 | `009030` §2 | 개념 `tenant`: SaaS customer or contract boundary | ACTIVE |
+| 4 | `009070` §2 | tenant 축 정렬·store 소유 관계 | ACTIVE |
+| 5 | `010004` §2–§4 | `tenant_id` 필수·격리 빔·cross-tenant 금지 | ACTIVE |
+| 6 | `010640` | Tenant scope envelope·컨텍스트 봉투 | ACTIVE |
+| 7 | `007010` §2–§3.2 | Admin tenant 축·`tenant_admin` 역할 | ACTIVE |
+| 8 | `012020` / `012021` | Tenant/Store context → RLS 매핑 정책 | ACTIVE |
+| 9 | `020170` | Cross-tenant isolation governance | ACTIVE |
+| 10 | `026040` | Cross-tenant benchmark 경계 | ACTIVE |
+| 11 | `010461` | Multi-tenant finance SaaS 경계 | ACTIVE |
+| 12 | `000170` §4 | `merchant_account` = top-level SaaS customer relationship | ACTIVE |
+| 13 | `601501` §3 | `tenants` 유지; `tenant_status`/`isolation_state` 2컬럼 분리 | SUSPENDED |
+| 14 | `601503` | tenants 상태·격리 DDL | SUSPENDED |
+
+**A-3. Findings / Evidence**
+
+| # | 출처 문서 | 발견 내용 | 권위 |
+|---|---|---|---|
+| 1 | `004920` | Tenant/Store RLS 접근제어 테스트 카탈로그 | ACTIVE |
+| 2 | `601601` §4.2 | `010004` §4가 `tenant-owned` 한정인데 "모든 객체"로 오독되어 왔음 | SUSPENDED (finding 증거가치 유지) |
+| 3 | `601601` §4.3 | `000170` §14/§16의 store 서비스상태·체험상태 어휘가 구현된 적 없음 | SUSPENDED (finding 증거가치 유지) |
+| 4 | `000170` 역전파 블록 | §14/§15/§16을 SUPERSEDED로 선언했으나 2026-08-10 판정으로 철회됨; 세 절은 미구현 상태의 유효한 정책 의도 | 선언 철회됨 |
+| 5 | `003020` 역전파 블록 층 A | tenant 축과 legal_entity 축 혼동 경고 | 층 A 유효 / 층 B 권위 없음 |
+
+**A-4. Vocabulary**
+
+| 어휘 | 출처 | 정의 | 비고 |
+|---|---|---|---|
+| tenant | `003020` §2 | SaaS customer boundary and contract scope | |
+| merchant_account | `000170` §4 | Top-level SaaS customer relationship | tenant와 병기·대체 |
+| tenant_id | `010004` §4 | All tenant-owned objects must carry | |
+| tenant_status | `601501` §3 | 서비스 가능 여부 축 | 권위보류 |
+| isolation_state | `601501` §3 | 격리/차단 축; tenant_status와 분리 | 권위보류 |
+| service_status | `000170` §4 | Merchant Account recommended field | `TERM_COLLISION` — `000170` §7은 동일 어휘를 store 범위로 사용 |
+| trial_status | `000170` §4 | Trial state on merchant account | |
+| tenants (table) | `601501` §0.2 | 기존 `catchmenu_hq.tenants` 유지 | 권위보류 |
+| multi-tenant | `010004` §2 | Platform spine isolation model | |
+
+**A-5. Contradictions**
+
+| # | 문서 A | 문서 B | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `003020` §2: tenant 최상위 | `000170` §4: merchant_account 최상위 | SaaS 고객 경계 명칭 |
+| 2 | `000170`: `service_status` / `trial_status` | `601501` §3: `tenant_status` / `isolation_state` | 상태 축 이름·개수 |
+| 3 | `003020` §6 Open Decisions: company/legal_entity required 미결 | `003020` 역전파 블록: LegalEntity MVP 필수 주장 | 동일 파일 §6 vs 블록 (§6은 2026-08-10 판정으로 다시 열림) |
+| 4 | `601501` §0.3: legal_entities↔tenants 직접 FK 없음 | `010004` §4: material objects need `tenant_id` | 전역 legal_entity vs tenant 격리 요건 |
+| 5 | `600020` §2.2: `000170`·`003020` 미검증 | `601601`: 1단계 업무규칙·역전파 초안 존재 | 검증 전 문서 vs 후속 등록 |
+
+**A-6. Excluded**
+
+| 문서 경로 | 제외 사유 |
+|---|---|
+| `601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` | tenant_status 관련 금지·호출 금지 계약 |
+| `601701_Register_Stage0_Evidence_Collection.md` | 현 워크패킷 자기참조 |
+| `docs/014000_pos_provider_integration_strategy/014097_Policy_SaaS_Admin_Tenant_Store_Directory.md` | directory 목록; tenant 축 재정의 없음 |
+| `docs/014000_pos_provider_integration_strategy/014153_WorkPackage_POS_Gateway_Core_Registry_Tenant_Store_Provider_Capability_And_Environment_Binding_Implementation.md` | tenant/store binding 구현; tenant 정의 없음 |
+| `docs/600000_implementation_lifecycle/600600_waiting_order_session/600672_Logic_*.md` | RPC에서 `tenant_id` 파라미터만 |
+| `docs/010000_runtime_foundation_and_cross_room_architecture/010900_store_onboarding_and_sales_setup_axis/010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md` | onboarding 절차; tenant 축 재정의 없음 |
+| `docs/000005_Index_Document_Number.md` | 인덱스 |
+| `docs/700900_runtime_flow/701030_Flow_POS_Gateway_Store_Offline_Local_Ledger_And_Resync.md` | tenant context 전제만 |
+| (기타 679건) | "under tenant", RLS 내 `tenant_id` 등 참조 |
+
+**집계**: 본문 키워드 히트 704건 / A-1 등재 22건 / 단순 참조 제외 684건.
+
+**B. SQL 객체** — 미수행
+
+**C. 문서-SQL 일치** — 미수행
+
+**D. 로컬 실행 검증** — 미수행
+
+**E. 호출자·권한 통합** — 미수행
 
 ---
 
 ### §4.4 HQ
 
-(§4.1과 동일 구조)
+**A. 문서 증거**
+
+**A-1. Discovery Inventory**
+
+| # | 문서 경로 | 분류 | 권위 | 처분 |
+|---|---|---|---|---|
+| 1 | `docs/000100_project_foundation/000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | Doctrine | ACTIVE | A-2 |
+| 2 | `docs/000100_project_foundation/000140_Guide_Organization_Core.md` | Doctrine | ACTIVE | A-2 |
+| 3 | `docs/014000_pos_provider_integration_strategy/014016_Policy_Franchise_Store_Billing_HQ_SaaS_Fee_Split.md` | Doctrine | ACTIVE | A-2 |
+| 4 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601501_ERD_Tenant_Company_HQ_Store.md` | Design | SUSPENDED | A-2 |
+| 5 | `docs/600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601311_PassA_Blind_Reverse_Engineering_Common_Auth.md` | Audit | SUSPENDED | A-3 |
+| 6 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601700_Readme_Operational_Authority_Foundation_V2.md` | Scope | SUSPENDED | A-6 |
+| 7 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601701_Register_Stage0_Evidence_Collection.md` | Template | SUSPENDED | A-6 |
+
+**파일명 검색 결과**: `*HQ*` / `*Headquarters*` **0건**.
+HQ는 본문과 DB 스키마명(`catchmenu_hq`)으로만 등장한다. 이 사실만 기록하며, 결함 여부는 판정하지 않는다.
+
+**A-2. Concept Source**
+
+| # | 문서 경로 | 무엇을 정의하는가 | 권위 |
+|---|---|---|---|
+| 1 | `000150` (Purpose 영역) | CatchMenu HQ = company model administrative interface | ACTIVE |
+| 2 | `000140` §23 | CatchMenu HQ = administrative surface; Organization Core 구조 관리 UI | ACTIVE |
+| 3 | `014016` | Franchise HQ vs store billing·SaaS fee split | ACTIVE |
+| 4 | `601501` §0.2 #7 | HQ = `catchmenu_hq` 스키마 자체; 변경 없음 | SUSPENDED |
+
+**A-3. Findings / Evidence**
+
+| # | 출처 문서 | 발견 내용 | 권위 |
+|---|---|---|---|
+| 1 | `601311` PassA 역설계 감사 | `catchmenu_hq` 스키마가 프랜차이즈 본사(HQ)→tenant→store 계층으로 구성되어 있다는 역설계 관찰 | SUSPENDED (finding 증거가치 유지) |
+| 2 | `601501` ERD | `store_group_members.member_role` CHECK 값에 `LEADER`/`MEMBER`/`HQ` 존재 | SUSPENDED |
+| 3 | `601501` §0.4 | `franchise_brands.hq_contact_*` 컬럼이 사업자축에 중첩되어 있음 | SUSPENDED |
+
+**A-4. Vocabulary**
+
+| 어휘 | 출처 | 정의 | 비고 |
+|---|---|---|---|
+| HQ | `601501` §0.2 #7 | `catchmenu_hq` schema itself | `TERM_COLLISION` · 권위보류 |
+| CatchMenu HQ | `000140` §23, `000150` | Administrative surface/interface | `TERM_COLLISION` |
+| 본사 | `900160` 등 patent 대역 | Franchise operations HQ (광고·긴급공지·권한) | `TERM_COLLISION` — 스키마 HQ와 다른 맥락 |
+| member_role HQ | `601501` ERD | store group member role 값 | `TERM_COLLISION` |
+| franchise_hq | `014016` | Franchise billing HQ | `TERM_COLLISION` |
+| catchmenu_hq | `601311`, `601501` §2.7 | DB 스키마명; PostgREST 미노출 | 권위보류 |
+| hq_contact_* | `601501` §0.4 | `franchise_brands` 컬럼 | 권위보류 |
+
+**A-5. Contradictions**
+
+| # | 문서 A | 문서 B | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `601501` §0.2: HQ = DB schema | `000140`/`000150`: CatchMenu HQ = admin UI/surface | HQ = 인프라 vs 제품 UI |
+| 2 | `601501`: HQ 변경 없음 | `601501` §0.4: `franchise_brands.hq_contact_*` 사업자축 중첩 | HQ 스키마 vs brand 테이블 HQ 필드 |
+| 3 | `601501` §0.5: 운영본부 = `store_groups` REGION | `601501` §0.2 #7: HQ = `catchmenu_hq` schema | "본부/HQ" 용어가 schema vs store_groups vs UI에 분산 |
+| 4 | `900160` 등: 본사 = franchise ops authority | `601501`: HQ = schema name | 한글 "본사" vs 영문 HQ 스키마 |
+
+**A-6. Excluded**
+
+| 문서 경로 | 제외 사유 |
+|---|---|
+| `601700_Readme_Operational_Authority_Foundation_V2.md` | 워크패킷 범위 선언 |
+| `601701_Register_Stage0_Evidence_Collection.md` | 현 워크패킷 자기참조 |
+| `docs/900000_patent_and_handoff_package/900161_Logic_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md` | 본사 권한 레벨 언급; HQ 스키마·CatchMenu HQ 미정의 |
+| `docs/024000_deployment_operations/024110_Policy_Franchise_SaaS_Pilot_Store_Rollout_And_Evidence_Collection.md` | pilot store; HQ 개념 정의 없음 |
+| `docs/600000_implementation_lifecycle/601100_store_admin_console/601131_Overview_Menu_Price_List_Architecture.md` | 본사 템플릿 가격 언급; HQ 스키마 아님 |
+| `docs/030000_future_saas_modules/030060_Readme_Billing_Plan_Settlement.md` | HQ fee split 언급 |
+| `docs/000800_pos_gateway_and_provider_integration_foundation/000811_Governance_POS_Provider_Support_Status_Versioning_Release_And_Deprecation.md` | `catchmenu_hq` 스키마 언급만 |
+| (기타 362건) | `catchmenu_hq.*` 테이블 경로, 본사/가맹점 일반 서술 |
+
+**집계**: 본문 키워드 히트 375건 / A-1 등재 7건 / 단순 참조 제외 367건.
+
+**B. SQL 객체** — 미수행
+
+**C. 문서-SQL 일치** — 미수행
+
+**D. 로컬 실행 검증** — 미수행
+
+**E. 호출자·권한 통합** — 미수행
 
 ---
 
 ### §4.5 Store
 
-(§4.1과 동일 구조)
+**A. 문서 증거**
+
+**A-1. Discovery Inventory**
+
+| # | 문서 경로 | 분류 | 권위 | 처분 |
+|---|---|---|---|---|
+| 1 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | Doctrine | ACTIVE | A-2 |
+| 2 | `docs/003000_saas_runtime/003010_Guide_Tenant_Store_Runtime_And_Package_Model.md` | Doctrine | ACTIVE | A-2 |
+| 3 | `docs/003000_saas_runtime/003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | Doctrine | ACTIVE | A-2 |
+| 4 | `docs/003000_saas_runtime/003030_Guide_Store_Runtime_Profile_Model.md` | Doctrine | ACTIVE | A-2 |
+| 5 | `docs/009000_data_model_state_machine/009030_Register_Conceptual_Entity_Master.md` | Doctrine | ACTIVE | A-2 |
+| 6 | `docs/009000_data_model_state_machine/009070_Matrix_Context_Entity_Alignment_Model.md` | Doctrine | ACTIVE | A-2 |
+| 7 | `docs/007000_admin_console/007010_Policy_Admin_Console_Context_And_Role_Model.md` | Doctrine | ACTIVE | A-2 |
+| 8 | `docs/007000_admin_console/007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md` | Doctrine | ACTIVE | A-2 |
+| 9 | `docs/010000_runtime_foundation_and_cross_room_architecture/010900_store_onboarding_and_sales_setup_axis/010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md` | Reference | ACTIVE | A-6 |
+| 10 | `docs/000020_Policy_Store_Capability_Stage_0_To_5_Module.md` | Doctrine | ACTIVE | A-2 |
+| 11 | `docs/004000_store_runtime_pos_kds_operations/004000_Readme_Store_Runtime_POS_KDS_Operations.md` | Scope | ACTIVE | A-6 |
+| 12 | `docs/012000_implementation_mapping/012020_Policy_Tenant_Store_Context_RLS_And_Access_Control_Implementation_Mapping.md` | Doctrine | ACTIVE | A-2 |
+| 13 | `docs/020000_validation_security_audit/020330_Policy_Merchant_User_And_Store_Access.md` | Doctrine | ACTIVE | A-2 |
+| 14 | `docs/013000_app_api_projection/013030_Store_Console_Projection.md` | Design | ACTIVE | A-2 |
+| 15 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601501_ERD_Tenant_Company_HQ_Store.md` | Design | SUSPENDED | A-2 |
+| 16 | `docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601503_Logic_Operational_Authority_Foundation_Ddl.md` | Design | SUSPENDED | A-2 |
+| 17 | `docs/600000_implementation_lifecycle/601600_upstream_doctrine_backpropagation/601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md` | Audit | SUSPENDED | A-3 |
+| 18 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601701_Register_Stage0_Evidence_Collection.md` | Template | SUSPENDED | A-6 |
+| 19 | `000170` 2026-08-11 역전파 블록 (§14/§15/§16 상태 어휘) | Audit | SUSPENDED | A-3 |
+
+**파일명 검색 결과**: `*Store*` 30건 이상. 위 표 외 다수(`014580` Store POS Adoption 등)는 store 운영·도입 맥락이며 A-6.
+
+**A-2. Concept Source**
+
+| # | 문서 경로 | 무엇을 정의하는가 | 권위 |
+|---|---|---|---|
+| 1 | `000170` §7 | `merchant_store` 정의, runtime context, recommended fields | ACTIVE |
+| 2 | `003010` §4 | Store = operational unit; waiting/KDS/POS 등 store-level | ACTIVE |
+| 3 | `003020` §2 | store 축 = handoff runtime 실행 단위 | ACTIVE |
+| 4 | `003030` §2 | `store_runtime` 및 profile components·status | ACTIVE |
+| 5 | `009030` §2 | 개념 store: actual operating location | ACTIVE |
+| 6 | `009070` §2 | store = primary operational state ownership unit | ACTIVE |
+| 7 | `007010` §2 | Admin store 축·store_owner/manager | ACTIVE |
+| 8 | `007040` §3 | Store List/Detail·Runtime Configuration 화면 | ACTIVE |
+| 9 | `000020` | Store capability stage 0–5 module boundary | ACTIVE |
+| 10 | `012020` | Store context RLS mapping | ACTIVE |
+| 11 | `020330` | Merchant user store access | ACTIVE |
+| 12 | `013030` | Store console API projection | ACTIVE |
+| 13 | `601501` §0.1 #2 | `stores` table; `stores.legal_entity_id` 단일 FK | SUSPENDED |
+| 14 | `601503` | stores DDL·legal_entity_id | SUSPENDED |
+
+**A-3. Findings / Evidence**
+
+| # | 출처 문서 | 발견 내용 | 권위 |
+|---|---|---|---|
+| 1 | `601601` §4.3 | `000170` §14/§16의 store 서비스상태·체험상태 어휘가 구현된 적 없음 | SUSPENDED (finding 증거가치 유지) |
+| 2 | `000170` 역전파 블록 | store 상태 어휘를 SUPERSEDED로 선언했으나 2026-08-10 판정으로 철회됨; 미구현 상태의 유효한 정책 의도 | 선언 철회됨 |
+
+**A-4. Vocabulary**
+
+| 어휘 | 출처 | 정의 | 비고 |
+|---|---|---|---|
+| store | `003010` §4 | Operational unit | |
+| merchant_store | `000170` §7 | Actual operating location; `merchant_store_id` 등 필드 | |
+| stores (table) | `601501` | `catchmenu_hq.stores`; tenant 소속 | 권위보류 |
+| store_runtime | `003030` §2 | Active operating mode container | |
+| store_id | `010004` §4 | Required for store-scoped objects | |
+| store_status | `000170` §7 | merchant_store recommended field | |
+| service_status | `000170` §7 | merchant_store recommended field | `TERM_COLLISION` — `000170` §4는 동일 어휘를 merchant_account 범위로 사용 |
+| store_groups | `601501` §0.5 | operating_group; 0-A에서는 REGION만 | 권위보류 |
+| legal_entity_id | `601501` §0.1 | Store→LegalEntity 단일 FK | 권위보류 |
+| store_owner | `007010` §3.5 | Admin role at store scope | `TERM_COLLISION` — §4.2 Owner 어휘와 중복 |
+
+**A-5. Contradictions**
+
+| # | 문서 A | 문서 B | 어긋나는 지점 |
+|---|---|---|---|
+| 1 | `000170`: `merchant_store` + `merchant_store_id` | `003010`/`003020`: `store` (merchant_ 접두 없음) | 명칭·필드 네이밍 |
+| 2 | `000170` §7: `merchant_company_id` on store | `601501` §0.1: `legal_entity_id` only (company_id 분기 없음) | Store→상위 엔티티 FK 모델 |
+| 3 | `000170` §8: merchant_company optional (trial) | `601501` §2.5: LegalEntity MVP 필수 (nullable until backfill) | Store 법적 주체 필수성 |
+| 4 | `003020` §4: MVP minimal tenant/store | `003030`: full `store_runtime` profile stack | MVP 단순화 vs profile 풍부화 |
+| 5 | `009030` §2 open: standalone MVP는 full hierarchy 생략 가능 | `601501`: `stores.legal_entity_id` FK 신규 | MVP hierarchy open vs 0-A FK 추가 |
+
+**A-6. Excluded**
+
+| 문서 경로 | 제외 사유 |
+|---|---|
+| `010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md` | onboarding 절차; store 개념 재정의 없음 |
+| `004000_Readme_Store_Runtime_POS_KDS_Operations.md` | 폴더 진입점 |
+| `601701_Register_Stage0_Evidence_Collection.md` | 현 워크패킷 자기참조 |
+| `docs/005000_customer_handoff_and_implementation_readiness/005010_customer_handoff_flow/005016_Policy_Customer_Membership_Loyalty_Coupon_Visit_Count_Store_Benefit_And_Runtime_Control.md` | store benefit 런타임; store 엔티티 정의 없음 |
+| `docs/014000_pos_provider_integration_strategy/014585_Policy_First_Store_POS_Equipment_Decision_And_Provider_Procurement_Checklist.md` | first store 장비; 개념 정의 없음 |
+| `docs/600000_implementation_lifecycle/601100_store_admin_console/*` | store admin 기능; store 개념 재정의 없음 |
+| `docs/024000_deployment_operations/024120_Policy_Pilot_Store_Register_Test_Partner_Selection_And_Scope_Control.md` | pilot store 등록 절차 |
+| `docs/001000_mvp_scope/001020_Store_Type_And_Product_Package_Strategy.md` | store type 전략; 엔티티 정의 아님 |
+| (기타 1,189건) | `store_id` 파라미터, "at store", POS store 등 참조 |
+
+**집계**: 본문 키워드 히트 1,212건 / A-1 등재 19건 / 단순 참조 제외 1,194건.
+
+**B. SQL 객체** — 미수행
+
+**C. 문서-SQL 일치** — 미수행
+
+**D. 로컬 실행 검증** — 미수행
+
+**E. 호출자·권한 통합** — 미수행
 
 ---
 
@@ -185,7 +673,8 @@ Last Updated: 2026-08-11
 
 | 단계 | 수행 주체 | 수행일 | 비고 |
 |---|---|---|---|
-| A 문서 인벤토리 |  |  |  |
+| A 문서 인벤토리 | Cursor | 2026-08-11 | Company/Owner/Tenant/HQ/Store 5개 |
+| A 재분류·기입 | Claude Code | 2026-08-11 | A-1~A-6 구조로 재편 |
 | B SQL 객체 탐색 |  |  |  |
 | C 문서-SQL 대조 |  |  |  |
 | D 로컬 실행 검증 |  |  |  |
