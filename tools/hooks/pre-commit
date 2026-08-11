@@ -1,0 +1,10 @@
+#!/bin/sh
+# Governance pre-commit check. Source of truth: tools/hooks/pre-commit
+# Install into .git/hooks/ with:  powershell -File tools/install-hooks.ps1
+#
+# Warns only by default. Set GOVERNANCE_STRICT=1 to block on ERROR findings.
+# Bypass a single commit with: git commit --no-verify
+#
+# Windows PowerShell 5.1 is invoked as "powershell", not "pwsh".
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/Invoke-PreCommitCheck.ps1
+exit $?

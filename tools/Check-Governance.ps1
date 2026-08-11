@@ -42,6 +42,21 @@
 .PARAMETER IncludeExcluded
     Also scan the paths that are excluded by default (see Exclusions below).
 
+.PARAMETER File
+    Restrict reporting to the given paths, e.g. a staged-file list from a
+    pre-commit hook. Accepts repo-relative ("docs/x.md", "sql/migrations/y.sql"),
+    docs-relative, or absolute paths.
+
+    The full inventory is still built, so existence-based checks (G11 stale
+    entries, G13 link targets) never produce false "missing target" findings,
+    and G08 still detects a duplicate against a file that is not staged.
+
+    Repository-wide checks that are not about individual files - G06, G07, G12,
+    and the G11 stale-entry sweep - are skipped while -File is in effect,
+    because they would report findings unrelated to the given paths.
+
+    G15 runs only for sql/migrations/*.sql paths present in the list.
+
 .PARAMETER StrictStage7
     Escalate G15 findings from WARN to ERROR.
 
@@ -70,9 +85,10 @@
 param(
     [string] $Root,
     [string] $Band,
-    [int]    $Top = 50,
-    [switch] $IncludeExcluded,
-    [switch] $StrictStage7
+    [int]      $Top = 50,
+    [switch]   $IncludeExcluded,
+    [switch]   $StrictStage7,
+    [string[]] $File
 )
 
 Set-StrictMode -Version 2.0
@@ -107,6 +123,35 @@ $KoNotStarted = [string]([char]0xBBF8) + [string]([char]0xCC29) + [string]([char
 $KoApproved   = [string]([char]0xC2B9) + [string]([char]0xC778)                                                   # approved
 
 # ---------------------------------------------------------------------------
+# -File restriction sets
+# ---------------------------------------------------------------------------
+
+$RestrictDocs       = $null
+$RestrictMigrations = $null
+if ($File -and $File.Count -gt 0) {
+    $RestrictDocs       = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+    $RestrictMigrations = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+    foreach ($fp in $File) {
+        if ($null -eq $fp) { continue }
+        $p = $fp.Replace('\', '/').Trim()
+        if ($p.Length -eq 0) { continue }
+        if ($p -match '(?i)(^|/)sql/migrations/([^/]+\.sql)$') {
+            $null = $RestrictMigrations.Add($Matches[2])
+            continue
+        }
+        # strip an absolute prefix down to the docs-relative form
+        $rootFwd = $Root.Replace('\', '/')
+        if ($p.StartsWith($rootFwd, [System.StringComparison]::OrdinalIgnoreCase)) {
+            $p = $p.Substring($rootFwd.Length).TrimStart('/')
+        }
+        elseif ($p -match '(?i)^docs/') {
+            $p = $p.Substring(5)
+        }
+        if ($p.Length -gt 0) { $null = $RestrictDocs.Add($p) }
+    }
+}
+
+# ---------------------------------------------------------------------------
 # Exclusions
 #
 # These paths are not governed by the naming/index rules in the same way as the
@@ -114,23 +159,18 @@ $KoApproved   = [string]([char]0xC2B9) + [string]([char]0xC778)                 
 # -IncludeExcluded turns the whole list off.
 # ---------------------------------------------------------------------------
 
-$ExcludeDirRules = @(
-    @{ Pattern = '^990000_legacy_quarantine(/|$)';        Why = 'legacy quarantine - slated for disposal, must not be cited (2026-08-10 decision)' },
-    @{ Pattern = '^_migration_history(/|$)';              Why = 'migration history folder' },
-    @{ Pattern = '(^|/)archive_duplicate_review(/|$)';    Why = '000001 s5.13 archive/duplicate review area' },
-    @{ Pattern = '(^|/)[^/]*_duplicate_review(/|$)';      Why = '000001 s5.13 archive/duplicate review area' },
-    @{ Pattern = '^implementation_evidence(/|$)';         Why = '000001 s5.4.2 temporary per-change workspace' }
-)
-$ExcludeFileRule = @{ Pattern = '_KO\.md$'; Why = 'Human-reading translation copy' }
+# The rule list itself lives in tools/GovernanceExclusions.ps1 so that this
+# script and tools/Invoke-PreCommitCheck.ps1 share ONE definition.
+$exclusionModule = Join-Path $PSScriptRoot 'GovernanceExclusions.ps1'
+if (-not (Test-Path -LiteralPath $exclusionModule)) {
+    throw "required file not found: $exclusionModule"
+}
+. $exclusionModule
 
 function Get-ExclusionReason {
     param([string] $RelPath)
     if ($IncludeExcluded) { return $null }
-    foreach ($rule in $ExcludeDirRules) {
-        if ($RelPath -match $rule.Pattern) { return $rule.Why }
-    }
-    if ($RelPath -match $ExcludeFileRule.Pattern) { return $ExcludeFileRule.Why }
-    return $null
+    return (Test-GovExcluded $RelPath)
 }
 
 # 990000 keeps its G14 exemption even under -IncludeExcluded: the Group C files
@@ -354,7 +394,7 @@ foreach ($f in $allFiles) { $null = $allFileRelSet.Add((Get-RelPath $f.FullName)
 $allDirNameSet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
 foreach ($dir in $allDirsRaw) { $null = $allDirNameSet.Add($dir.Name) }
 
-$docs = @()
+$allDocs = @()
 $excludedFileCount = 0
 $excludedReasonTally = @{}
 
@@ -379,7 +419,7 @@ foreach ($f in $allFiles) {
     elseif ($f.Name -match '^(\d{6})') {
         $num = [int]$Matches[1]
     }
-    $docs += [pscustomobject]@{
+    $allDocs += [pscustomobject]@{
         Full = $f.FullName
         Name = $f.Name
         Rel  = $rel
@@ -390,6 +430,14 @@ foreach ($f in $allFiles) {
     }
 }
 
+# $allDocs = everything in scope. $docs = what this run reports on.
+if ($null -ne $RestrictDocs) {
+    $docs = @($allDocs | Where-Object { $RestrictDocs.Contains($_.Rel) })
+}
+else {
+    $docs = $allDocs
+}
+
 $allDirs = @()
 $excludedDirCount = 0
 foreach ($dir in $allDirsRaw) {
@@ -398,7 +446,10 @@ foreach ($dir in $allDirsRaw) {
     $allDirs += $dir
 }
 
-Write-Output ("Found {0} markdown files in scope, {1} directories in scope." -f $docs.Count, $allDirs.Count)
+if ($null -ne $RestrictDocs) {
+    Write-Output ("Restricted by -File: reporting on {0} of {1} in-scope markdown files." -f $docs.Count, $allDocs.Count)
+}
+Write-Output ("Found {0} markdown files in scope, {1} directories in scope." -f $allDocs.Count, $allDirs.Count)
 if (-not $IncludeExcluded) {
     Write-Output ("Excluded from scan: {0} files, {1} directories (-IncludeExcluded to scan them)." -f $excludedFileCount, $excludedDirCount)
 }
@@ -583,16 +634,18 @@ foreach ($d in $docs) {
 # G06 - folders without a numeric prefix
 # ---------------------------------------------------------------------------
 
-foreach ($dir in $allDirs) {
-    $rel = Get-RelPath $dir.FullName
-    $segments = $rel.Split('/')
-    $exempt = $false
-    foreach ($ex in $PrefixExemptDirs) {
-        if ($segments -contains $ex) { $exempt = $true }
-    }
-    if ($exempt) { continue }
-    if ($dir.Name -notmatch '^\d{6}') {
-        Add-Finding 'G06' $rel 'folder name does not start with a six-digit prefix'
+if ($null -eq $RestrictDocs) {
+    foreach ($dir in $allDirs) {
+        $rel = Get-RelPath $dir.FullName
+        $segments = $rel.Split('/')
+        $exempt = $false
+        foreach ($ex in $PrefixExemptDirs) {
+            if ($segments -contains $ex) { $exempt = $true }
+        }
+        if ($exempt) { continue }
+        if ($dir.Name -notmatch '^\d{6}') {
+            Add-Finding 'G06' $rel 'folder name does not start with a six-digit prefix'
+        }
     }
 }
 
@@ -604,17 +657,19 @@ $topDirs = @(Get-ChildItem -LiteralPath $Root -Directory -ErrorAction SilentlyCo
              Where-Object { $_.Name -match '^(\d{6})' } |
              Where-Object { $null -eq (Get-ExclusionReason (Get-RelPath $_.FullName)) })
 
-foreach ($td in $topDirs) {
-    $prefix = [int]($td.Name.Substring(0, 6))
-    $rel = Get-RelPath $td.FullName
-    $readmes = @($docs | Where-Object { $_.Dir -eq $rel -and $_.Type -eq 'Readme' })
-    if ($readmes.Count -eq 0) {
-        Add-Finding 'G07' $rel 'no Readme document directly in this governed folder'
-    }
-    else {
-        foreach ($rm in $readmes) {
-            if ($rm.Num -ne $prefix) {
-                Add-Finding 'G07' $rm.Rel ("Readme number {0:D6} does not match folder prefix {1:D6}" -f $rm.Num, $prefix)
+if ($null -eq $RestrictDocs) {
+    foreach ($td in $topDirs) {
+        $prefix = [int]($td.Name.Substring(0, 6))
+        $rel = Get-RelPath $td.FullName
+        $readmes = @($allDocs | Where-Object { $_.Dir -eq $rel -and $_.Type -eq 'Readme' })
+        if ($readmes.Count -eq 0) {
+            Add-Finding 'G07' $rel 'no Readme document directly in this governed folder'
+        }
+        else {
+            foreach ($rm in $readmes) {
+                if ($rm.Num -ne $prefix) {
+                    Add-Finding 'G07' $rm.Rel ("Readme number {0:D6} does not match folder prefix {1:D6}" -f $rm.Num, $prefix)
+                }
             }
         }
     }
@@ -624,11 +679,14 @@ foreach ($td in $topDirs) {
 # G08 - duplicate document numbers
 # ---------------------------------------------------------------------------
 
-$byNum = $docs | Where-Object { $null -ne $_.Num } | Group-Object -Property Num
+# grouped over ALL in-scope docs so a staged file is still matched against
+# files that are not part of this run
+$byNum = $allDocs | Where-Object { $null -ne $_.Num } | Group-Object -Property Num
 foreach ($g in $byNum) {
     if ($g.Count -lt 2) { continue }
     $paths = @($g.Group | ForEach-Object { $_.Rel } | Sort-Object)
     foreach ($p in $paths) {
+        if ($null -ne $RestrictDocs -and -not $RestrictDocs.Contains($p)) { continue }
         $others = @($paths | Where-Object { $_ -ne $p })
         $shown = $others
         $extra = ''
@@ -765,11 +823,13 @@ if (Test-Path -LiteralPath $indexPath) {
             Add-Finding 'G11' $d.Rel 'file exists but is not registered in 000005'
         }
     }
-    foreach ($p in $registered) {
-        if ($null -ne (Get-ExclusionReason $p)) { continue }
-        # existence tested against the UNFILTERED set
-        if (-not $allFileRelSet.Contains($p)) {
-            Add-Finding 'G11' $p '000005 registers this path but the file does not exist'
+    if ($null -eq $RestrictDocs) {
+        foreach ($p in $registered) {
+            if ($null -ne (Get-ExclusionReason $p)) { continue }
+            # existence tested against the UNFILTERED set
+            if (-not $allFileRelSet.Contains($p)) {
+                Add-Finding 'G11' $p '000005 registers this path but the file does not exist'
+            }
         }
     }
 }
@@ -785,7 +845,10 @@ else {
 # ---------------------------------------------------------------------------
 
 $mapPath = Join-Path $Root '000007_Map_Full_Directory.md'
-if (Test-Path -LiteralPath $mapPath) {
+if ($null -ne $RestrictDocs) {
+    # repository-wide map comparison is not about the given paths
+}
+elseif (Test-Path -LiteralPath $mapPath) {
     $mapText = [System.IO.File]::ReadAllText($mapPath, [System.Text.Encoding]::UTF8)
 
     $mappedDirNames = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
@@ -907,6 +970,7 @@ if (Test-Path -LiteralPath $MigrationsDir -PathType Container) {
     $migFiles = @(Get-ChildItem -LiteralPath $MigrationsDir -File -Filter '*.sql' -ErrorAction SilentlyContinue | Sort-Object Name)
 
     foreach ($mf in $migFiles) {
+        if ($null -ne $RestrictMigrations -and -not $RestrictMigrations.Contains($mf.Name)) { continue }
         $head = $null
         try { $head = (Get-Content -LiteralPath $mf.FullName -TotalCount 5 -Encoding UTF8) -join "`n" } catch { continue }
 
