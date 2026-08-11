@@ -9,7 +9,7 @@
 - Status: Draft
 - Parent Index: [70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md](./070100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md)
 - Root Index: [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./070000_Readme_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md)
-- Related Integrity Index: [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md)
+- Related Integrity Index: `75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md` (미작성)
 - Previous: [70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md](./070180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md)
 - Next: [70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md](./070200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md)
 
@@ -195,7 +195,7 @@ Minimum related 75000 documents:
 
 | Related Document | Purpose |
 |---|---|
-| [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md) | Opens the payment integrity architecture lane. |
+| `75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md` (미작성) | Opens the payment integrity architecture lane. |
 | 75100_Index_Payment_Idempotency_Duplicate_Prevention_And_Request_Replay_Control.md | Defines idempotency and duplicate prevention. |
 | 75200_Index_Net_Cancel_Delayed_Reversal_And_Self_Healing_Payment_Recovery.md | Defines net cancel and delayed reversal. |
 | 75300_Index_Saga_Orchestration_Compensation_Transaction_And_Partial_Failure_Control.md | Defines distributed transaction recovery. |

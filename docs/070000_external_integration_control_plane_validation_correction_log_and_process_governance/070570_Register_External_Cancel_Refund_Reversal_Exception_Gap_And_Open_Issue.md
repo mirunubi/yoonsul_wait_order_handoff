@@ -12,7 +12,7 @@
 | Previous | [70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md](./070560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md) |
 | Next | [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md) |
 | Related Root | [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./070000_Readme_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md) |
-| Related Integrity Root | [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md) |
+| Related Integrity Root | `75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md` (미작성) |
 | Status | Draft |
 
 ---
@@ -281,8 +281,8 @@ The following actions are prohibited:
 This register hands unresolved issues to the following lanes:
 
 - [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md)
-- [70600_Index_External_Settlement_Reconciliation_Deposit_Fee_And_Ledger_Audit.md](./70600_Index_External_Settlement_Reconciliation_Deposit_Fee_And_Ledger_Audit.md)
-- [70800_Index_External_Provider_Onboarding_Certification_And_Contract_Readiness.md](./70800_Index_External_Provider_Onboarding_Certification_And_Contract_Readiness.md)
-- [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md)
+- `70600_Index_External_Settlement_Reconciliation_Deposit_Fee_And_Ledger_Audit.md` (미작성)
+- `70800_Index_External_Provider_Onboarding_Certification_And_Contract_Readiness.md` (미작성)
+- `75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md` (미작성)
 
 The next document in this lane should close the cancel/refund/reversal control bundle and transfer remaining settlement and architecture issues to the appropriate lanes.
