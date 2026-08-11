@@ -8,9 +8,9 @@
 - Subdomain: External RPC / API / Webhook Response Contract And Event Control
 - Status: Draft
 - Owner: External Integration Governance Owner
-- Parent Index: [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md)
-- Previous Closeout: [70190_Index_POS_VAN_PG_External_Payment_Integration_Closeout_And_Handoff.md](./70190_Index_POS_VAN_PG_External_Payment_Integration_Closeout_And_Handoff.md)
-- Generation Rule: [70005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md](./70005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md)
+- Parent Index: [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./070000_Readme_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md)
+- Previous Closeout: [70190_Index_POS_VAN_PG_External_Payment_Integration_Closeout_And_Handoff.md](./070190_Index_POS_VAN_PG_External_Payment_Integration_Closeout_And_Handoff.md)
+- Generation Rule: [70005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md](./070005_Governance_External_Integration_And_Payment_Integrity_Document_Generation_Rules.md)
 
 ## 2. Purpose
 
@@ -237,8 +237,8 @@ This lane can be closed only when:
 
 After this index, proceed to:
 
-[70210_Governance_External_RPC_API_Webhook_Trust_Boundary_And_State_Authority.md](./70210_Governance_External_RPC_API_Webhook_Trust_Boundary_And_State_Authority.md)
+[70210_Governance_External_RPC_API_Webhook_Trust_Boundary_And_State_Authority.md](./070210_Governance_External_RPC_API_Webhook_Trust_Boundary_And_State_Authority.md)
 
 The closeout target for this lane is:
 
-[70290_Index_External_RPC_API_Webhook_Response_Contract_Closeout_And_Handoff.md](./70290_Index_External_RPC_API_Webhook_Response_Contract_Closeout_And_Handoff.md)
+[70290_Index_External_RPC_API_Webhook_Response_Contract_Closeout_And_Handoff.md](./070290_Index_External_RPC_API_Webhook_Response_Contract_Closeout_And_Handoff.md)

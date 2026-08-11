@@ -7,11 +7,11 @@
 - Domain: External Integration Control Plane
 - Lane: POS / VAN / PG External Payment Integration Governance
 - Status: Draft
-- Parent Index: [70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md](./70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md)
-- Root Index: [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md)
+- Parent Index: [70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md](./070100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md)
+- Root Index: [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./070000_Readme_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md)
 - Related Integrity Index: [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md)
-- Previous: [70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md](./70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md)
-- Next: [70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md](./70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md)
+- Previous: [70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md](./070180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md)
+- Next: [70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md](./070200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md)
 
 ---
 
@@ -71,15 +71,15 @@ The following are not closed in this lane and must be handled by later lanes:
 
 | Document | Status | Closeout Role |
 |---|---:|---|
-| [70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md](./70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md) | Closed by this index | Opens the POS/VAN/PG external payment integration governance lane. |
-| [70110_Governance_External_POS_VAN_PG_Provider_Boundary_Trust_And_Liability_Model.md](./70110_Governance_External_POS_VAN_PG_Provider_Boundary_Trust_And_Liability_Model.md) | Closed by this index | Defines provider trust boundary, evidence obligation, and liability separation. |
-| [70120_Policy_External_Payment_Request_Response_Separation_And_State_Authority.md](./70120_Policy_External_Payment_Request_Response_Separation_And_State_Authority.md) | Closed by this index | Separates request ledger, response ledger, and internal state authority. |
-| [70130_Spec_External_Payment_Response_Field_Registry_Approval_Cancel_Receipt_And_Trace_Metadata.md](./70130_Spec_External_Payment_Response_Field_Registry_Approval_Cancel_Receipt_And_Trace_Metadata.md) | Closed by this index | Registers canonical approval, cancel, receipt, and trace metadata. |
-| [70140_Policy_External_Payment_Amount_Tax_Discount_Service_Charge_And_Order_Match_Validation.md](./70140_Policy_External_Payment_Amount_Tax_Discount_Service_Charge_And_Order_Match_Validation.md) | Closed by this index | Requires amount, tax, discount, service charge, and order matching before confirmation. |
-| [70150_Policy_External_Payment_Timeout_Unknown_State_Inquiry_And_Ambiguous_Result_Control.md](./70150_Policy_External_Payment_Timeout_Unknown_State_Inquiry_And_Ambiguous_Result_Control.md) | Closed by this index | Treats timeout as unknown rather than failed and routes to inquiry or review. |
-| [70160_Runbook_External_Payment_Communication_Error_Recovery_Reversal_And_Manager_Action.md](./70160_Runbook_External_Payment_Communication_Error_Recovery_Reversal_And_Manager_Action.md) | Closed by this index | Defines store and manager action for communication error and reversal recovery. |
-| [70170_Audit_External_Payment_Response_Evidence_Raw_Payload_Hash_And_Tamper_Check.md](./70170_Audit_External_Payment_Response_Evidence_Raw_Payload_Hash_And_Tamper_Check.md) | Closed by this index | Preserves raw payload, hash, receipt evidence, and tamper-check data. |
-| [70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md](./70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md) | Closed by this index | Maps payment failure modes to state transitions, prohibited actions, and recovery actions. |
+| [70100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md](./070100_Index_POS_VAN_PG_And_External_Payment_Integration_Governance.md) | Closed by this index | Opens the POS/VAN/PG external payment integration governance lane. |
+| [70110_Governance_External_POS_VAN_PG_Provider_Boundary_Trust_And_Liability_Model.md](./070110_Governance_External_POS_VAN_PG_Provider_Boundary_Trust_And_Liability_Model.md) | Closed by this index | Defines provider trust boundary, evidence obligation, and liability separation. |
+| [70120_Policy_External_Payment_Request_Response_Separation_And_State_Authority.md](./070120_Policy_External_Payment_Request_Response_Separation_And_State_Authority.md) | Closed by this index | Separates request ledger, response ledger, and internal state authority. |
+| [70130_Spec_External_Payment_Response_Field_Registry_Approval_Cancel_Receipt_And_Trace_Metadata.md](./070130_Spec_External_Payment_Response_Field_Registry_Approval_Cancel_Receipt_And_Trace_Metadata.md) | Closed by this index | Registers canonical approval, cancel, receipt, and trace metadata. |
+| [70140_Policy_External_Payment_Amount_Tax_Discount_Service_Charge_And_Order_Match_Validation.md](./070140_Policy_External_Payment_Amount_Tax_Discount_Service_Charge_And_Order_Match_Validation.md) | Closed by this index | Requires amount, tax, discount, service charge, and order matching before confirmation. |
+| [70150_Policy_External_Payment_Timeout_Unknown_State_Inquiry_And_Ambiguous_Result_Control.md](./070150_Policy_External_Payment_Timeout_Unknown_State_Inquiry_And_Ambiguous_Result_Control.md) | Closed by this index | Treats timeout as unknown rather than failed and routes to inquiry or review. |
+| [70160_Runbook_External_Payment_Communication_Error_Recovery_Reversal_And_Manager_Action.md](./070160_Runbook_External_Payment_Communication_Error_Recovery_Reversal_And_Manager_Action.md) | Closed by this index | Defines store and manager action for communication error and reversal recovery. |
+| [70170_Audit_External_Payment_Response_Evidence_Raw_Payload_Hash_And_Tamper_Check.md](./070170_Audit_External_Payment_Response_Evidence_Raw_Payload_Hash_And_Tamper_Check.md) | Closed by this index | Preserves raw payload, hash, receipt evidence, and tamper-check data. |
+| [70180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md](./070180_Matrix_External_Payment_Failure_Mode_State_Transition_And_Recovery_Action.md) | Closed by this index | Maps payment failure modes to state transitions, prohibited actions, and recovery actions. |
 
 ---
 
@@ -169,7 +169,7 @@ Minimum next documents:
 
 | Next Document | Purpose |
 |---|---|
-| [70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md](./70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md) | Opens the generic external RPC/API/Webhook event control lane. |
+| [70200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md](./070200_Index_External_RPC_API_Webhook_Response_Contract_And_Event_Control.md) | Opens the generic external RPC/API/Webhook event control lane. |
 | 70210_Spec_External_Event_Envelope_Provider_Message_Id_Timestamp_Signature_And_Source_Metadata.md | Defines canonical external event envelope. |
 | 70220_Policy_External_Webhook_Signature_Replay_Window_And_Duplicate_Event_Control.md | Controls webhook authenticity, replay, and duplicate event risk. |
 | 70230_Policy_External_Event_Canonical_Mapping_Response_Code_And_State_Translation.md | Maps provider-specific codes to internal canonical event semantics. |

@@ -8,10 +8,10 @@
 | Document Type | Register |
 | Domain | External Integration Control Plane |
 | Lane | External Cancel / Refund / Reversal / Compensation Control |
-| Parent Index | [70500_Index_External_Cancel_Refund_Reversal_And_Compensation_Control.md](./70500_Index_External_Cancel_Refund_Reversal_And_Compensation_Control.md) |
-| Previous | [70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md](./70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md) |
-| Next | [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md) |
-| Related Root | [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md) |
+| Parent Index | [70500_Index_External_Cancel_Refund_Reversal_And_Compensation_Control.md](./070500_Index_External_Cancel_Refund_Reversal_And_Compensation_Control.md) |
+| Previous | [70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md](./070560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md) |
+| Next | [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md) |
+| Related Root | [70000_Index_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md](./070000_Readme_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md) |
 | Related Integrity Root | [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md) |
 | Status | Draft |
 
@@ -50,9 +50,9 @@ This register covers open issues involving:
 
 This register does not replace the operational runbook. The operational procedure remains governed by:
 
-- [70540_Runbook_External_Cancel_Refund_Reversal_Failure_Recovery_And_Manager_Action.md](./70540_Runbook_External_Cancel_Refund_Reversal_Failure_Recovery_And_Manager_Action.md)
-- [70550_Matrix_External_Cancel_Refund_Reversal_Failure_Mode_Action_And_Escalation_Map.md](./70550_Matrix_External_Cancel_Refund_Reversal_Failure_Mode_Action_And_Escalation_Map.md)
-- [70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md](./70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md)
+- [70540_Runbook_External_Cancel_Refund_Reversal_Failure_Recovery_And_Manager_Action.md](./070540_Runbook_External_Cancel_Refund_Reversal_Failure_Recovery_And_Manager_Action.md)
+- [70550_Matrix_External_Cancel_Refund_Reversal_Failure_Mode_Action_And_Escalation_Map.md](./070550_Matrix_External_Cancel_Refund_Reversal_Failure_Mode_Action_And_Escalation_Map.md)
+- [70560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md](./070560_Audit_External_Cancel_Refund_Reversal_Evidence_Manager_Approval_And_Customer_Notice_Log.md)
 
 ---
 
@@ -280,7 +280,7 @@ The following actions are prohibited:
 
 This register hands unresolved issues to the following lanes:
 
-- [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md)
+- [70590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md](./070590_Index_External_Cancel_Refund_Reversal_And_Compensation_Closeout_And_Handoff.md)
 - [70600_Index_External_Settlement_Reconciliation_Deposit_Fee_And_Ledger_Audit.md](./70600_Index_External_Settlement_Reconciliation_Deposit_Fee_And_Ledger_Audit.md)
 - [70800_Index_External_Provider_Onboarding_Certification_And_Contract_Readiness.md](./70800_Index_External_Provider_Onboarding_Certification_And_Contract_Readiness.md)
 - [75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md](./75000_Index_Payment_Integrity_Architecture_Self_Healing_Distributed_Transaction_And_Ledger_Governance.md)
