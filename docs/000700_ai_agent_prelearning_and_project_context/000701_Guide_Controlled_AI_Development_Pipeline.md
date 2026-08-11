@@ -532,12 +532,45 @@ Required mapping:
 | audit ledger event | `change_id` or equivalent metadata | Runtime event cannot be traced. |
 | evidence packet manifest | `change_id` field | Evidence cannot be found later. |
 | `ReleaseEvidence.md` (merged release evidence + merge checklist) | `Change ID:` | Release cannot be reconstructed. |
+| `sql/migrations/NNNN_*.sql` | 파일 상단 5행 이내 주석에 `-- Workpacket: NNNNNN` | Migration을 승인한 워크패킷을 특정할 수 없어 Stage 7 승인 여부를 사후 검증할 수 없다. |
 
 If any artifact has a missing, conflicting, or stale `CHANGE_ID`, the pipeline must stop.
 
 This is not a documentation defect.
 
 It is an auditability failure.
+
+### 6.11.1 Migration Workpacket Header Rule (2026-08-11)
+
+**신규 migration은 파일 상단 5행 이내에 소속 워크패킷을 주석으로 명시한다.**
+
+```text
+-- Workpacket: 601700
+```
+
+형식은 아래 둘 다 허용한다(기존 `0168`/`0169` 표기를 수용):
+
+```text
+-- Workpacket: NNNNNN [설명]
+-- Workpacket NNNNNN / Stage N
+```
+
+**소급 적용하지 않는다.** 2026-08-11 이전 migration 167개는 헤더가 없으며,
+§14.5 불변 경계를 넘은 파일은 수정할 수 없다. 이들은 검사에서
+`NO_HEADER` 로 별도 집계되며 위반으로 판정하지 않는다.
+
+**목적**: Stage 7 Human Approval 없이 Stage 8이 진행되는 것을 커밋 시점에 차단한다.
+헤더가 있으면 해당 워크패킷의 `ChangeContract` 를 찾아
+`§10 Approval State` 의 Stage 7 상태를 기계적으로 확인할 수 있다.
+
+**검사 도구**: `tools/Check-Governance.ps1` 의 G15.
+`.git/hooks/pre-commit` 에서 자동 실행된다.
+기본은 경고이며, `-StrictStage7` 또는 환경변수 `GOVERNANCE_STRICT=1` 로 차단으로 승격한다.
+
+**근거 사례**: `600020_Governance_Implementation_Lifecycle_Authority_Reset.md` §1.1.
+0-A(`601500`)가 Stage 6·7 미수행 상태에서 Stage 8~12를 통과했고,
+`601505` §10이 스스로 `Stage 7 대기`라고 기록하고 있었음에도
+아무도 그 사실을 발견하지 못했다.
 
 ---
 
