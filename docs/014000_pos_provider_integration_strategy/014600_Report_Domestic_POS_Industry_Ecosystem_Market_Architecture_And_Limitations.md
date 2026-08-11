@@ -1,4 +1,4 @@
-# 014020_Report_Domestic_POS_Industry_Ecosystem_Market_Architecture_And_Limitations.md
+# 014600_Report_Domestic_POS_Industry_Ecosystem_Market_Architecture_And_Limitations.md
 
 > Source material整理본.
 > 원문은 국내 POS 산업 생태계, 시장 점유 구조, Windows/Android 기반 POS 아키텍처, 주요 사업자, 고질적 병목, 성장 전망을 종합한 긴 분석 텍스트이다.

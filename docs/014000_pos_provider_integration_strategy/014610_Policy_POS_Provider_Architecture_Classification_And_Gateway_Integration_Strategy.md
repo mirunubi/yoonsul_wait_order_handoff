@@ -1,4 +1,4 @@
-# 014030_Policy_POS_Provider_Architecture_Classification_And_Gateway_Integration_Strategy.md
+# 014610_Policy_POS_Provider_Architecture_Classification_And_Gateway_Integration_Strategy.md
 
 ## 1. Purpose
 

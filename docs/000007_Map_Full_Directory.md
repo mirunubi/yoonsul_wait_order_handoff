@@ -788,7 +788,7 @@ docs/
   |   +--- 014018_Policy_Franchise_SaaS_Pilot_Store_Rollout_Evidence.md
   |   +--- 014019_Policy_POS_Business_Day_Close_Table_Move_And_Field_Operation_Sync.md
   |   +--- 014020_Assessment_PAYCO_Openness_And_Integration_Strategy_Note.md
-  |   +--- 014020_Report_Domestic_POS_Industry_Ecosystem_Market_Architecture_And_Limitations.md
+  |   +--- 014600_Report_Domestic_POS_Industry_Ecosystem_Market_Architecture_And_Limitations.md
   |   +--- 014021_Policy_Pilot_Store_Register_Test_Partner_Scope_Control.md
   |   +--- 014022_Policy_POS_Schema_Validation_Raw_Packet_Audit_And_Spec_Drift_Defense.md
   |   +--- 014023_Policy_Pilot_Evidence_Packet_Test_Result_Recording.md
@@ -799,7 +799,7 @@ docs/
   |   +--- 014028_Policy_Early_SaaS_Customer_Success_Retention.md
   |   +--- 014029_Policy_POS_VAN_PG_Tax_Sales_Channel_And_Unpaid_Order_Reconciliation.md
   |   +--- 014030_Policy_Early_SaaS_Renewal_Exit_Governance.md
-  |   +--- 014030_Policy_POS_Provider_Architecture_Classification_And_Gateway_Integration_Strategy.md
+  |   +--- 014610_Policy_POS_Provider_Architecture_Classification_And_Gateway_Integration_Strategy.md
   |   +--- 014031_Policy_POS_External_API_Isolation_NonBlocking_IO_And_Connection_Pool_Protection.md
   |   +--- 014032_Policy_SaaS_Churn_Taxonomy_Pricing_Feedback.md
   |   +--- 014033_Policy_POS_Polling_WebSocket_MQTT_And_Agent_Realtime_Channel_Cost_Control.md
@@ -809,7 +809,7 @@ docs/
   |   +--- 014037_Policy_POS_Multi_Endpoint_Routing_Delivery_App_Port_Contention_And_Malicious_Manual_Mutation_Defense.md
   |   +--- 014038_Policy_PC_Documentation_Import_Mobile_Inbox_Cleanup.md
   |   +--- 014039_Policy_POS_Provider_Capability_Profile_And_Readiness_Evidence.md
-  |   +--- 014040_Checklist_POS_Gateway_Risk_Failure_Mode_And_Field_Readiness.md
+  |   +--- 014620_Checklist_POS_Gateway_Risk_Failure_Mode_And_Field_Readiness.md
   |   +--- 014040_Policy_Mobile_PC_Git_Conflict_Prevention_Recovery.md
   |   +--- 014041_Policy_POS_Provider_Test_Fixture_And_Simulation_Scenario.md
   |   +--- 014042_Policy_Mobile_Documentation_Workflow_Transition_Gate.md
@@ -820,7 +820,7 @@ docs/
   |   +--- 014047_Policy_POS_Production_Cutover_Pilot_Store_And_Rollback_Readiness.md
   |   +--- 014048_Matrix_Data_Flow_Runtime_Ownership_Implementation_Extraction.md
   |   +--- 014049_Policy_POS_Gateway_SLO_Monitoring_Alert_And_Operational_Health_Dashboard.md
-  |   +--- 014050_Matrix_POS_Provider_Priority_Openness_Risk_And_MVP_Fit.md
+  |   +--- 014630_Matrix_POS_Provider_Priority_Openness_Risk_And_MVP_Fit.md
   |   +--- 014050_Policy_Implementation_Backlog_Extraction_Cutline.md
   |   +--- 014051_Policy_POS_Gateway_Audit_Evidence_Retention_Privacy_And_Legal_Hold.md
   |   +--- 014052_Policy_Phase_1_MVP_Build_Authorization_Scope.md
@@ -832,7 +832,7 @@ docs/
   |   +--- 014058_Matrix_Phase_1_Runtime_State_Transition_Authority.md
   |   +--- 014059_Policy_POS_Gateway_API_Command_Query_And_Internal_Service_Boundary.md
   |   +--- 014060_Policy_Phase_1_Runtime_Transition_Test_Evidence.md
-  |   +--- 014060_Report_POS_Market_Shift_And_Catch_Order_Strategic_Implication.md
+  |   +--- 014640_Report_POS_Market_Shift_And_Catch_Order_Strategic_Implication.md
   |   +--- 014061_Policy_POS_Gateway_Security_Threat_Model_Service_Identity_And_Secret_Handling.md
   |   +--- 014062_Register_Phase_1_Pilot_Readiness_Gate_Test_Blocker.md
   |   +--- 014063_Policy_POS_Gateway_Deployment_Topology_Environment_Separation_And_Infrastructure_Resilience.md
@@ -843,7 +843,7 @@ docs/
   |   +--- 014068_Policy_Limited_Customer_Pilot_Live_Safety.md
   |   +--- 014069_Policy_POS_Gateway_Compliance_Readiness.md
   |   +--- 014070_Policy_Pilot_Incident_Review_Scope_Adjustment.md
-  |   +--- 014070_Spec_POS_Provider_Adapter_Boundary_And_Evidence_Contract.md
+  |   +--- 014650_Spec_POS_Provider_Adapter_Boundary_And_Evidence_Contract.md
   |   +--- 014071_Policy_POS_Gateway_Dispute_Evidence_Packet_Refund_Cancellation_And_Chargeback_Response.md
   |   +--- 014072_Policy_Pilot_Learning_Review_Next_Scope.md
   |   +--- 014073_Policy_POS_Gateway_Offline_Degraded_Mode_Local_Ledger_Replay_And_Reconciliation.md
@@ -853,7 +853,7 @@ docs/
   |   +--- 014077_Policy_POS_Gateway_Observability_SLO_Incident_Command_And_Provider_Escalation.md
   |   +--- 014078_Policy_Standard_SaaS_Customer_Graduation.md
   |   +--- 014079_Policy_POS_Gateway_Provider_Risk_Register_Known_Limitations_Waiver_And_Deferral.md
-  |   +--- 014080_Checklist_POS_Provider_Onboarding_Certification_And_Pilot_Readiness.md
+  |   +--- 014660_Checklist_POS_Provider_Onboarding_Certification_And_Pilot_Readiness.md
   |   +--- 014080_Policy_Multi_Store_Expansion_Onboarding.md
   |   +--- 014081_Policy_POS_Gateway_Controlled_Production_Release_Rollback_And_Provider_Route_Change_Governance.md
   |   +--- 014082_Policy_Multi_Store_Operations_Dashboard.md
@@ -865,7 +865,7 @@ docs/
   |   +--- 014088_Policy_Multi_Store_Renewal_Revenue_Risk_Pipeline.md
   |   +--- 014089_Policy_Multi_Store_Revenue_Recognition_Billing_Audit.md
   |   +--- 014090_Policy_Multi_Store_Commercial_Audit_Dispute_Recovery.md
-  |   +--- 014090_Template_POS_Provider_Integration_Evidence_Packet.md
+  |   +--- 014670_Template_POS_Provider_Integration_Evidence_Packet.md
   |   +--- 014091_Policy_Multi_Store_Commercial_Risk_Pricing_Margin.md
   |   +--- 014092_Policy_POS_Gateway_Resilience_Lane_Index_Readiness_Check_And_Evidence_Handoff.md
   |   +--- 014093_Index_Multi_Store_Commercial_Governance_Handoff.md
@@ -876,7 +876,7 @@ docs/
   |   +--- 014098_Policy_POS_Gateway_State_Machine_Payment_POS_Cancellation_Refund_And_Customer_Status.md
   |   +--- 014099_Matrix_SaaS_Admin_Role_Permission.md
   |   +--- 014100_Policy_POS_Gateway_Adapter_Interface_Request_Response_Callback_And_Error_Mapping.md
-  |   +--- 014100_Register_POS_Provider_Readiness_Status_And_Next_Action.md
+  |   +--- 014680_Register_POS_Provider_Readiness_Status_And_Next_Action.md
   |   +--- 014101_Policy_SaaS_Admin_Surface_Map_Navigation.md
   |   +--- 014102_Policy_POS_Gateway_Idempotency_Retry_Duplicate_Prevention_And_Safe_Replay_Implementation.md
   |   +--- 014103_Policy_SaaS_Admin_Dashboard_KPI_Alert.md
@@ -887,7 +887,7 @@ docs/
   |   +--- 014108_Policy_POS_Gateway_Dispute_Case_Evidence_Packet_Generator_Support_And_Chargeback_Export.md
   |   +--- 014109_Policy_SaaS_Admin_Notification_Work_Queue.md
   |   +--- 014110_Policy_POS_Gateway_Store_Tenant_Support_UI_Runbook_Action_Binding_And_Operational_Workflow.md
-  |   +--- 014110_Template_POS_Provider_Official_Verification_Request.md
+  |   +--- 014690_Template_POS_Provider_Official_Verification_Request.md
   |   +--- 014111_Policy_SaaS_Admin_Audit_Trail_Collaboration.md
   |   +--- 014112_Policy_POS_Gateway_Observability_Dashboard_Alert_Rule_SLO_Metric_And_Incident_Record_Implementation.md
   |   +--- 014113_Index_SaaS_Admin_Console_UI_Planning_Handoff.md
@@ -897,7 +897,7 @@ docs/
   |   +--- 014117_Policy_POS_Gateway_Credential_Secret_Callback_Security_And_Provider_Access_Control.md
   |   +--- 014118_Policy_POS_Gateway_Runtime_Configuration_Environment_Separation_And_Production_Credential_Activation.md
   |   +--- 014119_Policy_POS_Gateway_Migration_Backfill_Cutover_Existing_Transaction_Protection_And_Data_Integrity.md
-  |   +--- 014120_Assessment_POS_Provider_Official_Response_And_Integration_Disposition.md
+  |   +--- 014700_Assessment_POS_Provider_Official_Response_And_Integration_Disposition.md
   |   +--- 014120_Policy_POS_Gateway_Production_Cutover_Runbook_Incident_Command_And_Rollback_Execution.md
   |   +--- 014121_Policy_POS_Gateway_Production_Readiness_Checklist_Smoke_Test_And_Operational_Acceptance.md
   |   +--- 014122_Policy_POS_Gateway_Operational_Monitoring_Alerting_SLO_Error_Budget_And_Runtime_Health.md
@@ -909,7 +909,7 @@ docs/
   |   +--- 014128_Policy_POS_Gateway_Store_Rollout_Wave_Control_Pilot_Expansion_Field_Feedback_And_Stabilization.md
   |   +--- 014129_Policy_POS_Gateway_Tenant_Store_SaaS_Onboarding_Package_Template_Provisioning_And_Operational_Enablement.md
   |   +--- 014130_Policy_POS_Gateway_Menu_Item_Option_Modifier_Mapping_Template_Versioning_And_Price_Integrity.md
-  |   +--- 014130_Register_POS_Provider_Blocker_Risk_And_Resolution_Tracking.md
+  |   +--- 014710_Register_POS_Provider_Blocker_Risk_And_Resolution_Tracking.md
   |   +--- 014131_Policy_POS_Gateway_Price_Promotion_Discount_Coupon_Tax_Service_Charge_And_Total_Calculation_Integrity.md
   |   +--- 014132_Policy_POS_Gateway_Inventory_Availability_Sold_Out_Stock_Sync_And_Order_Blocking_Integrity.md
   |   +--- 014133_Policy_POS_Gateway_Order_Channel_Separation_Dine_In_Takeout_Delivery_Kiosk_Table_QR_And_Staff_Order_Routing.md
@@ -919,7 +919,7 @@ docs/
   |   +--- 014137_Policy_POS_Gateway_Reconciliation_Case_Workflow_Variance_Resolution_Manual_Adjustment_And_Audit_Closure.md
   |   +--- 014138_Policy_POS_Gateway_Data_Retention_Archive_Privacy_Redaction_And_Forensic_Evidence_Lifecycle.md
   |   +--- 014139_Policy_POS_Gateway_Access_Control_Role_Segregation_Tenant_Isolation_Privileged_Action_And_Approval_Audit.md
-  |   +--- 014140_Governance_POS_Provider_Integration_Decision_Gate.md
+  |   +--- 014720_Governance_POS_Provider_Integration_Decision_Gate.md
   |   +--- 014140_Policy_POS_Gateway_Performance_Load_Peak_Traffic_Queue_Backpressure_And_Capacity_Planning.md
   |   +--- 014141_Policy_POS_Gateway_Disaster_Recovery_Business_Continuity_Provider_Outage_Store_Offline_Mode_And_Service_Resumption.md
   |   +--- 014142_Policy_POS_Gateway_Change_Management_Release_Governance_Configuration_Drift_Control_And_Production_Deployment.md
@@ -940,7 +940,7 @@ docs/
   |   +--- 014157_WorkPackage_POS_Gateway_Table_QR_NFC_Kiosk_Device_Receipt_Proof_And_Customer_Status.md
   |   +--- 014158_WorkPackage_POS_Gateway_Manual_Fallback_Manager_Approval_Staff_Action_And_Override.md
   |   +--- 014159_WorkPackage_POS_Gateway_Reconciliation_Audit_Evidence_Settlement_And_Accounting_Guard.md
-  |   +--- 014160_Register_POS_Provider_Incident_Reconciliation_And_Mismatch_Tracking.md
+  |   +--- 014730_Register_POS_Provider_Incident_Reconciliation_And_Mismatch_Tracking.md
   |   +--- 014160_WorkPackage_POS_Gateway_Monitoring_Incident_Disaster_Recovery_Pilot_Readiness_And_Closeout.md
   |   +--- 014161_WorkPackage_Store_Runtime_Integration_Control_Tower_And_Operational_Command_Boundary.md
   |   +--- 014162_WorkPackage_Store_Runtime_Kiosk_Mini_Kiosk_Device_Session_Order_Assist_And_Customer_Flow_Control.md
