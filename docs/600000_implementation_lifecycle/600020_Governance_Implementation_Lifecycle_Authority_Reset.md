@@ -153,7 +153,39 @@ Stage 12 승인 / 보호 브랜치 포함 / 공유환경 적용 / 후속 승인 
 폴더 이동 자체가 아니다. 다만 이 프로젝트는 `990000_legacy_quarantine/` 선례에서
 아카이브 폴더가 장기 부채로 남는 것을 경험했으므로, 신규 아카이브 폴더를 만들지 않는다.
 
-`990000_legacy_quarantine/`의 처분은 **본 문서 범위 밖**이며 별도 판정으로 다룬다.
+`990000_legacy_quarantine/`의 처분은 아래 §3.1에서 판정한다.
+
+### §3.1 `990000_legacy_quarantine/` 처분 (2026-08-10 판정)
+
+**폐기 예정.** 다만 즉시 삭제하지 않고 새 0-A(`601700`) 완료 후 실행한다.
+
+| 항목 | 내용 |
+|---|---|
+| 상태 | 폐기 예정 (disposition: pending deletion) |
+| 참조 | **금지.** 설계·구현·감사 어느 근거로도 인용하지 않는다 |
+| 검사 대상 | 제외. `tools/Check-Governance.ps1` 제외 목록에 포함 |
+| Readme | 없음. 폐기 예정 폴더에 신규 생성하지 않고 본 절로 대신한다 |
+| 삭제 실행 | 새 0-A 완료 후 재판정 |
+
+**근거**
+
+- 약 598개 파일, 전부 `.md`. **`.sql` 0건 확인**(2026-08-10) — `000701` §14.5 불변 경계 해당 없음
+- 대부분 `604000_workpackets/` 하위 문서로, archival renaming 시절 산출물이다.
+  `000701` §15.1이 그 방식을 폐기했으므로 문서 규격 자체가 현행이 아니다
+- `605000_pos_gateway_package/` 는 Phase 3 소관이며 착수 시 새로 작성한다
+
+**삭제 전 선별 회수 대상**
+
+파일명에 `Disposition` / `Closeout` / `Residue` / `Decision` / `Analysis` 가 포함된 문서는
+삭제 전 개별 판정한다. 과거 처분 결정의 기록일 수 있다.
+
+예: `604389_Analysis_SQL_Migration_Residue_Disposition_...md`
+
+**삭제 시 동반 갱신 (`000001` §5.11)**
+
+`000005_Index_Document_Number.md` / `000007_Map_Full_Directory.md` / `000701` §15.1의 서술
+
+**판정: 정영석 / 2026-08-10**
 
 ## §4 이 판정의 해제 조건
 
@@ -183,6 +215,7 @@ Stage 12 승인 / 보호 브랜치 포함 / 공유환경 적용 / 후속 승인 
 | `600010_Tracker_...md` | 0-A/0-A-2/0-B 상태 변경 | 대기 |
 | `000701` §47.3 | 완료 기록 존치 + 권위 보류 병기 | 대기 |
 | `000005_Index_Document_Number.md` | 본 문서 등재 | 대기 |
+| `990000_legacy_quarantine/` | 폐기 예정 판정 (§3.1) | ✅ 2026-08-11 |
 
 ## §6 근거 문서 목록 (§46)
 
@@ -205,5 +238,5 @@ Stage 12 승인 / 보호 브랜치 포함 / 공유환경 적용 / 후속 승인 
 결정:     [x] AUTHORITY SUSPENDED / NON-AUTHORITATIVE BY DEFAULT
 조건:     §4의 4개 검사 충족 시 워크패킷 단위 해제 가능
 범위:     600000_implementation_lifecycle 대역
-          990000_legacy_quarantine 처분은 본 판정 범위 밖
+          990000_legacy_quarantine 폐기 예정 판정 포함 (§3.1)
 ```
