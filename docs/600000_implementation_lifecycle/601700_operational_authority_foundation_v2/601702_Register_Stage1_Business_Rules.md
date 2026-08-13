@@ -567,6 +567,82 @@ Store
 `000170` §7이 `merchant_store` 에 `merchant_account_id` 와 `merchant_company_id` 를
 둘 다 두라고 한 것도 같은 구조다(§1.25에 따라 후자는 `LegalEntity` 로 정규화).
 
+### §1.27 Store 상태는 서로 다른 의미축으로 분리한다
+
+Store 의 상태를 하나의 범용 `store_status` 로 표현하지 않는다.
+최소한 아래 **세 의미축을 서로 독립된 개념**으로 구분한다.
+
+| 축 | 묻는 질문 |
+|---|---|
+| **Store Service Status** | 해당 Store 에 대한 CatchMenu 서비스 제공 상태는 무엇인가 |
+| **Store Operating Status** | 실제 음식점이 영업 중인가 |
+| **Trial Status** | CatchMenu 체험·전환 lifecycle 이 어디까지 갔는가 |
+
+**한 축의 값으로 다른 축의 상태를 추론하지 않는다.**
+
+`000170` §15 예시:
+
+```text
+store_operating_status = OPEN
+service_status = SUSPENDED
+→ 식당은 영업 중인데 CatchMenu 서비스는 정지
+```
+
+`000170` §14가 Store 별 service status 를 따로 둔 이유:
+
+> 한 merchant account 가 여러 store 를 가질 수 있다.
+> 한 store 는 활성인데 다른 store 는 정지일 수 있다.
+> 한 store 는 체험이고 다른 store 는 유료일 수 있다.
+
+이는 §1.14(MerchantAccount → Store 1:N)와 직접 연결된다.
+
+> ⚠️ **이번 나선에서 확정하지 않는 것**
+>
+> `000170` §14~§16의 상태값 목록은 **각 축의 정책 의도를 확인하는 근거로 보존**하되,
+> **canonical enum · 상태전이 · 과금/권한 효과는 확정하지 않는다.**
+>
+> 특히 `STORE_ACTIVE_PAID` 처럼 **과금 상태와 서비스 상태를 한 값에 결합한 명칭**은
+> §2.1(과금과 운영권한 관계 미결)에 걸린다.
+> 향후 `ServiceStatus = ACTIVE` / `BillingStatus = PAID` 로 분리될 수도 있다.
+>
+> 상세 설계는 후속 단계에서 결정한다.
+
+**현재 physical schema 에 대한 사실 기록**
+
+현재 스키마는 세 상태축을 명시적으로 각각 표현하지 않는다.
+`stores.store_status` / `tenants.tenant_status` / `tenants.isolation_state` 가
+따로 존재하나 `000170` 의 세 Store 축과 정확히 대응하지 않는다.
+
+> ⚠️ **기존 SQL 에는 Store-level Trial Status 를 독립적으로 표현하는 축이 관측되지 않는다.**
+> Tenant-level `TRIAL` 값이 존재하지만 **이를 Store Trial Status 와 동일시할 근거는 없다.**
+> 둘을 대응시키는 것은 과거 구현을 설계 근거로 승격시키는 것이다(`600020` §2).
+
+### §1.28 상위 객체 상태로 하위 객체 상태를 대신하지 않는다
+
+```text
+TenantStatus
+  ≠ MerchantAccountStatus
+  ≠ StoreServiceStatus
+  ≠ StoreOperatingStatus
+  ≠ TrialStatus
+  ≠ IsolationState
+```
+
+각 계층은 자신의 상태를 갖는다. 상위 상태를 하위 상태의 대체물로 사용하지 않는다.
+
+예:
+
+```text
+Tenant = ACTIVE
+ ├─ 강남점: service ACTIVE   / operating OPEN
+ ├─ 서초점: service SUSPENDED / operating OPEN
+ └─ 잠실점: service TRIAL     / operating PRE_OPEN
+```
+
+Tenant 가 활성이라는 사실이 모든 Store 가 활성이라는 뜻이 아니다.
+
+**enum 을 이번 나선에서 만들지 않는다.** 원칙만 확정한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -614,6 +690,10 @@ Store
 | `000170` §6 `Merchant Company` 절 정정 | §1.25에서 legacy composite 로 분류. 문서 정정은 후속 상위문서 정합화 작업 |
 | `010640` §4 `company_id` 어휘 | *corporate entity if separate from legal entity* 로 서술되어 용어 오염 잔존. 정정 대상 |
 | Tenant 격리 invariant 의 표현 방식 | §1.26은 구조 관계와 구분만 확정. 물리 표현은 4·5단계 |
+| Store 상태 3축의 canonical enum | §1.27에서 축 존재·독립성만 확정. 값 집합은 후속 |
+| 상태 전이 규칙 | 동상 |
+| `STORE_ACTIVE_PAID` 류 결합 명칭 분해 여부 | §2.1(과금 미결)에 걸림 |
+| 각 계층 상태 enum (Tenant / MerchantAccount / Store) | §1.28은 원칙만 확정 |
 
 ### §2.3 미조사 대상
 
@@ -696,6 +776,7 @@ Codex 는 ERD 내부 모순(미정 관계를 확정 기호로 표기)을 잡았�
           Role/Permission/Scope 축 (§1.19~§1.21)
           Tenant/MerchantAccount/Store cardinality (§1.22~§1.24)
           Merchant Company 정규화 · Store 구조 경로 (§1.25~§1.26)
+          Store 상태 3축 분리 · 계층 상태 독립 (§1.27~§1.28)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)

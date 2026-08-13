@@ -230,6 +230,23 @@ SQL physical evidence는 §8로 분리했다.
 | runtime context는 MerchantAccount의 customer context와 다르다 | `000170` §7 Core rule | 확정 |
 | 직영/가맹 구분을 사람의 role로 표현하지 않는다 | `601702` §1.4 | 확정 |
 | LegalEntity 개수·이력 표현 | `003020` §2 *may link* | **미정** — §5 |
+| Store Service Status (축) | `000170` §14, `601702` §1.27 | 축 존재 확정 · **값 미확정** |
+| Store Operating Status (축) | `000170` §15, `601702` §1.27 | 축 존재 확정 · **값 미확정** |
+| Trial Status (축) | `000170` §16, `601702` §1.27 | 축 존재 확정 · **값 미확정** |
+
+> ⚠️ **세 상태축의 취급**
+>
+> 이는 컬럼 설계가 아니라 **세 개의 독립된 상태 dimension** 을 기록한 것이다.
+>
+> ```text
+> Status domain values : NOT FINALIZED IN 0-A
+> Transition rules     : OUT OF SCOPE
+> Billing effect       : OUT OF SCOPE (601702 §2.1)
+> Authority effect     : OUT OF SCOPE
+> ```
+>
+> 한 축의 값으로 다른 축을 추론하지 않는다(`601702` §1.27).
+> 상위 객체 상태로 하위 객체 상태를 대신하지 않는다(§1.28).
 
 ### §4.6 `Merchant Company` — 엔티티가 아니다
 
@@ -480,6 +497,7 @@ PERSON  (0-A Core)
 | O11 | `000170` §14~§16 store 상태 축(service / operating / trial) 미반영 | 4단계 (`601706` 지적) |
 | O12 | `company` homonym — `000150` 플랫폼 운영사 vs `003020`/`007010`/`009070` tenant 내 축 | 별도 워크패킷 (`601706` 지적) |
 | O13 | `003020`/`009070` 의 company / operating_group 병렬 축이 ERD 에 없음 | §6 Candidate 판정과 연동. 4단계 |
+| O14 | Store 상태 3축의 canonical enum · 전이 규칙 | 후속 (`601702` §1.27, §2.2) |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
