@@ -496,6 +496,77 @@ Store C 매출 → L2
 **Store 당 LegalEntity 가 하나인지 여럿인지, 시점 이력을 어떻게 표현하는지는
 2단계 ERD 에서 결정한다.** "현재 시점의 운영주체가 명시되어야 한다"까지만 확정한다.
 
+### §1.25 `Merchant Company` 용어 정규화
+
+`000170` §6의 `Merchant Company` 는 **0-A 모델에서 독립적인 canonical entity 로 사용하지 않는다.**
+
+> ⚠️ **"Merchant Company = LegalEntity" 라고 단순 등치하지 않는다.**
+> 이 개념에는 **두 종류의 책임이 혼재**되어 있다.
+
+| 성격 | `000170` §6의 항목 | 정규화 대상 |
+|---|---|---|
+| **A. 법적 identity** | `legal_name` / `business_registration_ref` / tax invoice reference / contract reference | **`LegalEntity`** |
+| **B. 관리·접근 grouping** | owner access grouping / `billing_contact` / `contract_contact` / multi-store grouping | **`MerchantAccount`** 및 후속 Role/Scope 모델 |
+
+**법적·세무·정산·계약 주체는 `LegalEntity` 로 정규화한다**
+(`000150` §7, `010640` §9 — LegalEntity 컨텍스트 없는 금전 객체는 확정되면 안 된다).
+
+**merchant 관리범위 및 사용자 접근범위는 `MerchantAccount` 와
+후속 Role/Scope 모델에서 표현한다**
+(`020320` §40 — merchant account scope 는 여러 store 를 포함하나 permission 은 별도).
+
+`Merchant Company` 는 **legacy composite terminology** 로 분류하며,
+`000170` 을 후속 상위문서 정합화 대상에 포함한다.
+
+> **`merchant_company` 를 `legal_entity` 로 단순 rename 하지 않는다.**
+> 개념을 분해하고 각 책임을 해당 축으로 옮긴다.
+
+**3층 구조(Account → MerchantCompany → Store)를 도입하지 않는다.**
+`MerchantCompany ↔ LegalEntity` 의 cardinality, 한 운영회사가 여러 법인을 묶을 수 있는지,
+`MerchantAccount` 와 별도로 grouping 이 필요한 이유 —
+**어느 것도 현재 source evidence 가 답하지 못한다.**
+근거 없는 축을 추가하지 않는다.
+
+### §1.26 Store 의 구조 부모는 MerchantAccount 이며 Tenant 는 격리 scope 다
+
+`601705` 초안이 `TENANT → STORE` 와 `MERCHANT_ACCOUNT → STORE` 를
+모두 구조 관계로 그렸다. §1.22가 Tenant ↔ MerchantAccount 를 1:1로 확정한 동안
+**같은 SaaS 고객 계층을 두 경로로 표현**하게 된다.
+
+**Conceptual 구조 경로는 하나로 둔다.**
+
+```text
+Tenant
+  │ 1:1 (§1.22, 이번 나선)
+  ▼
+MerchantAccount
+  │ 1:N
+  ▼
+Store
+```
+
+**Tenant 는 Store 의 두 번째 구조 부모가 아니라 필수 격리 scope 다.**
+
+> **Invariant**: 모든 Store 는 Tenant scope 를 보유하고 검증해야 한다.
+> 물리 스키마가 `stores.tenant_id` 를 직접 보유하는 것은
+> 격리·RLS·조회 효율을 위한 것이며,
+> **개념적 두 번째 소유 계층을 만들지 않는다.**
+
+`010640` 은 Tenant isolation 과 Store isolation 을 별도의 강제 scope boundary 로 요구한다(§7·§8).
+`010004` §4는 tenant-owned 객체에 `tenant_id` 를 필수로 요구한다.
+**이 요건들은 격리 invariant 로 유지되며 구조 관계와 구분한다.**
+
+**한편 `MerchantAccount → Store` 와 `LegalEntity → Store` 는 문제가 아니다.**
+서로 다른 축이다.
+
+| 관계 | 답하는 질문 |
+|---|---|
+| MerchantAccount → Store | 어느 CatchMenu 고객 관리범위에 속하는가 |
+| LegalEntity → Store | 누가 이 Store 의 법적 운영주체인가 |
+
+`000170` §7이 `merchant_store` 에 `merchant_account_id` 와 `merchant_company_id` 를
+둘 다 두라고 한 것도 같은 구조다(§1.25에 따라 후자는 `LegalEntity` 로 정규화).
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -540,6 +611,9 @@ Store C 매출 → L2
 | Store 당 LegalEntity cardinality | §1.24는 "명시되어야 한다"까지만 확정. 단일/복수·이력 표현은 2단계 |
 | `merchant_accounts` 물리 구현 | 개념 확정(§1.22·§1.23). SQL 미구현 — 2단계 ERD |
 | Company / BusinessUnit persistent entity 필요성 | §1.21은 의미만 확정. 물리 엔티티 필요성은 2단계 조사에서 OPEN |
+| `000170` §6 `Merchant Company` 절 정정 | §1.25에서 legacy composite 로 분류. 문서 정정은 후속 상위문서 정합화 작업 |
+| `010640` §4 `company_id` 어휘 | *corporate entity if separate from legal entity* 로 서술되어 용어 오염 잔존. 정정 대상 |
+| Tenant 격리 invariant 의 표현 방식 | §1.26은 구조 관계와 구분만 확정. 물리 표현은 4·5단계 |
 
 ### §2.3 미조사 대상
 
@@ -601,8 +675,14 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `601211_Overview_Caller_Authorization_Resolver_Pilot.md` | 최종상태, §3.1, §3.2, §3.4, §4, §5 | JWT↔staff 브리지 부재 사실 기록. **권위보류** |
 | `601212_Logic_Caller_Authorization_Resolver_Pilot.md` | §0, §1.2 | resolver 설계 원칙과 보류 사유. **권위보류** |
 | `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성 | 2단계 ERD 선행 관계·cardinality 조사 (Cursor, 2026-08-13). Q1·Q5는 미판정이며 §1.22·§1.23이 Human Decision으로 확정 |
+| `tools/_c_stage_review_cursor.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Cursor, 2026-08-13). 외부 어휘·누락 중심 |
+| `tools/_c_stage_review_codex.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Codex, 2026-08-13). ERD 내부 정합성 중심 |
 
 권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
+
+두 도구의 발견이 갈렸다(`000701` §35 — 검증자 1명의 사각지대).
+Cursor 는 `Merchant Company` 부재와 store 상태축 누락을,
+Codex 는 ERD 내부 모순(미정 관계를 확정 기호로 표기)을 잡았다.
 
 ## §5 확정 기록
 
@@ -615,8 +695,10 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
           Identity 축 · 0-B 인계 조건 (§1.15~§1.18)
           Role/Permission/Scope 축 (§1.19~§1.21)
           Tenant/MerchantAccount/Store cardinality (§1.22~§1.24)
+          Merchant Company 정규화 · Store 구조 경로 (§1.25~§1.26)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
+          000170 §6 / 010640 §4 어휘 정정 (§2.2)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
 ```
