@@ -1707,6 +1707,7 @@ docs/
   |   |   +--- 601702_Register_Stage1_Business_Rules.md
   |   |   +--- 601703_Register_Stage0_Evidence_Collection_HQ_HR.md
   |   |   +--- 601704_Register_Stage2_ERD_Relationship_Survey.md
+  |   |   +--- 601705_Diagram_Operational_Authority_Core_ERD.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
