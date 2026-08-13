@@ -339,6 +339,85 @@ Person 은 있으나 로그인하지 않을 수 있고(예: 시스템을 쓰지 
 **위 인용은 `600020` §3에 따라 사실 기록 목적이며,
 `601211`/`601212`의 설계 결론을 승인한 것이 아니다.**
 
+### §1.19 Role · Permission · Scope 는 삼각으로 평가한다
+
+Authorization 은 `Role + Permission + Scope` 의 결합으로 평가한다.
+
+- **Role 은 Scope 없이 독립적으로 권한을 만들지 않는다**(`020320` §8: *Role must be evaluated with scope*).
+- **Permission 은 구체적인 resource/action 단위로 정의한다**(§9: *Permission should be action-specific*).
+- **Scope 없는 Permission 은 허용하지 않는다**(§10: *Permission without scope is unsafe*).
+
+Role 을 universal power 또는 소유권·조직지위를 대신하는 포괄 권한으로 사용하지 않는다
+(`020320` §8: *Role should not be universal power*).
+
+이는 §1.4·§1.7과 같은 방향이다 — RBAC role 은 시스템 권한만 표현하며
+소유권이나 계약상 지위를 의미하지 않는다.
+
+### §1.20 Scope Type 과 Scope Level 의 혼합을 현재 정답으로 사용하지 않는다
+
+`020320` §10의 Scope Types 와 §11의 Scope Levels 는 **서로 다른 목록**이며
+명칭·구성도 일치하지 않는다.
+
+| | 목록 |
+|---|---|
+| §10 Scope Types (18) | `platform` `company` `business_unit` `team` `operator` `merchant_account` `merchant_store` `menu_context` `request` `support_case` `evidence_packet` `entry_media` `entry_media_mapping` `trial` `service_status` `billing` `audit` `cross_business_link` |
+| §11 Scope Levels (11) | `GLOBAL_PLATFORM` `COMPANY` `BUSINESS_UNIT` `TEAM` `MERCHANT_ACCOUNT` `MERCHANT_STORE` `CASE` `ASSET` `REQUEST` `MENU_CONTEXT` `SELF` |
+
+**현재 문서는 두 목록의 의미적 차이, 계층 관계, 변환 규칙을 정의하지 않는다.**
+
+§10을 "권한이 적용되는 대상 종류", §11을 "권한 범위의 계층적 넓이"로
+해석할 가능성은 있으나, **이는 현재 단계의 해석일 뿐 source fact 로 승격하지 않는다.**
+
+아래와 같은 대응도 지금 확정하지 않는다.
+
+```text
+platform      ↔ GLOBAL_PLATFORM ?
+support_case  ↔ CASE ?
+entry_media   ↔ ASSET ?
+```
+
+통합된 Scope taxonomy 및 hierarchy 는 후속 ERD/Authorization 설계에서 명시적으로 재정의한다.
+
+### §1.21 `company` / `business_unit` 은 CatchMenu 내부 조직축이다
+
+**0-A에서는 `company` 와 `business_unit` 을 `000150` 에서 정의된
+CatchMenu 내부 조직축으로 해석한다.**
+
+`000150` §4: *Company boundary defines who operates CatchMenu as a platform.*
+`000150` §6: *Business unit defines operating responsibility inside CatchMenu.*
+
+`000150` §4가 나열하는 company 유형은 CatchMenu SaaS 회사 / CatchMenu 운영 부문 /
+CatchMenu 사업 단위 / 윤슬 그룹 소유의 SaaS 자회사 / 법적 분리 이전의 내부 제품 회사이며,
+company types 도 `SAAS_COMPANY` / `BUSINESS_UNIT` / `OPERATING_DIVISION` /
+`SUBSIDIARY` / `INTERNAL_PRODUCT_UNIT` 로 전부 CatchMenu 쪽이다.
+
+**따라서 이 둘을 아래 의미로 사용하지 않는다.**
+
+```text
+외부 고객사의 상위 그룹
+Franchise HQ
+Franchise Network
+MerchantAccount 상위 고객집단
+```
+
+> ⚠️ **이 판정의 성격**: `020320` §10·§11의 `company` / `business_unit` 도
+> 0-A에서는 이 의미로 정규화하여 해석한다.
+> 다만 이는 **`020320` 자체의 명시 정의가 아니다.** `020320` 은 두 어휘를
+> 목록에만 두고 의미를 설명하지 않는다.
+> 상위 조직 정의(`000150`)를 기준으로 용어 충돌을 해소하기 위한
+> **Human Business Rule** 이다.
+
+**이 선언이 닫는 설계 경로**
+
+```text
+COMPANY scope → Franchise HQ → 여러 merchant_account 횡단 조회
+```
+
+`COMPANY` 가 CatchMenu 내부 운영회사 축이므로
+프랜차이즈 본사의 가맹점 횡단 권한을 여기 얹을 수 없다.
+프랜차이즈 본사의 CatchMenu 접근이 필요하면 §1.8(계약 기반 Scope)과
+§1.10(세 세계 분리)에 따라 별도의 cross-business / franchise-derived scope 로 해결한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -376,6 +455,9 @@ Person 은 있으나 로그인하지 않을 수 있고(예: 시스템을 쓰지 
 | `person_id` / `user_id` FK 추가 여부 | §1.18에 따라 0-B 소관 |
 | `auth_sessions` 존치 여부 | §1.18에 따라 0-B 소관 |
 | `resolve_store_staff_actor()` 재설계 | 0-B 완료 이후 |
+| Scope Type / Scope Level 통합 taxonomy | §1.20에서 해석 확정을 보류. 후속 ERD/Authorization 설계 |
+| 프랜차이즈 본사의 CatchMenu 접근 scope 명칭 | §1.21이 `COMPANY`/`BUSINESS_UNIT` 사용을 배제. 별도 명칭은 2단계 |
+| `cross_business_link` 가 scope 인가 관계인가 | `020320` §10은 scope type으로, `000150` §26은 개념 엔티티로 나열 |
 
 ### §2.3 미조사 대상
 
@@ -448,7 +530,9 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
           조직 경계 · HQ 어휘 · 세 세계 분리 (§1.7~§1.12)
           LegalEntity / MerchantAccount 축 (§1.13~§1.14)
           Identity 축 · 0-B 인계 조건 (§1.15~§1.18)
-미결:     Session·Role·Permission 상세 (A단계 조사 완료, 선언 미확정)
+          Role/Permission/Scope 축 (§1.19~§1.21)
+미결:     Session 상세 (0-B 소관, §1.18)
+          Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
 ```
