@@ -115,6 +115,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601705 | `601705_Diagram_Operational_Authority_Core_ERD.md` | Active — 2단계 ERD 초안. 4단계 진입 기준선 |
 | 601706 | `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | Active — 3단계 인접 도메인 대조(Cursor). 외부 어휘·누락 중심 |
 | 601707 | `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 인접 도메인 대조(Codex). ERD 내부 정합성 중심 |
+| 601708 | `601708_Evidence_Stage4_Overview_Evidence_Pack_Cursor.md` | Active — §46 Evidence Pack(Cursor). 지정 목록 없이 자체 탐색 |
+| 601709 | `601709_Evidence_Stage4_Overview_Evidence_Pack_Codex.md` | Active — §46 Evidence Pack(Codex). §35 이중 검증 |
 
 ## §9 Add / Move Rule
 

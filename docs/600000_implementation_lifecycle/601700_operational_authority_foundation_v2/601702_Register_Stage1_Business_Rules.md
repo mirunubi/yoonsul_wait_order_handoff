@@ -726,6 +726,112 @@ legacy terminology 군**이다.
 0-A ERD 에서는 **Candidate / conceptual axis** 로 유지하며,
 persistence 와 구체 cardinality 는 후속 설계에서 결정한다.
 
+### §1.31 LegalEntity 의 business identity source 는 검증된 영업 intake 다
+
+`010901` §11 Business Registration Intake 는 아래를 수집한다.
+
+```text
+business registration number / legal entity name / representative name /
+business address / business category / tax invoice email /
+settlement/billing owner / contract signer /
+verification state / review actor / audit reference
+```
+
+이는 LegalEntity 를 식별·검증하는 **원천 business identity 정보**다.
+
+`010901` §4: sales lead / tenant candidate / tenant / brand candidate /
+store candidate / store profile draft / owner contact / hq contact /
+onboarding case / activation candidate 는 **서로 다른 lifecycle 객체**이며
+*These objects must not be collapsed into one uncontrolled record.*
+
+특히 `tenant_candidate` 와 `tenant` 는 **승인 전후의 다른 lifecycle state** 를 표현한다.
+
+> **0-A Human Decision**
+>
+> canonical `LegalEntity` 는 **검증되지 않은 설계값이나 구현상 synthetic identity 로
+> 생성하지 않는다.** 검증된 business-registration / onboarding evidence 를 근거로
+> 생성·연결한다.
+>
+> 따라서 Store 의 LegalEntity mapping 도 authoritative business identity 가
+> 확보된 이후 수행하며, **임의의 placeholder LegalEntity 를 만들어
+> `stores.legal_entity_id` 를 채우지 않는다.**
+
+> ⚠️ **현재 `legal_entities` 가 0행이라는 physical fact 만으로 모델 결함이라고 판정하지 않는다.**
+> 실제 원인이 intake 미수행인지 여부는 onboarding evidence 로 확인한다.
+> `010901` 은 intake 필드를 규정하나, 0행의 원인을 서술하지 않는다.
+
+### §1.32 `store_operator_type` 은 LegalEntity 와 별개 축이다
+
+`010901` §10 Franchise And HQ Relationship Intake 가 아래를 수집한다.
+
+| 필드 | 필수 | 의미 |
+|---|---|---|
+| `franchise_flag` | yes | 프랜차이즈 후보 여부 |
+| `store_operator_type` | conditional | Direct / franchisee / agency |
+| `hq_tenant_candidate_id` | conditional | HQ 후보 |
+| `contract_relationship_state` | conditional | Draft / verified |
+
+**두 축을 섞지 않는다.**
+
+```text
+Store
+ ├─ legal operator → LegalEntity        누가 법적 운영주체인가
+ └─ operator_type  → DIRECT / FRANCHISEE / AGENCY   어떤 형태로 운영되는가
+```
+
+**`FRANCHISEE` 라는 이유로 LegalEntity 를 추론하지 않는다.**
+**`DIRECT` 라는 이유로 그룹 본사 LegalEntity 를 자동 배정하지 않는다.**
+
+§1.5의 축 간 추론 금지 원칙이 그대로 적용된다.
+
+> ⚠️ `hq_tenant_candidate_id` 의 존재만으로
+> **"프랜차이즈 본사는 반드시 별도 Tenant 다"를 확정하지 않는다.**
+> 이름 그대로 `candidate` 단계의 관계이며,
+> 실제 tenant 생성·연결 규칙은 확인되지 않았다.
+
+### §1.33 cross-business link 는 참조이며 권한이 아니다
+
+`000190` 이 CatchMenu ↔ Franchise OS 경계를 전담하는 문서다.
+§1.10~§1.12는 `000150` §11·§12·§33 을 근거로 선언했으나,
+**`000190` 이 같은 주제를 더 직접적으로 규정한다.**
+
+`000190` §10 Cross-Business Link:
+
+```text
+cross_business_link_id / source_system / source_entity_type / source_entity_id /
+target_system / target_entity_type / target_entity_id /
+relationship_type / status / created_by / created_at / trace_id
+```
+
+예시:
+
+```text
+source: Franchise OS / store / franchise_store_001
+target: CatchMenu / merchant_store / catchmenu_store_001
+relationship_type: YOONSUL_AFFILIATED_STORE
+```
+
+> **Cross-business link is reference. Cross-business link is not permission.**
+
+`000190` §11 Cross-Business User Link:
+
+> **Same human does not mean same authority.**
+>
+> A person may be Franchise OS Store Manager but not CatchMenu HQ Admin
+> unless explicitly assigned.
+
+`000190` §21 Source Of Truth Rule:
+
+```text
+Franchise OS owns  Yoonsul store HR / franchise payroll / internal store SOP
+CatchMenu owns     Entry Media mapping / merchant service status /
+                   request runtime evidence
+```
+
+> **Every shared data element needs a source of truth.**
+
+**§1.10~§1.12의 선언 내용은 `000190` 과 일치한다.** 근거를 보강한 것이며 변경이 아니다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -780,6 +886,10 @@ persistence 와 구체 cardinality 는 후속 설계에서 결정한다.
 | 고객사-side `company` 용어 정정 (`009070`/`003020`) | §1.29에서 분해 대상으로 판정. 문서 정정은 후속 상위문서 정합화 |
 | `OperatingGroup` persistence | §1.30 — ACTIVE 문서 넷이 미결로 남김 |
 | `Brand` 축의 canonical 정의 | §1.13·§1.29가 축 존재만 확정. 엔티티 여부는 후속 |
+| `legal_entities` 0행의 실제 원인 | §1.31 — intake 미수행 여부를 onboarding evidence 로 확인 |
+| `store_operator_type` 의 canonical 표현 | §1.32는 축 분리만 확정. 값·필드는 후속 |
+| 프랜차이즈 본사가 별도 Tenant 인가 | §1.32 — `hq_tenant_candidate_id` 는 candidate 단계. 확정 근거 부족 |
+| `cross_business_link` 물리 구조 | §1.33 — `000190` §10이 필드를 제시하나 구현은 후속 |
 
 ### §2.3 미조사 대상
 
@@ -843,12 +953,25 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성 | 2단계 ERD 선행 관계·cardinality 조사 (Cursor, 2026-08-13). Q1·Q5는 미판정이며 §1.22·§1.23이 Human Decision으로 확정 |
 | `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Cursor, 2026-08-13). 외부 어휘·누락 중심 |
 | `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Codex, 2026-08-13). ERD 내부 정합성 중심 |
+| `000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md` | §10, §11, §21 | CatchMenu ↔ Franchise OS 경계 전담 문서. §1.33 |
+| `010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md` | §4, §10, §11 | 영업 intake — LegalEntity business identity source. §1.31~§1.32 |
+| `601708_Evidence_Stage4_Overview_Evidence_Pack_Cursor.md` | E-1~E-4 | 4단계 Evidence Pack (Cursor). `000701` §46 |
+| `601709_Evidence_Stage4_Overview_Evidence_Pack_Codex.md` | E-1~E-4 | 4단계 Evidence Pack (Codex). §35 이중 검증 |
 
 권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
 
 두 도구의 발견이 갈렸다(`000701` §35 — 검증자 1명의 사각지대).
 Cursor 는 `Merchant Company` 부재와 store 상태축 누락을,
 Codex 는 ERD 내부 모순(미정 관계를 확정 기호로 표기)을 잡았다.
+
+**Evidence Pack 이중 수행 결과** (`000701` §35·§46)
+
+Cursor 와 Codex 가 독립 수행한 결과 합집합 79건 중
+**한쪽만 찾은 문서가 40건**이었다(Cursor 26 / Codex 14).
+Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API 계열을 더 찾았다.
+
+**어느 하나만 수행했다면 절반 가까이 놓쳤을 것이다.**
+§46이 든 CH-F04 사례(`005191`/`005241` 독립 작성 충돌)와 같은 위험이다.
 
 ## §5 확정 기록
 
@@ -864,6 +987,7 @@ Codex 는 ERD 내부 모순(미정 관계를 확정 기호로 표기)을 잡았�
           Merchant Company 정규화 · Store 구조 경로 (§1.25~§1.26)
           Store 상태 3축 분리 · 계층 상태 독립 (§1.27~§1.28)
           company 어휘 정규화 · OperatingGroup 축 (§1.29~§1.30)
+          LegalEntity intake source · operator_type 축 · cross-business link (§1.31~§1.33)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
