@@ -418,6 +418,84 @@ COMPANY scope → Franchise HQ → 여러 merchant_account 횡단 조회
 프랜차이즈 본사의 CatchMenu 접근이 필요하면 §1.8(계약 기반 Scope)과
 §1.10(세 세계 분리)에 따라 별도의 cross-business / franchise-derived scope 로 해결한다.
 
+### §1.22 Tenant 와 MerchantAccount 는 다른 개념이며 1:1 로 시작한다
+
+`Tenant` 는 CatchMenu 의 **SaaS 고객조직 및 최상위 데이터 격리 경계**다
+(`010640` §4: *SaaS tenant/customer organization*).
+
+`MerchantAccount` 는 **CatchMenu 서비스 계약·관리·권한 scope** 다
+(`020320` §40: merchant account scope 는 여러 store 를 포함할 수 있다).
+
+**두 개념은 동일하지 않다.** 그러나 **이번 나선에서는 1:1 로 확정한다.**
+
+> ⚠️ **1:N 을 선택하지 않은 이유**
+>
+> 어느 문서도 Tenant 와 MerchantAccount 의 cardinality 를 규정하지 않는다
+> (2026-08-13 조사: 「추정만 가능」).
+> 1:N 이 필요한 실제 사례가 아직 확인되지 않았으며,
+> 1:N 을 허용하면 아래 오용 경로가 열린다.
+>
+> ```text
+> 윤슬김밥 Tenant
+>  ├─ 가맹점주 A MerchantAccount
+>  ├─ 가맹점주 B MerchantAccount
+>  └─ 가맹점주 C MerchantAccount
+> ```
+>
+> 독립된 가맹사업자를 같은 브랜드라는 이유로 동일 Tenant 에 배치하면
+> `010640` 의 cross-tenant 기본 거부가 무력화된다.
+> 1:1 이면 이 경로가 구조적으로 막힌다.
+>
+> **`Tenant` 는 보안상 같은 고객조직을 뜻하며 "같은 브랜드 식구들"을 뜻하지 않는다.**
+> 프랜차이즈 횡단은 §1.8의 계약 기반 scope 로 해결한다.
+
+향후 1:N 이 필요해지면 **실제 사례를 근거로** 스키마 변경으로 연다.
+가정만으로 미리 열지 않는다(`000701` §47.2).
+
+### §1.23 MerchantAccount 와 LegalEntity 는 독립이다
+
+**하나의 MerchantAccount 는 서로 다른 LegalEntity 가 운영하는 복수 Store 를 포함할 수 있다.**
+
+```text
+MerchantAccount M1
+ ├─ Store A → LegalEntity L1
+ ├─ Store B → LegalEntity L1
+ └─ Store C → LegalEntity L2
+```
+
+단, **각 Store 는 자신의 법적 운영주체를 명시해야 하며**,
+모든 금전·정산·세무 행위는 **해당 LegalEntity scope 로 최종성이 검증**되어야 한다
+(`010640` §9: LegalEntity 컨텍스트 없는 금전 객체는 확정되면 안 된다).
+
+위 예에서 정산은 이렇게 갈린다.
+
+```text
+Store A 매출 → L1
+Store B 매출 → L1
+Store C 매출 → L2
+```
+
+**MerchantAccount 공유를 LegalEntity 간 법적·재무 권한 공유로 해석하지 않는다.**
+`M1` 이라는 이유로 `L1` 과 `L2` 의 재무가 하나의 장부가 되지 않는다.
+
+### §1.24 각 Store 는 현재 시점의 법적 운영주체를 명시한다
+
+**Human Decision.** 근거의 성격을 아래와 같이 구분한다.
+
+| 구분 | 내용 |
+|---|---|
+| Source Evidence | `003020` §2 — Store 와 LegalEntity 사이에 관계가 존재하며 *may link* 라고만 서술 |
+| Human Business Rule | **각 Store 는 현재 시점의 법적 운영주체를 명시적으로 가져야 한다** |
+
+> ⚠️ `601501`(권위보류)이 `stores.legal_entity_id` 단일 FK 로 설계했다는 사실은
+> **이 판정의 근거가 아니다.** `600020` §2에 따라 `601500` 을 답안지로 사용하지 않는다.
+> 살아있는 상위 문서(`003020`)는 관계의 존재만 서술하고 cardinality 를 규정하지 않는다.
+
+이 규칙은 §1.4(매장의 법적 운영주체는 LegalEntity 관계로 표현)의 구체화다.
+
+**Store 당 LegalEntity 가 하나인지 여럿인지, 시점 이력을 어떻게 표현하는지는
+2단계 ERD 에서 결정한다.** "현재 시점의 운영주체가 명시되어야 한다"까지만 확정한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -458,6 +536,10 @@ COMPANY scope → Franchise HQ → 여러 merchant_account 횡단 조회
 | Scope Type / Scope Level 통합 taxonomy | §1.20에서 해석 확정을 보류. 후속 ERD/Authorization 설계 |
 | 프랜차이즈 본사의 CatchMenu 접근 scope 명칭 | §1.21이 `COMPANY`/`BUSINESS_UNIT` 사용을 배제. 별도 명칭은 2단계 |
 | `cross_business_link` 가 scope 인가 관계인가 | `020320` §10은 scope type으로, `000150` §26은 개념 엔티티로 나열 |
+| Tenant ↔ MerchantAccount 1:N 전환 시점 | §1.22에서 1:1 확정. 실제 사례 발생 시 재검토 |
+| Store 당 LegalEntity cardinality | §1.24는 "명시되어야 한다"까지만 확정. 단일/복수·이력 표현은 2단계 |
+| `merchant_accounts` 물리 구현 | 개념 확정(§1.22·§1.23). SQL 미구현 — 2단계 ERD |
+| Company / BusinessUnit persistent entity 필요성 | §1.21은 의미만 확정. 물리 엔티티 필요성은 2단계 조사에서 OPEN |
 
 ### §2.3 미조사 대상
 
@@ -518,6 +600,7 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | A-1, A-3, tenant/store×login session | HQ/Staff/Session/Role/Permission A단계 조사 (Cursor, 2026-08-13). **A-2 어휘표는 신뢰 불가 — 배너 참조** |
 | `601211_Overview_Caller_Authorization_Resolver_Pilot.md` | 최종상태, §3.1, §3.2, §3.4, §4, §5 | JWT↔staff 브리지 부재 사실 기록. **권위보류** |
 | `601212_Logic_Caller_Authorization_Resolver_Pilot.md` | §0, §1.2 | resolver 설계 원칙과 보류 사유. **권위보류** |
+| `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성 | 2단계 ERD 선행 관계·cardinality 조사 (Cursor, 2026-08-13). Q1·Q5는 미판정이며 §1.22·§1.23이 Human Decision으로 확정 |
 
 권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
 
@@ -531,6 +614,7 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
           LegalEntity / MerchantAccount 축 (§1.13~§1.14)
           Identity 축 · 0-B 인계 조건 (§1.15~§1.18)
           Role/Permission/Scope 축 (§1.19~§1.21)
+          Tenant/MerchantAccount/Store cardinality (§1.22~§1.24)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
