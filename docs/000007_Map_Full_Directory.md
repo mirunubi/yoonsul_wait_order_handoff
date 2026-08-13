@@ -1703,6 +1703,9 @@ docs/
   |   |   +--- 601601_Register_Stage1_Business_Rules_And_Revision_Drafts.md
   |   +--- 601700_operational_authority_foundation_v2/
   |   |   +--- 601700_Readme_Operational_Authority_Foundation_V2.md
+  |   |   +--- 601701_Register_Stage0_Evidence_Collection.md
+  |   |   +--- 601702_Register_Stage1_Business_Rules.md
+  |   |   +--- 601703_Register_Stage0_Evidence_Collection_HQ_HR.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

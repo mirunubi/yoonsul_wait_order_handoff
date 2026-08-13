@@ -95,6 +95,163 @@ User ───── Store RBAC Role
 한 가맹사업자가 계약 하나로 여러 점포를 가질 수 있고, 점포별 계약도, 지역개발권 계약도 가능하다.
 `Store.franchise_contract_id` 같은 구조를 1단계에서 확정하지 않는다.
 
+### §1.7 고객사 내부 권한과 프랜차이즈 횡단 권한은 분리한다
+
+Merchant/Store RBAC은 **해당 MerchantAccount·Store 내부의 시스템 권한만** 표현한다.
+
+프랜차이즈 본사의 다점포·다가맹사업자 접근을 **Merchant 역할의 확장으로 구현하지 않는다.**
+
+가맹점 A의 관리자 역할을 얻어서 가맹점 B를 보는 구조를 만들지 않는다.
+
+`020320` §14: *Merchant role never grants access to other merchants by default.*
+`020320` §41: store scope는 account scope로 조용히 확장되면 안 된다.
+
+### §1.8 Franchise HQ의 권한은 계약 기반 Scope이다
+
+프랜차이즈 본사가 가맹사업자 데이터에 접근하는 권한은
+**유효한 가맹계약과 명시적 Franchise Scope**에 근거한다.
+
+`010640` §11: *Franchise scope is contract-scoped.*
+
+허용 범위는 계약이 정한 데이터·행동·Store 범위로 한정한다.
+**가맹사업자의 사적 재무 상세·개인정보·비계약 데이터를 자동 포함하지 않는다**
+(`010640` §11 명시적 금지 목록).
+
+### §1.9 `HQ` 어휘는 CatchMenu 관리 인터페이스에만 사용한다
+
+`000150` §28: *CatchMenu HQ is the administrative interface for this company model.*
+
+`020320` §22 `HQ Admin` 의 권한이 `merchant.create` / `merchant.update` /
+`service_status.update` / `service_status.terminate` 인 것과 정합한다.
+고객사를 생성·해지할 수 있는 주체는 **SaaS 제공자**다.
+
+따라서 프랜차이즈 본사를 `HQ`로 부르지 않는다. 세 층위를 다른 어휘로 표기한다.
+
+```text
+CatchMenu HQ   → Platform / Platform Admin
+프랜차이즈 본사 → Franchise HQ
+윤슬 그룹      → Group / Group Office
+```
+
+`010640` §4의 `franchise_hq_id` 와 `020310` §8의 `HQ_ADMIN_SESSION` 은 어휘 정정 대상이다.
+정정 방식은 2단계에서 정한다.
+
+### §1.10 세 세계를 하나의 조직도로 합치지 않는다
+
+```text
+[A. Group World]        소유·전략 포트폴리오
+윤슬 그룹
+ ├─ 윤슬김밥
+ ├─ 윤슬보울
+ ├─ 윤슬커피
+ └─ CatchMenu SaaS
+
+[B. Franchise OS World] 외식사업 운영
+윤슬김밥 Franchise OS
+ ├─ Franchise HQ / 가맹계약 / 직영점 / 가맹점
+ └─ HR·급여·시프트·SOP·교육·SCM
+
+[C. CatchMenu World]    SaaS 제공자와 고객
+CatchMenu Platform
+ ├─ 고객: 윤슬김밥
+ ├─ 고객: 윤슬보울
+ ├─ 고객: 외부 프랜차이즈
+ └─ 고객: 개인 식당
+```
+
+`000150` §11: 프랜차이즈 본사 거버넌스·가맹운영·매장 인사·급여·SOP·재고SCM은
+**Franchise OS 소관**이다.
+
+> Franchise OS may use CatchMenu.
+> **Franchise OS does not own CatchMenu by default.**
+
+**CatchMenu는 복수의 브랜드·프랜차이즈·개인식당을 고객으로 수용한다.**
+윤슬 계열도 그중 하나이며, `000150` §13에 따라
+외부 고객사가 자동으로 윤슬 가맹점이 되지 않는다.
+
+### §1.11 그룹 계열 관계는 SaaS 권한이 아니다
+
+`000150` §5: *Parent group is an ownership or strategy context.
+**It is not automatic access authority.***
+
+윤슬 그룹의 소유·계열 관계는 CatchMenu의 tenant·merchant·store·role·permission·scope를
+**자동으로 생성하거나 확장하지 않는다.**
+
+그룹 계열 사업도 CatchMenu에서는 **독립된 고객**으로 취급한다.
+계열사라는 이유로 다른 고객보다 높은 시스템 권한을 갖지 않는다.
+
+### §1.12 같은 실체가 두 시스템에서 다른 정체성을 가진다
+
+`000150` §12: *Same physical store may have different system identities
+in different business contexts.*
+
+매장뿐 아니라 조직과 사람에도 적용된다.
+
+```text
+윤슬김밥   Group Context   = 그룹이 보유한 프랜차이즈 사업
+           CatchMenu       = 서비스를 이용하는 고객
+
+한 사람    Group           = 그룹 경영자
+           Franchise OS    = Franchise Admin
+           CatchMenu       = Platform Operator 또는 고객측 사용자
+```
+
+**Person은 같아도 Role·Scope·Session은 각 세계에서 별도로 판정한다.**
+로그인 한 번으로 여러 세계의 권한이 자동 합쳐지지 않는다.
+
+연결은 **명시적 링크**(`cross_business_link`)로만 한다.
+`000150` §33: *Allow explicit links. **Deny implicit authority.***
+`020310` §29: *Shared authentication is not shared authorization.*
+
+### §1.13 LegalEntity는 브랜드를 넘을 수 있다
+
+한 LegalEntity가 여러 브랜드의 매장을 운영할 수 있다.
+실제 사업 형태이므로 구조적으로 막지 않는다.
+
+**브랜드별 조회·운영 경계를 만들기 위해 LegalEntity를 복제하지 않는다.**
+
+브랜드 때문에 LegalEntity를 쪼개면 법적 정체성이 브랜드 모델에 종속되는 역전이 생긴다.
+`601501` §2.1.1: 동일성 판단 기준은 `business_registration_number`가 아니라
+`legal_entities.id` 다.
+`010640` §9: LegalEntity는 정산·세무·KYC·회계의 기준이며,
+LegalEntity 컨텍스트 없는 금전 객체는 확정되면 안 된다.
+
+브랜드 경계는 **계약이 만든다.** 한 가맹사업자가 여러 브랜드를 운영하더라도
+각 브랜드 본사는 자기 계약 범위 밖의 매장·데이터를 볼 수 없다.
+`010640` §11: *Franchise HQ must not automatically access unrelated brand data.*
+
+가맹사업자 본인은 자기 범위에서 자신의 모든 매장을 본다.
+브랜드가 다르다는 이유로 자기 데이터가 갈리지 않는다.
+
+### §1.14 MerchantAccount 경계는 다른 축의 경계와 같다고 가정하지 않는다
+
+MerchantAccount는 **CatchMenu의 SaaS 계약·관리 단위**다.
+LegalEntity 경계와도, Brand 경계와도, User Identity와도 **독립이다.**
+
+- 한 LegalEntity가 여러 MerchantAccount를 가질 수 있다
+- 한 MerchantAccount가 여러 브랜드의 Store를 포함할 수 있다
+  (`020320` §40: *merchant account scope may include multiple stores*)
+- **MerchantAccount 개수를 전역 규칙으로 고정하지 않는다.** 계약·관리 단위가 결정한다
+
+**하나의 User는 재로그인 없이, 명시적으로 부여된 여러 MerchantAccount·Store Scope를
+전환할 수 있다.**
+
+`020310`은 User Account와 Role을 별개로 정의하고,
+`020320`은 `User → RoleAssignment → Scope` 구조를 전제한다.
+따라서 계정 분리와 로그인 분리는 별개 문제다.
+
+> **Identity 통합 ≠ Authority 통합**
+
+Store는 세 축이 만나는 지점이다.
+
+```text
+강남점   legal_entity = 김철수사업자 / merchant_account = 김철수 Account / brand = 윤슬김밥
+역삼점   legal_entity = 김철수사업자 / merchant_account = 김철수 Account / brand = 윤슬커피
+```
+
+같은 MerchantAccount 안에 있어도 브랜드가 다르면 **본사 조회 경계는 갈린다.**
+조회 경계는 MerchantAccount 구조에서 자동 도출되지 않는다(§1.8).
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -119,6 +276,14 @@ User ───── Store RBAC Role
 | 직영/가맹 구분의 표현 방식 | 2단계 ERD |
 | `FranchiseAgreement` 엔티티 존재 여부 | 구조 없음. 2단계 |
 | 지분소유 모델링 여부 | §1.3에서 분리만 확정. 모델링은 2단계 |
+| `MERCHANT_OWNER` 역할명 | §1.2·§1.4에서 도출. `MERCHANT_ADMIN` 등이 후보 |
+| `HQ_ADMIN_SESSION` / `HQ Admin` 개명 | §1.9에서 정정 대상 확정. 방식은 2단계 |
+| `franchise_hq_id` 정정 방식 | §1.9에서 정정 대상 확정. 방식은 2단계 |
+| 프랜차이즈 본사 사용자의 계정 유형·세션 등급 | `020310` §12 계정유형 6종에 해당 항목 없음 |
+| `FranchiseAgreement` 의 CatchMenu 측 표현 | §1.10에 따라 원천은 Franchise OS. CatchMenu 측 표현 방식은 2단계 |
+| `COMPANY` / `BUSINESS_UNIT` scope 구현 여부 | `000150` §4·§6은 **CatchMenu 조직축**으로 정의. 프랜차이즈 본사가 아님 |
+| `cross_business_link` 구조 | `000150` §26 개념 엔티티에 존재하나 미구현 |
+| Scope 전환 UI·세션 표현 방식 | §1.14의 컨텍스트 전환을 어떻게 구현할지 |
 
 ### §2.3 미조사 대상
 
@@ -128,9 +293,32 @@ User ───── Store RBAC Role
 User identity / Customer identity / Staff identity / Session / Role /
 Permission / Membership / Menu seed / Dining table
 
-**진행 중**: HQ 정의 확정과 로그인 세션 구조를 위해
-HQ / Staff identity / Session / Role / Permission 5개에 대한 A단계 조사가 별도 진행 중이다.
-그 결과가 나오면 본 선언에 항목을 추가한다.
+**A단계 조사 완료 (2026-08-13)**: HQ / Staff identity / Session / Role / Permission
+5개 대상에 대한 A단계(문서만 존재) 조사가 수행되었다 — `601703`.
+
+그 결과로 §1.7~§1.14 를 확정했다. 다만 **A단계만 수행되었으며
+B~E(SQL 객체·일치·실행·권한)는 미수행**이다.
+Staff·Session·Role·Permission 자체의 업무규칙은 아직 선언하지 않았다.
+
+### §2.4 문서 간 충돌 — 판정 보류
+
+`000150`과 `010640`이 프랜차이즈 본사의 소재를 다르게 다룬다.
+
+| 문서 | 서술 |
+|---|---|
+| `000150` §11·§33 | 프랜차이즈 본사 거버넌스는 Franchise OS 소관. CatchMenu와 분리 |
+| `010640` §4·§11 | `franchise_hq_id` 가 CatchMenu scope 차원에 존재하고 Franchise HQ 조회 범위를 규정 |
+
+§1.10은 층위를 나눠 정리했다 — 윤슬 그룹 내부의 사업 분리(`000150` §11)와
+CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 다른 문제다.
+
+**다만 `franchise_hq_id` 가 CatchMenu envelope에 있어야 하는지는 판정하지 않았다.**
+`000001` §5.7 Conflict Resolution 절차를 거치지 않았으므로
+어느 문서를 정정할지는 2단계 또는 별도 워크패킷에서 판정한다.
+
+`010640` 자체의 내부 불일치도 함께 기록한다:
+§4 Scope Dimension 22개에는 `franchise_hq_id` 가 있으나
+§5 Mandatory Envelope Fields 22개에는 없다.
 
 ## §3 601500과의 관계
 
@@ -149,6 +337,11 @@ HQ / Staff identity / Session / Role / Permission 5개에 대한 A단계 조사�
 | `600020_Governance_Implementation_Lifecycle_Authority_Reset.md` | §1.1, §2 | 601500 사용 제약 |
 | `601700_Readme_Operational_Authority_Foundation_V2.md` | §3, §5, §6 | 착수 순서, Out of Scope |
 | `000701_Guide_Controlled_AI_Development_Pipeline.md` | §46, §47.1, §48 | 1단계 규격 |
+| `000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | §4, §5, §6, §11, §12, §13, §26, §28, §33 | Company/BusinessUnit/LegalEntity 경계, Franchise OS 분리 |
+| `010640_Policy_Tenant_Scope_Envelope.md` | §4, §5, §9, §10, §11 | Scope 차원, LegalEntity·운영그룹·프랜차이즈 경계 |
+| `020310_Policy_User_Account_And_Login.md` | §8, §12, §29, §34, §35 | 계정유형, 세션등급, Franchise OS 로그인 경계 |
+| `020320_Policy_Role_Permission_And_Scope.md` | §11, §14, §15, §21~§23, §40, §41 | Scope 레벨, Merchant/Internal Operator 역할 |
+| `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | A-1, A-3, tenant/store×login session | HQ/Staff/Session/Role/Permission A단계 조사 (Cursor, 2026-08-13). **A-2 어휘표는 신뢰 불가 — 배너 참조** |
 
 `601501`/`601503`은 §3에 따라 **사실 기록 목적으로만** 인용했다.
 
@@ -158,6 +351,9 @@ HQ / Staff identity / Session / Role / Permission 5개에 대한 A단계 조사�
 확정:     정영석
 일자:     2026-08-13
 범위:     Owner 축 (§1.1~§1.6)
-미결:     HQ 3갈래 / Staff·Session·Role·Permission (조사 진행 중)
+          조직 경계 · HQ 어휘 · 세 세계 분리 (§1.7~§1.12)
+          LegalEntity / MerchantAccount 축 (§1.13~§1.14)
+미결:     Staff·Session·Role·Permission 상세 (A단계 조사 완료, 선언 미확정)
+          000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
 ```
