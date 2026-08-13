@@ -40,6 +40,14 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 [6단계] 나선 종료 판정        — Human
 ```
 
+**현재 위치 (2026-08-13)**
+
+| 단계 | 상태 | 산출물 |
+|---|---|---|
+| §48 증거수집 | ✅ 완료 | `601701`(5개 대상 A~E) / `601703`(HQ·HR 5개 대상 A단계) |
+| 1단계 업무규칙 선언 | ⏳ 진행중 | `601702` §1.1~§1.18 확정. Session·Role·Permission 미완 |
+| 2단계 ERD | 미착수 | |
+
 **증거수집을 1단계 앞에 두는 이유**: 검증되지 않은 옛 설계문서를 Human이 그대로 받아 적는 것을 막기 위함이다.
 `000150`/`000170`/`003020`/`009030`/`010004`는 **검증을 거친 적이 없다**(`600020` §2.2).
 
@@ -92,6 +100,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 601700 | `601700_Readme_Operational_Authority_Foundation_V2.md` | Active |
+| 601701 | `601701_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집 A~E. 대상 5개(Company/Owner/Tenant/HQ/Store) |
+| 601702 | `601702_Register_Stage1_Business_Rules.md` | Draft — 1단계 업무규칙 선언(Human 전담). §1.1~§1.18 |
+| 601703 | `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | Active — §48 증거수집 A단계. 대상 5개(HQ/Staff/Session/Role/Permission). **A-2 어휘표 신뢰 불가 — 배너 참조** |
 
 ## §9 Add / Move Rule
 
