@@ -675,8 +675,8 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `601211_Overview_Caller_Authorization_Resolver_Pilot.md` | 최종상태, §3.1, §3.2, §3.4, §4, §5 | JWT↔staff 브리지 부재 사실 기록. **권위보류** |
 | `601212_Logic_Caller_Authorization_Resolver_Pilot.md` | §0, §1.2 | resolver 설계 원칙과 보류 사유. **권위보류** |
 | `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성 | 2단계 ERD 선행 관계·cardinality 조사 (Cursor, 2026-08-13). Q1·Q5는 미판정이며 §1.22·§1.23이 Human Decision으로 확정 |
-| `tools/_c_stage_review_cursor.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Cursor, 2026-08-13). 외부 어휘·누락 중심 |
-| `tools/_c_stage_review_codex.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Codex, 2026-08-13). ERD 내부 정합성 중심 |
+| `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Cursor, 2026-08-13). 외부 어휘·누락 중심 |
+| `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | V1~V5, Blocker 6건 | 3단계 인접 도메인 대조 (Codex, 2026-08-13). ERD 내부 정합성 중심 |
 
 권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
 

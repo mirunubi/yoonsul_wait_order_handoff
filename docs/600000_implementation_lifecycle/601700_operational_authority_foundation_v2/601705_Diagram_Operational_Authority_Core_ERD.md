@@ -4,6 +4,13 @@ Status: Draft
 Lifecycle: Diagram
 Last Updated: 2026-08-13
 
+**개정 이력**
+
+| 일자 | 내용 |
+|---|---|
+| 2026-08-13 | 초안 작성 |
+| 2026-08-13 | 3단계 대조(`601706`/`601707`) 반영 — Tenant→Store 를 격리 invariant 로 분류, 미정 관계 제거, Merchant Company 정규화 기록, 근거 목록 보완 |
+
 ## §0 성격과 범위
 
 `000701` §47.1의 **2단계(ERD 초안)** 산출물이다.
@@ -65,6 +72,8 @@ SQL에 있다는 이유로 개념을 채택하지 않고, SQL에 없다는 이�
 | §1.22 Tenant ↔ MerchantAccount 1:1 | Formal ERD 확정 관계 |
 | §1.23 MerchantAccount와 LegalEntity 독립 | 한 `MERCHANT_ACCOUNT` 아래 서로 다른 `LEGAL_ENTITY`의 `STORE` 허용 |
 | §1.24 Store는 현재 시점 법적 운영주체를 명시 | `LEGAL_ENTITY` → `STORE` 관계로 표현. 개수·이력은 §5 미정 |
+| §1.25 `Merchant Company` 용어 정규화 | §4.6, §6, §7.4 |
+| §1.26 Store 구조 부모는 MerchantAccount | §3 Mermaid, §5.3 격리 invariant |
 
 ## §2 Conceptual Context Diagram
 
@@ -89,20 +98,16 @@ SQL에 있다는 이유로 개념을 채택하지 않고, SQL에 없다는 이�
 ║  ┌─ CORE (확정) ────────────────────────────────────────────────────┐    ║
 ║  │                                                                   │    ║
 ║  │   PERSON                                                          │    ║
-║  │     │                                                             │    ║
-║  │     ├── Representative ──┐   축 존재 확정 · cardinality 미정      │    ║
+║  │     ├── Representative ──┐  축 존재 확정 · cardinality 미정       │    ║
 ║  │     └── PersonRole ──────┤                                        │    ║
 ║  │                          ▼                                        │    ║
-║  │                    LEGAL_ENTITY                                   │    ║
-║  │                       │      │                                    │    ║
-║  │                   1:N │      │ 1:N                                │    ║
-║  │                       ▼      │                                    │    ║
-║  │   TENANT ═══1:1═══ MERCHANT_ACCOUNT                               │    ║
-║  │      │                    │  │                                    │    ║
-║  │      │ 1:N            1:N │  │                                    │    ║
-║  │      └────────▶ STORE ◀───┘  │                                    │    ║
-║  │                  ▲            │                                   │    ║
-║  │                  └────1:N─────┘                                   │    ║
+║  │                    LEGAL_ENTITY ──1:N(법적 운영주체)──┐            │    ║
+║  │                          │                            │            │    ║
+║  │                      1:N │                            ▼            │    ║
+║  │                          ▼                                         │    ║
+║  │   TENANT ══1:1══ MERCHANT_ACCOUNT ──────1:N──────▶ STORE          │    ║
+║  │     ╎                                                ▲            │    ║
+║  │     └╌╌╌ 격리 scope 보유·검증 (구조 관계 아님) ╌╌╌╌╌┘            │    ║
 ║  │                                                                   │    ║
 ║  └───────────────────────────────────────────────────────────────────┘    ║
 ║                                                                           ║
@@ -119,8 +124,14 @@ SQL에 있다는 이유로 개념을 채택하지 않고, SQL에 없다는 이�
 ```
 
 **읽는 법**: 실선 박스는 확정된 Core, 점선 박스는 미결이거나 다른 워크패킷 소관이다.
-`═══` 은 1:1, `───▶` 는 1:N을 뜻한다. Representative / PersonRole은 축의 존재만 확정됐고
-cardinality는 미정이므로 화살표 없이 선으로만 표시했다.
+`══` 은 1:1, `──▶` 는 1:N 구조 관계를 뜻한다.
+Representative / PersonRole은 축의 존재만 확정됐고 cardinality는 미정이므로
+화살표 없이 선으로만 표시했다.
+
+**`TENANT ╌╌▶ STORE` 의 점선은 구조 관계가 아니라 격리 scope 다**(`601702` §1.26).
+구조 소유 경로는 `Tenant → MerchantAccount → Store` 하나이며,
+Tenant 는 Store 의 두 번째 부모가 아니라 모든 Store 가 보유·검증해야 하는 필수 격리 scope 다.
+§5.3 참조.
 
 ## §3 Formal ERD
 
@@ -135,17 +146,26 @@ erDiagram
     TENANT ||--|| MERCHANT_ACCOUNT : "1:1 (601702 §1.22)"
     LEGAL_ENTITY ||--o{ MERCHANT_ACCOUNT : "1:N 허용 (§1.14, 601704 Q4)"
     MERCHANT_ACCOUNT ||--o{ STORE : "1:N (§1.14, 601704 Q2)"
-    TENANT ||--o{ STORE : "1:N (003020 §2)"
-    LEGAL_ENTITY ||--o{ STORE : "법적 운영주체 (§1.13, §1.24)"
-    PERSON }o--o{ LEGAL_ENTITY : "Representative - cardinality 미정 (§5)"
-    PERSON }o--o{ LEGAL_ENTITY : "PersonRole - cardinality 미정 (§5)"
+    LEGAL_ENTITY ||--o{ STORE : "법적 운영주체 — Store당 개수 미정, §5.2 참조"
 ```
 
-> ⚠️ **`}o--o{` 표기 주의**: Mermaid `erDiagram`은 모든 관계에 양끝 cardinality 기호를
-> 요구하며 "미정"을 나타내는 기호가 없다. Representative / PersonRole 두 관계의
-> `}o--o{` 는 **N:M 확정이 아니라 표기상 불가피한 최소 제약**이며,
-> 실제 상태는 **미정**이다(`601704` Q7 「추정만 가능」). 관계 라벨에도 명시했다.
-> **이 표기를 근거로 N:M 조인 테이블을 설계하지 않는다.**
+> ⚠️ **`LEGAL_ENTITY ||--o{ STORE` 표기 주의**
+>
+> `||` 는 Mermaid 에서 exactly-one 을 뜻하나, **Store 당 LegalEntity 개수는 미정이다**
+> (`601702` §1.24 — "현재 시점의 법적 운영주체를 명시한다"까지만 확정).
+> Mermaid 는 미정을 표현할 문법이 없어 최소 표기를 사용했다.
+> **이 표기를 근거로 단일 FK 를 설계하지 않는다.** §5.2를 따른다.
+
+> **Mermaid 는 "미정"을 표현할 수 없다.** 이 제약 때문에 3단계 대조에서
+> 미정 관계(Representative / PersonRole)가 확정 기호 `}o--o{` 로 그려져 있다는
+> 지적을 받았다(`601707`). 해당 관계는 다이어그램에서 제거하고 §5.2에만 기록한다.
+
+> **Invariant — Tenant scope**
+>
+> 모든 Store 는 Tenant scope 를 보유하고 검증해야 한다(`010004` §4, `010640` §7·§8).
+> 물리 스키마가 `stores.tenant_id` 를 직접 보유하는 것은 격리·RLS·조회 효율을 위한 것이며,
+> **개념적 두 번째 소유 계층을 만들지 않는다**(`601702` §1.26).
+> 구조 경로는 `Tenant → MerchantAccount → Store` 하나다.
 
 **엔티티 5개 전부 개념명이다.** `PERSON`은 `owners` 테이블이 아니고(§1.1),
 `MERCHANT_ACCOUNT`는 현재 SQL에 대응 테이블이 없다(§8).
@@ -211,6 +231,29 @@ SQL physical evidence는 §8로 분리했다.
 | 직영/가맹 구분을 사람의 role로 표현하지 않는다 | `601702` §1.4 | 확정 |
 | LegalEntity 개수·이력 표현 | `003020` §2 *may link* | **미정** — §5 |
 
+### §4.6 `Merchant Company` — 엔티티가 아니다
+
+`000170` §6의 `Merchant Company` 는 **0-A 모델에서 독립적인 canonical entity 로 사용하지 않는다**
+(`601702` §1.25). **legacy composite terminology** 로 분류한다.
+
+| 성격 | `000170` §6의 항목 | 정규화 대상 |
+|---|---|---|
+| **A. 법적 identity** | `legal_name` / `business_registration_ref` / tax invoice reference / contract reference | **`LEGAL_ENTITY`** (§4.3) |
+| **B. 관리·접근 grouping** | owner access grouping / `billing_contact` / `contract_contact` / multi-store grouping | **`MERCHANT_ACCOUNT`** (§4.4) 및 후속 Role/Scope 모델 |
+
+**`merchant_company` 를 `legal_entity` 로 단순 rename 하지 않는다.**
+개념을 분해하고 각 책임을 해당 축으로 옮긴다(`601702` §1.25).
+
+**3층 구조(Account → MerchantCompany → Store)를 도입하지 않는다.**
+`MerchantCompany ↔ LegalEntity` cardinality, 한 운영회사가 여러 법인을 묶을 수 있는지,
+`MerchantAccount` 와 별도로 grouping 이 필요한 이유 — 어느 것도 현재 source evidence 가
+답하지 못한다. 근거 없는 축을 추가하지 않는다.
+
+`000170` 은 **후속 상위문서 정합화 대상**이다(§7.4).
+
+> 3단계 대조에서 `601706`(Cursor)이 "`Merchant Company` 가 ERD 에 없다"를 충돌로 보고했다.
+> 단순 누락이 아니라 어휘 정규화 문제로 판정되었고, 그 판정이 `601702` §1.25다.
+
 ## §5 Relationship / Cardinality
 
 ### §5.1 확정
@@ -220,7 +263,6 @@ SQL physical evidence는 §8로 분리했다.
 | R1 | TENANT ↔ MERCHANT_ACCOUNT | **1:1** | `601702` §1.22 (Human Decision). `601704` Q1은 「추정만 가능」이었고 1단계에서 확정 |
 | R2 | MERCHANT_ACCOUNT → STORE | **1:N** | `601704` Q2, `000170` §7, `020320` §40, `601702` §1.14 |
 | R3 | LEGAL_ENTITY → MERCHANT_ACCOUNT | **1:N 허용** | `601704` Q4, `601702` §1.14. 금지 규정 없음 |
-| R4 | TENANT → STORE | **1:N** | `003020` §2, `009070` |
 | R5 | LEGAL_ENTITY → STORE | **1:N** | `601702` §1.13 (한 LegalEntity가 여러 브랜드 매장 운영 가능) |
 | R6 | PERSON ↔ LEGAL_ENTITY (Representative) | **축 존재만 확정** | `601702` §1.5. cardinality는 §5.2 |
 | R7 | PERSON ↔ LEGAL_ENTITY (PersonRole) | **축 존재만 확정** | `601702` §1.5. cardinality는 §5.2 |
@@ -238,6 +280,25 @@ SQL physical evidence는 §8로 분리했다.
 
 **U1과 R5는 다른 질문이다.** R5는 "한 LegalEntity가 여러 Store를 운영할 수 있는가"(확정),
 U1은 "한 Store가 동시에 몇 개의 LegalEntity를 가질 수 있는가"(미정)다.
+
+### §5.3 격리 invariant — 구조 관계가 아님
+
+| # | 항목 | 성격 | 근거 |
+|---|---|---|---|
+| I1 | 모든 Store 는 Tenant scope 를 보유하고 검증한다 | **격리 invariant** | `010004` §4, `010640` §7·§8, `601702` §1.26 |
+
+**초안의 R4(`TENANT → STORE` 1:N)를 여기로 옮겼다. 제거가 아니라 분류 변경이다.**
+
+관계 자체는 사라지지 않았다. `003020` §2와 `009070`이 서술한 Tenant–Store 관계는 유효하며,
+물리 스키마도 `stores.tenant_id` 를 직접 보유할 수 있다.
+바뀐 것은 **분류**다 — 구조 소유 계층이 아니라 **필수 격리 scope** 로 취급한다.
+
+§1.22가 Tenant ↔ MerchantAccount 를 1:1로 확정한 상태에서 `TENANT → STORE` 를
+구조 관계로 두면 같은 SaaS 고객 계층이 두 경로로 표현된다(`601702` §1.26).
+Conceptual 구조 경로는 `Tenant → MerchantAccount → Store` 하나다.
+
+R5~R7 의 번호는 그대로 두었다. 기존 참조(§3·§9)를 깨뜨리지 않기 위함이며,
+R4 번호는 이 절로 이동한 표시로 결번 처리한다.
 
 ## §6 Candidate 축
 
@@ -264,6 +325,11 @@ U1은 "한 Store가 동시에 몇 개의 LegalEntity를 가질 수 있는가"(�
 
 의미가 확정됐다는 것과 테이블이 필요하다는 것은 다른 판단이다.
 `601702` §1.21은 의미만 확정했고, 엔티티 필요성은 §2.2에서 2단계 조사 항목으로 남겼다.
+
+**`Merchant Company` 는 Candidate 축이 아니다.** 검토했으나 축으로 추가하지 않았다.
+Candidate 3축은 "의미는 확정, 엔티티 필요성 미결" 상태인 반면,
+`Merchant Company` 는 **두 책임이 혼재된 legacy composite** 이므로
+축으로 두는 것이 아니라 분해해야 한다(§4.6, `601702` §1.25).
 
 ## §7 External / Handoff Boundary
 
@@ -322,6 +388,19 @@ PERSON  (0-A Core)
 | 그룹 계열 관계 | 소유·전략 컨텍스트이며 **자동 접근 권한이 아니다** | `000150` §5, `601702` §1.11 |
 | 계열사의 CatchMenu 지위 | 독립된 고객으로 취급한다 | `601702` §1.11 |
 
+### §7.4 상위문서 정합화 인계
+
+0-A ERD 가 고치지 않고 **4단계(설계문서 정합화)로 넘기는 어휘 정정 대상**이다.
+
+| 대상 | 문제 | 정규화 방향 |
+|---|---|---|
+| `000170` §6 `Merchant Company` | legacy composite — 법적 identity와 관리 grouping 혼재 | §4.6에 따라 `LegalEntity` / `MerchantAccount` 로 분해 |
+| `010640` §4 `company_id` | *corporate entity if separate from legal entity* 로 서술되어 용어 오염 잔존 | `601702` §1.21·§1.25 기준으로 정정 |
+| `000170` §14~§16 store 상태 축 | service / operating / trial 상태 축이 ERD 에 미반영 | §10 O11 |
+
+**이 문서는 위 문서들을 수정하지 않는다.** 정정은 별도 작업이며,
+`601702` §2.2가 미결 항목으로 등재하고 있다.
+
 ## §8 Physical Drift — 현재 SQL과 목표 모델의 차이
 
 > ⚠️ **참고 자료이며 설계 근거가 아니다.**
@@ -376,7 +455,10 @@ PERSON  (0-A Core)
 | §1.23 MerchantAccount와 LegalEntity 독립 | §3 R3·R5, §5.2 U6 | 반영 |
 | §1.24 Store는 현재 법적 운영주체 명시 | §3 R5, §5.2 U1·U2 | **부분 반영** — 관계는 그렸고 개수·이력은 미정 |
 
-**집계**: 반영 12건 / 부분·경계 반영 7건 / 미반영 5건.
+| §1.25 `Merchant Company` 용어 정규화 | §4.6, §6, §7.4 | 반영 — 엔티티로 두지 않고 분해 기록 |
+| §1.26 Store 구조 부모는 MerchantAccount | §3, §5.3 | 반영 — R4를 격리 invariant 로 분류 변경 |
+
+**집계**: 반영 14건 / 부분·경계 반영 7건 / 미반영 5건.
 미반영 5건은 전부 **0-B·0-C 소관이거나 미결 사항**이며, 누락이 아니다.
 
 ## §10 Open Decisions
@@ -395,24 +477,36 @@ PERSON  (0-A Core)
 | O8 | `franchise_hq_id` 어휘 정정과 `000150` ↔ `010640` 충돌 판정 | 별도 워크패킷 (`601702` §2.4) |
 | O9 | `primary_owner_user_id` 등 `000170` 권장 필드의 새 어휘 | 4단계 |
 | O10 | 엔티티별 식별 속성 목록 | 4단계 |
+| O11 | `000170` §14~§16 store 상태 축(service / operating / trial) 미반영 | 4단계 (`601706` 지적) |
+| O12 | `company` homonym — `000150` 플랫폼 운영사 vs `003020`/`007010`/`009070` tenant 내 축 | 별도 워크패킷 (`601706` 지적) |
+| O13 | `003020`/`009070` 의 company / operating_group 병렬 축이 ERD 에 없음 | §6 Candidate 판정과 연동. 4단계 |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
-| 문서 | 인용 | 역할 |
-|---|---|---|
-| `601702_Register_Stage1_Business_Rules.md` | §1.1~§1.24, §2.2 | **최우선 근거** — 1단계 Human 업무규칙 선언 |
-| `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성, 종합표 | 관계·cardinality 조사 |
-| `601701_Register_Stage0_Evidence_Collection.md` | §4.1~§4.5 A-4/B-1/C-1 | §48 증거수집 |
-| `000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | §5, §7, §8, §11, §12, §26, §33 | LegalEntity·조직축 경계, Franchise OS 분리 |
-| `000170_Policy_Merchant_Account_Company_And_Store_Context.md` | §4, §7 | MerchantAccount·Store 정의 |
-| `003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | §2, §6 | Tenant·Store 축, Open Decisions |
-| `009030_Register_Conceptual_Entity_Master.md` | §2 | 개념 엔터티 정의 |
-| `009070_Matrix_Context_Entity_Alignment_Model.md` | §2 | 축 정렬, persistence depth |
-| `010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` | §4 | tenant 소유 객체 식별자 규칙 |
-| `010640_Policy_Tenant_Scope_Envelope.md` | §9, §11 | LegalEntity 금전 최종성, 계약 기반 scope |
-| `020320_Policy_Role_Permission_And_Scope.md` | §40 | merchant account scope의 복수 store 포함 |
-| `600020_Governance_Implementation_Lifecycle_Authority_Reset.md` | §1.1, §2 | `601500` 사용 제약 |
-| `000701_Guide_Controlled_AI_Development_Pipeline.md` | §46, §47.1 | 2단계 규격 |
+**권위 표기**: `000150`/`000170`/`003020`/`009030`은 ACTIVE 본문과
+2026-08-11 `AUTHORITY SUSPENDED` 역전파 블록이 **같은 파일에 혼재**한다(`600020` §5).
+아래는 인용한 절과 그 절의 권위 상태를 함께 표기한다. **역전파 블록은 인용하지 않았다.**
+
+| 문서 | 인용 | 권위 | 역할 |
+|---|---|---|---|
+| `601702_Register_Stage1_Business_Rules.md` | §1.1~§1.26, §2.2 | ACTIVE | **최우선 근거** — 1단계 Human 업무규칙 선언 |
+| `601704_Register_Stage2_ERD_Relationship_Survey.md` | Q1~Q8, Core 5축 속성, 종합표 | ACTIVE | 관계·cardinality 조사 |
+| `601701_Register_Stage0_Evidence_Collection.md` | §4.1~§4.5 A-4/B-1/C-1 | ACTIVE | §48 증거수집 |
+| `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | V1~V5, Blocker | ACTIVE | 3단계 대조 — 외부 어휘·누락 |
+| `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | V1~V5, Blocker | ACTIVE | 3단계 대조 — ERD 내부 정합성 |
+| `000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | §5, §7, §8, §11, §12, §26, §33 | **ACTIVE 본문** (역전파 블록 ⛔ 미인용) | LegalEntity·조직축 경계, Franchise OS 분리 |
+| `000170_Policy_Merchant_Account_Company_And_Store_Context.md` | §4, §6, §7 | **ACTIVE 본문** (역전파 블록 ⛔ 미인용) | MerchantAccount·Store 정의, Merchant Company |
+| `003020_Guide_Tenant_Company_Legal_Operating_Group_Context_Model.md` | §2, §6 | **ACTIVE 본문** (역전파 블록 ⛔ 미인용) | Tenant·Store 축, Open Decisions |
+| `009030_Register_Conceptual_Entity_Master.md` | §2 | **ACTIVE 본문** (역전파 블록 ⛔ 미인용) | 개념 엔터티 정의 |
+| `009070_Matrix_Context_Entity_Alignment_Model.md` | §2 | ACTIVE | 축 정렬, persistence depth |
+| `010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` | §4 | ACTIVE (§4.1 판별 기준) | tenant 소유 객체 식별자 규칙 |
+| `010640_Policy_Tenant_Scope_Envelope.md` | §4, §7, §8, §9, §11 | ACTIVE | LegalEntity 금전 최종성, 격리 scope, 계약 기반 scope |
+| `007010_Policy_Admin_Console_Context_And_Role_Model.md` | §2 | ACTIVE | Admin Console context axes (company homonym 근거) |
+| `007040_Policy_Admin_Screen_Inventory_And_Navigation_Model.md` | §3 | ACTIVE | company ≠ legal_entity 금지 규칙 |
+| `020310_Policy_User_Account_And_Login.md` | §12, §29 | ACTIVE | 계정유형, shared authentication ≠ shared authorization |
+| `020320_Policy_Role_Permission_And_Scope.md` | §40 | ACTIVE | merchant account scope의 복수 store 포함 |
+| `600020_Governance_Implementation_Lifecycle_Authority_Reset.md` | §1.1, §2, §5 | ACTIVE | `601500` 사용 제약, 역전파 블록 권위 |
+| `000701_Guide_Controlled_AI_Development_Pipeline.md` | §35, §37, §46, §47.1 | ACTIVE | 2단계 규격, 원작자 배제, 검증자 다중화 |
 
 **권위보류 문서 인용**: `601501`/`601503`을 §8의 현재 상태 서술 맥락에서 간접 참조했으나,
 **구조를 근거로 삼지 않았다.** `600020` §2·§3에 따라 사실 기록 목적이며
