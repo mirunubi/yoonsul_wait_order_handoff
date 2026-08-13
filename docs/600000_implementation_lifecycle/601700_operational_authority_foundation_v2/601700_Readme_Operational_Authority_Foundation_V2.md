@@ -120,6 +120,7 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601710 | `601710_Overview_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Overview. §46 근거 79건 전수 분류. Stage 7 승인 대상 |
 | 601711 | `601711_Evidence_Person_Physical_Impact_Scan_Cursor.md` | Active — Person 물리 영향 조사(Cursor). Logic 입력 자료 |
 | 601712 | `601712_Evidence_Person_Physical_Impact_Scan_Codex.md` | Active — Person 물리 영향 조사(Codex). §35 이중 검증 |
+| 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 
 ## §9 Add / Move Rule
 
