@@ -252,6 +252,93 @@ Store는 세 축이 만나는 지점이다.
 같은 MerchantAccount 안에 있어도 브랜드가 다르면 **본사 조회 경계는 갈린다.**
 조회 경계는 MerchantAccount 구조에서 자동 도출되지 않는다(§1.8).
 
+### §1.15 신원은 JWT에서 해석하고 권한은 DB에서 확인한다
+
+호출자가 파라미터로 보낸 `actor_id` 는 **조기 불일치 차단에만** 사용하고
+실제 조회 키로 사용하지 않는다. 신뢰 근거는 항상 **JWT에서 해석한 값**이다.
+
+로그인 상태와 고용 상태는 **서로 다른 사실**이며 둘 다 확인한다(AND 조건).
+해고된 직원의 JWT가 여전히 유효하더라도 고용 상태로 차단되어야 한다.
+
+`020320`: Role assignment status 와 Account status 는 별도다.
+
+### §1.16 Person · User · Staff 는 서로 다른 개념이다
+
+```text
+Person       누구인가            — 자연인
+User         누가 로그인하는가   — 앱 로그인 주체
+Staff        그 사람이 어느 매장에서 어떤 상태로 일하는가 — 고용·배정 관계
+```
+
+`staff.id` 는 특정 Tenant/Store에서의 근무·운영 관계 식별자일 수 있으나,
+**자연인 또는 전역 로그인 신원의 canonical identifier 로 사용하지 않는다.**
+
+현재 구조에서 한 사람이 여러 매장에서 일하면 `staff` 행이 여러 개이며,
+그 행들이 같은 사람이라는 것을 아는 축이 없다.
+
+`JWT.sub` 를 특정 매장의 `staff.id` 에 종속시키면,
+매장 컨텍스트 전환 시 로그인 정체성이 함께 바뀌게 되어 §1.14와 충돌한다.
+
+### §1.17 Person 의 존재론적 경계
+
+```text
+Person 은 자연인을 식별하는 안정된 주체다.
+Store/Tenant/고용 관계에 종속되지 않는다.
+로그인 계정 그 자체가 아니다.
+staff row 그 자체가 아니다.
+```
+
+`Person ↔ User` 를 1:1로 전제하지 않는다.
+Person 은 있으나 로그인하지 않을 수 있고(예: 시스템을 쓰지 않는 가맹점주),
+시스템 actor 는 Person 이 아닐 수도 있다(`020310` §12 `SYSTEM_JOB`).
+
+인증 credential(`auth.users`)도 Person 그 자체가 아니다.
+그것은 인증 시스템이 아는 로그인 subject 다.
+
+### §1.18 0-B 인계 조건 (Interface Contract)
+
+**0-B(Staff identity / session) 설계는 아래를 충족해야 한다.**
+
+1. `Person` – `User`/Auth Identity – Staff Assignment 간
+   **명시적 연결을 정의해야 한다.**
+2. 하나의 `User` 가 **복수 Store/Scope 를 가질 수 있어야 한다**(§1.14).
+3. **JWT authentication subject 를 특정 Store의 `staff.id` 에 종속시키지 않는다**(§1.16).
+4. 커스텀 세션이 **별도의 인증 세계로 동작하지 않아야 한다.**
+   세션은 애플리케이션 세션 층(session class, device, active context,
+   timeout/reauth/revocation)에 속하며 인증 주체를 대체하지 않는다.
+
+**구체적인 테이블·FK·cardinality·session bridge 는 0-B ERD 에서 결정한다.**
+
+0-A는 `Person` 이라는 기준점과 불변조건까지만 책임진다.
+`staff` 테이블 재구조화, `person_id`/`user_id` FK 추가 여부,
+`auth_sessions` 존치 여부는 0-A 범위 밖이다.
+
+> **이 절의 제약이 0-B 1단계 업무규칙에 재선언되지 않으면 착수 검증에서 반려한다.**
+> (`601601` §5.1이 0-A-2에 대해 둔 것과 같은 형식의 인계 조건이다.)
+
+### §1.18.1 근거 — 현재 실측 상태
+
+`601211`(2026-07-18, 권위보류) 최종 상태 기록:
+
+> `staff_login()`(`0097`)의 커스텀 세션 시스템(`auth_sessions`)과
+> Supabase JWT/`current_actor_id()`(`0022`) 사이에
+> **이 프로젝트 어디에도 연결이 없다.**
+
+그 결과 `resolve_store_staff_actor()` 설계가 전제한 `JWT.sub = staff.id` 가
+성립할 근거가 없으며, 그대로 구현하면
+**"항상 실패하거나 우연의 일치로만 성공하는" 함수**가 된다.
+해당 워크패킷은 2026-07-18에 여기서 멈췄다.
+
+`601211` §3.2: `staff.id` 하나는 "이 사람"이 아니라
+**"이 사람의 이 매장에서의 고용 기록"** 을 가리킨다.
+`staff_store_assignments` 류 N:M 조인 테이블은 라이브 스키마 전수 검색 결과 없다.
+
+`601211` §4: `current_actor_id()` 는 `auth.uid()` 와 기능적으로 동일하며
+안전하게 구현되어 있으나, 486개 RPC 중 **`0143` 하나에서만 호출**된다.
+
+**위 인용은 `600020` §3에 따라 사실 기록 목적이며,
+`601211`/`601212`의 설계 결론을 승인한 것이 아니다.**
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -284,6 +371,11 @@ Store는 세 축이 만나는 지점이다.
 | `COMPANY` / `BUSINESS_UNIT` scope 구현 여부 | `000150` §4·§6은 **CatchMenu 조직축**으로 정의. 프랜차이즈 본사가 아님 |
 | `cross_business_link` 구조 | `000150` §26 개념 엔티티에 존재하나 미구현 |
 | Scope 전환 UI·세션 표현 방식 | §1.14의 컨텍스트 전환을 어떻게 구현할지 |
+| `JWT.sub` 가 무엇을 가리키는가 | §1.16에서 `staff.id` 배제만 확정. `auth.users.id` / `User.id` 중 무엇인지는 0-B |
+| `staff` 테이블 재구조화 | §1.18에 따라 0-B 소관 |
+| `person_id` / `user_id` FK 추가 여부 | §1.18에 따라 0-B 소관 |
+| `auth_sessions` 존치 여부 | §1.18에 따라 0-B 소관 |
+| `resolve_store_staff_actor()` 재설계 | 0-B 완료 이후 |
 
 ### §2.3 미조사 대상
 
@@ -342,8 +434,10 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `020310_Policy_User_Account_And_Login.md` | §8, §12, §29, §34, §35 | 계정유형, 세션등급, Franchise OS 로그인 경계 |
 | `020320_Policy_Role_Permission_And_Scope.md` | §11, §14, §15, §21~§23, §40, §41 | Scope 레벨, Merchant/Internal Operator 역할 |
 | `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | A-1, A-3, tenant/store×login session | HQ/Staff/Session/Role/Permission A단계 조사 (Cursor, 2026-08-13). **A-2 어휘표는 신뢰 불가 — 배너 참조** |
+| `601211_Overview_Caller_Authorization_Resolver_Pilot.md` | 최종상태, §3.1, §3.2, §3.4, §4, §5 | JWT↔staff 브리지 부재 사실 기록. **권위보류** |
+| `601212_Logic_Caller_Authorization_Resolver_Pilot.md` | §0, §1.2 | resolver 설계 원칙과 보류 사유. **권위보류** |
 
-`601501`/`601503`은 §3에 따라 **사실 기록 목적으로만** 인용했다.
+권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
 
 ## §5 확정 기록
 
@@ -353,7 +447,8 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 범위:     Owner 축 (§1.1~§1.6)
           조직 경계 · HQ 어휘 · 세 세계 분리 (§1.7~§1.12)
           LegalEntity / MerchantAccount 축 (§1.13~§1.14)
-미결:     Staff·Session·Role·Permission 상세 (A단계 조사 완료, 선언 미확정)
+          Identity 축 · 0-B 인계 조건 (§1.15~§1.18)
+미결:     Session·Role·Permission 상세 (A단계 조사 완료, 선언 미확정)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
 ```
