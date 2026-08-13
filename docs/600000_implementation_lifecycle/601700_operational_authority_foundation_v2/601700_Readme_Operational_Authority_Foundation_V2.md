@@ -45,8 +45,16 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 단계 | 상태 | 산출물 |
 |---|---|---|
 | §48 증거수집 | ✅ 완료 | `601701`(5개 대상 A~E) / `601703`(HQ·HR 5개 대상 A단계) |
-| 1단계 업무규칙 선언 | ⏳ 진행중 | `601702` §1.1~§1.18 확정. Session·Role·Permission 미완 |
-| 2단계 ERD | 미착수 | |
+| 1단계 업무규칙 선언 | ✅ 완료 | `601702` §1.1~§1.30 (선언 30건) |
+| 2단계 ERD | ✅ 완료 | `601705` — Active, 4단계 진입 기준선 |
+| 3단계 인접 도메인 대조 | ✅ 완료 | `601706`(Cursor) / `601707`(Codex) — Blocker 8건 전건 반영 |
+| 4단계 설계문서 정합화 | 미착수 | Overview / Logic / TestPlan / ChangeContract |
+| 5단계 SQL 구현 | 미착수 | |
+| 6단계 나선 종료 판정 | 미착수 | |
+
+> **3단계 세션 분리 요건**(`000701` §47.1): `601705` 는 Claude Code 가 작성했으므로
+> 검증자에서 제외했다(§37). 대조는 Cursor 와 Codex 가 각각 독립 수행했으며,
+> 두 결과의 발견이 갈렸다(§35) — Cursor 는 외부 어휘·누락, Codex 는 ERD 내부 정합성.
 
 **증거수집을 1단계 앞에 두는 이유**: 검증되지 않은 옛 설계문서를 Human이 그대로 받아 적는 것을 막기 위함이다.
 `000150`/`000170`/`003020`/`009030`/`010004`는 **검증을 거친 적이 없다**(`600020` §2.2).
@@ -101,8 +109,12 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 |---|---|---|
 | 601700 | `601700_Readme_Operational_Authority_Foundation_V2.md` | Active |
 | 601701 | `601701_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집 A~E. 대상 5개(Company/Owner/Tenant/HQ/Store) |
-| 601702 | `601702_Register_Stage1_Business_Rules.md` | Draft — 1단계 업무규칙 선언(Human 전담). §1.1~§1.18 |
+| 601702 | `601702_Register_Stage1_Business_Rules.md` | Active — 1단계 업무규칙 선언(Human 전담). §1.1~§1.30 선언 30건. 3단계 대조 결과 반영 완료 |
 | 601703 | `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | Active — §48 증거수집 A단계. 대상 5개(HQ/Staff/Session/Role/Permission). **A-2 어휘표 신뢰 불가 — 배너 참조** |
+| 601704 | `601704_Register_Stage2_ERD_Relationship_Survey.md` | Active — 2단계 ERD 선행 관계·cardinality 조사(Cursor). Q1~Q8. Q1·Q5는 미판정이며 `601702` §1.22·§1.23이 확정 |
+| 601705 | `601705_Diagram_Operational_Authority_Core_ERD.md` | Active — 2단계 ERD 초안. 4단계 진입 기준선 |
+| 601706 | `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | Active — 3단계 인접 도메인 대조(Cursor). 외부 어휘·누락 중심 |
+| 601707 | `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 인접 도메인 대조(Codex). ERD 내부 정합성 중심 |
 
 ## §9 Add / Move Rule
 
