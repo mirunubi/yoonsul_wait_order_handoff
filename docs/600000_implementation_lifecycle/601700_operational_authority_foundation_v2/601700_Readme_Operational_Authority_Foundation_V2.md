@@ -117,6 +117,7 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601707 | `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 인접 도메인 대조(Codex). ERD 내부 정합성 중심 |
 | 601708 | `601708_Evidence_Stage4_Overview_Evidence_Pack_Cursor.md` | Active — §46 Evidence Pack(Cursor). 지정 목록 없이 자체 탐색 |
 | 601709 | `601709_Evidence_Stage4_Overview_Evidence_Pack_Codex.md` | Active — §46 Evidence Pack(Codex). §35 이중 검증 |
+| 601710 | `601710_Overview_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Overview. §46 근거 79건 전수 분류. Stage 7 승인 대상 |
 
 ## §9 Add / Move Rule
 
