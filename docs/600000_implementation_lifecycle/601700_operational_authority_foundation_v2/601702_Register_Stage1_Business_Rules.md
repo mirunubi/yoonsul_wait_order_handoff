@@ -643,6 +643,73 @@ Tenant 가 활성이라는 사실이 모든 Store 가 활성이라는 뜻이 아
 
 **enum 을 이번 나선에서 만들지 않는다.** 원칙만 확정한다.
 
+### §1.29 `company` 어휘의 두 층위를 구분하고 고객사-side 의미를 정규화한다
+
+`company` 는 문서군에서 서로 다른 의미로 사용되었다.
+
+**(a) `000150` §4 Company**
+
+CatchMenu 플랫폼을 운영하는 **내부 회사 조직축**이다. §1.21의 정의를 따른다.
+
+**(b) `009070` §2 / `003020` 의 company, `000170` §6 의 Merchant Company**
+
+고객사 측 **운영회사·사업자·브랜드·multi-store grouping 성격이 혼재된
+legacy terminology 군**이다.
+
+> ⚠️ **`009070` 을 "company = LegalEntity" 의 근거로 사용하지 않는다.**
+>
+> `009070` Purpose 는 `tenant / company / legal_entity / operating_group / store` 를
+> **distinct context axes** 로 규정하고, *prematurely collapsing context axes* 를
+> 막는 것을 목적으로 명시한다.
+>
+> §3의 `company/legal_entity` 슬래시 표기는 **같은 종류의 상위 context 군을 묶은 표기**이며
+> 동일성 선언이 아니다. 이를 동일시하면 문서 내부와 충돌한다.
+
+**0-A Human Decision**: 고객사-side company 에 혼재된 책임을
+아래 canonical 축으로 분해·정규화한다.
+
+| 혼재된 책임 | 정규화 대상 |
+|---|---|
+| 법적·세무·정산·계약 identity | **LegalEntity** |
+| 브랜드 identity | **Brand** (§1.13) |
+| CatchMenu SaaS 계약·관리 grouping | **MerchantAccount** (§1.14) |
+| 운영상 Store grouping | 필요한 경우 **OperatingGroup** (§1.30) |
+
+**고객사-side `company` / `Merchant Company` 를
+새로운 독립 canonical Core entity 로 승격하지 않는다.**
+
+해당 용어는 후속 상위문서 정합화 대상으로 기록한다(§1.25와 같은 처리).
+
+### §1.30 OperatingGroup 은 독립 운영 grouping 축이며 persistence 는 미결이다
+
+`OperatingGroup` 은 **지역·프랜차이즈·기타 운영 목적에 따라 Store 를 묶는 운영 context** 다
+(`009070` §2 — *Regional, franchise, or operational grouping*).
+
+**LegalEntity, Brand, MerchantAccount, CatchMenu 내부 Company 와 동일시하지 않는다.**
+
+`009070` §3: *operating_group and company/legal_entity are parallel/context axes.*
+
+**OperatingGroup 은 법적 소유권·세무·정산 identity 를 나타내지 않으며,
+그 존재만으로 금전권한이나 시스템 권한을 생성하지 않는다.**
+
+`010640` §10: 운영 그룹을 법적 소유권과 혼동하면 안 된다.
+자동으로 금전 권한을 뜻하지 않는다.
+
+> ⚠️ **persistence 는 미결이다.**
+>
+> | 문서 | 서술 |
+> |---|---|
+> | `009070` §2 | *Persistence depth open for MVP* |
+> | `009070` §6 | *whether operating_group is persisted in MVP* |
+> | `003020` §6 | *whether operating_group exists in MVP data* |
+> | `000150` §26 | *Actual schema may be designed later* |
+>
+> **살아있는 ACTIVE 문서 넷이 모두 미결로 남겼다.**
+> 0-A 가 물리 persistent entity 로 확정하지 않는다.
+
+0-A ERD 에서는 **Candidate / conceptual axis** 로 유지하며,
+persistence 와 구체 cardinality 는 후속 설계에서 결정한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -694,6 +761,9 @@ Tenant 가 활성이라는 사실이 모든 Store 가 활성이라는 뜻이 아
 | 상태 전이 규칙 | 동상 |
 | `STORE_ACTIVE_PAID` 류 결합 명칭 분해 여부 | §2.1(과금 미결)에 걸림 |
 | 각 계층 상태 enum (Tenant / MerchantAccount / Store) | §1.28은 원칙만 확정 |
+| 고객사-side `company` 용어 정정 (`009070`/`003020`) | §1.29에서 분해 대상으로 판정. 문서 정정은 후속 상위문서 정합화 |
+| `OperatingGroup` persistence | §1.30 — ACTIVE 문서 넷이 미결로 남김 |
+| `Brand` 축의 canonical 정의 | §1.13·§1.29가 축 존재만 확정. 엔티티 여부는 후속 |
 
 ### §2.3 미조사 대상
 
@@ -777,6 +847,7 @@ Codex 는 ERD 내부 모순(미정 관계를 확정 기호로 표기)을 잡았�
           Tenant/MerchantAccount/Store cardinality (§1.22~§1.24)
           Merchant Company 정규화 · Store 구조 경로 (§1.25~§1.26)
           Store 상태 3축 분리 · 계층 상태 독립 (§1.27~§1.28)
+          company 어휘 정규화 · OperatingGroup 축 (§1.29~§1.30)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)

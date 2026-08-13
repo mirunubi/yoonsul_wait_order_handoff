@@ -333,6 +333,16 @@ R4 번호는 이 절로 이동한 표시로 결번 처리한다.
 | **BusinessUnit** | CatchMenu 내부 운영 책임 단위. 권한이 아니다 | **미결** |
 | **OperatingGroup** | 지역·가맹·직영 그룹핑. 법적 정산 주체가 아니다 | **미결** |
 
+**`OperatingGroup` 근거 보강** (`601702` §1.30)
+
+| 축 | 판정 | 근거 |
+|---|---|---|
+| `OperatingGroup` | Candidate — 독립 conceptual axis, persistence 미결 | `009070` §2·§3·§6 / `003020` §6 / `010640` §10 / `601702` §1.30 |
+
+`OperatingGroup` 은 법적 소유권·세무·정산 identity 를 나타내지 않으며,
+그 존재만으로 금전권한이나 시스템 권한을 생성하지 않는다(`010640` §10).
+`009070` §3은 `operating_group` 과 `company`/`legal_entity` 를 **병렬 context 축**으로 규정한다.
+
 **물리 엔티티로 그리지 않는 이유** — 살아있는 문서 셋이 모두 미결로 남긴 상태다.
 
 - `000150` §26: *Actual schema may be designed later*
@@ -347,6 +357,15 @@ R4 번호는 이 절로 이동한 표시로 결번 처리한다.
 Candidate 3축은 "의미는 확정, 엔티티 필요성 미결" 상태인 반면,
 `Merchant Company` 는 **두 책임이 혼재된 legacy composite** 이므로
 축으로 두는 것이 아니라 분해해야 한다(§4.6, `601702` §1.25).
+
+> **고객사-side `company` 는 Candidate 축이 아니다.**
+>
+> `009070` §2 / `003020` 의 `company` 와 `000170` §6 의 `Merchant Company` 는
+> **분해 대상 legacy terminology** 다(`601702` §1.25·§1.29).
+> Candidate 로 두면 나중에 Core 로 승격될 여지가 남는다.
+>
+> Candidate 인 `Company` / `BusinessUnit` 은 `000150` §4·§6 의
+> **CatchMenu 내부 조직축**을 가리킨다(§1.21). 고객사 축과 구분한다.
 
 ## §7 External / Handoff Boundary
 
@@ -498,6 +517,8 @@ PERSON  (0-A Core)
 | O12 | `company` homonym — `000150` 플랫폼 운영사 vs `003020`/`007010`/`009070` tenant 내 축 | 별도 워크패킷 (`601706` 지적) |
 | O13 | `003020`/`009070` 의 company / operating_group 병렬 축이 ERD 에 없음 | §6 Candidate 판정과 연동. 4단계 |
 | O14 | Store 상태 3축의 canonical enum · 전이 규칙 | 후속 (`601702` §1.27, §2.2) |
+| O15 | `OperatingGroup` persistence | 후속 (`601702` §1.30 — ACTIVE 문서 넷이 미결) |
+| O16 | `Brand` 축의 canonical 정의 | 후속 (`601702` §1.29) |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
