@@ -232,6 +232,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000700_ai_agent_prelearning_and_project_context\000715_ContentVerificationLog.md | 000715_ContentVerificationLog. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md | 000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan. | active |
 | docs\000700_ai_agent_prelearning_and_project_context\000717_Guide_Pipeline_Rules_Summary.md | 000717_Guide — 새 세션·새 도구가 작업 전에 읽는 규칙 요약(`000701`/`000001`/`000002` 발췌, 전문 대체 아님). 절대금지 5건(Stage 7 없이 Stage 8 금지 / 1단계 Human 전담 / migration 수정금지 / frozen snapshot 소급수정 금지 / 인코딩 정규화 금지), 6단계 나선 착수순서(§48 증거수집 선행), §46 근거의무, 파일명 규격, §5.11 동반갱신, 600000 대역 현재 권위상태, 전문 참조 트리거. | active |
+| docs\000700_ai_agent_prelearning_and_project_context\000718_Governance_Execution_Layer_Externalization_Roadmap_Revision.md | 000718_Governance — 실행 계층 외부 위임 판정(2026-08-22). `000705` Phase 1/3/3-B 의 KDS·DID·CMS·Kiosk 자체 개발과 배달 채널 직접 통합을 범위에서 제외하고, Core 는 Kitchen Dispatch Contract 까지만 책임진다. Canonical Menu/Modifier/Order/Payment Authority 와 provider 교체 가능성은 유지. 영향 대역 `750000`(19) / `004000`(47) / `000706` / `000708` 은 **개별 배너 미부착** — 사용 시점에 확인·처분. provider 계약 미확보로 물리 구현은 `601702` §1.43 Deferred. | active |
 
 ## 6 docs/000800_pos_gateway_and_provider_integration_foundation
 

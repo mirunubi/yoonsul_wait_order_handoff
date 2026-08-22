@@ -44,6 +44,7 @@ It provides project-wide context slicing, phase-by-phase project understanding, 
 | `000711_Guide_Phase_6_Franchise_OS_AI_Customer_Center_And_Integrated_Support_Prelearning_Context.md` | Defines Phase 6 AI customer center and integrated support prelearning context. |
 | `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Defines Phase 7 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. |
 | `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Defines Phase 8 AI readiness and physical AI gateway prelearning context. |
+| `000718_Governance_Execution_Layer_Externalization_Roadmap_Revision.md` | Records the execution-layer externalization decision, retained Core authority, affected documentation bands, and deferred physical implementation boundary. |
 
 ## Final Rule
 
