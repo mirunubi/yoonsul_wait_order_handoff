@@ -1716,6 +1716,8 @@ docs/
   |   |   +--- 601711_Evidence_Person_Physical_Impact_Scan_Cursor.md
   |   |   +--- 601712_Evidence_Person_Physical_Impact_Scan_Codex.md
   |   |   +--- 601713_Logic_Operational_Authority_Foundation_V2.md
+  |   |   +--- 601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md
+  |   |   +--- 601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

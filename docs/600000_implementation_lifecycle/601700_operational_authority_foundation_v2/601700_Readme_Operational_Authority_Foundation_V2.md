@@ -121,6 +121,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601711 | `601711_Evidence_Person_Physical_Impact_Scan_Cursor.md` | Active — Person 물리 영향 조사(Cursor). Logic 입력 자료 |
 | 601712 | `601712_Evidence_Person_Physical_Impact_Scan_Codex.md` | Active — Person 물리 영향 조사(Codex). §35 이중 검증 |
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
+| 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
+| 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 
 ## §9 Add / Move Rule
 
