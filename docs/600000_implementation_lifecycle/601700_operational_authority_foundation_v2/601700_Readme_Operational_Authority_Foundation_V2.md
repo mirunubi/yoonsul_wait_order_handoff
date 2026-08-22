@@ -125,8 +125,10 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft — 4단계 TestPlan. 저자 분리(`000001` §5.4.2)로 Claude 작성. External Provider Mapping 은 **negative 검증**(§7). Blocker 8건 |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft — 4단계 ChangeContract. 판정 4건(rename 방식 / NOT NULL 부적격 / 허용·금지 파일 / §10 Stage 7 승인란). Blocker 10건. **착수 전 §10 확인** |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(3판) — 4단계 TestPlan. 저자 분리(`000001` §5.4.2)로 Claude 작성. External Provider Mapping 은 **negative 검증**(§7). `601702` §1.45 로 **backfill 이 검증 대상에 편입** — TP-D 계열 신설(행 수 일치가 seed/backfill 을 가른다). Blocker 11건 |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(3판) — 4단계 ChangeContract. 판정 6건(rename 방식 / Store–LE NOT NULL 부적격 / 허용·금지 파일 / §10 Stage 7 승인란 / `merchant_accounts` 물리 표현 / MA→Store enforcement 이월). 허용 migration `0170`·`0171` + **허용 DML 2문장(M-1·M-2)**. §1.5 조건부 1건(`stores.merchant_account_id` NOT NULL). Blocker 11건. **착수 전 §10 확인** |
+| 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
+| 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 
 ## §9 Add / Move Rule
 
