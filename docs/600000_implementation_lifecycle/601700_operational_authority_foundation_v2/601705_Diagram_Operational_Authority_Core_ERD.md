@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Diagram
-Last Updated: 2026-08-13
+Last Updated: 2026-08-22
 
 **개정 이력**
 
@@ -11,6 +11,7 @@ Last Updated: 2026-08-13
 | 2026-08-13 | 초안 작성 |
 | 2026-08-13 | 3단계 대조(`601706`/`601707`) 반영 — Tenant→Store 를 격리 invariant 로 분류, 미정 관계 제거, Merchant Company 정규화 기록, 근거 목록 보완 |
 | 2026-08-13 | 3단계 Blocker 전건 반영 완료. Status Draft → Active. 4단계 진입 기준선 |
+| 2026-08-22 | External Provider Boundary 를 §7 에 annotation 으로 추가. 엔티티·테이블 미생성. Mermaid 무변경 |
 
 ## §0 성격과 범위
 
@@ -456,6 +457,58 @@ PERSON  (0-A Core)
 **이 문서는 위 문서들을 수정하지 않는다.** 정정은 별도 작업이며,
 `601702` §2.2가 미결 항목으로 등재하고 있다.
 
+### §7.5 External Provider Boundary — Deferred
+
+> ⚠️ **엔티티·테이블을 그리지 않는다.** 경계의 존재만 표시한다.
+
+```text
+┌──────────────────────────────┐
+│ CatchMenu Core (0-A)         │
+│                              │
+│ PERSON                       │
+│ TENANT                       │
+│ MERCHANT_ACCOUNT             │
+│ STORE                        │
+│ LEGAL_ENTITY                 │
+└──────────────┬───────────────┘
+               │
+               │  <<Deferred Boundary>>
+               │  External Provider Mapping
+               │  physical model deferred
+               ▼
+┌──────────────────────────────┐
+│ External Providers           │
+│                              │
+│ 거래 provider  (주문·결제)    │
+│ 실행 provider  (KDS·DID)      │
+└──────────────────────────────┘
+```
+
+**0-A 가 확정하는 것은 Authority Boundary 다.**
+
+```text
+금지   canonical id = 외부 provider 의 식별자
+
+원칙   CatchMenu canonical identity
+              │ mapping
+              ▼
+       External provider identity
+```
+
+**물리 구조는 그리지 않는다**(`601710` §3.1).
+Toss / Smartcast 의 실제 identifier 축이 확보되지 않았으므로
+mapping 테이블 형태를 추정하지 않는다.
+
+provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
+
+| 구분 | 다루는 것 |
+|---|---|
+| 거래 provider | 주문·결제·정산 |
+| 실행 provider | KDS·DID 화면 |
+
+실제 계약·API·identifier 구조 확보 후
+**별도 Provider Integration 워크패킷**에서 설계한다.
+
 ## §8 Physical Drift — 현재 SQL과 목표 모델의 차이
 
 > ⚠️ **참고 자료이며 설계 근거가 아니다.**
@@ -538,6 +591,7 @@ PERSON  (0-A Core)
 | O14 | Store 상태 3축의 canonical enum · 전이 규칙 | 후속 (`601702` §1.27, §2.2) |
 | O15 | `OperatingGroup` persistence | 후속 (`601702` §1.30 — ACTIVE 문서 넷이 미결) |
 | O16 | `Brand` 축의 canonical 정의 | 후속 (`601702` §1.29) |
+| O17 | External Provider Mapping 물리 구조 | 별도 Provider Integration 워크패킷 (`601702` §1.43, `601710` §3.1 — Deferred) |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
