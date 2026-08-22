@@ -10,6 +10,7 @@ Last Updated: 2026-08-22
 |---|---|
 | 2026-08-13 | 초안 — 4단계 Logic |
 | 2026-08-22 | Stage 2 blocker B-7 반영 — §1.34~§1.44 추가분. §6 질문 9건 전부 해소 병기 |
+| 2026-08-22 | N-5′ 반영 — §1.37 보강 · §1.45 · write-path 실측. I-43~I-51 추가 |
 
 ## §0 성격과 경계
 
@@ -87,6 +88,10 @@ Overview(`601710`) §2 의 구현 대상 5건을 순서대로 기술한다.
 | I-35 | `legal_entity_representatives` 명칭은 유지한다 | `601702` §1.37 |
 | I-36 | `is_active` 를 사람 레코드에서 제거한다. 같은 이름을 다른 의미로 재사용하지 않는다 | `601702` §1.38 |
 | I-37 | `ownership_percent` 를 역할 테이블에서 제거한다. `CASCADE` 로 일괄 제거하지 않는다 | `601702` §1.39 |
+| I-43 | 트리거명 `trg_owners_updated_at` → `trg_persons_updated_at` | `601702` §1.37 보강 |
+| I-44 | 컬럼 `owner_name` → `person_name` | `601702` §1.37 보강 |
+| I-45 | `catchmenu_common.set_updated_at()` 함수명은 유지한다 | `601702` §1.37 보강 |
+| I-46 | PostgreSQL role `catchmenu_authority_owner` 명칭은 유지한다 | `601702` §1.37 보강 |
 
 > ⚠️ **§1.38 · §1.39 는 §6 의 Q-1 · Q-9 에 대한 답이다.**
 >
@@ -98,6 +103,16 @@ Overview(`601710`) §2 의 구현 대상 5건을 순서대로 기술한다.
 > **보존 대상에 I-14 와 §1.1 본문의 `ownership_percent` 서술도 포함된다.**
 > 각 자리에 대체 관계를 병기했다. 삭제하지 않는 이유는
 > **선언이 답이었다는 사실이 질문과 함께 있어야 추적되기 때문**이다.
+
+> ⚠️ **`owner` 가 들어갔다는 이유만으로 바꾸지 않는다**(`601702` §1.37 보강).
+>
+> ```text
+> 직접 Owner semantic identifier   →  Person 으로 변경
+> generic technical identifier     →  유지
+> ```
+>
+> `owner_` 잔존 검사는 **신규 canonical schema 와 forward migration 결과**를 대상으로 한다.
+> 과거 migration 에서 0건을 요구하지 않는다.
 
 **I-11 이 왜 불변조건인가**
 
@@ -203,6 +218,23 @@ RLS 가 `FORCE` 이고 정책이 0개면 테이블 소유자를 포함해 통상
 
 > ⚠️ **필드명·타입은 확정되지 않았다.** ChangeContract 소관이다.
 
+**2026-08-22 생성·배치·posture 확정** (`601702` §1.45)
+
+| # | 불변조건 | 근거 |
+|---|---|---|
+| I-47 | Tenant 만 존재하고 MerchantAccount 가 없는 상태를 정상 운영 상태로 허용하지 않는다 | `601702` §1.45 |
+| I-48 | 기존 Tenant 는 forward migration 에서 backfill 한다. Tenant 가 0개면 아무 행도 만들지 않는다 | `601702` §1.45 |
+| I-49 | 1:1 은 `merchant_accounts` 쪽에서만 강제한다. `tenants` 에 역참조를 두어 순환을 만들지 않는다 | `601702` §1.45 |
+| I-50 | `catchmenu_hq` 에 둔다 | `601702` §1.45 |
+| I-51 | RLS `ENABLE` + `FORCE`, policy 0개. GRANT 는 `catchmenu_authority_owner` 외에 확대하지 않는다 | `601702` §1.45 |
+
+> ⚠️ **backfill 은 seed 가 아니다.**
+> 기존 canonical row 를 새 invariant 에 맞추는 것이며,
+> 임의 business data 를 만드는 것이 아니다.
+>
+> ⚠️ **fail-closed posture 는 임시가 아니다.**
+> 0-C 가 그 위에 필요한 접근 정책을 추가한다(`601713` §4).
+
 ### §1.3 Tenant ↔ MerchantAccount (1:1)
 
 **목표 동작**
@@ -302,6 +334,24 @@ Logic 은 **"enforcement 가 가능해지려면 무엇이 참이어야 하는가
 > 현재 실측은 `legal_entities` 0행 / `stores` 1행 / 백필 0행이다(`601701` §4.5 D-3).
 > **이 수치만으로 E-1 이 거짓이라고 판정하지 않는다.**
 > 원인이 intake 미수행인지 여부는 onboarding evidence 로 확인한다(`601702` §1.31). §6 참조.
+
+**2026-08-22 write-path 실측** (`601718` / `601719`)
+
+두 조사가 상대 결과를 참조하지 않고 동일 수치에 도달했다.
+
+| 항목 | 실측 |
+|---|---|
+| `stores` 참조 함수 | 158 |
+| INSERT 경로 | 2 — `provision_tenant` / `create_franchise_store` |
+| INSERT 형태 | 둘 다 `COLUMN_LIST` |
+| `NO_COLUMN_LIST` / `ROW_TYPE` | 0 / 0 |
+| `SELECT *` · 행 타입 의존 | 0 |
+| 앱 코드 직접 INSERT | 0 |
+
+**두 INSERT 경로 모두 `merchant_account_id` 를 공급하지 않는다.**
+
+> ⚠️ 이 실측은 `601717` §1.5 C-1 판정의 직접 근거다.
+> **Logic 은 판정하지 않는다.** 사실만 승계한다.
 
 ## §2 상태 전이
 
@@ -445,8 +495,9 @@ Logic 이 필요로 했으나 `601711`/`601712` 에 없는 사실이다.
 | Q-7 | 법적 운영주체 변경 시 과거 주체 보존 필요 여부 | `601702` §1.24 는 "현재 시점"만 선언했다. 과거를 잃어도 되는지가 미선언이다. I-33 참조 | Human 선언 필요. **해소 (2026-08-22)** — `601702` §1.34: 유효기간을 갖는 시점 관계. 다만 enforcement 는 §1.31 조건에 걸림 |
 | Q-8 | `stores` 의 onboarding evidence — intake 수행 여부 | Overview §4 의 E-1 판정 근거다. `legal_entities` 0행의 원인이 intake 미수행인지 확인해야 한다(`601702` §1.31). scan 범위 밖이다 | 추가 조사. **해소 (2026-08-21~22)** — `601714`/`601715` 실측 |
 | Q-9 | `ownership_percent` 컬럼·CHECK 의 처리 방침 | 사용 금지가 선언됐으나 물리는 실재한다. 남길지 제거할지 선언이 없다(`601702` §1.3 은 분리만 확정) | Human 선언 필요. **해소 (2026-08-22)** — `601702` §1.39: `ownership_percent` 를 역할 테이블에서 **제거**한다 |
+| Q-10 | `stores` write-path 형태 — INSERT 경로 수와 컬럼 목록 명시 여부 | `merchant_account_id` 를 공급하지 않는 INSERT 가 있으면 NOT NULL 승격이 그 경로를 깨뜨린다 | 추가 조사 — **해소 (2026-08-22)** `601718`/`601719` 실측 |
 
-**합계 9건** — Human 선언 필요 4건(Q-1, Q-6, Q-7, Q-9) / 추가 조사 5건(Q-2, Q-3, Q-4, Q-5, Q-8).
+**합계 10건** — Human 선언 필요 4건(Q-1, Q-6, Q-7, Q-9) / 추가 조사 6건(Q-2, Q-3, Q-4, Q-5, Q-8, Q-10).
 
 > Q-2 · Q-3 은 migration 파일과 함수 정의를 읽으면 해결되며 DB 재조회가 필요 없을 수 있다.
 > **이 Logic 이 직접 읽지 않은 이유는 저자 분리다** — 조사자와 설계자가 한 행위자에 섞이면

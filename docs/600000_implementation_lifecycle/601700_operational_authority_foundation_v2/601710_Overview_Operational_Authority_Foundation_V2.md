@@ -10,6 +10,7 @@ Last Updated: 2026-08-22
 |---|---|
 | 2026-08-13 | 초안 — 4단계 설계문서 정합화 |
 | 2026-08-22 | Stage 2 blocker 반영 — B-1(§1.44 물리 정의) · B-7(§1.34~§1.44 미반영분). 구현 대상 5건 유지 |
+| 2026-08-22 | N-5′ 반영 — §1.37 보강 · §1.45 · write-path 실측(§2.4) |
 
 > **표기 규약**
 >
@@ -102,6 +103,8 @@ legacy `owners` terminology 를 authoritative 로 남기지 않는다.
 | §1.39 | Q-9 — `ownership_percent` 처리 방침 | 대상 1 — **`ownership_percent` 제거** |
 | §1.34 | Q-7 — 운영주체 변경 이력 | 대상 5 — 시점 관계로 표현. 다만 §4 조건부 |
 | §1.44 | B-1 | 대상 2·3·4 — 물리 정의 확정 |
+| §1.37 보강 | B-2a · B-2b | 대상 1 — 트리거명·`owner_name` 포함 |
+| §1.45 | N-1 · N-2 | 대상 2·3·4 — backfill · 배치 · fail-closed posture |
 
 **구현 대상은 5건 그대로다.** 선언이 각 대상의 **내용**을 바꿨을 뿐 개수를 늘리지 않았다.
 
@@ -116,6 +119,24 @@ legacy `owners` terminology 를 authoritative 로 남기지 않는다.
 >
 > §1.40(SaaS 구조 선행) · §1.41(판별 기준) · §1.42(네 시스템 경계 어휘)는
 > 원칙이며, §1.43(external provider boundary)은 §3.1 이 Deferred 로 처리했다.
+
+### §2.4 `stores` write-path 실측 (2026-08-22)
+
+`601718`(Cursor) / `601719`(Codex)가 상대 결과를 참조하지 않고 동일 수치에 도달했다.
+
+| 항목 | 실측 |
+|---|---|
+| `stores` 참조 함수 | 158 (`601701` D-3 = 151. 차이는 §2.2 미결) |
+| INSERT 경로 | 2 — `provision_tenant` / `create_franchise_store` |
+| `NO_COLUMN_LIST` / `ROW_TYPE` / `SELECT *` / 앱 INSERT | 전부 0 |
+
+**두 경로 모두 `merchant_account_id` 를 공급하지 않는다.**
+
+> ⚠️ **이것이 구현 대상을 바꾸지 않는다.**
+> 대상 4(MerchantAccount → Store)는 **구조를 만드는 것**이며,
+> `NOT NULL` enforcement 는 `601717` §1.5 가 이월했다.
+>
+> 두 RPC 수정은 **§3 Out of Scope** 다(RPC 재작성).
 
 ## §3 Out of Scope
 

@@ -13,6 +13,7 @@ Last Updated: 2026-08-22
 | 2026-08-13 | 3단계 Blocker 전건 반영 완료. Status Draft → Active. 4단계 진입 기준선 |
 | 2026-08-22 | External Provider Boundary 를 §7 에 annotation 으로 추가. 엔티티·테이블 미생성. Mermaid 무변경 |
 | 2026-08-22 | `601702` §1.44 반영 — `MerchantAccount` 물리 정의. Mermaid·§5 무변경 |
+| 2026-08-22 | N-5′ 반영 — §1.37 보강 · §1.45 · write-path 실측. Mermaid·§5 무변경 |
 
 ## §0 성격과 범위
 
@@ -207,6 +208,8 @@ SQL physical evidence는 §8로 분리했다.
 | `Person ↔ User` 1:1을 전제하지 않는다 | `601702` §1.17 | 확정 |
 | 명칭에 무수식 `Owner`를 쓰지 않는다 | `601702` §1.2 | 확정 |
 | 식별 속성(이름·연락처 등)의 구체 목록 | — | **미정** — 4단계 |
+| 트리거명 | `601702` §1.37 보강 | `trg_persons_updated_at` |
+| 컬럼 `owner_name` | `601702` §1.37 보강 | `person_name` 으로 정규화 |
 
 ### §4.2 TENANT
 
@@ -249,6 +252,10 @@ SQL physical evidence는 §8로 분리했다.
 | 서비스·체험 상태 | `601702` §1.44, §1.27, §2.1 | **미채택** — 상태 축·과금 경계 |
 | 청구·계약 연락처 | `601702` §1.44, §1.25 | **미채택** — 후속 Role/Scope |
 | `000170` §4 그 외 권장 필드 | `601702` §1.44 | **deferred** |
+| 배치 | `601702` §1.45 | `catchmenu_hq` |
+| 존재 조건 | `601702` §1.45 | Tenant 1:1. Tenant 만 존재하는 상태를 허용하지 않음 |
+| 1:1 강제 방향 | `601702` §1.45 | `merchant_accounts` 쪽에서만. 순환 금지 |
+| 초기 posture | `601702` §1.45 | RLS ENABLE+FORCE, policy 0, GRANT 는 authority owner 만 |
 
 > ⚠️ **필드명과 타입은 여기서 확정하지 않는다.**
 > §1.44 가 "무엇이 필요한가"까지 확정했으며,
@@ -549,6 +556,7 @@ provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
 | Company / BusinessUnit | 대응 테이블 없음 | **CONCEPT PRESENT / PHYSICAL IMPLEMENTATION MISSING** (§6에서 엔티티 필요성 자체가 미결) |
 | Representative / PersonRole | 관계 테이블 존재 | cardinality는 §5.2 미정 |
 | Ownership | 역할 테이블에 지분 컬럼이 얹혀 있음 | `601702` §1.3이 분리를 확정. 목표 모델에는 없음 |
+| `stores` write-path | INSERT 경로 2건이 `merchant_account_id` 를 공급하지 않음 | `601718`/`601719` 실측(2026-08-22). enforcement 이월 — `601717` §1.5 |
 
 **`merchant_accounts` 미구현을 개념 배제 근거로 쓰지 않는다.**
 `000170` §4가 정의하고 `601702` §1.14·§1.22·§1.23이 확정한 개념이며,
@@ -617,6 +625,7 @@ provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
 | O17 | External Provider Mapping 물리 구조 | 별도 Provider Integration 워크패킷 (`601702` §1.43, `601710` §3.1 — Deferred) |
 | O18 | `merchant_accounts` 필드명·타입 | ChangeContract (`601702` §1.44 — 표현은 2단계 소관) |
 | O19 | `000170` §4 deferred 권장 필드 | 필요 시점에 근거와 함께 추가 (`601702` §1.44) |
+| O20 | `stores.merchant_account_id` NOT NULL enforcement | 후속 RPC alignment 나선 (`601717` §1.5 C-1 — DEFERRED, INELIGIBLE) |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
