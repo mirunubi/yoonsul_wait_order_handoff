@@ -126,7 +126,7 @@ legacy `owners` terminology 를 authoritative 로 남기지 않는다.
 
 | 항목 | 실측 |
 |---|---|
-| `stores` 참조 함수 | 158 (`601701` D-3 = 151. 차이는 §2.2 미결) |
+| `stores` 참조 함수 | 158 (`601701` D-3 = 151. 차이는 `601702` §2.2 미결) |
 | INSERT 경로 | 2 — `provision_tenant` / `create_franchise_store` |
 | `NO_COLUMN_LIST` / `ROW_TYPE` / `SELECT *` / 앱 INSERT | 전부 0 |
 

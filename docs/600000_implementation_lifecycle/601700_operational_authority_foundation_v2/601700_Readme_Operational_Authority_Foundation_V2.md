@@ -125,8 +125,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(4판) — 4단계 TestPlan. 저자 분리(`000001` §5.4.2)로 Claude 작성. **현재 계약을 검사하며 미래 목표를 검사하지 않는다** — NOT NULL 미적용(§5.6)·두 INSERT RPC 무변경(§5.7)을 negative 로 확인. External Provider Mapping negative(§7). backfill 은 원천 행 수 일치로 검사(TP-D-01). 이월 C-1·C-2·H-1~H-4 는 §12.4 에 보존. Blocker 11건 |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(4판) — 4단계 ChangeContract. **C-1/C-2 를 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT` 로 확정**(RESOLVED 아님 — 장기 invariant 유효). `provision_tenant`/`create_franchise_store` 수정 명시적 금지(§6.1 FO-A~FO-E). Deferred handoff H-1~H-4 를 후속 RPC alignment 나선으로 이월(§4.4.3). 허용 migration `0170`·`0171` + 허용 DML 2문장. Blocker 11건. **착수 전 §10 확인** |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(5판) — 4단계 TestPlan. 저자 분리(`000001` §5.4.2)로 Claude 작성. **현재 계약을 검사하며 미래 목표를 검사하지 않는다** — NOT NULL 미적용(§5.6)·두 INSERT RPC 무변경(§5.7). N-5′ 해소로 기대값 근거가 **Logic 불변조건 I-43~I-51** 로 전환. I-47 검사(TP-D-08) 신설. 이월 C-1·C-2·H-1~H-4 는 §12.4 보존. Blocker 11건 |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(5판) — 4단계 ChangeContract. **C-1/C-2 는 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT`**(RESOLVED 아님 — 장기 invariant 유효). `provision_tenant`/`create_franchise_store` 수정 명시적 금지(§6.1 FO-A~FO-E). Deferred handoff H-1~H-4 이월(§4.4.3). **N-5′ 해소로 §8.3 검증자 경고 철회·§10 Stage 4 병기 제거**, 근거가 선언+Logic 불변조건으로 전환. 허용 migration `0170`·`0171` + DML M-1·M-2. Blocker 11건 |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 
