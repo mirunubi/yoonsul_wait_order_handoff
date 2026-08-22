@@ -1,5 +1,18 @@
 # 000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md
 
+> ⚠️ **2026-08-22 범위 변경 — 실행 계층 외부 위임**
+>
+> Phase 1 / Phase 3 / Phase 3-B 의 실행 계층(KDS · DID · CMS · Kiosk 화면,
+> 배달 채널 직접 수집) 자체 개발이 **범위에서 제외**되었다.
+>
+> 판정 문서: `000718_Governance_Execution_Layer_Externalization_Roadmap_Revision.md`
+>
+> **아래 본문은 변경 전 서술을 그대로 보존한 것이다.**
+> 해당 Phase 를 인용할 때는 `000718` §1 을 함께 확인한다.
+>
+> Core 의 책임(Canonical Menu / Modifier / Order / Payment Authority)과
+> provider 교체 가능성은 유지된다(`000718` §3·§4).
+
 ## 1. Purpose
 
 This document is required prelearning for Claude Code, Claude, and future AI agents before they participate in development work for `yoonsul_wait_order_handoff`.
@@ -22,6 +35,16 @@ This guide explains the development phases, cross-cutting layers, and agent warn
 | Phase 6 | Franchise_OS AI Customer Center: extends the Phase 4 module with Phase 5 no-outage events, SOP Runtime, and recovery evidence; prerequisite for Phase 7. |
 | Phase 7 | Franchise_OS SaaS conversion + Phase 1 SaaS enhancement; builds on Phase 5/6. |
 | Phase 8 | AI readiness + Physical AI Gateway; safety gate, human override, actuation evidence. |
+
+> ⚠️ 위 표의 **Phase 1 / Phase 3 / Phase 3-B** 는 2026-08-22 판정으로 범위가 축소되었다.
+>
+> | phase | 변경 |
+> |---|---|
+> | Phase 1 | `basic KDS` 자체 개발 제외 |
+> | Phase 3 | Kiosk · KDS · DID · CMS 화면 자체 개발 제외. provider 연동으로 대체 |
+> | Phase 3-B | 배달 채널 직접 통합 제외. 실행 provider 수신분 활용 |
+>
+> `000718` §1.1 참조.
 
 ## 3. Phase Detail Format
 
@@ -86,6 +109,10 @@ Phase 0 never authorizes runtime implementation by itself. Implementation requir
 ### Purpose
 
 Phase 1 defines Catch Menu as the first real-store MVP connecting customer entry, waiting, takeout order request, pickup status, Mini Kiosk, basic KDS, and basic OKPOS/Toss POS handoff. See `000706_Guide_Phase_1_Catch_Menu_Prelearning_Context.md` for full boundaries.
+
+> ⚠️ **범위 변경 (2026-08-22)**: `basic KDS` 자체 개발이 제외되었다.
+> 주방 실행은 외부 provider 가 담당하며,
+> Core 는 Kitchen Dispatch Contract 까지 책임진다(`000718` §4).
 
 ### Scope
 
@@ -152,6 +179,24 @@ Implementation requires approved data model, state boundary, ownership boundary,
 
 Phase 3 is the **full Kiosk / KDS / DID / CMS / POS integration phase**. It stabilizes store equipment, kitchen display, customer display, content, and POS order/payment consistency. See `000708_Guide_Phase_3_Kiosk_KDS_DID_CMS_POS_Integration_Prelearning_Context.md`.
 
+> ⚠️ **범위 변경 (2026-08-22)**: 아래 항목이 자체 개발 범위에서 제외되었다.
+>
+> ```text
+> Kiosk and Mini Kiosk enhancement
+> KDS kitchen display and station routing
+> DID pickup callout and customer display
+> CMS content and menu synchronization
+> ```
+>
+> 아래는 유지된다.
+>
+> ```text
+> Order, payment, cancel/refund state consistency
+> Retry, idempotency, degraded mode, audit, and evidence
+> ```
+>
+> `000718` §1.2 참조.
+
 ### Scope
 
 Phase 3 reuses Phase 1 OKPOS and Toss POS foundation and may expand to additional major POS providers with evidence. Output becomes infrastructure for Phase 1-C SaaS productization and Phase 5 Franchise_OS—not Franchise_OS or SaaS launch itself.
@@ -186,6 +231,14 @@ No implementation may proceed without financial-grade impact scope, test plan, e
 ### Purpose
 
 Phase 3-B expands into delivery app, external order channel, and KDS-DID omnichannel runtime.
+
+> ⚠️ **범위 변경 (2026-08-22)**: 배달앱·외부 주문 채널을 **각각 직접 연동하지 않는다.**
+> 실행 provider 가 다수 채널을 수신하는 경우 그것을 활용한다.
+>
+> 다만 **외부 채널 주문을 우리 시스템이 받지 않는 것은 Deferred 이지 불필요가 아니다.**
+> 재고 차감 · 통합 매출 · 메뉴 분석 · 자동 발주가 전부 외부 채널 판매를 필요로 한다.
+>
+> `000718` §1.3 / `601710` §3.1 참조.
 
 ### Scope
 
