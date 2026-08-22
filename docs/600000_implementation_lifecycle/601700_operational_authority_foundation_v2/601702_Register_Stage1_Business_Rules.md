@@ -1196,6 +1196,62 @@ provider 를 교체해도 canonical 의미 ID 는 바뀌지 않는다. 매핑만
 
 **물리 구조·테이블명·필드는 2단계 ERD 및 ChangeContract 에서 정한다.**
 
+### §1.44 `MerchantAccount` 의 canonical 물리 정의
+
+§1.14 · §1.22 · §1.23 이 `MerchantAccount` 의 **경계와 관계**를 확정했다.
+그러나 **그 관계의 한쪽 끝인 `MerchantAccount` 자체가 무엇으로 존재하는가**는
+확정되지 않았다.
+
+`601716`/`601717` 이 이를 blocker **B-1** 로 기록했다.
+검사 가능한 기대값을 만들 수 없어 TestPlan 이 BLOCKED 처리했고,
+ChangeContract 허용 목록에서 제외되었다.
+
+**§1.44 는 그 공백만 닫는다.**
+
+> ⚠️ **§1.44 가 하지 않는 것**
+>
+> 관계 cardinality 와 authority boundary 를 다시 설계하지 않는다.
+> §1.14 · §1.22 · §1.23 을 그대로 따른다.
+>
+> **`000170` §4 의 권장 필드를 자동으로 전부 채택하지 않는다.**
+> **권장은 아직 필수가 아니다.**
+>
+> provider-specific 속성이나 후속 운영 속성을 추가하지 않는다.
+
+**확정 사항**
+
+| # | 항목 | 확정 |
+|---|---|---|
+| 1 | canonical 개념 명칭 | `MerchantAccount` |
+| 2 | 물리 entity 명칭 | `merchant_accounts` |
+| 3 | 0-A 최소 필드 | 아래 표 |
+
+**0-A 최소 필드**
+
+`000170` §4 가 제시한 권장 필드를 세 갈래로 가른다.
+
+| 필드 | 채택 | 사유 |
+|---|---|---|
+| 식별자 (PK) | **필수** | canonical identity |
+| Tenant 참조 | **필수** | §1.22 — Tenant ↔ MerchantAccount 1:1 |
+| 계정 명칭 | **필수** | 사람이 식별할 수 있어야 한다 |
+| 생성·수정 시각 | **필수** | 감사 최소 요건 |
+| `primary_owner_user_id` | **미채택** | §2.2 — 새 이름이 미결. 0-B Identity 축과 얽힌다 |
+| 서비스 상태 / 체험 상태 | **미채택** | §1.27 · §2.1 — 상태 축과 과금 경계에 걸린다 |
+| 청구·계약 연락처 | **미채택** | §1.25 — 관리·접근 grouping 은 후속 Role/Scope 모델 소관 |
+| 그 외 `000170` §4 권장 필드 | **deferred** | 필요해지는 시점에 근거와 함께 추가한다 |
+
+> ⚠️ **필드명과 타입은 여기서 확정하지 않는다.**
+> **무엇이 필요한가**까지가 1단계이며, **어떻게 표현하는가**는 2단계 ERD 와
+> ChangeContract 소관이다.
+
+**LegalEntity 참조를 `MerchantAccount` 가 보유하지 않는다.**
+
+§1.23 이 한 `MerchantAccount` 가 서로 다른 LegalEntity 의 Store 를 포함할 수 있다고
+확정했으므로, 법적 운영주체는 **Store 쪽에서 표현**된다(§1.24 · §1.34).
+
+`MerchantAccount` 에 단일 LegalEntity 참조를 두면 §1.23 과 충돌한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -1265,6 +1321,8 @@ provider 를 교체해도 canonical 의미 ID 는 바뀌지 않는다. 매핑만
 | 거래 provider 의 옵션 구조가 구조화 필드인지 메모인지 | 초개인화 주문이 KDS 까지 전달되는지의 전제. 계약 전 확인 대상 |
 | 실행 provider 가 구조화 modifier 를 손실 없이 수신·회신하는지 | 동상 |
 | 외부 provider Kiosk 에서 회원 식별·preference 적용이 가능한지 | 불가하더라도 §1.42 원칙(YS-OS 가 원본)은 유지 |
+| `merchant_accounts` 필드명·타입 | §1.44 는 "무엇이 필요한가"까지만 확정. 표현은 2단계 ERD |
+| `000170` §4 deferred 권장 필드 | §1.44 — 필요해지는 시점에 근거와 함께 추가 |
 
 ### §2.3 미조사 대상
 
@@ -1369,6 +1427,7 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
           Person 어휘 정규화 · is_active 제거 · ownership_percent 제거 (§1.37~§1.39)
           SaaS 구조 선행 원칙 · 플랫폼/데이터 판별 기준 (§1.40~§1.41)
           네 시스템 경계 어휘 · 외부 provider 연결 귀속 (§1.42~§1.43)
+          MerchantAccount canonical 물리 정의 (§1.44)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
