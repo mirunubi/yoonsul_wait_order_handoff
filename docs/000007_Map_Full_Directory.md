@@ -140,6 +140,7 @@ docs/
   |   +--- 000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md
   |   +--- 000200_Boundary_Organization_Core_MVP_Cutline.md
   |   +--- 000210_Index_Organization_Core_And_Readiness_Check.md
+  |   +--- 000220_Guide_Shared_Commerce_Kernel_And_Foundation_Axis.md
   |   +--- 000300_documentation_governance/
   |   |   +--- 000300_Readme_Documentation_Governance.md
   |   |   +--- 000301_Index_Cross_Range_Foundation_Planning_Closure_README_And_PC_Import_Handoff.md

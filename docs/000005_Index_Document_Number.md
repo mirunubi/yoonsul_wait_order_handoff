@@ -142,6 +142,7 @@ Documentation paths use five-digit prefixes and approximately 2,000-slot domain 
 | docs\000100_project_foundation\000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md | 00190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary. | active |
 | docs\000100_project_foundation\000200_Boundary_Organization_Core_MVP_Cutline.md | 00200_Boundary_Organization_Core_MVP_Cutline. | active |
 | docs\000100_project_foundation\000210_Index_Organization_Core_And_Readiness_Check.md | 00210_Index_Organization_Core_And_Readiness_Check. | active |
+| docs\000100_project_foundation\000220_Guide_Shared_Commerce_Kernel_And_Foundation_Axis.md | 000220_Guide — 윤슬 OS 와 CatchMenu 의 관계 및 공통 Foundation 축 정의(2026-08-22). 두 제품은 상하관계가 아니라 **공통 Shared Commerce Kernel 위의 서로 다른 Product Module** 이다. Foundation 9축: Canonical Identity / Catalog / Commerce / Financial Authority / Kitchen Boundary / External Provider Boundary / Reliability / Future Inbound / Inventory Event. 축 정의이며 **물리 스키마·테이블·구현 순서를 정하지 않는다**. 나선 배정은 ① 0-A(`601700`) 진행 중, ②~⑨ 미배정. | active |
 
 ## 3 docs/000100_project_foundation/000300_documentation_governance
 
