@@ -832,6 +832,211 @@ CatchMenu owns     Entry Media mapping / merchant service status /
 
 **§1.10~§1.12의 선언 내용은 `000190` 과 일치한다.** 근거를 보강한 것이며 변경이 아니다.
 
+### §1.34 Store 의 법적 운영주체는 시점 관계다
+
+매장 매매·양수도·가맹점주 교체·법인 전환으로 운영주체가 바뀐다.
+**현재 값만 유지하면 과거 거래의 귀속이 소실된다.**
+
+**Store–LegalEntity 배정은 유효기간을 갖는 시점 관계로 표현한다.**
+
+```text
+2027-01-01 ~ 2029-05-31   강남점 → 김철수 개인사업자
+2029-06-01 ~              강남점 → 이영희 개인사업자
+```
+
+`legal_entity_person_roles` / `legal_entity_representatives` 가 이미
+`effective_from` / `effective_to` / `is_active` 구조를 갖는 것과 같은 축이다
+(`601714`/`601715` 실측).
+
+Store 에 현재 운영주체를 가리키는 값을 두더라도
+그것은 **권위 원본이 아니라 현재 포인터**다.
+
+```text
+시점 관계        authoritative
+Store 의 현재값   current pointer / cache
+```
+
+**유효기간이 겹치는 두 운영주체가 동시에 존재하면 안 된다.**
+
+```text
+금지   김철수 : 2028-01-01 ~ 2029-08-31
+       이영희 : 2029-06-01 ~ NULL          ← 기간 중첩
+
+정상   김철수 : 2028-01-01 ~ 2029-05-31
+       이영희 : 2029-06-01 ~ NULL
+```
+
+검증 방식(exclusion constraint 등)은 물리 설계에서 정한다.
+
+**물리 구조는 2단계 ERD 및 ChangeContract 에서 정한다.**
+별도 테이블인지, 현재 포인터를 어디에 둘지는 여기서 확정하지 않는다.
+
+### §1.35 금전 객체는 LegalEntity snapshot 을 보유한다
+
+**금전 객체는 생성 또는 확정 시점의 LegalEntity 를 자체적으로 보유한다.**
+
+`010640` §9 가 열거하는 대상:
+
+```text
+정산 / 지급 / 세무·신고 / 플랫폼 수수료 청구 /
+분할지급 / 로열티 / KYC / 계좌 소유 / 회계 분개
+```
+
+> LegalEntity 컨텍스트가 없는 금전 객체는 확정(final)되면 안 된다.
+
+**주문과 같이 금전 객체의 상위 비즈니스 객체도
+거래 귀속의 안정성과 downstream financial binding 을 위해
+LegalEntity snapshot 을 보유하는 것을 원칙으로 한다.**
+
+> ⚠️ **이것은 `010640` §9 의 직접 강제가 아니라 0-A Human Decision 이다.**
+> §9 가 열거하는 것은 financial object 이며 주문은 포함되지 않는다.
+> 정책을 확대해석하지 않되 설계 방향은 유지한다.
+
+**배정 이력을 매번 역참조해서 과거 귀속을 계산하지 않는다.**
+이력 테이블이 잘못 수정되거나 삭제되면
+이미 확정된 회계 사실까지 달라지는 위험이 생긴다.
+
+```text
+이력 테이블   왜 이 LegalEntity 였는가 를 설명한다
+거래 객체     실제로 누구의 거래였는가 를 확정한다
+```
+
+주문·정산 객체의 구현은 0-A 범위 밖이다(`601710` §3). 여기서는 원칙만 선언한다.
+
+### §1.36 Store 의 LegalEntity 변경과 Tenant 이전은 다른 사건이다
+
+매장 양수도가 **운영주체 변경**인지 **Tenant 이전**인지 구분한다.
+
+```text
+LegalEntity 변경   같은 Tenant 안에서 법적 운영주체가 바뀜
+Tenant 이전        직원·회원·주문·권한·정산의 귀속 자체가
+                   다른 고객으로 넘어감
+```
+
+**둘을 같은 사건으로 취급하지 않는다.**
+
+§1.22 가 Tenant ↔ MerchantAccount 를 1:1 로 두었으므로
+Tenant 이전은 MerchantAccount 경계까지 걸린다.
+
+Tenant 이전의 절차·데이터 처리·권한 승계는 **0-A 범위 밖**이다.
+여기서는 **두 사건이 다르다는 것만** 확정한다.
+
+### §1.37 `owners` 를 `persons` 로, `owner_id` 를 `person_id` 로 정규화한다
+
+§1.1 이 자연인의 canonical 명칭을 `Person` 으로 확정했다.
+**테이블명만 바꾸고 참조 컬럼을 남기면 §1.2(무수식 `Owner` 금지)를 절반만 지키는 것이다.**
+
+```text
+owners.id                                  → persons.id
+legal_entity_person_roles.owner_id         → legal_entity_person_roles.person_id
+legal_entity_representatives.owner_id      → legal_entity_representatives.person_id
+```
+
+FK 제약명·인덱스명도 `person` 기준으로 정렬한다.
+
+**`legal_entity_representatives` 명칭은 유지한다.**
+이름만으로 "LegalEntity 의 representative 관계"라는 의미가 충분하며,
+`legal_entity_person_representatives` 는 길어질 뿐 정보가 늘지 않는다.
+
+**현 상태의 어긋남**: 테이블명은 이미 `legal_entity_person_roles` 인데
+참조 컬럼은 `owner_id` 다. `0168` 시점에 혼재가 들어갔다.
+
+**영향 범위**(`601711`/`601712` scan 실측)
+
+```text
+FK 2건      legal_entity_person_roles_owner_id_fkey
+            legal_entity_representatives_owner_id_fkey
+INDEX       idx_lepr_owner
+UNIQUE      uq_lepr_active / uq_ler_active
+TRIGGER     trg_owners_updated_at → set_updated_at()
+데이터      전 테이블 0행
+```
+
+물리 변경 방법(rename 인지 신규 생성 후 교체인지)은 **ChangeContract 가 판정한다**(`601713` §1.1).
+
+### §1.38 `is_active` 를 사람 레코드에서 제거한다
+
+`owners.is_active` 는 **무엇을 뜻하는지 어디에도 규정되어 있지 않다.**
+`601714`/`601715` 실측: `owners` 의 CHECK 제약 **0건**.
+
+§1.37 을 적용하면 질문이 선명해진다 — **`persons.is_active` 가 무슨 뜻인가.**
+
+**사람의 존재 자체가 active/inactive 일 수는 없다.**
+
+이 boolean 하나로는 아래를 구분할 수 없다.
+
+```text
+탈퇴한 사람인가?
+법인과 관계가 끝난 사람인가?
+개인정보 삭제 대상인가?
+계정이 정지된 사람인가?
+```
+
+**각 책임 영역으로 분리한다.**
+
+| 의미 | 소관 |
+|---|---|
+| 로그인 가능 여부 | Identity / Account — 0-B(§1.18) |
+| LegalEntity 와 현재 관계 유무 | relationship — `legal_entity_person_roles.is_active` 가 이미 표현 |
+| 개인정보 lifecycle | 별도 privacy 상태 모델 |
+| 재직 여부 | employment relationship — 0-B |
+
+> ⚠️ **개인정보 lifecycle 을 boolean 하나로 표현하지 않는다.**
+> 실제로는 최소한 아래 구분이 필요해진다.
+>
+> ```text
+> ACTIVE / DEACTIVATED / ANONYMIZED /
+> DELETION_REQUESTED / RETENTION_HOLD / PURGED
+> ```
+>
+> 또는 `deleted_at` / `anonymized_at` / `retention_until` 같은 별도 lifecycle.
+
+**0-A 의 Person 은 신원·법적 인물의 안정적 식별 레코드로 둔다.**
+`is_active` 는 제거하며, 같은 이름을 다른 의미로 재사용하지 않는다.
+
+### §1.39 `ownership_percent` 를 역할 테이블에서 제거한다
+
+§1.3 이 조직역할과 지분소유를 별개 개념으로 확정했다.
+**`legal_entity_person_roles.ownership_percent` 는 그 둘이 한 행에 결합된 상태다.**
+
+`601714`/`601715` 실측: 컬럼과 `chk_lepr_ownership_percent`(0~100) 제약이 모두 실재.
+`601501` §2.3.1 은 사용 금지 상태로 서술. `601701` C-1 은 **「초과구현」** 으로 분류.
+
+**결합이 만드는 문제**
+
+```text
+Person A
+   ├── DIRECTOR       ← 조직 역할
+   ├── REPRESENTATIVE ← 조직 역할
+   └── 30%            ← 경제적 소유
+```
+
+현재 모델은 이것을 아래처럼 표현할 수 있게 만든다.
+
+```text
+DIRECTOR  + 30%
+INVESTOR  + 30%     ← 같은 지분인데 행이 둘
+```
+
+**지분이라는 하나의 사실이 role row 에 종속된다.**
+
+**조치**
+
+```text
+legal_entity_person_roles.ownership_percent  →  제거
+```
+
+**Economic ownership 은 LegalEntity–Person 의 organizational role 과
+독립된 별도 관계축으로 모델링한다.**
+
+**0-A 에서 새 ownership 모델을 구현하지 않는다.** 축이 별개라는 선언까지만 한다.
+
+> ⚠️ 제거는 `0168` 파일을 직접 수정하는 것이 아니라
+> **신규 forward migration 으로 수행한다**(`000701` §14.5, `601710` §5).
+>
+> `CASCADE` 로 일괄 제거하지 않는다.
+> dependent constraint / view / function 을 전수 확인하고 명시적으로 처리한다.
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -890,6 +1095,12 @@ CatchMenu owns     Entry Media mapping / merchant service status /
 | `store_operator_type` 의 canonical 표현 | §1.32는 축 분리만 확정. 값·필드는 후속 |
 | 프랜차이즈 본사가 별도 Tenant 인가 | §1.32 — `hq_tenant_candidate_id` 는 candidate 단계. 확정 근거 부족 |
 | `cross_business_link` 물리 구조 | §1.33 — `000190` §10이 필드를 제시하나 구현은 후속 |
+| Store–LegalEntity 시점 관계의 물리 구조 | §1.34 — 별도 테이블 여부·현재 포인터 위치는 2단계 ERD |
+| 유효기간 중첩 방지 검증 방식 | §1.34 — exclusion constraint 등. 물리 설계 |
+| `orders.legal_entity_id` 구현 | §1.35 — 원칙만 확정. 주문 객체는 0-A 범위 밖 |
+| Tenant 이전 절차·데이터 처리·권한 승계 | §1.36 — 두 사건이 다르다는 것만 확정 |
+| **Finding-1**: `contact_email` 평문 vs `contact_phone_hash` 해시 비대칭 | PII 처리 방침이 컬럼마다 다른 근거 불명. 별도 검토 |
+| **Finding-2**: `role_type` `INVESTOR` 가 organizational role 인가 | `OWNER` 는 `601501` §0.6이 조직역할로 설명하나 `INVESTOR` 는 설명 없음. §1.39 적용 후에도 economic 축 혼동 여지 |
 
 ### §2.3 미조사 대상
 
@@ -957,6 +1168,8 @@ CatchMenu가 프랜차이즈를 고객으로 수용하는 것(`000150` §13)은 
 | `010901_Policy_Store_Sales_Intake_And_Tenant_Store_Profile_Setup.md` | §4, §10, §11 | 영업 intake — LegalEntity business identity source. §1.31~§1.32 |
 | `601708_Evidence_Stage4_Overview_Evidence_Pack_Cursor.md` | E-1~E-4 | 4단계 Evidence Pack (Cursor). `000701` §46 |
 | `601709_Evidence_Stage4_Overview_Evidence_Pack_Codex.md` | E-1~E-4 | 4단계 Evidence Pack (Codex). §35 이중 검증 |
+| `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Q-2, Q-4, Q-8 | `601713` Logic §6 미해결 5건 조사 (Cursor, 2026-08-21~22) |
+| `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | 동상 | 동일 조사 (Codex, 2026-08-21). `000701` §35 이중 검증 |
 
 권위보류 문서(`601501`/`601503`/`601211`/`601212`)는 §3 및 `600020` §3에 따라 **사실 기록 목적으로만** 인용했으며, 그 설계 결론을 승인한 것이 아니다.
 
@@ -977,7 +1190,7 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
 
 ```text
 확정:     정영석
-일자:     2026-08-13
+일자:     2026-08-13 (§1.1~§1.33) / 2026-08-22 (§1.34~§1.39)
 범위:     Owner 축 (§1.1~§1.6)
           조직 경계 · HQ 어휘 · 세 세계 분리 (§1.7~§1.12)
           LegalEntity / MerchantAccount 축 (§1.13~§1.14)
@@ -988,9 +1201,12 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
           Store 상태 3축 분리 · 계층 상태 독립 (§1.27~§1.28)
           company 어휘 정규화 · OperatingGroup 축 (§1.29~§1.30)
           LegalEntity intake source · operator_type 축 · cross-business link (§1.31~§1.33)
+          Store–LegalEntity 시점 관계 · 금전 snapshot · Tenant 이전 구분 (§1.34~§1.36)
+          Person 어휘 정규화 · is_active 제거 · ownership_percent 제거 (§1.37~§1.39)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
           000170 §6 / 010640 §4 어휘 정정 (§2.2)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
+          Finding-1 PII 처리 비대칭 / Finding-2 INVESTOR role taxonomy (§2.2)
 ```
