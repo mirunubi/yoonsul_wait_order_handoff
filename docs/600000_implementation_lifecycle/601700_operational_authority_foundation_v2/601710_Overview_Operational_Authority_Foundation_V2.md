@@ -2,13 +2,14 @@
 
 Status: Draft
 Lifecycle: Overview
-Last Updated: 2026-08-13
+Last Updated: 2026-08-22
 
 **개정 이력**
 
 | 일자 | 내용 |
 |---|---|
 | 2026-08-13 | 초안 — 4단계 설계문서 정합화 |
+| 2026-08-22 | Stage 2 blocker 반영 — B-1(§1.44 물리 정의) · B-7(§1.34~§1.44 미반영분). 구현 대상 5건 유지 |
 
 > **표기 규약**
 >
@@ -39,11 +40,11 @@ Last Updated: 2026-08-13
 
 | # | 대상 | 근거 | 성격 | 비고 |
 |---|---|---|---|---|
-| 1 | canonical `Person` physical representation | `601702` §1.1, §1.16, §1.17 | Human Decision | 구현 방식은 ChangeContract 가 결정 — §2.1 |
-| 2 | persistent `MerchantAccount` foundation | `601702` §1.14, §1.22, §1.23 | Human Decision | 현재 `CONCEPT PRESENT / PHYSICAL MISSING`(`601705` §8) |
-| 3 | Tenant ↔ MerchantAccount (1:1) | `601702` §1.22 | Human Decision | `601704` Q1 은 「추정만 가능」이었고 1단계가 확정 |
-| 4 | MerchantAccount → Store (1:N) | `601702` §1.14, `601704` Q2 | Human Decision + Source Fact | `000170` §7, `020320` §40 |
-| 5 | Store–LegalEntity target invariant | `601702` §1.24, §1.31 | Human Decision | **조건부 — §4** |
+| 1 | canonical `Person` physical representation | `601702` §1.1, §1.16, §1.17, §1.37, §1.38 | Human Decision | 구현 방식은 ChangeContract 가 결정 — §2.1 |
+| 2 | persistent `MerchantAccount` foundation | `601702` §1.14, §1.22, §1.23, §1.44 | Human Decision | 현재 `CONCEPT PRESENT / PHYSICAL MISSING`(`601705` §8) |
+| 3 | Tenant ↔ MerchantAccount (1:1) | `601702` §1.22, §1.44 | Human Decision | `601704` Q1 은 「추정만 가능」이었고 1단계가 확정 |
+| 4 | MerchantAccount → Store (1:N) | `601702` §1.14, §1.44, `601704` Q2 | Human Decision + Source Fact | `000170` §7, `020320` §40 |
+| 5 | Store–LegalEntity target invariant | `601702` §1.24, §1.31, §1.34 | Human Decision | **조건부 — §4** |
 
 **대상 5건 전부 `601702` 선언에 직접 근거한다.** 선언 없이 추가한 구현 대상은 없다.
 
@@ -64,6 +65,57 @@ legacy `owners` terminology 를 authoritative 로 남기지 않는다.
 >
 > **Overview Judgement**: 참조 함수가 0개라는 사실이 rename 을 쉽게 만들지만,
 > 그것만으로 방식을 확정하지 않는다. 앱 코드·뷰·정책의 physical impact scan 이 선행해야 한다.
+
+### §2.2 `MerchantAccount` — §1.44 가 확정한 것
+
+`601716`/`601717` 이 blocker **B-1** 로 기록했다 —
+구현 대상 2·3·4 가 `MerchantAccount` 축인데 물리 정의가 어느 문서에도 없었다.
+
+`601702` §1.44 가 이를 확정했다.
+
+| 항목 | 확정 |
+|---|---|
+| canonical 개념 명칭 | `MerchantAccount` |
+| 물리 entity 명칭 | `merchant_accounts` |
+| 0-A 최소 필드 | 식별자 · Tenant 참조 · 계정 명칭 · 생성/수정 시각 |
+
+**미채택**: `primary_owner_user_id` / 서비스·체험 상태 / 청구·계약 연락처
+**deferred**: `000170` §4 그 외 권장 필드
+
+> ⚠️ **필드명·타입은 확정되지 않았다.** ChangeContract 소관이다(`601705` §10 O18).
+>
+> ⚠️ **`merchant_accounts` 는 LegalEntity 참조를 보유하지 않는다**(§1.44).
+> §1.23 이 한 계정이 서로 다른 LegalEntity 의 Store 를 포함할 수 있다고
+> 확정했으므로, 법적 운영주체는 Store 쪽에서 표현된다.
+
+### §2.3 2026-08-22 선언 추가분 반영
+
+`601702` §1.34~§1.44 가 이 Overview 작성 이후에 추가되었다.
+`601716`/`601717` 이 이를 blocker **B-7** 로 기록했다.
+
+**설계 모순이 아니라 stale document 다.** Logic §6 이 물었고 선언이 답했다.
+
+| 선언 | Logic §6 질문 | 구현 대상에 미치는 영향 |
+|---|---|---|
+| §1.37 | Q-6 — 나머지 3테이블 canonical 명칭 | 대상 1 — `owner_id` → `person_id` 까지 포함 |
+| §1.38 | Q-1 — `is_active` 업무 의미 | 대상 1 — **`is_active` 제거** |
+| §1.39 | Q-9 — `ownership_percent` 처리 방침 | 대상 1 — **`ownership_percent` 제거** |
+| §1.34 | Q-7 — 운영주체 변경 이력 | 대상 5 — 시점 관계로 표현. 다만 §4 조건부 |
+| §1.44 | B-1 | 대상 2·3·4 — 물리 정의 확정 |
+
+**구현 대상은 5건 그대로다.** 선언이 각 대상의 **내용**을 바꿨을 뿐 개수를 늘리지 않았다.
+
+> ⚠️ **§1.35 · §1.36 은 이번 구현 범위 밖이다.**
+>
+> §1.35(금전 객체 LegalEntity snapshot)는 주문·정산 객체를 다루며 §3 Out of Scope 다.
+> §1.36(Tenant 이전)은 절차·데이터 처리·권한 승계가 0-A 범위 밖이라고 선언 자체가 명시한다.
+>
+> 두 선언은 **원칙으로만 유효하며 이번에 구현하지 않는다.**
+
+> ⚠️ **§1.40~§1.43 은 구현 대상을 바꾸지 않는다.**
+>
+> §1.40(SaaS 구조 선행) · §1.41(판별 기준) · §1.42(네 시스템 경계 어휘)는
+> 원칙이며, §1.43(external provider boundary)은 §3.1 이 Deferred 로 처리했다.
 
 ## §3 Out of Scope
 
@@ -247,6 +299,29 @@ NOT NULL enforcement **eligibility** 판단
 
 > `legal_entities` 0행이라는 physical fact 만으로 모델 결함이라고 판정하지 않는다(§1.31).
 > 실제 원인이 intake 미수행인지는 onboarding evidence 로 확인한다.
+
+**§1.34 시점 관계 (2026-08-22 추가)**
+
+`601702` §1.34 가 Store–LegalEntity 를 **유효기간을 갖는 시점 관계**로 확정했다.
+매장 매매·양수도·가맹점주 교체·법인 전환으로 운영주체가 바뀌기 때문이다.
+
+```text
+시점 관계        authoritative
+Store 의 현재값   current pointer / cache
+```
+
+**유효기간이 겹치는 두 운영주체가 동시에 존재하면 안 된다.**
+
+> ⚠️ **이것이 위 조건 판정을 바꾸지 않는다.**
+>
+> 시점 관계로 표현하든 단일 값으로 표현하든,
+> **검증된 business identity 가 없으면 채울 수 없다**(§1.31).
+>
+> `601714`/`601715` Q-8 실측: intake 9필드 중 실재 1건, `legal_entities` 0행.
+> enforcement 는 여전히 부적격이다.
+
+**물리 구조는 ChangeContract 가 정한다.** 별도 테이블인지 현재 포인터를 어디 둘지는
+여기서 확정하지 않는다.
 
 ## §5 0168 / 0169 취급
 

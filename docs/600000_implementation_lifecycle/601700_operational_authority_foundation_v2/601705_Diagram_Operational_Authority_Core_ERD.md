@@ -12,6 +12,7 @@ Last Updated: 2026-08-22
 | 2026-08-13 | 3단계 대조(`601706`/`601707`) 반영 — Tenant→Store 를 격리 invariant 로 분류, 미정 관계 제거, Merchant Company 정규화 기록, 근거 목록 보완 |
 | 2026-08-13 | 3단계 Blocker 전건 반영 완료. Status Draft → Active. 4단계 진입 기준선 |
 | 2026-08-22 | External Provider Boundary 를 §7 에 annotation 으로 추가. 엔티티·테이블 미생성. Mermaid 무변경 |
+| 2026-08-22 | `601702` §1.44 반영 — `MerchantAccount` 물리 정의. Mermaid·§5 무변경 |
 
 ## §0 성격과 범위
 
@@ -239,6 +240,27 @@ SQL physical evidence는 §8로 분리했다.
 | 복수 Store를 포함할 수 있다 (다브랜드 포함) | `000170` §7, `020320` §40 | 확정 |
 | 개수를 전역 규칙으로 고정하지 않는다 | `601702` §1.14 | 확정 |
 | 권장 필드(`service_status`/`trial_status`/`primary_owner_user_id` 등) | `000170` §4 | **미정** — 어휘 정정 대상(§10) |
+| 물리 entity 명칭 `merchant_accounts` | `601702` §1.44 | **확정** |
+| 식별자 (PK) | `601702` §1.44 | 필수 |
+| Tenant 참조 | `601702` §1.44, §1.22 | 필수 — 1:1 |
+| 계정 명칭 | `601702` §1.44 | 필수 |
+| 생성·수정 시각 | `601702` §1.44 | 필수 — 감사 최소 요건 |
+| `primary_owner_user_id` | `601702` §1.44 | **미채택** — 새 이름 미결, 0-B Identity 축 |
+| 서비스·체험 상태 | `601702` §1.44, §1.27, §2.1 | **미채택** — 상태 축·과금 경계 |
+| 청구·계약 연락처 | `601702` §1.44, §1.25 | **미채택** — 후속 Role/Scope |
+| `000170` §4 그 외 권장 필드 | `601702` §1.44 | **deferred** |
+
+> ⚠️ **필드명과 타입은 여기서 확정하지 않는다.**
+> §1.44 가 "무엇이 필요한가"까지 확정했으며,
+> "어떻게 표현하는가"는 ChangeContract 소관이다.
+
+> ⚠️ **`MerchantAccount` 는 LegalEntity 참조를 보유하지 않는다.**
+>
+> §1.23 이 한 `MerchantAccount` 가 서로 다른 LegalEntity 의 Store 를
+> 포함할 수 있다고 확정했으므로, 법적 운영주체는 **Store 쪽에서 표현**된다
+> (§1.24 · §1.34).
+>
+> `merchant_accounts` 에 단일 LegalEntity 참조를 두면 §1.23 과 충돌한다.
 
 ### §4.5 STORE
 
@@ -519,6 +541,7 @@ provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
 | 개념 | 현재 SQL 상태 | 표기 |
 |---|---|---|
 | `MERCHANT_ACCOUNT` | 대응 테이블 없음 | **CONCEPT PRESENT / PHYSICAL IMPLEMENTATION MISSING** |
+| `merchant_accounts` | `CONCEPT PRESENT / PHYSICAL IMPLEMENTATION MISSING` | §1.44 가 canonical 물리 정의를 확정(2026-08-22). 구현은 5단계 |
 | `PERSON` | 자연인 개념의 테이블이 존재하나 명칭이 개념과 어긋남(§1.1) | 명칭 정정 대상 |
 | `TENANT` | 존재 | 개념 일치 |
 | `STORE` | 존재 | 개념 일치 |
@@ -579,12 +602,12 @@ provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
 | O2 | Person ↔ Representative / PersonRole cardinality | 4단계 |
 | O3 | 지분소유 모델링 여부 | 미결 (`601702` §1.3) |
 | O4 | Company / BusinessUnit / OperatingGroup persistent entity 필요성 | 3단계 인접 도메인 대조 |
-| O5 | `merchant_accounts` 물리 구현 방식 | 4·5단계 |
+| O5 | `merchant_accounts` 물리 구현 방식 | 4·5단계. **해소 (2026-08-22)** — `601702` §1.44 |
 | O6 | `cross_business_link` 구조 | 미구현 (`000150` §26 개념 엔티티) |
 | O7 | Scope Type / Scope Level 통합 taxonomy | 0-C (`601702` §1.20) |
 | O8 | `franchise_hq_id` 어휘 정정과 `000150` ↔ `010640` 충돌 판정 | 별도 워크패킷 (`601702` §2.4) |
-| O9 | `primary_owner_user_id` 등 `000170` 권장 필드의 새 어휘 | 4단계 |
-| O10 | 엔티티별 식별 속성 목록 | 4단계 |
+| O9 | `primary_owner_user_id` 등 `000170` 권장 필드의 새 어휘 | 4단계. **부분 해소 (2026-08-22)** — `601702` §1.44 가 0-A 미채택으로 판정. 새 어휘 자체는 §2.2 미결 |
+| O10 | 엔티티별 식별 속성 목록 | 4단계. **부분 해소 (2026-08-22)** — `601702` §1.44 가 `MerchantAccount` 분만 확정 |
 | O11 | `000170` §14~§16 store 상태 축(service / operating / trial) 미반영 | 4단계 (`601706` 지적) |
 | O12 | `company` homonym — `000150` 플랫폼 운영사 vs `003020`/`007010`/`009070` tenant 내 축 | 별도 워크패킷 (`601706` 지적) |
 | O13 | `003020`/`009070` 의 company / operating_group 병렬 축이 ERD 에 없음 | §6 Candidate 판정과 연동. 4단계 |
@@ -592,6 +615,8 @@ provider 는 두 종류이며 성격이 다르다(`601702` §1.43).
 | O15 | `OperatingGroup` persistence | 후속 (`601702` §1.30 — ACTIVE 문서 넷이 미결) |
 | O16 | `Brand` 축의 canonical 정의 | 후속 (`601702` §1.29) |
 | O17 | External Provider Mapping 물리 구조 | 별도 Provider Integration 워크패킷 (`601702` §1.43, `601710` §3.1 — Deferred) |
+| O18 | `merchant_accounts` 필드명·타입 | ChangeContract (`601702` §1.44 — 표현은 2단계 소관) |
+| O19 | `000170` §4 deferred 권장 필드 | 필요 시점에 근거와 함께 추가 (`601702` §1.44) |
 
 ## §11 근거 문서 목록 (`000701` §46)
 
