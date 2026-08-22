@@ -954,6 +954,45 @@ TRIGGER     trg_owners_updated_at → set_updated_at()
 
 물리 변경 방법(rename 인지 신규 생성 후 교체인지)은 **ChangeContract 가 판정한다**(`601713` §1.1).
 
+**물리 식별자 정합화 범위 (2026-08-22 보강)**
+
+`owners → persons` canonical rename 은 **테이블명에 한정하지 않는다.**
+
+기존 `Owner` 개념을 **직접 나타내는** 물리 식별자를 `Person` 기준으로 정합화한다.
+
+| 대상 | 변경 |
+|---|---|
+| 테이블명 | `owners` → `persons` |
+| FK 컬럼명 | `owner_id` → `person_id` |
+| 컬럼명 | `owner_name` → `person_name` |
+| 트리거명 | `trg_owners_updated_at` → `trg_persons_updated_at` |
+| FK 제약명 · 인덱스명 | `person` 기준으로 정렬 |
+
+> ⚠️ **일반적 기능명에는 이 규칙을 확대 적용하지 않는다.**
+>
+> ```text
+> 직접 Owner semantic identifier   →  Person 으로 변경
+> generic technical identifier     →  유지
+> ```
+>
+> 예: `catchmenu_common.set_updated_at()` 은 `Owner` 의미를 갖지 않으므로 **유지**한다.
+> 트리거명은 바뀌지만 그 트리거가 호출하는 함수명은 그대로다.
+>
+> **이름에 `owner` 가 들어간다는 이유만으로 바꾸지 않는다.**
+> PostgreSQL role `catchmenu_authority_owner` 처럼
+> `owner` 가 소유권 의미로 정당하게 쓰인 자리는 이 규칙 대상이 아니다.
+
+**검증 범위**
+
+`owner_` 잔존 검사는 **신규 canonical schema 와 forward migration 결과**를 대상으로 한다.
+
+```text
+검사 대상   0-A 이후 canonical physical object
+검사 제외   역사 문서 · 과거 migration 파일 (000701 §14.5 불변)
+```
+
+과거 migration 에서 `owner_` 가 0건이 되기를 요구하지 않는다.
+
 ### §1.38 `is_active` 를 사람 레코드에서 제거한다
 
 `owners.is_active` 는 **무엇을 뜻하는지 어디에도 규정되어 있지 않다.**
@@ -1252,6 +1291,130 @@ ChangeContract 허용 목록에서 제외되었다.
 
 `MerchantAccount` 에 단일 LegalEntity 참조를 두면 §1.23 과 충돌한다.
 
+### §1.45 `MerchantAccount` 의 생성·배치·초기 보안 posture
+
+§1.44 가 `MerchantAccount` 의 물리 identity 를 확정했다.
+§1.45 는 **그것이 어떻게 존재하게 되고 어떤 상태로 놓이는가**를 확정한다.
+
+**존재 조건**
+
+`MerchantAccount` 는 **독립적으로 임의 생성되는 객체가 아니다.**
+**Tenant provisioning 에 종속된 canonical operational authority 객체**다.
+
+§1.22 가 Tenant ↔ MerchantAccount 를 1:1 로 확정했으므로,
+**Tenant 만 존재하고 MerchantAccount 가 없는 상태를 정상 운영 상태로 허용하지 않는다.**
+
+```text
+기존 Tenant
+   │ 0-A forward migration
+   │ canonical backfill
+   ▼
+MerchantAccount 생성
+
+신규 Tenant
+   │ tenant provisioning transaction
+   ├── Tenant 생성
+   └── MerchantAccount 생성      ← 같은 transaction
+```
+
+> ⚠️ **이 backfill 은 seed data 생성이 아니다.**
+>
+> ```text
+> ❌ migration 이 임의 business data 를 seed 한다
+> ⭕ migration 이 기존 canonical row 를 새 invariant 에 맞도록 backfill 한다
+> ```
+>
+> Tenant 가 3개면 대응하는 MerchantAccount 3개를 만든다.
+> **Tenant 가 0개면 아무 행도 만들지 않는다.**
+>
+> §1.31 의 synthetic identity 금지는 **LegalEntity 에 대한 것**이다.
+> LegalEntity 는 외부 검증(사업자등록 intake)이 필요하나,
+> MerchantAccount 는 Tenant 로부터 파생되며 외부 검증을 요구하지 않는다.
+
+> ⚠️ **migration 이 미래 Tenant 를 만들지 않는다.**
+> 신규 Tenant 생성 경로가 MerchantAccount 동시 생성을 책임진다.
+> 중간에 하나만 성공한 상태가 남지 않아야 한다.
+>
+> 다만 **Tenant provisioning 경로의 구현은 0-A 범위 밖**이다
+> (`601710` §3 — RPC 재작성 Out of Scope). 여기서는 책임 소재만 확정한다.
+
+**관계의 물리 표현**
+
+1:1 이라고 해서 양쪽 모두 FK 를 갖게 하지 않는다.
+
+```text
+merchant_accounts.tenant_id   NOT NULL UNIQUE FK → tenants
+```
+
+이것만으로 1:1 이 강제된다.
+`tenants.merchant_account_id` 를 두어 **순환 참조를 만들지 않는다.**
+
+Store 는 §1.26 의 축을 따른다.
+
+```text
+Store → MerchantAccount → Tenant
+```
+
+> ⚠️ **이것은 필드 집합을 정의한 것이 아니다.**
+>
+> §1.22 의 1:1 을 **어느 쪽에서 강제할 것인가**를 정한 것이며,
+> 순환 참조를 만들지 않기 위한 방향 결정이다.
+>
+> ```text
+> 여기서 정한 것      관계를 강제하는 방향 · 순환 금지
+> ChangeContract 소관  나머지 필드의 이름과 타입 (§2.2 · `601705` §10 O18)
+> ```
+>
+> 타입은 여기서 확정하지 않는다.
+
+**배치**
+
+`catchmenu_hq` 에 둔다.
+
+동일 Operational Authority Foundation 은 동일 schema 에 둔다.
+`persons` / `legal_entities` / `tenants` / `stores` 와 같은 자리다.
+
+**특별한 분리 근거가 없는 한 schema 를 가르지 않는다.**
+가르면 새로운 schema boundary 를 설명해야 한다.
+
+**초기 보안 posture — fail-closed baseline**
+
+기존 Operational Authority Foundation 과 **동일한 posture** 를 적용한다.
+
+| 항목 | 0-A |
+|---|---|
+| RLS | `ENABLE ROW LEVEL SECURITY` + `FORCE ROW LEVEL SECURITY` |
+| Policy | **0개** — application access contract 를 만들지 않는다 |
+| GRANT | `catchmenu_authority_owner` 외에 확대하지 않는다 |
+
+이 상태의 의미는 이렇다.
+
+```text
+테이블은 존재한다.
+그러나 application access contract 는 아직 없다.
+```
+
+> ⚠️ **이것은 "임시 posture" 가 아니다.**
+>
+> 기본 폐쇄 상태 자체는 계속 유지될 수 있다.
+> 0-C 는 그 위에 **필요한 접근 정책만 추가**한다.
+>
+> ```text
+> 0-A 책임    기본값 = 아무도 접근 못 함
+>             Authority owner 만 관리 가능
+>
+> 0-C 책임    누구에게 · 어떤 조건에서 · 무엇을 열 것인가
+> ```
+
+**0-A 가 application authorization model 을 정의하지 않는다.**
+role/scope 별 접근 정책과 추가 GRANT 는 **0-C 의 책임**이다(`601713` §4).
+
+`GRANT SELECT TO authenticated` 같은 조항을 지금 넣으면
+**0-A 가 0-C 의 권한 정책을 선결정**하는 것이 된다.
+
+> **0-A 는 0-C 의 권한 모델을 미리 설계하지 않되,
+> 그때까지 열린 상태로 방치하지도 않는다.**
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -1321,8 +1484,10 @@ ChangeContract 허용 목록에서 제외되었다.
 | 거래 provider 의 옵션 구조가 구조화 필드인지 메모인지 | 초개인화 주문이 KDS 까지 전달되는지의 전제. 계약 전 확인 대상 |
 | 실행 provider 가 구조화 modifier 를 손실 없이 수신·회신하는지 | 동상 |
 | 외부 provider Kiosk 에서 회원 식별·preference 적용이 가능한지 | 불가하더라도 §1.42 원칙(YS-OS 가 원본)은 유지 |
-| `merchant_accounts` 필드명·타입 | §1.44 는 "무엇이 필요한가"까지만 확정. 표현은 2단계 ERD |
+| `merchant_accounts` 필드명·타입 | §1.44 는 "무엇이 필요한가"까지만 확정. **표현은 ChangeContract 소관**(`601705` §10 O18). 2026-08-22 정정 — 종전 "2단계 ERD" 표기는 `601705` O18 과 서로를 가리키는 순환이었다(`601717` §7.2 N-3) |
 | `000170` §4 deferred 권장 필드 | §1.44 — 필요해지는 시점에 근거와 함께 추가 |
+| Tenant provisioning 경로의 MerchantAccount 동시 생성 구현 | §1.45 는 책임 소재만 확정. 구현은 `601710` §3 Out of Scope |
+| `merchant_accounts` 의 application access policy | §1.45 — 0-C 소관. 0-A 는 fail-closed baseline 만 |
 
 ### §2.3 미조사 대상
 
@@ -1412,7 +1577,7 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
 
 ```text
 확정:     정영석
-일자:     2026-08-13 (§1.1~§1.33) / 2026-08-22 (§1.34~§1.39)
+일자:     2026-08-13 (§1.1~§1.33) / 2026-08-22 (§1.34~§1.45)
 범위:     Owner 축 (§1.1~§1.6)
           조직 경계 · HQ 어휘 · 세 세계 분리 (§1.7~§1.12)
           LegalEntity / MerchantAccount 축 (§1.13~§1.14)
@@ -1428,6 +1593,7 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
           SaaS 구조 선행 원칙 · 플랫폼/데이터 판별 기준 (§1.40~§1.41)
           네 시스템 경계 어휘 · 외부 provider 연결 귀속 (§1.42~§1.43)
           MerchantAccount canonical 물리 정의 (§1.44)
+          MerchantAccount 생성·배치·보안 posture (§1.45)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
