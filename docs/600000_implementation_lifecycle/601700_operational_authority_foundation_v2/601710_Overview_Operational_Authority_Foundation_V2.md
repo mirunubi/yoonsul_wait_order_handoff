@@ -79,6 +79,73 @@ legacy `owners` terminology 를 authoritative 로 남기지 않는다.
 | 고객사-side `company` 엔티티 | `601702` §1.29 — 분해 대상 legacy terminology |
 | `cross_business_link` 물리 구조 | `601702` §1.33 — `000190` §10이 필드 제시, 구현은 후속 |
 | `store_operator_type` 물리 표현 | `601702` §1.32 — 축 분리만 확정 |
+| External Provider Mapping (Toss / Smartcast 등) | `601702` §1.43 — 경계는 확정했으나 물리 구조는 integration contract 확보 후. §3.1 참조 |
+
+### §3.1 External Provider Mapping — Deferred Boundary
+
+`601702` §1.43 이 외부 provider 연결을 플랫폼 구조의 일부로 선언했다.
+**다만 이번 나선에서 물리 구현을 하지 않는다.**
+
+**0-A 에서 확정하는 것**
+
+```text
+External Provider Boundary 가 존재한다는 사실
+Core authority 와 Provider authority 의 분리
+provider-specific 식별자를 canonical identity 로 사용하지 않는다는 원칙
+향후 mapping 이 필요하다는 선언
+```
+
+**0-A 에서 만들지 않는 것**
+
+```text
+provider mapping table
+외부 provider 전용 컬럼
+provider contract 를 추정한 schema
+```
+
+**사유**
+
+Toss / Smartcast 의 실제 identifier 구조가 확보되지 않았다.
+성급하게 만들면 provider 의 실제 축과 어긋나 재작업이 발생한다.
+
+```text
+지금 추정하면            실제 provider 는
+tenant_id / store_id /   merchant_id / terminal_id /
+external_store_id        business_registration_no / shop_id
+```
+
+**빈 테이블도 설계 결정이다.** 데이터가 없다고 비용이 0인 것은 아니다.
+
+**§1.43 의 실질은 데이터 모델이 아니라 Authority Boundary 다**
+
+```text
+금지   stores.id = 외부 provider 의 merchant id
+
+원칙   CatchMenu canonical identity
+              │ mapping
+              ▼
+       External provider identity
+```
+
+**mapping 이 필요하다는 것**과 **mapping 테이블의 형태를 지금 안다는 것**은
+전혀 다른 문제다.
+
+**후속 처리**
+
+0-B(Identity / Login / Session / Role / Permission)로 넘기지 않는다. 책임 축이 다르다.
+
+```text
+0-A                        Tenant / LegalEntity / Store canonical foundation
+        ↓
+별도 Integration 워크패킷    Provider identity / mapping / contract
+        ↓
+                           TOSS-TX  POS / Kiosk / Payment
+                           SC-EXEC  KDS / DID
+```
+
+실제 계약·API·identifier 구조를 확보한 뒤
+**별도 Provider Integration / External Identity Mapping 워크패킷**에서 설계한다.
+워크패킷 번호는 지금 확정하지 않는다.
 
 ## §4 조건부 항목 — Store–LegalEntity
 
@@ -324,6 +391,15 @@ Evidence → Human Rules → ERD → Architecture → Approval
 > ⚠️ `tools/Check-Governance.ps1` 의 G15 가 Stage 7 미승인 상태의 migration 을
 > 커밋 시점에 잡는다(`000701` §6.11.1).
 > 신규 migration 은 파일 상단 5행 이내에 `-- Workpacket: 601700` 을 명시한다.
+
+> ⚠️ **TestPlan / ChangeContract 작성 시 주의**
+>
+> §3.1 은 **negative 검증** 대상이다.
+> "만들었는가"가 아니라 **"만들지 않았는가"** 를 확인해야 한다.
+>
+> ChangeContract 는 provider mapping 물리 구현을 **명시적으로 금지**해야 한다.
+> 선언만 있고 금지가 없으면, 구현 주체가
+> "mapping 이 필요하다고 했으니 테이블을 만들어야겠다"고 판단할 여지가 남는다.
 
 > **이 Overview 는 구현을 승인하지 않는다.**
 > 무엇을 왜 만드는지를 정할 뿐이며, 허용 파일과 금지 조작은 ChangeContract 가,
