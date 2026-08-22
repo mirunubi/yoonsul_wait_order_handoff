@@ -1037,6 +1037,165 @@ legal_entity_person_roles.ownership_percent  →  제거
 > `CASCADE` 로 일괄 제거하지 않는다.
 > dependent constraint / view / function 을 전수 확인하고 명시적으로 처리한다.
 
+### §1.40 SaaS Architecture 는 처음부터, SaaS Business Operations 는 나중에
+
+**멀티테넌시는 나중에 붙일 수 있는 기능이 아니라 데이터 모델의 뼈대다.**
+
+나중에 넣으려면 거의 모든 테이블·RPC·권한·unique constraint·캐시 키·
+외부 연동 키를 다시 손대게 된다.
+
+**1호점부터 반드시 SaaS 구조로 만드는 것**
+
+```text
+tenant / store
+사용자 계정 · 로그인
+tenant_id · store_id
+Role / Permission / Scope
+직원이 어느 tenant/store 소속인지
+고객·멤버십 데이터의 tenant 귀속
+메뉴·재고·직원·KDS 데이터의 tenant/store 귀속
+Tenant 간 데이터 격리
+외부 시스템 credential 및 merchant/store mapping
+모든 핵심 객체의 ownership boundary
+```
+
+윤슬김밥 1호점에서 `tenant = YOONSUL` / `store = YOONSUL_STORE_001`
+하나만 사용하더라도 처음부터 그렇게 만든다.
+두 번째 고객이 들어오면 행을 하나 더 만들 뿐이고 **코드는 똑같이 돌아가야 한다.**
+
+**이번 나선에서 구현하지 않는 것 (SaaS Business Operations)**
+
+```text
+Settlement / 정산
+과금 상태 전이
+Franchise HQ 횡단 조회 권한
+OperatingGroup persistence
+cross_business_link 물리 구조
+Store 상태 3축의 enum·전이
+```
+
+§2.1 · §2.2 · §1.30 이 이미 이들을 미결로 두고 있다.
+
+### §1.41 판별 기준 — 두 번째 음식점이 들어와도 그대로 쓸 수 있는가
+
+어떤 산출물이 **플랫폼 구조**인지 **윤슬 데이터**인지 판별할 때 이 질문을 쓴다.
+
+```text
+두 번째 음식점이 들어오는 순간 그대로 쓸 수 있는가?
+
+쓸 수 있다  →  CatchMenu 플랫폼 구조
+못 쓴다     →  윤슬 tenant 데이터
+```
+
+| | 두 번째 매장 | 소속 |
+|---|---|---|
+| tenant / store / login / role | 그대로 사용 | CatchMenu |
+| Membership 구조 | 그대로 사용 | CatchMenu |
+| Inventory 구조 | 그대로 사용 | CatchMenu |
+| KDS 도메인 모델 | 그대로 사용 | CatchMenu |
+| 외부 provider adapter | 그대로 사용 | CatchMenu |
+| 윤슬 레시피·BOM 수치 | 사용 불가 | 윤슬 데이터 |
+| 윤슬 SOP | 사용 불가 | 윤슬 데이터 |
+| 윤슬 브랜드 정책 | 사용 불가 | 윤슬 데이터 |
+
+**구조는 CatchMenu, 내용은 윤슬이다.**
+
+이는 tenant 격리 경계와 같은 선이다.
+`tenant_id = YOONSUL` 인 데이터가 윤슬 것이고, 그것을 담는 스키마가 CatchMenu 것이다.
+
+**"이 기능이 윤슬 것이냐 CatchMenu 것이냐"가 아니라
+"이것이 스키마냐 데이터냐"로 묻는다.**
+
+### §1.42 네 시스템의 경계를 어휘로 고정한다
+
+윤슬 사업과 CatchMenu 가 상존하므로 대화·문서에서 층위가 섞인다.
+**아래 네 어휘로 고정한다.**
+
+| 약칭 | 대상 | 책임 |
+|---|---|---|
+| `CM-PLAT` | CatchMenu 플랫폼 | tenant / store / auth / role / scope / 외부연동 registry |
+| `YS-OS` | 윤슬김밥 운영 시스템 | membership / preference / inventory / recipe / KDS Core |
+| `TOSS-TX` | Toss 거래 시스템 | POS / Kiosk / Payment / PG / 영수증 |
+| `SC-EXEC` | Smartcast 실행 시스템 | KDS / DID / CMS 화면 |
+
+**핵심 원칙**
+
+```text
+초개인화 원본 = YS-OS
+결제 Authority = TOSS-TX
+KDS/DID 실행  = SC-EXEC
+SaaS 구조     = CM-PLAT
+```
+
+**운영 채널의 진입 경로**
+
+점주·직원·본사 사용자는 **CM-PLAT 을 거쳐** YS-OS 에 도달한다.
+로그인 시 tenant / store / role 판정이 선행되기 때문이다.
+
+> ⚠️ **`TOSS-TX` 가 `SC-EXEC` 로 직접 전달하지 않는다.**
+>
+> ```text
+> TOSS-TX → YS-OS → SC-EXEC
+> ```
+>
+> 같은 옵션이라도 의미가 다르기 때문이다.
+>
+> ```text
+> TOSS-TX 에서   "단무지 제외" = 주문 옵션
+> YS-OS 에서     = customer preference + recipe delta + inventory delta
+>                  + cost delta + kitchen instruction
+> ```
+>
+> 직결하면 YS-OS 가 사후에 매출만 읽는 통계 프로그램이 된다.
+
+### §1.43 외부 시스템 연결은 CM-PLAT 의 tenant/store 경계에 귀속된다
+
+외부 provider 의 credential 과 merchant/store mapping 은
+**플랫폼 구조의 일부**이며 §1.40 의 뼈대에 포함된다.
+
+**provider 는 두 종류이며 성격이 다르다.**
+
+| 구분 | 예 | 다루는 것 |
+|---|---|---|
+| 거래 provider | `TOSS-TX` | 주문·결제·정산 |
+| 실행 provider | `SC-EXEC` | KDS·DID 화면 |
+
+**연결은 tenant/store 단위로 귀속된다.**
+
+```text
+Store
+ ├─ tenant_id
+ ├─ merchant_account_id
+ ├─ legal_entity_id (시점 관계 — §1.34)
+ └─ 외부 provider 연결
+      ├─ 거래 provider  : external merchant id
+      └─ 실행 provider  : external store code
+```
+
+**의미 ID 는 CatchMenu/YS-OS 가 canonical 이며 외부 코드는 매핑 대상이다.**
+
+```text
+YS-OS 의 의미 ID        canonical
+   ↕
+거래 provider 옵션 코드   매핑
+   ↕
+실행 provider modifier   매핑
+```
+
+provider 를 교체해도 canonical 의미 ID 는 바뀌지 않는다. 매핑만 추가한다.
+
+**014630 매트릭스**(2026-06)가 Toss Place 를 **P1**(공식 API/plugin/webhook 경로
+우선 검증 대상)으로, OKPOS·KIS OKPOS·KICC EasyPos 를 **P0**(반드시 이해하되
+즉시 통합을 전제하지 않음)으로 분류했다.
+
+**014050 §17** Phase 1 포함 규칙에 `provider adapter minimum for Toss` 가 이미 있다.
+
+> ⚠️ **실행 provider 는 `014050`/`014630` 조사 범위에 없다.**
+> 두 문서는 POS/VAN/PG 거래 provider 를 대상으로 한다.
+> 실행 provider 의 우선순위·개방성·리스크는 **별도 조사가 필요**하다.
+
+**물리 구조·테이블명·필드는 2단계 ERD 및 ChangeContract 에서 정한다.**
+
 ## §2 이번 나선에서 정하지 않는 것
 
 ### §2.1 과금과 운영권한의 관계
@@ -1101,6 +1260,11 @@ legal_entity_person_roles.ownership_percent  →  제거
 | Tenant 이전 절차·데이터 처리·권한 승계 | §1.36 — 두 사건이 다르다는 것만 확정 |
 | **Finding-1**: `contact_email` 평문 vs `contact_phone_hash` 해시 비대칭 | PII 처리 방침이 컬럼마다 다른 근거 불명. 별도 검토 |
 | **Finding-2**: `role_type` `INVESTOR` 가 organizational role 인가 | `OWNER` 는 `601501` §0.6이 조직역할로 설명하나 `INVESTOR` 는 설명 없음. §1.39 적용 후에도 economic 축 혼동 여지 |
+| 외부 provider 연결의 물리 구조 | §1.43 — 경계만 확정. 테이블·필드는 2단계 ERD |
+| 실행 provider(KDS/DID) 개방성 조사 | §1.43 — `014050`/`014630` 은 거래 provider 만 다룸. 별도 조사 필요 |
+| 거래 provider 의 옵션 구조가 구조화 필드인지 메모인지 | 초개인화 주문이 KDS 까지 전달되는지의 전제. 계약 전 확인 대상 |
+| 실행 provider 가 구조화 modifier 를 손실 없이 수신·회신하는지 | 동상 |
+| 외부 provider Kiosk 에서 회원 식별·preference 적용이 가능한지 | 불가하더라도 §1.42 원칙(YS-OS 가 원본)은 유지 |
 
 ### §2.3 미조사 대상
 
@@ -1203,10 +1367,13 @@ Cursor 는 조직·경계·거버넌스 계열을, Codex 는 금융·법무·API
           LegalEntity intake source · operator_type 축 · cross-business link (§1.31~§1.33)
           Store–LegalEntity 시점 관계 · 금전 snapshot · Tenant 이전 구분 (§1.34~§1.36)
           Person 어휘 정규화 · is_active 제거 · ownership_percent 제거 (§1.37~§1.39)
+          SaaS 구조 선행 원칙 · 플랫폼/데이터 판별 기준 (§1.40~§1.41)
+          네 시스템 경계 어휘 · 외부 provider 연결 귀속 (§1.42~§1.43)
 미결:     Session 상세 (0-B 소관, §1.18)
           Scope taxonomy 통합 (§1.20)
           000150 ↔ 010640 franchise_hq_id 충돌 판정 (§2.4)
           000170 §6 / 010640 §4 어휘 정정 (§2.2)
           과금 관계 (§2.1 — 이번 나선에서 정하지 않음)
           Finding-1 PII 처리 비대칭 / Finding-2 INVESTOR role taxonomy (§2.2)
+          실행 provider(KDS/DID) 개방성 조사 (§2.2)
 ```
