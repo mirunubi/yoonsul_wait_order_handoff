@@ -1488,6 +1488,7 @@ role/scope 별 접근 정책과 추가 GRANT 는 **0-C 의 책임**이다(`60171
 | `000170` §4 deferred 권장 필드 | §1.44 — 필요해지는 시점에 근거와 함께 추가 |
 | Tenant provisioning 경로의 MerchantAccount 동시 생성 구현 | §1.45 는 책임 소재만 확정. 구현은 `601710` §3 Out of Scope |
 | `merchant_accounts` 의 application access policy | §1.45 — 0-C 소관. 0-A 는 fail-closed baseline 만 |
+| `stores` 참조 함수 수 불일치 | `601701` D-3 = **151** / `601718`·`601719` = **158**. 차이 +7. 일부는 함수 오버로드 계수 차이로 설명되나 전수 대조는 미완. **C-1 판정에 영향 없음** — INSERT 2건은 두 조사가 일치 |
 
 ### §2.3 미조사 대상
 
