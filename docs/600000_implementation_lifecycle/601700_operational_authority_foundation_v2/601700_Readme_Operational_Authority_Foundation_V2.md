@@ -46,7 +46,7 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 >
 > ```text
 > Stage 5   완료 — Claude Code 재도출
-> Stage 6   OPEN — Round 4 findings 반영 중. Round 5 대기
+> Stage 6   OPEN — Round 5 완료 — Stage 6 findings 5라운드 전건 처분
 > Stage 7   NOT EFFECTIVE — Stage 6 이 전제(`000701` 1258행)
 > Stage 8   MUST NOT START
 > ```
@@ -143,8 +143,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(13판) — 4단계 TestPlan. Stage 6 Round 1~3 findings 반영분. **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건. **Stage 6 OPEN — Round 5 대기** |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(13판) — 4단계 ChangeContract. **§10 Stage 6 = OPEN / Stage 7 = NOT EFFECTIVE / Stage 8 = MUST NOT START**. 2026-08-23 정영석 판단 9건은 Human pre-decision 으로 §10.1~§10.6 에 보존. 항목 1~9 결과 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(14판) — 4단계 TestPlan. Stage 6 Round 1~3 findings 반영분. **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건. **Stage 6 OPEN — Round 5 대기** |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(14판) — 4단계 ChangeContract. **§10 Stage 6 = OPEN / Stage 7 = NOT EFFECTIVE / Stage 8 = MUST NOT START**. 2026-08-23 정영석 판단 9건은 Human pre-decision 으로 §10.1~§10.6 에 보존. 항목 1~9 결과 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
