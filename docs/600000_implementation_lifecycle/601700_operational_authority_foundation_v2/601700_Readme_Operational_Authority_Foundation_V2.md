@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Readme
-Last Updated: 2026-08-10
+Last Updated: 2026-08-23
 
 ## §1 Purpose
 
@@ -40,7 +40,25 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 [6단계] 나선 종료 판정        — Human
 ```
 
-**현재 위치 (2026-08-13)**
+**현재 위치 (2026-08-23)**
+
+> ⚠️ **Stage 상태 (2026-08-23)**
+>
+> ```text
+> Stage 5   완료 — Claude Code 재도출
+> Stage 6   OPEN — Round 4 findings 반영 중. Round 5 대기
+> Stage 7   NOT EFFECTIVE — Stage 6 이 전제(`000701` 1258행)
+> Stage 8   MUST NOT START
+> ```
+>
+> **Human pre-decision 9건은 보존된다**(`601717` §10.1).
+> 재승인 시 그대로 승계하며 다시 논쟁하지 않는다.
+>
+> **그러나 Stage 6 이 완료되지 않았으므로 Stage 7 승인 효력은 아직 없다.**
+> **Codex 구현은 금지된다.**
+>
+> 상세는 `601717` §10 무효화 배너를 따른다.
+> 이 Readme 와 `601717` §10 이 어긋나면 **`601717` 이 우선한다.**
 
 | 단계 | 상태 | 산출물 |
 |---|---|---|
@@ -49,9 +67,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 2단계 ERD | ✅ 완료 | `601705` — Active, 4단계 진입 기준선 |
 | 3단계 인접 도메인 대조 | ✅ 완료 | `601706`(Cursor) / `601707`(Codex) — Blocker 8건 전건 반영 |
 | 4단계 설계문서 정합화 | 산출물 4종 작성 완료 (Draft) | `601710` Overview / `601713` Logic (Claude Code) · `601716` TestPlan / `601717` ChangeContract (Claude, 저자 분리) |
-| Stage 6 계약 검증 | 완료 | 원작자 제외 — Claude Code(Overview/Logic) · Claude(TestPlan/ChangeContract) 둘 다 검증자에서 제외 |
-| Stage 7 Human Approval | **APPROVED_FOR_IMPLEMENTATION** | 정영석, 2026-08-23. 승인 범위·이월 항목은 `601717` §10.1~§10.6 |
-| 5단계 SQL 구현 | 미착수 — **승인 경계 내 착수 가능** | `0170` / `0171`. Module 자기보고서는 `601722` |
+| Stage 6 계약 검증 | **OPEN — Contract Verification in progress. Round 5 대기** | 원작자 제외 — Claude Code(Overview/Logic) · Claude(TestPlan/ChangeContract) 둘 다 검증자에서 제외 |
+| Stage 7 Human Approval | **NOT EFFECTIVE** | Stage 6 이 전제(`000701` 1258행). 2026-08-23 정영석 판단 9건은 **Human pre-decision 으로 보존**된다 — `601717` §10.1~§10.6 |
+| 5단계 SQL 구현 (Stage 8) | **MUST NOT START** — Stage 6 미완료 · Stage 7 NOT EFFECTIVE | `0170` / `0171`. Module 자기보고서는 `601722` |
 | 6단계 나선 종료 판정 | 미착수 | |
 
 > **3단계 세션 분리 요건**(`000701` §47.1): `601705` 는 Claude Code 가 작성했으므로
@@ -125,8 +143,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(8판) — 4단계 TestPlan. Stage 7 승인 반영 — **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건 |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(8판) — 4단계 ChangeContract. **§10 Stage 7 = `APPROVED_FOR_IMPLEMENTATION`**(정영석, 2026-08-23). 항목 1~9 결과를 §10.1~§10.6 에 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(13판) — 4단계 TestPlan. Stage 6 Round 1~3 findings 반영분. **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건. **Stage 6 OPEN — Round 5 대기** |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(13판) — 4단계 ChangeContract. **§10 Stage 6 = OPEN / Stage 7 = NOT EFFECTIVE / Stage 8 = MUST NOT START**. 2026-08-23 정영석 판단 9건은 Human pre-decision 으로 §10.1~§10.6 에 보존. 항목 1~9 결과 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
