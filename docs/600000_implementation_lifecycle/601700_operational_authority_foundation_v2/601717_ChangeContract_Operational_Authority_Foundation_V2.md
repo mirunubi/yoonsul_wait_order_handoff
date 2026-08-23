@@ -24,6 +24,7 @@ Last Updated: 2026-08-23
 | 2026-08-23 | **11판 — Stage 6 Round 2 findings 반영.** R2-F1~F5 blocking 해소, R2-F6·F7 처분. 검증자 편차 기록(§7.4 Round 2). **Round 3 재검증 필요** |
 | 2026-08-23 | **12판 — Cowork Round 2 검증 반영.** CW-B1~B5 blocking 해소(UNIQUE 형태 3종 통일 · `provision_tenant` 「정상」 서술 철회 병기 · R2-F4 전파 · TP-N-63 ③ 제거 · rollback 기준선 모순 정정), CW-I1~I10 처분. **수정 완결성 grep 절차 적용** — §7.7. **Round 3 재검증 필요** |
 | 2026-08-23 | **13판 — Round 3 findings 반영.** R3-F1(FUNCTION 「유효」 표현 폐기 — catalog 존재/본문 불변 과 runtime executability 분리) · R3-F2(**물리 객체명 5건 exact expectation 확정** — §4.2.2). R3-I1·I2 는 CW 라운드에서 이미 해소. **Round 4 재검증 필요** |
+| 2026-08-23 | **14판 — Round 4 findings 반영** — C4-B1(FK 를 D-14 에 연결) · C4-I1 승격(트리거명 확정, 물리 객체명 6건) · C4-B2(처분 전제 정정). C4-B3 는 Correction A 로 `601700` Readme 에서 처리. **Round 5 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -299,14 +300,49 @@ Stage 6 상태 변경     없음 — 대기 유지
 
 | # | 조작 | 대상 | 근거 |
 |---|---|---|---|
-| D-14 | `CREATE TABLE` | **`catchmenu_hq.merchant_accounts` — §4.1 의 확정 5컬럼 정의 그대로** | §1.44 · §1.45 「배치」 / `601713` I-50 / **Stage 7 확정(2026-08-23)** |
+| D-14 | `CREATE TABLE` | **`catchmenu_hq.merchant_accounts` — §4.1 의 확정 5컬럼 + 명명된 `CONSTRAINT` 2건.** `merchant_accounts_pkey` PK · **`fk_merchant_accounts_tenant_id` FK** 를 `CREATE TABLE` 정의 안에 포함한다 — §1.4.1 | §1.44 · §1.45 「배치」 / `601713` I-50 / Stage 7 확정(2026-08-23) / **C4-B1 처분** |
 | D-15 | `ALTER TABLE … ADD CONSTRAINT … UNIQUE` — **제약 형태로 한정** | `merchant_accounts.tenant_id` 단독. 제약명 `uq_merchant_accounts_tenant` | §1.45 「관계의 물리 표현」 / **`601713` I-49** / **F-1 처분** — `601716` TP-P-29 의 기대(UNIQUE 제약)와 일치시켰다. `CREATE UNIQUE INDEX` 형태는 허용에서 제외한다 |
-| D-16 | `CREATE TRIGGER` | `merchant_accounts` BEFORE UPDATE → `catchmenu_common.set_updated_at()` | §1.44 「수정 시각」 |
+| D-16 | `CREATE TRIGGER` | **트리거명 `trg_merchant_accounts_updated_at`.** `merchant_accounts` BEFORE UPDATE → `catchmenu_common.set_updated_at()` — 확정 구문은 §4.2.3 | §1.44 「수정 시각」 / **§4.2.2 확정명 · C4-I1(blocking 승격)** |
 | D-17 | `ALTER TABLE … ENABLE / FORCE ROW LEVEL SECURITY` | `merchant_accounts` | §1.45 fail-closed baseline / **`601713` I-51** |
 | D-18 | `ALTER TABLE … ADD COLUMN` | `stores.merchant_account_id` — **NULL 허용** | §1.26·§1.43 / Overview 대상 4 |
 | D-19 | `ALTER TABLE … ADD CONSTRAINT … FOREIGN KEY` | **제약명 `fk_stores_merchant_account_id`**. `stores.merchant_account_id` → `merchant_accounts(id)`, `ON DELETE/UPDATE NO ACTION` | `fk_stores_legal_entity_id` 와 동일 관행 / **§4.2.2 확정명 (R3-F2)** |
 | D-20 | `CREATE INDEX` | **인덱스명 `idx_stores_merchant_account_id`**. `stores.merchant_account_id` 조회 인덱스 | `idx_stores_legal_entity_id` 와 동일 관행 / **§4.2.2 확정명 (R3-F2)** |
 | D-21 | `COMMENT ON TABLE / COLUMN` | **exact literal 3건 확정 — §4.2.1 참조.** `merchant_accounts` / `merchant_accounts.tenant_id` / `stores.merchant_account_id` | 어휘 정합 / **F-2 · R2-F2 처분** — `601716` TP-P-38 이 문자열 동일을 검사 |
+
+#### §1.4.1 D-14 확정 형태 — PK · FK 는 `CREATE TABLE` 안에서 만든다 (C4-B1, 2026-08-23)
+
+**`CREATE TABLE` 정의 안에서 반드시 아래를 포함한다.**
+
+```text
+  CONSTRAINT merchant_accounts_pkey PRIMARY KEY (id)
+  CONSTRAINT fk_merchant_accounts_tenant_id
+    FOREIGN KEY (tenant_id)
+    REFERENCES catchmenu_hq.tenants(id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+```
+
+**책임 배분**
+
+```text
+D-14   PK + Tenant FK 생성      CREATE TABLE 안의 명명된 CONSTRAINT
+D-15   Tenant UNIQUE 생성       ALTER TABLE … ADD CONSTRAINT
+D-16   trigger 생성             CREATE TRIGGER
+D-19   stores 측 FK 생성        ALTER TABLE … ADD CONSTRAINT
+D-20   stores 측 index 생성     CREATE INDEX
+```
+
+> ⚠️ **CW-B1 처분과 충돌하지 않는다.**
+>
+> CW-B1 이 배제한 것은 **제약명이 자동 생성되는 인라인 형태**다.
+> `CONSTRAINT <name> …` 은 `CREATE TABLE` 안에 있어도 **명명된 제약**이므로
+> §4.2.2 exact expectation 을 만족한다.
+> **`tenant_id` 의 UNIQUE 는 D-15 에 그대로 남는다** — 형태 통일(R2-F1)은 유지된다.
+
+> ⚠️ **왜 D 번호를 늘리지 않는가**
+>
+> FK 를 별도 D 항목으로 만들면 §1.6 `ADD CONSTRAINT` 한정 목록과
+> §4.2.2 귀속 표를 다시 갈라야 한다. **한 객체를 만드는 조작은 한 D 항목에 둔다.**
 
 ### §1.5 Deferred Enforcement — 이번 계약이 수행하지 않는 강제
 
@@ -343,6 +379,8 @@ DDL 허용   ALTER TABLE … RENAME TO / RENAME COLUMN / RENAME CONSTRAINT
            ALTER TABLE … DROP COLUMN / DROP CONSTRAINT      (D-10 · D-11 · D-12 한정)
            ALTER TABLE … ADD COLUMN                         (D-18 한정)
            ALTER TABLE … ADD CONSTRAINT                     (D-15 · D-19 한정)
+           CREATE TABLE … CONSTRAINT <name> PRIMARY KEY / FOREIGN KEY
+                                                            (D-14 한정 — §1.4.1)
            ALTER TABLE … ENABLE / FORCE ROW LEVEL SECURITY  (D-17 한정)
            ALTER TRIGGER … RENAME TO                        (D-5 한정)
            ALTER INDEX … RENAME TO
@@ -469,7 +507,7 @@ MerchantAccount    Tenant 로부터 파생, 외부 검증 불요        →  bac
 > Stage 7 승인 항목 4번이 처리됐다 — §10.
 
 ```text
-catchmenu_hq.merchant_accounts        ← 목표 컬럼 상태 (DDL 형태는 D-14·D-15·D-19)
+catchmenu_hq.merchant_accounts        ← 목표 상태 (DDL 형태는 D-14·D-15. stores 측은 D-18~D-20)
 
   id                     uuid NOT NULL DEFAULT gen_random_uuid()  PRIMARY KEY
   tenant_id              uuid NOT NULL
@@ -479,7 +517,7 @@ catchmenu_hq.merchant_accounts        ← 목표 컬럼 상태 (DDL 형태는 D-
 
   merchant_accounts_pkey          PRIMARY KEY (id)             ← D-14
   uq_merchant_accounts_tenant     UNIQUE (tenant_id)           ← D-15  ADD CONSTRAINT
-  fk_merchant_accounts_tenant_id  FOREIGN KEY (tenant_id)      ← §4.2 1a
+  fk_merchant_accounts_tenant_id  FOREIGN KEY (tenant_id)      ← D-14  §1.4.1
                                   → catchmenu_hq.tenants(id)
                                   ON DELETE NO ACTION / ON UPDATE NO ACTION
 ```
@@ -494,14 +532,18 @@ catchmenu_hq.merchant_accounts        ← 목표 컬럼 상태 (DDL 형태는 D-
 > 채택   ALTER TABLE … ADD CONSTRAINT uq_merchant_accounts_tenant UNIQUE (tenant_id)
 > ```
 >
-> **D-14 는 5컬럼 테이블만 만든다.** UNIQUE 는 D-15, FK 는 §4.2 1a·D-19 가 만든다.
+> **D-14 는 5컬럼 + 명명된 PK·FK 제약을 만든다**(§1.4.1 — C4-B1 정정).
+> **UNIQUE 는 D-15 가** 별도 `ALTER TABLE … ADD CONSTRAINT` 로 만든다.
+>
+> **12판까지 이 자리는 `merchant_accounts` FK 의 근거를 D-19 로 적었다.**
+> **D-19 는 `stores` 측 FK(`fk_stores_merchant_account_id`)이며 이 FK 를 만들지 않는다** — C4-B1.
 
 **총 5컬럼.** `601716` TP-N-21 이 컬럼 수 일치를 검사한다.
 
 | 선언 항목(`601702` §1.44) | 확정 컬럼 | 근거 |
 |---|---|---|
 | 식별자 (PK) | `id` | `tenants.id`/`stores.id`/`legal_entities.id` 동일 형태(`601701` E단계) |
-| Tenant 참조 | `tenant_id` — `NOT NULL` 컬럼 + **명명 제약** `uq_merchant_accounts_tenant UNIQUE (tenant_id)`(D-15) + FK | **§1.45 가 이름·NOT NULL·UNIQUE 를 직접 명시** / `601713` I-49 / **CW-B1 처분 — 인라인 UNIQUE 형태는 배제** |
+| Tenant 참조 | `tenant_id` — `NOT NULL` 컬럼 + **명명 제약** `uq_merchant_accounts_tenant UNIQUE (tenant_id)`(D-15) + **명명 FK** `fk_merchant_accounts_tenant_id`(**D-14 · §1.4.1**) | **§1.45 가 이름·NOT NULL·UNIQUE 를 직접 명시** / `601713` I-49 / **CW-B1 처분 — 인라인 UNIQUE 형태는 배제** / **C4-B1 — FK 귀속을 D-19 에서 D-14 로 정정** |
 | 계정 명칭 | **`merchant_account_name`** | `tenants.tenant_name` / `stores.store_name` / `persons.person_name` 관례 |
 | 생성·수정 시각 | `created_at` / `updated_at` | 네 테이블 전부 동일 형태 |
 
@@ -543,8 +585,8 @@ store_id
 | # | 객체 | 정의 | 근거 |
 |---|---|---|---|
 | 1 | `uq_merchant_accounts_tenant` | `ALTER TABLE … ADD CONSTRAINT uq_merchant_accounts_tenant UNIQUE (tenant_id)` — **제약 형태만 허용**(R2-F1) | §1.45 「이것만으로 1:1 이 강제된다」 / **`601713` I-49** / D-15 |
-| 1a | `merchant_accounts.tenant_id` FK — **제약명 `fk_merchant_accounts_tenant_id`** | → `catchmenu_hq.tenants(id)`, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** | §4.1 Stage 7 확정 / `601713` I-3 관행 / **§4.2.2 확정명 (R3-F2)** |
-| 2 | `trg_merchant_accounts_updated_at` | `BEFORE UPDATE … EXECUTE FUNCTION catchmenu_common.set_updated_at()` | §1.44 |
+| 1a | `merchant_accounts.tenant_id` FK — **제약명 `fk_merchant_accounts_tenant_id`** | → `catchmenu_hq.tenants(id)`, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`**. **생성 조작은 D-14**(§1.4.1) | §4.1 Stage 7 확정 / `601713` I-3 관행 / §4.2.2 확정명 (R3-F2) / **C4-B1** |
+| 2 | `trg_merchant_accounts_updated_at` | **§4.2.3 확정 구문.** `BEFORE UPDATE … EXECUTE FUNCTION catchmenu_common.set_updated_at()`. 생성 조작은 D-16 | §1.44 / **§4.2.2 확정명 · C4-I1** |
 | 3 | RLS | `ENABLE` + `FORCE`, POLICY 0건 | §1.45 fail-closed baseline / **`601713` I-51** |
 | 4 | GRANT | `catchmenu_authority_owner` 외 확대 금지 | 동일 |
 
@@ -576,15 +618,19 @@ COMMENT ON TABLE catchmenu_hq.persons IS
 
 #### §4.2.2 확정 물리 객체명 (R3-F2, 2026-08-23 Human 결정)
 
-**아래 5개가 이 계약이 만드는 물리 객체명 전부다.** exact expectation 이며 구현자가 선택하지 않는다.
+**아래 6개가 이 계약이 만드는 물리 객체명 전부다.** exact expectation 이며 구현자가 선택하지 않는다.
 
 ```text
-merchant_accounts_pkey            PK            (D-14)
+merchant_accounts_pkey            PK            (D-14  §1.4.1)
 uq_merchant_accounts_tenant       UNIQUE        (D-15)
-fk_merchant_accounts_tenant_id    FK            (§4.2 1a)
+fk_merchant_accounts_tenant_id    FK            (D-14  §1.4.1)
+trg_merchant_accounts_updated_at  TRIGGER       (D-16)
 fk_stores_merchant_account_id     FK            (D-19)
 idx_stores_merchant_account_id    INDEX         (D-20)
 ```
+
+> **13판까지 5개였다.** C4-B1 이 FK 귀속을 `§4.2 1a` → `D-14` 로 정정했고,
+> **C4-I1(blocking 승격)이 `trg_merchant_accounts_updated_at` 을 추가**했다 — 6개다.
 
 **명명 근거**
 
@@ -593,6 +639,7 @@ idx_stores_merchant_account_id    INDEX         (D-20)
 | PK | `<table>_pkey` | PostgreSQL deterministic 기본형. `owners_pkey` → `persons_pkey` 계보 유지 |
 | UNIQUE | `uq_<table>_<의미>` | `uq_lepr_active` / `uq_ler_sole_active` 관례 — constraint 의 업무 의미를 담는다 |
 | FK · index | `<접두>_<table>_<column>` | 기존 `fk_stores_legal_entity_id` / `idx_stores_legal_entity_id` 관례 |
+| TRIGGER | `trg_<table>_updated_at` | `trg_owners_updated_at` → `trg_persons_updated_at`(D-5) · `trg_stores_updated_at` 관례 |
 
 > ⚠️ **FK 와 index 에 `_id` 를 붙이는 이유**
 >
@@ -606,7 +653,34 @@ idx_stores_merchant_account_id    INDEX         (D-20)
 > ⚠️ **R3-F2 가 지적한 것은 자동 생성명과 명시명이 모두 계약을 만족한다는 점이다.**
 > `ALTER TABLE … ADD CONSTRAINT` 에 이름을 주지 않으면 PostgreSQL 이
 > `merchant_accounts_tenant_id_key` 류를 자동 생성하고, 그것도 「UNIQUE 제약 존재」를 만족한다.
-> **구현자가 선택하게 두지 않는다** — `601716` TP-P-26·27·29·34~36 이 위 이름을 정확히 기대한다.
+> **구현자가 선택하게 두지 않는다** — `601716` TP-P-26·27·29·32·34~36 이 위 이름을 정확히 기대한다.
+>
+> ⚠️ **`merchant_accounts_pkey` 는 이 문장의 예외다**(C4-I4 처분, 2026-08-23).
+> PK 는 PostgreSQL 이 `<table>_pkey` 로 **결정적으로** 만들며, 위 명명 근거 표도 그렇게 적는다.
+> **이 한 건은 「자동 생성명이면 FAIL」이 아니라 「이 문자열과 일치하면 PASS」다.**
+> 나머지 5건은 이름을 명시하지 않으면 다른 문자열이 나오므로 FAIL 이다.
+
+
+#### §4.2.3 확정 TRIGGER 구문 (C4-I1, 2026-08-23)
+
+**D-16 의 허용 구문은 아래 하나다.**
+
+```text
+CREATE TRIGGER trg_merchant_accounts_updated_at
+BEFORE UPDATE ON catchmenu_hq.merchant_accounts
+FOR EACH ROW EXECUTE FUNCTION catchmenu_common.set_updated_at()
+```
+
+> ⚠️ **트리거는 자동 생성명이 없다.**
+>
+> PK 는 `<table>_pkey` 로 결정적이지만, **`CREATE TRIGGER` 는 이름이 필수 인자**다.
+> 즉 **구현자가 반드시 이름을 고르게 되는 유일한 객체**이며,
+> 13판 §4.2.2 가 「물리 객체명 **전부**」라고 적고도 이것을 빠뜨렸다 — C4-I1.
+>
+> `601716` **TP-P-32** 가 이름과 호출 함수를 함께 exact 로 검사한다.
+
+> **`catchmenu_common.set_updated_at()` 함수명은 바뀌지 않는다** —
+> `601702` §1.37 보강이 generic technical identifier 로 명시 제외했고 FO-16 이 금지한다.
 
 ### §4.3 확정 — 스키마 배치
 
@@ -777,6 +851,24 @@ tenants INSERT 가 첫 단계이므로 stores INSERT 에 도달하지 못한다
 >        DINE_IN / TAKEOUT / HYBRID / DELIVERY_ONLY
 > ```
 >
+> ⚠️ **위는 필요조건이며 충분조건이 아니다** (C4-I6 처분, 2026-08-23).
+>
+> N-6″·N-8″ 를 정합화해도 **호출 경로를 통한 검증은 여전히 불가능하다.**
+>
+> ```text
+> provision_tenant 의 in-DB 직접 호출자   1개 = onboard_tenant   (601725 §7.1 / 601726 §7.3)
+> 앱·테스트 코드 직접 호출자              0개                     (601725 §7.4 / 601726 §7.2)
+> onboard_tenant 의 상태                  N-7″ — business_number phantom + 인자명 불일치
+> ```
+>
+> **유일한 in-DB 호출 경로가 N-7″ 로 막혀 있다.**
+> 후속 RPC alignment 나선이 **「경로 검증」과 「직접 호출 검증」을 구분하지 않으면
+> H-1 완료 판정이 흔들린다** — `authenticated` EXECUTE 를 통한 직접 호출 검증만 가능하다.
+>
+> **이 계약은 N-7″ 를 H-1 의 Prerequisite 으로 승격하지 않는다.**
+> N-7″ 는 §7.3 에 기록되어 있고 H-1 은 후속 나선 소관이며,
+> 승격은 후속 나선의 범위 결정이다.
+>
 > **phantom 3건만 고치면 다음 단계에서 다시 막힌다**(R2-F4).
 > 두 지점이 모두 정합화되기 전에는 H-1 의 MerchantAccount 동시 생성을 검증할 방법이 없다.
 >
@@ -878,7 +970,7 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 | X-7 | `601702_Register_Stage1_Business_Rules.md` | Human 전담. AI 수정 불가 |
 | X-8 | `601705_…ERD.md` · `601710_Overview_…V2.md` · `601713_Logic_…V2.md` | 개정은 Stage 3/4 경로로만 |
 | X-9 | `601716_…TestPlan.md` · `601717_…ChangeContract.md` | 개정은 Stage 6/7 경로로만 |
-| X-10 | `601701` · `601703`~`601709` · `601711`·`601712` · `601714`·`601715` · **`601718`·`601719`** | Evidence / Register / Audit — 사후 수정 시 기준선 소멸 |
+| X-10 | `601701` · `601703`~`601709` · `601711`·`601712` · `601714`·`601715` · `601718`·`601719` · **`601720`·`601721`** · **`601723`~`601735`** | Evidence / Register / Audit — 사후 수정 시 기준선 소멸. **C4-I5 처분 — `601720`/`601721`(환경 drift 게이트 근거) · `601725`/`601726`(C-1 사유 교체 근거) · Stage 6 검증 보고서 전건을 편입** |
 | X-11 | `docs/000001_Md_Rules.md` · `docs/000701_…Pipeline.md` | 거버넌스 문서 |
 | X-12 | `docs/…/600020_…Authority_Reset.md` | 권위 판정 전문 |
 | X-13 | `docs/…/601500_operational_authority_foundation/**` | 권위보류 대역 |
@@ -1183,11 +1275,60 @@ Codex  (B1~B7)   발견 5 / blocking 2
 | **CW-I9** | 폐기 행이 활성 시험 표 안에 잔존 | **유지.** 삭제 금지(기록 보존)와 충돌한다. 폐기 행은 `~~취소선~~` + **폐기** 표기로 구분되며 §13 Acceptance Criteria 가 폐기 행을 요구하지 않는다. **신규 조치 없음** |
 | **CW-I10** | `CREATE INDEX` 가 `CREATE UNIQUE INDEX` 를 배제하는지 불명 / 추가 인덱스 negative 부재 | **채택.** §1.6 에 **배제를 명시**하고 `601716` 에 **TP-N-65**(선언되지 않은 추가 인덱스 미생성) 신설 |
 
-> ⚠️ **CW-I5 의 잔여분은 절차 문제이지 계약 문제가 아니다.**
+> ⚠️ ~~**CW-I5 의 잔여분은 절차 문제이지 계약 문제가 아니다.**
 > Round 2 Cursor·Codex 보고서가 `tools/` 아래 임시 파일로만 존재하고
 > `601723`/`601724` 처럼 워크패킷 문서로 보존되지 않았다.
 > **이 계약은 `tools/**` 를 X-18 로 금지 대역에 두었으므로 그것을 근거 문서로 인용할 수 없다.**
-> Round 3 검증 보고서는 `docs/` 대역 워크패킷 번호로 보존해야 한다.
+> Round 3 검증 보고서는 `docs/` 대역 워크패킷 번호로 보존해야 한다.~~
+
+> 🛑 **정정 (2026-08-23, C4-B2)**
+>
+> ```text
+> Round 2 verification artifacts 는 이 처분이 기록되기 전에
+> docs/ 대역에 보존되고 3종 색인에 등록되어 있었다 — 601727~601730.
+> "보존되지 않아 기록 불가" 라는 종전 서술은 사실과 다르다.
+>
+> 원인
+>   현재 색인 상태를 다시 확인하지 않고 stale context 로 처분을 기록했다.
+> ```
+>
+> **종전 서술은 삭제하지 않고 취소선으로 보존한다.**
+>
+> | 시각 | 사건 |
+> |---|---|
+> | 08:55 | `601727`(Cursor) · `601728`(Codex) · `601729`(Antigravity) 생성 |
+> | 09:15~09:16 | `601730`(Cowork) · `601731`·`601732`(Round 3) 생성. **Readme §8 · `000005` · `000007` 3종 색인 등록 완료** |
+> | 09:39 / 09:41 | `601717` / `601716` **13판 기록** — 위 사실을 확인하지 않았다 |
+>
+> 근거: `601700` Readme §8 File List L156-159 · `601735` §4.2.
+
+> ⚠️ **이 유형을 기록으로 남긴다.**
+>
+> **문서가 없어서 판단하지 못한 것이 아니라,
+> 문서는 있었는데 최신 상태를 다시 보지 않고 「없다」고 판단했다.**
+>
+> ```text
+> N-2″ · N-4″ · N-6″ · CW-B2   catalog 존재 ≠ 호출 가능      을 섞은 결과
+> CW-I5 잔여분                  기록 부재 ≠ 확인 부재         를 섞은 결과
+> ```
+>
+> **수정 완결성 절차(전수 grep)가 문서 내부를 대상으로 하듯,
+> 처분의 사실 전제도 기록 시점에 다시 확인해야 한다.**
+
+#### §7.7.1 Round 2 Cursor 발견 5건 처분 (C4-B2, 2026-08-23)
+
+**`601727` Findings 표를 근거로 이제 기록한다.** 전건 non-blocking 이었다.
+
+| # | 유형 | 지점 | 내용 | 처분 |
+|---|---|---|---|---|
+| **R2C-1** | document conflict | `601717` §4.4.1 · §0.1.2 | §4.4.1.2·N-6″ 가 `provision_tenant` 실행 불가로 갱신했으나 **구 표는 「정상/호출 가능」 유지** | **해소됨 (12판, CW-B2).** 같은 잔존을 4지점에서 취소선 처리 |
+| **R2C-2** | document conflict | `601716` §0.1 | `provision_tenant` 「phantom 없음 · 정상」이 `601725`·N-6″·§5.9 와 불일치 | **해소됨 (12판, CW-B2).** §0.1 요약 갱신 |
+| **R2C-3** | missing test | `601716` AC-6 / `601717` §8.2 V-13 | TP-RT-03 폐기 후 대체 TP-N-62~64 가 AC-6·V-13 에 **명시되지 않음** | **채택.** `601716` AC-6 · 본 계약 §8.2 V-13 에 **TP-N-62~64 를 명시**한다 — 아래 병행 조치 |
+| **R2C-4** | missing test | `601716` §4 | I-18~I-32 등 운영·정책 불변조건에 **명시 Test ID 없음** | **유지.** 이 계약의 검증 범위는 schema·backfill 이며, I-18~I-32 는 관계·격리 원칙으로 물리 검사 대상이 아니다. `601716` §12.5 가 이미 커버 범위를 한정한다. **신규 조치 없음** |
+| **R2C-5** | document conflict | `601716` §10 | TP-RT-03 폐기 후에도 「성공해야 한다」 종전 서술 보존 | **유지.** 폐기 행에 `~~취소선~~` + 폐기 사유가 있고 기록 보존 원칙과 충돌한다. **CW-I9 와 동일 처분** |
+
+> **R2-F1~F5(blocking)의 보고자는 Codex(`601728`)다.** CW-I5 처분의 그 부분은 유효하다.
+> **R2-F6·F7 귀속도 `601728` 로 확인된다** — 「기록할 수 없다」는 전제가 거짓이었으므로 함께 정정한다.
 
 ### §7.8 Round 3 findings 처분 (2026-08-23)
 
@@ -1226,6 +1367,66 @@ Codex  (B1~B7)   발견 5 / blocking 2
 | **R3-I3** | 운영·정책 축 불변조건에 명시 Test ID 없음 | **유지.** `601716` §12.5 가 이미 범위 한정 사유를 기록한다 — §14·§0.2 가 schema/backfill 로 범위를 한정했고 FO/negative 가 우회 구현을 막는다. **신규 조치 없음** |
 | **Cursor A3 · A7 (4건)** | informational | **전건 유지 판정.** A3·A7 은 허용 범위·Stage 게이트 정합성을 확인한 항목이며 blocking 이 아니다. 지적된 내용은 §7.5~§7.7 의 기존 처분과 중복되거나 범위 한정으로 이미 설명된다. **신규 조치 없음** |
 
+### §7.9 Round 4 findings 처분 (2026-08-23)
+
+**대상 판본**: `601716` / `601717` **13판**. 세 검증자 전원이 같은 판본을 읽었다 — Round 3 의 판본 시차가 재발하지 않았다.
+
+**Blocking 3건**
+
+| # | Rule | 지점 | 처분 | 정합화한 전 지점 |
+|---|---|---|---|---|
+| **C4-B1** | Rule 1 — 계약대로 한 구현이 FAIL 할 수 있다 | `fk_merchant_accounts_tenant_id` 는 이름만 확정되고 **어떤 허용 DDL 도 이 객체를 만들지 않는다.** §1.6 `ADD CONSTRAINT` 는 D-15·D-19 한정, §4.2 1a 는 D 항목이 아니다 | **채택.** **D 번호를 늘리지 않고 D-14 안에 명시** — `CREATE TABLE` 정의에 명명된 `merchant_accounts_pkey` PK 와 `fk_merchant_accounts_tenant_id` FK 를 포함(**§1.4.1 신설**) | §1.4 D-14 · **§1.4.1** · §1.6 · §4.1 정의 블록 · §4.1 CW-B1 주석 · §4.1 매핑표 · §4.2 1a · §4.2.2 / `601716` TP-P-27 · §4.3 |
+| **C4-B2** | 전제 확인 | CW-I5 잔여분 처분의 전제(「보고서가 보존되지 않아 기록 불가」)가 **13판 기록 시점에 이미 거짓**이었다 | **채택.** 종전 서술을 **삭제하지 않고 취소선 + 정정 병기.** **§7.7.1 신설** — Round 2 Cursor 5건(R2C-1~R2C-5)을 `601727` 근거로 처분 | §7.7 CW-I5 주석 · **§7.7.1** · §8.2 V-13 / `601716` AC-6 |
+| **C4-I1** | Rule 3 — **blocking 승격** | `CREATE TRIGGER` 는 이름이 필수 인자다. §4.2.2 「물리 객체명 **전부**」가 트리거명을 빠뜨렸고 TP-P-32 가 이름을 검사하지 않았다 | **채택.** D-16 을 확정 구문으로 좁히고(**§4.2.3 신설**) **§4.2.2 를 6개로 확장** | §1.4 D-16 · §4.2 #2 · §4.2.2 · **§4.2.3** / `601716` TP-P-32 · §4.3 |
+
+**C4-B3 는 이 계약의 대상이 아니다.** `601700` Readme 의 authority state 충돌이며 **Correction A 로 처리됐다.**
+
+**Informational — 전건 처분**
+
+| # | 내용 | 처분 |
+|---|---|---|
+| **C4-I2** | R3-F1 이 스스로 지시한 「두 개념을 쓰는 다른 Test 에도 같은 분리를 적용한다」가 §10 Runtime Behavior Tests 에 미이행 | **채택.** `601716` TP-RT-01·02·04·05 에 **「전후 비교」임을 문면에 명기**하고 절 하단에 분리 원칙 주석 추가. 검증 방법도 「실행이 아니라 catalog·정의 대조」로 명시 |
+| **C4-I3** | CW-I3 정정이 TP-RT-08 행에만 반영되고 같은 절 하단 주석에 무표기 잔존 | **채택.** `601716` 해당 문장에 **취소선 + 철회 표기.** 판별은 TP-N-40·TP-N-42(정적 검사) 소관임을 병기. **삭제하지 않는다** |
+| **C4-I4** | 「자동 생성명은 FAIL」이 `merchant_accounts_pkey` 에는 성립하지 않는다 | **채택.** §4.2.2 주석과 `601716` §4.3 주석에 **PK 예외를 병기** — 「자동 생성명이면 FAIL」이 아니라 「이 문자열과 일치하면 PASS」 |
+| **C4-I5** | §5.2 X-10 · §11 근거 목록이 `601720`·`601721`·`601723`~`601732` 를 담지 않는다 | **채택.** X-10 에 `601720`·`601721`·**`601723`~`601735`** 편입. §11 에 Round 1~4 검증 보고서와 `601725`/`601726` 추가. `601716` TP-B-07 동일 확장 |
+| **C4-I6** | §4.4.3 Prerequisite 은 필요조건만 진술 — N-7″ 가 열린 채로는 유일한 in-DB 호출 경로가 막혀 있다 | **채택(기록).** Prerequisite 아래에 **필요조건임을 명시**하고 호출 경로 사실을 병기. **N-7″ 를 Prerequisite 으로 승격하지 않는다** — 범위 결정은 후속 나선 소관 |
+| **C4-I7** | `601733`·`601734` 미존재(보고 시점) / `601735` 3종 색인 미등록 | **해소됨 (2026-08-23).** 세 보고서 모두 `docs/` 대역에 존재하며 3종 색인 등록 완료 — 이 계약은 §11 · X-10 으로 근거·금지 목록에 편입했다 |
+
+> ⚠️ **C4-I6 은 Cowork 자신의 정정이다.**
+> `601730` §3 V13 에서 같은 Prerequisite 을 **충분조건 미달**로 읽었던 것을
+> **과했다고 스스로 낮춰 informational 로 재분류**했다(`601735` §5.6).
+> **검증자가 자기 이전 판정을 낮춘 기록**이며, 이 계약은 그 사실을 그대로 보존한다.
+
+### §7.4.1 Stage 6 Verifier Divergence Observation (Round 4 시점)
+
+```text
+Round 2   Cursor blocking 0 / Codex blocking 5 / Cowork blocking 5
+Round 3   Cursor blocking 0 / Codex blocking 2
+Round 4   Cursor blocking 0 / Codex blocking 0 / Cowork blocking 3
+```
+
+**관찰된 패턴**
+
+```text
+Cursor   broad boundary / scope 검토에서 finding 을 냈으나
+         blocking 으로 승격한 사례가 없었다
+
+Codex    TestPlan ↔ ChangeContract 내부 실행 정합성,
+         허용/금지 조작의 교차모순을 반복적으로 발견했다
+
+Cowork   계약 두 문서 내부뿐 아니라 Readme 같은 인접 authority surface 와
+         이전 finding disposition 의 사실 전제까지 확장해 재검증하면서
+         별도 blocking findings 를 발견했다
+```
+
+> ⚠️ **이것은 관찰이며 항구적 능력 순위가 아니다.**
+>
+> **어떤 검증자도 이 워크패킷만으로 제거되지 않는다.**
+> 결과는 향후 verifier prompt 와 method 를 분화하는 데 사용한다(`000701` §38.4).
+>
+> **C4-B3 는 다른 두 검증자가 `601716`/`601717` 만 읽어
+> 볼 수 없었던 결함이다.** 능력 차이가 아니라 **입력 범위의 차이**다.
+
 ## §8 Required Verification
 
 ### §8.1 착수 직전 게이트
@@ -1249,7 +1450,7 @@ Codex  (B1~B7)   발견 5 / blocking 2
 | V-10 | negative 검증 전건 | `601716` §5 |
 | V-11 | backfill 이 선언된 파생인가 — 행 수 일치·고아 0·리터럴 0 | TP-D-01~TP-D-07 |
 | V-12 | **`NOT NULL` 을 선행 강제하지 않았는가** | **TP-N-40 · TP-N-25** |
-| V-13 | **두 INSERT RPC 가 수정되지 않았는가** | **TP-N-50 ~ TP-N-53** |
+| V-13 | **두 INSERT RPC 가 수정되지 않았는가** | **TP-N-50 ~ TP-N-53** · **TP-N-62 ~ TP-N-64**(TP-RT-03 폐기 대체 — R2C-3 처분) |
 | V-14 | External Provider Mapping negative — 특히 TP-X-10 | `601716` §7 |
 | V-15 | `merchant_accounts` 컬럼 수 일치 · LegalEntity 참조 0건 · 순환 참조 없음 | TP-N-21 · TP-N-16 · TP-N-22 |
 | V-16 | fail-closed posture | TP-P-33 · TP-N-11 · TP-N-13 |
@@ -1414,7 +1615,7 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 |---|---|
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
 | Stage 5 (Contract Drafting) | **완료** — Claude Code 재도출 (2026-08-23). 종전 Claude 작성분은 candidate reference |
-| Stage 6 (Contract Verification) | **Round 4 대기** — R3-F1 · R3-F2 반영 완료 |
+| Stage 6 (Contract Verification) | **Round 5 대기** — C4-B1 · C4-B2 · C4-I1 반영 완료 |
 | Stage 7 (Human Approval) | **대기** — 2026-08-23 Stage 7 기록은 Stage 6 미수행으로 무효. §10.1 판단은 pre-decision 으로 보존 |
 | Stage 8 (Implementation, Codex) | **MUST NOT START** — Stage 6 미수행. Stage 7 무효 |
 
@@ -1545,6 +1746,11 @@ PASS 조건        검증 시점에 MerchantAccount 없는 Tenant = 0
 | **`docs/…/601719_Evidence_Stores_Write_Path_Scan_Codex.md`** | **Environment, S-1 ~ S-6** | **본 워크패킷** | **동일(이중, `000701` §35)** |
 | **`docs/…/601720_Evidence_Stage7_Pre_Measurement_Cursor.md`** | **Environment, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **N-2″ 확정 · §4.4.1.1 정밀화 근거** |
 | **`docs/…/601721_Evidence_Stage7_Pre_Measurement_Codex.md`** | **환경, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **동일(이중, `000701` §35)** |
+| **`docs/…/601723_Audit_Stage6_Contract_Verification_Cursor.md`** · **`601724_…_Codex.md`** | Findings 전건 | 본 워크패킷 | Stage 6 Round 1 — §7.6 처분 근거 |
+| **`docs/…/601725_Evidence_Provision_Tenant_Schema_Consistency_Cursor.md`** · **`601726_…_Codex.md`** | §7 · §H | 본 워크패킷 | **C-1 부적격 사유 교체의 직접 근거** |
+| **`docs/…/601727`~`601730` (Round 2: Cursor · Codex · Antigravity · Cowork)** | Findings 전건 | 본 워크패킷 | §7.7 처분 근거. **`601727` 은 §7.7.1 Round 2 Cursor 5건 처분의 근거** |
+| **`docs/…/601731`·`601732` (Round 3: Cursor · Codex)** | Findings 전건 | 본 워크패킷 | §7.8 처분 근거 |
+| **`docs/…/601733`·`601734`·`601735` (Round 4: Cursor · Codex · Cowork)** | Findings 전건 | 본 워크패킷 | **§7.9 처분 근거 (C4-B1 · C4-B2 · C4-I1~I7)** |
 | `docs/…/601716_TestPlan_…V2.md` | 전체 | 본 워크패킷 | 검증 요건의 실체 |
 | `sql/migrations/CHANGELOG.md` | 2026-07-18 항목(phantom 컬럼 사례) · 2026-08-07 항목 · Convention status | 프로젝트 파일 | B-6 · N-2″ |
 | `tools/Check-Governance.ps1` | G15 | 프로젝트 파일 | §10 게이트 실행 주체 |

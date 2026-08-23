@@ -24,6 +24,7 @@ Last Updated: 2026-08-23
 | 2026-08-23 | **11판 — Stage 6 Round 2 findings 반영.** R2-F1(`CREATE UNIQUE INDEX` 잔존 제거) · R2-F2(COMMENT exact literal) · R2-F3(TP-N-63 정적 증거로 재정의) · R2-F5(AC 보강) · R2-F6(Test ID 범위 갱신). **Round 3 재검증 필요** |
 | 2026-08-23 | **12판 — Cowork Round 2 검증 반영.** CW-B1~B5 blocking 해소(UNIQUE 형태 통일 · `provision_tenant` 「정상」 철회 병기 · R2-F4 승계 · TP-N-63 ③ 제거 · TP-RB-03 모순 정정), CW-I1~I10 처분(TP-N-65 신설 · `Last Updated` 갱신 등). **Round 3 재검증 필요** |
 | 2026-08-23 | **13판 — Round 3 findings 반영.** R3-F1(TP-R-14·TP-R-15 「전부 유효」 폐기 — catalog 존재/본문 불변 과 runtime executability 분리, AC-7 정합화) · R3-F2(**물리 객체명 5건 exact expectation** — TP-P-26·27·34·35·36). R3-I1·I2 는 CW 라운드에서 이미 해소. **Round 4 재검증 필요** |
+| 2026-08-23 | **14판 — Round 4 findings 반영** — C4-B1(TP-P-27 을 `constraint_name` exact 로 고정) · C4-I1 승격(TP-P-32 를 트리거명+함수 exact 로 고정, 물리 객체명 6건) · C4-I2(§10 에 회귀/executability 분리 적용) · C4-I3(CW-I3 미전파 주석 철회) · C4-I4(PK 예외 병기) · C4-I5(TP-B-07 확장). **Round 5 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -392,12 +393,12 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 |---|---|---|---|
 | TP-P-25 | `catchmenu_hq.merchant_accounts` 가 BASE TABLE 로 존재 | 1건 | §1.45 「배치」 / **I-50** |
 | TP-P-26 | **`merchant_accounts.id`** 가 `uuid` PK, `NOT NULL`, `DEFAULT gen_random_uuid()` — **PK 제약명이 정확히 `merchant_accounts_pkey`** | 일치 | **`601717` §4.1 Stage 7 확정 / §4.2.2 확정명 (R3-F2)** |
-| TP-P-27 | `merchant_accounts.tenant_id` 가 `uuid` 이며 `catchmenu_hq.tenants(id)` 를 FK 참조, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** — **FK 제약명이 정확히 `fk_merchant_accounts_tenant_id`** | 일치 | §1.45 / **§4.1 확정 / §4.2.2 확정명 (R3-F2)** |
+| TP-P-27 | `merchant_accounts.tenant_id` 가 `uuid` 이며 `catchmenu_hq.tenants(id)` 를 FK 참조, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** — **`constraint_name = fk_merchant_accounts_tenant_id`** | **exact 일치** | §1.45 / §4.1 확정 / §4.2.2 확정명 (R3-F2) / **`601717` D-14 · §1.4.1 (C4-B1)** — 생성 조작이 D-14 임이 명시됐다 |
 | TP-P-28 | `merchant_accounts.tenant_id` 가 `NOT NULL` | 참 | 동일 |
 | TP-P-29 | `merchant_accounts.tenant_id` 에 **`UNIQUE` 제약**(제약명 `uq_merchant_accounts_tenant`) 존재 — **unique index 단독 형태는 FAIL** | 1건 | 동일 — 1:1 강제 / **I-49** / **`601717` D-15 (F-1 처분)** — 계약이 허용 형태를 제약 하나로 좁혔다 |
 | TP-P-30 | **컬럼명이 정확히 `merchant_account_name`** 이고 `text NOT NULL` | 일치 | **§4.1 확정** — `<entity>_name` 관례 |
 | TP-P-31 | `created_at` / `updated_at` 이 `timestamptz NOT NULL DEFAULT now()` | 2건 일치 | **§4.1 확정** |
-| TP-P-32 | `merchant_accounts` 에 `BEFORE UPDATE` 트리거 존재, `set_updated_at()` 호출 | 1건 | §1.44 |
+| TP-P-32 | `merchant_accounts` 의 `BEFORE UPDATE` 트리거 — **`trigger_name = trg_merchant_accounts_updated_at` AND `function = catchmenu_common.set_updated_at()`** | **exact 일치** | §1.44 / **`601717` §4.2.2 확정명 · §4.2.3 확정 구문 (C4-I1 blocking 승격)** |
 | TP-P-33 | `merchant_accounts` RLS 가 `ENABLE` **그리고** `FORCE` | 둘 다 true | §1.45 fail-closed / **I-51** |
 | TP-P-34 | `stores.merchant_account_id` 가 존재하고 `merchant_accounts` 를 FK 참조 — **FK 제약명이 정확히 `fk_stores_merchant_account_id`** | 1건 | §1.26·§1.43 / **§4.2.2 확정명 (R3-F2)** |
 | TP-P-35 | `fk_stores_merchant_account_id` 의 `ON DELETE`/`ON UPDATE` 가 `NO ACTION` | 참 | `fk_stores_legal_entity_id` 관행 / **§4.2.2 확정명 (R3-F2)** |
@@ -422,17 +423,25 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 
 **`stores.merchant_account_id`(TP-P-34)의 타입은 `merchant_accounts.id` 를 따라 `uuid` 다.**
 
-> ⚠️ **물리 객체명 5건도 exact expectation 이다**(`601717` §4.2.2 / R3-F2).
+> ⚠️ **물리 객체명 6건도 exact expectation 이다**(`601717` §4.2.2 / R3-F2 · C4-B1 · C4-I1).
 >
 > ```text
 > merchant_accounts_pkey            uq_merchant_accounts_tenant
-> fk_merchant_accounts_tenant_id    fk_stores_merchant_account_id
-> idx_stores_merchant_account_id
+> fk_merchant_accounts_tenant_id    trg_merchant_accounts_updated_at
+> fk_stores_merchant_account_id     idx_stores_merchant_account_id
 > ```
 >
-> **자동 생성명은 FAIL 이다.** 이름을 주지 않으면 PostgreSQL 이
+> **13판까지 5건이었다.** `trg_merchant_accounts_updated_at` 이 C4-I1 로 추가됐다.
+>
+> **선언된 이름과 다른 이름이면 FAIL 이다.** 이름을 주지 않으면 PostgreSQL 이
 > `merchant_accounts_tenant_id_key` 류를 만들고 그것도 「UNIQUE 제약 존재」를 만족한다 —
 > **구현자가 선택하게 두지 않는다.**
+>
+> ⚠️ **`merchant_accounts_pkey` 만은 예외 구조다**(C4-I4).
+> 이 이름은 PostgreSQL 이 `<table>_pkey` 로 **결정적으로 생성하는 값**이며,
+> `601717` §4.2.2 명명 근거 표도 「deterministic 기본형」이라고 적는다.
+> **따라서 이 한 건은 「자동 생성명이므로 FAIL」이 아니라 「이 문자열과 일치하면 PASS」다.**
+> 나머지 5건은 이름을 명시하지 않으면 다른 문자열이 나오므로 FAIL 이다.
 
 ### §4.4 backfill — 선언된 파생인가
 
@@ -679,7 +688,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-B-04 | `apps/` / `packages/` / `catchmenu_app/` / `tests/` / `tools/` 변경 0건 | 0건 | `601717` §5 |
 | TP-B-05 | `supabase/` 변경 0건 | 0건 | 동일 |
 | TP-B-06 | `docs/` 변경이 허용된 문서 동기화 범위 내 — **Module 파일명이 `601722_Module_Operational_Authority_Foundation_V2.md`** 이고 27~30건 정합화 문서는 **미변경** | 범위 내 | `601717` §1.2 · **Stage 7 항목 1·7(B-9 DEFERRED)** |
-| TP-B-07 | `601702` / `601705` / `601710` / `601713` / **`601718`** / **`601719`** 미수정 | 0건 | `601717` X-7·X-8·X-10 |
+| TP-B-07 | `601702` / `601705` / `601710` / `601713` / `601718` / `601719` / **`601720`·`601721`** / **`601723`~`601735`** 미수정 | 0건 | `601717` X-7·X-8·**X-10(C4-I5 확장)** |
 | TP-B-08 | 신규 migration 파일이 정확히 2개 | 2개 | `601717` §1.1 |
 
 ## §9 Migration / Schema Tests
@@ -720,12 +729,12 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 
 | # | 검사 | 기대값 | 근거 |
 |---|---|---|---|
-| TP-RT-01 | Person 계열 변경으로 인한 RPC 회귀 없음 | 0건 | BL-8 |
-| TP-RT-02 | **`stores` 컬럼 추가·UPDATE 로 인한 RPC 회귀 없음** | 0건 | BL-22·BL-30 — `SELECT *` 0건이 실측됨 |
+| TP-RT-01 | Person 계열 변경으로 인한 RPC **회귀** 없음 — **전후 비교. runtime executability 를 절대적으로 요구하지 않는다** | 0건 | BL-8 / **C4-I2 — R3-F1 분리 적용** |
+| TP-RT-02 | **`stores` 컬럼 추가·UPDATE 로 인한 RPC 회귀 없음** — **전후 비교. 이미 실행 불가인 3건(`provision_tenant`·`create_franchise_store`·`onboard_tenant`)이 있어도 성립한다** | 0건 | BL-22·BL-30 — `SELECT *` 0건이 실측됨 / **C4-I2** |
 | ~~TP-RT-03~~ | **폐기 (2026-08-23, F-5 처분)** — 종전 기대: 「`catchmenu_common.provision_tenant` 가 여전히 성공적으로 실행 가능」 | — | **대체: TP-N-62~64 (§5.9).** 폐기 사유는 아래 주석. 행은 기록으로 보존한다 |
 | **TP-RT-08** | **`catchmenu_hq.create_franchise_store` 의 실패 양상이 구현 전후로 동일** — 부재 컬럼 `extra_metadata` 로 실패하며 `merchant_account_id` 때문이 아니다 | **동일 오류** | **§12.3 N-4″** — 이 함수는 구현 이전부터 실패한다. **성공을 기대값으로 두지 않는다.** ⚠️ **판별력 한계(CW-I3)**: 오류 메시지가 `extra_metadata` 에서 멈추므로 `merchant_account_id` 로 원인이 옮겨갔는지를 **실행으로 가릴 수 없다.** 그 판별은 TP-N-40·TP-N-42(정적 검사)가 담당한다 |
-| TP-RT-04 | 앱 빌드 / 테스트 스위트가 이전과 동일하게 통과 | 동일 | BL-17·BL-32 |
-| TP-RT-05 | `catchmenu_authority_owner` 경유 접근의 가능/불가능 불변 | 불변 | X-8 |
+| TP-RT-04 | 앱 빌드 / 테스트 스위트가 이전과 동일하게 통과 — **전후 비교** | 동일 | BL-17·BL-32 / **C4-I2** |
+| TP-RT-05 | `catchmenu_authority_owner` 경유 접근의 가능/불가능 **불변** — **전후 비교** | 불변 | X-8 / **C4-I2** |
 | TP-RT-06 | `merchant_accounts` 에 어떤 애플리케이션 경로도 도달하지 못한다 | 도달 0 | §1.45 fail-closed |
 | TP-RT-07 | 다른 도메인의 트리거·제약 불변 | 불변 | TP-R-02 |
 
@@ -769,10 +778,29 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 > ```
 >
 > **이미 깨진 것을 이 나선이 고쳐 놓았는지 묻지 않는다**(FO-B1 이 교정을 금지한다).
-> **다만 실패 원인이 바뀌었는지는 묻는다** — 원인이 `merchant_account_id` 로 옮겨갔다면
-> NOT NULL 이 걸린 것이다.
+> ~~**다만 실패 원인이 바뀌었는지는 묻는다** — 원인이 `merchant_account_id` 로 옮겨갔다면
+> NOT NULL 이 걸린 것이다.~~
+>
+> 🛑 **위 문장은 철회한다** (C4-I3 처분, 2026-08-23 · CW-I3 정정의 미전파분).
+> 오류 메시지가 `extra_metadata` 에서 멈추므로 **실행으로는 원인 이동을 가릴 수 없다.**
+> 그 판별은 **TP-N-40 · TP-N-42(정적 검사)** 가 담당한다 — TP-RT-08 행 주석과 같은 내용이다.
+> **삭제하지 않고 취소선으로 남긴다**(기록 보존).
 >
 > **TP-RT-06 은 실패가 아니라 목표 상태다** — §1.45 fail-closed baseline.
+
+> ⚠️ **§10 전체에 R3-F1 분리를 적용했다** (C4-I2 처분, 2026-08-23).
+>
+> ```text
+> catalog 에 존재한다   ≠   호출 가능하다
+> ```
+>
+> **TP-RT-01·02·04·05 는 전부 「회귀」 = 전후 비교다.**
+> 이미 실행 불가인 함수가 있어도 그 상태가 유지되면 PASS 이며,
+> **절대적 runtime executability 를 요구하지 않는다.**
+> 13판이 TP-R-14·TP-R-15 에서는 이 분리를 문면으로 닫았으나 §10 에서는 닫지 않았다.
+>
+> **검증 방법**: `provision_tenant` 실행은 §5.9 가 금지한다 —
+> 이 절의 「전후 비교」는 **실행이 아니라 catalog·정의 대조**로 수행한다.
 
 ## §11 Rollback Tests
 
@@ -1009,7 +1037,7 @@ Antigravity   V11~V14 만 수행. 발견 0
 | AC-3 | §4.3 에 따라 컬럼명·타입 기대값이 `601717` §4.1 로 확정된 뒤 실행됐다 |
 | AC-4 | §4.4 backfill 검증 **TP-D-01~TP-D-09** 가 전부 PASS 다 — **TP-D-09(backfill 구문이 `601717` §4.5.1 확정 SQL 과 동일) 포함**(R2-F5 처분. 종전 범위는 TP-D-08 까지였다) |
 | AC-5 | §5 Negative 전 항목이 PASS 다. **하나라도 FAIL 이면 전체 FAIL** |
-| AC-6 | **§5.6 · §5.7 이 전부 PASS 다** — NOT NULL 미적용, 두 INSERT RPC 무변경 |
+| AC-6 | **§5.6 · §5.7 · §5.9 가 전부 PASS 다** — NOT NULL 미적용, 두 INSERT RPC 무변경, **TP-N-62~64**(TP-RT-03 폐기 대체 — R2C-3 처분) |
 | AC-7 | §6 Regression 전 항목이 PASS 다 — **TP-R-14·TP-R-15 는 모집단·본문 기준선 불변으로 판정한다**(R3-F1). **known pre-existing phantom defect 를 이 항목의 FAIL 사유로 삼지 않는다** |
 | AC-8 | §7 External Provider negative 전 항목이 PASS 다 |
 | AC-9 | §8 Boundary · §9 Migration 전 항목이 PASS 다 |
