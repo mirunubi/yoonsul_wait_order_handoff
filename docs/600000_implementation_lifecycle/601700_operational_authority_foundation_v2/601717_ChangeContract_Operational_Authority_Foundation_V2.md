@@ -5,7 +5,7 @@ Lifecycle: ChangeContract
 Gate Classification: 0-A v2 Operational Authority Foundation Change Contract Draft
 Runtime Implementation Authorization: Not Granted
 Owner: Stage 2 (Claude) — 저자 분리(`000001` §5.4.2)
-Last Updated: 2026-08-22
+Last Updated: 2026-08-23
 
 **개정 이력**
 
@@ -19,6 +19,7 @@ Last Updated: 2026-08-22
 | 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(§4.1 컬럼명·타입) Human 확정.** `account_name` → **`merchant_account_name`**. §4.1 을 파생 표현에서 **확정 정의**로 전환. **N-3′ CLOSED**(backfill 값 출처 = `tenants.tenant_name`). name synchronization 을 **H-5** 로 신규 이월 |
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **N-2″ 확정** — `601701` 기록이 정확했고 RPC 가 phantom 을 참조한다. C-1 사유 정밀화(두 경로 중 `provision_tenant` 만 현재 호출 가능. **판정 불변**). `create_franchise_store` 현재 실패를 blocker 로 기록. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 근거를 선언 단독에서 **선언+Logic 불변조건**으로 전환. §8.3 검증자 경고 철회. §10 Stage 4 병기 제거. 신규 blocker 1건 |
+| 2026-08-23 | **Stage 6 미수행 확인으로 Stage 7 승인 무효화.** §10.1 Human 판단은 pre-decision 으로 보존. Stage 5 재도출 → Stage 6 → 재승인 경로로 복구 |
 
 ## Change ID
 
@@ -905,15 +906,69 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 
 ## §10 Approval State
 
+> 🛑 **2026-08-23 무효화 — Stage 6 미수행**
+>
+> **이 절의 Stage 6 완료 표기와 Stage 7 승인은 효력이 없다.**
+>
+> | 항목 | 상태 |
+> |---|---|
+> | Stage 5 | **PROCEDURAL REPAIR REQUIRED** — actor provenance 이상 |
+> | Stage 6 | **NOT COMPLETED** — 독립 Contract Verification 미수행 |
+> | Stage 7 | **NOT EFFECTIVE** — Stage 6 이 전제(`000701` 1258행) |
+> | Stage 8 | **MUST NOT START** |
+>
+> **무효 사유**
+>
+> 1. `000701` §9.16 이 요구하는 독립 Contract Verification 이 수행되지 않았다.
+>    `601718`~`601721` 은 write-path·baseline evidence 이며 계약 검증이 아니다.
+> 2. `000701` 1258행 — 계약은 Stage 6 검증과 Human 승인을 모두 거쳐야 binding 이다.
+> 3. 8판이 지시 없이 Stage 6 을 「대기」에서 「완료」로 변경했다.
+>    검증자·산출물·판정이 없다.
+> 4. Stage 5 작성자가 Claude 였다. `000701` Stage 5 는 Claude Code 를 지정한다.
+>    `000001` §5.4.2 는 2026-07-16 이전 번호 체계다(`000701` 1096행).
+>    그 결과 Claude 가 원작자가 되어 Stage 6 통합자 역할을 수행할 수 없다.
+> 5. `000701` §9.20 이 요구하는 Claude 의 원문 직접 검토가 수행되지 않았다.
+>
+> **§10.1 의 Human 승인 결과 9건은 유효하다.**
+> Human pre-decision 으로 보존하며, 절차 정상화 후 재승인 시 그대로 승계한다.
+> **다시 논쟁하지 않는다.**
+>
+> **복구 순서**
+>
+> ```text
+> Stage 5 재도출        Claude Code — verified design 에서 독립 재도출
+>                       현 601716/601717 은 candidate reference
+>          ↓
+> Stage 6               Cursor + Codex 독립 검증 (Critical tier)
+>                       Eyes-Only. 수정 권한 없음
+>          ↓
+> Claude 통합           두 보고서 disposition 기록
+>                       + §9.20 원문 직접 재검토
+>          ↓
+> Stage 6 COMPLETE      검증자·산출물·판정 명시
+>          ↓
+> Stage 7 재승인        §10.1 9건 승계
+>          ↓
+> Stage 8               Codex 구현
+> ```
+>
+> **1차 0-A(`601500`)는 Stage 6·7 미수행 상태로 Stage 8~12 를 통과했다**
+> (`600020` §1.1 사유 1). **이번에는 구현 파일 생성 전에 멈췄다.**
+> `0170`/`0171` 은 존재하지 않으며 물리적 변경은 발생하지 않았다.
+
 | 단계 | 상태 |
 |---|---|
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
-| Stage 5 (Contract Drafting) | 완료 — 본 문서 및 `601716` (8판) |
-| Stage 6 (Contract Verification) | 완료 — §37 에 따라 Claude 제외(계약 작성자) |
-| Stage 7 (Human Approval) | **APPROVED_FOR_IMPLEMENTATION** — 승인자 정영석, 2026-08-23 |
-| Stage 8 (Implementation, Codex) | 미착수 — **승인 경계 내에서 착수 가능** |
+| Stage 5 (Contract Drafting) | **PROCEDURAL REPAIR REQUIRED** — 작성자가 Claude 였다. `000701` Stage 5 는 Claude Code 를 지정한다. Claude Code 재도출 필요. 현 문서는 candidate reference — 본 문서 및 `601716` (8판) |
+| Stage 6 (Contract Verification) | **대기** — 미수행. 2026-08-23 무효화 배너 참조 |
+| Stage 7 (Human Approval) | **대기** — 2026-08-23 Stage 7 기록은 Stage 6 미수행으로 무효. §10.1 판단은 pre-decision 으로 보존 |
+| Stage 8 (Implementation, Codex) | **MUST NOT START** — Stage 6 미수행. Stage 7 무효 |
 
 ### §10.1 승인 범위 — 항목별 결과 (2026-08-23, 정영석)
+
+> ⚠️ **아래는 2026-08-23 Human pre-decision 이다.**
+> Stage 6 정상화 후 재승인 시 **그대로 승계**하며 다시 논쟁하지 않는다.
+> 다만 **현 시점에서 Stage 7 승인 효력은 없다** — 위 무효화 배너 참조.
 
 | # | 항목 | 결과 |
 |---|---|---|
