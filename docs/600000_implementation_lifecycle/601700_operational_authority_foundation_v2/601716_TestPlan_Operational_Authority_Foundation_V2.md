@@ -5,7 +5,7 @@ Lifecycle: TestPlan
 Gate Classification: 0-A v2 Operational Authority Foundation Test Plan Draft
 Runtime Implementation Authorization: Not Granted
 Owner: Stage 5 (Claude Code) — 2026-08-23 재도출. 종전 판(Claude 작성)은 candidate reference
-Last Updated: 2026-08-22
+Last Updated: 2026-08-23
 
 **개정 이력**
 
@@ -22,6 +22,7 @@ Last Updated: 2026-08-22
 | 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 TestPlan 을 다시 도출. **substantive change 없음**, governance correction 2건 — §0.3 |
 | 2026-08-23 | **10판 — Stage 6 findings 반영.** Codex F-1~F-7 처분(`601724`), Cursor informational 3건 처분(`601723`), **TP-RT-03 폐기 → TP-N-62~64 negative 대체**(F-5), COMMENT 검사 TP-P-38 신설(F-2), B-8 문면 정정(F-4), N-2″ 미판정 서술 철회(F-3), 신규 blocker N-6″~N-8″. **Stage 6 재검증 필요** |
 | 2026-08-23 | **11판 — Stage 6 Round 2 findings 반영.** R2-F1(`CREATE UNIQUE INDEX` 잔존 제거) · R2-F2(COMMENT exact literal) · R2-F3(TP-N-63 정적 증거로 재정의) · R2-F5(AC 보강) · R2-F6(Test ID 범위 갱신). **Round 3 재검증 필요** |
+| 2026-08-23 | **12판 — Cowork Round 2 검증 반영.** CW-B1~B5 blocking 해소(UNIQUE 형태 통일 · `provision_tenant` 「정상」 철회 병기 · R2-F4 승계 · TP-N-63 ③ 제거 · TP-RB-03 모순 정정), CW-I1~I10 처분(TP-N-65 신설 · `Last Updated` 갱신 등). **Round 3 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -111,7 +112,7 @@ stores 참조 view/matview   0 / 0
 
 | 함수 | phantom 참조 | 현재 호출 |
 |---|---|---|
-| `catchmenu_common.provision_tenant` | 없음 | **정상** |
+| `catchmenu_common.provision_tenant` | 없음 | ~~**정상**~~ → **철회 (2026-08-23, CW-B2)** — `601725`/`601726` 이 `tenants` INSERT 의 phantom 3건을 확정해 **이 함수도 실행 불가능**하다. §12.3 N-6″ / `601717` §4.4.1.2 |
 | `catchmenu_hq.create_franchise_store` | `extra_metadata` (INSERT 주 경로) | **실패** |
 
 > ⚠️ **TP-RT-03 을 정정했다.**
@@ -413,7 +414,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | 컬럼 | 확정 기대값 |
 |---|---|
 | `id` | `uuid NOT NULL DEFAULT gen_random_uuid()` PRIMARY KEY |
-| `tenant_id` | `uuid NOT NULL UNIQUE`, FK → `catchmenu_hq.tenants(id)`, `NO ACTION`/`NO ACTION` |
+| `tenant_id` | `uuid NOT NULL` 컬럼 + **명명 제약** `uq_merchant_accounts_tenant UNIQUE (tenant_id)` + FK → `catchmenu_hq.tenants(id)`, `NO ACTION`/`NO ACTION` — **인라인 `UNIQUE` 형태는 FAIL**(CW-B1) |
 | `merchant_account_name` | `text NOT NULL` |
 | `created_at` | `timestamptz NOT NULL DEFAULT now()` |
 | `updated_at` | `timestamptz NOT NULL DEFAULT now()` |
@@ -477,6 +478,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-N-22 | `tenants.merchant_account_id` 미생성 — 순환 참조 없음 | 0건 | §1.45 / **I-49** |
 | TP-N-23 | `merchant_companies` / `merchant_stores` 등 3층 구조 테이블 미생성 | 0건 | §1.25 / `601705` §4.6 |
 | TP-N-24 | `merchant_accounts` 가 `catchmenu_hq` 외 schema 에 생성되지 않음 | 0건 | §1.45 「배치」 / **I-50** |
+| **TP-N-65** | **`merchant_accounts` 에 선언되지 않은 추가 인덱스가 없다** — `merchant_accounts_pkey` 와 `uq_merchant_accounts_tenant` 뿐 | 정확히 2건 | **CW-I10 처분** — §1.6 이 `CREATE UNIQUE INDEX` 를 배제했으나 비-unique 인덱스 남발은 negative 가 없었다. `601717` §1.4 D-15·D-20 외 인덱스 금지 |
 
 ### §5.4 Store–LegalEntity — enforcement 를 걸지 않았는가
 
@@ -569,7 +571,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | # | 검사 | 기대값 | 근거 |
 |---|---|---|---|
 | **TP-N-62** | **`catchmenu_common.provision_tenant` 본문이 baseline md5 와 불변** — TP-N-50 과 연동 | `f84ac1a81da4ccba87930bf020a3e974` (len 4758) | **F-5 처분 — 대체 ①** |
-| **TP-N-63** | **정적 증거로 검증한다** — ① `provision_tenant` `prosrc` md5 가 baseline 과 불변(TP-N-62 와 동일 근거) ② `0170`/`0171` migration 본문에 `provision_tenant` 호출문 0건 ③ 이 TestPlan 의 실행 command 목록에 `provision_tenant` 호출 0건 | 3건 모두 충족 | **R2-F3 처분** — 관측 장치를 도입하지 않는다 |
+| **TP-N-63** | **정적 증거로 검증한다** — ① `provision_tenant` `prosrc` md5 가 baseline 과 불변(TP-N-62 와 동일 근거) ② `0170`/`0171` migration 본문에 `provision_tenant` 호출문 0건 | 2건 모두 충족 | **R2-F3 처분.** **③(「이 TestPlan 의 실행 command 목록」)은 12판에서 제거** — 그런 산출물이 존재하지 않는다(CW-B4). 없는 산출물을 만들어내지 않는다 |
 | ~~TP-N-63 (종전 정의)~~ | **폐기 (2026-08-23, R2-F3 처분)** — 종전 기대: 「0-A 검증 과정에서 `provision_tenant` 를 호출하지 않았다 / 호출 0건」 | — | **폐기 사유**: 호출 여부를 관측하려면 `pg_stat_statements` 또는 별도 logging 이 필요하다. **검증을 위한 runtime 구조를 이번 나선에서 새로 만드는 것은 0-A 범위를 넘는다.** 행은 기록으로 보존한다 |
 | **TP-N-64** | **검증 과정이 `tenants` 행을 생성·수정하지 않았다** | BL-20 유지 | **F-5 처분 — 대체 ③.** TP-N-58 과 중복 검사이나 **실행 검증 금지**를 명시한다 |
 
@@ -581,7 +583,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 > 묻는다        검증한다면서 실행해 버리지 않았는가
 > ```
 >
-> **실행 검증은 후속 RPC alignment 나선이 N-6″ 를 정합화한 뒤에 가능해진다.**
+> **실행 검증은 후속 RPC alignment 나선이 N-6″(phantom 3건)와 N-8″(`chk_stores_type` 위반)를 모두 정합화한 뒤에 가능해진다**(R2-F4 · CW-B3).
 
 ## §6 Regression Tests
 
@@ -697,7 +699,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-RT-01 | Person 계열 변경으로 인한 RPC 회귀 없음 | 0건 | BL-8 |
 | TP-RT-02 | **`stores` 컬럼 추가·UPDATE 로 인한 RPC 회귀 없음** | 0건 | BL-22·BL-30 — `SELECT *` 0건이 실측됨 |
 | ~~TP-RT-03~~ | **폐기 (2026-08-23, F-5 처분)** — 종전 기대: 「`catchmenu_common.provision_tenant` 가 여전히 성공적으로 실행 가능」 | — | **대체: TP-N-62~64 (§5.9).** 폐기 사유는 아래 주석. 행은 기록으로 보존한다 |
-| **TP-RT-08** | **`catchmenu_hq.create_franchise_store` 의 실패 양상이 구현 전후로 동일** — 부재 컬럼 `extra_metadata` 로 실패하며 `merchant_account_id` 때문이 아니다 | **동일 오류** | **§12.3 N-4″** — 이 함수는 구현 이전부터 실패한다. **성공을 기대값으로 두지 않는다** |
+| **TP-RT-08** | **`catchmenu_hq.create_franchise_store` 의 실패 양상이 구현 전후로 동일** — 부재 컬럼 `extra_metadata` 로 실패하며 `merchant_account_id` 때문이 아니다 | **동일 오류** | **§12.3 N-4″** — 이 함수는 구현 이전부터 실패한다. **성공을 기대값으로 두지 않는다.** ⚠️ **판별력 한계(CW-I3)**: 오류 메시지가 `extra_metadata` 에서 멈추므로 `merchant_account_id` 로 원인이 옮겨갔는지를 **실행으로 가릴 수 없다.** 그 판별은 TP-N-40·TP-N-42(정적 검사)가 담당한다 |
 | TP-RT-04 | 앱 빌드 / 테스트 스위트가 이전과 동일하게 통과 | 동일 | BL-17·BL-32 |
 | TP-RT-05 | `catchmenu_authority_owner` 경유 접근의 가능/불가능 불변 | 불변 | X-8 |
 | TP-RT-06 | `merchant_accounts` 에 어떤 애플리케이션 경로도 도달하지 못한다 | 도달 0 | §1.45 fail-closed |
@@ -718,12 +720,16 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 >
 > ```text
 > provision_tenant 본문이 baseline md5 와 불변인가         TP-N-62 (TP-N-50 연동)
-> migration 본문·실행 command 에 호출문이 없는가            TP-N-63 (R2-F3 — 정적 증거)
-> 검증 과정이 tenants 행을 건드리지 않았는가                TP-N-64
+> migration 본문에 호출문이 없는가                          TP-N-63 (R2-F3 — 정적 증거)
+> 검증 과정이 tenants 행을 생성·수정하지 않았는가            TP-N-64
 > ```
 >
+> **매핑 정정 (CW-I4)** — TP-RT-03 의 종전 의도는 「실행해서 `NOT NULL` 이나 우회 제약이 생겼는지 탐지」였다.
+> 그 판별은 **폐기로 사라지지 않았다** — TP-N-40(NULL 허용)·TP-N-42(`SET NOT NULL` 0건)·
+> TP-N-43(우회 CHECK·트리거 0건)이 **정적으로** 같은 것을 검사한다. **검증 공백은 없다.**
+>
 > **실행 검증은 후속 RPC alignment 나선으로 이월한다** — §12.4.
-> 그 나선이 N-6″ phantom 컬럼을 정합화한 뒤에야 실행 검증이 가능해진다.
+> 그 나선이 N-6″ phantom 컬럼과 N-8″ `chk_stores_type` 위반을 모두 정합화한 뒤에야 실행 검증이 가능해진다(R2-F4 · CW-B3).
 >
 > **종전 서술은 아래에 사실 기록으로 보존한다.**
 
@@ -750,7 +756,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 |---|---|---|---|
 | TP-RB-01 | rollback 이 역방향 신규 migration 으로 표현 가능 | 가능 | `000701` §14.5 |
 | TP-RB-02 | rollback 계획이 `0170`/`0171` 수정·삭제를 전제하지 않음 | 전제 없음 | 동일 |
-| TP-RB-03 | rollback 후 §2.1 기준선 before 값이 복원됨 | 복원 | 기준선 대조 |
+| TP-RB-03 | rollback 후 §2.1 기준선 before 값이 복원됨 — **단 BL-26(`stores.updated_at`)은 제외한다** | 복원 (BL-26 제외) | 기준선 대조 / **CW-B5 처분** — TP-RB-06 · `601717` R-6 이 `updated_at` 비가역을 확정했으므로, 제외하지 않으면 이 항목은 예외 없이 FAIL 한다 |
 | TP-RB-04 | rollback 시 RLS `ENABLE`+`FORCE` 와 GRANT 4건이 함께 복원됨 | 복원 | X-6·X-7 |
 | TP-RB-05 | backfill 로 만든 행이 함께 제거된다 — `merchant_accounts` 0행 복귀 | 0행 | BL-24 역 |
 | TP-RB-06 | **`stores.updated_at` 은 복원되지 않는다는 사실이 rollback 계획에 명시됐다** | 명시 | BL-26 — 비가역 |
@@ -795,9 +801,9 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | **N-3″** | **`601710` §2.4 의 「§2.2 미결」 상호참조가 모호하다** | 151 vs 158 차이를 미결로 기록한 것은 **`601702` §2.2** 인데 `601710` §2.4 는 문서명 없이 「§2.2」로 적었다 | 이 TestPlan 은 `601702` §2.2 로 읽는다(BL-22). 문면 정정은 Stage 4 소관 |
 | **N-4″** | **`catchmenu_hq.create_franchise_store` 가 현재 호출 시 실패한다** | INSERT 주 경로가 부재 컬럼 `extra_metadata` 를 참조한다(`601718` S-2 전문 / `601720`·`601721` PRE-6). **이 나선이 만든 결함이 아니며 이 나선이 고칠 수도 없다**(`601717` FO-B1) | **TP-RT-08 이 「실패 양상 불변」을 검사.** 성공을 기대값으로 두지 않는다. 교정은 `601717` §4.4.3 H-3a 이월 |
 | **N-5″** | **`catchmenu_common.onboard_tenant` 의 `stores.brand_id` phantom 참조가 재측정되지 않았다** | `601718` S-4 / `601719` S-4 가 `update catchmenu_hq.stores set brand_id = v_brand_id` 를 전문과 함께 기록했고, `601720`/`601721` PRE-6 이 `stores.brand_id` **부재**를 확정했다. 그러나 두 사전 측정의 `prosrc` 토큰 검사는 **두 INSERT RPC 만** 대상으로 했고 `onboard_tenant` 는 범위 밖이었다 | 이 TestPlan 은 **판정하지 않는다.** TP-N-53 이 `prosrc` 불변만 검사한다 |
-| **N-6″** | **`catchmenu_common.provision_tenant` 가 `tenants` 의 phantom 컬럼 3건을 참조해 첫 단계에서 실패한다** | `owner_name` · `owner_email` · `owner_phone`. `0002` 가 세 컬럼 없이 `catchmenu_hq.tenants` 를 만들었고 `0082` 가 `provision_tenant` 최초 정의에서 그대로 참조했다 — **처음부터 phantom**. `tenants` INSERT 가 첫 단계이므로 `stores` INSERT 에 도달하지 못한다 (`601725` / `601726` 이중 실측) | **TP-RT-03 폐기의 근거이자 `601717` C-1 사유 교체의 근거.** 이 TestPlan 은 판정하지 않는다. §5.9 가 불변만 검사한다. 후속 RPC alignment — H-1 prerequisite |
+| **N-6″** | **`catchmenu_common.provision_tenant` 가 `tenants` 의 phantom 컬럼 3건을 참조해 첫 단계에서 실패한다** | `owner_name` · `owner_email` · `owner_phone`. `0002` 가 세 컬럼 없이 `catchmenu_hq.tenants` 를 만들었고 `0082` 가 `provision_tenant` 최초 정의에서 그대로 참조했다 — **처음부터 phantom**. `tenants` INSERT 가 첫 단계이므로 `stores` INSERT 에 도달하지 못한다 (`601725` / `601726` 이중 실측) | **TP-RT-03 폐기의 근거이자 `601717` C-1 사유 교체의 근거.** 이 TestPlan 은 판정하지 않는다. §5.9 가 불변만 검사한다. 후속 RPC alignment — **H-1 prerequisite 은 N-6″ 와 N-8″ 둘 다다**(R2-F4 · CW-B3) |
 | **N-7″** | **`catchmenu_common.onboard_tenant` 가 `tenants.business_number` phantom 참조와 인자명 불일치를 갖는다** | pre-check 가 `tenants.business_number` 를 참조하나 라이브 스키마에 부재. `provision_tenant` 호출 시 라이브 시그니처에 없는 named argument 를 전달한다(`0112` 유래). `601725` E-5 / `601726` | 동상. TP-N-53 이 `prosrc` 불변만 검사한다. **N-5″ 와 같은 함수의 별개 결함** |
-| **N-8″** | **`provision_tenant` 의 `store_type='RESTAURANT'` 가 `chk_stores_type` 허용값 밖이다** | `0002` `chk_stores_type` 허용값은 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY`. `601725` 기록 | 동상. **N-6″ 때문에 이 지점에 도달하지 않으므로 현재 표면화되지 않는다** |
+| **N-8″** | **`provision_tenant` 의 `store_type='RESTAURANT'` 가 `chk_stores_type` 허용값 밖이다** | `0002` `chk_stores_type` 허용값은 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY`. **`601725` §H unresolved facts #4**(R2-F7 · CW-I6 처분 — 종전 「§-4」 인용 정정). ⚠️ **단일 출처이며 그 출처가 「not verified whether constraint unchanged at runtime」로 자기 표시했다** — `601726` 미다룸. **`000701` §35 이중 검증 미충족**(CW-I2) | 동상. **N-6″ 때문에 도달하지 않으므로 현재 표면화되지 않는다.** 재측정은 후속 RPC alignment 나선 착수 시점. **H-1 prerequisite 에 N-6″ 와 함께 연결**(R2-F4 · CW-B3) |
 
 > **N-2″ 의 두 가능성**
 >
@@ -915,9 +921,33 @@ Antigravity   V11~V14 만 수행. 발견 0
 > 도입하지 않는다   pg_stat_statements · 별도 logging
 >                   검증을 위한 runtime 구조는 0-A 범위 밖이다
 >
-> 대신 검사한다     prosrc md5 불변 · migration 본문 · 실행 command 목록
+> 대신 검사한다     prosrc md5 불변 · migration 본문 호출문 0건
 >                   전부 정적 파일·카탈로그 증거다
 > ```
+
+### §12.7 Cowork Round 2 findings 처분 (2026-08-23)
+
+> **수정 완결성 절차를 이 라운드부터 강제한다.**
+> 1차 F-1 · 2차 R2-F1 · 3차 R2-F1/R2-F4 가 **연속으로 「고친 자리 옆」과 「다른 문서」를 놓쳤다.**
+> 이후 각 finding 은 **개념·literal·Test ID·blocker ID 를 두 문서 전수 grep** 한 뒤
+> 지점별 처리(수정/유지/유지 사유)를 기록한다. 전체 처분표는 `601717` §7.7 에 있다.
+
+**이 TestPlan 에 반영된 처분**
+
+| # | 처분 | 반영 위치 |
+|---|---|---|
+| **CW-B1** | UNIQUE 채택 형태를 명명 제약 하나로 통일. **인라인 형태 FAIL** 을 명시 | §4.3 `tenant_id` 행 · TP-P-29(기존 기대와 일치, 변경 없음) |
+| **CW-B2** | `provision_tenant` 「정상」 서술에 **철회 병기** | §0.1.2 표 |
+| **CW-B3** | H-1 prerequisite 을 **N-6″ · N-8″ 둘 다**로 전수 정합화 | §5.9 주석 · §10 주석 · §12.3 N-6″·N-8″ 행 |
+| **CW-B4** | TP-N-63 **③ 제거** — 「실행 command 목록」은 존재하지 않는 산출물 | §5.9 TP-N-63 · §10 주석 · §12.6 |
+| **CW-B5** | **TP-RB-06 이 옳다.** TP-RB-03 에서 BL-26 을 명시적으로 제외 | §11 TP-RB-03 |
+| **CW-I3** | TP-RT-08 에 **판별력 한계** 병기. 판별은 TP-N-40·42 가 담당 | §10 TP-RT-08 |
+| **CW-I4** | TP-RT-03 대체 매핑 서술 정정 + **검증 공백 없음**을 명기 | §10 주석 |
+| **CW-I6** | `601725` 인용을 **§H unresolved facts #4** 로 정정 | §12.3 N-8″ 행 |
+| **CW-I7** | 헤더 `Last Updated` → `2026-08-23` | 문서 상단 |
+| **CW-I10** | **TP-N-65 신설** — 선언되지 않은 추가 인덱스 미생성 | §5.3 |
+| CW-I1 · CW-I2 · CW-I5 | `601717` 소관(FO-14 · N-8″ 근거 표기 · 검증자 귀속) — §7.7 | — |
+| CW-I8 · CW-I9 | **유지 판정.** 사유는 `601717` §7.7 | — |
 
 ## §13 Acceptance Criteria
 
