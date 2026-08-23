@@ -29,6 +29,7 @@ Last Updated: 2026-08-23
 | 2026-08-23 | §10.8 판본 고정값 기록 — `601716` SHA-256 직접, `601717` git commit. §10.9 신설(Stage 7 승인 시 기록할 것) |
 | 2026-08-23 | §10.9 대조 절차에 EOL 확인 0단계 추가. `autocrlf` 환경에서 작업트리 CRLF 로 인한 해시 불일치를 문서 변경과 구분한다 |
 | 2026-08-23 | §10.8 `601717` 고정값을 상대 표현에서 「승인 시 §10.9 실측 기록」으로 변경. 상대 표현이 두 커밋 전을 가리키고 있었다. §10.9 에 기록 시점 5단계 명시 |
+| 2026-08-23 | **Stage 7 APPROVED_FOR_IMPLEMENTATION** (정영석). Human 이 네 문서 전문 검토 — blocking 0 / informational 5(§10.11, Stage 10 이월). Stage 8 착수 가능. §10.10 승인 기록 · §10.11 informational 처분 신설 |
 
 **Stage 5 Provenance**
 
@@ -1636,8 +1637,8 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
 | Stage 5 (Contract Drafting) | **완료** — Claude Code 재도출 (2026-08-23). 종전 Claude 작성분은 candidate reference |
 | Stage 6 (Contract Verification) | COMPLETE (2026-08-23) — Round 5 에서 3검증자 blocking 0. §9.20 원문 직접 검토 blocking 0. 상세는 §10.7 |
-| Stage 7 (Human Approval) | 대기 — Stage 6 종료로 재효력화 가능. §10.1 판단은 pre-decision 으로 승계한다 |
-| Stage 8 (Implementation, Codex) | MUST NOT START — Stage 7 미효력 |
+| Stage 7 (Human Approval) | APPROVED_FOR_IMPLEMENTATION — 정영석, 2026-08-23. Stage 6 COMPLETE 후 재효력화. §10.1 pre-decision 9건 승계. 승인 대상 판본은 §10.8 기준 |
+| Stage 8 (Implementation, Codex) | 착수 가능 — Stage 7 승인. §1 허용 범위 안에서만. §8.1 착수 직전 게이트(V-1~V-24)를 먼저 통과한다 |
 
 ### §10.1 승인 범위 — 항목별 결과 (2026-08-23, 정영석)
 
@@ -1932,6 +1933,64 @@ Stage 8 착수 직전   구현자가 재측정해 대조한다 (§8.1 게이트�
 > 반대로 실제 변경을 EOL 탓으로 넘길 수 있다.
 >
 > `601717` 은 커밋 해시로 고정하므로 이 문제를 겪지 않는다.
+
+### §10.10 Stage 7 승인 기록 (2026-08-23)
+
+```text
+승인자        정영석
+승인 일자      2026-08-23
+판정          APPROVED_FOR_IMPLEMENTATION
+
+Human 전문 검토
+  601710 Overview        COMPLETE
+  601713 Logic           COMPLETE
+  601716 TestPlan        COMPLETE
+  601717 ChangeContract  COMPLETE
+
+Human findings   blocking 0 / informational 5 — §10.11
+
+승인 대상 판본
+  601716 SHA-256        00C1376EB1230A4B68F27C1479681C5BC95B23A8801EE70364EAACF22719F102
+  601717 기준 커밋       (승인 커밋 후 측정해 기록)
+```
+
+> ⚠️ **`601717` 기준 커밋은 이 절이 기록된 커밋의 직전 커밋이다.**
+> §10.9 기록 시점 5단계에 따라 승인 커밋(3단계) 해시를 4단계에서 측정해 여기 적는다.
+
+### §10.11 Known informational findings at Stage 7
+
+**Human 전문 검토에서 나온 informational 5건이다. 전부 NON-BLOCKING.**
+
+| # | 지점 | 내용 |
+|---|---|---|
+| INF-1 | `601710` §2.4 | INSERT-path 표현은 **static column-list fact 로만 해석**한다. runtime executability 근거가 아니다 |
+| INF-2 | `601713` | ChangeContract 참조가 `601715` 로 되어 있다 — 실제는 `601717`. 4곳 |
+| INF-3 | `601713` 마지막 문단 | `Q-1~Q-9` — 실제는 `Q-1~Q-10` 이며 전건 해소 |
+| INF-4 | `601713` 「건드리지 않는 것」 표 | `ownership_percent` 행에 I-37 대체 표기 누락. 산문에는 병기됨 |
+| INF-5 | `601716` 개정 이력 | 판 번호 순서가 비시간순 |
+
+**처분**
+
+```text
+NON-BLOCKING
+No pre-Stage-7 document correction
+No post-approval correction before Stage 8
+Carry to Stage 10 documentation synchronization
+```
+
+> ⚠️ **승인 후에도 Stage 8 전에 고치지 않는다.**
+> 승인한 설계문서가 구현 전에 바뀌면 §10.8 판본 고정이 무의미해진다.
+> **Stage 8 동안 승인 세트를 그대로 얼린다.**
+>
+> **finding acceptance rule 적용 결과**
+>
+> ```text
+> 1  계약대로 구현했는데 TestPlan FAIL 가능?     아니오 — 5건 전부
+> 2  금지 조작을 허용·실행하게 하는가?            아니오
+> 3  구현자가 둘 이상 중 선택해야 하는가?         아니오
+> ```
+>
+> **실행 의미가 바뀌지 않는다.**
 
 ## §11 근거 문서 목록 (`000701` §46)
 
