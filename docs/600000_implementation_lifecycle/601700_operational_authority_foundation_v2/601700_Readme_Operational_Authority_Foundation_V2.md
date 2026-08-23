@@ -159,6 +159,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601730 | `601730_Audit_Stage6_Round2_Contract_Verification_Cowork.md` | Active — 11판 검증(Cowork). 사실상 Round 3. blocking 5건 |
 | 601731 | `601731_Audit_Stage6_Round3_Verification_Cursor.md` | Active — Round 3 검증(Cursor). blocking 0건 |
 | 601732 | `601732_Audit_Stage6_Round3_Verification_Codex.md` | Active — Round 3 검증(Codex). blocking 2건. **결론 불일치** |
+| 601733 | `601733_Audit_Stage6_Round4_Verification_Cursor.md` | Active — Round 4 검증(Cursor). blocking 0 |
+| 601734 | `601734_Audit_Stage6_Round4_Verification_Codex.md` | Active — Round 4 검증(Codex). blocking 0 |
+| 601735 | `601735_Audit_Stage6_Round4_Verification_Cowork.md` | Active — Round 4 검증(Cowork). **blocking 3** — Readme 권한 표기 충돌 포함 |
 
 ## §9 Add / Move Rule
 
