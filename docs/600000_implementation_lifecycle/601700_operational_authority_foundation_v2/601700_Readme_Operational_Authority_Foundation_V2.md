@@ -129,6 +129,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(5판) — 4단계 ChangeContract. **C-1/C-2 는 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT`**(RESOLVED 아님 — 장기 invariant 유효). `provision_tenant`/`create_franchise_store` 수정 명시적 금지(§6.1 FO-A~FO-E). Deferred handoff H-1~H-4 이월(§4.4.3). **N-5′ 해소로 §8.3 검증자 경고 철회·§10 Stage 4 병기 제거**, 근거가 선언+Logic 불변조건으로 전환. 허용 migration `0170`·`0171` + DML M-1·M-2. Blocker 11건 |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
+| 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
+| 601721 | `601721_Evidence_Stage7_Pre_Measurement_Codex.md` | Active — 동일 측정(Codex). §35 이중 검증 |
 
 ## §9 Add / Move Rule
 

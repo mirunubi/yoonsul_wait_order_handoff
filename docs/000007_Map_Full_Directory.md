@@ -1724,6 +1724,8 @@ docs/
   |   |   +--- 601717_ChangeContract_Operational_Authority_Foundation_V2.md
   |   |   +--- 601718_Evidence_Stores_Write_Path_Scan_Cursor.md
   |   |   +--- 601719_Evidence_Stores_Write_Path_Scan_Codex.md
+  |   |   +--- 601720_Evidence_Stage7_Pre_Measurement_Cursor.md
+  |   |   +--- 601721_Evidence_Stage7_Pre_Measurement_Codex.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
