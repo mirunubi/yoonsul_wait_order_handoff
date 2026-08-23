@@ -20,6 +20,7 @@ Last Updated: 2026-08-22
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **PRE-5·6·7 값을 기대값으로 확정**(tenants 1행 / stores 16컬럼 / 두 RPC md5). **N-2″ 확정** — 기준선 기록이 정확했고 RPC 가 phantom 참조. TP-RT-03 정정 — `create_franchise_store` 는 이미 실패 상태. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 기대값 근거를 선언 단독에서 **Logic 불변조건**으로 전환. I-47 검사(TP-D-08) 신설. 신규 blocker 1건 |
 | 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 TestPlan 을 다시 도출. **substantive change 없음**, governance correction 2건 — §0.3 |
+| 2026-08-23 | **10판 — Stage 6 findings 반영.** Codex F-1~F-7 처분(`601724`), Cursor informational 3건 처분(`601723`), **TP-RT-03 폐기 → TP-N-62~64 negative 대체**(F-5), COMMENT 검사 TP-P-38 신설(F-2), B-8 문면 정정(F-4), N-2″ 미판정 서술 철회(F-3), 신규 blocker N-6″~N-8″. **Stage 6 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -327,7 +328,9 @@ Stage 6 상태 변경             없음 — 대기 유지
 | **`601718` / `601719`** | **`postgres:17.6.1.140`** | **`0169`** | **1 / 1** |
 
 > **write-path 조사가 `.140` 에서 수행되어 `601701` 과 같은 환경이다.**
-> 두 환경이 존재한다는 사실 자체는 여전히 미해소다 — §12.2 B-8.
+> 두 환경이 존재한다는 사실은 기록으로 남긴다. **B-8 자체는 CLOSED 다**(F-4 처분) —
+> Stage 7 승인 항목 8 이 기준 환경을 `postgres:17.6.1.140` / `0169` / `tenants`=1 · `stores`=1 로
+> 확정했고 PRE-3·PRE-5~7 이 그 게이트다(§12.1). **「여전히 미해소」 서술은 철회한다.**
 
 ## §3 Test ID 체계
 
@@ -372,7 +375,7 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | TP-P-20 | `legal_entity_person_roles.ownership_percent` 가 존재하지 않는다 | 0건 | I-37 / §1.39 |
 | TP-P-21 | `chk_lepr_ownership_percent` 가 존재하지 않는다 | 0건 | I-37 |
 | TP-P-22 | `legal_entity_representatives` 테이블명 유지 | 유지 | I-35 |
-| TP-P-23 | `persons` 테이블 코멘트가 canonical 개념과 어긋나지 않음 | 문자열 확인 | I-15 |
+| TP-P-23 | `persons` 테이블 코멘트가 **`601717` D-13 확정 literal 과 문자열 동일** | 일치 | I-15 / **`601717` D-13 (F-2 처분)** |
 | TP-P-24 | canonical schema 에 `owner_` 로 시작하는 식별자 0건 | 0건 | §1.37 「검증 범위」 / **`601713` §1.1 주석** |
 
 > ⚠️ **TP-P-24 의 범위는 §1.37 이 명시적으로 좁혔다.**
@@ -388,7 +391,7 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | TP-P-26 | **`merchant_accounts.id`** 가 `uuid` PK, `NOT NULL`, `DEFAULT gen_random_uuid()` | 일치 | **`601717` §4.1 Stage 7 확정** |
 | TP-P-27 | `merchant_accounts.tenant_id` 가 `uuid` 이며 `catchmenu_hq.tenants(id)` 를 FK 참조, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** | 일치 | §1.45 / **§4.1 확정** |
 | TP-P-28 | `merchant_accounts.tenant_id` 가 `NOT NULL` | 참 | 동일 |
-| TP-P-29 | `merchant_accounts.tenant_id` 에 `UNIQUE` 제약 존재 | 1건 | 동일 — 1:1 강제 / **I-49** |
+| TP-P-29 | `merchant_accounts.tenant_id` 에 **`UNIQUE` 제약**(제약명 `uq_merchant_accounts_tenant`) 존재 — **unique index 단독 형태는 FAIL** | 1건 | 동일 — 1:1 강제 / **I-49** / **`601717` D-15 (F-1 처분)** — 계약이 허용 형태를 제약 하나로 좁혔다 |
 | TP-P-30 | **컬럼명이 정확히 `merchant_account_name`** 이고 `text NOT NULL` | 일치 | **§4.1 확정** — `<entity>_name` 관례 |
 | TP-P-31 | `created_at` / `updated_at` 이 `timestamptz NOT NULL DEFAULT now()` | 2건 일치 | **§4.1 확정** |
 | TP-P-32 | `merchant_accounts` 에 `BEFORE UPDATE` 트리거 존재, `set_updated_at()` 호출 | 1건 | §1.44 |
@@ -397,6 +400,7 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | TP-P-35 | 그 FK 의 `ON DELETE`/`ON UPDATE` 가 `NO ACTION` | 참 | `fk_stores_legal_entity_id` 관행 |
 | TP-P-36 | `stores.merchant_account_id` 조회 인덱스 존재 | 1건 | `idx_stores_legal_entity_id` 관행 |
 | TP-P-37 | `merchant_accounts` 와 `tenants` 가 별도 테이블로 유지 | 2건 | I-23 |
+| **TP-P-38** | **`merchant_accounts` 및 신규 컬럼의 COMMENT 가 `601717` D-21 확정 literal 과 문자열 동일** | 일치 | **`601717` D-21 (F-2 처분)** — 종전에는 대응 Test ID 가 없었다 |
 
 ### §4.3 판정값이 ChangeContract 에 종속되는 항목
 
@@ -557,6 +561,26 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-N-57 | seed SQL 미변경 | 0건 | `601711` P-5 |
 | TP-N-58 | `tenants` 행이 수정되지 않음 — `tenant_status`/`isolation_state` 포함 | 불변 | BL-27 / `601505` §4 |
 
+### §5.9 `provision_tenant` — 실행하지 않고 불변만 검사한다 (10판 신설)
+
+> **TP-RT-03 폐기의 대체다**(F-5 처분). 실행 검증은 §12.4 로 이월한다.
+
+| # | 검사 | 기대값 | 근거 |
+|---|---|---|---|
+| **TP-N-62** | **`catchmenu_common.provision_tenant` 본문이 baseline md5 와 불변** — TP-N-50 과 연동 | `f84ac1a81da4ccba87930bf020a3e974` (len 4758) | **F-5 처분 — 대체 ①** |
+| **TP-N-63** | **0-A 검증 과정에서 `provision_tenant` 를 호출하지 않았다** | 호출 0건 | **F-5 처분 — 대체 ②.** 호출 자체가 FO-33 · TP-N-58 을 침범한다 |
+| **TP-N-64** | **검증 과정이 `tenants` 행을 생성·수정하지 않았다** | BL-20 유지 | **F-5 처분 — 대체 ③.** TP-N-58 과 중복 검사이나 **실행 검증 금지**를 명시한다 |
+
+> ⚠️ **이 절은 「실행되는가」를 묻지 않는다.**
+>
+> ```text
+> 묻지 않는다   provision_tenant 가 성공하는가     ← 애초에 실패한다 (N-6″)
+> 묻는다        본문을 건드리지 않았는가
+> 묻는다        검증한다면서 실행해 버리지 않았는가
+> ```
+>
+> **실행 검증은 후속 RPC alignment 나선이 N-6″ 를 정합화한 뒤에 가능해진다.**
+
 ## §6 Regression Tests
 
 | # | 검사 | 기대값 | 근거 |
@@ -670,12 +694,36 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 |---|---|---|---|
 | TP-RT-01 | Person 계열 변경으로 인한 RPC 회귀 없음 | 0건 | BL-8 |
 | TP-RT-02 | **`stores` 컬럼 추가·UPDATE 로 인한 RPC 회귀 없음** | 0건 | BL-22·BL-30 — `SELECT *` 0건이 실측됨 |
-| TP-RT-03 | **`catchmenu_common.provision_tenant` 가 여전히 성공적으로 실행 가능** (`merchant_account_id` 없이) | 실행 가능 | **NULL 허용이므로 성공해야 한다. 실패하면 NOT NULL 이 걸린 것이다** |
+| ~~TP-RT-03~~ | **폐기 (2026-08-23, F-5 처분)** — 종전 기대: 「`catchmenu_common.provision_tenant` 가 여전히 성공적으로 실행 가능」 | — | **대체: TP-N-62~64 (§5.9).** 폐기 사유는 아래 주석. 행은 기록으로 보존한다 |
 | **TP-RT-08** | **`catchmenu_hq.create_franchise_store` 의 실패 양상이 구현 전후로 동일** — 부재 컬럼 `extra_metadata` 로 실패하며 `merchant_account_id` 때문이 아니다 | **동일 오류** | **§12.3 N-4″** — 이 함수는 구현 이전부터 실패한다. **성공을 기대값으로 두지 않는다** |
 | TP-RT-04 | 앱 빌드 / 테스트 스위트가 이전과 동일하게 통과 | 동일 | BL-17·BL-32 |
 | TP-RT-05 | `catchmenu_authority_owner` 경유 접근의 가능/불가능 불변 | 불변 | X-8 |
 | TP-RT-06 | `merchant_accounts` 에 어떤 애플리케이션 경로도 도달하지 못한다 | 도달 0 | §1.45 fail-closed |
 | TP-RT-07 | 다른 도메인의 트리거·제약 불변 | 불변 | TP-R-02 |
+
+> 🛑 **TP-RT-03 은 10판에서 폐기됐다 (F-5 처분, 2026-08-23).**
+>
+> **폐기 사유 2건**
+>
+> ```text
+> ① 실행하면 tenant_status = 'ACTIVE' tenant 를 만들어
+>    FO-33 (tenant ACTIVE 승격 금지) 와 TP-N-58 (tenants 불변) 을 침범한다
+> ② phantom tenant 컬럼 3건 때문에 애초에 성공 실행이 불가능하다
+>    (owner_name · owner_email · owner_phone — 601725 / 601726)
+> ```
+>
+> **대체 항목** — §5.9 **TP-N-62 · TP-N-63 · TP-N-64**
+>
+> ```text
+> provision_tenant 본문이 baseline md5 와 불변인가        TP-N-62 (TP-N-50 연동)
+> 0-A 검증 과정에서 provision_tenant 를 호출하지 않았는가   TP-N-63
+> 검증 과정이 tenants 행을 건드리지 않았는가               TP-N-64
+> ```
+>
+> **실행 검증은 후속 RPC alignment 나선으로 이월한다** — §12.4.
+> 그 나선이 N-6″ phantom 컬럼을 정합화한 뒤에야 실행 검증이 가능해진다.
+>
+> **종전 서술은 아래에 사실 기록으로 보존한다.**
 
 > ⚠️ **TP-RT-03 과 TP-RT-08 은 6판에서 갈라졌다.**
 >
@@ -745,6 +793,9 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | **N-3″** | **`601710` §2.4 의 「§2.2 미결」 상호참조가 모호하다** | 151 vs 158 차이를 미결로 기록한 것은 **`601702` §2.2** 인데 `601710` §2.4 는 문서명 없이 「§2.2」로 적었다 | 이 TestPlan 은 `601702` §2.2 로 읽는다(BL-22). 문면 정정은 Stage 4 소관 |
 | **N-4″** | **`catchmenu_hq.create_franchise_store` 가 현재 호출 시 실패한다** | INSERT 주 경로가 부재 컬럼 `extra_metadata` 를 참조한다(`601718` S-2 전문 / `601720`·`601721` PRE-6). **이 나선이 만든 결함이 아니며 이 나선이 고칠 수도 없다**(`601717` FO-B1) | **TP-RT-08 이 「실패 양상 불변」을 검사.** 성공을 기대값으로 두지 않는다. 교정은 `601717` §4.4.3 H-3a 이월 |
 | **N-5″** | **`catchmenu_common.onboard_tenant` 의 `stores.brand_id` phantom 참조가 재측정되지 않았다** | `601718` S-4 / `601719` S-4 가 `update catchmenu_hq.stores set brand_id = v_brand_id` 를 전문과 함께 기록했고, `601720`/`601721` PRE-6 이 `stores.brand_id` **부재**를 확정했다. 그러나 두 사전 측정의 `prosrc` 토큰 검사는 **두 INSERT RPC 만** 대상으로 했고 `onboard_tenant` 는 범위 밖이었다 | 이 TestPlan 은 **판정하지 않는다.** TP-N-53 이 `prosrc` 불변만 검사한다 |
+| **N-6″** | **`catchmenu_common.provision_tenant` 가 `tenants` 의 phantom 컬럼 3건을 참조해 첫 단계에서 실패한다** | `owner_name` · `owner_email` · `owner_phone`. `0002` 가 세 컬럼 없이 `catchmenu_hq.tenants` 를 만들었고 `0082` 가 `provision_tenant` 최초 정의에서 그대로 참조했다 — **처음부터 phantom**. `tenants` INSERT 가 첫 단계이므로 `stores` INSERT 에 도달하지 못한다 (`601725` / `601726` 이중 실측) | **TP-RT-03 폐기의 근거이자 `601717` C-1 사유 교체의 근거.** 이 TestPlan 은 판정하지 않는다. §5.9 가 불변만 검사한다. 후속 RPC alignment — H-1 prerequisite |
+| **N-7″** | **`catchmenu_common.onboard_tenant` 가 `tenants.business_number` phantom 참조와 인자명 불일치를 갖는다** | pre-check 가 `tenants.business_number` 를 참조하나 라이브 스키마에 부재. `provision_tenant` 호출 시 라이브 시그니처에 없는 named argument 를 전달한다(`0112` 유래). `601725` E-5 / `601726` | 동상. TP-N-53 이 `prosrc` 불변만 검사한다. **N-5″ 와 같은 함수의 별개 결함** |
+| **N-8″** | **`provision_tenant` 의 `store_type='RESTAURANT'` 가 `chk_stores_type` 허용값 밖이다** | `0002` `chk_stores_type` 허용값은 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY`. `601725` 기록 | 동상. **N-6″ 때문에 이 지점에 도달하지 않으므로 현재 표면화되지 않는다** |
 
 > **N-2″ 의 두 가능성**
 >
@@ -756,6 +807,11 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 > 이 프로젝트에는 **phantom 컬럼 참조로 RPC 가 실패한 실제 이력**이 있다
 > (`sql/migrations/CHANGELOG.md` 2026-07-18 — `0160`~`0164` 가 `order_sessions` phantom 컬럼 교정).
 > **이 TestPlan 은 판정하지 않는다.** 기대값을 상수로 두지 않는 것으로 대응한다.
+> **철회 (2026-08-23, F-3 처분)** — 위 「판정하지 않는다 / 기대값을 상수로 두지 않는다」는
+> **더 이상 유효하지 않다.** `601720`/`601721` PRE-6 이 **라이브 16컬럼 · `brand_id`·`extra_metadata` 부재**를
+> 확정해 두 가능성 중 **두 번째(RPC 가 phantom 을 참조한다)로 결정**됐다 — §12.1 N-2″.
+> BL-21 은 이미 before=16 / after=17 을 상수로 쓴다.
+> 위 문단은 **6판 이전의 사실 기록으로 보존**한다.
 
 **미결로 기록된 것 (authority 가 이미 판정)**
 
@@ -785,6 +841,44 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 >
 > **이 TestPlan 은 §5.6 에서 「걸리지 않았음」을 검사하고,
 > 이 표에서 「걸려야 한다」를 보존한다. 두 가지가 모순이 아니다** — 시점이 다르다.
+
+### §12.5 Stage 6 findings 처분 (2026-08-23)
+
+**Stage 6 독립 검증에서 두 검증자의 결론이 갈렸다.**
+
+```text
+601723 Cursor   blocking 0건 — NO CONCERNS FOUND
+601724 Codex    blocking 5건 / 고유 findings 7건
+```
+
+Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 findings 로 채택**했다.
+따라서 Cursor 의 `NO CONCERNS FOUND` 는 **검증 누락**이다 — `601717` §7.4.
+
+**`601724` Codex — 이 TestPlan 에 반영된 처분**
+
+| # | 지점 | 처분 | 반영 위치 |
+|---|---|---|---|
+| **F-1** | TP-P-29 ↔ `601717` D-15 | **채택.** 계약이 허용 형태를 `ADD CONSTRAINT … UNIQUE` 하나로 좁혔고, TP-P-29 가 제약명까지 기대값으로 고정 | §4.2 TP-P-29 |
+| **F-2** | COMMENT 허용 literal 부재 | **채택.** TP-P-23 을 literal 일치 검사로 바꾸고 **TP-P-38 신설** | §4.2 TP-P-23 · TP-P-38 |
+| **F-3** | N-2″ 「확정」↔「판정하지 않는다」 병존 | **채택.** 미판정 서술을 **철회 병기**. 종전 문단은 사실 기록으로 보존 | §12.3 N-2″ 주석 |
+| **F-4** | B-8 「CLOSED」↔「여전히 미해소」 병존 | **채택.** §2.2 의 「여전히 미해소」 서술을 **철회**하고 CLOSED 로 정정 | §2.2 |
+| **F-5** | TP-RT-03 ↔ FO-33 · TP-N-58 | **채택.** TP-RT-03 **폐기** → **TP-N-62~64 신설**(§5.9). 실행 검증은 §12.4 이월 | §10 · §5.9 |
+| **F-6** | `601717` N-4″ 가 TP-RT-03 인용 | **채택.** `601717` 쪽에서 **TP-RT-08** 로 정정 | `601717` §7.3 |
+| **F-7** | `601717` §9.2 요약에 H-5 누락 | **채택.** `601717` 쪽에서 H-5 추가 | `601717` §9.2 |
+
+**`601723` Cursor — informational 3건**
+
+| # | 지점 | 처분 |
+|---|---|---|
+| 1 | I-18·I-19·I-21·I-22·I-25·I-26·I-31·I-32 에 명시 Test ID 없음 | **범위 한정으로 유지.** §14·§0.2 가 schema/backfill 로 범위를 한정했고 FO/negative 가 우회 구현을 막는다. **신규 조치 없음** |
+| 2 | TP-P-08 이 `updated_at` 트리거 **존재**만 검사 | **유지.** 갱신 **동작** 검증은 DML 실행을 요구하며 허용 DML 은 M-1·M-2 뿐이다(FO-11). 후속 나선 소관. **신규 조치 없음** |
+| 3 | §12.4 「Stage 7 APPROVED」 ↔ PRE-1 「대기」 | **의도적 병기로 유지.** `601717` §10 배너가 pre-decision 보존과 효력 부재를 구분한다. **신규 조치 없음** |
+
+> **Cursor informational 3건은 전부 「신규 조치 없음」이다.**
+> 처분하지 않은 것이 아니라 **검토하고 유지 판정한 것**이다.
+
+> ⚠️ **이 절이 있어야 Stage 6 재검증이 가능하다.**
+> 재검증자는 F-1~F-7 이 실제로 반영됐는지, Cursor 3건의 유지 판정이 타당한지를 본다.
 
 ## §13 Acceptance Criteria
 
