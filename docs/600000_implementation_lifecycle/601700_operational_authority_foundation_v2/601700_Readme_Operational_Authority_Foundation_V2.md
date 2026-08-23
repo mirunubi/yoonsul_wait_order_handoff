@@ -138,6 +138,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601727 | `601727_Audit_Stage6_Round2_Contract_Verification_Cursor.md` | Active — Stage 6 Round 2 계약 검증(Cursor). blocking 0건 |
 | 601728 | `601728_Audit_Stage6_Round2_Contract_Verification_Codex.md` | Active — Stage 6 Round 2 계약 검증(Codex). blocking 5건. **결론 불일치** |
 | 601729 | `601729_Audit_Stage6_Round2_Contract_Verification_Antigravity.md` | Active — Stage 6 Round 2 비구속 참조. V11~V14만 수행 |
+| 601730 | `601730_Audit_Stage6_Round2_Contract_Verification_Cowork.md` | Active — 11판 검증(Cowork). 사실상 Round 3. blocking 5건 |
+| 601731 | `601731_Audit_Stage6_Round3_Verification_Cursor.md` | Active — Round 3 검증(Cursor). blocking 0건 |
+| 601732 | `601732_Audit_Stage6_Round3_Verification_Codex.md` | Active — Round 3 검증(Codex). blocking 2건. **결론 불일치** |
 
 ## §9 Add / Move Rule
 
