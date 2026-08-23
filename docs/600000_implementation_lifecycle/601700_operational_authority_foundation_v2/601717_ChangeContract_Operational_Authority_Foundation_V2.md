@@ -25,6 +25,7 @@ Last Updated: 2026-08-23
 | 2026-08-23 | **12판 — Cowork Round 2 검증 반영.** CW-B1~B5 blocking 해소(UNIQUE 형태 3종 통일 · `provision_tenant` 「정상」 서술 철회 병기 · R2-F4 전파 · TP-N-63 ③ 제거 · rollback 기준선 모순 정정), CW-I1~I10 처분. **수정 완결성 grep 절차 적용** — §7.7. **Round 3 재검증 필요** |
 | 2026-08-23 | **13판 — Round 3 findings 반영.** R3-F1(FUNCTION 「유효」 표현 폐기 — catalog 존재/본문 불변 과 runtime executability 분리) · R3-F2(**물리 객체명 5건 exact expectation 확정** — §4.2.2). R3-I1·I2 는 CW 라운드에서 이미 해소. **Round 4 재검증 필요** |
 | 2026-08-23 | **14판 — Round 4 findings 반영** — C4-B1(FK 를 D-14 에 연결) · C4-I1 승격(트리거명 확정, 물리 객체명 6건) · C4-B2(처분 전제 정정). C4-B3 는 Correction A 로 `601700` Readme 에서 처리. **Round 5 재검증 필요** |
+| 2026-08-23 | **Stage 6 COMPLETE** — Round 5 에서 3검증자 blocking 0, §9.20 원문 직접 검토 blocking 0. 무효 사유 5건 전건 해소 병기. §10.7 종료 기록 · §10.8 판본 고정 신설. Stage 7 재승인 대기 |
 
 **Stage 5 Provenance**
 
@@ -1442,6 +1443,7 @@ Cowork   계약 두 문서 내부뿐 아니라 Readme 같은 인접 authority su
 | V-7 | §4.1 컬럼명·타입 — **2026-08-23 Stage 7 확정 완료.** 구현 직전 이 계약의 §4.1 과 Approval 문면이 일치하는지 대조 | 불일치 시 착수 금지 |
 | V-8 | N-2′(`stores` backfill 이 파생임)이 Stage 7 에서 확인됨. **N-3′ 는 CLOSED** | 해당 범위 제외 |
 | V-9 | 구현자가 상위 문서·본 문서의 원작자가 아님 | 배정 재조정(`000701` §37) |
+| V-24 | **`601716`·`601717` 의 SHA-256 이 §10.8 기록값과 일치** | 불일치 시 **착수 금지** — 승인한 계약과 읽는 계약이 다르다 |
 
 ### §8.2 구현 후 검증
 
@@ -1610,14 +1612,29 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 > **1차 0-A(`601500`)는 Stage 6·7 미수행 상태로 Stage 8~12 를 통과했다**
 > (`600020` §1.1 사유 1). **이번에는 구현 파일 생성 전에 멈췄다.**
 > `0170`/`0171` 은 존재하지 않으며 물리적 변경은 발생하지 않았다.
+>
+> ✅ **2026-08-23 — 무효 사유 5건 전건 해소**
+>
+> | # | 무효 사유 | 해소 |
+> |---|---|---|
+> | 1 | 독립 Contract Verification 미수행 | Round 1~5 수행. `601723`·`601724`·`601727`~`601738` |
+> | 2 | 계약이 binding 이 아님 | Stage 6 COMPLETE 로 binding 성립 — §10.7 |
+> | 3 | Stage 6 을 검증자 없이 「완료」로 변경 | 검증자·산출물·판정을 §10.7 에 명시 |
+> | 4 | Stage 5 작성자 provenance 이상 | Claude Code 재도출 완료(9판). Claude 는 통합자로 복귀 |
+> | 5 | §9.20 원문 직접 검토 미수행 | 수행 완료 — blocking 0. §10.7 기록 |
+>
+> **이 배너는 무효화 이력으로 보존한다. 삭제하지 않는다.**
+>
+> ⚠️ **위 표의 Stage 상태는 2026-08-23 무효화 시점의 것이다.**
+> **현재 상태는 아래 Stage 표와 §10.7 을 따른다.**
 
 | 단계 | 상태 |
 |---|---|
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
 | Stage 5 (Contract Drafting) | **완료** — Claude Code 재도출 (2026-08-23). 종전 Claude 작성분은 candidate reference |
-| Stage 6 (Contract Verification) | **Round 5 대기** — C4-B1 · C4-B2 · C4-I1 반영 완료 |
-| Stage 7 (Human Approval) | **대기** — 2026-08-23 Stage 7 기록은 Stage 6 미수행으로 무효. §10.1 판단은 pre-decision 으로 보존 |
-| Stage 8 (Implementation, Codex) | **MUST NOT START** — Stage 6 미수행. Stage 7 무효 |
+| Stage 6 (Contract Verification) | COMPLETE (2026-08-23) — Round 5 에서 3검증자 blocking 0. §9.20 원문 직접 검토 blocking 0. 상세는 §10.7 |
+| Stage 7 (Human Approval) | 대기 — Stage 6 종료로 재효력화 가능. §10.1 판단은 pre-decision 으로 승계한다 |
+| Stage 8 (Implementation, Codex) | MUST NOT START — Stage 7 미효력 |
 
 ### §10.1 승인 범위 — 항목별 결과 (2026-08-23, 정영석)
 
@@ -1726,6 +1743,99 @@ PASS 조건        검증 시점에 MerchantAccount 없는 Tenant = 0
 > ```
 >
 > **하나라도 어긋나면 구현하지 않고 중단한다.**
+
+### §10.7 Stage 6 종료 기록 (2026-08-23)
+
+```text
+Stage 6 — Contract Verification
+COMPLETE
+
+Contract author
+  Claude Code — excluded from verifier pool (000701 §37)
+
+Canonical verifiers (Critical tier, 000701 §9.16)
+  Cursor
+  Codex
+
+Supplemental independent verifier
+  Cowork
+  — 000701 §9.16 이 정의한 actor 가 아니다.
+    이번 워크패킷의 기록으로만 남기며 SOP actor 정의를 바꾸지 않는다.
+
+Verification method
+  Differentiated per 000701 §38.4
+
+Round 5 result
+  Cursor    blocking 0 / informational 5
+  Codex     blocking 0 / informational 0
+  Cowork    blocking 0 / informational 10
+
+Claude integration
+  COMPLETE
+
+§9.20 direct source review
+  COMPLETE — blocking 0
+  범위: 601717 §1 · §6 · §8 · §9 · §10 전문
+        601716 §0.2 · §5.9 · §6
+  교차 검증: TP-R-01/02/06 기준선, §1.6 허용 동사 ↔ D 항목,
+             물리 객체명 6건 귀속, §9.3 ↔ §10 배너 정합
+
+Disposition
+  READY_FOR_STAGE_7_HUMAN_APPROVAL
+```
+
+**라운드별 경과**
+
+| Round | Cursor | Codex | Cowork | 주요 발견 |
+|---|---|---|---|---|
+| 1 | 0 | 5 | — | 허용 동사 잔존 · MerchantAccount 물리 정의 부재 |
+| 2 | 0 | 5 | 5 | TP-RT-03 이 금지 조작을 수행 · 수정 완결성 결함 3건 |
+| 3 | 0 | 2 | — | 물리 객체명 미확정 · 「FUNCTION 전부 유효」 기대 |
+| 4 | 0 | 0 | 3 | FK 생성 조작 부재 · Readme 권한 표기 · 처분 전제 오류 |
+| 5 | 0 | 0 | 0 | — |
+
+> **빈 라운드가 없었다.** Round 5 에서 처음 0 이 됐다.
+
+**이번 Stage 6 에서 도입된 절차 3건**
+
+```text
+finding acceptance rule    blocking 을 「Stage 8 에서 다른 코드를 만들 수 있는가」로 한정
+수정 완결성 전수 grep       finding 반영 시 「n곳 찾아 m곳 고쳤다」를 강제
+검증자 입력·방법 분화       §38.4 적용. Round 5 에서 Cursor 입력에 Readme 추가
+```
+
+> ⚠️ **이 세 절차를 `000701` 에 반영하는 것은 후속 governance 과제다.**
+> **승인 직전에 controlling rule 을 바꾸지 않는다** —
+> 「이번 Stage 6 은 어느 판의 `000701` 을 따랐는가」가 새 문제가 된다.
+>
+> **효과는 아직 미증명이다.** 「다음 나선이 2라운드로 끝난다」고 단정하지 않는다.
+> 정확히는 **같은 유형의 미완 수정·검증 범위 중복 때문에
+> 5라운드까지 갈 가능성을 낮춘다**까지다.
+> 0-B·0-C 에서는 다른 종류의 결함이 나올 수 있다.
+
+### §10.8 Stage 7 승인 대상 판본 고정
+
+**Stage 7 승인은 아래 판본에 대해 효력을 갖는다.**
+
+| 문서 | 판본 | SHA-256 |
+|---|---|---|
+| `601716_TestPlan_Operational_Authority_Foundation_V2.md` | 14판 + §12.9 | (구현 시 기록) |
+| `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | 15판 | (구현 시 기록) |
+
+> ⚠️ **승인 후 문서가 바뀌면 승인 효력이 그 변경분에 미치지 않는다.**
+>
+> Stage 6 중 판본이 11 → 12 → 13 → 14 로 계속 움직였고,
+> Round 3 검증자 둘이 11판을 읽어 findings 2건이 헛돌았다.
+>
+> **구현자는 착수 직전에 두 문서의 SHA-256 을 대조한다.**
+> 불일치 시 착수하지 않고 보고한다.
+
+**해시 기록 절차**
+
+```text
+Stage 7 승인 직전   두 문서의 SHA-256 을 측정해 이 표에 기록한다
+Stage 8 착수 직전   구현자가 재측정해 대조한다 (§8.1 게이트에 추가)
+```
 
 ## §11 근거 문서 목록 (`000701` §46)
 
