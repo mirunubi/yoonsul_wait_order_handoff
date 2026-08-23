@@ -15,6 +15,8 @@ Last Updated: 2026-08-22
 | 2026-08-22 | 2판 — B-1 · B-7 해소. 대상 2·3·4 BLOCKED 해제 |
 | 2026-08-22 | 3판 — §1.37 보강·§1.45 반영. backfill 이 검증 대상에 편입 |
 | 2026-08-22 | **4판** — `601718`/`601719` write-path 실측 반영. **N-5 해소**, C-1 이 `DEFERRED — INELIGIBLE` 로 확정됨에 따라 **두 INSERT RPC 무변경 검사(TP-N-50~53) 신설**. 신규 blocker 2건 |
+| 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(컬럼명·타입) Human 확정** 반영. `merchant_account_name` 확정, 컬럼 5개·타입·제약이 기대값이 됨(§4.3 종속 해제). **N-3′ CLOSED**. TP-N-60·TP-D-09 신설, H-5(name synchronization) 이월 기록 |
+| 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **PRE-5·6·7 값을 기대값으로 확정**(tenants 1행 / stores 16컬럼 / 두 RPC md5). **N-2″ 확정** — 기준선 기록이 정확했고 RPC 가 phantom 참조. TP-RT-03 정정 — `create_franchise_store` 는 이미 실패 상태. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 기대값 근거를 선언 단독에서 **Logic 불변조건**으로 전환. I-47 검사(TP-D-08) 신설. 신규 blocker 1건 |
 
 ## §0 성격과 저자
@@ -78,6 +80,41 @@ stores 참조 view/matview   0 / 0
 > **강제 장치가 없다.** TP-D-08 이 상태를 검사하고, 강제 부재는 §12.3 N-1″ 다.
 > **I-47 을 「강제되어야 한다」로 읽고 FAIL 판정하면 `601717` §1.5 이월을 뒤집는 것이 된다.**
 
+### §0.1.2 5판 → 6판 — 사전 측정이 기대값을 상수로 만들었다
+
+`601720`(Cursor) / `601721`(Codex)가 **동일 수치에 도달**했다(`000701` §35).
+
+| 항목 | 실측 | 이 TestPlan 에의 반영 |
+|---|---|---|
+| PRE-5 `tenants` 행 수 | **1** | BL-24 after = **1** |
+| PRE-6 `stores` 컬럼 수 | **16** (`601701` 기록과 차이 0) | BL-21 before = **16**, after = **17** |
+| PRE-6 `stores.brand_id` / `extra_metadata` | **둘 다 부재** | N-2″ 확정 — §12.1 |
+| PRE-7 `provision_tenant` md5 | `f84ac1a81da4ccba87930bf020a3e974` | TP-N-50 기대값 |
+| PRE-7 `create_franchise_store` md5 | `87511a95676a41d2c95866e0c2da8b7f` | TP-N-51 기대값 |
+
+**N-2″ 확정 — 5판이 남긴 두 가능성 중 두 번째다.**
+
+```text
+컬럼이 실재한다   →  601701 기록이 불완전하다     ❌ 아니다 (차이 0)
+컬럼이 없다       →  RPC 가 phantom 을 참조한다   ⭕ 이것이다
+```
+
+| 함수 | phantom 참조 | 현재 호출 |
+|---|---|---|
+| `catchmenu_common.provision_tenant` | 없음 | **정상** |
+| `catchmenu_hq.create_franchise_store` | `extra_metadata` (INSERT 주 경로) | **실패** |
+
+> ⚠️ **TP-RT-03 을 정정했다.**
+> 5판까지 「두 INSERT RPC 가 여전히 성공적으로 실행 가능」을 기대값으로 두었는데,
+> **`create_franchise_store` 는 이 구현 이전부터 실패한다.**
+> 그대로 두면 이 항목은 구현과 무관하게 항상 FAIL 한다 — §10 참조.
+
+> ⚠️ **`brand_id` 는 이 측정이 답하지 않았다.**
+> `601718` S-4 / `601719` S-4 가 `catchmenu_common.onboard_tenant` 의
+> `update catchmenu_hq.stores set brand_id = …` 를 전문과 함께 기록했으나,
+> `601720`/`601721` 의 `prosrc` 토큰 검사는 **두 INSERT RPC 만** 대상으로 했다.
+> **`onboard_tenant` 는 재측정되지 않았다** — §12.3 N-5″.
+
 ### §0.2 이 TestPlan 이 검사하는 것은 **현재 계약**이다
 
 > ⚠️ **미래 목표를 검사하지 않는다.**
@@ -107,7 +144,7 @@ stores 참조 view/matview   0 / 0
 | 2 | 물리 변경 방법·필드명·타입 판정 | ChangeContract `601717` |
 | 3 | 허용·금지 파일 확정 | `601717` §1·§5 |
 | 4 | 남은 모순의 해소 | §12 에 기록만 |
-| 5 | DB 재조회 | `601701`/`601711`/`601712`/`601714`/`601715`/`601718`/`601719` 가 이미 수행 |
+| 5 | DB 재조회 | `601701`/`601711`/`601712`/`601714`/`601715`/`601718`/`601719`/**`601720`**/**`601721`** 이 이미 수행 |
 
 ## §1 Test Scope
 
@@ -127,14 +164,14 @@ stores 참조 view/matview   0 / 0
 | PRE-2 | §12 blocker 중 착수 범위에 걸린 것이 해소 또는 명시적 제외됨 | Approval | 해당 범위 제외 |
 | PRE-3 | 검증 환경의 최신 migration 이 `0169` | `migration_history` 상위 1행 | 기준선 재수립 |
 | PRE-4 | 기준선 재측정 완료 (§2.1) | 아래 표 | 사후 비교 불가 |
-| PRE-5 | **`tenants` 행 수 재측정** | `select count(*) from catchmenu_hq.tenants` | backfill 기대값 미확정 — 착수 금지 |
-| PRE-6 | **`stores` 컬럼 수 재측정** (§12.3 N-2″) | `information_schema.columns` | TP-R-06 기대값 미확정 — 착수 금지 |
-| PRE-7 | **두 INSERT RPC 의 `prosrc` 해시 확보** | `md5(prosrc)` 기록 | TP-N-50~53 대조 불가 — 착수 금지 |
+| PRE-5 | **`tenants` 행 수 = 1 확인** (`601720`/`601721`) | `select count(*) from catchmenu_hq.tenants` | 값이 다르면 환경 drift — 착수 금지 |
+| PRE-6 | **`stores` 컬럼 수 = 16 확인** (`601720`/`601721`) | `information_schema.columns` | 값이 다르면 환경 drift — 착수 금지 |
+| PRE-7 | **두 INSERT RPC 의 `prosrc` md5 가 `601720`/`601721` 기록값과 동일** | `md5(prosrc)` 대조 | 기준선 불일치 — 착수 금지 |
 | PRE-8 | 검증자가 원작자가 아님 (`000701` §37) | 지시문 서두에 원작자 명시 | 검증 무효 |
 
-> **PRE-6 · PRE-7 이 4판에서 새로 필요해졌다.**
-> PRE-6 은 N-2″ 때문이고, PRE-7 은 「수정되지 않았음」을 증명하려면
-> **구현 전 상태를 먼저 고정해야 하기 때문**이다.
+> **PRE-5~PRE-7 은 6판에서 「재측정하라」에서 「이 값과 같은지 확인하라」로 바뀌었다.**
+> `601720`/`601721` 이 값을 확정했으므로, 이제 이 세 전제는 **환경 drift 검사**다.
+> 값이 다르면 다른 환경이며(§12.2 B-8), 그 사실이 먼저 해소되어야 한다.
 
 ### §2.1 기준선 — 사후 비교용 실측값
 
@@ -158,11 +195,11 @@ stores 참조 view/matview   0 / 0
 | BL-18 | `chk_lepr_role_type` 허용값 | 5개 | 동일 | `601714`/`601715` Q-2 |
 | BL-19 | `owners` CHECK 제약 | 0 | 0 | 동일 |
 | BL-20 | `catchmenu_hq.tenants` | 10컬럼, **1행**, RLS ENABLE+FORCE | 무변경 | `601701` E단계 / **`601718`·`601719` 행수 재확인** |
-| BL-21 | **`catchmenu_hq.stores` 컬럼 수** | **PRE-6 재측정값** (`601701` 기록은 16 — N-2″) | **재측정값 + 1** | `601701` E단계 |
+| BL-21 | **`catchmenu_hq.stores` 컬럼 수** | **16** (`601701` 기록과 차이 0) | **17** | `601701` E단계 / **`601720`·`601721` PRE-6** |
 | BL-22 | **`stores` 를 직접 참조하는 FUNCTION** | **158** (`601701` 기록은 151 — `601702` §2.2) | **158** | **`601718` S-1 / `601719` S-1** |
 | BL-23 | `tenants` 를 직접 참조하는 FUNCTION | 10 | 10 | `601701` E단계 |
-| BL-24 | `merchant_accounts` 행 수 | (테이블 없음) | **`tenants` 행 수와 동일** | `601702` §1.45 |
-| BL-25 | `stores.merchant_account_id` NOT NULL 행 수 | (컬럼 없음) | **`stores` 행 수와 동일** | §1.45 파생 — N-2′ |
+| BL-24 | `merchant_accounts` 행 수 | (테이블 없음) | **1** (= `tenants` 행 수) | §1.45 / **`601720`·`601721` PRE-5** |
+| BL-25 | `stores.merchant_account_id` NOT NULL 행 수 | (컬럼 없음) | **1** (= `stores` 행 수) | §1.45 파생 — N-2′ |
 | BL-26 | `stores.updated_at` | 기존 값 | **변경됨** (M-2 가 `trg_stores_updated_at` 발동) | N-4′ |
 | BL-27 | `tenants.tenant_status` / `isolation_state` | `TRIAL` / `NONE` | 무변경 | `601701` / `601505` §4 |
 | **BL-28** | **`stores` 에 INSERT 하는 FUNCTION** | **2** — `catchmenu_common.provision_tenant` / `catchmenu_hq.create_franchise_store` | **2, 본문 불변** | **`601718` S-2 / `601719` S-2** |
@@ -172,10 +209,14 @@ stores 참조 view/matview   0 / 0
 | **BL-32** | **앱 코드 `stores` INSERT** | **0** | 0 | **`601718` S-5 / `601719` S-5** |
 | **BL-33** | **`stores` 트리거** | **241** (internal 240 / user 1 `trg_stores_updated_at`) | **241** | **`601718` S-6** |
 | **BL-34** | **`stores` 참조 VIEW / MATVIEW** | **0 / 0** | 0 / 0 | **`601718` S-6 / `601719` S-6** |
+| **BL-35** | **`provision_tenant` `prosrc` md5 / len** | **`f84ac1a81da4ccba87930bf020a3e974` / 4758** | **동일** | **`601720`·`601721` PRE-7** |
+| **BL-36** | **`create_franchise_store` `prosrc` md5 / len** | **`87511a95676a41d2c95866e0c2da8b7f` / 3460** | **동일** | 동일 |
+| **BL-37** | **`stores.brand_id` · `stores.extra_metadata` 컬럼** | **둘 다 부재** | **둘 다 부재** | **`601720`·`601721` PRE-6** |
+| **BL-38** | **`catchmenu_hq.tenants.tenant_name`** | `text NOT NULL`, 1행 | **무변경** | `601701` E단계 — TP-D-04 의 원천 |
 
-> ⚠️ **BL-21 과 BL-24 는 상수가 아니라 함수다.**
-> BL-24 의 기대값은 `tenants` 행 수(PRE-5), BL-21 의 기대값은 재측정 컬럼 수 + 1(PRE-6)이다.
-> **`1` 이나 `17` 을 하드코딩하지 않는다.**
+> **BL-21·BL-24 는 6판에서 상수가 됐다.**
+> `601720`/`601721` 이 `tenants` 1행 · `stores` 16컬럼을 확정했으므로 기대값은 1 과 17 이다.
+> **다만 PRE-5·PRE-6 을 전제로 남긴다** — 다른 환경이면 이 상수가 틀리기 때문이다(§12.2 B-8).
 
 > ⚠️ **BL-22 의 두 숫자를 함께 남긴다.**
 > `601701` D-3 = 151, `601718`/`601719` = 158, 차이 +7.
@@ -249,12 +290,12 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | # | 검사 | 기대값 | 근거 |
 |---|---|---|---|
 | TP-P-25 | `catchmenu_hq.merchant_accounts` 가 BASE TABLE 로 존재 | 1건 | §1.45 「배치」 / **I-50** |
-| TP-P-26 | 식별자(PK)가 존재하고 단일 컬럼 | 1건 | §1.44 |
-| TP-P-27 | `merchant_accounts.tenant_id` 가 `catchmenu_hq.tenants` 를 FK 참조 | 1건 | §1.45 |
+| TP-P-26 | **`merchant_accounts.id`** 가 `uuid` PK, `NOT NULL`, `DEFAULT gen_random_uuid()` | 일치 | **`601717` §4.1 Stage 7 확정** |
+| TP-P-27 | `merchant_accounts.tenant_id` 가 `uuid` 이며 `catchmenu_hq.tenants(id)` 를 FK 참조, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** | 일치 | §1.45 / **§4.1 확정** |
 | TP-P-28 | `merchant_accounts.tenant_id` 가 `NOT NULL` | 참 | 동일 |
 | TP-P-29 | `merchant_accounts.tenant_id` 에 `UNIQUE` 제약 존재 | 1건 | 동일 — 1:1 강제 / **I-49** |
-| TP-P-30 | 계정 명칭 컬럼이 존재하고 `NOT NULL` | 1건 | §1.44 |
-| TP-P-31 | 생성·수정 시각 컬럼 2종 존재 | 2건 | §1.44 |
+| TP-P-30 | **컬럼명이 정확히 `merchant_account_name`** 이고 `text NOT NULL` | 일치 | **§4.1 확정** — `<entity>_name` 관례 |
+| TP-P-31 | `created_at` / `updated_at` 이 `timestamptz NOT NULL DEFAULT now()` | 2건 일치 | **§4.1 확정** |
 | TP-P-32 | `merchant_accounts` 에 `BEFORE UPDATE` 트리거 존재, `set_updated_at()` 호출 | 1건 | §1.44 |
 | TP-P-33 | `merchant_accounts` RLS 가 `ENABLE` **그리고** `FORCE` | 둘 다 true | §1.45 fail-closed / **I-51** |
 | TP-P-34 | `stores.merchant_account_id` 가 존재하고 `merchant_accounts` 를 FK 참조 | 1건 | §1.26·§1.43 |
@@ -264,9 +305,20 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 
 ### §4.3 판정값이 ChangeContract 에 종속되는 항목
 
-TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았다.
-**`601717` §4.1 이 확정한 이름·타입으로 기대값을 확정한 뒤 실행한다.**
-`tenant_id` 만은 §1.45 가 이름까지 명시했으므로 TP-P-27~29 는 확정 기대값이다.
+**6판까지 이 절은 「기대값을 나중에 확정하라」였다. 7판에서 해소됐다.**
+
+Stage 7 승인 항목 4번이 처리되어 `601717` §4.1 이 **Human 확정값**이 됐다.
+TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 확정할 것이 없다.
+
+| 컬럼 | 확정 기대값 |
+|---|---|
+| `id` | `uuid NOT NULL DEFAULT gen_random_uuid()` PRIMARY KEY |
+| `tenant_id` | `uuid NOT NULL UNIQUE`, FK → `catchmenu_hq.tenants(id)`, `NO ACTION`/`NO ACTION` |
+| `merchant_account_name` | `text NOT NULL` |
+| `created_at` | `timestamptz NOT NULL DEFAULT now()` |
+| `updated_at` | `timestamptz NOT NULL DEFAULT now()` |
+
+**`stores.merchant_account_id`(TP-P-34)의 타입은 `merchant_accounts.id` 를 따라 `uuid` 다.**
 
 ### §4.4 backfill — 선언된 파생인가
 
@@ -275,7 +327,8 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | TP-D-01 | `merchant_accounts` 행 수 = **`tenants` 행 수** | 일치 (PRE-5 재측정값) | §1.45 / **I-48** |
 | TP-D-02 | 모든 `tenants.id` 가 정확히 1개의 `merchant_accounts` 행과 대응 | 누락 0 · 중복 0 | §1.45 — 1:1 / **I-47 · I-49** |
 | TP-D-03 | 대응 `tenants` 행이 없는 고아 `merchant_accounts` 행 0건 | 0건 | §1.45 |
-| TP-D-04 | 계정 명칭이 기존 `tenants` 행에서 파생됐고 임의 리터럴이 아니다 | 파생 확인 | §1.45. 값 출처는 §12.2 N-3′ |
+| TP-D-04 | **모든 `merchant_accounts.merchant_account_name` 이 대응 `tenants.tenant_name` 과 문자열 동일** | 전 행 일치 | **`601717` §4.5.1 확정 구문** — N-3′ CLOSED |
+| **TP-D-09** | **backfill 구문이 `601717` §4.5.1 과 동일** — `SELECT id, tenant_name FROM catchmenu_hq.tenants` | 일치 | 값 출처 고정 |
 | TP-D-05 | `stores.merchant_account_id` 가 `stores.tenant_id` 를 통해 결정된 값과 일치 | 전 행 일치 | §1.26. §12.2 N-2′ |
 | TP-D-06 | `stores` 중 `merchant_account_id` 가 NULL 인 행 0건 | 0건 | 동일 |
 | TP-D-07 | backfill 이 기존 행을 추가·삭제하지 않았다 — `tenants`·`stores` 행 수 불변 | BL-5·BL-20 유지 | §1.45 / **I-48** |
@@ -320,7 +373,7 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | TP-N-18 | 서비스 상태 / 체험 상태 컬럼 없음 | 0건 | I-39 |
 | TP-N-19 | 청구·계약 연락처 컬럼 없음 | 0건 | I-39 |
 | TP-N-20 | `000170` §4 그 외 권장 필드 없음 | 0건 | I-39 |
-| TP-N-21 | 컬럼 수가 §1.44 최소 필드 수와 정확히 일치 | 일치 | I-39 |
+| TP-N-21 | **컬럼 수가 정확히 5** | **5** | I-39 / **`601717` §4.1 확정** |
 | TP-N-22 | `tenants.merchant_account_id` 미생성 — 순환 참조 없음 | 0건 | §1.45 / **I-49** |
 | TP-N-23 | `merchant_companies` / `merchant_stores` 등 3층 구조 테이블 미생성 | 0건 | §1.25 / `601705` §4.6 |
 | TP-N-24 | `merchant_accounts` 가 `catchmenu_hq` 외 schema 에 생성되지 않음 | 0건 | §1.45 「배치」 / **I-50** |
@@ -380,13 +433,16 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 
 | # | 검사 | 기대값 | 근거 |
 |---|---|---|---|
-| **TP-N-50** | **`catchmenu_common.provision_tenant` 의 `prosrc` 가 PRE-7 해시와 동일** | 불변 | **`601717` FO-A** |
-| **TP-N-51** | **`catchmenu_hq.create_franchise_store` 의 `prosrc` 가 PRE-7 해시와 동일** | 불변 | **`601717` FO-B** |
+| **TP-N-50** | **`catchmenu_common.provision_tenant` 의 `prosrc` md5 = `f84ac1a81da4ccba87930bf020a3e974`** (len 4758) | 일치 | **`601717` FO-A** / BL-35 |
+| **TP-N-51** | **`catchmenu_hq.create_franchise_store` 의 `prosrc` md5 = `87511a95676a41d2c95866e0c2da8b7f`** (len 3460) | 일치 | **`601717` FO-B · FO-B1** — phantom 교정도 금지다 |
 | **TP-N-52** | **두 함수의 `stores` INSERT 컬럼 목록에 `merchant_account_id` 가 없다** | 0건 | **`601717` FO-C** — 이번 계약이 공급하도록 고치지 않았음을 확인 |
 | **TP-N-53** | `catchmenu_common.onboard_tenant` · `catchmenu_store.update_business_hours` 의 `prosrc` 불변 | 불변 | `601717` FO-D (BL-31) |
 | TP-N-54 | `stores` 에 INSERT 하는 함수가 여전히 **2건** | 2건 (BL-28) | `601717` FO-E — 우회 경로 미생성 |
 | TP-N-55 | `stores` 를 UPDATE 하는 함수가 여전히 **2건** | 2건 (BL-31) | 동일 |
 | TP-N-56 | `stores` 에 INSERT/UPDATE 하는 신규 트리거 미생성 | 0건 | `601717` FO-E · FO-20 |
+| **TP-N-59** | **`stores.brand_id` · `stores.extra_metadata` 컬럼이 생성되지 않음** | **0건** (BL-37) | **phantom 참조를 컬럼 추가로 해소하려는 시도 금지.** 교정은 `601717` §4.4.3 H-3a 로 이월 |
+| **TP-N-60** | **`merchant_accounts` 에 `is_active` · `status` · provider 식별자 · `legal_entity_id` · `store_id` · 임의 metadata 컬럼이 없다** | **0건** | **`601717` §4.1 제외 목록 확정** / I-38 · I-39 |
+| **TP-N-61** | **`merchant_accounts` 에 `account_name` 이라는 이름의 컬럼이 없다** | **0건** | **§4.1 — `account_name` 은 PG·settlement account 와 혼동될 수 있어 배제됐다** |
 
 > **TP-N-52 가 이번 판에서 가장 미묘한 검사다.**
 > 구현자가 「NOT NULL 을 걸려면 RPC 가 값을 줘야 하니 한 줄만 추가하자」고 판단하는 것은
@@ -415,7 +471,7 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | TP-R-03 | `set_updated_at()` 정의 불변 | 불변 | `601714`/`601715` Q-3 |
 | TP-R-04 | `legal_entities` 11컬럼 불변 | 불변 | `601714`/`601715` Q-8 |
 | TP-R-05 | `tenants` 10컬럼 불변 | 불변 | BL-20 |
-| TP-R-06 | **`stores` 컬럼 수 = PRE-6 재측정값 + 1** | 재측정값 + 1 (BL-21) | **상수 하드코딩 금지 — §12.3 N-2″** |
+| TP-R-06 | **`stores` 컬럼 수 = 17** | 17 (BL-21) | **`601720`/`601721` PRE-6 이 before=16 을 확정** |
 | TP-R-07 | `chk_legal_entities_*` 3건 불변 | 불변 | `601714`/`601715` Q-2 |
 | TP-R-08 | `chk_ler_*` / `chk_lepr_effective_range` 불변 | 불변 | 동일 |
 | TP-R-09 | `chk_tenants_*` 4건 · `chk_stores_*` 3건 불변 | 불변 | `601701` E단계 |
@@ -505,16 +561,27 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 |---|---|---|---|
 | TP-RT-01 | Person 계열 변경으로 인한 RPC 회귀 없음 | 0건 | BL-8 |
 | TP-RT-02 | **`stores` 컬럼 추가·UPDATE 로 인한 RPC 회귀 없음** | 0건 | BL-22·BL-30 — `SELECT *` 0건이 실측됨 |
-| TP-RT-03 | **두 INSERT RPC 가 여전히 성공적으로 실행 가능** (`merchant_account_id` 없이) | 실행 가능 | **NULL 허용이므로 성공해야 한다. 실패하면 NOT NULL 이 걸린 것이다** |
+| TP-RT-03 | **`catchmenu_common.provision_tenant` 가 여전히 성공적으로 실행 가능** (`merchant_account_id` 없이) | 실행 가능 | **NULL 허용이므로 성공해야 한다. 실패하면 NOT NULL 이 걸린 것이다** |
+| **TP-RT-08** | **`catchmenu_hq.create_franchise_store` 의 실패 양상이 구현 전후로 동일** — 부재 컬럼 `extra_metadata` 로 실패하며 `merchant_account_id` 때문이 아니다 | **동일 오류** | **§12.3 N-4″** — 이 함수는 구현 이전부터 실패한다. **성공을 기대값으로 두지 않는다** |
 | TP-RT-04 | 앱 빌드 / 테스트 스위트가 이전과 동일하게 통과 | 동일 | BL-17·BL-32 |
 | TP-RT-05 | `catchmenu_authority_owner` 경유 접근의 가능/불가능 불변 | 불변 | X-8 |
 | TP-RT-06 | `merchant_accounts` 에 어떤 애플리케이션 경로도 도달하지 못한다 | 도달 0 | §1.45 fail-closed |
 | TP-RT-07 | 다른 도메인의 트리거·제약 불변 | 불변 | TP-R-02 |
 
-> ⚠️ **TP-RT-03 은 이번 판의 핵심 런타임 검사다.**
-> 두 RPC 가 `merchant_account_id` 없이도 **성공해야 한다.**
-> 실패하면 `NOT NULL` 이 걸렸거나 우회 제약이 생긴 것이며,
-> **`601717` §1.5 C-1 이월을 위반한 것이다.**
+> ⚠️ **TP-RT-03 과 TP-RT-08 은 6판에서 갈라졌다.**
+>
+> ```text
+> provision_tenant         성공해야 한다
+>                          실패하면 NOT NULL 이 걸렸거나 우회 제약이 생긴 것이며
+>                          601717 §1.5 C-1 이월을 위반한 것이다
+>
+> create_franchise_store   실패한다. 구현 이전부터 그렇다
+>                          기대값은 「성공」이 아니라 「같은 이유로 실패」다
+> ```
+>
+> **이미 깨진 것을 이 나선이 고쳐 놓았는지 묻지 않는다**(FO-B1 이 교정을 금지한다).
+> **다만 실패 원인이 바뀌었는지는 묻는다** — 원인이 `merchant_account_id` 로 옮겨갔다면
+> NOT NULL 이 걸린 것이다.
 >
 > **TP-RT-06 은 실패가 아니라 목표 상태다** — §1.45 fail-closed baseline.
 
@@ -545,6 +612,8 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | N-2 / N-3 / N-4 / N-6 | posture / 소관 순환 / 옛 서술 / 일자 | `601702` §1.45·§2.2·§5, `601713` 병기 |
 | **N-5** | **`stores` 참조 함수 형태 미측정** | **`601718`/`601719` — `SELECT *`·`ROW_TYPE`·`NO_COLUMN_LIST` 전부 0건** |
 | **N-1′** | **C-1 승격 가부 미판정** | **판정 가능해졌다. 결과는 `601717` §4.4 — 부적격** |
+| **N-3′** | **backfill 값 출처 미선언** | **CLOSED (2026-08-23)** — Stage 7 이 `601717` §4.5.1 구문 확정. 출처 `tenants.tenant_name`(`NOT NULL`). **동기화 정책은 §12.4 H-5 로 이월** |
+| **N-2″** | **`stores` 실제 컬럼 수 미확정** | **`601720`/`601721` PRE-6 — 라이브 16컬럼, `601701` 기록과 차이 0. `brand_id`·`extra_metadata` 둘 다 부재. 기준선 기록이 정확했고 RPC 가 phantom 을 참조한다** |
 | **N-5′** | **§1.45·§1.37 보강이 ERD/Overview/Logic 에 미반영** | **`601713` I-43~I-51 · §1.1 주석 · §1.5 write-path 승계 · §6 Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20** |
 
 ### §12.2 남아 있는 것 — 처분 유효성 재확인
@@ -557,7 +626,6 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | **B-8** | 검증 환경 미지정 | **유효하되 완화.** `601718`/`601719` 가 `.140` 에서 `stores` 1행 / `tenants` 1행을 재확인했다 | §2.1, PRE-5 |
 | **B-9** | 문서 정합화 시점 미정 | **유효.** `owners` 참조 문서 27~30건 | §8 |
 | **N-2′** | `stores` backfill 이 §1.45 의 직접 선언이 아니다 | **유효.** 신설된 **I-48 도 `merchant_accounts` 행 생성만** 다루고 `stores` backfill 을 다루지 않는다 | TP-D-05·TP-D-06 |
-| **N-3′** | backfill `account_name` 값 출처 미선언 | **유효.** I-48 은 backfill 을 요구할 뿐 값 출처를 말하지 않는다 | TP-D-04 |
 | **N-4′** | backfill UPDATE 의 `stores.updated_at` 부작용 | **유효.** `601713`/`601710`/`601705` 갱신분 어디에도 이 부작용 서술이 없다 | BL-26, TP-N-49, TP-RB-06 |
 
 ### §12.3 새로 생긴 것
@@ -565,8 +633,9 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | # | Blocker | 내용 | 영향 |
 |---|---|---|---|
 | **N-1″** | **backfill 이후 신규 provisioning 부터 1:1 invariant 가 다시 깨진다.** 5판에서 **선언에서 Logic 불변조건으로 승격** | `provision_tenant` 는 `merchant_accounts` 를 만들지 않는다(`601718` S-2). backfill 은 **기존** Tenant 만 덮는다. **`601713` I-47** 이 이를 불변조건으로 두었으나 **강제 장치가 없다** | TP-D-08 이 검증 시점 상태만 검사. `601717` §4.4.3 H-1 로 이월. §12.4 |
-| **N-2″** | **`stores` 의 실제 컬럼 수가 확정되지 않았다** | `601701` E단계는 **16컬럼**을 기록했으나, `601718`/`601719` 가 인용한 live `prosrc` 는 `stores.brand_id`(`onboard_tenant` UPDATE)와 `stores.extra_metadata`(`create_franchise_store` INSERT)를 사용한다. **두 컬럼은 16컬럼 목록에도, 다른 어느 authority 문서에도 없다.** `601705` §8 이 write-path 를 Physical Drift 로 추가했으나 컬럼 수는 다루지 않았다 | **TP-R-06 의 기대값을 상수에서 「재측정값 + 1」로 유지.** PRE-6 |
-| **N-3″** | **`601710` §2.4 의 「§2.2 미결」 상호참조가 모호하다** | 151 vs 158 차이를 미결로 기록한 것은 **`601702` §2.2** 인데 `601710` §2.4 는 문서명 없이 「§2.2」로 적었다. `601710` 자신의 §2.2 는 `MerchantAccount` 절이다 | 이 TestPlan 은 `601702` §2.2 로 읽는다(BL-22). 문면 정정은 Stage 4 소관 |
+| **N-3″** | **`601710` §2.4 의 「§2.2 미결」 상호참조가 모호하다** | 151 vs 158 차이를 미결로 기록한 것은 **`601702` §2.2** 인데 `601710` §2.4 는 문서명 없이 「§2.2」로 적었다 | 이 TestPlan 은 `601702` §2.2 로 읽는다(BL-22). 문면 정정은 Stage 4 소관 |
+| **N-4″** | **`catchmenu_hq.create_franchise_store` 가 현재 호출 시 실패한다** | INSERT 주 경로가 부재 컬럼 `extra_metadata` 를 참조한다(`601718` S-2 전문 / `601720`·`601721` PRE-6). **이 나선이 만든 결함이 아니며 이 나선이 고칠 수도 없다**(`601717` FO-B1) | **TP-RT-08 이 「실패 양상 불변」을 검사.** 성공을 기대값으로 두지 않는다. 교정은 `601717` §4.4.3 H-3a 이월 |
+| **N-5″** | **`catchmenu_common.onboard_tenant` 의 `stores.brand_id` phantom 참조가 재측정되지 않았다** | `601718` S-4 / `601719` S-4 가 `update catchmenu_hq.stores set brand_id = v_brand_id` 를 전문과 함께 기록했고, `601720`/`601721` PRE-6 이 `stores.brand_id` **부재**를 확정했다. 그러나 두 사전 측정의 `prosrc` 토큰 검사는 **두 INSERT RPC 만** 대상으로 했고 `onboard_tenant` 는 범위 밖이었다 | 이 TestPlan 은 **판정하지 않는다.** TP-N-53 이 `prosrc` 불변만 검사한다 |
 
 > **N-2″ 의 두 가능성**
 >
@@ -597,6 +666,8 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | **H-2** | `provision_tenant` 의 `stores` INSERT 가 `merchant_account_id` 공급 | 동일 | §1.26 / I-27 |
 | **H-3** | `create_franchise_store` 의 `stores` INSERT 가 `merchant_account_id` 공급 | 동일 | 동일 |
 | **H-4** | H-1~H-3 완료 후 C-1 재판정 | 동일 | `601717` §1.5 |
+| **H-3a** | `create_franchise_store` 의 phantom `extra_metadata` 교정 (H-3 선행) | 동일 | §12.3 N-4″ |
+| **H-5** | **`tenants.tenant_name` ↔ `merchant_accounts.merchant_account_name` 동기화 정책** — backfill 은 **초기값 복사**이며 영구 미러가 아니다 | **`601702` §2.2 — 0-A 에서 정하지 않는다** | `601717` §4.5.1 |
 
 > ⚠️ **이 표를 `RESOLVED` 로 적지 않는다.**
 > C-1 은 **요구가 살아 있고 이번 계약에서 적용할 수 없을 뿐**이다.
@@ -622,6 +693,9 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | AC-11 | §12.2·§12.3 의 blocker 중 해당 범위에 걸리는 것이 Human 판정으로 해소됐거나 구현에서 제외됐다 |
 | AC-12 | **§12.4 의 C-1·C-2·H-1~H-4 가 Stage 7 Approval 에 이월로 명시되어 있다** |
 | AC-14 | **I-47 을 강제 장치 유무가 아니라 검증 시점 상태(TP-D-08)로 판정했다** — 강제 부재는 §12.3 N-1″ 이며 FAIL 사유가 아니다 |
+| AC-15 | **`create_franchise_store` 의 실패를 이 구현의 결함으로 판정하지 않았다** — TP-RT-08 은 실패 양상 불변만 검사한다(§12.3 N-4″) |
+| AC-16 | **`merchant_accounts` 가 `601717` §4.1 확정 정의와 정확히 일치한다** — TP-P-26~31 · TP-N-21 · TP-N-60 · TP-N-61 |
+| AC-17 | **§12.4 H-5(name synchronization)가 Approval 에 이월로 명시되어 있다** |
 | AC-13 | 검증자가 상위 문서 및 본 문서의 원작자가 아니다 (`000701` §37) |
 
 > **AC-12 가 없으면 이 나선의 결과가 잘못 읽힌다.**
@@ -644,6 +718,9 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | 금전 객체 LegalEntity snapshot (§1.35) / Tenant 이전 (§1.36) | `601710` §2.3 — 원칙 전용 |
 | External Provider Mapping 의 **positive** 검증 | §7 — negative 만 수행 |
 | 과거 migration 파일의 `owner_` 잔존 | §1.37 「검증 범위」 명시적 제외 |
+| **`create_franchise_store` 의 phantom `extra_metadata` 교정** | **`601717` FO-B1 · §4.4.3 H-3a — 후속 RPC alignment 나선** |
+| **`onboard_tenant` 의 `stores.brand_id` phantom 참조 조사·교정** | **§12.3 N-5″ — 이번 측정 범위 밖. `601717` FO-D 로 수정 금지** |
+| **`tenant_name` ↔ `merchant_account_name` 동기화 동작 검증** | **§12.4 H-5 — backfill 은 초기값 복사이며 영구 미러가 아니다. 동기화 정책은 `601702` §2.2 미결** |
 | `stores` 참조 함수 151 vs 158 전수 대조 | `601702` §2.2 — 미결이되 C-1 판정에 영향 없음 |
 | `000170` §4 deferred 권장 필드 | `601705` O19 |
 | `0168`/`0169` historical disposition 재판정 | `601710` §5.1 |
@@ -664,6 +741,8 @@ TP-P-26·TP-P-30·TP-P-31·TP-P-34 는 컬럼명·타입을 명시하지 않았�
 | `docs/…/601714_…Cursor.md` / `601715_…Codex.md` | Environment, Q-2 ~ Q-8 | 본 워크패킷 | 갭 해소 실측(이중) |
 | **`docs/…/601718_Evidence_Stores_Write_Path_Scan_Cursor.md`** | **Environment, S-1 ~ S-6** | **본 워크패킷** | **BL-22·BL-28~BL-34 · §5.7 근거** |
 | **`docs/…/601719_Evidence_Stores_Write_Path_Scan_Codex.md`** | **Environment, S-1 ~ S-6** | **본 워크패킷** | **동일(이중, `000701` §35)** |
+| **`docs/…/601720_Evidence_Stage7_Pre_Measurement_Cursor.md`** | **Environment, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **BL-21·BL-24·BL-35~BL-37 · N-2″ 확정** |
+| **`docs/…/601721_Evidence_Stage7_Pre_Measurement_Codex.md`** | **환경, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **동일(이중, `000701` §35)** |
 | `docs/…/601717_ChangeContract_…V2.md` | §1.5, §4.1, §4.4, §4.4.3, §4.5, §6.1, FO-13 | 본 워크패킷 | 검사 대상 계약 |
 | `sql/migrations/CHANGELOG.md` | 2026-07-18(phantom 컬럼 사례) · 2026-08-07 | 프로젝트 파일 | B-7 · N-2″ |
 | `tools/Check-Governance.ps1` | G15 | 프로젝트 파일 | TP-M-02·TP-M-03 |
