@@ -25,6 +25,7 @@ Last Updated: 2026-08-23
 | 2026-08-23 | **12판 — Cowork Round 2 검증 반영.** CW-B1~B5 blocking 해소(UNIQUE 형태 통일 · `provision_tenant` 「정상」 철회 병기 · R2-F4 승계 · TP-N-63 ③ 제거 · TP-RB-03 모순 정정), CW-I1~I10 처분(TP-N-65 신설 · `Last Updated` 갱신 등). **Round 3 재검증 필요** |
 | 2026-08-23 | **13판 — Round 3 findings 반영.** R3-F1(TP-R-14·TP-R-15 「전부 유효」 폐기 — catalog 존재/본문 불변 과 runtime executability 분리, AC-7 정합화) · R3-F2(**물리 객체명 5건 exact expectation** — TP-P-26·27·34·35·36). R3-I1·I2 는 CW 라운드에서 이미 해소. **Round 4 재검증 필요** |
 | 2026-08-23 | **14판 — Round 4 findings 반영** — C4-B1(TP-P-27 을 `constraint_name` exact 로 고정) · C4-I1 승격(TP-P-32 를 트리거명+함수 exact 로 고정, 물리 객체명 6건) · C4-I2(§10 에 회귀/executability 분리 적용) · C4-I3(CW-I3 미전파 주석 철회) · C4-I4(PK 예외 병기) · C4-I5(TP-B-07 확장). **Round 5 재검증 필요** |
+| 2026-08-23 | Round 5 informational I-4 처리 — §12.9 신설. Round 4 처분의 TestPlan 반영분 기록. `§7.x ↔ §12.x` 쌍 패턴 복원 |
 
 **Stage 5 Provenance**
 
@@ -1027,6 +1028,37 @@ Antigravity   V11~V14 만 수행. 발견 0
 >
 > N-2″ · N-4″ · N-6″ · CW-B2 가 전부 같은 혼동에서 나왔다.
 > **두 개념을 쓰는 Test 는 어느 쪽을 검사하는지 문면에 적는다.**
+
+### §12.9 Round 4 findings 처분 — TestPlan 반영분
+
+**처분 권위는 `601717` §7.9 가 갖는다.**
+이 절은 `601716` 에 실제로 반영된 것만 기록한다.
+
+| # | 처분 | 반영 위치 |
+|---|---|---|
+| C4-B1 | `fk_merchant_accounts_tenant_id` 를 D-14 §1.4.1 에 연결 | `TP-P-27` — `constraint_name = fk_merchant_accounts_tenant_id` exact expectation. §4.3 물리 객체명 6건 목록 |
+| C4-I1 (blocking 승격) | `trg_merchant_accounts_updated_at` 확정 | `TP-P-32` — `trigger_name` + `function = catchmenu_common.set_updated_at()` exact. §4.3 목록에 6번째 객체 추가 |
+| C4-B2 | CW-I5 처분 전제 정정 | Round 2 Cursor 5건(R2C-1~5) 중 채택분 R2C-3 을 `AC-6` 에 `TP-N-62~64` 로 반영 |
+| C4-B3 | `601700` Readme 권한 표기 제거 | **TestPlan 반영 없음** — Correction A 로 Readme 에서 처리 |
+| C4-I2 | 회귀 / executability 분리 적용 | `TP-B-07` · `TP-RT-01/02/04/05` |
+| C4-I3 | 철회 표기 | 해당 지점 취소선 병기 |
+| C4-I4 | PK 예외 병기 | §4.3 `merchant_accounts_pkey` 항목 |
+| C4-I5 | evidence 편입 범위 확장 | `TP-B-07` 확장 |
+| C4-I6 | Cowork 자기 정정 기록 | **TestPlan 반영 없음** — `601717` §7.9 에 기록 |
+| C4-I7 | 해소됨 | — |
+
+> ⚠️ **`601716` 이 Round 4 에서 바꾼 지점**
+>
+> `TP-P-27` · `TP-P-32` · `TP-B-07` · `TP-RT-01/02/04/05` · `AC-6` ·
+> §4.3 3행 · §12 개정 이력
+>
+> 종전에는 개정 이력 한 줄만 있었고 처분 표가 없었다(Round 5 I-4).
+
+> **`§7.x ↔ §12.x` 쌍 패턴**
+>
+> `601717` §7.5~§7.9 의 각 라운드 처분에 대응해
+> `601716` §12.5~§12.9 가 TestPlan 반영분을 기록한다.
+> Round 4 에서 끊겼던 것을 이 절이 복원한다.
 
 ## §13 Acceptance Criteria
 
