@@ -15,6 +15,7 @@ Last Updated: 2026-08-22
 | 2026-08-22 | 2판 — B-1 · B-7 해소. 대상 2·3·4 BLOCKED 해제 |
 | 2026-08-22 | 3판 — §1.37 보강·§1.45 반영. backfill 이 검증 대상에 편입 |
 | 2026-08-22 | **4판** — `601718`/`601719` write-path 실측 반영. **N-5 해소**, C-1 이 `DEFERRED — INELIGIBLE` 로 확정됨에 따라 **두 INSERT RPC 무변경 검사(TP-N-50~53) 신설**. 신규 blocker 2건 |
+| 2026-08-23 | **8판** — **Stage 7 Human Approval 반영**(정영석, 2026-08-23). **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED). 검증 환경을 `postgres:17.6.1.140` 으로 고정(B-8 CLOSED). B-9 DEFERRED. A-3 Module 파일명 `601722` 확정 반영 |
 | 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(컬럼명·타입) Human 확정** 반영. `merchant_account_name` 확정, 컬럼 5개·타입·제약이 기대값이 됨(§4.3 종속 해제). **N-3′ CLOSED**. TP-N-60·TP-D-09 신설, H-5(name synchronization) 이월 기록 |
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **PRE-5·6·7 값을 기대값으로 확정**(tenants 1행 / stores 16컬럼 / 두 RPC md5). **N-2″ 확정** — 기준선 기록이 정확했고 RPC 가 phantom 참조. TP-RT-03 정정 — `create_franchise_store` 는 이미 실패 상태. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 기대값 근거를 선언 단독에서 **Logic 불변조건**으로 전환. I-47 검사(TP-D-08) 신설. 신규 blocker 1건 |
@@ -160,18 +161,24 @@ stores 참조 view/matview   0 / 0
 
 | # | 전제 | 확인 방법 | 미충족 시 |
 |---|---|---|---|
-| PRE-1 | `601717` §10 Stage 7 이 승인 상태 | 문서 확인 + G15 | 착수 금지 |
+| PRE-1 | `601717` §10 Stage 7 = **`APPROVED_FOR_IMPLEMENTATION`**(정영석, 2026-08-23) | 문서 확인 + G15 | 착수 금지 |
 | PRE-2 | §12 blocker 중 착수 범위에 걸린 것이 해소 또는 명시적 제외됨 | Approval | 해당 범위 제외 |
-| PRE-3 | 검증 환경의 최신 migration 이 `0169` | `migration_history` 상위 1행 | 기준선 재수립 |
+| PRE-3 | **환경이 `postgres:17.6.1.140` 이고 최신 migration 이 `0169`** | 이미지 태그 + `migration_history` 상위 1행 | **environment drift — 구현하지 않고 중단**(`601717` §10.3) |
 | PRE-4 | 기준선 재측정 완료 (§2.1) | 아래 표 | 사후 비교 불가 |
-| PRE-5 | **`tenants` 행 수 = 1 확인** (`601720`/`601721`) | `select count(*) from catchmenu_hq.tenants` | 값이 다르면 환경 drift — 착수 금지 |
-| PRE-6 | **`stores` 컬럼 수 = 16 확인** (`601720`/`601721`) | `information_schema.columns` | 값이 다르면 환경 drift — 착수 금지 |
-| PRE-7 | **두 INSERT RPC 의 `prosrc` md5 가 `601720`/`601721` 기록값과 동일** | `md5(prosrc)` 대조 | 기준선 불일치 — 착수 금지 |
+| PRE-5 | **`tenants` 행 수 = 1 확인** (`601720`/`601721`) | `select count(*) from catchmenu_hq.tenants` | **environment drift — 구현하지 않고 중단** |
+| PRE-6 | **`stores` 컬럼 수 = 16 확인** (`601720`/`601721`) | `information_schema.columns` | **environment drift — 구현하지 않고 중단** |
+| PRE-7 | **두 INSERT RPC 의 `prosrc` md5 가 `601720`/`601721` 기록값과 동일** | `md5(prosrc)` 대조 | **environment drift — 구현하지 않고 중단** |
 | PRE-8 | 검증자가 원작자가 아님 (`000701` §37) | 지시문 서두에 원작자 명시 | 검증 무효 |
 
-> **PRE-5~PRE-7 은 6판에서 「재측정하라」에서 「이 값과 같은지 확인하라」로 바뀌었다.**
-> `601720`/`601721` 이 값을 확정했으므로, 이제 이 세 전제는 **환경 drift 검사**다.
-> 값이 다르면 다른 환경이며(§12.2 B-8), 그 사실이 먼저 해소되어야 한다.
+> **PRE-3·PRE-5~PRE-7 은 Stage 7 승인 항목 8 이 확정한 environment drift 게이트다.**
+>
+> ```text
+> 기준 환경   postgres:17.6.1.140 / migration 0169 / tenants = 1 / stores = 1
+> 불일치 시   구현하지 않고 중단한다
+> ```
+>
+> **`601714`/`601715`(`.156`)의 증거를 폐기하는 것이 아니다.**
+> 그 조사가 답한 Q-2~Q-5·Q-8 은 유효하며, **PASS/FAIL 기준 환경이 `.140` 이라는 뜻**이다.
 
 ### §2.1 기준선 — 사후 비교용 실측값
 
@@ -531,7 +538,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-B-03 | `sql/migrations/` 기존 169개 파일 미수정 | 0건 | `000701` §14.5 |
 | TP-B-04 | `apps/` / `packages/` / `catchmenu_app/` / `tests/` / `tools/` 변경 0건 | 0건 | `601717` §5 |
 | TP-B-05 | `supabase/` 변경 0건 | 0건 | 동일 |
-| TP-B-06 | `docs/` 변경이 허용된 문서 동기화 범위 내 | 범위 내 | `601717` §1.2 |
+| TP-B-06 | `docs/` 변경이 허용된 문서 동기화 범위 내 — **Module 파일명이 `601722_Module_Operational_Authority_Foundation_V2.md`** 이고 27~30건 정합화 문서는 **미변경** | 범위 내 | `601717` §1.2 · **Stage 7 항목 1·7(B-9 DEFERRED)** |
 | TP-B-07 | `601702` / `601705` / `601710` / `601713` / **`601718`** / **`601719`** 미수정 | 0건 | `601717` X-7·X-8·X-10 |
 | TP-B-08 | 신규 migration 파일이 정확히 2개 | 2개 | `601717` §1.1 |
 
@@ -546,10 +553,24 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | TP-M-05 | 적용 후 `migration_history` 에 `success = true` 2행 추가 | 2행 | 적용 증거 |
 | TP-M-06 | 적용 순서가 `0170` → `0171` | 참 | FK 의존 |
 | TP-M-07 | `0171` 내부 순서가 **테이블 생성 → M-1 → stores 컬럼·FK·인덱스 → M-2** | 참 | 참조 무결성 |
-| TP-M-08 | 재적용(replay) 시 파괴적 실패가 발생하지 않음 | 확인 | §12.2 B-7 |
+| TP-M-08 | **clean baseline replay** — 깨끗한 baseline DB 에서 `0000`…`0169` → `0170` → `0171` **전체 순차 재생 성공** | 성공 | **Stage 7 Decision (`601717` §10.2)** — B-7 CLOSED |
 | TP-M-09 | migration 본문에 `CASCADE` 0건 | 0건 | §1.39 / I-37 |
 | TP-M-10 | migration 본문에 `DROP TABLE` 0건 | 0건 | `601717` §2 |
 | TP-M-11 | **migration 본문에 `CREATE OR REPLACE FUNCTION` 0건** | 0건 | **`601717` FO-15 · §6.1** |
+
+> ⚠️ **TP-M-08 의 범위를 Stage 7 이 좁혔다** (`601717` §10.2 — B-7 CLOSED).
+>
+> ```text
+> 요구한다        깨끗한 baseline DB 에서 0000…0169 → 0170 → 0171 순차 재생 성공
+> 요구하지 않는다  이미 0170/0171 이 적용된 동일 DB 에서 본문을 다시 실행
+> ```
+>
+> **`0170` 의 rename 은 동일 DB 재실행에 적합하지 않다.**
+> 7판까지의 「재적용(replay)」 표현은 「같은 DB 에서 두 번 실행」으로 읽힐 여지가 있었고,
+> 그 해석으로 검사하면 **idempotent 를 요구하지 않기로 한 결정과 어긋난다.**
+>
+> `601718` S-5 가 기록한 `0034`/`0060`/`0082` 의 `stores` INSERT 는
+> 전체 재생 시 `0171` 보다 앞서 적용되므로 backfill 이 사후에 덮는다 — 순서 충돌 없음.
 
 > **TP-M-11 이 §5.7 의 파일 단위 대응물이다.**
 > `prosrc` 대조(TP-N-50~53)는 사후 상태를 보고,
@@ -612,6 +633,8 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | N-2 / N-3 / N-4 / N-6 | posture / 소관 순환 / 옛 서술 / 일자 | `601702` §1.45·§2.2·§5, `601713` 병기 |
 | **N-5** | **`stores` 참조 함수 형태 미측정** | **`601718`/`601719` — `SELECT *`·`ROW_TYPE`·`NO_COLUMN_LIST` 전부 0건** |
 | **N-1′** | **C-1 승격 가부 미판정** | **판정 가능해졌다. 결과는 `601717` §4.4 — 부적격** |
+| **B-7** | **재적용 동작 요구사항 미선언** | **CLOSED by Stage 7 Decision (2026-08-23)** — clean baseline replay 만 요구. TP-M-08 |
+| **B-8** | **검증 환경 미지정** | **CLOSED by Stage 7 Decision (2026-08-23)** — `postgres:17.6.1.140` / `0169` / `tenants`=1 · `stores`=1. PRE-3·5·6·7 |
 | **N-3′** | **backfill 값 출처 미선언** | **CLOSED (2026-08-23)** — Stage 7 이 `601717` §4.5.1 구문 확정. 출처 `tenants.tenant_name`(`NOT NULL`). **동기화 정책은 §12.4 H-5 로 이월** |
 | **N-2″** | **`stores` 실제 컬럼 수 미확정** | **`601720`/`601721` PRE-6 — 라이브 16컬럼, `601701` 기록과 차이 0. `brand_id`·`extra_metadata` 둘 다 부재. 기준선 기록이 정확했고 RPC 가 phantom 을 참조한다** |
 | **N-5′** | **§1.45·§1.37 보강이 ERD/Overview/Logic 에 미반영** | **`601713` I-43~I-51 · §1.1 주석 · §1.5 write-path 승계 · §6 Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20** |
@@ -622,9 +645,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 |---|---|---|---|
 | **B-5** | Store–LegalEntity 시점 관계 물리 구조 미정 | **유효.** `601710` §4 분기·확장 실측 부재 변동 없음 | TP-N-29 |
 | **B-6** | `CHANGELOG.md` 규약 상태 미결 | **유효.** 변동 없음 | §8 |
-| **B-7** | 재적용 동작 요구사항 미선언 | **유효.** `601718` S-5 가 `0034`/`0060`/`0082` 의 `stores` INSERT 를 기록했으나, 전체 재생 시 이들은 `0171` 보다 앞서 적용되어 backfill 이 사후에 덮는다 — **순서 문제는 없으나 정책 부재는 그대로** | TP-M-08 |
-| **B-8** | 검증 환경 미지정 | **유효하되 완화.** `601718`/`601719` 가 `.140` 에서 `stores` 1행 / `tenants` 1행을 재확인했다 | §2.1, PRE-5 |
-| **B-9** | 문서 정합화 시점 미정 | **유효.** `owners` 참조 문서 27~30건 | §8 |
+| **B-9** | 문서 정합화 시점 미정 | **DEFERRED by Stage 7 Decision (2026-08-23).** 현 Stage 8 에서 27~30건 문서를 수정하지 않는다. 물리 구현 + Verification/Audit 완료 후 **별도 Documentation Vocabulary Reconciliation** | §8 TP-B-06. **정합화 전까지 그 문서군의 legacy `owners`/`owner_id` 를 새 나선의 canonical 근거로 쓰지 않는다** |
 | **N-2′** | `stores` backfill 이 §1.45 의 직접 선언이 아니다 | **유효.** 신설된 **I-48 도 `merchant_accounts` 행 생성만** 다루고 `stores` backfill 을 다루지 않는다 | TP-D-05·TP-D-06 |
 | **N-4′** | backfill UPDATE 의 `stores.updated_at` 부작용 | **유효.** `601713`/`601710`/`601705` 갱신분 어디에도 이 부작용 서술이 없다 | BL-26, TP-N-49, TP-RB-06 |
 
@@ -656,7 +677,8 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 
 ### §12.4 이월 — blocker 가 아니라 판정된 상태
 
-> **아래는 미해결이 아니다. `601717` §1.5 가 판정한 상태이며 후속 나선이 이어받는다.**
+> **아래는 미해결이 아니다. `601717` §1.5 가 판정하고 Stage 7 이 승인한 상태이며, 후속 나선이 이어받는다.**
+> Stage 7 항목 2(C-1·C-2)와 항목 3(H-1~H-5)이 **2026-08-23 APPROVED** 다 — `601717` §10.1.
 
 | # | 이월 항목 | 상태 | 살아 있는 invariant |
 |---|---|---|---|
@@ -680,7 +702,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 
 | # | 조건 |
 |---|---|
-| AC-1 | §2 Preconditions PRE-1~PRE-8 이 모두 충족됐다 |
+| AC-1 | §2 Preconditions PRE-1~PRE-8 이 모두 충족됐다 — **PRE-3·5·6·7 은 environment drift 게이트다** |
 | AC-2 | §4 Positive 중 `BLOCKED` 가 아닌 항목이 전부 PASS 다 |
 | AC-3 | §4.3 에 따라 컬럼명·타입 기대값이 `601717` §4.1 로 확정된 뒤 실행됐다 |
 | AC-4 | §4.4 backfill 검증 **TP-D-01~TP-D-08** 이 전부 PASS 다 |
@@ -695,7 +717,8 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | AC-14 | **I-47 을 강제 장치 유무가 아니라 검증 시점 상태(TP-D-08)로 판정했다** — 강제 부재는 §12.3 N-1″ 이며 FAIL 사유가 아니다 |
 | AC-15 | **`create_franchise_store` 의 실패를 이 구현의 결함으로 판정하지 않았다** — TP-RT-08 은 실패 양상 불변만 검사한다(§12.3 N-4″) |
 | AC-16 | **`merchant_accounts` 가 `601717` §4.1 확정 정의와 정확히 일치한다** — TP-P-26~31 · TP-N-21 · TP-N-60 · TP-N-61 |
-| AC-17 | **§12.4 H-5(name synchronization)가 Approval 에 이월로 명시되어 있다** |
+| AC-17 | **§12.4 H-5(name synchronization)가 Approval 에 이월로 명시되어 있다** — `601717` §10.1 항목 5 |
+| AC-18 | **TP-M-08 을 clean baseline replay 로만 판정했다** — 동일 DB 재실행 실패는 FAIL 사유가 아니다(`601717` §10.2) |
 | AC-13 | 검증자가 상위 문서 및 본 문서의 원작자가 아니다 (`000701` §37) |
 
 > **AC-12 가 없으면 이 나선의 결과가 잘못 읽힌다.**
@@ -743,7 +766,7 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | **`docs/…/601719_Evidence_Stores_Write_Path_Scan_Codex.md`** | **Environment, S-1 ~ S-6** | **본 워크패킷** | **동일(이중, `000701` §35)** |
 | **`docs/…/601720_Evidence_Stage7_Pre_Measurement_Cursor.md`** | **Environment, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **BL-21·BL-24·BL-35~BL-37 · N-2″ 확정** |
 | **`docs/…/601721_Evidence_Stage7_Pre_Measurement_Codex.md`** | **환경, PRE-5 · PRE-6 · PRE-7** | **본 워크패킷** | **동일(이중, `000701` §35)** |
-| `docs/…/601717_ChangeContract_…V2.md` | §1.5, §4.1, §4.4, §4.4.3, §4.5, §6.1, FO-13 | 본 워크패킷 | 검사 대상 계약 |
+| `docs/…/601717_ChangeContract_…V2.md` | §1.2, §1.5, §4.1, §4.4, §4.4.3, §4.5, §6.1, FO-13, **§10 · §10.1~§10.6** | 본 워크패킷 | 검사 대상 계약 · **Stage 7 승인 기록** |
 | `sql/migrations/CHANGELOG.md` | 2026-07-18(phantom 컬럼 사례) · 2026-08-07 | 프로젝트 파일 | B-7 · N-2″ |
 | `tools/Check-Governance.ps1` | G15 | 프로젝트 파일 | TP-M-02·TP-M-03 |
 

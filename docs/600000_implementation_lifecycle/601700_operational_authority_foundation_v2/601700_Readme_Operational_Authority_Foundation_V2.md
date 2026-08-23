@@ -49,9 +49,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 2단계 ERD | ✅ 완료 | `601705` — Active, 4단계 진입 기준선 |
 | 3단계 인접 도메인 대조 | ✅ 완료 | `601706`(Cursor) / `601707`(Codex) — Blocker 8건 전건 반영 |
 | 4단계 설계문서 정합화 | 산출물 4종 작성 완료 (Draft) | `601710` Overview / `601713` Logic (Claude Code) · `601716` TestPlan / `601717` ChangeContract (Claude, 저자 분리) |
-| Stage 6 계약 검증 | 미착수 | 원작자 제외 — Claude Code(Overview/Logic) · Claude(TestPlan/ChangeContract) 둘 다 검증자에서 제외 |
-| Stage 7 Human Approval | **대기** | `601717` §10. 승인 전 migration 금지 |
-| 5단계 SQL 구현 | 미착수 | |
+| Stage 6 계약 검증 | 완료 | 원작자 제외 — Claude Code(Overview/Logic) · Claude(TestPlan/ChangeContract) 둘 다 검증자에서 제외 |
+| Stage 7 Human Approval | **APPROVED_FOR_IMPLEMENTATION** | 정영석, 2026-08-23. 승인 범위·이월 항목은 `601717` §10.1~§10.6 |
+| 5단계 SQL 구현 | 미착수 — **승인 경계 내 착수 가능** | `0170` / `0171`. Module 자기보고서는 `601722` |
 | 6단계 나선 종료 판정 | 미착수 | |
 
 > **3단계 세션 분리 요건**(`000701` §47.1): `601705` 는 Claude Code 가 작성했으므로
@@ -125,8 +125,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(7판) — 4단계 TestPlan. **현재 계약을 검사하며 미래 목표를 검사하지 않는다.** Stage 7 이 컬럼명·타입을 확정해 TP-P-26~31 이 확정 기대값이 됨(§4.3 종속 해제). 컬럼 수 5·`merchant_account_name`·제외 목록을 TP-N-21·60·61 로 검사. **N-3′ CLOSED** — backfill 값 출처 `tenants.tenant_name`(TP-D-04·09). 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 10건 |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(7판) — 4단계 ChangeContract. **C-1/C-2 는 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT`**(RESOLVED 아님). **§4.1 이 Stage 7 Human 확정값으로 전환** — `merchant_accounts` 5컬럼, `account_name` → **`merchant_account_name`**(`<entity>_name` 관례 · PG/settlement account 혼동 회피), 제외 목록 확정. §4.5.1 backfill 구문 확정으로 **N-3′ CLOSED**, 동기화 정책은 **H-5** 로 이월. Blocker 10건. **착수 전 §10 확인** |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(8판) — 4단계 TestPlan. Stage 7 승인 반영 — **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건 |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(8판) — 4단계 ChangeContract. **§10 Stage 7 = `APPROVED_FOR_IMPLEMENTATION`**(정영석, 2026-08-23). 항목 1~9 결과를 §10.1~§10.6 에 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |

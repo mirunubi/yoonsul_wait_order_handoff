@@ -15,6 +15,7 @@ Last Updated: 2026-08-22
 | 2026-08-22 | 2판 — B-1 등 해소. 대상 2·3·4 편입. 판정 6건 |
 | 2026-08-22 | 3판 — §1.37 보강·§1.45 반영. backfill 편입. §1.5 조건부 1건(C-1) |
 | 2026-08-22 | **4판** — `601718`/`601719` write-path 실측으로 C-1 근거 확보. **C-1 을 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT` 로 확정**. 두 INSERT RPC 수정 명시적 금지. Deferred handoff 명시. N-5 해소, 신규 blocker 2건 |
+| 2026-08-23 | **8판** — **Stage 7 Human Approval 기록**(정영석, 2026-08-23). Stage 7 → `APPROVED_FOR_IMPLEMENTATION`. A-3 을 `601722` 확정 이름으로 교체. **B-7·B-8 CLOSED**, **B-9 DEFERRED**. 검증 환경을 `postgres:17.6.1.140` 으로 고정 |
 | 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(§4.1 컬럼명·타입) Human 확정.** `account_name` → **`merchant_account_name`**. §4.1 을 파생 표현에서 **확정 정의**로 전환. **N-3′ CLOSED**(backfill 값 출처 = `tenants.tenant_name`). name synchronization 을 **H-5** 로 신규 이월 |
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **N-2″ 확정** — `601701` 기록이 정확했고 RPC 가 phantom 을 참조한다. C-1 사유 정밀화(두 경로 중 `provision_tenant` 만 현재 호출 가능. **판정 불변**). `create_franchise_store` 현재 실패를 blocker 로 기록. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 근거를 선언 단독에서 **선언+Logic 불변조건**으로 전환. §8.3 검증자 경고 철회. §10 Stage 4 병기 제거. 신규 blocker 1건 |
@@ -148,8 +149,8 @@ Stage 6 검증자가 Logic 만 읽어도 backfill·트리거명 변경을 범위
 
 | # | 경로 | 성격 | 제약 |
 |---|---|---|---|
-| A-1 | `sql/migrations/0170_person_vocabulary_normalization.sql` | 신규 | Person 계열 전용. 파일명은 제안이며 Stage 7 이 확정 |
-| A-2 | `sql/migrations/0171_merchant_account_foundation.sql` | 신규 | MerchantAccount 계열 + backfill 전용. 동상 |
+| A-1 | `sql/migrations/0170_person_vocabulary_normalization.sql` | 신규 | Person 계열 전용. **Stage 7 이 파일명 유지로 확정(2026-08-23)** |
+| A-2 | `sql/migrations/0171_merchant_account_foundation.sql` | 신규 | MerchantAccount 계열 + backfill 전용. **동상** |
 
 **A-1·A-2 가 허용 SQL 파일의 전부다.**
 
@@ -157,10 +158,18 @@ Stage 6 검증자가 Logic 만 읽어도 backfill·트리거명 변경을 범위
 
 | # | 경로 | 허용 조작 |
 |---|---|---|
-| A-3 | `docs/…/601720_Module_*.md` | 신규 생성 (Stage 8 자기보고서). 번호는 `000005` 기준 다음 빈 번호 |
+| A-3 | `docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601722_Module_Operational_Authority_Foundation_V2.md` | 신규 생성 (Stage 8 자기보고서). **파일명 확정 — 와일드카드 아님** |
 | A-4 | `601700_Readme_…V2.md` §8 File List | 행 추가 |
 | A-5 | `docs/000005_Index_Document_Number.md` | 행 추가 |
 | A-6 | `docs/000007_Map_Full_Directory.md` | 행 추가 |
+
+> ⚠️ **A-3 의 번호는 Stage 7 이 확정했다. 구현자가 바꾸지 않는다.**
+>
+> 7판까지 `601720_Module_*` 이었으나 **`601720`/`601721` 은 Stage 7 사전 측정에 이미 사용됐다.**
+> Stage 7 이 승인 시점에 `000005` 기준 **미사용 번호임을 확인해 `601722` 로 확정**했다.
+> 「`000005` 기준 다음 빈 번호를 쓰라」는 지시는 **더 이상 유효하지 않다** — `601722` 를 그대로 쓴다.
+
+`000001` §5.11 트리플 업데이트는 A-4·A-5·A-6 을 **같은 배치**에서 처리할 것을 요구한다.
 
 ### §1.3 허용 DDL — `0170` Person 계열
 
@@ -715,6 +724,8 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 | N-2 / N-3 / N-4 / N-6 | posture / 소관 순환 / 옛 서술 / 일자 | `601702` §1.45·§2.2·§5, `601713` 병기 |
 | **N-5** | **`stores` 참조 함수 형태 미측정** | **`601718`/`601719` — `SELECT *`·`ROW_TYPE`·`NO_COLUMN_LIST` 전부 0건** |
 | **N-1′** | **C-1 승격 가부 미판정** | **판정 가능해졌다. 결과는 §4.4 — 부적격이며 §1.5 로 이월** |
+| **B-7** | **재적용 동작 요구사항 미선언** | **CLOSED by Stage 7 Decision (2026-08-23)** — clean baseline replay 만 요구(§10.2) |
+| **B-8** | **검증 환경 미지정** | **CLOSED by Stage 7 Decision (2026-08-23)** — `postgres:17.6.1.140` / `0169` / `tenants`=1 · `stores`=1 (§10.3) |
 | **N-3′** | **backfill `merchant_account_name` 값 출처 미선언** | **CLOSED (2026-08-23)** — Stage 7 이 §4.5.1 구문을 확정. 출처는 `tenants.tenant_name`(`NOT NULL`). **동기화 정책은 H-5 로 이월** |
 | **N-2″** | **`stores` 실제 컬럼 수 미확정** | **`601720`/`601721` PRE-6 — 라이브 16컬럼, `601701` 기록과 차이 0. `brand_id`·`extra_metadata` 둘 다 부재. 기준선 기록이 정확했고 RPC 가 phantom 을 참조한다** |
 | **N-5′** | **§1.45·§1.37 보강이 ERD/Overview/Logic 에 미반영** | **`601713` I-43~I-51 · §1.1 주석 · §1.5 write-path 승계 · §6 Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20** |
@@ -728,9 +739,7 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 |---|---|---|---|
 | **B-5** | Store–LegalEntity 시점 관계 물리 구조 미정 | **유효.** `601710` §4 분기·확장 실측 부재 모두 변동 없음 | FO-29. §3.4 |
 | **B-6** | `CHANGELOG.md` 규약 상태 미결 | **유효.** 변동 없음 | X-6 |
-| **B-7** | 재적용 동작 요구사항 미선언 | **유효.** backfill INSERT 중복 판정 기준이 여전히 없다. `601718` S-5 가 `0034`/`0060`/`0082` 에도 `stores` INSERT 가 있음을 기록했으나, 전체 재생 시 이들은 `0171` 보다 앞서 적용되므로 backfill 이 사후에 덮는다 — **순서상 문제는 없으나 정책 부재는 그대로다** | Stage 7 |
-| **B-8** | 검증 환경 미지정 | **유효하되 더 완화.** `601718`/`601719`·`601720`/`601721` 이 모두 `17.6.1.140` 에서 측정했고 `migration_history` 최신은 `0169` 로 일치한다. 다만 `601714`/`601715` 는 `17.6.1.156` 이었고, **어느 환경에서 구현·검증할지는 여전히 미선언** | Stage 7 |
-| **B-9** | 문서 정합화 시점 미정 | **유효.** `owners` 참조 문서 27~30건 | §1.2 는 색인 3종만 허용 |
+| **B-9** | 문서 정합화 시점 미정 | **DEFERRED by Stage 7 Decision (2026-08-23).** 현 0-A Stage 8 에서 27~30건 문서를 수정하지 않는다. 물리 구현 + Verification/Audit 완료 후 **별도 Documentation Vocabulary Reconciliation** 으로 처리한다 | §1.2 는 색인 3종만 허용. **정합화 전까지 해당 문서군의 legacy `owners`/`owner_id` 표현을 새 나선의 canonical 근거로 사용하지 않는다** |
 | **N-2′** | `stores` backfill 이 §1.45 의 직접 선언이 아니다 | **유효.** §1.45 문언은 MerchantAccount 생성만 다루고, **신설된 I-47~I-51 도 `stores` backfill 을 다루지 않는다**(I-48 은 `merchant_accounts` 행 생성만) | M-2 로 허용하되 파생임을 명시. Stage 7 확인 |
 | **N-4′** | backfill UPDATE 의 `stores.updated_at` 부작용 | **유효.** `601713`/`601710`/`601705` 갱신분 어디에도 이 부작용에 대한 서술이 없다 | §9.1 R-6 비가역 지점 |
 
@@ -771,10 +780,10 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 |---|---|---|
 | V-1 | §10 Stage 7 이 승인 상태 | 착수 금지 |
 | V-2 | §7 blocker 중 착수 범위에 걸린 것이 해소 또는 명시적 제외됨 | 해당 범위 제외 |
-| V-3 | `601716` §2.1 기준선 재측정 완료 | 착수 금지 |
-| V-4 | `tenants` 행 수 재측정 완료 | backfill 기대값 미확정 — 착수 금지 |
-| V-5 | **`stores` 컬럼 수 = 16 확인** (`601720`/`601721` PRE-6). 값이 다르면 환경 drift | 착수 금지 |
-| V-6 | 검증 환경 확정(B-8) | 착수 금지 |
+| V-3 | `601716` §2.1 기준선 재측정 완료. **기준 환경은 `postgres:17.6.1.140` / migration `0169`**(Stage 7 항목 8) | 착수 금지 |
+| V-4 | `tenants` 행 수 = **1** 확인 | 불일치 시 **environment drift 로 중단** |
+| V-5 | **`stores` 컬럼 수 = 16 · 두 RPC `prosrc` md5 일치 확인** (`601720`/`601721` PRE-6·PRE-7) | 불일치 시 **environment drift 로 중단** |
+| V-6 | 검증 환경이 `postgres:17.6.1.140` 임을 확인 — **B-8 은 Stage 7 이 CLOSED** | 다른 환경이면 착수 금지 |
 | V-7 | §4.1 컬럼명·타입 — **2026-08-23 Stage 7 확정 완료.** 구현 직전 이 계약의 §4.1 과 Approval 문면이 일치하는지 대조 | 불일치 시 착수 금지 |
 | V-8 | N-2′(`stores` backfill 이 파생임)이 Stage 7 에서 확인됨. **N-3′ 는 CLOSED** | 해당 범위 제외 |
 | V-9 | 구현자가 상위 문서·본 문서의 원작자가 아님 | 배정 재조정(`000701` §37) |
@@ -842,7 +851,8 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 ### §9.3 Codex Instruction Boundary
 
 ```text
-Codex 는 Stage 7 Human Approval 이 명시적으로 허용 파일을 열거한 뒤에만 구현한다.
+Stage 7 Human Approval 완료 — 정영석, 2026-08-23 (§10). 승인 경계 안에서만 구현한다.
+Module 자기보고서 파일명은 601722_Module_Operational_Authority_Foundation_V2.md 다. 번호를 바꾸지 않는다.
 허용 파일 §1.1·§1.2 / 허용 DDL §1.3·§1.4 / 허용 DML §4.5 / 허용 동사 §1.6.
 merchant_accounts 의 컬럼명·타입은 §4.1 의 Stage 7 확정 정의를 그대로 쓴다.
 계정 명칭 컬럼은 merchant_account_name 이다. account_name 을 쓰지 않는다.
@@ -897,35 +907,115 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 
 | 단계 | 상태 |
 |---|---|
-| Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. **§1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소)** |
-| Stage 5 (Contract Drafting) | 완료 — 본 문서 및 `601716` (5판) |
-| Stage 6 (Contract Verification) | 대기 — §37 에 따라 **Claude 제외**(계약 작성자) |
-| Stage 7 (Human Approval) | 대기 |
-| Stage 8 (Implementation, Codex) | 미착수 |
+| Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
+| Stage 5 (Contract Drafting) | 완료 — 본 문서 및 `601716` (8판) |
+| Stage 6 (Contract Verification) | 완료 — §37 에 따라 Claude 제외(계약 작성자) |
+| Stage 7 (Human Approval) | **APPROVED_FOR_IMPLEMENTATION** — 승인자 정영석, 2026-08-23 |
+| Stage 8 (Implementation, Codex) | 미착수 — **승인 경계 내에서 착수 가능** |
 
-> **Stage 6 주의**(`000701` §37): `601716` 과 본 계약은 Claude 가 작성했으므로
-> Claude 는 계약 검증에 참여하지 않는다. ERD/Overview/Logic 은 Claude Code 가 작성했으므로
-> Claude Code 도 그 범위의 원작자다. 검증자는 그 둘을 제외해 구성한다(`601700` Readme §10.1).
+### §10.1 승인 범위 — 항목별 결과 (2026-08-23, 정영석)
 
-> ⚠️ **Stage 7 이 승인 상태가 되기 전에는 `sql/migrations/0170_*.sql` 과 `0171_*.sql` 이
-> 존재해서는 안 된다.** G15 가 커밋 시점에 이 표의 Stage 7 행을 읽는다(`000701` §6.11.1).
+| # | 항목 | 결과 |
+|---|---|---|
+| 1 | 허용 파일 목록 | **APPROVED** — A-1·A-2 파일명 유지. **A-3 은 `601722_Module_Operational_Authority_Foundation_V2.md` 로 확정**(§1.2). A-4~A-6 as written |
+| 2 | C-1 · C-2 | **APPROVED** — `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT`. **`RESOLVED` 아님** |
+| 3 | H-1 ~ H-5 | **APPROVED** — 후속 RPC alignment 나선 이월. **워크패킷 번호 미확정** |
+| 4 | `merchant_accounts` 컬럼 정의 | **확정 완료 (2026-08-23)** — §4.1 (7판 반영분) |
+| 5 | N-2′ / N-3′ / H-5 | **APPROVED** — N-2′ 확인 · **N-3′ CLOSED** · H-5 이월 |
+| 6 | N-2″ / N-4″ / N-5″ | **APPROVED** — N-2″ 확정 · N-4″·N-5″ 이월 |
+| 7 | blocker 처분 | **APPROVED** — **B-7 CLOSED** · **B-9 DEFERRED** · 나머지 as documented (§10.2) |
+| 8 | 검증 환경 | **APPROVED** — **B-8 CLOSED** (§10.3) |
+| 9 | I-47 해석 | **APPROVED** (§10.4) |
 
-> ⚠️ **Stage 7 승인 시 함께 명시해야 하는 것**
+### §10.2 항목 7 — B-7 CLOSED / B-9 DEFERRED
+
+**B-7 — replay 요구사항 확정**
+
+```text
+0170 / 0171 은 동일 DB 에 반복 실행 가능한 idempotent migration 일 필요가 없다.
+
+요구되는 replay:
+  깨끗한 baseline DB 에서 0000…0169 → 0170 → 0171 전체 순차 재생 성공
+
+지원 대상 아님:
+  이미 0170/0171 이 적용된 동일 DB 에서 migration 본문을 다시 직접 실행
+```
+
+`0170` 의 rename 은 동일 DB 재실행에 적합하지 않다.
+**`601716` TP-M-08 의 「재적용(replay)」 표현을 「clean baseline replay」로 좁혔다** —
+현 문구가 「같은 DB 에서 두 번 실행」으로 읽힐 여지가 있었기 때문이다.
+
+**B-9 — 문서 정합화 이월**
+
+```text
+현 0-A Stage 8 구현에서 27~30건 문서를 수정하지 않는다.
+물리 구현 + Verification/Audit 완료 후
+별도 Documentation Vocabulary Reconciliation 으로 처리한다.
+
+그 정합화가 끝나기 전에는 해당 문서군의
+legacy owners / owner_id 표현을 새 나선의 canonical 근거로 사용하지 않는다.
+```
+
+### §10.3 항목 8 — 검증 환경 고정
+
+```text
+Implementation / Verification reference environment
+
+PostgreSQL image   postgres:17.6.1.140
+latest migration   0169
+baseline           tenants = 1 / stores = 1
+
+PRE-5 / PRE-6 / PRE-7 이 601720 / 601721 과 일치해야 한다.
+불일치하면 구현하지 않고 environment drift 로 중단한다.
+```
+
+> ⚠️ **`601714`/`601715`(`.156`)의 증거를 폐기하는 것이 아니다.**
+> 그 조사가 답한 Q-2~Q-5·Q-8 은 유효하다.
+> **`0170`/`0171` 구현 및 사후 PASS/FAIL 기준이 `.140` 이라는 뜻이다.**
+
+### §10.4 항목 9 — I-47 해석
+
+```text
+PASS 조건        검증 시점에 MerchantAccount 없는 Tenant = 0
+요구하지 않음     향후 신규 Tenant 에 대한 runtime enforcement
+강제 부재        N-1″ / H-1 후속 소관. 현재 Verification FAIL 사유 아님
+```
+
+### §10.5 승인이 뜻하지 않는 것
+
+| # | 승인되지 않은 것 |
+|---|---|
+| 1 | **C-1 · C-2 의 `NOT NULL` 적용** — 이월이며 FO-13 이 계속 금지한다 |
+| 2 | **두 INSERT RPC 및 `onboard_tenant` · `update_business_hours` 수정** — §6.1 FO-A~FO-E 가 계속 금지한다 |
+| 3 | **`create_franchise_store` 의 phantom 교정** — FO-B1. H-3a 로 이월 |
+| 4 | **§1 허용 목록 밖의 어떤 파일·조작** — §5·§6 이 계속 금지한다 |
+| 5 | **후속 RPC alignment 나선의 착수** — 워크패킷 번호도 확정되지 않았다 |
+| 6 | **B-5 · N-1″ · N-2′ · N-4″ · N-5″ 의 해결** — 이월이거나 미판정이다 |
+
+> **승인은 §1 이 열거한 파일과 경계 안에서만 유효하다**(`000001` §5.4.6).
+> Approval 과 이 계약이 충돌하면 **더 엄격한 경계가 이긴다.**
+
+### §10.6 문서 형식에 관한 기록
+
+이 워크패킷은 별도 `Approval` 문서(`000001` §5.4.6)를 만들지 않고
+**`601700` Readme §10 이 정한 대로 ChangeContract §10 에 승인 상태를 기록**한다.
+`tools/Check-Governance.ps1` G15 도 이 위치를 읽는다(`000701` §6.11.1).
+
+> 본 문서 상단 메타데이터의 `Runtime Implementation Authorization: Not Granted` 는
+> **`000001` §5.4.5 가 정한 ChangeContract 문서 규격**이며,
+> ChangeContract 자체는 구현을 승인하지 않는다는 뜻이다.
+> **실제 착수 권한은 위 §10 Stage 7 행과 §10.1 이 정한다.**
+
+> ⚠️ **Stage 8 착수 전 최종 확인**
 >
 > ```text
-> 1. 허용 파일 목록 (§1.1·§1.2 를 확정하거나 축소)
-> 2. §1.5 C-1 · C-2 의 이월 승인
->    — RESOLVED 가 아니라 DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT
-> 3. §4.4.3 H-1 ~ H-4 를 후속 RPC alignment 나선으로 이월 (AC-10)
-> 4. ~~§4.1 컬럼명·타입 확정~~ — **2026-08-23 확정 완료.** §4.1 참조
-> 5. N-2′ (stores backfill 이 파생임) 확인 — **N-3′ 는 CLOSED**
->    그리고 H-5(name synchronization) 이월 승인
-> 6. N-2″ 확정 결과 승인 — `stores` 16컬럼, RPC 가 phantom 참조.
->    그리고 N-4″(`create_franchise_store` 현재 실패)·N-5″(`onboard_tenant` 미재측정) 이월
-> 7. §7 blocker 중 미해소분과 제외 범위 (AC-9)
-> 8. 검증 환경 (B-8) 및 tenants 행 수 (V-4)
-> 9. I-47 의 해석 — 검증 시점 상태로 확인하며 강제 장치는 이월(N-1″). §8.3
+> 1. §8.1 V-1 ~ V-9 전건 충족
+> 2. 환경이 postgres:17.6.1.140 · migration 0169 · tenants 1 · stores 1
+> 3. 두 RPC prosrc md5 가 601720/601721 기록값과 일치
+> 4. 구현자가 상위 문서·본 문서의 원작자가 아님 (000701 §37)
 > ```
+>
+> **하나라도 어긋나면 구현하지 않고 중단한다.**
 
 ## §11 근거 문서 목록 (`000701` §46)
 
