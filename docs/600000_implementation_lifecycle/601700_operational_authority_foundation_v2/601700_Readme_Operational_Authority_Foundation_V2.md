@@ -45,16 +45,17 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 > ⚠️ **Stage 상태 (2026-08-23)**
 >
 > ```text
-> Stage 5   완료 — Claude Code 재도출
-> Stage 6   OPEN — Round 5 완료 — Stage 6 findings 5라운드 전건 처분
-> Stage 7   NOT EFFECTIVE — Stage 6 이 전제(`000701` 1258행)
-> Stage 8   MUST NOT START
+> Stage 5   COMPLETE — Claude Code 재도출 (2026-08-23)
+> Stage 6   COMPLETE — Round 5 에서 3검증자 blocking 0.
+>           §9.20 원문 직접 검토 blocking 0. 상세는 `601717` §10.7
+> Stage 7   대기 — Stage 6 종료로 재효력화 가능
+> Stage 8   MUST NOT START — Stage 7 미효력
 > ```
 >
 > **Human pre-decision 9건은 보존된다**(`601717` §10.1).
 > 재승인 시 그대로 승계하며 다시 논쟁하지 않는다.
 >
-> **그러나 Stage 6 이 완료되지 않았으므로 Stage 7 승인 효력은 아직 없다.**
+> **Stage 6 은 종료되었으나 Stage 7 재승인이 아직 수행되지 않았다.**
 > **Codex 구현은 금지된다.**
 >
 > 상세는 `601717` §10 무효화 배너를 따른다.
@@ -63,18 +64,31 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 단계 | 상태 | 산출물 |
 |---|---|---|
 | §48 증거수집 | ✅ 완료 | `601701`(5개 대상 A~E) / `601703`(HQ·HR 5개 대상 A단계) |
-| 1단계 업무규칙 선언 | ✅ 완료 | `601702` §1.1~§1.30 (선언 30건) |
+| 1단계 업무규칙 선언 | ✅ 완료 | `601702` §1.1~§1.45 (**선언 45건**). Stage 6 findings 반영분 §1.31~§1.45 포함 |
 | 2단계 ERD | ✅ 완료 | `601705` — Active, 4단계 진입 기준선 |
 | 3단계 인접 도메인 대조 | ✅ 완료 | `601706`(Cursor) / `601707`(Codex) — Blocker 8건 전건 반영 |
-| 4단계 설계문서 정합화 | 산출물 4종 작성 완료 (Draft) | `601710` Overview / `601713` Logic (Claude Code) · `601716` TestPlan / `601717` ChangeContract (Claude, 저자 분리) |
-| Stage 6 계약 검증 | **OPEN — Contract Verification in progress. Round 5 대기** | 원작자 제외 — Claude Code(Overview/Logic) · Claude(TestPlan/ChangeContract) 둘 다 검증자에서 제외 |
-| Stage 7 Human Approval | **NOT EFFECTIVE** | Stage 6 이 전제(`000701` 1258행). 2026-08-23 정영석 판단 9건은 **Human pre-decision 으로 보존**된다 — `601717` §10.1~§10.6 |
-| 5단계 SQL 구현 (Stage 8) | **MUST NOT START** — Stage 6 미완료 · Stage 7 NOT EFFECTIVE | `0170` / `0171`. Module 자기보고서는 `601722` |
+| 4단계 설계문서 정합화 | ✅ 완료 | `601710` Overview / `601713` Logic / `601716` TestPlan / `601717` ChangeContract — **4종 전부 Claude Code**. Stage 5 재도출(2026-08-23)로 저자 통일 |
+| Stage 6 계약 검증 | **COMPLETE** (2026-08-23) | Round 1~5. 검증자 Cursor · Codex(정식) + Cowork(supplemental). 산출물 `601723`·`601724`·`601727`~`601738` |
+| Stage 7 Human Approval | **대기** | Stage 6 종료로 재효력화 가능. 2026-08-23 정영석 판단 9건은 pre-decision 으로 승계 — `601717` §10.1 |
+| 5단계 SQL 구현 (Stage 8) | **MUST NOT START** — Stage 7 미효력 | `0170` / `0171`. Module 자기보고서는 `601722` |
 | 6단계 나선 종료 판정 | 미착수 | |
 
 > **3단계 세션 분리 요건**(`000701` §47.1): `601705` 는 Claude Code 가 작성했으므로
 > 검증자에서 제외했다(§37). 대조는 Cursor 와 Codex 가 각각 독립 수행했으며,
 > 두 결과의 발견이 갈렸다(§35) — Cursor 는 외부 어휘·누락, Codex 는 ERD 내부 정합성.
+
+> **Stage 6 경과** — 5라운드. 빈 라운드가 없었고 Round 5 에서 처음 blocking 0 이 됐다.
+>
+> | Round | Cursor | Codex | Cowork |
+> |---|---|---|---|
+> | 1 | 0 | 5 | — |
+> | 2 | 0 | 5 | 5 |
+> | 3 | 0 | 2 | — |
+> | 4 | 0 | 0 | 3 |
+> | 5 | 0 | 0 | 0 |
+>
+> Cowork 은 `000701` §9.16 이 정의한 actor 가 아니므로
+> **supplemental independent verifier** 로 기록한다. SOP actor 정의를 바꾸지 않는다.
 
 **증거수집을 1단계 앞에 두는 이유**: 검증되지 않은 옛 설계문서를 Human이 그대로 받아 적는 것을 막기 위함이다.
 `000150`/`000170`/`003020`/`009030`/`010004`는 **검증을 거친 적이 없다**(`600020` §2.2).
@@ -129,22 +143,22 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 |---|---|---|
 | 601700 | `601700_Readme_Operational_Authority_Foundation_V2.md` | Active |
 | 601701 | `601701_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집 A~E. 대상 5개(Company/Owner/Tenant/HQ/Store) |
-| 601702 | `601702_Register_Stage1_Business_Rules.md` | Active — 1단계 업무규칙 선언(Human 전담). §1.1~§1.30 선언 30건. 3단계 대조 결과 반영 완료 |
+| 601702 | `601702_Register_Stage1_Business_Rules.md` | Active — 1단계 업무규칙 선언(Human 전담). **§1.1~§1.45 선언 45건**. Stage 6 findings 반영분 §1.31~§1.45 포함 |
 | 601703 | `601703_Register_Stage0_Evidence_Collection_HQ_HR.md` | Active — §48 증거수집 A단계. 대상 5개(HQ/Staff/Session/Role/Permission). **A-2 어휘표 신뢰 불가 — 배너 참조** |
 | 601704 | `601704_Register_Stage2_ERD_Relationship_Survey.md` | Active — 2단계 ERD 선행 관계·cardinality 조사(Cursor). Q1~Q8. Q1·Q5는 미판정이며 `601702` §1.22·§1.23이 확정 |
-| 601705 | `601705_Diagram_Operational_Authority_Core_ERD.md` | Active — 2단계 ERD 초안. 4단계 진입 기준선 |
+| 601705 | `601705_Diagram_Operational_Authority_Core_ERD.md` | Active — 2단계 ERD. 4단계 진입 기준선. `MerchantAccount` 물리 정의 · write-path 실측 · External Provider Boundary annotation 반영 |
 | 601706 | `601706_Audit_Stage3_Adjacent_Domain_Cursor.md` | Active — 3단계 인접 도메인 대조(Cursor). 외부 어휘·누락 중심 |
 | 601707 | `601707_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 인접 도메인 대조(Codex). ERD 내부 정합성 중심 |
 | 601708 | `601708_Evidence_Stage4_Overview_Evidence_Pack_Cursor.md` | Active — §46 Evidence Pack(Cursor). 지정 목록 없이 자체 탐색 |
 | 601709 | `601709_Evidence_Stage4_Overview_Evidence_Pack_Codex.md` | Active — §46 Evidence Pack(Codex). §35 이중 검증 |
-| 601710 | `601710_Overview_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Overview. §46 근거 79건 전수 분류. Stage 7 승인 대상 |
+| 601710 | `601710_Overview_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Overview. §46 근거 79건 전수 분류. 구현 대상 5건 / Out of Scope 10건. Stage 7 승인 대상 |
 | 601711 | `601711_Evidence_Person_Physical_Impact_Scan_Cursor.md` | Active — Person 물리 영향 조사(Cursor). Logic 입력 자료 |
 | 601712 | `601712_Evidence_Person_Physical_Impact_Scan_Codex.md` | Active — Person 물리 영향 조사(Codex). §35 이중 검증 |
-| 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. 불변조건 33건. 물리 변경 방법은 ChangeContract 소관 |
+| 601713 | `601713_Logic_Operational_Authority_Foundation_V2.md` | Draft — 4단계 Logic. **불변조건 51건(I-1~I-51)**. §6 질문 10건 전건 해소. 물리 변경 방법은 ChangeContract 소관 |
 | 601714 | `601714_Evidence_Stage4_Logic_Gap_Survey_Cursor.md` | Active — Logic §6 미해결 5건 조사(Cursor). ChangeContract 입력 |
 | 601715 | `601715_Evidence_Stage4_Logic_Gap_Survey_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
-| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(14판) — 4단계 TestPlan. Stage 6 Round 1~3 findings 반영분. **TP-M-08 을 clean baseline replay 로 축소**(B-7 CLOSED), 검증 환경을 `postgres:17.6.1.140`/`0169`/`tenants`=1·`stores`=1 로 고정(B-8 CLOSED, PRE-3·5·6·7 = environment drift 게이트), B-9 DEFERRED. 이월 C-1·C-2·H-1~H-5 는 §12.4. Blocker 8건. **Stage 6 OPEN — Round 5 대기** |
-| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(14판) — 4단계 ChangeContract. **§10 Stage 6 = OPEN / Stage 7 = NOT EFFECTIVE / Stage 8 = MUST NOT START**. 2026-08-23 정영석 판단 9건은 Human pre-decision 으로 §10.1~§10.6 에 보존. 항목 1~9 결과 기록. A-3 Module 파일명 **`601722` 확정**. B-7·B-8 CLOSED / B-9 DEFERRED. **C-1·C-2 는 여전히 `DEFERRED — INELIGIBLE`**(RESOLVED 아님). Blocker 8건 |
+| 601716 | `601716_TestPlan_Operational_Authority_Foundation_V2.md` | Draft(14판 + §12.9) — 4단계 TestPlan. **Stage 6 Round 1~5 findings 전건 반영**. 물리 객체명 6건 exact expectation. 「catalog 존재」와 「runtime executability」 분리. 검증 환경 `postgres:17.6.1.140`/`0169` 고정. 이월 C-1·C-2·H-1~H-5 는 §12.4. **SHA-256 이 `601717` §10.8 에 고정** |
+| 601717 | `601717_ChangeContract_Operational_Authority_Foundation_V2.md` | Draft(15판) — 4단계 ChangeContract. **§10 Stage 6 = COMPLETE / Stage 7 = 대기 / Stage 8 = MUST NOT START**. 2026-08-23 정영석 판단 9건은 pre-decision 으로 §10.1~§10.6 보존. §10.7 Stage 6 종료 기록 · §10.8 판본 고정 · §10.9 승인 시 기록할 것. 허용 D-1~D-21 / 금지 X-* · FO-*. **C-1·C-2 는 `DEFERRED — INELIGIBLE`**(RESOLVED 아님) |
 | 601718 | `601718_Evidence_Stores_Write_Path_Scan_Cursor.md` | Active — `stores` write-path 실측(Cursor). C-1 직접 근거 |
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
@@ -162,6 +176,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601733 | `601733_Audit_Stage6_Round4_Verification_Cursor.md` | Active — Round 4 검증(Cursor). blocking 0 |
 | 601734 | `601734_Audit_Stage6_Round4_Verification_Codex.md` | Active — Round 4 검증(Codex). blocking 0 |
 | 601735 | `601735_Audit_Stage6_Round4_Verification_Cowork.md` | Active — Round 4 검증(Cowork). **blocking 3** — Readme 권한 표기 충돌 포함 |
+| 601736 | `601736_Audit_Stage6_Round5_Verification_Cursor.md` | Active — Round 5 검증(Cursor). blocking 0 / informational 5. 입력 범위에 Readme 추가 |
+| 601737 | `601737_Audit_Stage6_Round5_Verification_Codex.md` | Active — Round 5 검증(Codex). NO CONCERNS FOUND |
+| 601738 | `601738_Audit_Stage6_Round5_Verification_Cowork.md` | Active — Round 5 검증(Cowork). blocking 0 / informational 10. 전건이 두 문서 밖에서 발견 |
 
 ## §9 Add / Move Rule
 
