@@ -21,6 +21,7 @@ Last Updated: 2026-08-22
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 기대값 근거를 선언 단독에서 **Logic 불변조건**으로 전환. I-47 검사(TP-D-08) 신설. 신규 blocker 1건 |
 | 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 TestPlan 을 다시 도출. **substantive change 없음**, governance correction 2건 — §0.3 |
 | 2026-08-23 | **10판 — Stage 6 findings 반영.** Codex F-1~F-7 처분(`601724`), Cursor informational 3건 처분(`601723`), **TP-RT-03 폐기 → TP-N-62~64 negative 대체**(F-5), COMMENT 검사 TP-P-38 신설(F-2), B-8 문면 정정(F-4), N-2″ 미판정 서술 철회(F-3), 신규 blocker N-6″~N-8″. **Stage 6 재검증 필요** |
+| 2026-08-23 | **11판 — Stage 6 Round 2 findings 반영.** R2-F1(`CREATE UNIQUE INDEX` 잔존 제거) · R2-F2(COMMENT exact literal) · R2-F3(TP-N-63 정적 증거로 재정의) · R2-F5(AC 보강) · R2-F6(Test ID 범위 갱신). **Round 3 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -187,9 +188,9 @@ Human     601717 §10.1 pre-decision 9건
 |---|---|
 | §1 Test Scope | 동일 — Overview §2 대상 5건 그대로 |
 | §2.1 기준선 BL-1~BL-38 | 동일 — 증거 문서 재대조 결과 값 변동 0 |
-| §4 Positive TP-P-01~TP-P-37 | 동일 |
+| §4 Positive TP-P-01~TP-P-38 | 동일 — **TP-P-38 은 10판 신설(F-2), R2-F2 로 literal 확정** |
 | §4.4 backfill TP-D-01~TP-D-09 | 동일 |
-| §5 Negative TP-N-01~TP-N-61 | 동일 |
+| §5 Negative TP-N-01~TP-N-64 | 동일 — **TP-N-62~64 는 10판 신설(F-5), TP-N-63 은 11판 재정의(R2-F3)** |
 | §6 Regression TP-R-01~TP-R-20 | 동일 |
 | §7 External TP-X-01~TP-X-13 | 동일 |
 | §8·§9·§10·§11 | 동일 |
@@ -375,7 +376,7 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | TP-P-20 | `legal_entity_person_roles.ownership_percent` 가 존재하지 않는다 | 0건 | I-37 / §1.39 |
 | TP-P-21 | `chk_lepr_ownership_percent` 가 존재하지 않는다 | 0건 | I-37 |
 | TP-P-22 | `legal_entity_representatives` 테이블명 유지 | 유지 | I-35 |
-| TP-P-23 | `persons` 테이블 코멘트가 **`601717` D-13 확정 literal 과 문자열 동일** | 일치 | I-15 / **`601717` D-13 (F-2 처분)** |
+| TP-P-23 | `persons` 테이블 코멘트가 **`Canonical natural persons who hold operational or legal authority for legal entities.` 와 문자열 동일** | 완전 일치 | I-15 / **`601717` D-13 · §4.2.1 (F-2 · R2-F2 처분)** |
 | TP-P-24 | canonical schema 에 `owner_` 로 시작하는 식별자 0건 | 0건 | §1.37 「검증 범위」 / **`601713` §1.1 주석** |
 
 > ⚠️ **TP-P-24 의 범위는 §1.37 이 명시적으로 좁혔다.**
@@ -400,7 +401,7 @@ TP-RB-nn  Rollback        되돌릴 수 있는가
 | TP-P-35 | 그 FK 의 `ON DELETE`/`ON UPDATE` 가 `NO ACTION` | 참 | `fk_stores_legal_entity_id` 관행 |
 | TP-P-36 | `stores.merchant_account_id` 조회 인덱스 존재 | 1건 | `idx_stores_legal_entity_id` 관행 |
 | TP-P-37 | `merchant_accounts` 와 `tenants` 가 별도 테이블로 유지 | 2건 | I-23 |
-| **TP-P-38** | **`merchant_accounts` 및 신규 컬럼의 COMMENT 가 `601717` D-21 확정 literal 과 문자열 동일** | 일치 | **`601717` D-21 (F-2 처분)** — 종전에는 대응 Test ID 가 없었다 |
+| **TP-P-38** | **아래 3건의 COMMENT 가 `601717` §4.2.1 확정 literal 과 문자열 동일** — `merchant_accounts` = `CatchMenu SaaS contract and management account. One-to-one with tenant.` / `merchant_accounts.tenant_id` = `Owning tenant. NOT NULL and UNIQUE; this column alone enforces the 1:1 relationship.` / `stores.merchant_account_id` = `Structural parent merchant account. Nullable in this contract; NOT NULL is deferred (C-1).` | 3건 모두 완전 일치 | **`601717` D-21 · §4.2.1 (F-2 · R2-F2 처분)** — 종전에는 literal 이 확정되지 않아 문자열 동일 검사가 성립하지 않았다 |
 
 ### §4.3 판정값이 ChangeContract 에 종속되는 항목
 
@@ -568,7 +569,8 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 | # | 검사 | 기대값 | 근거 |
 |---|---|---|---|
 | **TP-N-62** | **`catchmenu_common.provision_tenant` 본문이 baseline md5 와 불변** — TP-N-50 과 연동 | `f84ac1a81da4ccba87930bf020a3e974` (len 4758) | **F-5 처분 — 대체 ①** |
-| **TP-N-63** | **0-A 검증 과정에서 `provision_tenant` 를 호출하지 않았다** | 호출 0건 | **F-5 처분 — 대체 ②.** 호출 자체가 FO-33 · TP-N-58 을 침범한다 |
+| **TP-N-63** | **정적 증거로 검증한다** — ① `provision_tenant` `prosrc` md5 가 baseline 과 불변(TP-N-62 와 동일 근거) ② `0170`/`0171` migration 본문에 `provision_tenant` 호출문 0건 ③ 이 TestPlan 의 실행 command 목록에 `provision_tenant` 호출 0건 | 3건 모두 충족 | **R2-F3 처분** — 관측 장치를 도입하지 않는다 |
+| ~~TP-N-63 (종전 정의)~~ | **폐기 (2026-08-23, R2-F3 처분)** — 종전 기대: 「0-A 검증 과정에서 `provision_tenant` 를 호출하지 않았다 / 호출 0건」 | — | **폐기 사유**: 호출 여부를 관측하려면 `pg_stat_statements` 또는 별도 logging 이 필요하다. **검증을 위한 runtime 구조를 이번 나선에서 새로 만드는 것은 0-A 범위를 넘는다.** 행은 기록으로 보존한다 |
 | **TP-N-64** | **검증 과정이 `tenants` 행을 생성·수정하지 않았다** | BL-20 유지 | **F-5 처분 — 대체 ③.** TP-N-58 과 중복 검사이나 **실행 검증 금지**를 명시한다 |
 
 > ⚠️ **이 절은 「실행되는가」를 묻지 않는다.**
@@ -715,9 +717,9 @@ TP-P-26~TP-P-31 은 이제 **확정 기대값**이며, 실행 전에 별도로 �
 > **대체 항목** — §5.9 **TP-N-62 · TP-N-63 · TP-N-64**
 >
 > ```text
-> provision_tenant 본문이 baseline md5 와 불변인가        TP-N-62 (TP-N-50 연동)
-> 0-A 검증 과정에서 provision_tenant 를 호출하지 않았는가   TP-N-63
-> 검증 과정이 tenants 행을 건드리지 않았는가               TP-N-64
+> provision_tenant 본문이 baseline md5 와 불변인가         TP-N-62 (TP-N-50 연동)
+> migration 본문·실행 command 에 호출문이 없는가            TP-N-63 (R2-F3 — 정적 증거)
+> 검증 과정이 tenants 행을 건드리지 않았는가                TP-N-64
 > ```
 >
 > **실행 검증은 후속 RPC alignment 나선으로 이월한다** — §12.4.
@@ -880,6 +882,43 @@ Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 finding
 > ⚠️ **이 절이 있어야 Stage 6 재검증이 가능하다.**
 > 재검증자는 F-1~F-7 이 실제로 반영됐는지, Cursor 3건의 유지 판정이 타당한지를 본다.
 
+### §12.6 Stage 6 Round 2 findings 처분 (2026-08-23)
+
+> **finding 위치만 고치지 않는다.**
+> R2-F1 이 그 증거다 — 1차 F-1 이 `601717` D-15 에서 `CREATE UNIQUE INDEX` 를 제외했으나
+> **§1.6 허용 동사 목록에 그대로 잔존**했다.
+> **같은 권한·같은 literal·같은 Test ID 가 등장하는 모든 지점을 함께 정합화한다.**
+
+**검증자 발견 분포 — Round 2**
+
+```text
+Cursor        발견 5 / blocking 0
+Codex         발견 7 / blocking 5
+Antigravity   V11~V14 만 수행. 발견 0
+```
+
+두 라운드 연속 같은 패턴이며, 분석과 처분은 `601717` §7.4 에 기록했다.
+
+| # | 지점 | 처분 | 이 TestPlan 의 반영 |
+|---|---|---|---|
+| **R2-F1** | `CREATE UNIQUE INDEX` 잔존 | **채택.** 계약이 `ALTER TABLE … ADD CONSTRAINT … UNIQUE` 하나로 통일 | TP-P-29 는 이미 제약 형태를 기대한다 — 변경 없음. `601717` §1.6·§4.2 가 정합화됨 |
+| **R2-F2** | COMMENT exact literal 미확정 | **채택.** `601717` §4.2.1 이 4건의 exact literal 을 SQL 구문으로 고정 | **TP-P-23 · TP-P-38 에 literal 을 직접 기재**해 1:1 문자열 동일 검사로 만들었다 |
+| **R2-F3** | TP-N-63 이 관측 장치를 요구 | **채택.** **정적 증거로 재정의.** 종전 정의는 폐기 기록으로 보존 | §5.9 TP-N-63 · §10 주석 |
+| **R2-F4** | H-1 Prerequisite 이 N-6″ 만 연결 | **채택.** N-8″ 도 연결 | `601717` §4.4.3 — 이 TestPlan 은 §12.3 N-8″ 로 승계 |
+| **R2-F5** | AC 에 TP-D-09 · H-3a 누락 | **채택.** **AC-4 에 TP-D-09**, **AC-12 에 H-3a** 명시 | §13 AC-4 · AC-12 / `601717` AC-10 |
+| **R2-F6** | 재도출 요약의 Test ID 범위가 구판 | **채택(non-blocking).** 현 판 범위로 갱신 | §0.3 대조표 |
+| **R2-F7** | `601725 §-4` 가 검증 불가능한 인용 | **채택(non-blocking).** `601725` §H unresolved facts #4 로 정정 | `601717` §7.3 N-8″ |
+
+> ⚠️ **R2-F3 의 처분 원칙을 남긴다.**
+>
+> ```text
+> 도입하지 않는다   pg_stat_statements · 별도 logging
+>                   검증을 위한 runtime 구조는 0-A 범위 밖이다
+>
+> 대신 검사한다     prosrc md5 불변 · migration 본문 · 실행 command 목록
+>                   전부 정적 파일·카탈로그 증거다
+> ```
+
 ## §13 Acceptance Criteria
 
 | # | 조건 |
@@ -887,7 +926,7 @@ Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 finding
 | AC-1 | §2 Preconditions PRE-1~PRE-8 이 모두 충족됐다 — **PRE-3·5·6·7 은 environment drift 게이트다** |
 | AC-2 | §4 Positive 중 `BLOCKED` 가 아닌 항목이 전부 PASS 다 |
 | AC-3 | §4.3 에 따라 컬럼명·타입 기대값이 `601717` §4.1 로 확정된 뒤 실행됐다 |
-| AC-4 | §4.4 backfill 검증 **TP-D-01~TP-D-08** 이 전부 PASS 다 |
+| AC-4 | §4.4 backfill 검증 **TP-D-01~TP-D-09** 가 전부 PASS 다 — **TP-D-09(backfill 구문이 `601717` §4.5.1 확정 SQL 과 동일) 포함**(R2-F5 처분. 종전 범위는 TP-D-08 까지였다) |
 | AC-5 | §5 Negative 전 항목이 PASS 다. **하나라도 FAIL 이면 전체 FAIL** |
 | AC-6 | **§5.6 · §5.7 이 전부 PASS 다** — NOT NULL 미적용, 두 INSERT RPC 무변경 |
 | AC-7 | §6 Regression 전 항목이 PASS 다 |
@@ -895,7 +934,7 @@ Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 finding
 | AC-9 | §8 Boundary · §9 Migration 전 항목이 PASS 다 |
 | AC-10 | §11 Rollback 계획이 문서로 존재하고 TP-RB-01·TP-RB-02·TP-RB-06·TP-RB-07 을 만족한다 |
 | AC-11 | §12.2·§12.3 의 blocker 중 해당 범위에 걸리는 것이 Human 판정으로 해소됐거나 구현에서 제외됐다 |
-| AC-12 | **§12.4 의 C-1·C-2·H-1~H-4 가 Stage 7 Approval 에 이월로 명시되어 있다** |
+| AC-12 | **§12.4 의 C-1·C-2·H-1~H-5 가 Stage 7 Approval 에 이월로 명시되어 있다** — **H-3a 포함**(R2-F5 처분). H-3a 는 H-3 의 선행 조건이므로 누락 시 후속 나선이 순서를 잃는다 |
 | AC-14 | **I-47 을 강제 장치 유무가 아니라 검증 시점 상태(TP-D-08)로 판정했다** — 강제 부재는 §12.3 N-1″ 이며 FAIL 사유가 아니다 |
 | AC-15 | **`create_franchise_store` 의 실패를 이 구현의 결함으로 판정하지 않았다** — TP-RT-08 은 실패 양상 불변만 검사한다(§12.3 N-4″) |
 | AC-16 | **`merchant_accounts` 가 `601717` §4.1 확정 정의와 정확히 일치한다** — TP-P-26~31 · TP-N-21 · TP-N-60 · TP-N-61 |

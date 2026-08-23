@@ -21,6 +21,7 @@ Last Updated: 2026-08-23
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 근거를 선언 단독에서 **선언+Logic 불변조건**으로 전환. §8.3 검증자 경고 철회. §10 Stage 4 병기 제거. 신규 blocker 1건 |
 | 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 계약을 다시 도출. **substantive change 없음**, governance correction 4건 — §0.3 |
 | 2026-08-23 | **10판 — Stage 6 findings 반영.** Codex F-1~F-7 처분(`601724`), Cursor informational 3건 처분(`601723`), **C-1 부적격 사유 교체**(`601725`/`601726` — 종전 사유 철회 병기), TP-RT-03 폐기, 신규 blocker N-6″~N-8″. **Stage 6 재검증 필요** |
+| 2026-08-23 | **11판 — Stage 6 Round 2 findings 반영.** R2-F1~F5 blocking 해소, R2-F6·F7 처분. 검증자 편차 기록(§7.4 Round 2). **Round 3 재검증 필요** |
 
 **Stage 5 Provenance**
 
@@ -303,7 +304,7 @@ Stage 6 상태 변경     없음 — 대기 유지
 | D-18 | `ALTER TABLE … ADD COLUMN` | `stores.merchant_account_id` — **NULL 허용** | §1.26·§1.43 / Overview 대상 4 |
 | D-19 | `ALTER TABLE … ADD CONSTRAINT … FOREIGN KEY` | `stores.merchant_account_id` → `merchant_accounts(id)`, `ON DELETE/UPDATE NO ACTION` | `fk_stores_legal_entity_id` 와 동일 관행 |
 | D-20 | `CREATE INDEX` | `stores.merchant_account_id` 조회 인덱스 | `idx_stores_legal_entity_id` 와 동일 관행 |
-| D-21 | `COMMENT ON TABLE / COLUMN` | `merchant_accounts` — literal: `CatchMenu SaaS contract and management account. One-to-one with tenant.` / `merchant_accounts.tenant_id`, `stores.merchant_account_id` — literal 은 대상 컬럼의 참조 관계를 서술한다 | 어휘 정합 / **F-2 처분** — `601716` TP-P-38 이 대응 검사 |
+| D-21 | `COMMENT ON TABLE / COLUMN` | **exact literal 3건 확정 — §4.2.1 참조.** `merchant_accounts` / `merchant_accounts.tenant_id` / `stores.merchant_account_id` | 어휘 정합 / **F-2 · R2-F2 처분** — `601716` TP-P-38 이 문자열 동일을 검사 |
 
 ### §1.5 Deferred Enforcement — 이번 계약이 수행하지 않는 강제
 
@@ -338,11 +339,12 @@ Stage 6 상태 변경     없음 — 대기 유지
 ```text
 DDL 허용   ALTER TABLE … RENAME TO / RENAME COLUMN / RENAME CONSTRAINT
            ALTER TABLE … DROP COLUMN / DROP CONSTRAINT      (D-10 · D-11 · D-12 한정)
-           ALTER TABLE … ADD COLUMN / ADD CONSTRAINT        (D-18 · D-19 한정)
+           ALTER TABLE … ADD COLUMN                         (D-18 한정)
+           ALTER TABLE … ADD CONSTRAINT                     (D-15 · D-19 한정)
            ALTER TABLE … ENABLE / FORCE ROW LEVEL SECURITY  (D-17 한정)
            ALTER TRIGGER … RENAME TO                        (D-5 한정)
            ALTER INDEX … RENAME TO
-           CREATE TABLE / CREATE INDEX / CREATE UNIQUE INDEX / CREATE TRIGGER
+           CREATE TABLE / CREATE INDEX / CREATE TRIGGER
            COMMENT ON TABLE / COLUMN
 DML 허용   INSERT … SELECT   (§4.5 M-1 한정)
            UPDATE … FROM     (§4.5 M-2 한정)
@@ -521,11 +523,37 @@ store_id
 
 | # | 객체 | 정의 | 근거 |
 |---|---|---|---|
-| 1 | `uq_merchant_accounts_tenant` | `unique (tenant_id)` | §1.45 「이것만으로 1:1 이 강제된다」 / **`601713` I-49** |
+| 1 | `uq_merchant_accounts_tenant` | `ALTER TABLE … ADD CONSTRAINT uq_merchant_accounts_tenant UNIQUE (tenant_id)` — **제약 형태만 허용**(R2-F1) | §1.45 「이것만으로 1:1 이 강제된다」 / **`601713` I-49** / D-15 |
 | 1a | `merchant_accounts.tenant_id` FK | → `catchmenu_hq.tenants(id)`, **`ON DELETE NO ACTION` / `ON UPDATE NO ACTION`** | §4.1 Stage 7 확정 / `601713` I-3 관행 |
 | 2 | `trg_merchant_accounts_updated_at` | `BEFORE UPDATE … EXECUTE FUNCTION catchmenu_common.set_updated_at()` | §1.44 |
 | 3 | RLS | `ENABLE` + `FORCE`, POLICY 0건 | §1.45 fail-closed baseline / **`601713` I-51** |
 | 4 | GRANT | `catchmenu_authority_owner` 외 확대 금지 | 동일 |
+
+#### §4.2.1 확정 COMMENT literal (R2-F2, 2026-08-23)
+
+**아래 3건이 D-21 의 허용 literal 전부다.** 문자열을 바꾸지 않는다.
+
+```text
+COMMENT ON TABLE catchmenu_hq.merchant_accounts IS
+  'CatchMenu SaaS contract and management account. One-to-one with tenant.';
+
+COMMENT ON COLUMN catchmenu_hq.merchant_accounts.tenant_id IS
+  'Owning tenant. NOT NULL and UNIQUE; this column alone enforces the 1:1 relationship.';
+
+COMMENT ON COLUMN catchmenu_hq.stores.merchant_account_id IS
+  'Structural parent merchant account. Nullable in this contract; NOT NULL is deferred (C-1).';
+```
+
+**D-13 의 literal 도 같은 방식으로 고정되어 있다.**
+
+```text
+COMMENT ON TABLE catchmenu_hq.persons IS
+  'Canonical natural persons who hold operational or legal authority for legal entities.';
+```
+
+> ⚠️ **literal 이 확정되지 않으면 문자열 동일 검사가 성립하지 않는다**(R2-F2).
+> `601716` TP-P-23 · TP-P-38 이 위 4건을 **문자열 동일**로 검사한다.
+> 구현자가 문구를 다듬으면 FAIL 이다 — §9.3 S-13.
 
 ### §4.3 확정 — 스키마 배치
 
@@ -681,13 +709,22 @@ tenants INSERT 가 첫 단계이므로 stores INSERT 에 도달하지 못한다
 **소관**: 후속 **RPC alignment 나선**. `601700` Readme §5 가 RPC 재작성을 파생 나선 소관으로 두었다.
 **워크패킷 번호는 이 계약이 확정하지 않는다.**
 
-> **Prerequisite**: `provision_tenant` 자체의 기존 phantom Tenant-column 참조
-> (`owner_name` · `owner_email` · `owner_phone`)가
+> **Prerequisite**: `provision_tenant` 자체의 기존 phantom 참조와 제약 위반이
 > **먼저 별도 RPC alignment 범위에서 정합화되어야 한다.**
 >
-> 그것이 복구되기 전에는 H-1 의 MerchantAccount 동시 생성을 검증할 방법이 없다.
+> ```text
+> N-6″   tenants INSERT 의 phantom 3건
+>        owner_name · owner_email · owner_phone
 >
-> `601725` / `601726` 실측. §7.3 **N-6″**.
+> N-8″   stores INSERT 의 store_type='RESTAURANT' 가 chk_stores_type 허용값 밖
+>        DINE_IN / TAKEOUT / HYBRID / DELIVERY_ONLY
+> ```
+>
+> **phantom 3건만 고치면 다음 단계에서 다시 막힌다**(R2-F4).
+> 두 지점이 모두 정합화되기 전에는 H-1 의 MerchantAccount 동시 생성을 검증할 방법이 없다.
+>
+> `601725` / `601726` 실측. §7.3 **N-6″ · N-8″**.
+
 
 > ⚠️ **H-1 은 H-2·H-3 과 성격이 다르다.**
 > H-2·H-3 은 컬럼 하나를 공급하는 문제지만,
@@ -913,7 +950,7 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 | **N-5″** | **`catchmenu_common.onboard_tenant` 의 `stores.brand_id` phantom 참조가 재측정되지 않았다** | `601718` S-4 / `601719` S-4 가 `update catchmenu_hq.stores set brand_id = v_brand_id` 를 전문과 함께 기록했고, `601720`/`601721` PRE-6 이 `stores.brand_id` **부재**를 확정했다. 그러나 두 사전 측정의 `prosrc` 토큰 검사는 **두 INSERT RPC 만** 대상으로 했고 `onboard_tenant` 는 범위 밖이었다 | 이 계약은 **판정하지 않는다.** `onboard_tenant` 는 FO-D 로 이미 수정 금지이며, `601716` TP-N-53 이 `prosrc` 불변을 검사한다 |
 | **N-6″** | **`catchmenu_common.provision_tenant` 가 `tenants` 의 phantom 컬럼 3건을 참조해 첫 단계에서 실패한다** | `owner_name` · `owner_email` · `owner_phone`. `0002` 가 세 컬럼 없이 `catchmenu_hq.tenants` 를 만들었고 `0082` 가 `provision_tenant` 최초 정의에서 그대로 참조했다 — **처음부터 phantom**. `tenants` INSERT 가 첫 단계이므로 `stores` INSERT 에 도달하지 못한다 (`601725` / `601726` 이중 실측) | **후속 RPC alignment. §4.4.3 H-1 의 prerequisite.** 이번 계약은 FO-A 로 수정을 금지하며 판정하지 않는다. **C-1 사유 교체의 근거** — §4.4.1.2 |
 | **N-7″** | **`catchmenu_common.onboard_tenant` 가 `tenants.business_number` phantom 참조와 인자명 불일치를 갖는다** | pre-check 가 `tenants.business_number` 를 참조하나 라이브 스키마에 부재. `provision_tenant` 호출 시 `p_company_name`/`p_business_number`/`p_ceo_name` 등 **라이브 시그니처에 없는 named argument** 를 전달한다(`0112` 유래). `601725` E-5 / `601726` | 동상. FO-D 로 이미 수정 금지. **N-5″(`brand_id`)와 같은 함수의 별개 결함** |
-| **N-8″** | **`provision_tenant` 의 `store_type='RESTAURANT'` 가 `chk_stores_type` 허용값 밖이다** | `0002` `chk_stores_type` 허용값은 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY`. `601725` §-4 기록 | 동상. **N-6″ 때문에 이 지점에 도달하지 않으므로 현재 표면화되지 않는다** |
+| **N-8″** | **`provision_tenant` 의 `store_type='RESTAURANT'` 가 `chk_stores_type` 허용값 밖이다** | `0002` `chk_stores_type` 허용값은 `DINE_IN` / `TAKEOUT` / `HYBRID` / `DELIVERY_ONLY`. **`601725` §H unresolved facts #4** (R2-F7 처분 — 종전 「§-4」 인용을 검증 가능한 절 번호로 정정) | 동상. **N-6″ 때문에 이 지점에 도달하지 않으므로 현재 표면화되지 않는다.** §4.4.3 H-1 prerequisite 에 N-6″ 와 함께 연결됨(R2-F4) |
 
 > **N-2″ 를 이 계약이 판정하지 않는 이유**
 >
@@ -956,6 +993,25 @@ Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 finding
 > 단일 검증자였다면 어느 쪽을 골랐느냐에 따라 계약이 그대로 Stage 7 로 갔거나
 > 5건이 잡혔다. `000701` §35 이중 검증의 근거다.
 
+**Round 2 (2026-08-23)**
+
+```text
+Cursor        발견 5 / blocking 0
+Codex         발견 7 / blocking 5
+Antigravity   V11~V14 만 수행. 발견 0
+```
+
+**두 라운드 연속 같은 패턴이다.**
+
+| 검증자 | 관찰된 특성 |
+|---|---|
+| Cursor | 경계·범위 정합성에 강함. 국소 교차참조·실행가능성 모순 탐지율 낮음 |
+| Codex | TestPlan ↔ ChangeContract 세부 교차대조, 허용/금지 동사 잔존, 실행 불가능한 기대값에 민감 |
+| Antigravity | 지정 범위(V1~V10)를 수행하지 않음. 결과가 비교 대상이 아님 |
+
+> ⚠️ **이 관찰을 검증자 제거 근거로 사용하지 않는다.**
+> 향후 Stage 6 verifier prompt specialization 의 근거로 사용한다(`000701` §38.4).
+
 ### §7.5 Stage 6 findings 처분
 
 **`601724` Codex — 고유 findings 7건**
@@ -980,6 +1036,27 @@ Claude 통합 결과 **Codex 의 F-1·F-3·F-4·F-5·F-6·F-7 을 실재 finding
 
 > **Cursor informational 3건은 전부 「신규 조치 없음」이다.**
 > 처분하지 않은 것이 아니라 **검토하고 유지 판정한 것**이다.
+
+### §7.6 Stage 6 Round 2 findings 처분 (2026-08-23)
+
+> **finding 위치만 고치지 않는다.**
+> R2-F1 이 그 증거다 — 1차 F-1 이 D-15 에서 `CREATE UNIQUE INDEX` 를 제외했으나
+> **§1.6 허용 동사 목록에 그대로 잔존**했다.
+> **같은 권한·같은 literal·같은 Test ID 가 등장하는 모든 지점을 함께 정합화한다.**
+
+| # | 지점 | 처분 | 정합화한 전 지점 |
+|---|---|---|---|
+| **R2-F1** | `CREATE UNIQUE INDEX` 잔존 | **채택.** 허용 형태를 `ALTER TABLE … ADD CONSTRAINT … UNIQUE` **하나로 통일** | §1.4 D-15 · **§1.6 허용 동사 목록** · §4.2 부속 객체 #1 / `601716` TP-P-29 |
+| **R2-F2** | COMMENT exact literal 미확정 | **채택.** **§4.2.1 신설** — 4건의 exact literal 을 SQL 구문으로 고정 | §1.3 D-13 · §1.4 D-21 · **§4.2.1** · §9.3 S-13 / `601716` TP-P-23 · TP-P-38 |
+| **R2-F3** | TP-N-63 이 관측 장치를 요구 | **채택.** `601716` 에서 **정적 증거로 재정의**. 종전 정의는 폐기 기록으로 보존 | `601716` §5.9 TP-N-63 · §10 주석 |
+| **R2-F4** | H-1 Prerequisite 이 N-6″ 만 연결 | **채택.** **N-8″ 도 연결.** phantom 3건만 고치면 다음 단계에서 다시 막힌다 | §4.4.3 Prerequisite · §7.3 N-8″ |
+| **R2-F5** | AC 에 TP-D-09 · H-3a 누락 | **채택.** AC-10 에 **H-3a** 명시 | §9.4 AC-10 / `601716` AC-4 · AC-12 |
+| **R2-F6** | 재도출 요약의 Test ID 범위가 구판 | **채택(non-blocking).** 현 판 범위로 갱신 | `601716` §0.3 |
+| **R2-F7** | `601725 §-4` 가 검증 불가능한 인용 | **채택(non-blocking).** **`601725` §H unresolved facts #4** 로 정정 | §7.3 N-8″ |
+
+> ⚠️ **R2-F1 이 이 라운드의 교훈이다.**
+> 1차에서 D-15 만 고치고 §1.6 을 놓쳤다.
+> **허용 동사는 §1.4 표와 §1.6 목록 두 곳에 산다.** 한 곳만 고치면 계약이 스스로 모순된다.
 
 ## §8 Required Verification
 
@@ -1089,6 +1166,7 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 | S-10 | **`stores` 재측정 컬럼 수가 16이 아니다** (`601720`/`601721` PRE-6) |
 | S-11 | §7 의 blocker 중 하나가 구현 도중 범위에 걸린다 |
 | S-12 | provider / external / mapping 관련 객체를 만들어야 한다는 판단이 든다 |
+| S-13 | **§4.2.1 의 COMMENT literal 을 문구 수정해야 한다는 판단이 든다** — 다듬는 것도 수정이다(R2-F2) |
 
 ### §9.4 Acceptance Criteria
 
@@ -1105,7 +1183,7 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 | AC-9 | §7 blocker 중 미해소분이 Stage 7 Approval 에 **제외 사실로 명시**되어 있다 |
 | AC-11 | **`merchant_accounts` 가 §4.1 확정 정의와 정확히 일치한다** — 5컬럼, 컬럼명 `merchant_account_name`, FK `NO ACTION`, 제외 목록 0건 |
 | AC-12 | **H-5(name synchronization)가 Approval 에 이월로 명시되어 있다** |
-| AC-10 | **§1.5 의 C-1·C-2 가 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT` 로, §4.4.3 의 H-1~H-4 가 이월 항목으로 Approval 에 명시되어 있다** |
+| AC-10 | **§1.5 의 C-1·C-2 가 `DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT` 로, §4.4.3 의 H-1~H-5(**H-3a 포함**)가 이월 항목으로 Approval 에 명시되어 있다** — **H-3a 는 H-3 의 선행 조건이므로 누락 시 후속 나선이 순서를 잃는다**(R2-F5 처분) |
 
 > **AC-10 이 이번 판에서 가장 중요한 수용 조건이다.**
 > C-1 이 `RESOLVED` 로 기록되면 **NOT NULL 요구가 폐기된 것으로 읽힌다.**
@@ -1168,7 +1246,7 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 |---|---|
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
 | Stage 5 (Contract Drafting) | **완료** — Claude Code 재도출 (2026-08-23). 종전 Claude 작성분은 candidate reference |
-| Stage 6 (Contract Verification) | **findings 반영 중** — `601723`/`601724` 통합. 재검증 필요 |
+| Stage 6 (Contract Verification) | **Round 3 대기** — R2-F1~F5 반영 완료. 재검증 필요 |
 | Stage 7 (Human Approval) | **대기** — 2026-08-23 Stage 7 기록은 Stage 6 미수행으로 무효. §10.1 판단은 pre-decision 으로 보존 |
 | Stage 8 (Implementation, Codex) | **MUST NOT START** — Stage 6 미수행. Stage 7 무효 |
 
