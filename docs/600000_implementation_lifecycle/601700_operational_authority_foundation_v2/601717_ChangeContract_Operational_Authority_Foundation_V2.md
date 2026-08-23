@@ -4,7 +4,7 @@ Status: Draft
 Lifecycle: ChangeContract
 Gate Classification: 0-A v2 Operational Authority Foundation Change Contract Draft
 Runtime Implementation Authorization: Not Granted
-Owner: Stage 2 (Claude) — 저자 분리(`000001` §5.4.2)
+Owner: Stage 5 (Claude Code) — 2026-08-23 재도출. 종전 판(Claude 작성)은 candidate reference
 Last Updated: 2026-08-23
 
 **개정 이력**
@@ -19,6 +19,13 @@ Last Updated: 2026-08-23
 | 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(§4.1 컬럼명·타입) Human 확정.** `account_name` → **`merchant_account_name`**. §4.1 을 파생 표현에서 **확정 정의**로 전환. **N-3′ CLOSED**(backfill 값 출처 = `tenants.tenant_name`). name synchronization 을 **H-5** 로 신규 이월 |
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **N-2″ 확정** — `601701` 기록이 정확했고 RPC 가 phantom 을 참조한다. C-1 사유 정밀화(두 경로 중 `provision_tenant` 만 현재 호출 가능. **판정 불변**). `create_franchise_store` 현재 실패를 blocker 로 기록. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 근거를 선언 단독에서 **선언+Logic 불변조건**으로 전환. §8.3 검증자 경고 철회. §10 Stage 4 병기 제거. 신규 blocker 1건 |
+| 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 계약을 다시 도출. **substantive change 없음**, governance correction 4건 — §0.3 |
+
+**Stage 5 Provenance**
+
+| 구분 | 일자 | 내용 |
+|---|---|---|
+| Stage 5 재도출 | 2026-08-23 | Claude Code. 종전 판(Claude 작성)은 candidate reference |
 | 2026-08-23 | **Stage 6 미수행 확인으로 Stage 7 승인 무효화.** §10.1 Human 판단은 pre-decision 으로 보존. Stage 5 재도출 → Stage 6 → 재승인 경로로 복구 |
 
 ## Change ID
@@ -40,7 +47,7 @@ Migration     0170 · 0171  (신규 · 번호 미사용 확인: sql/migrations �
 |---|---|
 | ERD `601705` / Overview `601710` / Logic `601713` | Claude Code |
 | 선언 `601702` | Human |
-| **TestPlan `601716` / ChangeContract `601717`** | **Claude (본 문서 저자)** |
+| **TestPlan `601716` / ChangeContract `601717`** | **Claude Code (2026-08-23 재도출).** 종전 판은 Claude 작성 — candidate reference |
 
 ### §0.1 3판 → 4판 — 측정이 C-1 을 판정 가능하게 만들었다
 
@@ -143,6 +150,90 @@ Stage 6 검증자가 Logic 만 읽어도 backfill·트리거명 변경을 범위
 | 4 | Stage 7 승인란 | **대기** | §10 |
 | 5 | `merchant_accounts` 물리 표현 | §4 에서 확정 | §4 |
 | 6 | **MerchantAccount → Store `NOT NULL` enforcement** | **DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT** | §4.4 |
+
+### §0.3 8판 → 9판 — Stage 5 재도출 대조 (2026-08-23, Claude Code)
+
+**이 판은 후보본을 승인한 것이 아니라 다시 도출한 것이다.**
+
+`000701` Stage 5 는 Contract Drafting 을 **Claude Code** 에 지정한다.
+종전 판은 Claude 가 작성했고 근거로 삼은 `000001` §5.4.2 는
+**2026-07-16 이전 번호 체계**다(`000701` 1096행). 그 결과 Claude 가 원작자가 되어
+`000701` §37 상 **Stage 6 통합자 역할을 수행할 수 없는 상태**였다 — §10 무효화 배너 사유 4.
+
+**재도출 근거 (authority)**
+
+```text
+선언      601702 §1.22~§1.27 · §1.31 · §1.34 · §1.37(보강) · §1.38 · §1.39
+                 §1.43 · §1.44 · §1.45 · §2.1 · §2.2 · §5
+설계      601705 §4.1 · §4.4 · §4.6 · §5.2 · §8 · §10(O18~O20)
+          601710 §2 · §2.1~§2.4 · §3 · §3.1 · §4 · §5 · §7
+          601713 I-1~I-51 · E-1~E-4 · X-1~X-11 · §6(Q-1~Q-10)
+증거      601711 · 601712    Person 물리 기준선 (이중)
+          601714 · 601715    갭 해소 실측 (이중)
+          601718 · 601719    stores write-path (이중)
+          601720 · 601721    Stage 7 사전 측정 (이중)
+Human     601717 §10.1 pre-decision 9건
+```
+
+**대조 결과 — substantive change 없음**
+
+| 대상 | 재도출 결과 |
+|---|---|
+| §1 허용 파일 A-1~A-6 | 동일 |
+| §1.3 허용 DDL D-1~D-13 | 동일 — `601702` §1.37·§1.37 보강·§1.38·§1.39 / `601713` I-34~I-37 · I-43~I-46 에서 그대로 도출 |
+| §1.4 허용 DDL D-14~D-21 | 동일 — §1.44·§1.45 / I-47~I-51 |
+| §1.5 C-1 · C-2 | 동일 — **`DEFERRED — INELIGIBLE IN CURRENT 0-A CONTRACT`.** `RESOLVED` 로 바꾸지 않았다 |
+| §1.6 허용 동사 | 동일 |
+| §2 판정 1 (rename-only) | 동일 — F-1~F-7 을 `601711`/`601712`/`601714`/`601715` 에서 재확인 |
+| §3 판정 2 (C-2) | 동일 — E-1~E-4 가 `601713` §1.5 와 일치 |
+| §4.1 확정 5컬럼 | 동일 — §10.1 항목 4 pre-decision 을 그대로 승계 |
+| §4.4 판정 6 (C-1) | 동일 — `601718`/`601719`/`601720`/`601721` 실측 재대조 |
+| §4.5 M-1 · M-2 | 동일 — M-2 가 파생이라는 N-2′ 표기 유지 |
+| §4.6 External Provider 금지 | 동일 |
+| §5 금지 파일 X-1~X-21 | 동일 |
+| §6 금지 조작 FO-A~FO-40 | 동일 |
+| §7 blocker | 동일 |
+| §8 · §9 | 동일 (§9.3 1행 제외 — 아래 G-2) |
+
+**재대조한 실측값** — 두 조사가 독립적으로 같은 값을 기록함을 확인했다(`000701` §35).
+
+```text
+stores 참조 함수        158     601718 L55 / 601719 L51
+INSERT 경로              2      둘 다 COLUMN_LIST, merchant_account_id 미공급
+NO_COLUMN_LIST / ROW_TYPE 0/0   601718 S-2 / 601719 S-2
+stores 트리거          241      601718 S-6
+tenants 행 수            1      601720 PRE-5 / 601721
+stores 컬럼 수          16      601720 PRE-6 (brand_id · extra_metadata 부재)
+provision_tenant md5    f84ac1a81da4ccba87930bf020a3e974 (4758)
+create_franchise_store  87511a95676a41d2c95866e0c2da8b7f (3460)
+```
+
+**governance correction 4건** — 정책 결정이 아니라 문서 상태 정합화다.
+
+| # | 지점 | 종전 | 재도출 | 근거 |
+|---|---|---|---|---|
+| G-1 | 헤더 `Owner` · §0 저자 분리 표 | Claude (본 문서 저자) | Claude Code 재도출 | `000701` Stage 5 |
+| G-2 | §9.3 Codex Instruction Boundary 1행 | 「Stage 7 Human Approval 완료 … 승인 경계 안에서만 구현한다」 | 「Stage 7 미승인. 착수하지 않는다」 | §10 무효화 배너 — Stage 8 `MUST NOT START` |
+| G-3 | `601716` §2 PRE-1 | Stage 7 = `APPROVED_FOR_IMPLEMENTATION` 을 전제값으로 서술 | 현재 Stage 7 = **대기** 를 반영 | 동일 |
+| G-4 | §10 Stage 5 행 | `PROCEDURAL REPAIR REQUIRED` | **완료** — Claude Code 재도출 | 본 재도출 |
+
+> ⚠️ **G-2 가 이 재도출에서 가장 중요한 정정이다.**
+> §9.3 은 구현자에게 직접 주는 지시문이다. 「승인 완료」가 남아 있으면
+> **Stage 8 을 시작하지 말라는 §10 배너와 정면으로 어긋난다.**
+
+> **§4.1 · §4.5.1 · §7.1 · §10.2~§10.6 의 「Stage 7 확정 / CLOSED by Stage 7 Decision」 표기는 그대로 둔다.**
+> 그 내용은 §10.1 Human pre-decision 이며 §10 배너가 **재승인 시 그대로 승계**한다고 명시했다.
+> 표기를 지우면 다시 논쟁 대상이 된다 — 배너가 금지한 것이다.
+
+**이 재도출이 하지 않은 것**
+
+```text
+새 정책 결정          없음
+C-1 · C-2 의 RESOLVED 전환   없음
+§10.1 9건 변경        없음
+§10 무효화 배너 변경   없음
+Stage 6 상태 변경     없음 — 대기 유지
+```
 
 ## §1 Allowed — 허용 대상
 
@@ -852,7 +943,7 @@ SELECT id, tenant_name FROM catchmenu_hq.tenants;
 ### §9.3 Codex Instruction Boundary
 
 ```text
-Stage 7 Human Approval 완료 — 정영석, 2026-08-23 (§10). 승인 경계 안에서만 구현한다.
+Stage 7 미승인 — §10 배너(2026-08-23)가 Stage 7 을 무효화했다. Stage 8 을 착수하지 않는다.
 Module 자기보고서 파일명은 601722_Module_Operational_Authority_Foundation_V2.md 다. 번호를 바꾸지 않는다.
 허용 파일 §1.1·§1.2 / 허용 DDL §1.3·§1.4 / 허용 DML §4.5 / 허용 동사 §1.6.
 merchant_accounts 의 컬럼명·타입은 §4.1 의 Stage 7 확정 정의를 그대로 쓴다.
@@ -959,7 +1050,7 @@ Codex 는 자기 구현을 스스로 감사하거나 승인하지 않는다.
 | 단계 | 상태 |
 |---|---|
 | Stage 4 (ERD / Overview / Logic, Claude Code) | 완료 — `601705` / `601710` / `601713`. §1.37 보강 · §1.45 · write-path 실측 전부 반영됨 (N-5′ 해소) |
-| Stage 5 (Contract Drafting) | **PROCEDURAL REPAIR REQUIRED** — 작성자가 Claude 였다. `000701` Stage 5 는 Claude Code 를 지정한다. Claude Code 재도출 필요. 현 문서는 candidate reference — 본 문서 및 `601716` (8판) |
+| Stage 5 (Contract Drafting) | **완료** — Claude Code 재도출 (2026-08-23). 종전 Claude 작성분은 candidate reference |
 | Stage 6 (Contract Verification) | **대기** — 미수행. 2026-08-23 무효화 배너 참조 |
 | Stage 7 (Human Approval) | **대기** — 2026-08-23 Stage 7 기록은 Stage 6 미수행으로 무효. §10.1 판단은 pre-decision 으로 보존 |
 | Stage 8 (Implementation, Codex) | **MUST NOT START** — Stage 6 미수행. Stage 7 무효 |

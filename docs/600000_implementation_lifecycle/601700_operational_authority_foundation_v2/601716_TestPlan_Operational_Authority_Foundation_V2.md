@@ -4,7 +4,7 @@ Status: Draft
 Lifecycle: TestPlan
 Gate Classification: 0-A v2 Operational Authority Foundation Test Plan Draft
 Runtime Implementation Authorization: Not Granted
-Owner: Stage 2 (Claude) — 저자 분리(`000001` §5.4.2)
+Owner: Stage 5 (Claude Code) — 2026-08-23 재도출. 종전 판(Claude 작성)은 candidate reference
 Last Updated: 2026-08-22
 
 **개정 이력**
@@ -19,6 +19,13 @@ Last Updated: 2026-08-22
 | 2026-08-23 | **7판** — **Stage 7 승인 항목 4번(컬럼명·타입) Human 확정** 반영. `merchant_account_name` 확정, 컬럼 5개·타입·제약이 기대값이 됨(§4.3 종속 해제). **N-3′ CLOSED**. TP-N-60·TP-D-09 신설, H-5(name synchronization) 이월 기록 |
 | 2026-08-23 | **6판** — Stage 7 사전 측정(`601720`/`601721`) 반영. **PRE-5·6·7 값을 기대값으로 확정**(tenants 1행 / stores 16컬럼 / 두 RPC md5). **N-2″ 확정** — 기준선 기록이 정확했고 RPC 가 phantom 참조. TP-RT-03 정정 — `create_franchise_store` 는 이미 실패 상태. 신규 blocker 2건 |
 | 2026-08-22 | **5판** — **N-5′ 해소**(`601713` I-43~I-51·§1.5·Q-10 / `601710` §2.3·§2.4 / `601705` §4.1·§4.4·§8·O20). 기대값 근거를 선언 단독에서 **Logic 불변조건**으로 전환. I-47 검사(TP-D-08) 신설. 신규 blocker 1건 |
+| 2026-08-23 | **9판 — Stage 5 재도출 (Claude Code).** verified design(`601702`/`601705`/`601710`/`601713`) 및 증거 문서에서 TestPlan 을 다시 도출. **substantive change 없음**, governance correction 2건 — §0.3 |
+
+**Stage 5 Provenance**
+
+| 구분 | 일자 | 내용 |
+|---|---|---|
+| Stage 5 재도출 | 2026-08-23 | Claude Code. 종전 판(Claude 작성)은 candidate reference |
 
 ## §0 성격과 저자
 
@@ -30,7 +37,7 @@ Last Updated: 2026-08-22
 |---|---|
 | ERD `601705` / Overview `601710` / Logic `601713` | Claude Code |
 | 선언 `601702` | Human |
-| **TestPlan `601716` / ChangeContract `601717`** | **Claude (본 문서 저자)** |
+| **TestPlan `601716` / ChangeContract `601717`** | **Claude Code (2026-08-23 재도출).** 종전 판은 Claude 작성 — candidate reference |
 
 ### §0.1 3판 → 4판 — 측정이 들어왔다
 
@@ -147,6 +154,87 @@ stores 참조 view/matview   0 / 0
 | 4 | 남은 모순의 해소 | §12 에 기록만 |
 | 5 | DB 재조회 | `601701`/`601711`/`601712`/`601714`/`601715`/`601718`/`601719`/**`601720`**/**`601721`** 이 이미 수행 |
 
+### §0.3 8판 → 9판 — Stage 5 재도출 대조 (2026-08-23, Claude Code)
+
+**이 판은 후보본을 승인한 것이 아니라 다시 도출한 것이다.**
+
+`000701` Stage 5 는 Contract Drafting 을 **Claude Code** 에 지정한다.
+종전 판은 Claude 가 작성했고 근거로 삼은 `000001` §5.4.2 는
+**2026-07-16 이전 번호 체계**다(`000701` 1096행). 그 결과 Claude 가 원작자가 되어
+`000701` §37 상 **Stage 6 통합자 역할을 수행할 수 없는 상태**였다
+— `601717` §10 무효화 배너 사유 4.
+
+**재도출 근거 (authority)**
+
+```text
+선언      601702 §1.22~§1.27 · §1.31 · §1.34 · §1.37(보강) · §1.38 · §1.39
+                 §1.43 · §1.44 · §1.45 · §2.1 · §2.2 · §5
+설계      601705 §4.1 · §4.4 · §4.6 · §5.2 · §8 · §10(O18~O20)
+          601710 §2 · §2.1~§2.4 · §3 · §3.1 · §4 · §5 · §7
+          601713 I-1~I-51 · E-1~E-4 · X-1~X-11 · §6(Q-1~Q-10)
+증거      601711 · 601712    Person 물리 기준선 (이중)
+          601714 · 601715    갭 해소 실측 (이중)
+          601718 · 601719    stores write-path (이중)
+          601720 · 601721    Stage 7 사전 측정 (이중)
+계약      601717 §1 · §4 · §5 · §6 · §7 (9판, 동일 재도출)
+Human     601717 §10.1 pre-decision 9건
+```
+
+**대조 결과 — substantive change 없음**
+
+| 대상 | 재도출 결과 |
+|---|---|
+| §1 Test Scope | 동일 — Overview §2 대상 5건 그대로 |
+| §2.1 기준선 BL-1~BL-38 | 동일 — 증거 문서 재대조 결과 값 변동 0 |
+| §4 Positive TP-P-01~TP-P-37 | 동일 |
+| §4.4 backfill TP-D-01~TP-D-09 | 동일 |
+| §5 Negative TP-N-01~TP-N-61 | 동일 |
+| §6 Regression TP-R-01~TP-R-20 | 동일 |
+| §7 External TP-X-01~TP-X-13 | 동일 |
+| §8·§9·§10·§11 | 동일 |
+| §12 blocker · 이월 | 동일 — **C-1·C-2 를 `RESOLVED` 로 바꾸지 않았다** |
+| §13 Acceptance Criteria | 동일 |
+
+**재대조한 실측값** — 두 조사가 독립적으로 같은 값을 기록함을 확인했다(`000701` §35).
+
+```text
+stores 참조 함수        158     601718 L55 / 601719 L51
+INSERT 경로              2      둘 다 COLUMN_LIST, merchant_account_id 미공급
+NO_COLUMN_LIST / ROW_TYPE 0/0   601718 S-2 / 601719 S-2
+stores 트리거          241      601718 S-6
+tenants 행 수            1      601720 PRE-5 / 601721
+stores 컬럼 수          16      601720 PRE-6 (brand_id · extra_metadata 부재)
+provision_tenant md5    f84ac1a81da4ccba87930bf020a3e974 (4758)
+create_franchise_store  87511a95676a41d2c95866e0c2da8b7f (3460)
+```
+
+**governance correction 2건** — 정책 결정이 아니라 문서 상태 정합화다.
+
+| # | 지점 | 종전 | 재도출 | 근거 |
+|---|---|---|---|---|
+| G-1 | 헤더 `Owner` · §0 저자 분리 표 | Claude (본 문서 저자) | Claude Code 재도출 | `000701` Stage 5 |
+| G-3 | §2 PRE-1 | Stage 7 = `APPROVED_FOR_IMPLEMENTATION` 을 전제값으로 서술 | 현재 Stage 7 = **대기** 를 반영 | `601717` §10 무효화 배너 — Stage 8 `MUST NOT START` |
+
+> ⚠️ **G-3 은 기대값이 아니라 사실 서술의 정정이다.**
+> PRE-1 은 원래도 「Stage 7 승인이 없으면 착수 금지」 게이트였고 그 동작은 바뀌지 않는다.
+> 다만 종전 문면이 **승인이 이미 존재한다**고 단정해
+> `601717` §10 무효화 배너와 어긋났다.
+
+> **§12.1 의 「CLOSED by Stage 7 Decision」 · §12.4 의 「Stage 7 APPROVED」 표기는 그대로 둔다.**
+> 그 내용은 `601717` §10.1 Human pre-decision 이며,
+> 배너가 **재승인 시 그대로 승계**한다고 명시했다. 표기를 지우면 다시 논쟁 대상이 된다.
+
+**이 재도출이 하지 않은 것**
+
+```text
+새 정책 결정                  없음
+기대값 변경                   없음
+C-1 · C-2 의 RESOLVED 전환    없음
+601717 §10.1 9건 변경         없음
+601717 §10 무효화 배너 변경    없음
+Stage 6 상태 변경             없음 — 대기 유지
+```
+
 ## §1 Test Scope
 
 | Overview §2 대상 | 취급 | 3판 대비 |
@@ -161,7 +249,7 @@ stores 참조 view/matview   0 / 0
 
 | # | 전제 | 확인 방법 | 미충족 시 |
 |---|---|---|---|
-| PRE-1 | `601717` §10 Stage 7 = **`APPROVED_FOR_IMPLEMENTATION`**(정영석, 2026-08-23) | 문서 확인 + G15 | 착수 금지 |
+| PRE-1 | `601717` §10 Stage 7 이 승인 상태 — **2026-08-23 현재 「대기」이며 착수 조건 미충족**(§10 무효화 배너) | 문서 확인 + G15 | 착수 금지 |
 | PRE-2 | §12 blocker 중 착수 범위에 걸린 것이 해소 또는 명시적 제외됨 | Approval | 해당 범위 제외 |
 | PRE-3 | **환경이 `postgres:17.6.1.140` 이고 최신 migration 이 `0169`** | 이미지 태그 + `migration_history` 상위 1행 | **environment drift — 구현하지 않고 중단**(`601717` §10.3) |
 | PRE-4 | 기준선 재측정 완료 (§2.1) | 아래 표 | 사후 비교 불가 |
