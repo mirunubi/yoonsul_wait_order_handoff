@@ -131,6 +131,10 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
 | 601721 | `601721_Evidence_Stage7_Pre_Measurement_Codex.md` | Active — 동일 측정(Codex). §35 이중 검증 |
+| 601723 | `601723_Audit_Stage6_Contract_Verification_Cursor.md` | Active — Stage 6 계약 검증(Cursor). blocking 0건 |
+| 601724 | `601724_Audit_Stage6_Contract_Verification_Codex.md` | Active — Stage 6 계약 검증(Codex). blocking 5건. **결론 불일치** |
+| 601725 | `601725_Evidence_Provision_Tenant_Schema_Consistency_Cursor.md` | Active — `provision_tenant` phantom 3건 실측(Cursor) |
+| 601726 | `601726_Evidence_Provision_Tenant_Schema_Consistency_Codex.md` | Active — 동일 실측(Codex). §35 이중 검증 |
 
 ## §9 Add / Move Rule
 
