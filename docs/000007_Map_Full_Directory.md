@@ -1739,6 +1739,9 @@ docs/
   |   |   +--- 601733_Audit_Stage6_Round4_Verification_Cursor.md
   |   |   +--- 601734_Audit_Stage6_Round4_Verification_Codex.md
   |   |   +--- 601735_Audit_Stage6_Round4_Verification_Cowork.md
+  |   |   +--- 601736_Audit_Stage6_Round5_Verification_Cursor.md
+  |   |   +--- 601737_Audit_Stage6_Round5_Verification_Codex.md
+  |   |   +--- 601738_Audit_Stage6_Round5_Verification_Cowork.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
