@@ -179,6 +179,7 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601736 | `601736_Audit_Stage6_Round5_Verification_Cursor.md` | Active — Round 5 검증(Cursor). blocking 0 / informational 5. 입력 범위에 Readme 추가 |
 | 601737 | `601737_Audit_Stage6_Round5_Verification_Codex.md` | Active — Round 5 검증(Codex). NO CONCERNS FOUND |
 | 601738 | `601738_Audit_Stage6_Round5_Verification_Cowork.md` | Active — Round 5 검증(Cowork). blocking 0 / informational 10. 전건이 두 문서 밖에서 발견 |
+| 601739 | 601739_Evidence_Stage8_Supplemental_FileScope_Pass_Cowork.md | Active — Stage 8 supplemental file-scope pass(Cowork). inventory 235건 / 실행 38 / FAIL 2 / SKIP 197. Stage 9 를 대체하지 않음 |
 
 ## §9 Add / Move Rule
 
