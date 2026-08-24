@@ -1,0 +1,5 @@
+# Stage 9 raw evidence 02 — git diff --check
+# implementation delta range: df49eb56..bc4cd14d
+
+(no output above = clean; exit code follows)
+exit=0

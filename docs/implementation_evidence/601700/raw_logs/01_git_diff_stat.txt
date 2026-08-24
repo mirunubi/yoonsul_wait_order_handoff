@@ -1,0 +1,22 @@
+# Stage 9 raw evidence 01 — git diff --stat
+# implementation delta range: df49eb56..bc4cd14d  (b657ec23 + bc4cd14d)
+# captured: 2026-08-24
+
+## implementation commits
+bc4cd14d feat: 0171 merchant account foundation
+b657ec23 feat: 0170 person vocabulary normalization
+
+## --stat
+ .../0170_person_vocabulary_normalization.sql       | 55 +++++++++++++++++
+ .../0171_merchant_account_foundation.sql           | 68 ++++++++++++++++++++++
+ 2 files changed, 123 insertions(+)
+
+## reference: wider range accf0666..bc4cd14d (includes df49eb56 doc registration)
+ docs/000005_Index_Document_Number.md               |   3 +
+ docs/000007_Map_Full_Directory.md                  |   3 +
+ ...1736_Audit_Stage6_Round5_Verification_Cursor.md | 198 ++++++++++++
+ ...01737_Audit_Stage6_Round5_Verification_Codex.md | 174 +++++++++++
+ ...1738_Audit_Stage6_Round5_Verification_Cowork.md | 334 +++++++++++++++++++++
+ .../0170_person_vocabulary_normalization.sql       |  55 ++++
+ .../0171_merchant_account_foundation.sql           |  68 +++++
+ 7 files changed, 835 insertions(+)

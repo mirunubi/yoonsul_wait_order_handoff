@@ -1,0 +1,5 @@
+# Stage 9 raw evidence 03 — git diff --name-only
+# implementation delta range: df49eb56..bc4cd14d
+
+sql/migrations/0170_person_vocabulary_normalization.sql
+sql/migrations/0171_merchant_account_foundation.sql
