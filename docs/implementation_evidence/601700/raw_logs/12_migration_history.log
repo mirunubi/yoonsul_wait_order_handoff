@@ -1,0 +1,45 @@
+# Stage 9 raw evidence 12 - migration_history + file checksums
+# captured: 2026-08-24
+
+=== file sha256 (repository LF content) ===
+263615fdb552d9297456799986962e78c2fd13ef845c50449e65298c8031f194 *sql/migrations/0168_create_operational_authority_foundation.sql
+eb9b118899fb42fee264b25fe3f4499def06013730a57a7320a0275dd86c564e *sql/migrations/0169_authority_owner_role_and_sole_representative_uniqueness.sql
+a749877022c877984095c4cdeacc3a69dccf0839ce6d75efbb6ab0cb5f25eab3 *sql/migrations/0170_person_vocabulary_normalization.sql
+5bbfa1fe9385f65afbfd5cdea0759e9902a59119b1588487a737e1f7571a1eea *sql/migrations/0171_merchant_account_foundation.sql
+
+=== migration_history rows (from 07_db_baseline.log q07c) ===
+=== TP-M-05 migration_history rows for 0170/0171 ===
+                 filename                 | success |                             checksum                             |          applied_at           
+------------------------------------------+---------+------------------------------------------------------------------+-------------------------------
+ 0170_person_vocabulary_normalization.sql | t       | a749877022c877984095c4cdeacc3a69dccf0839ce6d75efbb6ab0cb5f25eab3 | 2026-08-24 02:12:19.851495+00
+ 0171_merchant_account_foundation.sql     | t       | 5bbfa1fe9385f65afbfd5cdea0759e9902a59119b1588487a737e1f7571a1eea | 2026-08-24 02:25:14.371355+00
+(2 rows)
+
+=== TP-R-16 0168/0169 checksum in history ===
+                             filename                             |                             checksum                             | success 
+------------------------------------------------------------------+------------------------------------------------------------------+---------
+ 0168_create_operational_authority_foundation.sql                 | 263615fdb552d9297456799986962e78c2fd13ef845c50449e65298c8031f194 | t
+ 0169_authority_owner_role_and_sole_representative_uniqueness.sql | eb9b118899fb42fee264b25fe3f4499def06013730a57a7320a0275dd86c564e | t
+(2 rows)
+
+=== TP-M-06 apply order (last 6) ===
+=== TP-R-16 0168/0169 checksum in history ===
+                             filename                             |                             checksum                             | success 
+------------------------------------------------------------------+------------------------------------------------------------------+---------
+ 0168_create_operational_authority_foundation.sql                 | 263615fdb552d9297456799986962e78c2fd13ef845c50449e65298c8031f194 | t
+ 0169_authority_owner_role_and_sole_representative_uniqueness.sql | eb9b118899fb42fee264b25fe3f4499def06013730a57a7320a0275dd86c564e | t
+(2 rows)
+
+=== TP-M-06 apply order (last 6) ===
+=== TP-M-06 apply order (last 6) ===
+                             filename                             |          applied_at           
+------------------------------------------------------------------+-------------------------------
+ 0171_merchant_account_foundation.sql                             | 2026-08-24 02:25:14.371355+00
+ 0170_person_vocabulary_normalization.sql                         | 2026-08-24 02:12:19.851495+00
+ 0169_authority_owner_role_and_sole_representative_uniqueness.sql | 2026-08-09 17:26:43.129498+00
+ 0168_create_operational_authority_foundation.sql                 | 2026-08-09 15:35:39.277643+00
+ 0167_record_waiting_call_grant_correction.sql                    | 2026-07-18 12:13:21.63306+00
+ 0166_canonical_kds_release_orchestration.sql                     | 2026-07-18 06:14:20.000496+00
+(6 rows)
+
+=== BL-8 owners/persons referencing FUNCTION ===

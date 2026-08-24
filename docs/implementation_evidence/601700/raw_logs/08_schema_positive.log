@@ -1,0 +1,208 @@
+# Stage 9 raw evidence 08 - schema positive (TP-P-01..38)
+# workpacket: 601700 / Verifier A (Claude Code)
+# captured: 2026-08-24
+# canonical DB: supabase_db_yoonsul_wait_order_handoff (postgres:17.6.1.140), PGOPTIONS default_transaction_read_only=on
+# command: docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres < q08.sql / q08b.sql
+
+Pager usage is off.
+### TP-P-01 persons BASE TABLE
+ count 
+-------
+     1
+(1 row)
+
+### TP-P-02 persons PK / TP-P-13 pkey name
+   conname    | pg_get_constraintdef 
+--------------+----------------------
+ persons_pkey | PRIMARY KEY (id)
+(1 row)
+
+### TP-P-03/04 person_id columns
+          table_name          | column_name 
+------------------------------+-------------
+ legal_entity_person_roles    | person_id
+ legal_entity_representatives | person_id
+(2 rows)
+
+### TP-P-05/06/07 two FKs -> persons.id, actions, names
+                   conname                   |            child             |                             def                             | confdeltype | confupdtype 
+---------------------------------------------+------------------------------+-------------------------------------------------------------+-------------+-------------
+ legal_entity_person_roles_person_id_fkey    | legal_entity_person_roles    | FOREIGN KEY (person_id) REFERENCES catchmenu_hq.persons(id) | a           | a
+ legal_entity_representatives_person_id_fkey | legal_entity_representatives | FOREIGN KEY (person_id) REFERENCES catchmenu_hq.persons(id) | a           | a
+(2 rows)
+
+### TP-P-08 trigger name + function on persons
+         tgname         |    proname     |     nspname      
+------------------------+----------------+------------------
+ trg_persons_updated_at | set_updated_at | catchmenu_common
+(1 row)
+
+### TP-P-09/10/11/12 unique + index defs on lepr/ler
+             indexname             |                                                                                       indexdef                                                                                        
+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ idx_lepr_legal_entity             | CREATE INDEX idx_lepr_legal_entity ON catchmenu_hq.legal_entity_person_roles USING btree (legal_entity_id) WHERE (is_active = true)
+ idx_lepr_person                   | CREATE INDEX idx_lepr_person ON catchmenu_hq.legal_entity_person_roles USING btree (person_id) WHERE (is_active = true)
+ legal_entity_person_roles_pkey    | CREATE UNIQUE INDEX legal_entity_person_roles_pkey ON catchmenu_hq.legal_entity_person_roles USING btree (id)
+ uq_lepr_active                    | CREATE UNIQUE INDEX uq_lepr_active ON catchmenu_hq.legal_entity_person_roles USING btree (legal_entity_id, person_id, role_type) WHERE (is_active = true)
+ idx_ler_legal_entity              | CREATE INDEX idx_ler_legal_entity ON catchmenu_hq.legal_entity_representatives USING btree (legal_entity_id) WHERE (is_active = true)
+ legal_entity_representatives_pkey | CREATE UNIQUE INDEX legal_entity_representatives_pkey ON catchmenu_hq.legal_entity_representatives USING btree (id)
+ uq_ler_active                     | CREATE UNIQUE INDEX uq_ler_active ON catchmenu_hq.legal_entity_representatives USING btree (legal_entity_id, person_id) WHERE (is_active = true)
+ uq_ler_sole_active                | CREATE UNIQUE INDEX uq_ler_sole_active ON catchmenu_hq.legal_entity_representatives USING btree (legal_entity_id) WHERE ((representation_mode = 'SOLE'::text) AND (is_active = true))
+ persons_pkey                      | CREATE UNIQUE INDEX persons_pkey ON catchmenu_hq.persons USING btree (id)
+(9 rows)
+
+### TP-P-14 persons RLS
+ relrowsecurity | relforcerowsecurity 
+----------------+---------------------
+ t              | t
+(1 row)
+
+### TP-P-16 postgres privileges on persons
+ privilege_type 
+----------------
+ DELETE
+ INSERT
+ REFERENCES
+ SELECT
+ TRIGGER
+ TRUNCATE
+ UPDATE
+(7 rows)
+
+### TP-P-17 persons.is_active / TP-P-18 person_name / TP-P-19 column count
+ is_active_cnt | person_name_cnt | total_cols 
+---------------+-----------------+------------
+             0 |               1 |          6
+(1 row)
+
+    column_name     |        data_type         | is_nullable 
+--------------------+--------------------------+-------------
+ id                 | uuid                     | NO
+ person_name        | text                     | NO
+ contact_phone_hash | text                     | YES
+ contact_email      | text                     | YES
+ created_at         | timestamp with time zone | NO
+ updated_at         | timestamp with time zone | NO
+(6 rows)
+
+### TP-P-20/21 ownership_percent + chk
+ op_col 
+--------
+      0
+(1 row)
+
+ chk_op 
+--------
+      0
+(1 row)
+
+### TP-P-22 legal_entity_representatives exists
+ count 
+-------
+     1
+(1 row)
+
+### TP-P-23 persons comment
+                                    persons_comment                                    
+---------------------------------------------------------------------------------------
+ Canonical natural persons who hold operational or legal authority for legal entities.
+(1 row)
+
+### TP-P-24 owner_ identifiers in canonical schema
+ kind | obj 
+------+-----
+(0 rows)
+
+
+############ q08b ############
+Pager usage is off.
+### TP-P-25 merchant_accounts BASE TABLE / TP-N-24 schema
+ table_schema |    table_name     | table_type 
+--------------+-------------------+------------
+ catchmenu_hq | merchant_accounts | BASE TABLE
+(1 row)
+
+### TP-P-26..31 / TP-N-21 columns
+ ordinal_position |      column_name      |        data_type         | is_nullable |  column_default   
+------------------+-----------------------+--------------------------+-------------+-------------------
+                1 | id                    | uuid                     | NO          | gen_random_uuid()
+                2 | tenant_id             | uuid                     | NO          | 
+                3 | merchant_account_name | text                     | NO          | 
+                4 | created_at            | timestamp with time zone | NO          | now()
+                5 | updated_at            | timestamp with time zone | NO          | now()
+(5 rows)
+
+### TP-P-26/27/29 constraints (pkey, fk, unique) + names
+            conname             | contype |                    pg_get_constraintdef                     | confdeltype | confupdtype 
+--------------------------------+---------+-------------------------------------------------------------+-------------+-------------
+ fk_merchant_accounts_tenant_id | f       | FOREIGN KEY (tenant_id) REFERENCES catchmenu_hq.tenants(id) | a           | a
+ merchant_accounts_pkey         | p       | PRIMARY KEY (id)                                            |             |  
+ uq_merchant_accounts_tenant    | u       | UNIQUE (tenant_id)                                          |             |  
+(3 rows)
+
+### TP-P-28 tenant_id NOT NULL (see above) / indexes
+          indexname          |                                                 indexdef                                                  
+-----------------------------+-----------------------------------------------------------------------------------------------------------
+ merchant_accounts_pkey      | CREATE UNIQUE INDEX merchant_accounts_pkey ON catchmenu_hq.merchant_accounts USING btree (id)
+ uq_merchant_accounts_tenant | CREATE UNIQUE INDEX uq_merchant_accounts_tenant ON catchmenu_hq.merchant_accounts USING btree (tenant_id)
+(2 rows)
+
+### TP-P-32 merchant_accounts BEFORE UPDATE trigger
+              tgname              |               fn                | tgtype 
+----------------------------------+---------------------------------+--------
+ trg_merchant_accounts_updated_at | catchmenu_common.set_updated_at |     19
+(1 row)
+
+### TP-P-33 merchant_accounts RLS / TP-N-11 policies
+ relrowsecurity | relforcerowsecurity 
+----------------+---------------------
+ t              | t
+(1 row)
+
+ ma_policies 
+-------------
+           0
+(1 row)
+
+### TP-P-34/35/36 stores.merchant_account_id FK + index
+     column_name     | data_type | is_nullable 
+---------------------+-----------+-------------
+ merchant_account_id | uuid      | YES
+(1 row)
+
+            conname            |                              pg_get_constraintdef                               | confdeltype | confupdtype 
+-------------------------------+---------------------------------------------------------------------------------+-------------+-------------
+ fk_stores_merchant_account_id | FOREIGN KEY (merchant_account_id) REFERENCES catchmenu_hq.merchant_accounts(id) | a           | a
+(1 row)
+
+           indexname            |                                               indexdef                                               
+--------------------------------+------------------------------------------------------------------------------------------------------
+ idx_stores_merchant_account_id | CREATE INDEX idx_stores_merchant_account_id ON catchmenu_hq.stores USING btree (merchant_account_id)
+(1 row)
+
+### TP-P-37 merchant_accounts + tenants separate tables
+ count 
+-------
+     2
+(1 row)
+
+### TP-P-38 comments (3 literals)
+               obj               |                                            val                                             
+---------------------------------+--------------------------------------------------------------------------------------------
+ table merchant_accounts         | CatchMenu SaaS contract and management account. One-to-one with tenant.
+ col merchant_accounts.tenant_id | Owning tenant. NOT NULL and UNIQUE; this column alone enforces the 1:1 relationship.
+ col stores.merchant_account_id  | Structural parent merchant account. Nullable in this contract; NOT NULL is deferred (C-1).
+(3 rows)
+
+### TP-N-65 merchant_accounts index count
+ ma_indexes 
+------------
+          2
+(1 row)
+
+### TP-N-22 tenants.merchant_account_id
+ count 
+-------
+     0
+(1 row)
+

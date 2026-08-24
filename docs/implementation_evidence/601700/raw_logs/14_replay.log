@@ -1,0 +1,73 @@
+# Stage 9 raw evidence 14 - clean baseline replay (TP-M-08)
+# disposable container: wp601700_replay_verify (public.ecr.aws/supabase/postgres:17.6.1.140)
+# canonical DB was NOT written to.
+# captured: 2026-08-24
+
+## RUN 1 - strict sequential replay, ON_ERROR_STOP, abort at first failure
+## result: FIRST FAILURE at file [93] 0093_create_message_catalog_complete.sql
+## 0170 / 0171 were never reached (78 files earlier abort)
+
+DROP POLICY
+CREATE POLICY
+NOTICE:  trigger "trg_launch_checklist_updated" for relation "catchmenu_common.saas_launch_checklist" does not exist, skipping
+DROP TRIGGER
+CREATE TRIGGER
+COMMENT
+CREATE TABLE
+CREATE INDEX
+ALTER TABLE
+ALTER TABLE
+NOTICE:  policy "integration_tests_isolation" for relation "catchmenu_common.integration_test_results" does not exist, skipping
+DROP POLICY
+CREATE POLICY
+COMMENT
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TABLE
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+DO
+COMMENT
+COMMENT
+=== [92] 0092_create_flutter_edge_function_guide_rpc.sql rc=0 ===
+INSERT 0 8
+INSERT 0 10
+INSERT 0 10
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TABLE
+CREATE FUNCTION
+CREATE FUNCTION
+DO
+COMMENT
+COMMENT
+=== [93] 0093_create_message_catalog_complete.sql rc=3 ===
+ERROR:  new row for relation "error_codes" violates check constraint "chk_error_domain"
+DETAIL:  Failing row contains (5001, category_not_found, MENU, NOT_FOUND, 404, WARNING, f, null, null, null, 2026-08-24 03:40:03.967147+00).
+
+## RUN 2 - SUPPLEMENTARY failure-tolerant continuation (NOT TP-M-08)
+## 19 files failed, all pre-existing and unrelated to 0170/0171
+## 0170 and 0171 both returned rc=0
+
+=== [93] 0093_create_message_catalog_complete.sql rc=3 ===
+=== [169] 0170_person_vocabulary_normalization.sql rc=0 ===
+=== [170] 0171_merchant_account_foundation.sql rc=0 ===
+=== [171] seed_yoonsul_menu.sql rc=0 ===
+
+=== [169] 0170_person_vocabulary_normalization.sql rc=0 ===
+BEGIN
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TRIGGER
+=== [170] 0171_merchant_account_foundation.sql rc=0 ===
+BEGIN
+CREATE TABLE
+ALTER TABLE
+CREATE TRIGGER
+ALTER TABLE
+ALTER TABLE

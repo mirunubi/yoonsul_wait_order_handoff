@@ -1,0 +1,120 @@
+# Stage 9 raw evidence 10 - backfill / data checks (TP-D-*)
+# workpacket: 601700 / Verifier A (Claude Code)
+# captured: 2026-08-24
+# canonical DB: supabase_db_yoonsul_wait_order_handoff (postgres:17.6.1.140), PGOPTIONS default_transaction_read_only=on
+# command: docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres < q10.sql
+
+Pager usage is off.
+### TP-D-01 ma rows = tenants rows
+ ma | tn 
+----+----
+  1 |  1
+(1 row)
+
+### TP-D-02 every tenant -> exactly 1 ma (missing / duplicate)
+ missing | dup 
+---------+-----
+       0 |   0
+(1 row)
+
+### TP-D-03 orphan ma rows
+ orphan 
+--------
+      0
+(1 row)
+
+### TP-D-04 merchant_account_name == tenant_name
+ mismatch 
+----------
+        0
+(1 row)
+
+ merchant_account_name |    tenant_name     
+-----------------------+--------------------
+ 윤슬 테스트 브랜드    | 윤슬 테스트 브랜드
+(1 row)
+
+### TP-D-05 stores.merchant_account_id derived via tenant_id
+ wrong 
+-------
+     0
+(1 row)
+
+### TP-D-06 stores with NULL merchant_account_id
+ null_ma 
+---------
+       0
+(1 row)
+
+### TP-D-07 tenants/stores row counts unchanged
+ tenants | stores 
+---------+--------
+       1 |      1
+(1 row)
+
+### TP-D-08 tenants without merchant account (I-47 point-in-time)
+ tenant_without_ma 
+-------------------
+                 0
+(1 row)
+
+### TP-R-04 legal_entities column count / TP-R-05 tenants / TP-R-06 stores
+ le_cols | tenant_cols | store_cols 
+---------+-------------+------------
+      11 |          10 |         17
+(1 row)
+
+### TP-R-07 chk_legal_entities_* / TP-R-08 chk_ler_* + chk_lepr_effective_range / TP-R-09 chk_tenants_*, chk_stores_*
+               conname               
+-------------------------------------
+ chk_legal_entities_crn_not_for_sole
+ chk_legal_entities_entity_type
+ chk_legal_entities_status
+ chk_lepr_effective_range
+ chk_lepr_role_type
+ chk_ler_effective_range
+ chk_ler_representation_mode
+ chk_stores_hours_object
+ chk_stores_status
+ chk_stores_type
+ chk_tenants_isolation_state
+ chk_tenants_plan
+ chk_tenants_status
+ chk_tenants_type
+(14 rows)
+
+### TP-R-11 stores 기존 제약/인덱스
+          conname          
+---------------------------
+ fk_stores_legal_entity_id
+ uq_stores_tenant_code
+(2 rows)
+
+           indexname            
+--------------------------------
+ idx_stores_legal_entity_id
+ idx_stores_merchant_account_id
+ idx_stores_tenant_id
+ idx_stores_tenant_status
+ stores_pkey
+ uq_stores_tenant_code
+(6 rows)
+
+### TP-R-03 set_updated_at definition
+               md5                | len 
+----------------------------------+-----
+ 1c4318bee4240d4113d86fad7eb15623 |  53
+(1 row)
+
+### TP-R-17 migration_history row count
+ history_rows 
+--------------
+          171
+(1 row)
+
+### TP-D BL-26 stores.updated_at vs created_at
+          created_at           |          updated_at           | updated_by_m2 
+-------------------------------+-------------------------------+---------------
+ 2026-07-09 12:03:02.226239+00 | 2026-08-24 02:25:14.247926+00 | t
+(1 row)
+

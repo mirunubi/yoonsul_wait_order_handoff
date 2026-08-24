@@ -1,0 +1,162 @@
+# Stage 9 raw evidence 11 - regression (TP-R-*) + function population (BL-22)
+# workpacket: 601700 / Verifier A (Claude Code)
+# captured: 2026-08-24
+# canonical DB: supabase_db_yoonsul_wait_order_handoff (postgres:17.6.1.140), PGOPTIONS default_transaction_read_only=on
+# command: docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres < q22.sql / q33.sql / q11.sql
+
+=== q22: stores function population + RPC immutability ===
+=== BL-22 variant A: prosrc ILIKE catchmenu_hq.stores, schema catchmenu% ===
+ count 
+-------
+   151
+(1 row)
+
+=== variant B: all schemas ===
+ count 
+-------
+   151
+(1 row)
+
+=== variant C: regexp word stores (schema-qualified or bare) in catchmenu% ===
+ count 
+-------
+   151
+(1 row)
+
+=== variant D: pg_depend on stores relation ===
+ count 
+-------
+     0
+(1 row)
+
+=== TP-N-54 stores INSERT functions ===
+                 fn                  
+-------------------------------------
+ catchmenu_common.provision_tenant
+ catchmenu_hq.create_franchise_store
+(2 rows)
+
+=== TP-N-55 stores UPDATE functions ===
+                  fn                   
+---------------------------------------
+ catchmenu_common.onboard_tenant
+ catchmenu_store.update_business_hours
+(2 rows)
+
+=== TP-N-50/51/53 prosrc md5 ===
+                  fn                   |               md5                | len  
+---------------------------------------+----------------------------------+------
+ catchmenu_common.onboard_tenant       | 46469f720263a89b9a1c740d1dfe8afb | 2793
+ catchmenu_common.provision_tenant     | f84ac1a81da4ccba87930bf020a3e974 | 4758
+ catchmenu_hq.create_franchise_store   | 87511a95676a41d2c95866e0c2da8b7f | 3460
+ catchmenu_store.update_business_hours | 147f9f89d3b1d4624efa76ff736dbc6d | 1750
+(4 rows)
+
+=== TP-N-52 merchant_account_id in two INSERT RPC ===
+                 fn                  | has_ma_id 
+-------------------------------------+-----------
+ catchmenu_hq.create_franchise_store | f
+ catchmenu_common.provision_tenant   | f
+(2 rows)
+
+=== BL-33 / TP-R-19 stores triggers ===
+ user_trg | total_trg 
+----------+-----------
+        1 |       243
+(1 row)
+
+=== BL-34 / TP-R-20 stores referencing view/matview ===
+ count 
+-------
+     0
+(1 row)
+
+=== BL-37 / TP-N-59 stores.brand_id / extra_metadata ===
+ count 
+-------
+     0
+(1 row)
+
+
+=== q33: stores trigger delta attribution ===
+=== stores triggers by constraint (internal RI) — new FK attribution ===
+            tgname            |            conname            | tgisinternal 
+------------------------------+-------------------------------+--------------
+ RI_ConstraintTrigger_c_65977 | fk_stores_merchant_account_id | t
+ RI_ConstraintTrigger_c_65978 | fk_stores_merchant_account_id | t
+(2 rows)
+
+=== stores internal trigger count grouped by constraint name (top) ===
+               conname                | count 
+--------------------------------------+-------
+ van_transactions_store_id_fkey       |     4
+ agent_actions_store_id_fkey          |     2
+ agent_approvals_store_id_fkey        |     2
+ agent_registry_store_id_fkey         |     2
+ ai_query_logs_store_id_fkey          |     2
+ audit_evidence_packets_store_id_fkey |     2
+(6 rows)
+
+=== stores user-visible trigger ===
+        tgname         
+-----------------------
+ trg_stores_updated_at
+(1 row)
+
+=== merchant_accounts triggers ===
+              tgname              | tgisinternal 
+----------------------------------+--------------
+ RI_ConstraintTrigger_a_65975     | t
+ RI_ConstraintTrigger_a_65976     | t
+ RI_ConstraintTrigger_c_65969     | t
+ RI_ConstraintTrigger_c_65970     | t
+ trg_merchant_accounts_updated_at | f
+(5 rows)
+
+
+=== q11: remaining negative/regression ===
+Pager usage is off.
+### TP-N-31..38 신규 객체 미생성 (implementation delta 기준: 0170/0171 이 만든 객체 전수)
+ relkind |              obj               
+---------+--------------------------------
+ r       | catchmenu_hq.merchant_accounts
+ r       | catchmenu_hq.persons
+(2 rows)
+
+### TP-N-32 store 상태 3축 enum/컬럼 신규
+ count 
+-------
+     0
+(1 row)
+
+### TP-N-35 audit trigger/table 신규 (0170/0171 delta)
+ count 
+-------
+     5
+(1 row)
+
+### TP-N-37 금전 객체 legal_entity snapshot 컬럼
+ count 
+-------
+     0
+(1 row)
+
+### TP-R-01 catchmenu_hq BASE TABLE
+ count 
+-------
+    21
+(1 row)
+
+### TP-R-02 set_updated_at non-internal trigger total
+ count 
+-------
+   115
+(1 row)
+
+### TP-R-18 RPC signature change check (create_franchise_store / provision_tenant args)
+                 fn                  |                                                                                                                                      args                                                                                                                                      
+-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ catchmenu_hq.create_franchise_store | p_tenant_id uuid, p_store_code text, p_store_name text, p_store_type text, p_address text, p_phone text, p_timezone text, p_opened_on date, p_franchisee_name text, p_franchisee_phone text, p_business_hours jsonb, p_actor_type text, p_actor_id uuid, p_correlation_id text
+ catchmenu_common.provision_tenant   | p_tenant_code text, p_tenant_name text, p_owner_name text, p_owner_email text, p_owner_phone text, p_plan_code text, p_store_name text, p_store_timezone text, p_sales_channel text, p_white_label_partner_code text, p_correlation_id text
+(2 rows)
+

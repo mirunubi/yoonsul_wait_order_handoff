@@ -100,3 +100,7 @@ tmp_cloud_backfill/
 tools/__pycache__/
 .claude/
 docs/directory_only_tree.txt
+# Stage 9 raw evidence — 000701 Stage 9 mandatory
+# *.log 전역 제외의 예외. 구현 검증 증거는 추적한다.
+
+!docs/implementation_evidence/**/raw_logs/*.log

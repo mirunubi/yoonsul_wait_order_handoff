@@ -1,0 +1,100 @@
+# Stage 9 raw evidence 15 - rollback execution (disposable DB only)
+# NOTE: no reverse-migration artifact exists in the repository.
+# The reverse DDL below was composed for verification from 601717 §9.1 R-2/R-3 and
+# executed ONLY on the disposable container. It is NOT a repository artifact.
+# captured: 2026-08-24
+
+=== reverse script ===
+\echo '--- PRE-ROLLBACK STATE (disposable DB) ---'
+SELECT (SELECT count(*) FROM catchmenu_hq.merchant_accounts) AS ma_rows,
+       (SELECT count(*) FROM information_schema.columns WHERE table_schema='catchmenu_hq' AND table_name='stores' AND column_name='merchant_account_id') AS s_ma_col,
+       (SELECT count(*) FROM information_schema.tables WHERE table_schema='catchmenu_hq' AND table_name='persons') AS persons_tbl;
+SELECT md5(prosrc) AS provision_md5 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='catchmenu_common' AND p.proname='provision_tenant';
+BEGIN;
+-- R-3: 0171 reverse — stores FK/컬럼 제거 -> merchant_accounts 행 제거 -> 테이블 제거
+DROP INDEX catchmenu_hq.idx_stores_merchant_account_id;
+ALTER TABLE catchmenu_hq.stores DROP CONSTRAINT fk_stores_merchant_account_id;
+ALTER TABLE catchmenu_hq.stores DROP COLUMN merchant_account_id;
+DELETE FROM catchmenu_hq.merchant_accounts;
+DROP TABLE catchmenu_hq.merchant_accounts;
+-- R-2: then 0170 reverse
+ALTER TABLE catchmenu_hq.legal_entity_person_roles ADD COLUMN ownership_percent numeric;
+ALTER TABLE catchmenu_hq.legal_entity_person_roles ADD CONSTRAINT chk_lepr_ownership_percent CHECK (ownership_percent IS NULL OR (ownership_percent >= 0 AND ownership_percent <= 100));
+ALTER TABLE catchmenu_hq.persons ADD COLUMN is_active boolean NOT NULL DEFAULT true;
+ALTER INDEX catchmenu_hq.idx_lepr_person RENAME TO idx_lepr_owner;
+ALTER INDEX catchmenu_hq.persons_pkey RENAME TO owners_pkey;
+ALTER TABLE catchmenu_hq.legal_entity_representatives RENAME CONSTRAINT legal_entity_representatives_person_id_fkey TO legal_entity_representatives_owner_id_fkey;
+ALTER TABLE catchmenu_hq.legal_entity_person_roles RENAME CONSTRAINT legal_entity_person_roles_person_id_fkey TO legal_entity_person_roles_owner_id_fkey;
+ALTER TRIGGER trg_persons_updated_at ON catchmenu_hq.persons RENAME TO trg_owners_updated_at;
+ALTER TABLE catchmenu_hq.persons RENAME COLUMN person_name TO owner_name;
+ALTER TABLE catchmenu_hq.legal_entity_representatives RENAME COLUMN person_id TO owner_id;
+ALTER TABLE catchmenu_hq.legal_entity_person_roles RENAME COLUMN person_id TO owner_id;
+ALTER TABLE catchmenu_hq.persons RENAME TO owners;
+COMMIT;
+\echo '--- POST-ROLLBACK STATE ---'
+SELECT (SELECT count(*) FROM information_schema.tables WHERE table_schema='catchmenu_hq' AND table_name='merchant_accounts') AS ma_tbl,
+       (SELECT count(*) FROM information_schema.tables WHERE table_schema='catchmenu_hq' AND table_name='owners') AS owners_tbl,
+       (SELECT count(*) FROM information_schema.tables WHERE table_schema='catchmenu_hq' AND table_name='persons') AS persons_tbl,
+       (SELECT count(*) FROM information_schema.columns WHERE table_schema='catchmenu_hq' AND table_name='stores' AND column_name='merchant_account_id') AS s_ma_col;
+\echo '--- TP-RB-04 RLS + GRANT on owners ---'
+SELECT relrowsecurity, relforcerowsecurity FROM pg_class WHERE oid='catchmenu_hq.owners'::regclass;
+SELECT count(*) AS grants FROM information_schema.role_table_grants WHERE table_schema='catchmenu_hq' AND table_name='owners' AND grantee='catchmenu_authority_owner';
+\echo '--- TP-RB-08 two INSERT RPC prosrc unchanged ---'
+SELECT n.nspname||'.'||p.proname AS fn, md5(p.prosrc) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+WHERE (n.nspname='catchmenu_common' AND p.proname='provision_tenant') OR (n.nspname='catchmenu_hq' AND p.proname='create_franchise_store') ORDER BY 1;
+
+=== output ===
+--- PRE-ROLLBACK STATE (disposable DB) ---
+ ma_rows | s_ma_col | persons_tbl 
+---------+----------+-------------
+       1 |        1 |           1
+(1 row)
+
+          provision_md5           
+----------------------------------
+ f84ac1a81da4ccba87930bf020a3e974
+(1 row)
+
+BEGIN
+DROP INDEX
+ALTER TABLE
+ALTER TABLE
+DELETE 1
+DROP TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER INDEX
+ALTER INDEX
+ALTER TABLE
+ALTER TABLE
+ALTER TRIGGER
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+COMMIT
+--- POST-ROLLBACK STATE ---
+ ma_tbl | owners_tbl | persons_tbl | s_ma_col 
+--------+------------+-------------+----------
+      0 |          1 |           0 |        0
+(1 row)
+
+--- TP-RB-04 RLS + GRANT on owners ---
+ relrowsecurity | relforcerowsecurity 
+----------------+---------------------
+ t              | t
+(1 row)
+
+ grants 
+--------
+      4
+(1 row)
+
+--- TP-RB-08 two INSERT RPC prosrc unchanged ---
+                 fn                  |               md5                
+-------------------------------------+----------------------------------
+ catchmenu_common.provision_tenant   | f84ac1a81da4ccba87930bf020a3e974
+ catchmenu_hq.create_franchise_store | 92a3419442801bdd91b51efd1ee02e0c
+(2 rows)
+

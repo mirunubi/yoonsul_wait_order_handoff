@@ -1,0 +1,125 @@
+# Stage 9 raw evidence 09 - negative checks (TP-N-*, TP-X-*)
+# workpacket: 601700 / Verifier A (Claude Code)
+# captured: 2026-08-24
+# canonical DB: supabase_db_yoonsul_wait_order_handoff (postgres:17.6.1.140), PGOPTIONS default_transaction_read_only=on
+# command: docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres < q09.sql
+
+Pager usage is off.
+### TP-N-01/02 owners relation (any kind)
+ count 
+-------
+     0
+(1 row)
+
+### TP-N-03 owner_id / owner_name anywhere in catchmenu schemas
+ count 
+-------
+     0
+(1 row)
+
+### TP-N-05 is_active on persons / TP-N-06 ownership_percent anywhere
+ persons_active_like | ownership_cols 
+---------------------+----------------
+                   0 |              0
+(1 row)
+
+### TP-N-07 set_updated_at exists / TP-N-08 role
+ set_updated_at 
+----------------
+              1
+(1 row)
+
+          rolname          | rolcanlogin | rolbypassrls 
+---------------------------+-------------+--------------
+ catchmenu_authority_owner | f           | t
+(1 row)
+
+### TP-N-09/10 RLS policies on 4 person tables + merchant_accounts
+ tablename | count 
+-----------+-------
+(0 rows)
+
+ total_policies_on_five 
+------------------------
+                      0
+(1 row)
+
+### TP-N-13 client-reachable roles grants on merchant_accounts / TP-N-14 authority_owner privileges
+ grantee  | privilege_type 
+----------+----------------
+ postgres | DELETE
+ postgres | INSERT
+ postgres | REFERENCES
+ postgres | SELECT
+ postgres | TRIGGER
+ postgres | TRUNCATE
+ postgres | UPDATE
+(7 rows)
+
+### TP-N-15 tenants/stores RLS flags
+ relname | relrowsecurity | relforcerowsecurity 
+---------+----------------+---------------------
+ stores  | t              | t
+ tenants | t              | t
+(2 rows)
+
+### TP-N-16..20 merchant_accounts forbidden columns
+ le_cols | owner_cols | status_cols | contact_cols | other_cols 
+---------+------------+-------------+--------------+------------
+       0 |          0 |           0 |            0 |          0
+(1 row)
+
+### TP-N-23 3층 merchant tables / TP-X-05 merchant table list
+ table_schema |    table_name     
+--------------+-------------------
+ catchmenu_hq | merchant_accounts
+(1 row)
+
+### TP-N-25/26/27 stores.legal_entity_id nullable + legal_entities rows
+ is_nullable 
+-------------
+ YES
+(1 row)
+
+ le_rows | backfilled 
+---------+------------
+       0 |          0
+(1 row)
+
+### TP-N-29 시점 이력 테이블
+ count 
+-------
+     0
+(1 row)
+
+### TP-N-40/41 nullability
+     column_name     | is_nullable 
+---------------------+-------------
+ merchant_account_id | YES
+ tenant_id           | NO
+(2 rows)
+
+### TP-N-43 CHECK/trigger enforcing merchant_account_id
+ count 
+-------
+     0
+(1 row)
+
+### TP-X-06 merchant columns list
+                                col                                
+-------------------------------------------------------------------
+ catchmenu_hq.merchant_accounts.merchant_account_name
+ catchmenu_hq.stores.merchant_account_id
+ catchmenu_integrations.pos_store_configs.merchant_id
+ catchmenu_integrations.toss_pos_transactions.toss_pos_merchant_id
+ catchmenu_integrations.van_settlements.van_merchant_id
+ catchmenu_integrations.van_transactions.van_merchant_id
+ catchmenu_payment.van_transactions.van_merchant_id
+(7 rows)
+
+### TP-X-09 merchant_accounts outgoing FKs
+            conname             |                    pg_get_constraintdef                     
+--------------------------------+-------------------------------------------------------------
+ fk_merchant_accounts_tenant_id | FOREIGN KEY (tenant_id) REFERENCES catchmenu_hq.tenants(id)
+(1 row)
+

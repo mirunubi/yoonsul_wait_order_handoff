@@ -1,0 +1,65 @@
+# Stage 9 raw evidence 13 - RLS / GRANT / security posture
+# captured: 2026-08-24
+
+=== BL-10 persons RLS flags ===
+           relname            | relrowsecurity | relforcerowsecurity 
+------------------------------+----------------+---------------------
+ legal_entities               | t              | t
+ legal_entity_person_roles    | t              | t
+ legal_entity_representatives | t              | t
+ merchant_accounts            | t              | t
+ persons                      | t              | t
+(5 rows)
+
+=== BL-11 persons GRANT (grantee != postgres) ===
+          grantee          | privilege_type | is_grantable 
+---------------------------+----------------+--------------
+ catchmenu_authority_owner | DELETE         | NO
+ catchmenu_authority_owner | INSERT         | NO
+ catchmenu_authority_owner | SELECT         | NO
+ catchmenu_authority_owner | UPDATE         | NO
+(4 rows)
+
+=== BL-12 set_updated_at non-internal triggers ===
+### TP-N-09/10 RLS policies on 4 person tables + merchant_accounts
+ tablename | count 
+-----------+-------
+(0 rows)
+
+ total_policies_on_five 
+------------------------
+                      0
+(1 row)
+
+### TP-N-13 client-reachable roles grants on merchant_accounts / TP-N-14 authority_owner privileges
+ grantee  | privilege_type 
+----------+----------------
+ postgres | DELETE
+ postgres | INSERT
+ postgres | REFERENCES
+ postgres | SELECT
+ postgres | TRIGGER
+ postgres | TRUNCATE
+ postgres | UPDATE
+(7 rows)
+
+### TP-N-15 tenants/stores RLS flags
+ relname | relrowsecurity | relforcerowsecurity 
+---------+----------------+---------------------
+ stores  | t              | t
+ tenants | t              | t
+(2 rows)
+
+### TP-N-16..20 merchant_accounts forbidden columns
+### TP-P-33 merchant_accounts RLS / TP-N-11 policies
+ relrowsecurity | relforcerowsecurity 
+----------------+---------------------
+ t              | t
+(1 row)
+
+ ma_policies 
+-------------
+           0
+(1 row)
+
+### TP-P-34/35/36 stores.merchant_account_id FK + index

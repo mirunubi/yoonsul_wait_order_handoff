@@ -1,0 +1,946 @@
+﻿# Stage 9 raw evidence 05 - tools/Check-Governance.ps1 (default mode)
+# captured: 2026-08-24
+# command: powershell -NoProfile -ExecutionPolicy Bypass -File tools\Check-Governance.ps1
+
+Scanning D:\workspace\yoonsul_wait_order_handoff\docs ...
+Found 1638 markdown files in scope, 158 directories in scope.
+Excluded from scan: 730 files, 44 directories (-IncludeExcluded to scan them).
+
+
+============================================================================================
+ GOVERNANCE CONFORMANCE REPORT
+============================================================================================
+  docs root : D:\workspace\yoonsul_wait_order_handoff\docs
+  band      : ALL (600000 included - no HOLD exemption)
+  top       : 50 shown per check (summary shows full counts)
+  exclusions: ON - 730 files, 44 directories not scanned
+  files     : 1638 markdown documents scanned
+
+  Severity:  ERROR = confirmed rule violation
+             WARN  = needs review, cannot be asserted mechanically
+             REVIEW= list only, this checker makes no judgement
+
+
+============================================================================================
+ [A] docs root and 000000-099999 bands    77 finding(s)
+============================================================================================
+
+G02  DocumentType missing or not an approved value     (000002 s1.2)
+  40 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 000001_Md_Rules.md
+      DocumentType 'Md' is not in the approved list
+  [ERROR ] 000002_Naming_Rules.md
+      DocumentType 'Naming' is not in the approved list
+  [ERROR ] 000015_Korean_Document_And_Encoding_Safety_Rules.md
+      DocumentType 'Korean' is not in the approved list
+  [ERROR ] 000040_Runtime_Operation_Patterns_For_KDS_And_Mini.md
+      DocumentType 'Runtime' is not in the approved list
+  [ERROR ] 000099_Docs_Governance_Checklist.md
+      DocumentType 'Docs' is not in the approved list
+  [ERROR ] 000700_ai_agent_prelearning_and_project_context/000715_ContentVerificationLog.md
+      DocumentType 'ContentVerificationLog' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001020_Store_Type_And_Product_Package_Strategy.md
+      DocumentType 'Store' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001030_Competitive_Positioning_And_Market_Context.md
+      DocumentType 'Competitive' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001060_MVP_Store_Type_Adoption_Sequence.md
+      DocumentType 'MVP' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001070_CatchMenu_Service_Concept.md
+      DocumentType 'CatchMenu' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001170_Stage_0_Unconfirmed_Request_Warning_And_Forced_Cleanup.md
+      DocumentType 'Stage' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001180_Stage_0_Translation_And_Critical_Request_Handling.md
+      DocumentType 'Stage' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001210_CatchMenu_Stage_0A_QR_Menu_And_Show_To_Staff_Flow.md
+      DocumentType 'CatchMenu' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001220_CatchMenu_Stage_0B_Send_To_Store_Request_Flow.md
+      DocumentType 'CatchMenu' is not in the approved list
+  [ERROR ] 001000_mvp_scope/001260_CatchMenu_POS_Less_Request_State_Transition_Guard.md
+      DocumentType 'CatchMenu' is not in the approved list
+  [ERROR ] 004000_store_runtime_pos_kds_operations/004100_menu_availability_soldout_runtime/004190_Menu_Availability_Soldout_MVP_Cutline.md
+      DocumentType 'Menu' is not in the approved list
+  [ERROR ] 011000_integration_boundary/011250_POS_Integration_Module_And_All_POS_Expansion_Strategy.md
+      DocumentType 'POS' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013010_App_Surface_And_Channel_Projection.md
+      DocumentType 'App' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013020_Customer_Webapp_Projection.md
+      DocumentType 'Customer' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013030_Store_Console_Projection.md
+      DocumentType 'Store' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013040_Admin_Console_Projection.md
+      DocumentType 'Admin' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013090_Surface_To_Authority_Projection_Model.md
+      DocumentType 'Surface' is not in the approved list
+  [ERROR ] 013000_app_api_projection/013110_Idempotency_Recovery_And_Audit_Envelope_Projection.md
+      DocumentType 'Idempotency' is not in the approved list
+  [ERROR ] 015000_membership_loyalty/015020_Lightweight_Coupon_And_Stamp_Future_Model.md
+      DocumentType 'Lightweight' is not in the approved list
+  [ERROR ] 015000_membership_loyalty/015050_Membership_Admin_And_UI_Reserved_Surface.md
+      DocumentType 'Membership' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017010_Customer_Webapp_UI_Composition.md
+      DocumentType 'Customer' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017020_Mini_Kiosk_UI_Composition.md
+      DocumentType 'Mini' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017030_Store_Console_UI_Composition.md
+      DocumentType 'Store' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017040_Admin_Console_UI_Composition.md
+      DocumentType 'Admin' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017050_Support_Console_UI_Composition.md
+      DocumentType 'Support' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017080_UI_Surface_To_Authority_Composition_Model.md
+      DocumentType 'UI' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017090_Integration_Status_UI_Wording_Model.md
+      DocumentType 'Integration' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017110_Customer_MiniKiosk_State_Wording_Consolidation.md
+      DocumentType 'Customer' is not in the approved list
+  [ERROR ] 017000_ui_screen_composition/017120_Admin_Support_UI_Authority_And_Recovery_Model.md
+      DocumentType 'Admin' is not in the approved list
+  [ERROR ] 021000_financial_security_monitoring_catalog/021630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md
+      DocumentType 'Financial' is not in the approved list
+  [ERROR ] 021000_financial_security_monitoring_catalog/021644_Patent_Security_Monitoring_Architecture_Summary_And_Claim_Support_Feature_Map.md
+      DocumentType 'Patent' is not in the approved list
+  [ERROR ] 028000_future_expansion/028020_Membership_Loyalty_Point_Future_Model.md
+      DocumentType 'Membership' is not in the approved list
+  [ERROR ] 028000_future_expansion/028040_Data_Ad_CRM_AI_Future_Expansion_Model.md
+      DocumentType 'Data' is not in the approved list
+  [ERROR ] 028000_future_expansion/028060_Franchise_Intelligence_Feedback_Loop_Model.md
+      DocumentType 'Franchise' is not in the approved list
+  [ERROR ] 030000_future_saas_modules/030090_Dual_Track_External_Alliance_And_Native_Service_Strategy.md
+      DocumentType 'Dual' is not in the approved list
+
+G03  Filename uses unsafe or non-conforming characters (000002 s1.3, s1.4)
+  1 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 021000_financial_security_monitoring_catalog/021630_Financial-Grade_Security_Monitoring_Foundation_Catalog_Execution_Plan_And_Artifact_Map.md
+      hyphen (kebab-case not adopted)
+
+G07  Governed folder missing Readme / Readme misnumber (000001 s5.2 / 000002 s5)
+  15 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 000700_ai_agent_prelearning_and_project_context/000714_Readme_Implementation_Lifecycle_Governance.md
+      Readme number 000714 does not match folder prefix 000700
+  [ERROR ] 001000_mvp_scope/001205_Readme_CatchMenu_POS_Less_Entry_Runtime_QR_Request_MVP.md
+      Readme number 001205 does not match folder prefix 001000
+  [ERROR ] 003000_saas_runtime/003100_Readme_Entry_Media_Inventory.md
+      Readme number 003100 does not match folder prefix 003000
+  [ERROR ] 011000_integration_boundary/011001_Readme_Gateway_Integrity_Audit_And_Black_Box_Provider_Evidence.md
+      Readme number 011001 does not match folder prefix 011000
+  [ERROR ] 011000_integration_boundary/011220_Readme_Open_API_Partner_Alliance.md
+      Readme number 011220 does not match folder prefix 011000
+  [ERROR ] 011000_integration_boundary/011230_Readme_Provider_Adapter_Runtime.md
+      Readme number 011230 does not match folder prefix 011000
+  [ERROR ] 011000_integration_boundary/011240_Readme_External_POS_Integration_Runtime.md
+      Readme number 011240 does not match folder prefix 011000
+  [ERROR ] 014000_pos_provider_integration_strategy/014002_Readme_POS_Gateway_Resilience_Field_Exception_Catalog.md
+      Readme number 014002 does not match folder prefix 014000
+  [ERROR ] 020000_validation_security_audit/020300_Readme_Identity_Access.md
+      Readme number 020300 does not match folder prefix 020000
+  [ERROR ] 022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md
+      Readme number 022009 does not match folder prefix 022000
+  [ERROR ] 024000_deployment_operations/024150_Readme_Merchant_Success_Troubleshooting.md
+      Readme number 024150 does not match folder prefix 024000
+  [ERROR ] 030000_future_saas_modules/030050_Readme_Ad_Promotion_CMS.md
+      Readme number 030050 does not match folder prefix 030000
+  [ERROR ] 030000_future_saas_modules/030060_Readme_Billing_Plan_Settlement.md
+      Readme number 030060 does not match folder prefix 030000
+  [ERROR ] 030000_future_saas_modules/030070_Readme_Sales_Partner_Field_Growth.md
+      Readme number 030070 does not match folder prefix 030000
+  [ERROR ] 700900_runtime_flow
+      no Readme document directly in this governed folder
+
+G08  Duplicate document number across docs/            (000002 s1)
+  2 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 015000_membership_loyalty/015000_Index_Membership_Loyalty_Coupon_And_Customer_Identity_Expansion_Wave_1.md
+      number 15000 also used by: 015000_membership_loyalty/015000_Readme_Membership_Loyalty.md
+  [ERROR ] 015000_membership_loyalty/015000_Readme_Membership_Loyalty.md
+      number 15000 also used by: 015000_membership_loyalty/015000_Index_Membership_Loyalty_Coupon_And_Customer_Identity_Expansion_Wave_1.md
+
+G09  H1 heading missing or unlike the filename         (000001 s2 / 000002 s6)
+  ERROR = missing H1 or H1/filename number mismatch. WARN = normalized
+  similarity below 60%. Separators and case are stripped before comparing.
+  5 found
+--------------------------------------------------------------------------------------------
+  [WARN  ] 000700_ai_agent_prelearning_and_project_context/000716_Guide_CatchMenu_One_Time_Design_Integrity_And_Reverse_Engineering_Inspection_Operational_Plan.md
+      normalized similarity 10.2% (floor 60%) - H1: 'CatchMenu 일회성 설계 무결성 및 역설계 검사 운영안'
+  [ERROR ] 022000_implementation_planning/022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md
+      H1 number 022000 differs from filename number 022008 - H1: '0docs/022000_implementation_planning/022008_Policy_Backlog_Extraction_Readiness_Check_And_Build_Gate_Handoff.md'
+  [ERROR ] 022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md
+      H1 number 022000 differs from filename number 022009 - H1: '0docs/022000_implementation_planning/022009_Readme_Build_Gate_And_Pre_Implementation_Readiness.md'
+  [ERROR ] 022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md
+      H1 number 022000 differs from filename number 022022 - H1: '0docs/022000_implementation_planning/022022_Policy_Build_Gate_Closure_And_Controlled_Implementation_Entry.md'
+  [ERROR ] 022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md
+      H1 number 022000 differs from filename number 022023 - H1: '0docs/022000_implementation_planning/022023_Index_Controlled_Implementation_Planning_README_And_Package_Decomposition.md'
+
+G11  Registry drift against 000005_Index_Document_Num  (000001 s5, s5.1)
+  2 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 000005_Document_Number_Index.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 000007_Full_Directory_Map.md
+      000005 registers this path but the file does not exist
+
+G14  Group C DocumentType used outside the 600000 band (000002 s1.2)
+  12 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 000067_Overview_WP_8A_001_Read_Only_Codebase_Hydration_Foundation_And_Source_To_Module_Mapping.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 000086_Overview_WP_9A_001_Hydration_Registry_Schema_Validation_And_Static_Evidence_Gate.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 000087_Logic_WP_9A_001_Hydration_Registry_Schema_Validation_Rules_And_Evidence_Gate.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 000095_Overview_WP_9B_001_Source_Module_Map_Static_Validation_And_Evidence_Gate.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 000096_Logic_WP_9B_001_Source_Module_Map_Static_Validation_Rules_And_Boundary_Checks.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 000800_pos_gateway_and_provider_integration_foundation/000803_Logic_POS_Order_Payment_Cancel_Refund_And_Status_State_Machine.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 000800_pos_gateway_and_provider_integration_foundation/000806_Logic_POS_Idempotency_Retry_Timeout_Duplicate_Prevention_And_Unknown_State.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 000900_outsourcing_vendor_handoff_and_acceptance/000905_Logic_POS_Order_Payment_State_Machine_Reconciliation_And_Recovery.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 003000_saas_runtime/003199_Overview_Entry_Media_Inventory_And_MVP_Cutline.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 008000_ai_customer_center/008001_Overview_AI_Customer_Center_Foundation.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 009000_data_model_state_machine/009010_Overview_Data_Model_Draft.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 070000_external_integration_control_plane_validation_correction_log_and_process_governance/070660_Overview_External_Integration_Control_Plane_Validation_Correction_Log_And_Process_Governance.md
+      Group C DocumentType 'Overview' outside 600000 band
+
+============================================================================================
+ [B] 600000_implementation_lifecycle band (600000-699999)    402 finding(s)
+============================================================================================
+
+G02  DocumentType missing or not an approved value     (000002 s1.2)
+  65 found, showing first 50 (-Top 0 for all)
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/600010_Tracker_Spiral_Workpacket_Progress.md
+      DocumentType 'Tracker' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600101_ChangeHistory.md
+      DocumentType 'ChangeHistory' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600103_DecisionLog.md
+      DocumentType 'DecisionLog' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600201_ChangeHistory.md
+      DocumentType 'ChangeHistory' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600203_DecisionLog.md
+      DocumentType 'DecisionLog' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600301_ChangeHistory.md
+      DocumentType 'ChangeHistory' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600303_DecisionLog.md
+      DocumentType 'DecisionLog' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600400_kds_did_implementation/600401_ChangeHistory.md
+      DocumentType 'ChangeHistory' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600400_kds_did_implementation/600403_DecisionLog.md
+      DocumentType 'DecisionLog' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600400_kds_did_implementation/600404_PlaceTakeoutOrder_Defect_Roadmap.md
+      DocumentType 'PlaceTakeoutOrder' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation/600533_Raw_Investigation_O10_O11_R1_R6.md
+      DocumentType 'Raw' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/600900_cross_domain_reconciliation/600901_ChangeHistory.md
+      DocumentType 'ChangeHistory' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601301_Master_Tracker.md
+      DocumentType 'Master' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601311_PassA_Blind_Reverse_Engineering_Common_Auth.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601312_PassB_Intent_Comparison_Common_Auth.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601310_domain_00_common_auth/601313_PassC_Confirmed_Gaps_And_Disposition_Common_Auth.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601321_PassA_Blind_Reverse_Engineering_Payment.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601322_PassB_Intent_Comparison_Payment.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601323_PassC_Confirmed_Gaps_And_Disposition_Payment.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice05.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice01.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassB_Intent_Comparison_Waiting_Order.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice02.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassC_Confirmed_Gaps_And_Disposition_Waiting_Order.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601334_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice03.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601335_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice04.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin/601341_PassA_Blind_Reverse_Engineering_Store_Admin.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin/601342_PassB_Intent_Comparison_Store_Admin.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601340_domain_03_store_admin/601343_PassC_Confirmed_Gaps_And_Disposition_Store_Admin.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did/601351_PassA_Blind_Reverse_Engineering_Kds_Did.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did/601352_PassB_Intent_Comparison_Kds_Did.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601350_domain_04_kds_did/601353_PassC_Confirmed_Gaps_And_Disposition_Kds_Did.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms/601361_PassA_Blind_Reverse_Engineering_Cms.md
+      DocumentType 'PassA' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms/601362_PassB_Intent_Comparison_Cms.md
+      DocumentType 'PassB' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601360_domain_05_cms/601363_PassC_Confirmed_Gaps_And_Disposition_Cms.md
+      DocumentType 'PassC' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601390_Modularization_Integration_Plan.md
+      DocumentType 'Modularization' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601401_Master_Tracker.md
+      DocumentType 'Master' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601402_Operating_Plan_Design_Integrity_Inspection.md
+      DocumentType 'Operating' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601443_Consolidated_Owner_Decision_Registry_Cross_Domain.md
+      DocumentType 'Consolidated' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/601438_Consolidated_Owner_Decision_Registry_Domain_01.md
+      DocumentType 'Consolidated' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601421_Slice_Input_Package_slice_01_waiting.md
+      DocumentType 'Slice' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      DocumentType 'Core' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601422_Slice_Input_Package_slice_02_payment.md
+      DocumentType 'Slice' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601430_Core_Payload_MD_Bundle_slice_02_payment.md
+      DocumentType 'Core' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601423_Slice_Input_Package_slice_03_kds_did.md
+      DocumentType 'Slice' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601432_Core_Payload_MD_Bundle_slice_03_kds_did.md
+      DocumentType 'Core' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_04_customer_handoff_policy/601424_Slice_Input_Package_slice_04_customer_handoff_policy.md
+      DocumentType 'Slice' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601425_Slice_Input_Package_slice_05_runtime_flow.md
+      DocumentType 'Slice' is not in the approved list
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601433_MD_Bundle_slice_05_runtime_flow.md
+      DocumentType 'MD' is not in the approved list
+
+G04  Title-less 600xxx lifecycle filename - LIST ONLY  (000002 s1.2)
+  REVIEW LIST ONLY - these are not asserted violations. No date-based
+  grandfathering is applied; see 000002 s1.2 for the title-component rule.
+  153 found, showing first 50 (-Top 0 for all)
+--------------------------------------------------------------------------------------------
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600101_ChangeHistory.md
+      no title component after DocumentType 'ChangeHistory'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600102_NavigationMap.md
+      no title component after DocumentType 'NavigationMap'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600103_DecisionLog.md
+      no title component after DocumentType 'DecisionLog'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600111_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600112_Logic.md
+      no title component after DocumentType 'Logic'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600113_TestPlan.md
+      no title component after DocumentType 'TestPlan'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600114_ChangeContract.md
+      no title component after DocumentType 'ChangeContract'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600115_Module.md
+      no title component after DocumentType 'Module'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600116_Verification.md
+      no title component after DocumentType 'Verification'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600110_order_sessions_customer_id_fk_and_guest_promotion/600117_Audit.md
+      no title component after DocumentType 'Audit'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600121_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600122_Logic.md
+      no title component after DocumentType 'Logic'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600123_TestPlan.md
+      no title component after DocumentType 'TestPlan'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600124_ChangeContract.md
+      no title component after DocumentType 'ChangeContract'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600125_Module.md
+      no title component after DocumentType 'Module'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600126_Verification.md
+      no title component after DocumentType 'Verification'
+  [REVIEW] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600127_Audit.md
+      no title component after DocumentType 'Audit'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600201_ChangeHistory.md
+      no title component after DocumentType 'ChangeHistory'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600202_NavigationMap.md
+      no title component after DocumentType 'NavigationMap'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600203_DecisionLog.md
+      no title component after DocumentType 'DecisionLog'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600211_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600212_Logic.md
+      no title component after DocumentType 'Logic'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600213_TestPlan.md
+      no title component after DocumentType 'TestPlan'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600214_ChangeContract.md
+      no title component after DocumentType 'ChangeContract'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600215_Module.md
+      no title component after DocumentType 'Module'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600216_Verification.md
+      no title component after DocumentType 'Verification'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600210_waiting_feature_guest_customer_id_integration/600217_Audit.md
+      no title component after DocumentType 'Audit'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600221_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600222_Logic.md
+      no title component after DocumentType 'Logic'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600223_TestPlan.md
+      no title component after DocumentType 'TestPlan'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600224_ChangeContract.md
+      no title component after DocumentType 'ChangeContract'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600225_Module.md
+      no title component after DocumentType 'Module'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600226_Verification.md
+      no title component after DocumentType 'Verification'
+  [REVIEW] 600000_implementation_lifecycle/600200_flutter_waiting_feature_implementation/600220_platform_deployment_strategy/600227_Audit.md
+      no title component after DocumentType 'Audit'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600301_ChangeHistory.md
+      no title component after DocumentType 'ChangeHistory'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600302_NavigationMap.md
+      no title component after DocumentType 'NavigationMap'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600303_DecisionLog.md
+      no title component after DocumentType 'DecisionLog'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600310_initial_cloud_state_audit/600311_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600321_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600322_Logic.md
+      no title component after DocumentType 'Logic'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600323_TestPlan.md
+      no title component after DocumentType 'TestPlan'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600324_ChangeContract.md
+      no title component after DocumentType 'ChangeContract'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600325_Module.md
+      no title component after DocumentType 'Module'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600326_Verification.md
+      no title component after DocumentType 'Verification'
+  [REVIEW] 600000_implementation_lifecycle/600300_cloud_local_migration_sync/600320_scheduled_pull_based_secondary_backup/600327_Audit.md
+      no title component after DocumentType 'Audit'
+  [REVIEW] 600000_implementation_lifecycle/600400_kds_did_implementation/600401_ChangeHistory.md
+      no title component after DocumentType 'ChangeHistory'
+  [REVIEW] 600000_implementation_lifecycle/600400_kds_did_implementation/600402_NavigationMap.md
+      no title component after DocumentType 'NavigationMap'
+  [REVIEW] 600000_implementation_lifecycle/600400_kds_did_implementation/600403_DecisionLog.md
+      no title component after DocumentType 'DecisionLog'
+  [REVIEW] 600000_implementation_lifecycle/600400_kds_did_implementation/600410_kds_capacity_gate_and_status_reconciliation/600411_Overview.md
+      no title component after DocumentType 'Overview'
+  [REVIEW] 600000_implementation_lifecycle/600400_kds_did_implementation/600410_kds_capacity_gate_and_status_reconciliation/600412_Logic.md
+      no title component after DocumentType 'Logic'
+
+G06  Folder under docs/ has no numeric prefix          (000002 s2)
+  28 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_04_customer_handoff_policy
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_A_kitchen_release_gate
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_B_financial_trust_room
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_C_cross_room_plumbing
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D1_foundation_static_catalog
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D2_static_catalog_runtime_planning
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D3_four_side_skeleton_data_governance
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_A_entrance_waiting_policy
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_B_store_legal_boundary
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_04_order_cancel_refund
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_05_menu_option_personalization
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_06_pos_provider_gateway
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_07_sop_agent_fallback
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_08_inventory_scm
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_09_security_rls_audit
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_10_franchise_hq
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_11_ai_customer_center
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_12_saas_multitenant
+      folder name does not start with a six-digit prefix
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_13_physical_ai
+      folder name does not start with a six-digit prefix
+
+G08  Duplicate document number across docs/            (000002 s1)
+  6 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md
+      number 601331 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice05.md
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice05.md
+      number 601331 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order.md
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice01.md
+      number 601332 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassB_Intent_Comparison_Waiting_Order.md
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassB_Intent_Comparison_Waiting_Order.md
+      number 601332 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice01.md
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice02.md
+      number 601333 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassC_Confirmed_Gaps_And_Disposition_Waiting_Order.md
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassC_Confirmed_Gaps_And_Disposition_Waiting_Order.md
+      number 601333 also used by: 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice02.md
+
+G09  H1 heading missing or unlike the filename         (000001 s2 / 000002 s6)
+  ERROR = missing H1 or H1/filename number mismatch. WARN = normalized
+  similarity below 60%. Separators and case are stripped before comparing.
+  45 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600125_Module.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600126_Verification.md
+      first non-empty line is not an H1 heading
+  [WARN  ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation/600533_Raw_Investigation_O10_O11_R1_R6.md
+      normalized similarity 31.3% (floor 60%) - H1: 'O10/O11 확정 조사 — R1–R6 Raw 결과'
+  [WARN  ] 600000_implementation_lifecycle/600600_waiting_order_session/600630_mark_no_show_overload_and_redesign/600632_Logic.md
+      normalized similarity 27.5% (floor 60%) - H1: '600632_Logic_Mark_No_Show_Overload_And_Redesign.md'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601301_Master_Tracker.md
+      normalized similarity 36.5% (floor 60%) - H1: '601301 — Master Tracker: Fable Blind Reverse-Engineering Audit'
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601320_domain_01_payment/601321_PassA_Blind_Reverse_Engineering_Payment.md
+      H1 number 600500 differs from filename number 601321 - H1: 'Pass A: Blind Reverse-Engineering — 결제(600500)'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice05.md
+      normalized similarity 56.6% (floor 60%) - H1: 'Pass A: Blind Reverse-Engineering — 대기열/주문 슬라이스05 (공통기반)'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice01.md
+      normalized similarity 56.6% (floor 60%) - H1: 'Pass A: Blind Reverse-Engineering — 대기열/주문 슬라이스01 (대기열 등록/조회)'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice02.md
+      normalized similarity 56.6% (floor 60%) - H1: 'Pass A: Blind Reverse-Engineering — 대기열/주문 슬라이스02 (호출/도착확인)'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601334_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice03.md
+      normalized similarity 56.6% (floor 60%) - H1: 'Pass A: Blind Reverse-Engineering — 대기열/주문 슬라이스03 (노쇼/유예)'
+  [WARN  ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601335_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice04.md
+      normalized similarity 56.6% (floor 60%) - H1: 'Pass A: Blind Reverse-Engineering — 대기열/주문 슬라이스04 (사전주문/착석/주문본체)'
+  [WARN  ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601401_Master_Tracker.md
+      normalized similarity 38.8% (floor 60%) - H1: '601401 — Master Tracker: Fable Design Integrity Inspection'
+  [WARN  ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601402_Operating_Plan_Design_Integrity_Inspection.md
+      normalized similarity 9.1% (floor 60%) - H1: 'CatchMenu 일회성 설계 무결성 및 역설계 검사 운영안'
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601429_Report_Fable_Design_Integrity_Inspection_Slice_01_Waiting.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601430_Core_Payload_MD_Bundle_slice_02_payment.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601431_Report_Fable_Design_Integrity_Inspection_Slice_02_Payment.md
+      first non-empty line is not an H1 heading
+  [WARN  ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601423_Slice_Input_Package_slice_03_kds_did.md
+      normalized similarity 59.6% (floor 60%) - H1: '601423 Input Package — slice_03 — KDS/DID (600400 + 600800 + kds/did SQL)'
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601432_Core_Payload_MD_Bundle_slice_03_kds_did.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601434_Report_Fable_Design_Integrity_Inspection_Slice_03_KDS_DID.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601433_MD_Bundle_slice_05_runtime_flow.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601435_Report_Fable_Design_Integrity_Inspection_Slice_05_Runtime_Flow.md
+      first non-empty line is not an H1 heading
+  [WARN  ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer/601426_Slice_Input_Package_slice_06_app_layer.md
+      normalized similarity 56.9% (floor 60%) - H1: '601426 Input Package — slice_06 — App Layer (600200 Flutter + catchmenu_app)'
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer/601436_Core_Payload_Bundle_slice_06_app_layer.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer/601437_Report_Fable_Design_Integrity_Inspection_Slice_06_App_Layer.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_A_kitchen_release_gate/601439_Core_Payload_MD_Bundle_slice_A_kitchen_release_gate.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_A_kitchen_release_gate/601440_Report_Fable_Design_Integrity_Inspection_Slice_A_Kitchen_Release_Gate.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_B_financial_trust_room/601441_Core_Payload_MD_Bundle_slice_B_financial_trust_room.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_B_financial_trust_room/601442_Report_Fable_Design_Integrity_Inspection_Slice_B_Financial_Trust_Room.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_C_cross_room_plumbing/601444_Core_Payload_MD_Bundle_slice_C_cross_room_plumbing.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_C_cross_room_plumbing/601445_Report_Fable_Design_Integrity_Inspection_Slice_C_Cross_Room_Plumbing.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D1_foundation_static_catalog/601446_Core_Payload_MD_Bundle_slice_D1_foundation_static_catalog.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D1_foundation_static_catalog/601449_Report_Fable_Design_Integrity_Inspection_Slice_D1_Foundation_Static_Catalog.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D2_static_catalog_runtime_planning/601447_Core_Payload_MD_Bundle_slice_D2_static_catalog_runtime_planning.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D2_static_catalog_runtime_planning/601450_Report_Fable_Design_Integrity_Inspection_Slice_D2_Static_Catalog_Runtime_Planning.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D3_four_side_skeleton_data_governance/601448_Core_Payload_MD_Bundle_slice_D3_four_side_skeleton_data_governance.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D3_four_side_skeleton_data_governance/601451_Report_Fable_Design_Integrity_Inspection_Slice_D3_Four_Side_Skeleton_Data_Governance.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_A_entrance_waiting_policy/601452_Core_Payload_MD_Bundle_slice_A_entrance_waiting_policy.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_A_entrance_waiting_policy/601454_Report_Fable_Design_Integrity_Inspection_Slice_A_Entrance_Waiting_Policy.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_B_store_legal_boundary/601453_Core_Payload_MD_Bundle_slice_B_store_legal_boundary.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_B_store_legal_boundary/601455_Report_Fable_Design_Integrity_Inspection_Slice_B_Store_Legal_Boundary.md
+      first non-empty line is not an H1 heading
+  [ERROR ] 600000_implementation_lifecycle/601500_operational_authority_foundation/601509_AuditReview_Operational_Authority_Foundation_Ddl.md
+      H1 number 601500 differs from filename number 601509 - H1: 'AuditReview — 601500 Operational Authority Foundation'
+  [ERROR ] 600000_implementation_lifecycle/601500_operational_authority_foundation/601510_AuditReview_Stage11B_Blind_Audit.md
+      H1 number 601500 differs from filename number 601510 - H1: 'AuditReview — 601500 Operational Authority Foundation'
+  [ERROR ] 600000_implementation_lifecycle/601500_operational_authority_foundation/601511_AuditReview_Stage11A_Final.md
+      H1 number 601500 differs from filename number 601511 - H1: 'AuditReview — 601500 Operational Authority Foundation'
+  [WARN  ] 600000_implementation_lifecycle/601500_operational_authority_foundation/601512_Baseline_Summary.md
+      normalized similarity 52.5% (floor 60%) - H1: '601512_Baseline_Summary.md — 0-A 현재 기준선 (Current Baseline)'
+
+G10  Encoding defect: BOM, invalid UTF-8, or mixed EOL (000001 s1)
+  18 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600125_Module.md
+      UTF-8 BOM present
+  [ERROR ] 600000_implementation_lifecycle/600100_customer_identity_and_guest_promotion/600120_guest_customer_bootstrap_rpc/600126_Verification.md
+      UTF-8 BOM present
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601401_Master_Tracker.md
+      mixed EOL (LF=770 CRLF=126)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601429_Report_Fable_Design_Integrity_Inspection_Slice_01_Waiting.md
+      mixed EOL (LF=79 CRLF=77)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601430_Core_Payload_MD_Bundle_slice_02_payment.md
+      mixed EOL (LF=9479 CRLF=17)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601431_Report_Fable_Design_Integrity_Inspection_Slice_02_Payment.md
+      mixed EOL (LF=79 CRLF=77)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601434_Report_Fable_Design_Integrity_Inspection_Slice_03_KDS_DID.md
+      mixed EOL (LF=113 CRLF=111)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601433_MD_Bundle_slice_05_runtime_flow.md
+      mixed EOL (LF=6991 CRLF=27)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601435_Report_Fable_Design_Integrity_Inspection_Slice_05_Runtime_Flow.md
+      mixed EOL (LF=97 CRLF=95)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer/601436_Core_Payload_Bundle_slice_06_app_layer.md
+      mixed EOL (LF=1695 CRLF=96)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_06_app_layer/601437_Report_Fable_Design_Integrity_Inspection_Slice_06_App_Layer.md
+      mixed EOL (LF=104 CRLF=102)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_A_kitchen_release_gate/601439_Core_Payload_MD_Bundle_slice_A_kitchen_release_gate.md
+      mixed EOL (LF=15358 CRLF=753)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D1_foundation_static_catalog/601449_Report_Fable_Design_Integrity_Inspection_Slice_D1_Foundation_Static_Catalog.md
+      mixed EOL (LF=108 CRLF=106)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D2_static_catalog_runtime_planning/601450_Report_Fable_Design_Integrity_Inspection_Slice_D2_Static_Catalog_Runtime_Planning.md
+      mixed EOL (LF=66 CRLF=64)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_02_payment_ledger_kds/slice_D3_four_side_skeleton_data_governance/601451_Report_Fable_Design_Integrity_Inspection_Slice_D3_Four_Side_Skeleton_Data_Governance.md
+      mixed EOL (LF=112 CRLF=110)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_A_entrance_waiting_policy/601454_Report_Fable_Design_Integrity_Inspection_Slice_A_Entrance_Waiting_Policy.md
+      mixed EOL (LF=107 CRLF=105)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_B_store_legal_boundary/601453_Core_Payload_MD_Bundle_slice_B_store_legal_boundary.md
+      mixed EOL (LF=1726 CRLF=775)
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_03_waiting_call_no_show/slice_B_store_legal_boundary/601455_Report_Fable_Design_Integrity_Inspection_Slice_B_Store_Legal_Boundary.md
+      mixed EOL (LF=104 CRLF=102)
+
+G11  Registry drift against 000005_Index_Document_Num  (000001 s5, s5.1)
+  72 found, showing first 50 (-Top 0 for all)
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation/600531_Overview_Refund_Pipeline_Ledger_Status_Reconciliation.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation/600532_Logic_Refund_Pipeline_Ledger_Status_Reconciliation.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation/600533_Raw_Investigation_O10_O11_R1_R6.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600581_Overview_Payment_Confirm_Cancel_State_Machine_Fix.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600582_Logic_Payment_Confirm_Cancel_State_Machine_Fix.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600583_TestPlan_Payment_Confirm_Cancel_State_Machine_Fix.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600584_ChangeContract_Payment_Confirm_Cancel_State_Machine_Fix.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600585_Module.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600586_Verification.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix/600587_Audit.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600590_confirm_payment_from_provider_kds_commit_correction/600591_Overview_Confirm_Payment_From_Provider_Kds_Commit_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/600590_confirm_payment_from_provider_kds_commit_correction/600592_Logic_Confirm_Payment_From_Provider_Kds_Commit_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration/601031_Overview_Canonical_Kds_Release_Orchestration.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration/601032_Logic_Canonical_Kds_Release_Orchestration.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration/601033_TestPlan_Canonical_Kds_Release_Orchestration.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration/601034_ChangeContract_Canonical_Kds_Release_Orchestration.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600670_record_waiting_call_grant_correction/600671_Overview_Record_Waiting_Call_Grant_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600670_record_waiting_call_grant_correction/600672_Logic_Record_Waiting_Call_Grant_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600670_record_waiting_call_grant_correction/600673_TestPlan_Record_Waiting_Call_Grant_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600670_record_waiting_call_grant_correction/600674_ChangeContract_Record_Waiting_Call_Grant_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600680_pre_order_while_waiting_phantom_correction/600681_Overview_Pre_Order_While_Waiting_Phantom_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600680_pre_order_while_waiting_phantom_correction/600682_Logic_Pre_Order_While_Waiting_Phantom_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600680_pre_order_while_waiting_phantom_correction/600683_TestPlan_Pre_Order_While_Waiting_Phantom_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/600600_waiting_order_session/600680_pre_order_while_waiting_phantom_correction/600684_ChangeContract_Pre_Order_While_Waiting_Phantom_Correction.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601100_store_admin_console/601130_menu_price_list_architecture/601133_TestPlan_Menu_Price_List_Architecture.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601100_store_admin_console/601130_menu_price_list_architecture/601134_ChangeContract_Menu_Price_List_Architecture.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601331_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice05.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601332_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice01.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601333_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice02.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601334_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice03.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601300_fable_blind_reverse_engineering_audit/601330_domain_02_waiting_order/601335_PassA_Blind_Reverse_Engineering_Waiting_Order_Slice04.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601402_Operating_Plan_Design_Integrity_Inspection.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/601443_Consolidated_Owner_Decision_Registry_Cross_Domain.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/601438_Consolidated_Owner_Decision_Registry_Domain_01.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601421_Slice_Input_Package_slice_01_waiting.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601421_Slice_Input_Package_Waiting.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601429_Report_Fable_Design_Integrity_Inspection_Slice_01_Waiting.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601422_Slice_Input_Package_Payment.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601422_Slice_Input_Package_slice_02_payment.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601430_Core_Payload_MD_Bundle_slice_02_payment.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_02_payment/601431_Report_Fable_Design_Integrity_Inspection_Slice_02_Payment.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601423_Slice_Input_Package_Kds_Did.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601423_Slice_Input_Package_slice_03_kds_did.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601432_Core_Payload_MD_Bundle_slice_03_kds_did.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_03_kds_did/601434_Report_Fable_Design_Integrity_Inspection_Slice_03_KDS_DID.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_04_customer_handoff_policy/601424_Slice_Input_Package_Customer_Handoff_Policy.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_04_customer_handoff_policy/601424_Slice_Input_Package_slice_04_customer_handoff_policy.md
+      file exists but is not registered in 000005
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601425_Slice_Input_Package_Runtime_Flow.md
+      000005 registers this path but the file does not exist
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_05_runtime_flow/601425_Slice_Input_Package_slice_05_runtime_flow.md
+      file exists but is not registered in 000005
+
+G12  Directory-map drift against 000007 (name-level)   (000001 s5, s5.1)
+  6 found
+--------------------------------------------------------------------------------------------
+  [WARN  ] 600000_implementation_lifecycle/600500_payment_confirmation/600530_refund_pipeline_ledger_status_reconciliation
+      folder exists but is not listed in 000007
+  [WARN  ] 600000_implementation_lifecycle/600500_payment_confirmation/600580_payment_confirm_cancel_state_machine_fix
+      folder exists but is not listed in 000007
+  [WARN  ] 600000_implementation_lifecycle/600500_payment_confirmation/600590_confirm_payment_from_provider_kds_commit_correction
+      folder exists but is not listed in 000007
+  [WARN  ] 600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration
+      folder exists but is not listed in 000007
+  [WARN  ] 600000_implementation_lifecycle/600600_waiting_order_session/600670_record_waiting_call_grant_correction
+      folder exists but is not listed in 000007
+  [WARN  ] 600000_implementation_lifecycle/600600_waiting_order_session/600680_pre_order_while_waiting_phantom_correction
+      folder exists but is not listed in 000007
+
+G13  Relative markdown link points at a missing file   (000001 s5.9)
+  7 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600682_Logic_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600683_TestPlan_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600683_TestPlan_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600681_Overview_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600681_Overview_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600681_Overview_Pre_Order_While_Waiting_Phantom_Correction.md
+  [ERROR ] 600000_implementation_lifecycle/601400_fable_design_integrity_inspection/domain_01_customer_handoff/slices/slice_01_waiting/601428_Core_Payload_MD_Bundle_slice_01_waiting.md
+      link target not found: 600682_Logic_Pre_Order_While_Waiting_Phantom_Correction.md
+
+G15  Stage 7 gate - migration without approval (000701 s10, s6.11.1)
+  Workpacket header required by 000701 s6.11.1 (2026-08-11), not retroactive.
+  Runs as WARN; -StrictStage7 or GOVERNANCE_STRICT=1 escalates to ERROR.
+  2 found
+--------------------------------------------------------------------------------------------
+  [WARN  ] sql/migrations/0168_create_operational_authority_foundation.sql
+      workpacket 601500 -> 601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
+      Stage 7 state: 대기  (601505 s10)
+      contract: 600000_implementation_lifecycle/601500_operational_authority_foundation/601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
+      MIGRATION_WITHOUT_APPROVAL
+  [WARN  ] sql/migrations/0169_authority_owner_role_and_sole_representative_uniqueness.sql
+      workpacket 601500 -> 601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
+      Stage 7 state: 대기  (601505 s10)
+      contract: 600000_implementation_lifecycle/601500_operational_authority_foundation/601505_ChangeContract_Operational_Authority_Foundation_Ddl.md
+      MIGRATION_WITHOUT_APPROVAL
+
+============================================================================================
+ [C] 700000 and above    28 finding(s)
+============================================================================================
+
+G02  DocumentType missing or not an approved value     (000002 s1.2)
+  6 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701000_Flow_POS_Gateway_Approval_To_Audit_Ledger_And_Reconciliation.md
+      DocumentType 'Flow' is not in the approved list
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701010_Flow_POS_Gateway_Cancel_Refund_Recovery_And_Audit.md
+      DocumentType 'Flow' is not in the approved list
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701020_Flow_POS_Gateway_Timeout_Retry_DLQ_And_Replay.md
+      DocumentType 'Flow' is not in the approved list
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701030_Flow_POS_Gateway_Store_Offline_Local_Ledger_And_Resync.md
+      DocumentType 'Flow' is not in the approved list
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701040_Flow_POS_Gateway_Webhook_Inbound_Verification_And_Event_Normalization.md
+      DocumentType 'Flow' is not in the approved list
+  [ERROR ] 700900_runtime_flow/701000_registry_core_flows/701050_Flow_POS_Gateway_Settlement_Dispute_And_Evidence_Export.md
+      DocumentType 'Flow' is not in the approved list
+
+G14  Group C DocumentType used outside the 600000 band (000002 s1.2)
+  22 found
+--------------------------------------------------------------------------------------------
+  [ERROR ] 750000_delivery_app_channel_integration_kds_did_and_order_ingestion_runtime/750080_Logic_Delivery_App_KDS_Smart_Routing_Station_Splitting_BOM_And_Assembly_State_Machine.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900100_Overview_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900101_Logic_Customer_Waiting_Handoff_And_Late_Binding_Pipeline.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900102_ChangeContract_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+      Group C DocumentType 'ChangeContract' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900103_TestPlan_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+      Group C DocumentType 'TestPlan' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900110_Overview_Channel_1_Web_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900111_Logic_Channel_1_Web_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900120_Overview_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900121_Logic_Channel_2_Catch_Menu_Native_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900130_Overview_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900131_Logic_Channel_3_Whitelabel_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900140_Overview_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900141_Logic_Channel_4_Yoonsul_Embedded_App_Customer_Handoff_And_Session.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900150_Logic_Phase_Validation_Plan_Catch_Menu_To_Yoonsul_Embedded.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900160_Overview_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900161_Logic_Operation_Event_Based_Kiosk_And_DID_Auto_Control_System.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900162_Logic_POS_Integration_Level_Based_Mode_Transition_System.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900164_Overview_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900165_Logic_POS_Dynamic_Multi_Service_Slot_Container_Agent_System_1.md
+      Group C DocumentType 'Logic' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/900180_Overview_CatchMenu_YoonsulOS_Asia_FnB_Platform.md
+      Group C DocumentType 'Overview' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/906000_TestPlan_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+      Group C DocumentType 'TestPlan' outside 600000 band
+  [ERROR ] 900000_patent_and_handoff_package/906010_ChangeContract_Catch_Menu_Customer_Handoff_Waiting_Preorder_Payment_KDS_Release.md
+      Group C DocumentType 'ChangeContract' outside 600000 band
+
+============================================================================================
+ [D] other (no numeric prefix, or 100000-599999)    0 finding(s)
+============================================================================================
+  (clean)
+
+
+============================================================================================
+ RANGE_UNDETERMINED - 2 folder(s) not judged by G05
+============================================================================================
+  Computed start > end, so the owned range is nonsense and no file in these
+  folders is counted as a G05 violation. Fix the folder numbering or declare
+  an explicit "Owned range:" in the folder Readme.
+--------------------------------------------------------------------------------------------
+  600000_implementation_lifecycle/600400_kds_did_implementation/601020_authorize_kds_release_overload_and_redesign
+      computed range 601020-600499 (start > end)
+  600000_implementation_lifecycle/600500_payment_confirmation/601030_canonical_kds_release_orchestration
+      computed range 601030-600599 (start > end)
+
+
+============================================================================================
+ SUMMARY - full counts, never truncated by -Top
+============================================================================================
+ID    Sev     Check                                                [A]   [B]   [C]   [D]   TOTAL
+--------------------------------------------------------------------------------------------
+G01   ERROR   Filename has no valid six-digit numeric prefix         0     0     0     0       0
+G02   ERROR   DocumentType missing or not an approved value         40    65     6     0     111
+G03   ERROR   Filename uses unsafe or non-conforming characters      1     0     0     0       1
+G04   REVIEW  Title-less 600xxx lifecycle filename - LIST ONLY       0   153     0     0     153
+G05   ERROR   Document number outside its folder-owned range         0     0     0     0       0
+G06   ERROR   Folder under docs/ has no numeric prefix               0    28     0     0      28
+G07   ERROR   Governed folder missing Readme / Readme misnumber     15     0     0     0      15
+G08   ERROR   Duplicate document number across docs/                 2     6     0     0       8
+G09   E36/W14 H1 heading missing or unlike the filename              5    45     0     0      50
+G10   ERROR   Encoding defect: BOM, invalid UTF-8, or mixed EOL      0    18     0     0      18
+G11   ERROR   Registry drift against 000005_Index_Document_Num       2    72     0     0      74
+G12   WARN    Directory-map drift against 000007 (name-level)        0     6     0     0       6
+G13   ERROR   Relative markdown link points at a missing file        0     7     0     0       7
+G14   ERROR   Group C DocumentType used outside the 600000 band     12     0    22     0      34
+G15   WARN    Stage 7 gate - migration without approval (000701      0     2     0     0       2
+--------------------------------------------------------------------------------------------
+              TOTAL                                                 77   402    28     0     507
+============================================================================================
+
+ SEVERITY ROLLUP
+--------------------------------------------------------------------------------------------
+  ERROR      332   confirmed rule violations
+  WARN        22   needs review, not asserted
+  REVIEW     153   list only, no judgement
+  TOTAL      507
+
+ SCAN COVERAGE
+--------------------------------------------------------------------------------------------
+  scanned              1638 markdown files
+  excluded              730 markdown files, 44 directories
+         80  000001 s5.13 archive/duplicate review area
+          2  000001 s5.4.2 temporary per-change workspace
+          1  Human-reading translation copy
+        598  legacy quarantine - slated for disposal, must not be cited (2026-08-10 decision)
+         49  migration history folder
+  RANGE_UNDETERMINED      2 folders not judged by G05
+
+ G15 STAGE 7 GATE COVERAGE
+--------------------------------------------------------------------------------------------
+  migrations checked        4 carry a workpacket header
+  NO_HEADER               167 (predates s6.11.1; not a violation - 000701 s14.5)
+  CONTRACT_NOT_FOUND        0 header present but no ChangeContract located
+  APPROVAL_UNPARSEABLE      0 contract found but Stage 7 state not parseable
+  mode                 default - G15 counted as WARN (-StrictStage7 to escalate)
+============================================================================================
+
+Notes:
+  * Read-only scan. Nothing was written, renamed, staged or committed.
+  * 600000 band is scanned like every other band. Its 2026-08-10 AUTHORITY
+    SUSPENDED ruling concerns design authority, not filename or index format.
+  * G04 lists filenames only and applies no date-based grandfathering.
+  * G09 compares meaning, not the literal string (000002 s6).
+  * G12 is name-level: 000007 stores an indented tree, not full paths.
+  * G14 never fires under 990000_legacy_quarantine: those Group C files were
+    600000-band artifacts relocated by quarantine, not misused DocumentTypes.
+  * Link and existence checks resolve against ALL files on disk, including
+    excluded ones, so exclusions never manufacture missing-target findings.
+  * G15 reads sql/migrations/*.sql headers and the matching ChangeContract.
+    The header is required by 000701 s6.11.1 (2026-08-11), which is not
+    retroactive: migrations predating it are tallied as NO_HEADER, never
+    counted as violations - 000701 s14.5 forbids editing them.
+  * Exit code is always 0. This is a report, not a CI gate.
+

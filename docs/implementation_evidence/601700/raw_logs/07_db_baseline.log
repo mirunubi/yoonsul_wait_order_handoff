@@ -1,0 +1,166 @@
+# Stage 9 raw evidence 07 - DB baseline (BL-*)
+# workpacket: 601700 / Verifier A (Claude Code)
+# captured: 2026-08-24
+# canonical DB: supabase_db_yoonsul_wait_order_handoff (postgres:17.6.1.140), PGOPTIONS default_transaction_read_only=on
+# command: docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres < q07.sql / q07b.sql / q07c.sql
+
+=== READ-ONLY GUARD ===
+ default_transaction_read_only 
+-------------------------------
+ on
+(1 row)
+
+=== SERVER VERSION ===
+                                   version                                    
+------------------------------------------------------------------------------
+ PostgreSQL 17.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+(1 row)
+
+=== BL-1 persons rows ===
+ persons_rows 
+--------------
+            0
+(1 row)
+
+=== BL-2~4 lepr / ler / legal_entities rows ===
+ lepr | ler | legal_entities 
+------+-----+----------------
+    0 |   0 |              0
+(1 row)
+
+=== BL-5 stores rows / BL-6 legal_entity_id notnull rows ===
+ stores_rows | le_notnull 
+-------------+------------
+           1 |          0
+(1 row)
+
+=== BL-7 catchmenu_hq BASE TABLE count ===
+ base_tables 
+-------------
+          21
+(1 row)
+
+=== BL-20 tenants columns / rows ===
+ tenants_cols | tenants_rows 
+--------------+--------------
+           10 |            1
+(1 row)
+
+=== BL-21 stores column count ===
+ stores_cols 
+-------------
+          17
+(1 row)
+
+=== BL-24 merchant_accounts rows / BL-25 stores.merchant_account_id notnull ===
+ ma_rows | s_ma_notnull 
+---------+--------------
+       1 |            1
+(1 row)
+
+=== BL-27 tenants status ===
+ tenant_status | isolation_state 
+---------------+-----------------
+ TRIAL         | NONE
+(1 row)
+
+=== migration_history (last 8) ===
+ERROR:  column "migration_name" does not exist
+LINE 1: SELECT migration_name, success, applied_at FROM catchmenu_me...
+               ^
+
+=== q07b (migration_history schema) ===
+
+=== q07c ===
+=== TP-M-05 migration_history rows for 0170/0171 ===
+                 filename                 | success |                             checksum                             |          applied_at           
+------------------------------------------+---------+------------------------------------------------------------------+-------------------------------
+ 0170_person_vocabulary_normalization.sql | t       | a749877022c877984095c4cdeacc3a69dccf0839ce6d75efbb6ab0cb5f25eab3 | 2026-08-24 02:12:19.851495+00
+ 0171_merchant_account_foundation.sql     | t       | 5bbfa1fe9385f65afbfd5cdea0759e9902a59119b1588487a737e1f7571a1eea | 2026-08-24 02:25:14.371355+00
+(2 rows)
+
+=== TP-R-16 0168/0169 checksum in history ===
+                             filename                             |                             checksum                             | success 
+------------------------------------------------------------------+------------------------------------------------------------------+---------
+ 0168_create_operational_authority_foundation.sql                 | 263615fdb552d9297456799986962e78c2fd13ef845c50449e65298c8031f194 | t
+ 0169_authority_owner_role_and_sole_representative_uniqueness.sql | eb9b118899fb42fee264b25fe3f4499def06013730a57a7320a0275dd86c564e | t
+(2 rows)
+
+=== TP-M-06 apply order (last 6) ===
+                             filename                             |          applied_at           
+------------------------------------------------------------------+-------------------------------
+ 0171_merchant_account_foundation.sql                             | 2026-08-24 02:25:14.371355+00
+ 0170_person_vocabulary_normalization.sql                         | 2026-08-24 02:12:19.851495+00
+ 0169_authority_owner_role_and_sole_representative_uniqueness.sql | 2026-08-09 17:26:43.129498+00
+ 0168_create_operational_authority_foundation.sql                 | 2026-08-09 15:35:39.277643+00
+ 0167_record_waiting_call_grant_correction.sql                    | 2026-07-18 12:13:21.63306+00
+ 0166_canonical_kds_release_orchestration.sql                     | 2026-07-18 06:14:20.000496+00
+(6 rows)
+
+=== BL-8 owners/persons referencing FUNCTION ===
+ fn_ref_owners 
+---------------
+             0
+(1 row)
+
+=== BL-9 / TP-N-02 owners VIEW/MATVIEW ===
+ owners_relations 
+------------------
+                0
+(1 row)
+
+=== BL-10 persons RLS flags ===
+           relname            | relrowsecurity | relforcerowsecurity 
+------------------------------+----------------+---------------------
+ legal_entities               | t              | t
+ legal_entity_person_roles    | t              | t
+ legal_entity_representatives | t              | t
+ merchant_accounts            | t              | t
+ persons                      | t              | t
+(5 rows)
+
+=== BL-11 persons GRANT (grantee != postgres) ===
+          grantee          | privilege_type | is_grantable 
+---------------------------+----------------+--------------
+ catchmenu_authority_owner | DELETE         | NO
+ catchmenu_authority_owner | INSERT         | NO
+ catchmenu_authority_owner | SELECT         | NO
+ catchmenu_authority_owner | UPDATE         | NO
+(4 rows)
+
+=== BL-12 set_updated_at non-internal triggers ===
+ setupd_triggers 
+-----------------
+             115
+(1 row)
+
+=== BL-13/BL-14 Person 계열 FK (타 스키마 / 동일 스키마) ===
+ other_schema_fk | same_schema_fk 
+-----------------+----------------
+               0 |              5
+(1 row)
+
+=== BL-15 merchant 테이블 / BL-16 merchant 컬럼 ===
+ merchant_tables | merchant_columns 
+-----------------+------------------
+               1 |                7
+(1 row)
+
+=== BL-18 chk_lepr_role_type / BL-19 persons CHECK ===
+         conname          |                                                      pg_get_constraintdef                                                       
+--------------------------+---------------------------------------------------------------------------------------------------------------------------------
+ chk_lepr_effective_range | CHECK (((effective_to IS NULL) OR (effective_to >= effective_from)))
+ chk_lepr_role_type       | CHECK ((role_type = ANY (ARRAY['OWNER'::text, 'REPRESENTATIVE'::text, 'DIRECTOR'::text, 'EXECUTIVE'::text, 'INVESTOR'::text])))
+(2 rows)
+
+ persons_checks 
+----------------
+              0
+(1 row)
+
+=== BL-22 stores 참조 FUNCTION / BL-23 tenants 참조 FUNCTION ===
+ stores_fn | tenants_fn 
+-----------+------------
+       151 |         10
+(1 row)
+
