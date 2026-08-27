@@ -1726,6 +1726,7 @@ docs/
   |   |   +--- 601719_Evidence_Stores_Write_Path_Scan_Codex.md
   |   |   +--- 601720_Evidence_Stage7_Pre_Measurement_Cursor.md
   |   |   +--- 601721_Evidence_Stage7_Pre_Measurement_Codex.md
+  |   |   +--- 601722_Module_Operational_Authority_Foundation_V2.md
   |   |   +--- 601723_Audit_Stage6_Contract_Verification_Cursor.md
   |   |   +--- 601724_Audit_Stage6_Contract_Verification_Codex.md
   |   |   +--- 601725_Evidence_Provision_Tenant_Schema_Consistency_Cursor.md
@@ -1743,6 +1744,9 @@ docs/
   |   |   +--- 601737_Audit_Stage6_Round5_Verification_Codex.md
   |   |   +--- 601738_Audit_Stage6_Round5_Verification_Cowork.md
   |   |   +--- 601739_Evidence_Stage8_Supplemental_FileScope_Pass_Cowork.md
+  |   |   +--- 601740_VerificationResult_Stage9_Implementation_Verification_ClaudeCode.md
+  |   |   +--- 601741_MinorOpinion_Stage9_Implementation_Verification_Cursor.md
+  |   |   +--- 601742_Report_Stage9_Verification_Integration.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

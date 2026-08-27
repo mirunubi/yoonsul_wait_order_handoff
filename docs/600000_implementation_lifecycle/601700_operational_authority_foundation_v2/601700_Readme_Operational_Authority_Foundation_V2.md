@@ -163,6 +163,7 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601719 | `601719_Evidence_Stores_Write_Path_Scan_Codex.md` | Active — 동일 조사(Codex). §35 이중 검증 |
 | 601720 | `601720_Evidence_Stage7_Pre_Measurement_Cursor.md` | Active — Stage 7 사전 측정(Cursor). PRE-5·6·7 |
 | 601721 | `601721_Evidence_Stage7_Pre_Measurement_Codex.md` | Active — 동일 측정(Codex). §35 이중 검증 |
+| 601722 | 601722_Module_Operational_Authority_Foundation_V2.md | Active — Stage 8 구현 self-report(Codex). 완료 증명 아님 |
 | 601723 | `601723_Audit_Stage6_Contract_Verification_Cursor.md` | Active — Stage 6 계약 검증(Cursor). blocking 0건 |
 | 601724 | `601724_Audit_Stage6_Contract_Verification_Codex.md` | Active — Stage 6 계약 검증(Codex). blocking 5건. **결론 불일치** |
 | 601725 | `601725_Evidence_Provision_Tenant_Schema_Consistency_Cursor.md` | Active — `provision_tenant` phantom 3건 실측(Cursor) |
@@ -180,6 +181,9 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601737 | `601737_Audit_Stage6_Round5_Verification_Codex.md` | Active — Round 5 검증(Codex). NO CONCERNS FOUND |
 | 601738 | `601738_Audit_Stage6_Round5_Verification_Cowork.md` | Active — Round 5 검증(Cowork). blocking 0 / informational 10. 전건이 두 문서 밖에서 발견 |
 | 601739 | 601739_Evidence_Stage8_Supplemental_FileScope_Pass_Cowork.md | Active — Stage 8 supplemental file-scope pass(Cowork). inventory 235건 / 실행 38 / FAIL 2 / SKIP 197. Stage 9 를 대체하지 않음 |
+| 601740 | 601740_VerificationResult_Stage9_Implementation_Verification_ClaudeCode.md | Active — Stage 9 구현 검증(Claude Code). 235건 전건 판정 / PASS 221 / FAIL 8 / SKIP 6 |
+| 601741 | 601741_MinorOpinion_Stage9_Implementation_Verification_Cursor.md | Active — Stage 9 비구속 second opinion(Cursor). concern 1건은 601742 에서 INVALIDATED |
+| 601742 | 601742_Report_Stage9_Verification_Integration.md | Active — Stage 9 통합(Claude). Stage 9 = INCOMPLETE. 구현 결함 0 |
 
 ## §9 Add / Move Rule
 
