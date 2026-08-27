@@ -1754,6 +1754,9 @@ docs/
   |   |   +--- 601746_Report_Stage11C_Conflict_Analysis.md
   |   |   +--- 601747_Evidence_Stage11C_FaultInjection_CrossTenant_Codex.md
   |   |   +--- 601748_Evidence_Stage12_Human_Merge_Decision.md
+  |   +--- 601800_tenant_lifecycle_rpc_alignment/
+  |   |   +--- 601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md
+  |   |   +--- 601801_Register_Stage1_Business_Rules.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

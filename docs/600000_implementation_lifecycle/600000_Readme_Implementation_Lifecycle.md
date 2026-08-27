@@ -36,6 +36,7 @@ This folder is the active implementation lifecycle band for controlled workpacke
 | `600100_customer_identity_and_guest_promotion/` | Customer identity / guest promotion documentation lane | Active |
 | `600200_flutter_waiting_feature_implementation/` | Flutter waiting feature implementation documentation lane | Active |
 | `600300_cloud_local_migration_sync/` | Cloud vs local SQL migration sync documentation lane | Active |
+| `601800_tenant_lifecycle_rpc_alignment/` | Tenant lifecycle RPC and batch alignment workpacket | Active |
 | `604000_workpackets/` | Approved implementation workpacket containers | Active |
 
 Quarantined historical bands (`600100_readme_governance/`, `601000`, `602000`, `603000`, `605000`–`609000`) remain in `docs/990000_legacy_quarantine/` until explicitly restored.
