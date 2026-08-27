@@ -167,7 +167,7 @@ docs/implementation_evidence/601700/raw_logs/   15건
 - [x] I reviewed the Stage 11C Conflict Analysis memo and confirmed any disagreement was escalated to Cursor/Codex fault-injection reproduction before being accepted or dismissed.
 - [x] No unresolved BLOCK finding within the approved 0-A scope. D-1 is accepted only as C-3 with a mandatory pre-write-path gate.
 - [x] Rollback notes exist. This does not assert that rollback is complete or production-ready.
-- [ ] Final commit message and staged file set verified immediately before commit.
+- [x] Final commit message and staged file set verified immediately after commit — §12.1.
 - [x] I accept the remaining risk — scoped by §7.
 ```
 
@@ -226,6 +226,56 @@ tenants 신규 행 생성 — merchant_account 동반 생성 여부
 후속 이관은 601746 §4 — 13건
 0-B 착수 전 000701 개선 항목을 먼저 정리한다
 ```
+
+### §12.1 Stage 12 Commit Verification
+
+**커밋 후 실제 message 와 파일 집합을 대조했다.**
+
+```text
+commit   0d57dd4903a1680abf1d485fbd4c113fa03819e8
+author   정영석
+date     2026-08-27
+```
+
+**메시지 — `000701` §14.3 형식**
+
+```text
+operational-authority: 0-A foundation checkpoint merge
+
+Change ID: 601700
+Impact: no_direct_financial_impact
+Scope: catchmenu_hq tenant / person / merchant account foundation
+Verification: INCOMPLETE - implementation deviation 0, spec conflict 4 + evidence gap 3
+Audit: APPROVE_WITH_NOTES
+Rollback: 601717 section 9.1. Completeness not established - 601746 section 2.7
+Evidence: docs/600000_implementation_lifecycle/601700_operational_authority_foundation_v2/601748_Evidence_Stage12_Human_Merge_Decision.md
+```
+
+**파일 집합 — 4건 / 244 insertions**
+
+```text
+docs/000005_Index_Document_Number.md                        +2
+docs/000007_Map_Full_Directory.md                           +2
+…601700_Readme_Operational_Authority_Foundation_V2.md       +2
+…601748_Evidence_Stage12_Human_Merge_Decision.md          +238
+```
+
+**deletions 0건.**
+
+> ⚠️ **`0170` · `0171` 은 이 커밋에 없다.**
+> `b657ec23` · `bc4cd14d` 로 이미 병합됐으며 `000701` §14.5 상 영구 불변이다.
+> **이 커밋은 Stage 12 결정 기록이지 구현 병합이 아니다.**
+
+**선행 커밋**
+
+```text
+136f9dfa   601746 D-1 재현 반영
+6663167a   601747 fault injection
+7384286a   601745 · 601746 색인 등재
+```
+
+> ⚠️ **이 §12.1 을 기록하는 커밋은 `0d57dd49` 다음에 생성된다.**
+> **두 커밋의 차이는 이 절과 §9 체크박스 한 줄뿐이다.**
 
 ## §13 근거 문서 목록 (`000701` §46)
 
