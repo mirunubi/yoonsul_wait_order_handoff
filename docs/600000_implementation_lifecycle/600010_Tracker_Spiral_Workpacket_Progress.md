@@ -40,7 +40,7 @@ Last Updated: 2026-08-10
 | **0-A** Tenant/LegalEntity/HQ/Store | `601500_operational_authority_foundation` | **Stage 12 기록됨** | ⛔ **권위보류 (AUTHORITY SUSPENDED, 2026-08-10)** — 과거 기록: Stage 12 완료(2026-08-11 표기, 실제 2026-08-10). 사유·근거: `600020` §1.1 | 2026-08-10 |
 | **0-B** Staff identity / session | 미배정 | — | ⛔ **HOLD** — 착수가능 근거였던 0-A 완료가 권위보류됨(`600020` §1.2) | 2026-08-10 |
 | **0-A 역전파** 상위 정본문서 정합화 | `601600_upstream_doctrine_backpropagation` | **Stage 1** (업무규칙 선언 + 개정 적용) | ⚠️ **1단계 완료 · 5개 상위문서 개정삽입 적용 완료 — 적용분 재검토 필요.** 역전파 원본이 0-A 확정사항이었으므로 0-A 권위보류에 연동됨. 특히 `000150`/`000170`은 0-A가 인용조차 하지 않은 문서다(`600020` §1.1) | 2026-08-10 |
-| **0-A 재수행** Tenant/LegalEntity/HQ/Store | `601700_operational_authority_foundation_v2` | **3단계 완료** | 진행중 — §48 증거수집(`601701` 5개 대상 A~E, `601703` HQ/HR A단계) → 1단계 선언 30건(`601702` §1.1~§1.30) → 2단계 ERD(`601705`, Active 기준선) → 3단계 독립 대조 2건(`601706` Cursor, `601707` Codex, Blocker 8건 전건 반영). **다음: 4단계 설계문서 정합화** | 2026-08-13 |
+| **0-A 재수행** Tenant/LegalEntity/HQ/Store | `601700_operational_authority_foundation_v2` | **Stage 12 CONDITIONAL ACCEPT** | ✅ **완주 (2026-08-24)** — `0170`·`0171` 적용 완료. 구현 결함 0(`IMPLEMENTATION_DEVIATION_OBSERVED` 0), spec conflict 4 + evidence gap 3. 후속 이관 C-3 · H-1~H-5 는 `601746` §4 | 2026-08-24 |
 
 > ⛔ **2026-08-10 권위 재설정**: 본 트래커의 0-A 완료 기록은 **현재 권위가 없다.**
 > Stage 7(Human Approval) 미수행, 1단계 Human 업무규칙 선언 부재,
@@ -57,7 +57,7 @@ Last Updated: 2026-08-10
 > "전 Stage 통과"라는 서술은 사실과 다르다.
 > **다음 필수 워크패킷: 0-A-2** 라는 아래 지시도 **HOLD**되었다(`600020` §1.2).
 >
-> **재수행 진행 중**: `601700_operational_authority_foundation_v2` — §48 증거수집 완료, 1단계 업무규칙 선언 진행 중.
+> **재수행 완료**: `601700_operational_authority_foundation_v2` — 6단계 완료. Stage 5~12 전 단계 수행(Stage 6 5라운드, Stage 11A·11B·11C). 산출물 `601700`~`601748`.
 
 **전 Stage 통과** (2026-08-11 Stage 12 Human 승인으로 종결):
 
@@ -124,7 +124,7 @@ Last Updated: 2026-08-10
 | 나선 | 범위 | 상태 |
 |---|---|---|
 | 0-A | Tenant / Company / HQ / Store | ⛔ **권위보류 (2026-08-10)** — 과거: 완료 기록됨. `600020` §1.1 |
-| **0-A 재수행** | Tenant / LegalEntity / HQ / Store — `601500` 권위보류에 따른 재시작 | **3단계 완료 (2026-08-13)** — `601700`. 1·2·3단계 산출물 `601701`~`601707`. 다음은 4단계 설계문서 정합화 |
+| **0-A 재수행** | Tenant / LegalEntity / HQ / Store — `601500` 권위보류에 따른 재시작 | **Stage 12 CONDITIONAL ACCEPT (2026-08-24)** — `601700`. 6단계 완료, Stage 5~12 전 단계 수행(Stage 6 5라운드, Stage 11A·11B·11C). 산출물 `601700`~`601748`. `0170`·`0171` 적용 완료, 구현 결함 0. spec conflict 4 + evidence gap 3. 후속 이관 C-3 · H-1~H-5 는 `601746` §4 |
 | **0-A-2** | RPC·배치 정합(`isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered`) | ⛔ **HOLD** — 0-A 권위보류로 선행조건 소멸(`600020` §1.2) |
 | 0-A-3 | `onboard_tenant` / `provision_tenant` 재설계 | ⛔ **HOLD** (`600020` §1.2) |
 | **0-A 역전파** | 상위 정본문서(`000150`/`000170`/`003020`/`009030`/`010004`) 역전파 — 문서 전용, `.sql` 없음 | ⚠️ **적용 완료 — 적용분 재검토 대상**(`601600`, 커밋 17:26). 0-A 권위보류에 연동 |
