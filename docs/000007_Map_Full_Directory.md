@@ -1751,6 +1751,8 @@ docs/
   |   |   +--- 601744_AuditReview_Operational_Authority_Foundation_V2.md
   |   |   +--- 601745_Evidence_Stage11B_Blind_Audit_ChatGPT.md
   |   |   +--- 601746_Report_Stage11C_Conflict_Analysis.md
+  |   |   +--- 601747_Evidence_Stage11C_FaultInjection_CrossTenant_Codex.md
+  |   |   +--- 601748_Evidence_Stage12_Human_Merge_Decision.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

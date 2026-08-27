@@ -188,6 +188,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601744 | 601744_AuditReview_Operational_Authority_Foundation_V2.md | Draft — Stage 11A 빈 skeleton(Claude Code). 18개 절은 Stage 11 Claude 가 raw 증거에서 채운다 |
 | 601745 | `601745_Evidence_Stage11B_Blind_Audit_ChatGPT.md` | Active — Stage 11B 블라인드 역설계(ChatGPT). **Stage 11A 가 놓친 Critical 1건 발견.** 원문 보존 |
 | 601746 | `601746_Report_Stage11C_Conflict_Analysis.md` | Active — Stage 11C Human 판정. **APPROVE\_WITH\_NOTES.** 처분 15건. D-1 → C-3 hard precondition |
+| 601747 | `601747_Evidence_Stage11C_FaultInjection_CrossTenant_Codex.md` | Active — D-1 fault-injection 재현(Codex). **D-1 CONFIRMED — 실측** |
+| 601748 | `601748_Evidence_Stage12_Human_Merge_Decision.md` | Active — Stage 12 Human 병합 결정. **CONDITIONAL ACCEPT.** Mandatory Gates 5건 |
 
 ## §9 Add / Move Rule
 
