@@ -1757,6 +1757,7 @@ docs/
   |   +--- 601800_tenant_lifecycle_rpc_alignment/
   |   |   +--- 601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md
   |   |   +--- 601801_Register_Stage1_Business_Rules.md
+  |   |   +--- 601802_Register_Stage0_Evidence_Collection.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

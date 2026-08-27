@@ -159,6 +159,7 @@ UI                               Phase 0 Exit Demo
 |---|---|---|
 | 601800 | `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 이 문서 |
 | 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 9건(`HG-A-1`~`HG-A-9`). Human Gate A |
+| 601802 | `601802_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부 |
 
 ## §10 Non-Implementation Boundary
 
