@@ -71,11 +71,14 @@ catchmenu_store.did_display_queue   DID 표시 큐 — 무관
 ## 3. 나선 순서
 
 ```text
-Phase 0   기반 복구
-  0-1   Provisioning Integrity
-  0-2   Identity Foundation
-  0-3   Authorization Foundation
-  0-4   최초 수직 데모
+Human Gate A   ACTIVE + ISOLATED 동시상태의 과금·서비스 정책 결정
+
+0-A-2          Tenant lifecycle / RPC / batch alignment
+0-A-3          Provisioning Integrity
+0-B            Identity / Auth / Session / Invitation
+0-C            Role / Permission / Scope / RLS
+
+Phase 0 Exit Demo   나선이 아닌 통합 게이트
 
 Phase 1   기존 자산 판정
   1-A   Schema Census
@@ -109,9 +112,76 @@ Phase 6   YS-OS 모듈 — 직원 · 재고 · 멤버십
 > **읽기 전체가 막힌 것이 아니다.**
 > **막힌 것은 쓰기 경로와 0-A 가 새로 만든 5테이블이다.**
 
+### 3.1 초안 명칭과 공식 명칭의 매핑
+
+**이 문서 초판(2026-08-27)이 `Phase 0-1`~`0-4` 를 새로 명명했다.**
+**기존 체계에 이미 식별자가 있었으므로 공식 명칭으로 통일한다.**
+
+| 초판 명칭 | 공식 명칭 | 처분 |
+|---|---|---|
+| Phase 0-1 | `0-A-3` | 초안 별칭 폐기 |
+| — | `0-A-2` | **누락. 선행 나선으로 복원** |
+| Phase 0-2 | `0-B` | 공식명 사용 |
+| Phase 0-3 | `0-C` | 공식명 사용 |
+| Phase 0-4 | `Phase 0 Exit Demo` | 나선이 아닌 종료 게이트 |
+
+> ⚠️ **이 매핑은 여기서 한 번만 기록한다.**
+> **이후 문서에서 「0-1 (구 0-A-3)」 식으로 병기하지 않는다.**
+> 병기가 이어지면 어느 쪽이 canonical 인지 다시 모호해진다.
+
+**`0-A-2` · `0-A-3` 은 `601502` §3.2 의 범위 절단으로 분리된 파생 워크패킷이며
+`000701` §47.3 원문에는 없다**(`600010` §2).
+
+### 3.2 권위보류 경계
+
+```text
+600010 · 601502 · 601503 · 601505 · 601510 · 601511
+```
+
+**위 문서를 추적 · 충돌 · 미완료 범위의 evidence 로 인용한다.**
+**그 과거 결론을 현재 authority 로 자동 승계하지 않는다.**
+
+> ⚠️ **`0-A-2` 라는 식별자를 유지하는 것과
+> `601502` 의 과거 설계 결론을 권위로 복원하는 것은 다르다.**
+>
+> ```text
+> 식별자        트래커 · 금지조항 · 감사기록을 연결하는 주소
+> 권위보류 대상  그 주소에서 내린 과거 판단
+> ```
+>
+> `600020` 이 정지시킨 것은 후자다.
+
+**각 나선의 범위와 업무규칙은 신규 Human declaration 및 계약에서 재판정한다.**
+
 ## 4. Phase 0
 
-### 4.1 Phase 0-1 — Provisioning Integrity
+### 4.1 0-A-2 — Tenant lifecycle / RPC / batch alignment
+
+**선행 게이트 — Human Gate A**
+
+```text
+tenant ACTIVE + ISOLATED 동시상태의 과금·서비스 정책 미정
+→ 0-A-2 착수 전 Human 결정 필요
+근거: 600010 §1.1 (601511)
+```
+
+**candidate scope**
+
+```text
+isolate_tenant
+manage_subscription
+tenant_status 필터
+is_registered
+601505 §4 호출 금지 해제조건 검증
+```
+
+> ⚠️ **final scope 는 신규 ImpactScope 와 Human declaration 에서 재검증한다.**
+> **권위보류 문서에서 그대로 복사해 확정하지 않는다**(§3.2).
+
+**`601505` §4 의 금지 조항 — 호출 금지 · `ACTIVE` 승격 금지 · 신규 호출자 배포 금지 —
+은 `0-A-2` 완료까지 계속 유효하다**(`600010` §1.1).
+
+### 4.2 0-A-3 — Provisioning Integrity
 
 **포함**
 
@@ -159,7 +229,7 @@ DB · RPC 경로로 신규 tenant 와 store 를 한 번 정상 생성한다
 > `601702` §1.37 이 `owner_name` 을 `person_name` 으로 정규화했다.
 > **`tenants` 에 사람 정보를 두는 것이 맞는지부터 1단계가 판정한다.**
 
-### 4.2 Phase 0-2 — Identity Foundation
+### 4.3 0-B — Identity Foundation
 
 ```text
 User / Auth / Session
@@ -184,7 +254,7 @@ catchmenu_common.security_tokens
 0-3 이 사용할 actor_id · session · scope 인터페이스를 고정한다
 ```
 
-### 4.3 Phase 0-3 — Authorization Foundation
+### 4.4 0-C — Authorization Foundation
 
 ```text
 Role / Permission / Scope / RLS policy
@@ -209,17 +279,30 @@ catchmenu_store.staff_permission_logs
 > `merchant_accounts` 는 현재 어떤 명명 role 로도 도달 불가하며,
 > RLS deny-all 은 누출에 안전하나 usable authorization 이 아니다.
 
-### 4.4 Phase 0-2 와 0-3 을 합치지 않는 이유
+**필수 선행조건 — `601503` §9 게이트**
 
 ```text
-0-2   누구인가
-0-3   무엇을 어디까지 할 수 있는가
+Stage 11B(601510) 4개 조건 중 ② 가 0-A 에서 이행 불가로 0-C 로 이월됐다
+  search_path / PUBLIC EXECUTE / tenant 경계
+
+0-A 에는 함수가 없어 조건 ② 의 적용 대상 자체가 없었다
+0-C 가 이행하지 않으면 영구히 미충족으로 남는다
+```
+
+> ⚠️ **`601503` · `601510` 은 권위보류 대역이다.**
+> **이 항목은 finding 으로 승계하며 그 문서의 설계 결론을 복원하지 않는다**(§3.2).
+
+### 4.5 0-B 와 0-C 를 합치지 않는 이유
+
+```text
+0-B   누구인가
+0-C   무엇을 어디까지 할 수 있는가
 ```
 
 **합치면 사용자 · 세션 · 초대 · 권한 · RLS 가 한꺼번에 움직여
 다시 0-A 규모가 된다.**
 
-### 4.5 Phase 0-4 — 최초 수직 데모
+### 4.6 Phase 0 Exit Demo
 
 **이 한 장면이 작동해야 다음 Phase 로 넘어간다.**
 
@@ -362,3 +445,7 @@ Waiting 의 물리 구조
 | `601744_AuditReview_Operational_Authority_Foundation_V2.md` | F-7 |
 | `601748_Evidence_Stage12_Human_Merge_Decision.md` | §8 Mandatory Gates |
 | `000705_Guide_Project_Development_Phase_Roadmap_And_AI_Prelearning_Context.md` | 상위 로드맵 |
+| `600010_Tracker_Spiral_Workpacket_Progress.md` | §1 · §1.1 · §1.2 · §2 — 나선 식별자 · 게이트 · 금지 조항 |
+| `601502` §3.2 | `0-A-2` · `0-A-3` 파생 경위 — **권위보류. evidence 로만 인용** |
+| `601503` §9 · `601510` | 0-C 필수 선행조건 — **권위보류. finding 승계** |
+| `601505` §4 · §8A | 호출 금지 조항 · 순서 — **권위보류. evidence 로만 인용** |
