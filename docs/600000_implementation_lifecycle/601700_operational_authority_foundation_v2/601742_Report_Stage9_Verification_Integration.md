@@ -22,9 +22,9 @@ supplemental Cowork        601739   커밋 614244f
 
 > ⚠️ **DocumentType 을 `Report` 로 둔 이유**
 >
-> `601740`(`VerificationResult`) 과 `601741`(`MinorOpinion`) 의 DocumentType 이
-> `000002` §1.2 승인 목록에 없다. `601741` 은 커밋 시 hook 이 G02 ERROR 로 잡았다.
-> **검출 경위와 재현성은 §3.4 를 따른다.**
+> `000701` 이 지정한 Stage 9~11 산출물명이 `000002` §1.2 승인 목록에 없다 —
+> `VerificationResult`(`601740`) · `MinorOpinion`(`601741`) · `AuditReview`(`601744`).
+> **셋 다 G02 ERROR 로 검출된다.** 상세는 §3.4.
 > **이 문서가 세 번째 위반을 만들지 않도록 승인 타입 `Report` 를 사용한다.**
 > 그 spec conflict 자체는 §5 에 기록한다.
 
@@ -191,7 +191,7 @@ canonical 기록      0093 = success=true (2026-07-09)
 보충 실행(실패 허용)에서 `0170`·`0171` 은 둘 다 `rc=0` 이었으나
 절차가 다르므로 TP-M-08 의 PASS 로 적지 않았다. **그 판단이 옳다.**
 
-### §3.4 새 관측 — G02 DocumentType 충돌 2회
+### §3.4 새 관측 — G02 DocumentType 충돌 3회
 
 ```text
 000002 §1.2 승인 목록
@@ -200,29 +200,56 @@ canonical 기록      0093 = success=true (2026-07-09)
 
 000701 §9      산출물명 VerificationResult.md
 000701 §12.9   산출물명 MinorOpinion.md
+000701 §13.4   산출물명 AuditReview.md
 
-검출 상황
+검출
 
-  601741 커밋 시 pre-commit hook
-    [ERROR] DocumentType 'MinorOpinion' is not in the approved list
+  601740 · 601741 · 601744 각각 G02 ERROR
+    'VerificationResult' is not in the approved list
+    'MinorOpinion' is not in the approved list
+    'AuditReview' is not in the approved list
 
-  601740 은 커밋 시 hook 출력을 통합자가 확인하지 못했다
+  601741 은 커밋 시 pre-commit hook 이 직접 출력했다
 
-  Claude Code 의 사후 재실행에서는 601740 · 601741 모두 G02 에 잡히지 않았다
-  실행 조건 차이로 보이며 원인은 확정되지 않았다
+재현 실패와 그 원인 (2026-08-24 확정)
+
+  2026-08-24 중간 보고에서 「사후 재실행에서 G02 에 잡히지 않았다」는
+  관측이 있었고 통합자가 이를 검증 없이 받아들여 §3.4 를 잘못 정정했다.
+
+  원인 두 가지가 이후 확정됐다.
+
+  ① -Top 50 출력 절단
+     600000 대역 G02 는 68건인데 50건만 출력된다
+     601740 · 601741 이 절단 구간에 있었다
+
+  ② -File a,b 호출이 배열로 넘어가지 않았다
+     "0 markdown documents scanned" 상태에서 G02 = 0 을 읽었다
+
+  두 실행 모두 측정 오류이며 G02 는 실제로 검출된다.
 
 체커 승인 목록 실측 (tools/Check-Governance.ps1 L193)
 
   $GroupC 에 'Verification' 이 있으나 'VerificationResult' 는 없다
-  'MinorOpinion' 도 없다
+  'MinorOpinion' · 'AuditReview' 도 없다
   → 문자열이 달라 매칭되지 않는다
 ```
 
 **`SPEC_CONFLICT_OBSERVED` — AC-13(O-5)과 같은 계열이다.**
 
-> ⚠️ **검출 재현이 조건에 따라 갈린다는 사실 자체를 기록한다.**
-> hook 실행과 사후 실행이 다른 결과를 낸다면
-> **G02 판정의 재현성 자체가 I-6 판단 재료다.**
+> ⚠️ **`000701` 이 지정한 Stage 9~11 산출물명 셋이
+> 모두 `000002` 승인 목록 밖이다.**
+>
+> ```text
+> 000701 §9      VerificationResult.md
+> 000701 §12.9   MinorOpinion.md
+> 000701 §13.4   AuditReview.md
+> ```
+>
+> **단발 오류가 아니라 두 상위 규칙의 구조적 불일치다.**
+>
+> ⚠️ **통합자가 검증 없이 보고를 받아들여 정확한 서술을 부정확하게 바꾼 사례다.**
+> `000701` §13.6 이 요구하는 「원본 증거 직접 재도출」이
+> **통합 단계에서도 필요하다는 것을 보여준다.**
 
 **세 번째 위반을 만들지 않기 위해 이 문서는 `Report` 를 사용했다.**
 
