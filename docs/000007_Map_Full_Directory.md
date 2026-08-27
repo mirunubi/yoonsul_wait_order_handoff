@@ -1749,6 +1749,8 @@ docs/
   |   |   +--- 601742_Report_Stage9_Verification_Integration.md
   |   |   +--- 601743_Verification_Operational_Authority_Foundation_V2.md
   |   |   +--- 601744_AuditReview_Operational_Authority_Foundation_V2.md
+  |   |   +--- 601745_Evidence_Stage11B_Blind_Audit_ChatGPT.md
+  |   |   +--- 601746_Report_Stage11C_Conflict_Analysis.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
