@@ -82,6 +82,38 @@ FK 가 검증하는 것      stores.merchant_account_id → merchant_accounts.id
 → tenant A 의 Store 가 tenant B 의 MerchantAccount 를 참조해도 FK 통과
 ```
 
+**fault-injection 재현 (2026-08-24) — `601747`**
+
+`000701` §13.9 · §14.2 가 요구하는 불일치 재현을 수행했다.
+
+```text
+환경   disposable container wp601700_fault_injection
+       public.ecr.aws/supabase/postgres:17.6.1.140
+       canonical DB 는 read-only 접속. 전후 4항목 실측 동일
+       작업 후 container 제거
+```
+
+| 시험 | 결과 |
+|---|---|
+| 교차 tenant `UPDATE` | `UPDATE 1` · exit 0 — **성공** |
+| 교차 tenant `INSERT` | `INSERT 0 1` · exit 0 — **성공** |
+| 사후 `tenant_match = f` | **2행** |
+| 대조군 — 존재하지 않는 `merchant_account_id` | `ERROR 23503` **거부** |
+
+**대조군이 핵심이다.**
+
+```text
+FK 가 죽어 있어서 통과한 것이 아니다
+fk_stores_merchant_account_id 는 살아 있고 존재성을 검사한다
+오직 tenant 일치만 검사하지 않는다
+```
+
+> ⚠️ **D-1 은 논리 추론이 아니라 실측이다.**
+>
+> `601745` Medium 6 이 「현재 데이터셋 tenant 1 / store 1 로는
+> 다중 tenant 교차 연결이 사실상 검증되지 않았다」고 지적했다.
+> **이 재현이 그 공백을 닫았다.**
+
 **판정 근거**
 
 ```text
@@ -458,6 +490,7 @@ AC-7 · AC-9   위 넷의 파생
 | `601742_Report_Stage9_Verification_Integration.md` | §5 I-1~I-7 |
 | `601740_VerificationResult_…ClaudeCode.md` | §6 O-1~O-8 |
 | `601741_MinorOpinion_…Cursor.md` | Concern 1~4 |
+| `601747_Evidence_Stage11C_FaultInjection_CrossTenant_Codex.md` | 전문 — D-1 재현 |
 | `601717_ChangeContract_…V2.md` | §1 · §4.5 · §9.1 · §10.1 |
 | `601716_TestPlan_…V2.md` | TP-M-07 · TP-R-19 · TP-R-14 · TP-M-08 |
 | `000701_Guide_Controlled_AI_Development_Pipeline.md` | §13.4 · §13.5 · §13.7 · §13.8 · §13.9 · §46 |
