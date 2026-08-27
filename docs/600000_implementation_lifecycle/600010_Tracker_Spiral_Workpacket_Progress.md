@@ -41,7 +41,7 @@ Last Updated: 2026-08-10
 | **0-B** Staff identity / session | 미배정 | — | ✅ **HOLD 해제 (2026-08-24)** — 0-A 재수행 Stage 12 완주로 선행조건 회복. **미착수** — 착수 전 선행 판정 필요: `catchmenu_common` 의 `auth_sessions` · `login_attempts` · `phone_verify_codes` · `security_tokens` 지위 판정(`000221` §4.3) | 2026-08-27 |
 | **0-A 역전파** 상위 정본문서 정합화 | `601600_upstream_doctrine_backpropagation` | **Stage 1** (업무규칙 선언 + 개정 적용) | ⚠️ **1단계 완료 · 5개 상위문서 개정삽입 적용 완료 — 적용분 재검토 필요.** 역전파 원본이 0-A 확정사항이었으므로 0-A 권위보류에 연동됨. 특히 `000150`/`000170`은 0-A가 인용조차 하지 않은 문서다(`600020` §1.1) | 2026-08-10 |
 | **0-A 재수행** Tenant/LegalEntity/HQ/Store | `601700_operational_authority_foundation_v2` | **Stage 12 CONDITIONAL ACCEPT** | ✅ **완주 (2026-08-24)** — `0170`·`0171` 적용 완료. 구현 결함 0(`IMPLEMENTATION_DEVIATION_OBSERVED` 0), spec conflict 4 + evidence gap 3. 후속 이관 C-3 · H-1~H-5 는 `601746` §4 | 2026-08-24 |
-| **0-A-2** Tenant lifecycle / RPC · batch 정합 | `601800_tenant_lifecycle_rpc_alignment` | **1단계 완료** (업무규칙 선언) | 진행중 — **Human Gate A RESOLVED**(`601801` HG-A-1~HG-A-8). 다음 2단계 ERD. candidate scope 는 `601502` 에서 복사하지 않고 신규 declaration 에서 재검증한다(`000221` §3.2) | 2026-08-27 |
+| **0-A-2** Tenant lifecycle / RPC · batch 정합 | `601800_tenant_lifecycle_rpc_alignment` | **1단계 완료** (업무규칙 선언) | 진행중 — **Human Gate A RESOLVED**(`601801` HG-A-1~HG-A-9). 다음 2단계 ERD. candidate scope 는 `601502` 에서 복사하지 않고 신규 declaration 에서 재검증한다(`000221` §3.2) | 2026-08-27 |
 
 > ⛔ **2026-08-10 권위 재설정**: 본 트래커의 0-A 완료 기록은 **현재 권위가 없다.**
 > Stage 7(Human Approval) 미수행, 1단계 Human 업무규칙 선언 부재,
@@ -80,7 +80,7 @@ Last Updated: 2026-08-10
 |---|---|
 | **Stage 11B 조건 ②**(`SECURITY DEFINER` search_path/PUBLIC EXECUTE/tenant 경계) | **0-C — §1.2 게이트** |
 | Open Item (m) 클라우드 미검증(`pg_cron` / 카탈로그 / PG 버전) | 클라우드 배포 시 |
-| `tenant` `ACTIVE`+`ISOLATED` 동시상태의 **과금정책 미정** | **0-A-2 착수 전 결정 필요**(`601511`) → **2026-08-27 `601801` HG-A-1~HG-A-8 로 해소** |
+| `tenant` `ACTIVE`+`ISOLATED` 동시상태의 **과금정책 미정** | **0-A-2 착수 전 결정 필요**(`601511`) → **2026-08-27 `601801` HG-A-1~HG-A-9 로 해소** |
 | "행위기준 완료조건"의 **기계적 강제(CI) 부재** | 프로젝트 전체 구조적 공백(`601511`) |
 
 > **⚠️ 완료가 곧 안전은 아니다**: 0-A는 `isolate_tenant()`를 **의도적 장애 상태**로 남긴 채 병합됐다.
@@ -127,7 +127,7 @@ Last Updated: 2026-08-10
 |---|---|---|
 | 0-A | Tenant / Company / HQ / Store | ⛔ **권위보류 (2026-08-10)** — 과거: 완료 기록됨. `600020` §1.1 |
 | **0-A 재수행** | Tenant / LegalEntity / HQ / Store — `601500` 권위보류에 따른 재시작 | **Stage 12 CONDITIONAL ACCEPT (2026-08-24)** — `601700`. 6단계 완료, Stage 5~12 전 단계 수행(Stage 6 5라운드, Stage 11A·11B·11C). 산출물 `601700`~`601748`. `0170`·`0171` 적용 완료, 구현 결함 0. spec conflict 4 + evidence gap 3. 후속 이관 C-3 · H-1~H-5 는 `601746` §4 |
-| **0-A-2** | Tenant lifecycle / RPC / batch alignment — candidate scope: `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered` | ✅ **HOLD 해제 (2026-08-24)** — 0-A 재수행 완주로 선행조건 회복. **착수 (2026-08-27)** — `601800`. **Human Gate A RESOLVED**(`601801` HG-A-1~HG-A-8). `601505` §4 금지 조항은 0-A-2 완료까지 유효. 근거 `000221` §4.1 |
+| **0-A-2** | Tenant lifecycle / RPC / batch alignment — candidate scope: `isolate_tenant`/`manage_subscription`/`tenant_status` 필터/`is_registered` | ✅ **HOLD 해제 (2026-08-24)** — 0-A 재수행 완주로 선행조건 회복. **착수 (2026-08-27)** — `601800`. **Human Gate A RESOLVED**(`601801` HG-A-1~HG-A-9). `601505` §4 금지 조항은 0-A-2 완료까지 유효. 근거 `000221` §4.1 |
 | **0-A-3** | Provisioning Integrity — `onboard_tenant` / `provision_tenant` 재설계 | ✅ **HOLD 해제 (2026-08-24)** — 0-A 재수행 완주로 선행조건 회복. **미착수 — 0-A-2 다음**. 범위: C-3 + provisioning RPC 재설계 + tenant·merchant_account 생성 원자성 + `stores.merchant_account_id` `NOT NULL` 승격. **C-3 는 H-2 · H-3 · RLS policy · grant · RPC write path 보다 선행**(`601748` §8). 근거 `000221` §4.2 |
 | **0-A 역전파** | 상위 정본문서(`000150`/`000170`/`003020`/`009030`/`010004`) 역전파 — 문서 전용, `.sql` 없음 | ⚠️ **적용 완료 — 적용분 재검토 대상**(`601600`, 커밋 17:26). 0-A 권위보류에 연동 |
 | **0-B** | Identity / Auth / Session / Invitation — Staff identity / session | ✅ **HOLD 해제 (2026-08-24)** — 0-A 재수행 Stage 12 완주로 선행조건 회복. **미착수** — 착수 전 선행 판정 필요: `catchmenu_common` 의 `auth_sessions` · `login_attempts` · `phone_verify_codes` · `security_tokens` 지위 판정(`000221` §4.3) |

@@ -57,7 +57,7 @@ isolation_state   보안 · 장애 대응을 위한 기술적 격리
 ```text
 tenant ACTIVE + ISOLATED 동시상태의 과금 · 서비스 정책
 status      RESOLVED (2026-08-27)
-authority   601801 §1.1~§1.8 (HG-A-1 ~ HG-A-8)
+authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 ```
 
 > ⚠️ **canonical identifier 는 `HG-A-N` 이다**(`601801` §0.1).
@@ -84,7 +84,7 @@ authority   601801 §1.1~§1.8 (HG-A-1 ~ HG-A-8)
 **현재 위치**
 
 ```text
-1단계   완료 — 601801 HG-A-1 ~ HG-A-8 (2026-08-27)
+1단계   완료 — 601801 HG-A-1 ~ HG-A-9 (2026-08-27)
 2단계   ERD 착수 대기
 ```
 
@@ -158,7 +158,7 @@ UI                               Phase 0 Exit Demo
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 601800 | `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 이 문서 |
-| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 8건. Human Gate A |
+| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 9건(`HG-A-1`~`HG-A-9`). Human Gate A |
 
 ## §10 Non-Implementation Boundary
 

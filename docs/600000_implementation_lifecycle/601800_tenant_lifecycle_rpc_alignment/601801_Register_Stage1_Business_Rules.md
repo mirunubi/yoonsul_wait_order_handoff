@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 8건 — `HG-A-1` ~ `HG-A-8`.**
+> **선언 9건 — `HG-A-1` ~ `HG-A-9`.**
 
 ### §0.1 식별자 규칙
 
@@ -62,6 +62,7 @@ Audit             HG-A-3 충족 여부
 | 일자 | 내용 |
 |---|---|
 | 2026-08-27 | 초안 — `HG-A-1`~`HG-A-8` (Human Gate A) |
+| 2026-08-27 | `HG-A-9` 추가 — Stage 2 착수 전 `TRIAL` · `CANCELLED` · `TERMINATED` 조합 누락 발견. **`HG-A-1`~`HG-A-8` 의 의미를 수정하지 않고** 5×2 상태 조합과 우선순위를 닫았다 |
 
 ## §1 Human Gate A Business Rules
 
@@ -211,6 +212,76 @@ Human 승인
 
 **세 요건을 모두 거친다.**
 
+### §1.9 HG-A-9 — Tenant lifecycle 과 isolation 조합의 합성 규칙
+
+**`HG-A-1` 의 상태축 독립 원칙을 전체 정의역에 적용해 닫는다.**
+
+> ⚠️ **`HG-A-1` ~ `HG-A-8` 의 의미를 바꾸지 않는다.**
+> **`§1.1` 표가 다루지 않은 `TRIAL` · `CANCELLED` · `TERMINATED` 조합을 보완한다.**
+
+**합성 규칙**
+
+```text
+서비스 접근   tenant_status 와 isolation_state 중 더 제한적인 조건을 적용한다
+과금 · 계약   tenant_status 와 subscription 조건만으로 결정한다
+기술적 격리   서비스 제한을 추가하지만 상업 상태를 바꾸지 않는다
+격리 해제     tenant_status 를 변경하거나 서비스를 자동 재개하지 않는다
+```
+
+**선언 8항**
+
+```text
+1  tenant_status 의 5개 값
+   ACTIVE · TRIAL · SUSPENDED · CANCELLED · TERMINATED 와
+   isolation_state 의 NONE · ISOLATED 조합은 모두 표현 가능하다.
+
+2  서비스 접근에는 tenant_status 와 isolation_state 중
+   더 제한적인 조건을 적용한다.
+   ISOLATED 는 어떤 tenant_status 에서도 일반 runtime 접근과
+   tenant 영업 side effect 를 허용하지 않는다.
+
+3  계약 · 기본 구독료 · 체험조건 · 취소 효력일 및 반복과금 여부는
+   tenant_status 와 subscription 계약에서 결정한다.
+   isolation_state 는 이를 자동 변경하지 않는다.
+
+4  TRIAL + ISOLATED 에서 격리는 유료 전환 · 신규 청구 ·
+   체험 종료 또는 체험기간 연장을 자동 발생시키지 않는다.
+   플랫폼 귀책 격리는 trial extension review 를 생성하되,
+   실제 연장은 Human 승인으로만 수행한다.
+
+5  SUSPENDED + ISOLATED 에서 격리를 해제해도
+   tenant_status 는 SUSPENDED 로 유지되고 서비스는 재개되지 않는다.
+
+6  CANCELLED + ISOLATED 에서 취소 및 종료 처리는 계속할 수 있으나
+   일반 영업 서비스는 재개하지 않는다.
+   격리 해제는 CANCELLED 를 ACTIVE 로 변경하지 않는다.
+
+7  TERMINATED + ISOLATED 는 유효한 terminal containment 상태다.
+   TERMINATED 전이는 isolation 을 자동 해제하지 않으며,
+   해당 tenant 는 일반 격리 복구 대상이 아니다.
+   데이터 보존 · 삭제 · 익명화 · 법적 증거 처리만 수행할 수 있다.
+
+8  isolation 해제는 tenant_status 를 변경하지 않는다.
+   tenant_status 변경 또한 isolation_state 를 자동 변경하지 않는다.
+   두 축의 변경은 각각 별도 권한 · 사유 · 승인 및 감사 기록을 요구한다.
+```
+
+**상태 조합 판정 — 10건 전부 유효**
+
+| `tenant_status` | `NONE` | `ISOLATED` |
+|---|---|---|
+| `TRIAL` | 체험 서비스 · 체험 과금조건 | 체험 서비스 차단. 체험조건은 자동 변경하지 않음 |
+| `ACTIVE` | 정상 서비스 · 활성 구독 | 서비스 차단. 활성 계약 · 기본료 유지 |
+| `SUSPENDED` | 서비스 정지 · 정지 계약조건 | 정지에 보안격리 추가 |
+| `CANCELLED` | 신규 서비스 금지 · 종료 처리 | 종료 처리 중 기술적 격리 유지 |
+| `TERMINATED` | 영구 종료 · 보존 / 삭제 절차 | terminal containment |
+
+> ⚠️ **유효하다는 것이 정상 영업상태라는 뜻은 아니다.**
+> **표현 가능한 조합과 서비스가 열리는 조합은 다르다.**
+
+> ⚠️ **`TERMINATED` 는 일반 격리 복구 경로의 대상이 아니다.**
+> **복구 함수가 `TERMINATED` tenant 를 되살리면 안 된다.**
+
 ## §2 격리 원인별 처분
 
 | 격리 원인 | 기본 구독료 | 후속 조치 |
@@ -220,6 +291,9 @@ Human 승인
 | 플랫폼 장애 | 유지 후 크레딧 검토 | Human 보상 결정 |
 | 법적 · 행정 명령 | 유지 원칙 | 계약 · 법무 판단 |
 | 고객의 자발적 사용 중지 | — | **`ISOLATED` 사용 금지** |
+| `TRIAL` 중 플랫폼 장애 | 체험조건 유지 | trial extension review 자동 생성. 연장은 Human 승인 |
+| `CANCELLED` 이후 격리 | 반복과금 없음 | 최종 청구 · 환불 · 데이터 반출 등 종료 절차만 |
+| `TERMINATED` 이후 격리 | 과금 없음 | 보존 · 삭제 · 익명화 · 법적 증거 처리만 |
 
 > ⚠️ **마지막 행이 중요하다.**
 > **고객이 잠시 서비스를 쉬는 것을 `ISOLATED` 로 표현하지 않는다.**
@@ -248,9 +322,18 @@ clarifications:
 
 4. Reuse of catchmenu_common.offline_queue is not approved here.
    Its suitability must be decided during 0-A-2 design.
+
+5. All ten combinations of tenant_status and isolation_state are
+   representable. Service access takes the more restrictive of the two;
+   commercial terms are decided by tenant_status and subscription only.
+   Lifting isolation never changes tenant_status, and changing
+   tenant_status never lifts isolation. TERMINATED tenants are not
+   subject to ordinary isolation recovery.
 ```
 
 **판정자** — 정영석, 2026-08-27
+
+**HG-A-9 판정자** — 정영석, 2026-08-27
 
 ## §4 후속 설계 의무
 
@@ -263,6 +346,8 @@ isolation queue 의 물리 구조
 격리 해제 복구 경로의 구현
 billing review task 의 물리 표현
 과금 금액 계산 · 정산 로직
+trial extension review 의 물리 표현
+TERMINATED 보존 · 삭제 · 익명화 절차
 ```
 
 **각 산출물은 자신이 어느 `HG-A-N` 에서 나왔는지 명시한다**(§0.1).
