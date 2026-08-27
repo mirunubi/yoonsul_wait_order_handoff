@@ -30,6 +30,7 @@ Local folder documents:
 | `000200_Boundary_Organization_Core_MVP_Cutline.md` | Organization Core MVP inclusion and deferral boundary for CatchMenu operation context. |
 | `000210_Index_Organization_Core_And_Readiness_Check.md` | Organization Core index and readiness check. |
 | `000220_Guide_Shared_Commerce_Kernel_And_Foundation_Axis.md` | Shared Commerce Kernel and Foundation axis definition; Yoonsul OS and CatchMenu as sibling product modules over a shared kernel. |
+| `000221_Guide_Post_0A_Spiral_Sequence.md` | Post-0-A spiral sequence, Phase 0 entry conditions, schema census policy, and verification grade criteria. |
 | `000300_documentation_governance/` | Documentation governance subfolder for import, naming, index synchronization, duplicate handling, and readiness policies. |
 | `000400_development_foundation/` | Development foundation subfolder for Overview, Logic, Module, code handoff, read-only inspection, and AI-assisted change control documents. |
 
