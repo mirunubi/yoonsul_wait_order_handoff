@@ -184,6 +184,8 @@ Tenant / LegalEntity(사업주체) / HQ / Store의 권위 구조를 확정한다
 | 601740 | 601740_VerificationResult_Stage9_Implementation_Verification_ClaudeCode.md | Active — Stage 9 구현 검증(Claude Code). 235건 전건 판정 / PASS 221 / FAIL 8 / SKIP 6 |
 | 601741 | 601741_MinorOpinion_Stage9_Implementation_Verification_Cursor.md | Active — Stage 9 비구속 second opinion(Cursor). concern 1건은 601742 에서 INVALIDATED |
 | 601742 | 601742_Report_Stage9_Verification_Integration.md | Active — Stage 9 통합(Claude). Stage 9 = INCOMPLETE. 구현 결함 0 |
+| 601743 | 601743_Verification_Operational_Authority_Foundation_V2.md | Active — Stage 10 verification handoff / index(Claude Code). 판정 권한 없음. Stage 9 evidence → Stage 11 audit 목차 |
+| 601744 | 601744_AuditReview_Operational_Authority_Foundation_V2.md | Draft — Stage 11A 빈 skeleton(Claude Code). 18개 절은 Stage 11 Claude 가 raw 증거에서 채운다 |
 
 ## §9 Add / Move Rule
 

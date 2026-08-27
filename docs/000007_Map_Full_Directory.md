@@ -1747,6 +1747,8 @@ docs/
   |   |   +--- 601740_VerificationResult_Stage9_Implementation_Verification_ClaudeCode.md
   |   |   +--- 601741_MinorOpinion_Stage9_Implementation_Verification_Cursor.md
   |   |   +--- 601742_Report_Stage9_Verification_Integration.md
+  |   |   +--- 601743_Verification_Operational_Authority_Foundation_V2.md
+  |   |   +--- 601744_AuditReview_Operational_Authority_Foundation_V2.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
