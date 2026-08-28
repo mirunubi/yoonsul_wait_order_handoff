@@ -85,8 +85,10 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 
 ```text
 1단계   완료 — 601801 HG-A-1 ~ HG-A-9 (2026-08-27)
-2단계   초안 완료 — 601803 (Draft)
-3단계   인접 도메인 대조 착수 대기 — 새 세션 필수
+2단계   초안 — 601803 (Draft). 3단계 Blocker 10건 반영 대기
+3단계   완료 — 601804 · 601805 · 601806 · 601807 (2026-08-28)
+        Blocker 10 / informational 23
+4단계   착수 대기 — S-1 · S-5 · S-7 은 601801 재개방 가능성
 ```
 
 ## §5 In Scope — candidate
@@ -162,6 +164,10 @@ UI                               Phase 0 Exit Demo
 | 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 9건(`HG-A-1`~`HG-A-9`). Human Gate A |
 | 601802 | `601802_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부 |
 | 601803 | `601803_Diagram_Tenant_Lifecycle_State_Machine.md` | Draft — 2단계 ERD. 상태 전이 모델. 3단계 대조 대기 |
+| 601804 | `601804_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 실측 축. Blocker 3 |
+| 601805 | `601805_Audit_Stage3_Adjacent_Domain_Cowork.md` | Active — 3단계 문서 축. Blocker 2 |
+| 601806 | `601806_Audit_Stage3_Adjacent_Domain_Claude.md` | Active — 3단계 인접 도메인 축. **§47.1 지정 actor.** Blocker 7 |
+| 601807 | `601807_Report_Stage3_Integration.md` | Active — 3단계 통합. Blocker 10 / informational 23 |
 
 ## §10 Non-Implementation Boundary
 
