@@ -88,7 +88,7 @@ Phase 2   Kernel 확정
 Phase 3   Waiting 신규 설계
 Phase 4   Late Binding
 Phase 5   외부 provider 연동
-Phase 6   YS-OS 모듈 — 2차 개발. 별도 제품
+Phase 6   YS-OS 모듈 — 2차 개발. CatchMenu tenant 운영 모듈
 ```
 
 > ⚠️ **Phase 0 이 끝나기 전에는 신규 tenant · store 를 만들 수 없고,
@@ -112,25 +112,30 @@ Phase 6   YS-OS 모듈 — 2차 개발. 별도 제품
 > **읽기 전체가 막힌 것이 아니다.**
 > **막힌 것은 쓰기 경로와 0-A 가 새로 만든 5테이블이다.**
 
-> ⚠️ **Phase 6 YS-OS 는 CatchMenu 나선이 아니다.**
+> ⚠️ **Phase 6 YS-OS 는 CatchMenu 의 첫 tenant 다.**
 >
 > ```text
-> CatchMenu   platform of record
+> CatchMenu   platform of record. 단일 tenant 레지스트리
 >             tenant · store · merchant account · identity · role
 >             catalog · order · payment · waiting · late binding
 >             provider boundary
 >
-> YS-OS       2차 개발. 별도 DB
->             직원 · 재고 · 멤버십을 자기 DB 에 둔다
->             CatchMenu API 소비자로서 tenant_id · store_id 를 참조하며
->             복제하지 않는다
+> YS-OS       CatchMenu 의 tenant 하나 — 윤슬김밥
+>             2차 개발. 직원 · 재고 · 멤버십 운영 모듈
 > ```
 >
-> **tenant 레지스트리는 CatchMenu 하나다**(단일 source of truth).
+> **1-1 개발 범위**
 >
-> ⚠️ **이 전제가 Phase 1 Census 의 판정 기준이다.**
-> **`catchmenu_store` 50테이블 중 어느 것이 CatchMenu 소관이고
-> 어느 것이 YS-OS 소관인지가 여기서 갈린다.**
+> ```text
+> CatchMenu 자체 웹앱(앱)
+> + 외부 tenant 가 붙일 API
+> ```
+>
+> **두 surface 가 같은 core 를 쓴다.**
+>
+> ⚠️ **`catchmenu_store` 50테이블은 CatchMenu DB 안에 있다.**
+> **어느 것이 core 이고 어느 것이 tenant 운영 모듈인지는
+> Phase 1 Census 가 판정한다.**
 
 ### 3.1 초안 명칭과 공식 명칭의 매핑
 
@@ -359,12 +364,14 @@ Stage 11B(601510) 4개 조건 중 ② 가 0-A 에서 이행 불가로 0-C 로 �
 >             → 0-B · 0-C 소관
 >
 > YS-OS       employee · shift · attendance · 급여 기준
->             인사 관리
->             → 2차 소관
+>             tenant 운영 모듈. 2차 소관
 > ```
 >
 > **`staff_permission_matrix` 와 `pay_basis_records` 가 같은 스키마에 있다.**
 > **Census 가 제품 귀속부터 판정한다.**
+
+> ⚠️ **둘 다 CatchMenu DB 안에 있다.**
+> **제품이 갈리는 것이 아니라 core 와 tenant 운영 모듈이 갈린다.**
 
 > ⚠️ **`catchmenu_common` 41개를 전부 핵심 기반으로 인정하지 않는다.**
 >

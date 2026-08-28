@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 12건 — `HG-A-1` ~ `HG-A-12`.**
+> **선언 13건 — `HG-A-1` ~ `HG-A-13`.**
 
 ### §0.1 식별자 규칙
 
@@ -64,6 +64,8 @@ Audit             HG-A-3 충족 여부
 | 2026-08-27 | 초안 — `HG-A-1`~`HG-A-8` (Human Gate A) |
 | 2026-08-27 | `HG-A-9` 추가 — Stage 2 착수 전 `TRIAL` · `CANCELLED` · `TERMINATED` 조합 누락 발견. **`HG-A-1`~`HG-A-8` 의 의미를 수정하지 않고** 5×2 상태 조합과 우선순위를 닫았다 |
 | 2026-08-28 | `HG-A-10`~`HG-A-12` 추가 — 3단계(`601807` `S-1`·`S-5`·`S-7`)가 확인한 업무규칙 공백. **제한적 재개방** — `HG-A-1`~`HG-A-9` 의 의미를 수정하지 않고 상태 초기값·전이·멱등성·동시성, 6축과 2축의 관계, MerchantAccount 경계를 추가했다 |
+| 2026-08-28 | `HG-A-13`·`HG-A-14` 추가 — `601807` `S-10` 이 1단계 소관으로 분류됐으나 `HD-0-A-2-2` 재개방 범위에 빠져 있었다. 제품 경계와 격리 범위, tenant 별 포인트 권위 provider 선택을 선언한다 |
+| 2026-08-28 | `HG-A-14` 폐기 — YS-OS 별도 DB 를 전제한 포인트 provider 선택 선언이었다. YS-OS 가 CatchMenu tenant 임이 확정돼 포인트 권위가 하나뿐이므로 선택지가 성립하지 않는다. `HG-A-13` 은 실제 외부 시스템 대상으로 유지 |
 
 ## §1 Human Gate A Business Rules
 
@@ -402,6 +404,65 @@ tenant 와 연결된 유효한 merchant_account 존재 여부를
 > **`601746` §2.11 d 가 「tenant 상태 ↔ merchant account 계약 상태 미연결」을
 > 이관한 그대로 둔다.**
 
+### §1.13 HG-A-13 — 외부 시스템 경계와 격리 범위
+
+**격리가 CatchMenu 밖으로 전파되지 않음을 선언한다.**
+
+```text
+CatchMenu 는 외부 시스템과 연동한다
+  Toss PG · Toss POS / Kiosk · Smartcast KDS 등
+
+그 시스템들은 CatchMenu 와 별도 권위를 갖는다
+격리가 그 시스템의 자체 운영을 멈추지 않는다
+```
+
+> ⚠️ **`601807` `S-10` 은 YS-OS 를 별도 DB 로 전제했으나
+> YS-OS 는 CatchMenu 의 tenant 다.**
+> **그 전제는 성립하지 않으며 `S-10` 은 기각한다.**
+> **이 조항은 실제 외부 시스템에 대한 선언으로 유지한다.**
+
+**CatchMenu tenant 의 격리는 CatchMenu 가 소유하거나 통제하는
+데이터 · API · 세션 · integration credential · 외부 전달 경로에만 적용한다.**
+
+**CatchMenu 와 별도 권위를 가진 외부 시스템의
+업무 쓰기를 직접 또는 간접적으로 차단하지 않는다.**
+
+**차단하는 것**
+
+```text
+CatchMenu 대기 쓰기
+CatchMenu 주문 쓰기
+CatchMenu native 포인트 쓰기
+해당 tenant 의 외부 시스템 → CatchMenu API 호출
+해당 tenant 에 발급한 CatchMenu integration credential
+필요 시 CatchMenu outbox 전달 보류
+```
+
+**차단하지 않는 것**
+
+```text
+외부 POS 의 자체 매장 운영
+외부 KDS 의 자체 주방 운영
+PG 사의 다른 가맹점 처리
+그 시스템들의 다른 연동
+```
+
+> ⚠️ **CatchMenu 는 외부 시스템을 격리하지 않는다.**
+> **외부 시스템이 CatchMenu 에 접근하는 통로만 차단한다.**
+>
+> **CatchMenu 의 보안 사고가 별도 권위를 가진 시스템의
+> 전체 운영을 정지시켜서는 안 된다.**
+
+**외부 시스템이 해당 CatchMenu tenant 의 자격으로 API 를 호출하면
+격리 상태에서 그 호출을 fail-closed 로 거부한다.**
+
+**CatchMenu 격리 상태는 외부 시스템의 tenant 상태나 업무 상태로
+자동 전파되지 않는다.**
+
+> ⚠️ **`HG-A-2` 의 「멤버십 · 재고 쓰기 차단」은
+> CatchMenu 가 소유 · 통제하는 데이터만 뜻한다.**
+> **`HG-A-2` 본문을 수정하지 않고 이 조항이 범위를 한정한다.**
+
 ## §2 격리 원인별 처분
 
 | 격리 원인 | 기본 구독료 | 후속 조치 |
@@ -476,6 +537,16 @@ MerchantAccount is not a third lifecycle axis. 0-A-2 RPCs do not create,
 delete, replace or re-link it. Checking for the existence of a valid
 merchant account as an operating prerequisite is permitted; creation and
 link repair remain 0-A-3 scope.
+
+HD-0-A-2-5 — External System Boundary
+
+Isolation of a CatchMenu tenant applies only to data, APIs, sessions,
+integration credentials and outbound paths that CatchMenu owns or
+controls. It does not block, directly or indirectly, the business writes
+of a separate system holding its own authority. Where such
+a product calls CatchMenu APIs under that tenant's credentials, those
+calls are refused fail-closed. CatchMenu isolation does not propagate
+into the other system's tenant or business state.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -483,6 +554,8 @@ link repair remain 0-A-3 scope.
 **HG-A-9 판정자** — 정영석, 2026-08-27
 
 **HD-0-A-2-1 ~ HD-0-A-2-4 판정자** — 정영석, 2026-08-28
+
+**HD-0-A-2-5 판정자** — 정영석, 2026-08-28
 
 ## §4 후속 설계 의무
 
