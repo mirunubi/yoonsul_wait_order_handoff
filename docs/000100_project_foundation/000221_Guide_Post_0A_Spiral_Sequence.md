@@ -88,7 +88,7 @@ Phase 2   Kernel 확정
 Phase 3   Waiting 신규 설계
 Phase 4   Late Binding
 Phase 5   외부 provider 연동
-Phase 6   YS-OS 모듈 — 직원 · 재고 · 멤버십
+Phase 6   YS-OS 모듈 — 2차 개발. 별도 제품
 ```
 
 > ⚠️ **Phase 0 이 끝나기 전에는 신규 tenant · store 를 만들 수 없고,
@@ -111,6 +111,26 @@ Phase 6   YS-OS 모듈 — 직원 · 재고 · 멤버십
 >
 > **읽기 전체가 막힌 것이 아니다.**
 > **막힌 것은 쓰기 경로와 0-A 가 새로 만든 5테이블이다.**
+
+> ⚠️ **Phase 6 YS-OS 는 CatchMenu 나선이 아니다.**
+>
+> ```text
+> CatchMenu   platform of record
+>             tenant · store · merchant account · identity · role
+>             catalog · order · payment · waiting · late binding
+>             provider boundary
+>
+> YS-OS       2차 개발. 별도 DB
+>             직원 · 재고 · 멤버십을 자기 DB 에 둔다
+>             CatchMenu API 소비자로서 tenant_id · store_id 를 참조하며
+>             복제하지 않는다
+> ```
+>
+> **tenant 레지스트리는 CatchMenu 하나다**(단일 source of truth).
+>
+> ⚠️ **이 전제가 Phase 1 Census 의 판정 기준이다.**
+> **`catchmenu_store` 50테이블 중 어느 것이 CatchMenu 소관이고
+> 어느 것이 YS-OS 소관인지가 여기서 갈린다.**
 
 ### 3.1 초안 명칭과 공식 명칭의 매핑
 
@@ -326,10 +346,25 @@ Stage 11B(601510) 4개 조건 중 ② 가 0-A 에서 이행 불가로 0-C 로 �
 | 분류 | 스키마 | 처리 |
 |---|---|---|
 | Kernel 후보 | `pos` · `payment` · `gateway` · `integrations` · `kds` | 우선 일괄 판정 |
-| YS-OS 후보 | `store` | 기능군별 분할 판정 |
+| YS-OS 후보 | `store` | 기능군별 분할 판정. 특히 `staff` 계열 9테이블은 제품 귀속부터 판정한다 — `staff` · `staff_shifts` · `staff_attendance` · `staff_schedules` · `staff_tasks` · `staff_memos` · `staff_permission_matrix` · `staff_permission_logs` · `pay_basis_records` |
 | 공통 기반 | `common` · `ledger` | 실제 참조되는 일부만 승격 |
 | 보조 · 미래 | `ai` · `agent` · `knowledge` | 당분간 동결 |
 | 개발 · 증거 | `dev` · `audit` · `meta` | 제품 모델과 분리 |
+
+> ⚠️ **`staff` 계열은 두 제품의 개념이 섞여 있을 수 있다.**
+>
+> ```text
+> CatchMenu   user · role · store 소속
+>             누가 이 매장을 CatchMenu 에서 조작할 수 있는가
+>             → 0-B · 0-C 소관
+>
+> YS-OS       employee · shift · attendance · 급여 기준
+>             인사 관리
+>             → 2차 소관
+> ```
+>
+> **`staff_permission_matrix` 와 `pay_basis_records` 가 같은 스키마에 있다.**
+> **Census 가 제품 귀속부터 판정한다.**
 
 > ⚠️ **`catchmenu_common` 41개를 전부 핵심 기반으로 인정하지 않는다.**
 >

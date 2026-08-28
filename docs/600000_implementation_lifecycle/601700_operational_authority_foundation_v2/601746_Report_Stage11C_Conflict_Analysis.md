@@ -477,6 +477,8 @@ AC-7 · AC-9   위 넷의 파생
 | — | `authority_owner` grant 비대칭 + RLS deny-all 이 usable authorization 이 아님 | 0-C 접근 정책 — §2.11 a · c |
 | — | tenant 상태 ↔ merchant account 계약 상태 미연결 | 상태 축 후속 — §2.11 d |
 | — | Stage 11A 감사 논거 정밀도 — 시점 정합성과 invariant enforcement 구분 | `000701` 개선 — §2.11 b |
+| — | DocumentType 미승인 4번째 — `Tracker`(`600010`). §2.9 가 기록한 3건과 같은 계열이나 `000701` 지정 산출물명이 아니라 프로젝트 자체 명명이다 | governance — §2.9 와 함께 |
+| — | 등급별 절차 분화 — A / B / C 와 A급 판별 7질문. `000221` §6 에 있으나 `000701` 에 반영되지 않았다 | `000701` 개선 |
 
 **`601717` §10.1 Human pre-decision 9건은 재논쟁 대상이 아니다.**
 **C-1 · C-2 는 `DEFERRED — INELIGIBLE` 로 유지된다.**

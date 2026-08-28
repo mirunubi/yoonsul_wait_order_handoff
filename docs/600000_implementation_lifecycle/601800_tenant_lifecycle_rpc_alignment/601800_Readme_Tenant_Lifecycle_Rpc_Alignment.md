@@ -85,7 +85,8 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 
 ```text
 1단계   완료 — 601801 HG-A-1 ~ HG-A-9 (2026-08-27)
-2단계   ERD 착수 대기
+2단계   초안 완료 — 601803 (Draft)
+3단계   인접 도메인 대조 착수 대기 — 새 세션 필수
 ```
 
 ## §5 In Scope — candidate
@@ -160,6 +161,7 @@ UI                               Phase 0 Exit Demo
 | 601800 | `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 이 문서 |
 | 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 9건(`HG-A-1`~`HG-A-9`). Human Gate A |
 | 601802 | `601802_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부 |
+| 601803 | `601803_Diagram_Tenant_Lifecycle_State_Machine.md` | Draft — 2단계 ERD. 상태 전이 모델. 3단계 대조 대기 |
 
 ## §10 Non-Implementation Boundary
 
