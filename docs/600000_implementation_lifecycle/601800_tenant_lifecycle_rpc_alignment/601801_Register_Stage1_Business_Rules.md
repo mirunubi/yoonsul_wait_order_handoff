@@ -175,6 +175,17 @@ isolate_tenant        기술적 containment
 manage_subscription   상업적 계약 lifecycle
 ```
 
+> ⚠️ **`HD-0-A-2-7` 로 `manage_subscription` 이 `0-A-2` 범위에서 절단됐다.**
+>
+> **이 선언은 무효가 되지 않는다. 적용 시점이 이월된 것이다.**
+>
+> ```text
+> 0-A-2         manage_subscription 을 설계 · 구현하지 않는다
+>               isolation_state 를 변경하지 않는다는 경계는 유지된다
+>
+> 후속 워크패킷   Subscription Lifecycle 설계 시 이 경계를 지킨다
+> ```
+
 ### §1.7 HG-A-7 — 외부 이벤트 수신과 side effect 격리
 
 **격리 중에도 외부 provider 의 확정 사실과 raw event 는
