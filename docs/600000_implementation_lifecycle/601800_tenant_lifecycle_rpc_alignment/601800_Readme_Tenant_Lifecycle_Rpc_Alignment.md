@@ -96,11 +96,27 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 
 ```text
 isolate_tenant             기술적 containment
-manage_subscription        상업적 계약 lifecycle
+tenant_status 조회 · 접근 판단
 tenant_status 필터          조회 · 배치 경로
 is_registered              판정 기준
 601505 §4 호출 금지 해제조건 검증
 ```
+
+> ⚠️ **`manage_subscription` 은 `HD-0-A-2-7` 로 범위에서 절단됐다.**
+>
+> ```text
+> 사유   T-2~T-7 구독 전이의 허용조건 · 수행 주체 ·
+>        과금 및 entitlement 효과가 선언되지 않았다
+>        HG-A-10 이 2~4단계의 추론 보충을 금지한다
+>
+> 이월   별도 Subscription Lifecycle 워크패킷
+>
+> 이월 기간   기존 함수는 호출 금지를 유지한다
+>            0-A-2 는 권한 · 본문 불변만 회귀검사한다
+> ```
+>
+> **`tenant_status` 는 범위에 남는다.**
+> **`0-A-2` 가 접근 판단을 위해 읽으며 변경하지 않는다.**
 
 > ⚠️ **candidate 다. `601502` 에서 복사한 것이 아니라
 > 트래커 §2 가 기록한 범위를 출발점으로 삼은 것이다.**
@@ -115,6 +131,8 @@ User / Auth / Session            0-B
 Role / Permission / RLS policy   0-C
 과금 금액 계산 · 정산             별도
 UI                               Phase 0 Exit Demo
+manage_subscription 상태 변경        HD-0-A-2-7
+T-2~T-7 구독 전이 · 요금제 · 갱신 · 해지 · 만료 · entitlement
 ```
 
 ## §7 Boundary Reference Documents

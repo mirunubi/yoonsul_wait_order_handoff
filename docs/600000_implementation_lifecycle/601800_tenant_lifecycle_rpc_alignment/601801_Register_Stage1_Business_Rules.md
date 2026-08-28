@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Register
-Last Updated: 2026-08-27
+Last Updated: 2026-08-29
 
 ## §0 성격
 
@@ -67,6 +67,7 @@ Audit             HG-A-3 충족 여부
 | 2026-08-28 | `HG-A-13`·`HG-A-14` 추가 — `601807` `S-10` 이 1단계 소관으로 분류됐으나 `HD-0-A-2-2` 재개방 범위에 빠져 있었다. 제품 경계와 격리 범위, tenant 별 포인트 권위 provider 선택을 선언한다 |
 | 2026-08-28 | `HG-A-14` 폐기 — YS-OS 별도 DB 를 전제한 포인트 provider 선택 선언이었다. YS-OS 가 CatchMenu tenant 임이 확정돼 포인트 권위가 하나뿐이므로 선택지가 성립하지 않는다. `HG-A-13` 은 실제 외부 시스템 대상으로 유지 |
 | 2026-08-29 | `HG-A-14` 폐기 철회 — 폐기 사유였던 「YS-OS 가 CatchMenu tenant」 판단이 틀렸다. Human 이 별도 제품 · 별도 DB · 별도 tenant registry 를 명시적으로 확정했다. `HG-A-13`·`HG-A-14` 를 복원한다 |
+| 2026-08-29 | `HD-0-A-2-7` — `manage_subscription` 과 `T-2`~`T-7` 구독 전이를 `0-A-2` 범위에서 절단. `601807` `S-1` 이 확인한 선언 부재를 `HG-A-10` 에 따라 추론으로 채우지 않고 별도 워크패킷으로 이월한다. `tenant_status` 는 범위에 남는다. `HD-0-A-2-8` — `HG-A-9.1`~`HG-A-9.8` 식별자 부여 |
 
 ## §1 Human Gate A Business Rules
 
@@ -223,6 +224,17 @@ Human 승인
 > ⚠️ **`HG-A-1` ~ `HG-A-8` 의 의미를 바꾸지 않는다.**
 > **`§1.1` 표가 다루지 않은 `TRIAL` · `CANCELLED` · `TERMINATED` 조합을 보완한다.**
 
+> ⚠️ **하위 식별자 — `HD-0-A-2-8`**
+>
+> ```text
+> canonical   HG-A-9.1 ~ HG-A-9.8
+> 절 인용      601801 §1.9.N (HG-A-9.N)
+> ```
+>
+> **`601803` 이 `HG-A-9-N` 형식을 임의로 도입했고**
+> **`601805` `I-5` 가 「`601801` 이 정의하지 않은 인용 형식」으로 지적했다.**
+> **매핑은 8/8 정확했으나 승인이 없었다. 이 결정이 그것을 부여한다.**
+
 **합성 규칙**
 
 ```text
@@ -235,37 +247,37 @@ Human 승인
 **선언 8항**
 
 ```text
-1  tenant_status 의 5개 값
+HG-A-9.1  tenant_status 의 5개 값
    ACTIVE · TRIAL · SUSPENDED · CANCELLED · TERMINATED 와
    isolation_state 의 NONE · ISOLATED 조합은 모두 표현 가능하다.
 
-2  서비스 접근에는 tenant_status 와 isolation_state 중
+HG-A-9.2  서비스 접근에는 tenant_status 와 isolation_state 중
    더 제한적인 조건을 적용한다.
    ISOLATED 는 어떤 tenant_status 에서도 일반 runtime 접근과
    tenant 영업 side effect 를 허용하지 않는다.
 
-3  계약 · 기본 구독료 · 체험조건 · 취소 효력일 및 반복과금 여부는
+HG-A-9.3  계약 · 기본 구독료 · 체험조건 · 취소 효력일 및 반복과금 여부는
    tenant_status 와 subscription 계약에서 결정한다.
    isolation_state 는 이를 자동 변경하지 않는다.
 
-4  TRIAL + ISOLATED 에서 격리는 유료 전환 · 신규 청구 ·
+HG-A-9.4  TRIAL + ISOLATED 에서 격리는 유료 전환 · 신규 청구 ·
    체험 종료 또는 체험기간 연장을 자동 발생시키지 않는다.
    플랫폼 귀책 격리는 trial extension review 를 생성하되,
    실제 연장은 Human 승인으로만 수행한다.
 
-5  SUSPENDED + ISOLATED 에서 격리를 해제해도
+HG-A-9.5  SUSPENDED + ISOLATED 에서 격리를 해제해도
    tenant_status 는 SUSPENDED 로 유지되고 서비스는 재개되지 않는다.
 
-6  CANCELLED + ISOLATED 에서 취소 및 종료 처리는 계속할 수 있으나
+HG-A-9.6  CANCELLED + ISOLATED 에서 취소 및 종료 처리는 계속할 수 있으나
    일반 영업 서비스는 재개하지 않는다.
    격리 해제는 CANCELLED 를 ACTIVE 로 변경하지 않는다.
 
-7  TERMINATED + ISOLATED 는 유효한 terminal containment 상태다.
+HG-A-9.7  TERMINATED + ISOLATED 는 유효한 terminal containment 상태다.
    TERMINATED 전이는 isolation 을 자동 해제하지 않으며,
    해당 tenant 는 일반 격리 복구 대상이 아니다.
    데이터 보존 · 삭제 · 익명화 · 법적 증거 처리만 수행할 수 있다.
 
-8  isolation 해제는 tenant_status 를 변경하지 않는다.
+HG-A-9.8  isolation 해제는 tenant_status 를 변경하지 않는다.
    tenant_status 변경 또한 isolation_state 를 자동 변경하지 않는다.
    두 축의 변경은 각각 별도 권한 · 사유 · 승인 및 감사 기록을 요구한다.
 ```
@@ -643,6 +655,26 @@ changes. Automatic fallback to native points on external timeout or
 failure is forbidden; the request is held and retried under the same
 idempotency key, and prolonged failure is for an operator to review.
 Balance migration and provider switching are not implemented in 0-A-2.
+
+HD-0-A-2-7 — manage_subscription Scope Cut
+
+manage_subscription and the subscription state transitions T-2 through
+T-7 are removed from the design and implementation scope of 0-A-2. The
+permitted conditions, actors, billing and entitlement effects of those
+transitions have not been declared by the human, and HG-A-10 forbids
+stages two through four from inferring them. Subscription lifecycle is
+declared, designed and verified in a separate workpacket. Until then the
+existing function remains under the call prohibition, and 0-A-2 only
+regression-checks that its body and privileges are unchanged.
+
+tenant_status itself is not removed from scope. 0-A-2 reads it for
+access decisions and does not change it.
+
+HD-0-A-2-8 — HG-A-9 Sub-identifiers
+
+The eight rules under HG-A-9 receive canonical identifiers HG-A-9.1
+through HG-A-9.8. Document references use the form 601801 §1.9.N with
+the gate identifier alongside.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -654,6 +686,8 @@ Balance migration and provider switching are not implemented in 0-A-2.
 **HD-0-A-2-5 판정자** — 정영석, 2026-08-28
 
 **HD-0-A-2-6 판정자** — 정영석, 2026-08-29
+
+**HD-0-A-2-7 · HD-0-A-2-8 판정자** — 정영석, 2026-08-29
 
 ## §4 후속 설계 의무
 
