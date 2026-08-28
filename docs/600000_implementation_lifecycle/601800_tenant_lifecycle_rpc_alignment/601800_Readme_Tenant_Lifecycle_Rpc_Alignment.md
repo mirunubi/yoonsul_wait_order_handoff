@@ -84,11 +84,12 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 **현재 위치**
 
 ```text
-1단계   완료 — 601801 HG-A-1 ~ HG-A-9 (2026-08-27)
-2단계   초안 — 601803 (Draft). 3단계 Blocker 10건 반영 대기
-3단계   완료 — 601804 · 601805 · 601806 · 601807 (2026-08-28)
-        Blocker 10 / informational 23
-4단계   착수 대기 — S-1 · S-5 · S-7 은 601801 재개방 가능성
+1단계   완료 후 제한적 재개방 (2026-08-28)
+        601801 HG-A-1 ~ HG-A-12
+        HD-0-A-2-1 A급 판정 / HD-0-A-2-2 재개방 범위
+2단계   초안 — 601803 (Draft). Blocker 10건 반영 대기
+3단계   완료 — Blocker 10 / informational 23
+다음    Stage 3 영향 대조 후 4단계
 ```
 
 ## §5 In Scope — candidate
@@ -161,7 +162,7 @@ UI                               Phase 0 Exit Demo
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 601800 | `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 이 문서 |
-| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 9건(`HG-A-1`~`HG-A-9`). Human Gate A |
+| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 12건(HG-A-1~HG-A-12). Human Gate A + Human Decision HD-0-A-2-1~4 (2026-08-28 제한적 재개방) |
 | 601802 | `601802_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부 |
 | 601803 | `601803_Diagram_Tenant_Lifecycle_State_Machine.md` | Draft — 2단계 ERD. 상태 전이 모델. 3단계 대조 대기 |
 | 601804 | `601804_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 실측 축. Blocker 3 |
