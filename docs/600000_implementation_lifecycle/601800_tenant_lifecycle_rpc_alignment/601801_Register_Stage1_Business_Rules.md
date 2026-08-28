@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 14건 — `HG-A-1` ~ `HG-A-14`.**
+> **선언 15건 — `HG-A-1` ~ `HG-A-15`.**
 
 ### §0.1 식별자 규칙
 
@@ -68,6 +68,7 @@ Audit             HG-A-3 충족 여부
 | 2026-08-28 | `HG-A-14` 폐기 — YS-OS 별도 DB 를 전제한 포인트 provider 선택 선언이었다. YS-OS 가 CatchMenu tenant 임이 확정돼 포인트 권위가 하나뿐이므로 선택지가 성립하지 않는다. `HG-A-13` 은 실제 외부 시스템 대상으로 유지 |
 | 2026-08-29 | `HG-A-14` 폐기 철회 — 폐기 사유였던 「YS-OS 가 CatchMenu tenant」 판단이 틀렸다. Human 이 별도 제품 · 별도 DB · 별도 tenant registry 를 명시적으로 확정했다. `HG-A-13`·`HG-A-14` 를 복원한다 |
 | 2026-08-29 | `HD-0-A-2-7` — `manage_subscription` 과 `T-2`~`T-7` 구독 전이를 `0-A-2` 범위에서 절단. `601807` `S-1` 이 확인한 선언 부재를 `HG-A-10` 에 따라 추론으로 채우지 않고 별도 워크패킷으로 이월한다. `tenant_status` 는 범위에 남는다. `HD-0-A-2-8` — `HG-A-9.1`~`HG-A-9.8` 식별자 부여 |
+| 2026-08-29 | `HG-A-15` 추가 — `601810` `Q-4` 가 확인한 공백. `HG-A-5` 는 환불 · 크레딧 결정 주체를 정했으나 **격리 원인 귀책의 최종 확정 주체**를 정하지 않았다. 귀책 판정이 과금 조정으로 이어지므로 A급 항목이다 |
 
 ## §1 Human Gate A Business Rules
 
@@ -562,6 +563,55 @@ CatchMenu native 포인트로 자동 전환하지 않는다
 > ⚠️ **포인트 잔액 이전과 전환 절차는 `0-A-2` 구현 대상이 아니다.**
 > **후속 포인트 연동 워크패킷 소관이다 — §4.**
 
+### §1.15 HG-A-15 — 격리 원인 귀책의 확정 주체
+
+**`601810` `Q-4` 가 확인한 공백을 닫는다.**
+
+```text
+HG-A-5 가 환불 · 크레딧 · 청구중단을 Human 승인으로 한정했다
+601801 §2 가 격리 원인을 5분류로 열거했다
+없는 것   그 분류를 누가 최종 확정하는가
+```
+
+**자동 시스템은 증거를 모으고 임시 분류만 한다.**
+
+```text
+PROVISIONAL_PLATFORM
+PROVISIONAL_TENANT
+PROVISIONAL_PROVIDER
+UNKNOWN
+```
+
+**최종 귀책 확정은 승인된 Human 역할이 수행한다.**
+
+```text
+1차 분류   운영 담당자
+최종 확정   과금 · 보상에 영향이 있으면 별도 승인권자
+분리 원칙   자기가 관여한 사건을 자기 혼자 승인하지 못한다
+```
+
+> ⚠️ **자동 분류는 임시값이며 과금 조정의 근거가 되지 않는다.**
+> **`HG-A-5` 가 정한 「환불 · 크레딧은 Human 승인」의 선행 단계다.**
+
+**`0-A-2` 가 정하는 것**
+
+```text
+임시 분류값의 존재와 그것이 임시라는 사실
+최종 확정이 Human 역할의 행위라는 것
+확정 이력이 감사 기록에 남는다는 것
+```
+
+**`0-A-2` 가 정하지 않는 것**
+
+```text
+구체적 역할 이름과 권한 — 0-C
+승인권자 배정 규칙 — 0-C
+보상 정책과 금액 — 별도
+provider 장애를 플랫폼 귀책으로 볼 것인가 — 계약 · 법무
+```
+
+> ⚠️ **`000221` §6.1 「돈 · 포인트 · 재고 수량을 바꿀 수 있는가」에 해당하는 A급 항목이다.**
+
 ## §2 격리 원인별 처분
 
 | 격리 원인 | 기본 구독료 | 후속 조치 |
@@ -686,6 +736,17 @@ HD-0-A-2-8 — HG-A-9 Sub-identifiers
 The eight rules under HG-A-9 receive canonical identifiers HG-A-9.1
 through HG-A-9.8. Document references use the form 601801 §1.9.N with
 the gate identifier alongside.
+
+HD-0-A-2-9 — Fault Attribution Authority
+
+Automated classification of an isolation cause is provisional and never
+by itself a basis for billing adjustment. Final attribution is an act of
+an approved human role: an operator makes the first classification, and
+where billing or compensation is affected a separate approver confirms
+it. No one confirms an incident they were party to alone. The concrete
+roles and their privileges are 0-C scope; compensation policy is
+separate. What 0-A-2 fixes is that a provisional value exists, that it
+is marked provisional, and that confirmation is recorded.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -699,6 +760,8 @@ the gate identifier alongside.
 **HD-0-A-2-6 판정자** — 정영석, 2026-08-29
 
 **HD-0-A-2-7 · HD-0-A-2-8 판정자** — 정영석, 2026-08-29
+
+**HD-0-A-2-9 판정자** — 정영석, 2026-08-29
 
 ## §4 후속 설계 의무
 
@@ -722,6 +785,8 @@ provider snapshot 3필드의 물리 표현 — 동상
 외부 회원 연결 식별자와 잔액 cache 구조 — 동상
 provider 전환 계약 — 잔액 이전 · 진행 중 거래 처리. 동상
 integration mapping — catchmenu_tenant_id ↔ 외부 제품 tenant ref. 동상
+귀책 확정 역할과 승인권자 배정 — 0-C
+provider 장애의 귀책 판정 기준 — 계약 · 법무
 ```
 
 **각 산출물은 자신이 어느 `HG-A-N` 에서 나왔는지 명시한다**(§0.1).
