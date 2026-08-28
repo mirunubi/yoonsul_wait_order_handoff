@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 9건 — `HG-A-1` ~ `HG-A-9`.**
+> **선언 12건 — `HG-A-1` ~ `HG-A-12`.**
 
 ### §0.1 식별자 규칙
 
@@ -63,6 +63,7 @@ Audit             HG-A-3 충족 여부
 |---|---|
 | 2026-08-27 | 초안 — `HG-A-1`~`HG-A-8` (Human Gate A) |
 | 2026-08-27 | `HG-A-9` 추가 — Stage 2 착수 전 `TRIAL` · `CANCELLED` · `TERMINATED` 조합 누락 발견. **`HG-A-1`~`HG-A-8` 의 의미를 수정하지 않고** 5×2 상태 조합과 우선순위를 닫았다 |
+| 2026-08-28 | `HG-A-10`~`HG-A-12` 추가 — 3단계(`601807` `S-1`·`S-5`·`S-7`)가 확인한 업무규칙 공백. **제한적 재개방** — `HG-A-1`~`HG-A-9` 의 의미를 수정하지 않고 상태 초기값·전이·멱등성·동시성, 6축과 2축의 관계, MerchantAccount 경계를 추가했다 |
 
 ## §1 Human Gate A Business Rules
 
@@ -282,6 +283,125 @@ Human 승인
 > ⚠️ **`TERMINATED` 는 일반 격리 복구 경로의 대상이 아니다.**
 > **복구 함수가 `TERMINATED` tenant 를 되살리면 안 된다.**
 
+### §1.10 HG-A-10 — 상태 초기값 · 전이 · 멱등성 · 동시성
+
+**`601807` `S-1` 이 확인한 공백을 닫는다.**
+
+> ⚠️ **`HG-A-1`~`HG-A-9` 는 조합의 유효성을 선언했을 뿐
+> 전이의 허용 여부 · 수행 주체 · 초기값을 선언하지 않았다.**
+> **2단계가 그것을 만들어냈고 3단계 세 검증자가 독립적으로 같은 결함에 도달했다.**
+
+**초기값**
+
+```text
+isolation_state   초기값 NONE
+tenant_status     초기값은 bootstrap 경로가 정한다 — 0-A-3 소관
+```
+
+> ⚠️ **현재 DB default 를 설계 근거로 승격하지 않는다**(`601702` §1.27).
+
+**전이 선언**
+
+```text
+각 전이마다 아래를 명시한다
+
+  허용 / 금지
+  수행 주체
+  전이 사유
+  전제 조건
+```
+
+**미선언 전이는 미정으로 남긴다.** 2~4단계가 채우지 않는다.
+
+**멱등성 · 동시성**
+
+```text
+동일 요청 재실행    같은 결과로 성공한다
+오래된 요청         최신 상태를 되돌리지 못한다
+실패                상태 변경과 감사 기록이 함께 commit 되거나 함께 rollback 된다
+```
+
+**권한 분리**
+
+```text
+격리 실행 권한과 격리 해제 권한이 반드시 같지 않다
+해제 쪽이 더 강한 승인 조건을 요구할 수 있다
+```
+
+**구체적 권한 주체는 0-C 가 정한다.**
+
+### §1.11 HG-A-11 — 이 나선이 소유하는 상태축
+
+**`601807` `S-5` 가 확인한 충돌을 닫는다.**
+
+```text
+601702 §1.28 이 6축을 열거한다
+
+  TenantStatus ≠ MerchantAccountStatus ≠ StoreServiceStatus
+  ≠ StoreOperatingStatus ≠ TrialStatus ≠ IsolationState
+
+  각 계층은 자신의 상태를 갖는다
+  상위 상태를 하위 상태의 대체물로 사용하지 않는다
+```
+
+**0-A-2 가 직접 소유하는 상태축은 둘이다.**
+
+```text
+tenant_status
+isolation_state
+```
+
+**나머지 4축**
+
+```text
+이번 나선의 직접 변경 대상이 아니다
+두 직접 상태축으로부터 자동 파생되지 않는다
+0-A-2 RPC 가 변경하지 않는다
+접근 판단에서 참조가 필요하면 명시적 precondition 으로만 사용한다
+```
+
+> ⚠️ **6축의 존재를 부정하지 않는다.**
+> **`0-A-2` 가 소유하는 상태머신을 2축으로 한정할 뿐이다.**
+>
+> **`601803` §3 격자의 `TRIAL` 행 「체험 서비스」는
+> `Trial Status` 를 `tenant_status` 로 추론한 것이며 `601702` §1.27 이 금지한다.**
+> **4단계가 그 표현을 정정한다.**
+
+### §1.12 HG-A-12 — MerchantAccount 경계
+
+**`601807` `S-7` 이 확인한 부재를 닫는다.**
+
+**`MerchantAccount` 는 세 번째 lifecycle 상태축이 아니다.**
+
+```text
+tenant 가 운영하기 위한 권위 객체다
+```
+
+**`0-A-2` RPC 가 하지 않는 것**
+
+```text
+merchant_account 를 생성 · 삭제 · 교체하지 않는다
+merchant_account_id 를 변경하지 않는다
+tenant ↔ merchant_account 연결을 수정하지 않는다
+```
+
+**허용되는 것**
+
+```text
+정상 운영 자격 판단에서
+tenant 와 연결된 유효한 merchant_account 존재 여부를
+별도 prerequisite 로 검사할 수 있다
+```
+
+> ⚠️ **생성과 연결 복구는 `0-A-3` 소관이다.**
+> **`0-A-2` 에서 merchant account 를 생성하려 하면
+> `0-A-3` provisioning 범위를 침범한다.**
+
+> ⚠️ **`601702` §1.28 이 `MerchantAccountStatus` 를 별도 축으로 열거했으나
+> 그 축을 이 나선이 설계하지 않는다.**
+> **`601746` §2.11 d 가 「tenant 상태 ↔ merchant account 계약 상태 미연결」을
+> 이관한 그대로 둔다.**
+
 ## §2 격리 원인별 처분
 
 | 격리 원인 | 기본 구독료 | 후속 조치 |
@@ -329,11 +449,40 @@ clarifications:
    Lifting isolation never changes tenant_status, and changing
    tenant_status never lifts isolation. TERMINATED tenants are not
    subject to ordinary isolation recovery.
+
+HD-0-A-2-1 — Verification Grade
+
+0-A-2 affects tenant lifecycle, technical isolation, access rights and
+the tenant data boundary. It is graded A. Blind design review,
+ChangeContract, fault injection and independent audit are not omitted.
+
+HD-0-A-2-2 — Stage 1 Reopening
+
+S-1, S-5 and S-7 identified at Stage 3 are gaps in human business rules
+that modelling alone cannot close. 601801 is reopened in a limited way.
+The scope is: state initial values, permitted transitions, transition
+actors, idempotency and concurrency; the relation between the six axes
+and this spiral's two; and the non-axis boundary of MerchantAccount.
+
+HD-0-A-2-3 — State Axes
+
+The state axes this spiral owns are tenant_status and isolation_state.
+Other axes are neither derived nor modified, and are referenced only as
+explicit preconditions where required.
+
+HD-0-A-2-4 — MerchantAccount Boundary
+
+MerchantAccount is not a third lifecycle axis. 0-A-2 RPCs do not create,
+delete, replace or re-link it. Checking for the existence of a valid
+merchant account as an operating prerequisite is permitted; creation and
+link repair remain 0-A-3 scope.
 ```
 
 **판정자** — 정영석, 2026-08-27
 
 **HG-A-9 판정자** — 정영석, 2026-08-27
+
+**HD-0-A-2-1 ~ HD-0-A-2-4 판정자** — 정영석, 2026-08-28
 
 ## §4 후속 설계 의무
 
@@ -348,6 +497,9 @@ billing review task 의 물리 표현
 과금 금액 계산 · 정산 로직
 trial extension review 의 물리 표현
 TERMINATED 보존 · 삭제 · 익명화 절차
+전이별 수행 주체의 구체적 권한 정의 — 0-C
+tenant_status 초기값을 정하는 bootstrap 경로 — 0-A-3
+MerchantAccountStatus 축 — 후속. 601746 §2.11 d
 ```
 
 **각 산출물은 자신이 어느 `HG-A-N` 에서 나왔는지 명시한다**(§0.1).
