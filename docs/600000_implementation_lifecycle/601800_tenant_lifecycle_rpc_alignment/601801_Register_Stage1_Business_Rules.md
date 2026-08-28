@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 13건 — `HG-A-1` ~ `HG-A-13`.**
+> **선언 14건 — `HG-A-1` ~ `HG-A-14`.**
 
 ### §0.1 식별자 규칙
 
@@ -66,6 +66,7 @@ Audit             HG-A-3 충족 여부
 | 2026-08-28 | `HG-A-10`~`HG-A-12` 추가 — 3단계(`601807` `S-1`·`S-5`·`S-7`)가 확인한 업무규칙 공백. **제한적 재개방** — `HG-A-1`~`HG-A-9` 의 의미를 수정하지 않고 상태 초기값·전이·멱등성·동시성, 6축과 2축의 관계, MerchantAccount 경계를 추가했다 |
 | 2026-08-28 | `HG-A-13`·`HG-A-14` 추가 — `601807` `S-10` 이 1단계 소관으로 분류됐으나 `HD-0-A-2-2` 재개방 범위에 빠져 있었다. 제품 경계와 격리 범위, tenant 별 포인트 권위 provider 선택을 선언한다 |
 | 2026-08-28 | `HG-A-14` 폐기 — YS-OS 별도 DB 를 전제한 포인트 provider 선택 선언이었다. YS-OS 가 CatchMenu tenant 임이 확정돼 포인트 권위가 하나뿐이므로 선택지가 성립하지 않는다. `HG-A-13` 은 실제 외부 시스템 대상으로 유지 |
+| 2026-08-29 | `HG-A-14` 폐기 철회 — 폐기 사유였던 「YS-OS 가 CatchMenu tenant」 판단이 틀렸다. Human 이 별도 제품 · 별도 DB · 별도 tenant registry 를 명시적으로 확정했다. `HG-A-13`·`HG-A-14` 를 복원한다 |
 
 ## §1 Human Gate A Business Rules
 
@@ -404,64 +405,139 @@ tenant 와 연결된 유효한 merchant_account 존재 여부를
 > **`601746` §2.11 d 가 「tenant 상태 ↔ merchant account 계약 상태 미연결」을
 > 이관한 그대로 둔다.**
 
-### §1.13 HG-A-13 — 외부 시스템 경계와 격리 범위
+### §1.13 HG-A-13 — 외부 제품 경계와 격리 범위
 
-**격리가 CatchMenu 밖으로 전파되지 않음을 선언한다.**
+**`601807` `S-10` 이 확인한 공백을 닫는다.**
+
+> ⚠️ **`HG-A-2` 가 격리 중 차단 대상으로 「멤버십 · 재고 쓰기」를 선언했다.**
+> **YS-OS 는 별도 제품 · 별도 DB 이며 그 쓰기는 CatchMenu 통제 밖이다.**
+
+**제품 경계**
 
 ```text
-CatchMenu 는 외부 시스템과 연동한다
-  Toss PG · Toss POS / Kiosk · Smartcast KDS 등
+CatchMenu 와 YS-OS 는 각각 별도의 제품 · PostgreSQL DB ·
+tenant registry · 포인트 ledger 를 가진다
 
-그 시스템들은 CatchMenu 와 별도 권위를 갖는다
-격리가 그 시스템의 자체 운영을 멈추지 않는다
+현실의 동일 사업자 윤슬김밥은 양쪽에 각각 tenant/account 로 존재하며
+서로 다른 식별자를 API mapping 으로 연결한다
+
+  catchmenu_tenant_id ≠ ys_os_tenant_id
+  catchmenu_store_id  ≠ ys_os_store_id
+
+YS-OS 는 CatchMenu 의 윤슬김밥 tenant 자격으로 CatchMenu API 를 호출한다
 ```
-
-> ⚠️ **`601807` `S-10` 은 YS-OS 를 별도 DB 로 전제했으나
-> YS-OS 는 CatchMenu 의 tenant 다.**
-> **그 전제는 성립하지 않으며 `S-10` 은 기각한다.**
-> **이 조항은 실제 외부 시스템에 대한 선언으로 유지한다.**
 
 **CatchMenu tenant 의 격리는 CatchMenu 가 소유하거나 통제하는
 데이터 · API · 세션 · integration credential · 외부 전달 경로에만 적용한다.**
 
-**CatchMenu 와 별도 권위를 가진 외부 시스템의
+**CatchMenu 와 별도 권위를 가진 외부 제품의
 업무 쓰기를 직접 또는 간접적으로 차단하지 않는다.**
 
 **차단하는 것**
 
 ```text
-CatchMenu 대기 쓰기
-CatchMenu 주문 쓰기
-CatchMenu native 포인트 쓰기
-해당 tenant 의 외부 시스템 → CatchMenu API 호출
-해당 tenant 에 발급한 CatchMenu integration credential
-필요 시 CatchMenu outbox 전달 보류
+CatchMenu 데이터 쓰기
+CatchMenu 대기 · 주문 · native 포인트 쓰기
+해당 tenant 의 로그인 · 세션
+외부 제품이 해당 tenant 자격으로 호출하는 CatchMenu API
+CatchMenu integration credential
+CatchMenu provider outbox 전달
 ```
 
 **차단하지 않는 것**
 
 ```text
-외부 POS 의 자체 매장 운영
-외부 KDS 의 자체 주방 운영
-PG 사의 다른 가맹점 처리
-그 시스템들의 다른 연동
+외부 제품 DB 쓰기
+외부 제품의 직원 업무 · 재고 처리 · 자체 멤버십
+외부 제품 point ledger
+외부 제품의 다른 외부 연동
 ```
 
-> ⚠️ **CatchMenu 는 외부 시스템을 격리하지 않는다.**
-> **외부 시스템이 CatchMenu 에 접근하는 통로만 차단한다.**
+> ⚠️ **CatchMenu 는 외부 제품을 격리하지 않는다.**
+> **외부 제품이 CatchMenu 에 접근하는 통로만 차단한다.**
 >
-> **CatchMenu 의 보안 사고가 별도 권위를 가진 시스템의
+> **CatchMenu 의 보안 사고가 별도 권위를 가진 제품의
 > 전체 운영을 정지시켜서는 안 된다.**
 
-**외부 시스템이 해당 CatchMenu tenant 의 자격으로 API 를 호출하면
+**외부 제품이 해당 CatchMenu tenant 의 자격으로 API 를 호출하면
 격리 상태에서 그 호출을 fail-closed 로 거부한다.**
 
-**CatchMenu 격리 상태는 외부 시스템의 tenant 상태나 업무 상태로
+**CatchMenu 격리 상태는 외부 제품의 tenant 상태나 업무 상태로
 자동 전파되지 않는다.**
+
+> ⚠️ **이 조항은 실제 외부 시스템에도 같은 원리로 적용된다.**
+>
+> ```text
+> Toss PG · Toss POS / Kiosk · Smartcast KDS 등
+>
+> 그 시스템들은 CatchMenu 와 별도 권위를 갖는다
+> 격리가 그 시스템의 자체 운영을 멈추지 않는다
+> ```
 
 > ⚠️ **`HG-A-2` 의 「멤버십 · 재고 쓰기 차단」은
 > CatchMenu 가 소유 · 통제하는 데이터만 뜻한다.**
 > **`HG-A-2` 본문을 수정하지 않고 이 조항이 범위를 한정한다.**
+
+> ⚠️ **`601807` `S-10` 을 기각하지 않는다.**
+>
+> ```text
+> Cowork F-2 의 「YS-OS = 별도 제품 · 별도 DB」 전제는 이 선언과 일치한다
+> 601807 이 그 전제를 독립 재도출하지 않은 것은 절차적 finding 이며
+> 전제의 진위와 별개다
+> ```
+
+### §1.14 HG-A-14 — Tenant 별 포인트 권위 선택
+
+**CatchMenu tenant 는 포인트 권위 provider 를 하나 선택한다.**
+
+```text
+CATCHMENU_NATIVE   CatchMenu point ledger 가 권위
+EXTERNAL           연결된 외부 제품의 point ledger 가 권위
+                   CatchMenu 는 API 호출 결과만 보존한다
+```
+
+**하나의 포인트 거래에 두 provider 가 동시에 권위를 갖거나
+적립 · 차감하는 것을 허용하지 않는다.**
+
+**거래 생성 시 provider 를 snapshot 으로 남긴다**
+
+```text
+point_provider
+provider_tenant_ref
+provider_transaction_ref
+```
+
+**설정이 나중에 바뀌어도 이미 발생한 거래의 provider 는 바뀌지 않는다.**
+
+**자동 fallback 금지**
+
+```text
+외부 provider 의 timeout 또는 실패를 이유로
+CatchMenu native 포인트로 자동 전환하지 않는다
+
+동일 idempotency key 를 유지해 보류 · 재시도한다
+장기 실패는 운영자 확인 대상이다
+```
+
+> ⚠️ **자동 fallback 은 이중 적립을 만든다.**
+> **`000221` §6.1 「돈 · 포인트 · 재고 수량을 바꿀 수 있는가」에 해당하는 A급 항목이다.**
+
+**`EXTERNAL` 모드에서 CatchMenu 가 가질 수 있는 것**
+
+```text
+외부 회원 연결 식별자
+요청 금액과 포인트
+외부 transaction ID
+처리 상태
+마지막 조회 잔액과 조회 시각 — cache 이며 권위 잔액이 아니다
+감사 및 재처리 정보
+```
+
+**provider 변경은 기존 잔액과 진행 중 거래를 자동 변환하지 않는다.**
+**별도의 전환 계약을 따른다.**
+
+> ⚠️ **포인트 잔액 이전과 전환 절차는 `0-A-2` 구현 대상이 아니다.**
+> **후속 포인트 연동 워크패킷 소관이다 — §4.**
 
 ## §2 격리 원인별 처분
 
@@ -538,15 +614,35 @@ delete, replace or re-link it. Checking for the existence of a valid
 merchant account as an operating prerequisite is permitted; creation and
 link repair remain 0-A-3 scope.
 
-HD-0-A-2-5 — External System Boundary
+HD-0-A-2-5 — External Product Boundary
+
+CatchMenu and YS-OS are separate products with separate PostgreSQL
+databases, tenant registries and point ledgers. The same real business,
+윤슬김밥, exists on both sides as its own tenant/account, and the two
+identifiers are joined by API mapping rather than by a cross-database
+foreign key or a shared tenant primary key.
 
 Isolation of a CatchMenu tenant applies only to data, APIs, sessions,
 integration credentials and outbound paths that CatchMenu owns or
 controls. It does not block, directly or indirectly, the business writes
-of a separate system holding its own authority. Where such
-a product calls CatchMenu APIs under that tenant's credentials, those
-calls are refused fail-closed. CatchMenu isolation does not propagate
-into the other system's tenant or business state.
+of a separate product holding its own authority. Where such a product
+calls CatchMenu APIs under that tenant's credentials, those calls are
+refused fail-closed. CatchMenu isolation does not propagate into the
+other product's tenant or business state.
+
+HD-0-A-2-6 — Point Authority Provider
+
+A CatchMenu tenant selects exactly one point authority provider:
+CATCHMENU_NATIVE, where the CatchMenu point ledger is authoritative, or
+EXTERNAL, where the connected external product's ledger is authoritative
+and CatchMenu preserves only the call and its result. No point
+transaction may hold two authoritative providers, and none may be
+accrued or deducted by both. The provider is recorded as a snapshot when
+the transaction is created and does not change when the setting later
+changes. Automatic fallback to native points on external timeout or
+failure is forbidden; the request is held and retried under the same
+idempotency key, and prolonged failure is for an operator to review.
+Balance migration and provider switching are not implemented in 0-A-2.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -556,6 +652,8 @@ into the other system's tenant or business state.
 **HD-0-A-2-1 ~ HD-0-A-2-4 판정자** — 정영석, 2026-08-28
 
 **HD-0-A-2-5 판정자** — 정영석, 2026-08-28
+
+**HD-0-A-2-6 판정자** — 정영석, 2026-08-29
 
 ## §4 후속 설계 의무
 
@@ -573,6 +671,12 @@ TERMINATED 보존 · 삭제 · 익명화 절차
 전이별 수행 주체의 구체적 권한 정의 — 0-C
 tenant_status 초기값을 정하는 bootstrap 경로 — 0-A-3
 MerchantAccountStatus 축 — 후속. 601746 §2.11 d
+point_provider 설정의 물리 표현 — 후속 포인트 연동 워크패킷
+provider snapshot 3필드의 물리 표현 — 동상
+외부 provider 실패 시 보류 · 재시도 절차 — 동상
+외부 회원 연결 식별자와 잔액 cache 구조 — 동상
+provider 전환 계약 — 잔액 이전 · 진행 중 거래 처리. 동상
+integration mapping — catchmenu_tenant_id ↔ 외부 제품 tenant ref. 동상
 ```
 
 **각 산출물은 자신이 어느 `HG-A-N` 에서 나왔는지 명시한다**(§0.1).
