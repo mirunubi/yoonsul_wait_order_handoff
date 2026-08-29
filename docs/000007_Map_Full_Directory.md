@@ -1768,6 +1768,9 @@ docs/
   |   |   +--- 601810_Logic_Tenant_Lifecycle_Rpc_Alignment.md
   |   |   +--- 601811_TestPlan_Tenant_Lifecycle_Rpc_Alignment.md
   |   |   +--- 601812_ChangeContract_Tenant_Lifecycle_Rpc_Alignment.md
+  |   |   +--- 601813_Audit_Stage6_Contract_Verification_Codex.md
+  |   |   +--- 601814_Audit_Stage6_Contract_Verification_Cowork.md
+  |   |   +--- 601815_Audit_Stage6_Contract_Verification_Claude.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md

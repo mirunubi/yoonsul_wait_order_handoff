@@ -91,7 +91,9 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 3단계   완료 — 601804 ~ 601807. Blocker 10 / informational 23
 영향 대조  완료 — 601808. HUMAN 0건
 4단계   완료 — 601809 · 601810 · 601811 · 601812
-Stage 6  착수 대기 — 네 문서 동등 검증
+Stage 6   Round 1 완료 — 601813 · 601814 · 601815
+          blocking 29 / informational 25
+          다음 601816 통합 → Human 처분 → 4단계 재작성
 ```
 
 ## §5 In Scope — candidate
@@ -194,6 +196,9 @@ T-2~T-7 구독 전이 · 요금제 · 갱신 · 해지 · 만료 · entitlement
 | 601810 | `601810_Logic_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 Logic. 불변조건 56건 · 예외 8건 · 미해결 3건 |
 | 601811 | `601811_TestPlan_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 TestPlan. Test ID 104 |
 | 601812 | `601812_ChangeContract_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 ChangeContract. 물리명 전건 확정 |
+| 601813 | `601813_Audit_Stage6_Contract_Verification_Codex.md` | Active — Stage 6 실측 축. blocking 10 |
+| 601814 | `601814_Audit_Stage6_Contract_Verification_Cowork.md` | Active — Stage 6 문서 축. blocking 4 |
+| 601815 | `601815_Audit_Stage6_Contract_Verification_Claude.md` | Active — Stage 6 외부 타당성. blocking 15 |
 
 ## §10 Non-Implementation Boundary
 
