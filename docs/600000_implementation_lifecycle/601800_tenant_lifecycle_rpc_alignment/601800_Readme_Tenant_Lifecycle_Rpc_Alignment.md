@@ -90,8 +90,8 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 2단계   완료 — 601803 (Active). 601808 대조표 30건 반영
 3단계   완료 — 601804 ~ 601807. Blocker 10 / informational 23
 영향 대조  완료 — 601808. HUMAN 0건
-4단계   진행중 — 601809 Overview · 601810 Logic
-        다음 601811 TestPlan · 601812 ChangeContract
+4단계   완료 — 601809 · 601810 · 601811 · 601812
+Stage 6  착수 대기 — 네 문서 동등 검증
 ```
 
 ## §5 In Scope — candidate
@@ -192,6 +192,8 @@ T-2~T-7 구독 전이 · 요금제 · 갱신 · 해지 · 만료 · entitlement
 | 601808 | `601808_Report_Stage3_Impact_Reconciliation.md` | Active — 3단계 영향 대조. RESOLVED 7 / STAGE_4 23 / HUMAN 0 / OUT_OF_SCOPE 3 |
 | 601809 | `601809_Overview_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 Overview. `isolate_tenant` **수리 판정**. `601505` §4 해제 1건 |
 | 601810 | `601810_Logic_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 Logic. 불변조건 56건 · 예외 8건 · 미해결 3건 |
+| 601811 | `601811_TestPlan_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 TestPlan. Test ID 104 |
+| 601812 | `601812_ChangeContract_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 4단계 ChangeContract. 물리명 전건 확정 |
 
 ## §10 Non-Implementation Boundary
 

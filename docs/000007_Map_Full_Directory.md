@@ -1763,6 +1763,11 @@ docs/
   |   |   +--- 601805_Audit_Stage3_Adjacent_Domain_Cowork.md
   |   |   +--- 601806_Audit_Stage3_Adjacent_Domain_Claude.md
   |   |   +--- 601807_Report_Stage3_Integration.md
+  |   |   +--- 601808_Report_Stage3_Impact_Reconciliation.md
+  |   |   +--- 601809_Overview_Tenant_Lifecycle_Rpc_Alignment.md
+  |   |   +--- 601810_Logic_Tenant_Lifecycle_Rpc_Alignment.md
+  |   |   +--- 601811_TestPlan_Tenant_Lifecycle_Rpc_Alignment.md
+  |   |   +--- 601812_ChangeContract_Tenant_Lifecycle_Rpc_Alignment.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
