@@ -80,7 +80,7 @@ AC-N      Acceptance Criteria
 | BL-3 | `detect_threat` prosrc md5 | `601802` §9.1 값 | **불변** | `X-6` |
 | BL-4 | 나머지 호출 금지 4함수 prosrc md5 | `601802` §9.1 값 | **불변** | `601809` §4.4 |
 | BL-5 | `isolation_state` 를 참조하는 함수 수 | **0** | **1 이상** | `I-13` · `X-2` |
-| BL-6 | `tenant_status` 를 참조하는 함수 수 | 7 | 7 이상 — 감소 0 | `I-9` |
+| BL-6 | `tenant_status` 를 참조하는 함수 수 | 7 | **8** — `601812` `D-28` `is_tenant_access_allowed` 가 `tenant_status` 를 읽는다. 감소는 0이어야 한다 | `I-9` · `I-13` |
 | BL-7 | `catchmenu_hq` 함수 수 | 착수 직전 실측 | 불변 또는 증가분 명시 | `TP-R` |
 | BL-8 | `tenants` 행 수 | 착수 직전 실측 | **불변** | `I-9` |
 | BL-9 | `tenants.isolation_state` 값 분포 | 착수 직전 실측 | **불변** — migration 이 상태를 바꾸지 않는다 | `I-2` · `I-21` |
@@ -88,6 +88,7 @@ AC-N      Acceptance Criteria
 | BL-11 | RLS policy 수 — 전 스키마 | 착수 직전 실측 | **불변** | `I-6` · §1.2 |
 | BL-12 | `tenant_status` · `isolation_state` CHECK 허용값 | 5값 / 2값 | **불변** | `I-4` · `I-5` |
 | BL-13 | `merchant_accounts` 행 수 · `stores.merchant_account_id` 연결 | 착수 직전 실측 | **불변** | `I-10` · `I-11` |
+| BL-14 | `catchmenu_common` 함수 수 | (착수 전 실측) | before + 3 | `601812` `D-26` · `D-27` · `D-29` 가 신규 함수 3건을 만든다 |
 
 > ⚠️ **`BL-1` 만 「변경됨」이 기대값이다.**
 > **나머지는 전부 불변이 기대값이며, 불일치는 environment drift 로 본다.**
@@ -218,7 +219,7 @@ AC-N      Acceptance Criteria
 
 | # | 검사 | 기대 | 검증 |
 |---|---|---|---|
-| TP-R-1 | `catchmenu_hq` 함수 수 | `BL-7` 대비 증감 명시 | 범위 이탈 탐지 |
+| TP-R-1 | `catchmenu_hq` 함수 수 **불변** · `catchmenu_common` 함수 수가 `BL-14` after 값과 일치 | `BL-7` 불변 · `BL-14` 일치 | 범위 이탈 탐지 |
 | TP-R-2 | 전 스키마 테이블 수 · 컬럼 수 | 계약 밖 증감 0 | 범위 이탈 탐지 |
 | TP-R-3 | RLS policy 수 | `BL-11` 불변 | `I-6` |
 | TP-R-4 | 호출 금지 7함수가 **catalog 에 존재**한다 | 7/7 존재 | `601809` §4.4 |
@@ -228,6 +229,9 @@ AC-N      Acceptance Criteria
 | TP-R-8 | `stores` · `merchant_accounts` 구조 불변 | 불변 | `I-11` |
 | TP-R-9 | 과금 · 구독 7테이블 구조 불변 | 불변 | `I-46` |
 | TP-R-10 | EXECUTE ACL 이 축소되거나 확대되지 않는다 — `isolate_tenant` 포함 | `601802` §9.2 대비 불변 | `I-32` · `0-C` 경계 |
+
+> ⚠️ **신규 함수는 `catchmenu_common` 에 만들어진다** — `601812` §2.
+> **`catchmenu_hq` 만 보면 회귀 검사가 신규 함수를 놓친다.**
 
 > ⚠️ **「유효」를 검사하지 않는다.**
 > **catalog 존재와 runtime executability 를 분리한다.**
