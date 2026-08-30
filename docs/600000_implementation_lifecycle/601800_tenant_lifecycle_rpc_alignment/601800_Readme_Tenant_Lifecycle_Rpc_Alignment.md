@@ -84,16 +84,13 @@ authority   601801 §1.1~§1.9 (HG-A-1 ~ HG-A-9)
 **현재 위치**
 
 ```text
-1단계   완료 후 제한적 재개방 (2026-08-28)
-        601801 HG-A-1 ~ HG-A-12
-        HD-0-A-2-1 A급 판정 / HD-0-A-2-2 재개방 범위
-2단계   완료 — 601803 (Active). 601808 대조표 30건 반영
-3단계   완료 — 601804 ~ 601807. Blocker 10 / informational 23
-영향 대조  완료 — 601808. HUMAN 0건
-4단계   완료 — 601809 · 601810 · 601811 · 601812
-Stage 6   Round 1 완료 — 601813 · 601814 · 601815
-          blocking 29 / informational 25
-          다음 601816 통합 → Human 처분 → 4단계 재작성
+1단계   HG-A-1 ~ HG-A-15 · HD-0-A-2-1 ~ HD-0-A-2-10
+2단계   완료 — 601803 (Active)
+3단계   완료 — 601804 ~ 601808
+4단계   601809 ~ 601812 — 재작성 대상
+Stage 6 Round 1 완료 — 601813 ~ 601816. blocking 15
+Human 처분   HD-0-A-2-10 (2026-08-30) — 격리 전이 Kernel 로 재절단
+다음         601809 ~ 601812 재작성 → Stage 6 Round 2
 ```
 
 ## §5 In Scope — candidate
@@ -184,7 +181,7 @@ T-2~T-7 구독 전이 · 요금제 · 갱신 · 해지 · 만료 · entitlement
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 601800 | `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | Active — 이 문서 |
-| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 15건(`HG-A-1`~`HG-A-15`). Human Gate A + `HD-0-A-2-1`~`HD-0-A-2-9` |
+| 601801 | `601801_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 15건(`HG-A-1`~`HG-A-15`). Human Gate A + `HD-0-A-2-1`~`HD-0-A-2-10` · 08-30 격리 전이 Kernel 재절단(`HD-0-A-2-10`) |
 | 601802 | `601802_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부 |
 | 601803 | `601803_Diagram_Tenant_Lifecycle_State_Machine.md` | Active — 2단계 ERD. 상태 전이 모델. `601808` 대조표 30건 반영 완료 |
 | 601804 | `601804_Audit_Stage3_Adjacent_Domain_Codex.md` | Active — 3단계 실측 축. Blocker 3 |
@@ -199,6 +196,7 @@ T-2~T-7 구독 전이 · 요금제 · 갱신 · 해지 · 만료 · entitlement
 | 601813 | `601813_Audit_Stage6_Contract_Verification_Codex.md` | Active — Stage 6 실측 축. blocking 10 |
 | 601814 | `601814_Audit_Stage6_Contract_Verification_Cowork.md` | Active — Stage 6 문서 축. blocking 4 |
 | 601815 | `601815_Audit_Stage6_Contract_Verification_Claude.md` | Active — Stage 6 외부 타당성. blocking 15 |
+| 601816 | `601816_Report_Stage6_Round1_Integration.md` | Active — Stage 6 Round 1 통합. blocking 15 |
 
 ## §10 Non-Implementation Boundary
 
