@@ -17,7 +17,7 @@ Human 전담이며 AI 위임 불가다. 아래는 Human 이 확정한 내용을 
 > `600010` §1.1 이 `0-A-2` 착수 전 결정을 요구한
 > **tenant `ACTIVE` + `ISOLATED` 동시상태의 과금 · 서비스 정책**을 확정한다.
 >
-> **선언 15건 — `HG-A-1` ~ `HG-A-15`.**
+> **선언 16건 — `HG-A-1` ~ `HG-A-16`.**
 
 ### §0.1 식별자 규칙
 
@@ -71,6 +71,7 @@ Audit             HG-A-3 충족 여부
 | 2026-08-29 | `HG-A-15` 추가 — `601810` `Q-4` 가 확인한 공백. `HG-A-5` 는 환불 · 크레딧 결정 주체를 정했으나 **격리 원인 귀책의 최종 확정 주체**를 정하지 않았다. 귀책 판정이 과금 조정으로 이어지므로 A급 항목이다 |
 | 2026-08-30 | `HD-0-A-2-10` — Stage 6 Round 1(`601816`)이 blocking 15건을 냈다. `0-A-2` 를 「runtime 전체 격리」가 아니라 「안전한 격리 · 해제 전이 Kernel」로 재절단한다. **1단계 선언은 폐기하지 않는다** — `HG-A-1`~`HG-A-15` 는 그대로 유지하고 4단계 산출물의 책임 범위만 다시 자른다 |
 | 2026-08-30 | `HG-A-6` · `HG-A-15` 실행 책임 이월 병기 — `HD-0-A-2-7` 이 `manage_subscription` 을, `HD-0-A-2-10` 이 Billing Review 를 이월했다. **두 선언 모두 무효가 아니며 후속 워크패킷이 이행한다.** 본문은 수정하지 않고 각 절 말미에 병기했다 |
+| 2026-08-30 | `HG-A-16` 추가 — `601810` `X-8` 이 확인한 1단계 공백. `HG-A-10` 이 전이마다 수행 주체를 요구했으나 `NONE → ISOLATED` 의 주체가 비어 있었다. `601809` §4 가 `authenticated` EXECUTE 회수를 판정하면서 「그럼 누가 부르는가」가 드러났다. **ACL 미정이 아니라 업무규칙 미완성이다** |
 
 ## §1 Human Gate A Business Rules
 
@@ -627,6 +628,91 @@ provider 장애를 플랫폼 귀책으로 볼 것인가 — 계약 · 법무
 >                 임시 분류값의 존재 · 임시라는 표시 · 확정 이력
 > ```
 
+### §1.16 HG-A-16 — 격리 발동 권한과 자동 발동 경계
+
+**`601810` `X-8` 이 확인한 공백을 닫는다.**
+
+```text
+HG-A-10 이 각 전이마다 허용 · 수행 주체 · 사유 · 전제 조건을 요구한다
+그런데 NONE → ISOLATED 의 수행 주체가 선언되지 않았다
+```
+
+> ⚠️ **`601813` `F-2` · `601815` `B-6` 이 이 공백을 실증했다.**
+> **`authenticated` 가 EXECUTE 가능한 `SECURITY DEFINER` 함수가
+> `p_tenant_id` 를 인자로 받는다 — 누구나 임의 tenant 를 격리할 수 있다.**
+>
+> **`601809` §4 가 그 EXECUTE 를 회수하기로 판정했다.**
+> **회수하면 보안 문제는 사라지지만 「그럼 누가 부르는가」가 남는다.**
+
+**`tenant isolation` 은 임의 tenant 사용자가 발동할 수 없다.**
+
+**격리는 아래 두 종류의 주체만 발동할 수 있다.**
+
+```text
+1  자동 보안 경로
+   승인된 플랫폼 보안 탐지기가
+   선언된 격리 조건을 충족한 경우 즉시 containment 를 발동할 수 있다
+
+2  Human 운영 경로
+   승인된 플랫폼 Human 역할이
+   명시적 사유와 증거를 기록하고 발동할 수 있다
+```
+
+**자동 발동에는 사전 Human 승인을 요구하지 않는다.**
+**보안 containment 를 Human 승인 때문에 지연시키지 않는다.**
+
+**모든 격리 발동은 아래를 감사 가능하게 남긴다.**
+
+```text
+initiator
+reason
+evidence / source
+timestamp
+idempotency information
+```
+
+**발동과 해제는 대칭이 아니다.**
+
+```text
+발동   NONE → ISOLATED
+       확산 방지가 목적이다. 신속해야 한다
+       자동화를 허용한다
+
+해제   ISOLATED → NONE
+       다시 신뢰하는 행위다. 더 위험하다
+       HG-A-8 의 세 요건을 따른다
+```
+
+> ⚠️ **화재 경보기와 같다.**
+> **연기 감지에 자동 비상정지는 허용되지만,
+> 비상정지 해제는 원인 제거 확인 · 사람 확인 · 복구 승인을 거친다.**
+
+**격리 발동 권한과 격리 해제 권한은 동일한 권한이 아니다.**
+
+**자동 발동 주체는 격리를 해제할 권한을 자동으로 갖지 않는다.**
+
+**`0-A-2` 가 정하는 것**
+
+```text
+발동 주체가 두 class 로 나뉜다는 것
+자동 발동에 사전 Human 승인이 필요하지 않다는 것
+발동 시 남겨야 할 감사 항목
+발동 권한과 해제 권한의 분리
+```
+
+**`0-A-2` 가 정하지 않는 것**
+
+```text
+구체적 role 이름 · DB privilege · EXECUTE ACL — 0-C
+호출 지점 — 0-C
+detect_threat 이 「승인된 자동 보안 경로」인지 — 별도 검증
+격리 조건의 구체적 임계값 — 별도
+```
+
+> ⚠️ **`detect_threat` 자체를 이 선언이 승인하지 않는다.**
+> **자동 보안 경로라는 actor class 만 선언한다.**
+> **그 함수가 거기 해당하는지는 `0-C` 또는 Security 워크패킷이 검증한다.**
+
 ## §2 격리 원인별 처분
 
 | 격리 원인 | 기본 구독료 | 후속 조치 |
@@ -805,6 +891,29 @@ shape of this failure.
 
 601809 through 601812 are rewritten under this recut. Stage 6 runs again
 against the rewritten set.
+
+HD-0-A-2-11 — Isolation Initiation Authority
+
+HG-A-10 requires an actor for every transition, and the transition into
+isolation had none. Revoking public execute on the repair, which stage
+six demanded, made the absence visible: with the grant gone, nothing is
+declared to call it.
+
+Isolation may be initiated by an approved automated security path or by
+an approved human operator, and by nobody else. Automated initiation does
+not wait for human approval - containment delayed for a signature is
+containment that failed. Every initiation records who or what initiated
+it, why, on what evidence, when, and under what idempotency information.
+
+Initiation and release are deliberately asymmetric. Entering containment
+is fast and may be automatic; leaving it is an act of renewed trust and
+keeps the three requirements of HG-A-8. An automatic initiator does not
+thereby hold release authority.
+
+Role names, database privileges, execute grants and call sites are 0-C
+scope. Whether the existing threat detector qualifies as an approved
+automated path is verified separately; this declaration approves the
+class, not the function.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -822,6 +931,8 @@ against the rewritten set.
 **HD-0-A-2-9 판정자** — 정영석, 2026-08-29
 
 **HD-0-A-2-10 판정자** — 정영석, 2026-08-30
+
+**HD-0-A-2-11 판정자** — 정영석, 2026-08-30
 
 ## §4 후속 설계 의무
 
@@ -847,6 +958,9 @@ provider 전환 계약 — 잔액 이전 · 진행 중 거래 처리. 동상
 integration mapping — catchmenu_tenant_id ↔ 외부 제품 tenant ref. 동상
 귀책 확정 역할과 승인권자 배정 — 0-C
 provider 장애의 귀책 판정 기준 — 계약 · 법무
+격리 발동 주체의 role 이름과 EXECUTE 권한 — 0-C
+detect_threat 이 승인된 자동 보안 경로인지 — 0-C 또는 Security 워크패킷
+자동 격리 조건의 임계값 — 별도
 ```
 
 **각 산출물은 자신이 어느 `HG-A-N` 에서 나왔는지 명시한다**(§0.1).
