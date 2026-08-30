@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Register
-Last Updated: 2026-08-29
+Last Updated: 2026-08-30
 
 ## §0 성격
 
@@ -69,6 +69,7 @@ Audit             HG-A-3 충족 여부
 | 2026-08-29 | `HG-A-14` 폐기 철회 — 폐기 사유였던 「YS-OS 가 CatchMenu tenant」 판단이 틀렸다. Human 이 별도 제품 · 별도 DB · 별도 tenant registry 를 명시적으로 확정했다. `HG-A-13`·`HG-A-14` 를 복원한다 |
 | 2026-08-29 | `HD-0-A-2-7` — `manage_subscription` 과 `T-2`~`T-7` 구독 전이를 `0-A-2` 범위에서 절단. `601807` `S-1` 이 확인한 선언 부재를 `HG-A-10` 에 따라 추론으로 채우지 않고 별도 워크패킷으로 이월한다. `tenant_status` 는 범위에 남는다. `HD-0-A-2-8` — `HG-A-9.1`~`HG-A-9.8` 식별자 부여 |
 | 2026-08-29 | `HG-A-15` 추가 — `601810` `Q-4` 가 확인한 공백. `HG-A-5` 는 환불 · 크레딧 결정 주체를 정했으나 **격리 원인 귀책의 최종 확정 주체**를 정하지 않았다. 귀책 판정이 과금 조정으로 이어지므로 A급 항목이다 |
+| 2026-08-30 | `HD-0-A-2-10` — Stage 6 Round 1(`601816`)이 blocking 15건을 냈다. `0-A-2` 를 「runtime 전체 격리」가 아니라 「안전한 격리 · 해제 전이 Kernel」로 재절단한다. **1단계 선언은 폐기하지 않는다** — `HG-A-1`~`HG-A-15` 는 그대로 유지하고 4단계 산출물의 책임 범위만 다시 자른다 |
 
 ## §1 Human Gate A Business Rules
 
@@ -747,6 +748,49 @@ it. No one confirms an incident they were party to alone. The concrete
 roles and their privileges are 0-C scope; compensation policy is
 separate. What 0-A-2 fixes is that a provisional value exists, that it
 is marked provisional, and that confirmation is recorded.
+
+HD-0-A-2-10 — Scope Recut after Stage 6 Round 1
+
+Stage 6 found fifteen blocking defects, eleven of which share one cause:
+the contract narrowed its permitted files to a single migration while the
+declarations it serves require runtime behaviour. It creates tables and
+functions and permits nothing that writes to or calls them. Two findings
+state the failure exactly - the approved release path can never succeed
+because nothing may set its approval flags, and the boolean argument that
+bypasses those flags still works.
+
+The declarations are not withdrawn. HG-A-1 through HG-A-15 stand as
+written. What is recut is the responsibility of the fourth-stage
+documents: 0-A-2 becomes a safe isolation-transition kernel rather than a
+whole isolation system.
+
+Retained in 0-A-2:
+  independence of the two status axes
+  safe mutation of isolation_state
+  an isolation event ledger
+  an approved release path
+  removal of the boolean bypass
+  function security attributes, ACL and search_path fixed
+  idempotency, concurrency and stale-request rejection
+  tenant consistency between a tenant and its isolation events
+  audit records
+
+Carried to separate workpackets:
+  0-C                     users, roles, RLS policy, access-predicate
+                          call sites, API-layer refusal
+  Integration Isolation   external event intake, quarantine queue,
+                          outbox, replay after release
+  Billing Review          fault attribution, automatic review creation,
+                          trial extension, pre-invoice warning
+  Session Revocation      session and token invalidation
+
+Tables for a deferred capability are not created in advance. Producer and
+consumer are built in the same workpacket. Creating tenant_isolation_queue
+and tenant_billing_reviews with nothing permitted to write to them is the
+shape of this failure.
+
+601809 through 601812 are rewritten under this recut. Stage 6 runs again
+against the rewritten set.
 ```
 
 **판정자** — 정영석, 2026-08-27
@@ -762,6 +806,8 @@ is marked provisional, and that confirmation is recorded.
 **HD-0-A-2-7 · HD-0-A-2-8 판정자** — 정영석, 2026-08-29
 
 **HD-0-A-2-9 판정자** — 정영석, 2026-08-29
+
+**HD-0-A-2-10 판정자** — 정영석, 2026-08-30
 
 ## §4 후속 설계 의무
 
