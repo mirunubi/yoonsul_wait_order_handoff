@@ -1771,6 +1771,9 @@ docs/
   |   |   +--- 601813_Audit_Stage6_Contract_Verification_Codex.md
   |   |   +--- 601814_Audit_Stage6_Contract_Verification_Cowork.md
   |   |   +--- 601815_Audit_Stage6_Contract_Verification_Claude.md
+  |   |   +--- 601816_Report_Stage6_Round1_Integration.md
+  |   +--- 601900_tenant_isolation_axis_v2/
+  |   |   +--- 601900_Readme_Tenant_Isolation_Axis_V2.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
