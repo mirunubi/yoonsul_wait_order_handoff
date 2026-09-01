@@ -1,8 +1,36 @@
 # 601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md
 
-Status: Active
+Status: Suspended
 Lifecycle: Readme
 Last Updated: 2026-08-27
+
+> ⛔ **AUTHORITY SUSPENDED (2026-08-31)**
+>
+> **이 대역의 모든 문서는 권위가 없다.**
+>
+> ```text
+> 사유   601801 이 010004 · 010640 을 한 번도 인용하지 않았다
+>        격리를 선언하면서 격리 정책 문서를 보지 않았다
+>
+> 판정   600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md
+> 재수행  601900 대역
+> ```
+>
+> **승계**
+>
+> ```text
+> finding      대조 21건 — 600021 §1.1
+>              Stage 6 blocking 15 · informational 25 — 601816
+>              601804 · 601805 · 601806 원본
+>
+> 승계 안 함    HG-A-1 ~ HG-A-16
+>              HD-0-A-2-1 ~ HD-0-A-2-11
+>              601803 상태 전이 모델
+>              601809 ~ 601812 설계 결론
+> ```
+>
+> ⚠️ **아래 §1~§11 의 기록은 「당시 무엇이 기록되었는가」를 보존한 것이며
+> 「지금 무엇을 해야 하는가」의 근거가 아니다.**
 
 ## §1 Purpose
 
