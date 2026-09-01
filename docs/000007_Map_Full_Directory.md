@@ -1778,6 +1778,7 @@ docs/
   |   +--- 600000_Readme_Implementation_Lifecycle.md
   |   +--- 600010_Tracker_Spiral_Workpacket_Progress.md
   |   +--- 600020_Governance_Implementation_Lifecycle_Authority_Reset.md
+  |   +--- 600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   \--- 700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md
