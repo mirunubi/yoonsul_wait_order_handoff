@@ -153,10 +153,10 @@ SQL 미적용
 
 | 문서 | 갱신 내용 | 상태 |
 |---|---|---|
-| `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | `AUTHORITY SUSPENDED` 배너 | 대기 |
-| `600010_Tracker_Spiral_Workpacket_Progress.md` | 0-A-2 상태 변경 · 601900 행 추가 | 대기 |
-| `000005_Index_Document_Number.md` | 본 문서 등재 | 대기 |
-| `000007_Map_Full_Directory.md` | 동상 | 대기 |
+| `601800_Readme_Tenant_Lifecycle_Rpc_Alignment.md` | `AUTHORITY SUSPENDED` 배너 | ✅ 2026-08-31 |
+| `600010_Tracker_Spiral_Workpacket_Progress.md` | 0-A-2 상태 변경 · 601900 행 추가 | ✅ 2026-08-31 |
+| `000005_Index_Document_Number.md` | 본 문서 등재 | ✅ 2026-08-31 |
+| `000007_Map_Full_Directory.md` | 동상 | ✅ 2026-08-31 |
 | `601900` 대역 | 신규 개설 | 대기 |
 
 ## §6 별건 이관
