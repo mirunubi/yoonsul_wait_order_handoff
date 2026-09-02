@@ -1,6 +1,6 @@
 # 601901_Register_Stage0_Evidence_Collection.md
 
-Status: Draft
+Status: Active
 Lifecycle: Register
 Last Updated: 2026-09-02
 
@@ -12,8 +12,8 @@ Last Updated: 2026-09-02
 | baseline commit | `e6573af57432ad7d496ae0a9ad5739047ecf0eec` |
 | Pass 1 | 문서 축 — A1 5건 · A2 · A3 · A4 |
 | Pass 1.5 | A3 중 3건을 A1으로 승격해 조사 |
-| Pass 2 | 실측 축 — 대기 |
-| DB 접속 | 수행하지 않음 |
+| Pass 2 | 실측 축 — 완료(2026-09-02); B~E 재측정 |
+| DB 접속 | read-only 접속·catalog/행 수 조회 수행; 금지 함수 호출 0건 |
 | 문서 성격 | 사실 등록부. 판단·설계·Human Rule 생성 없음 |
 | 조사 기준 | baseline commit의 blob과 tree |
 | 조사 문서 수 | 50건 — provenance 대상 46건 + 통제문서 4건 |
@@ -89,16 +89,16 @@ Last Updated: 2026-09-02
 
 | 대상 | A 문서 | B SQL 객체 | C 문서↔SQL | D 로컬 실행 | E 호출자·권한 | 현재 기록 |
 |---|---|---|---|---|---|---|
-| Tenant isolation doctrine | `010004` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Tenant scope envelope | `010640` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Company/business unit/legal entity | `000150` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Merchant account/company/store | `000170` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Cross-business boundary | `000190` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Upstream Human declarations | `601702` 45건 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Suspended prior evidence | `601500`·`601600`·`601800` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | authority와 evidence 분리 |
-| Authority capability gate | `010630` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Failure containment circuit breaker | `010650` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
-| Idempotency·retry·replay·reconciliation | `010660` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
+| Tenant isolation doctrine | `010004` 존재 | `tenants` 상태축 2컬럼·CHECK 2건, 관련 자산 4테이블 존재 | audit 자산에 tenant·actor·resource·event detail 필드 존재; `isolate_tenant`는 `tenant_status`를 쓰고 `isolation_state`는 참조하지 않음 | catalog·행 수 조회 성공; 상태 변경 실행은 read-only 범위 밖 | 상태 소비 함수 7건; asset RLS·policy·ACL은 §17·§20 | B~E 실측 |
+| Tenant scope envelope | `010640` 존재 | 두 상태축과 tenant/store scope 컬럼·FK·RLS 존재 | 상태 CHECK는 5값·2값; `idempotency_keys` UNIQUE에 tenant 포함, store는 포함되지 않음 | catalog 조회 성공; scope mutation은 실행하지 않음 | authenticated policy 4건; 함수 ACL·호출자는 §18~§21 | B~E 실측 |
+| Company/business unit/legal entity | `000150` 존재 | `tenants` 및 함수의 tenant/legal-entity 관련 catalog 존재 | 이번 6군에서 company/business-unit 전체 물리 모델은 측정 대상이 아님 | 대상 catalog 조회만 수행; 업무 동작 미실행 | 측정 대상 함수·자산의 권한만 §18~§21에 기록 | 부분 실측 — 범위 명시 |
+| Merchant account/company/store | `000170` 존재 | 최신 migration `0171_merchant_account_foundation.sql`; asset에 store scope 컬럼 존재 | `idempotency_keys`는 tenant UNIQUE scope를 가지며 store_id는 별도 FK | migration·catalog 조회 성공; merchant 동작 미실행 | 측정 대상 policy/ACL만 기록 | 부분 실측 — 범위 명시 |
+| Cross-business boundary | `000190` 존재 | 이번 6군의 SQL 객체 존재 여부는 §17~§21에 기록 | cross-business 전체 객체 대응은 이번 측정 대상이 아님 | 대상 catalog 조회만 수행 | 비문서 앱 코드의 7함수 literal 호출자 0건 | 부분 실측 — 범위 명시 |
+| Upstream Human declarations | `601702` 45건 존재 | 두 상태축·7함수·4자산의 물리 존재 확인 | Human 선언을 정답으로 사용하지 않고 A1 8건과 실측만 대조 | 호출 금지 7함수는 미검증; catalog 조회만 성공 | 정적 DB 호출 edge 6건; 앱 코드 literal 0건 | B~E 실측 |
+| Suspended prior evidence | `601500`·`601600`·`601800` 존재 | `601802` 대상값을 현재 DB에서 재측정 | §22에 old/new만 병기; suspended 판정은 승계하지 않음 | 과거 값을 실행 증거로 사용하지 않음 | 과거·현재 호출자/ACL 차이는 §22 | REMEASURED 비교 |
+| Authority capability gate | `010630` 존재 — A1 승격(2026-09-02) | 7함수 전부 SECURITY DEFINER; 명시 search_path·ACL 존재 | PUBLIC EXECUTE 5함수, authenticated 6함수, service_role 1함수; 구체 gate 실행은 미검증 | 7함수 전부 미검증 — 호출 금지(`601505` §4) | DB 호출 edge 6건; 비문서 앱 코드 literal 0건 | B~E 실측 |
+| Failure containment circuit breaker | `010650` 존재 — A1 승격(2026-09-02) | `offline_queue`·`security_threats`·`security_audit_log` 존재; tenant/store/device scope 컬럼 존재 | 자산 4건 모두 RLS+FORCE RLS; `security_threats.tenant_id`는 nullable·FK 없음 | catalog·행 수 조회 성공; containment 함수는 호출하지 않음 | policy 각 1건; 참조 함수 목록은 §20 | B~E 실측 |
+| Idempotency·retry·replay·reconciliation | `010660` 존재 — A1 승격(2026-09-02) | `idempotency_keys` 21컬럼·12제약·RLS policy 1건 | tenant_id NOT NULL·FK·UNIQUE `(tenant_id,key_domain,idempotency_key)`; store_id는 nullable FK이고 UNIQUE에는 없음 | catalog·행 수 조회 성공; retry/replay 실행은 하지 않음 | authenticated ALL policy 1건; postgres table grants | B~E 실측 |
 
 ## §5 A1 상세 — 010004
 
@@ -2019,3 +2019,415 @@ It references:
 | `601816` 판정 | finding을 설계 결론으로 변환 금지 |
 | `601801` Human Rule | suspended 대역의 답을 정답으로 사용 금지 |
 | `601500`·`601600` 후대 구현 대응 | suspended block을 원천 정책으로 승격 금지 |
+
+## §16 R1 측정 환경
+
+측정값은 아래 read-only 세션에서 취득했다.
+
+| 항목 | 실측값 |
+|---|---|
+| 컨테이너 이름 | `supabase_db_yoonsul_wait_order_handoff` |
+| 컨테이너 ID | `b67400e8c73e4ec7b9a25b172d71af347dd22d5e269d49859629fc3d8bd935ec` |
+| 이미지 | `public.ecr.aws/supabase/postgres:17.6.1.156` |
+| DB version | `PostgreSQL 17.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit` |
+| database/user | `postgres` / `postgres` |
+| 측정 시각 | `2026-09-02 09:26:16.24973+00` (`2026-09-02 18:26:16.24973 KST`) |
+| `SHOW default_transaction_read_only` | `on` |
+| migration success | 170건 |
+| latest migration | `0171_merchant_account_foundation.sql`, success=`true`, applied_at=`2026-08-30 11:46:47.552241+00`, applied_by=`postgres` |
+| failed migration | 1건 — `0073_final_verification.sql`, applied_at=`2026-08-07 04:41:02.602728+00` |
+| 접속 명령 | `docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -v ON_ERROR_STOP=1 -U postgres -d postgres` |
+
+### §16.1 catchmenu 스키마별 테이블 수
+
+| schema | table 수 |
+|---|---:|
+| `catchmenu_agent` | 4 |
+| `catchmenu_ai` | 2 |
+| `catchmenu_audit` | 1 |
+| `catchmenu_common` | 41 |
+| `catchmenu_dev` | 2 |
+| `catchmenu_gateway` | 2 |
+| `catchmenu_hq` | 21 |
+| `catchmenu_integrations` | 19 |
+| `catchmenu_kds` | 2 |
+| `catchmenu_knowledge` | 14 |
+| `catchmenu_ledger` | 6 |
+| `catchmenu_meta` | 1 |
+| `catchmenu_payment` | 11 |
+| `catchmenu_pos` | 16 |
+| `catchmenu_store` | 50 |
+| 합계 | 192 |
+
+## §17 R2 두 상태 축
+
+### §17.1 컬럼·CHECK
+
+| 컬럼 | 타입 | nullable | DEFAULT | CHECK 허용값 |
+|---|---|---|---|---|
+| `catchmenu_hq.tenants.tenant_status` | `text` | NO | `'TRIAL'::text` | `ACTIVE`, `TRIAL`, `SUSPENDED`, `CANCELLED`, `TERMINATED` |
+| `catchmenu_hq.tenants.isolation_state` | `text` | NO | `'NONE'::text` | `NONE`, `ISOLATED` |
+
+| constraint | 정의 전문 |
+|---|---|
+| `chk_tenants_status` | `CHECK ((tenant_status = ANY (ARRAY['ACTIVE'::text, 'TRIAL'::text, 'SUSPENDED'::text, 'CANCELLED'::text, 'TERMINATED'::text])))` |
+| `chk_tenants_isolation_state` | `CHECK ((isolation_state = ANY (ARRAY['NONE'::text, 'ISOLATED'::text])))` |
+
+### §17.2 참조 객체 전수
+
+| 객체 종류 | 수 | 목록 |
+|---|---:|---|
+| FUNCTION — `tenant_status` | 7 | `catchmenu_common.get_hq_dashboard(text)`; `get_saas_revenue_report(date,date,text)`; `get_system_health_all(text)`; `get_tenant_list(text,text,text,integer,integer,text)`; `isolate_tenant(uuid,text,boolean,uuid,text)`; `manage_subscription(uuid,text,text,text,uuid,text)`; `provision_tenant(text,text,text,text,text,text,text,text,text,text,text)` |
+| FUNCTION — `isolation_state` | 0 | 0건 |
+| VIEW | 0 | 0건 |
+| MATVIEW | 0 | 0건 |
+| TRIGGER | 0 | 0건 |
+| 다른 테이블의 관련 제약 | 0 | 0건 |
+
+`provision_tenant`는 호출하지 않았다. D 기록은 **미검증 — 호출 금지**다.
+
+## §18 R3 `isolate_tenant`
+
+| 항목 | 실측값 |
+|---|---|
+| oid::regprocedure | `catchmenu_common.isolate_tenant(uuid,text,boolean,uuid,text)` |
+| 인자 | `p_tenant_id uuid, p_isolation_reason text, p_isolate boolean, p_actor_id uuid, p_locale text` |
+| 반환형 | `jsonb` |
+| prosrc md5 / 길이 | `f53ea7f556e89cec883b9ca6b482ca3e` / 2,763 |
+| SECURITY DEFINER | true |
+| search_path | `catchmenu_common, catchmenu_hq, catchmenu_ledger, catchmenu_audit` |
+| proacl | `postgres=X/postgres`, `authenticated=X/postgres` |
+| 참조 테이블 | `catchmenu_hq.tenants` UPDATE; `catchmenu_common.security_audit_log` INSERT; `catchmenu_ledger.events` INSERT |
+| 상태 컬럼 | `tenant_status` READ/WRITE; `isolation_state` 문자열 참조 0건 |
+| phantom | 참조 테이블·컬럼 phantom 0건; `tenant_status`에 `ISOLATED`를 쓰는 본문 경로가 있고 해당 CHECK 허용값에는 `ISOLATED`가 없음 |
+| 정적 DB 호출자 | `catchmenu_common.detect_threat(...)`, `catchmenu_common.manage_subscription(...)` — 2건 |
+| 비문서·비migration 앱 코드 literal | 0건 |
+| D | **미검증 — 호출 금지(`601505` §4)** |
+
+## §19 R4 `manage_subscription` · `detect_threat`
+
+### §19.1 함수 카탈로그
+
+| 함수 | oid::regprocedure / 반환형 | md5 / 길이 | SECURITY DEFINER / search_path | proacl |
+|---|---|---|---|---|
+| `manage_subscription` | `catchmenu_common.manage_subscription(uuid,text,text,text,uuid,text)` / `jsonb` | `3ceb5089e1c2305628db36e485be9bcd` / 4,520 | true / `catchmenu_common, catchmenu_hq, catchmenu_ledger` | `postgres`, `service_role` EXECUTE |
+| `detect_threat` | `catchmenu_common.detect_threat(text,integer,text,text,jsonb,uuid,uuid,uuid,text,text)` / `uuid` | `992c78c881be2f23bcac8050b60ad2b7` / 3,671 | true / `catchmenu_common` | PUBLIC, `postgres`, `authenticated` EXECUTE |
+
+### §19.2 참조·phantom·호출자
+
+| 함수 | 참조 테이블·컬럼 | phantom/정적 불일치 | 정적 DB 호출자 | D |
+|---|---|---|---|---|
+| `manage_subscription` | `catchmenu_hq.tenants`, `catchmenu_common.subscription_plans`, `tenant_plan_configs`, `subscription_invoices`, `catchmenu_ledger.events`; `tenant_status` READ/WRITE, `isolation_state` 0참조 | `catchmenu_hq.tenants.company_name`은 실제 컬럼 0건; `isolate_tenant` 호출의 named argument `p_reason :=` 2곳, 대상 함수 인자는 `p_isolation_reason` | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+| `detect_threat` | `catchmenu_common.security_threats`; operation alert 및 `isolate_tenant` 호출 | FATAL 경로의 `isolate_tenant` named argument `p_reason :=` 1곳 | `gateway_audit_entry`, `verify_security_token`, `record_van_transaction`, `check_staff_permission` — 4건 | **미검증 — 호출 금지(`601505` §4)** |
+
+## §20 R5 격리 관련 기존 자산
+
+### §20.1 컬럼·행 수·tenant scope
+
+| 테이블 | 컬럼 수 | 컬럼 전수 | 행 수 | tenant_id |
+|---|---:|---|---:|---|
+| `catchmenu_common.offline_queue` | 16 | `id`, `tenant_id`, `store_id`, `device_id`, `action_type`, `action_payload`, `action_priority`, `queue_status`, `retry_count`, `max_retries`, `local_temp_id`, `server_result_id`, `queued_at`, `flushed_at`, `error_detail`, `expires_at` | 0 | NOT NULL; FK→`catchmenu_hq.tenants(id)` |
+| `catchmenu_common.security_threats` | 24 | `id`, `tenant_id`, `store_id`, `device_id`, `threat_stage`, `threat_type`, `threat_severity`, `detected_at`, `detection_source`, `threat_vector`, `threat_payload`, `affected_resource`, `affected_resource_id`, `auto_blocked`, `block_applied_at`, `block_duration_minutes`, `block_scope`, `threat_status`, `resolved_at`, `resolved_by`, `resolution_note`, `is_escalated`, `escalated_at`, `escalation_level` | 0 | nullable; FK 0건 |
+| `catchmenu_common.security_audit_log` | 16 | `id`, `tenant_id`, `store_id`, `audit_event`, `event_severity`, `event_source`, `actor_type`, `actor_id`, `actor_ip`, `resource_type`, `resource_id`, `event_detail`, `is_violation`, `was_blocked`, `action_taken`, `created_at` | 0 | NOT NULL; FK→`catchmenu_hq.tenants(id)` |
+| `catchmenu_common.idempotency_keys` | 21 | `id`, `tenant_id`, `store_id`, `idempotency_key`, `key_domain`, `key_scope`, `operation_type`, `request_hash`, `processing_status`, `result_payload`, `error_payload`, `first_received_at`, `last_received_at`, `completed_at`, `replay_count`, `max_replay_allowed`, `source_device_id`, `provider_event_id`, `correlation_id`, `expires_at`, `created_at` | 0 | NOT NULL; FK→`catchmenu_hq.tenants(id)` |
+
+### §20.2 제약·RLS·policy·GRANT
+
+| 테이블 | 제약 | RLS/FORCE; policy | table GRANT 관측 |
+|---|---|---|---|
+| `offline_queue` | PK; FK tenant/store; CHECK `action_type` 12값, `queue_status` 6값 | true/true; authenticated ALL, tenant+store filter 1건 | `postgres`: SELECT/INSERT/UPDATE/DELETE/TRUNCATE/REFERENCES/TRIGGER, grantable YES |
+| `security_threats` | PK; CHECK stage 1~4, severity 5값, status 5값, type 16값 | true/true; authenticated SELECT, tenant/null filter 1건 | `postgres`: 전 table privilege, grantable YES |
+| `security_audit_log` | PK; FK tenant; CHECK severity 4값 | true/true; authenticated ALL, tenant filter 1건 | `postgres`: 전 table privilege, grantable YES |
+| `idempotency_keys` | PK; FK tenant/store/device; UNIQUE `(tenant_id,key_domain,idempotency_key)`; CHECK domain/scope/status/replay/json 7건 | true/true; authenticated ALL, tenant filter 1건 | `postgres`: 전 table privilege, grantable YES |
+
+### §20.3 `idempotency_keys` tenant scope 실측
+
+| 항목 | 실측값 |
+|---|---|
+| tenant 컬럼 | `tenant_id uuid NOT NULL` |
+| tenant FK | `idempotency_keys_tenant_id_fkey` → `catchmenu_hq.tenants(id)` |
+| 고유 제약 | `UNIQUE (tenant_id, key_domain, idempotency_key)` |
+| store 컬럼 | `store_id uuid`, nullable, FK→`catchmenu_hq.stores(id)` |
+| store와 UNIQUE 관계 | `store_id`는 위 UNIQUE 구성열에 없음 |
+| key_scope | NOT NULL, DEFAULT `STORE`; CHECK `GLOBAL`, `TENANT`, `STORE`, `SESSION` |
+| RLS qual | `(tenant_id = catchmenu_common.current_tenant_id())` |
+
+### §20.4 참조 함수
+
+| 자산 | prosrc 정적 참조 함수 수 | 목록 |
+|---|---:|---|
+| `offline_queue` | 6 | `enqueue_offline_action`, `flush_offline_queue`, `get_fallback_config`, `get_network_dashboard`, `report_network_status`, `run_final_validation` |
+| `security_threats` | 3 | `detect_threat`, `get_security_dashboard`, `run_security_scan` |
+| `security_audit_log` | 12 | `check_tenant_quota`, `enforce_rate_limit`, `get_tenant_health`, `isolate_tenant`, `register_device`, `run_integration_test`, `run_saas_launch_checklist`, `run_security_audit`, `verify_device_trust`, `confirm_toss_payment_legacy_604260`, `process_toss_webhook`, `confirm_payment_webhook` |
+| `idempotency_keys` | 1 | `catchmenu_integrations.intake_delivery_order(...)` |
+
+## §21 R6 호출 금지 7함수
+
+| 함수 | 존재·schema | md5 / 인자 | proacl | phantom·정적 관측 | 정적 DB 호출자 | D |
+|---|---|---|---|---|---|---|
+| `isolate_tenant` | 존재 / `catchmenu_common` | `f53ea7f556e89cec883b9ca6b482ca3e`; `(uuid,text,boolean,uuid,text)` | `postgres`, `authenticated` | phantom 0; CHECK 밖 write 경로 1 | `detect_threat`, `manage_subscription` | **미검증 — 호출 금지(`601505` §4)** |
+| `manage_subscription` | 존재 / `catchmenu_common` | `3ceb5089e1c2305628db36e485be9bcd`; `(uuid,text,text,text,uuid,text)` | `postgres`, `service_role` | phantom `tenants.company_name`; 잘못된 named argument 2곳 | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+| `detect_threat` | 존재 / `catchmenu_common` | `992c78c881be2f23bcac8050b60ad2b7`; `(text,integer,text,text,jsonb,uuid,uuid,uuid,text,text)` | PUBLIC, `postgres`, `authenticated` | 참조 테이블 존재; 잘못된 named argument 1곳 | 4건 | **미검증 — 호출 금지(`601505` §4)** |
+| `verify_security_token` | 존재 / `catchmenu_common` | `b5c978db183d70e025ff97cc2bd1785f`; `(text,text,text,boolean)` | PUBLIC, `postgres`, `authenticated` | `security_tokens` 존재; 정적 table/column phantom 0건 | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+| `gateway_audit_entry` | 존재 / `catchmenu_common` | `bbfac99ac170a83d988c610435a00732`; 15인자 | PUBLIC, `postgres`, `authenticated` | `gateway_audit_log` 존재; 정적 table/column phantom 0건 | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+| `record_van_transaction` | 존재 / `catchmenu_payment` | `16aed7926150f2729d578194a3c4412b`; 18인자 | PUBLIC, `postgres`, `authenticated` | `catchmenu_payment.van_transactions`, `catchmenu_gateway.provider_raw_events`, `catchmenu_ledger.events` 존재; 정적 phantom 0건 | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+| `check_staff_permission` | 존재 / `catchmenu_store` | `297947c8bca176dab515b1f22353cb5b`; `(uuid,uuid,uuid,text,integer,text)` | PUBLIC, `postgres`, `authenticated` | `staff`, `staff_permission_matrix`, `staff_permission_logs` 존재; 정적 phantom 0건 | 0건 | **미검증 — 호출 금지(`601505` §4)** |
+
+7함수 모두 `SECURITY DEFINER=true`다. 정적 DB 호출 edge는 6건이다. 비문서·비migration·비tools 파일의 함수명 literal 검색 결과는 0건이다.
+
+추가 금지 함수 `provision_tenant`, `create_franchise_store`, `onboard_tenant`도 호출하지 않았다. D는 각각 **미검증 — 호출 금지**다.
+
+### §21.1 상위 정책 8건과 측정 대상의 대응 관측
+
+| A1 | 측정 대상에서 관측된 사실 |
+|---|---|
+| `010004` audit·containment | `security_audit_log`에 tenant/store/actor/resource/action/detail 필드가 있다. 원문 열거 필드 중 actor role, surface/device, previous/new scope, authority/policy/evidence reference, cross-scope attempt 이름의 컬럼은 없다. `isolation_state` 소비 함수는 0건이다. |
+| `010640` scope 상태 | §6의 `SCOPE_*` 상태 문자열을 포함하는 함수 prosrc는 0건이다. 두 상태축 CHECK는 tenant 5값, isolation 2값이다. |
+| `000150` | 이번 6군은 company/business-unit/legal-entity 전체 물리 모델을 측정하지 않았다. 관련 실측 공란 대신 범위 밖으로 기록한다. |
+| `000170` | latest migration은 `0171_merchant_account_foundation.sql`; 이번 6군에서는 asset의 tenant/store FK와 scope만 측정했다. |
+| `000190` | 비문서·비migration 앱 코드에서 금지 7함수 이름의 literal 호출자는 0건이다. cross-business 전체 객체는 이번 6군 범위 밖이다. |
+| `010630` capability gate | 금지 7함수의 prosrc에서 `authority`, `capability`, `policy_version`, `evidence`, `idempotency` 문자열은 각각 0건이다. 7함수 모두 SECURITY DEFINER이며 EXECUTE ACL은 §21에 기록했다. |
+| `010650` containment | 관련 자산 4테이블은 존재하고 RLS·FORCE RLS가 true다. `security_threats.tenant_id`는 nullable이며 FK가 없다. containment 동작은 호출하지 않았다. |
+| `010660` idempotency scope | `idempotency_keys.tenant_id`는 NOT NULL·FK·UNIQUE 구성열이다. `store_id`는 nullable FK이나 UNIQUE 구성열이 아니며, `legal_entity_id` 컬럼은 없다. |
+
+## §22 `601802` 대조 — 재측정
+
+`601802`의 표 값을 현재값으로 사용하지 않았다. 동일 catalog·행 수·정적 검색을 현재 컨테이너에서 다시 실행한 뒤 old/new를 대조했다.
+
+| # | 항목 | old — `601802` 2026-08-27 | new — 2026-09-02 | 대조 |
+|---:|---|---|---|---|
+| 1 | `default_transaction_read_only` | on | on | REMEASURED_MATCH |
+| 2 | PostgreSQL | 17.6 | 17.6 | REMEASURED_MATCH |
+| 3 | latest migration filename | `0171_merchant_account_foundation.sql` | 동일 | REMEASURED_MATCH |
+| 4 | latest migration applied_at | `2026-08-24 02:25:14.371355+00` | `2026-08-30 11:46:47.552241+00` | REMEASURED_DELTA |
+| 5 | `tenant_status` 타입/default/CHECK | text/`TRIAL`/5값 | 동일 | REMEASURED_MATCH |
+| 6 | `isolation_state` 타입/default/CHECK | text/`NONE`/2값 | 동일 | REMEASURED_MATCH |
+| 7 | 상태 함수 소비자 | `tenant_status` 7, `isolation_state` 0 | 동일 목록·수 | REMEASURED_MATCH |
+| 8 | 상태 VIEW/MATVIEW/TRIGGER | 각 0 | 각 0 | REMEASURED_MATCH |
+| 9 | `isolate_tenant` md5 | `f53ea7f556e89cec883b9ca6b482ca3e` | 동일 | REMEASURED_MATCH |
+| 10 | `manage_subscription` md5 | `3ceb5089e1c2305628db36e485be9bcd` | 동일 | REMEASURED_MATCH |
+| 11 | `detect_threat` md5 | `992c78c881be2f23bcac8050b60ad2b7` | 동일 | REMEASURED_MATCH |
+| 12 | `verify_security_token` md5 | `b5c978db183d70e025ff97cc2bd1785f` | 동일 | REMEASURED_MATCH |
+| 13 | `gateway_audit_entry` md5 | `bbfac99ac170a83d988c610435a00732` | 동일 | REMEASURED_MATCH |
+| 14 | `record_van_transaction` md5 | `ef4d5ab3048ff13485e1cbf33579301f` | `16aed7926150f2729d578194a3c4412b` | REMEASURED_DELTA |
+| 15 | `check_staff_permission` md5 | `297947c8bca176dab515b1f22353cb5b` | 동일 | REMEASURED_MATCH |
+| 16 | 금지 7함수 DB 호출 edge | 6 | 6, 동일 관계 | REMEASURED_MATCH |
+| 17 | 금지 7함수 EXECUTE ACL | §9.2 기록값 | 동일 | REMEASURED_MATCH |
+| 18 | 자산 4테이블 컬럼·제약 | §8.1~§8.2 기록값 | 동일 | REMEASURED_MATCH |
+| 19 | 자산 4테이블 행 수 | 각 0 | 각 0 | REMEASURED_MATCH |
+| 20 | 자산 RLS/FORCE·policy 수 | 각 true/true·1건 | 동일 | REMEASURED_MATCH |
+| 21 | `idempotency_keys` UNIQUE | `(tenant_id,key_domain,idempotency_key)` | 동일 | REMEASURED_MATCH |
+| 22 | `offline_queue` 참조 함수 목록 | §8.3에 6개 이름 열거 | 동일 6개 | REMEASURED_MATCH |
+| 23 | 컨테이너 ID | `fb5b03ea...1499857` | `b67400e8...bd935ec` | REMEASURED_DELTA |
+| 24 | 이미지 | `17.6.1.140` | `17.6.1.156` | REMEASURED_DELTA |
+| 25 | `security_audit_log` prosrc 참조 함수 수 | 13 | 12 | REMEASURED_DELTA |
+
+집계: REMEASURED_MATCH 20건, REMEASURED_DELTA 5건.
+
+DELTA에서 관측된 변경 원인 자료는 다음과 같다.
+
+| DELTA | 관측된 자료 |
+|---|---|
+| migration applied_at | 컨테이너 ID와 이미지 태그가 다르고, 같은 `0171` 행의 applied_at이 다름 |
+| `record_van_transaction` md5 | 현재 prosrc md5가 다름. `0170`은 person vocabulary 변경, `0171`은 merchant account foundation이며 두 migration 파일에서 이 함수 정의문은 검색 0건 |
+| 컨테이너 ID·이미지 | 두 측정 기록 자체가 서로 다른 ID와 이미지 태그를 반환함 |
+| `security_audit_log` 참조 함수 수 | 현재 prosrc 전수 검색은 12개 함수를 반환함; `601802`는 13건으로 기록함 |
+
+그 밖의 변경 원인은 이 Pass에서 확인되지 않았다.
+
+## §23 실행 쿼리 전문
+
+모든 DB 쿼리는 `PGOPTIONS="-c default_transaction_read_only=on"`과 `psql -v ON_ERROR_STOP=1`로 실행했다. 금지 함수 호출문은 실행하지 않았다.
+
+```sql
+SHOW default_transaction_read_only;
+SELECT current_timestamp;
+SELECT version();
+
+SELECT count(*) FILTER (WHERE success) AS success_count,
+       (SELECT row_to_json(m) FROM catchmenu_meta.migration_history m
+        ORDER BY applied_at DESC LIMIT 1) AS latest,
+       json_agg(row_to_json(h) ORDER BY applied_at)
+         FILTER (WHERE NOT success) AS failed
+FROM catchmenu_meta.migration_history h;
+
+SELECT schemaname, count(*) AS table_count
+FROM pg_tables
+WHERE schemaname LIKE 'catchmenu%'
+GROUP BY schemaname
+ORDER BY schemaname;
+
+SELECT ordinal_position, column_name, data_type, udt_schema, udt_name,
+       is_nullable, column_default
+FROM information_schema.columns
+WHERE table_schema='catchmenu_hq' AND table_name='tenants'
+  AND column_name IN ('tenant_status','isolation_state')
+ORDER BY ordinal_position;
+
+SELECT conname, contype, pg_get_constraintdef(oid)
+FROM pg_constraint
+WHERE conrelid='catchmenu_hq.tenants'::regclass
+  AND (pg_get_constraintdef(oid) ILIKE '%tenant_status%'
+       OR pg_get_constraintdef(oid) ILIKE '%isolation_state%');
+
+SELECT n.nspname, p.proname, p.oid::regprocedure,
+       pg_get_function_identity_arguments(p.oid),
+       pg_get_function_result(p.oid), md5(p.prosrc), length(p.prosrc),
+       p.prosecdef, p.proconfig, p.proacl
+FROM pg_proc p
+JOIN pg_namespace n ON n.oid=p.pronamespace
+WHERE p.proname IN (
+  'isolate_tenant','manage_subscription','detect_threat',
+  'verify_security_token','gateway_audit_entry',
+  'record_van_transaction','check_staff_permission'
+)
+ORDER BY p.proname;
+
+SELECT n.nspname||'.'||p.proname,
+       p.prosrc ILIKE '%authority%' AS authority_ref,
+       p.prosrc ILIKE '%capability%' AS capability_ref,
+       p.prosrc ILIKE '%policy_version%' AS policy_version_ref,
+       p.prosrc ILIKE '%evidence%' AS evidence_ref,
+       p.prosrc ILIKE '%idempotency%' AS idempotency_ref
+FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+WHERE p.proname IN (
+  'isolate_tenant','manage_subscription','detect_threat',
+  'verify_security_token','gateway_audit_entry',
+  'record_van_transaction','check_staff_permission'
+)
+ORDER BY 1;
+
+SELECT count(*)
+FROM pg_proc
+WHERE prosrc ~ 'SCOPE_(NOT_EVALUATED|VALIDATING|VALID|PARTIAL_VALID|MISSING|MISMATCH|CROSS_TENANT_DENIED|STORE_MISMATCH|LEGAL_ENTITY_MISMATCH|PROVIDER_MISMATCH|DEVICE_MISMATCH|VISIBILITY_DENIED|AUTHORITY_DENIED|REVIEW_REQUIRED|QUARANTINED|DLQ_REQUIRED)';
+
+SELECT n.nspname, p.proname, p.oid::regprocedure,
+       p.prosrc ILIKE '%tenant_status%' AS tenant_status,
+       p.prosrc ILIKE '%isolation_state%' AS isolation_state
+FROM pg_proc p
+JOIN pg_namespace n ON n.oid=p.pronamespace
+WHERE p.prosrc ILIKE '%tenant_status%'
+   OR p.prosrc ILIKE '%isolation_state%';
+
+SELECT schemaname, viewname
+FROM pg_views
+WHERE definition ILIKE '%tenant_status%'
+   OR definition ILIKE '%isolation_state%';
+
+SELECT schemaname, matviewname
+FROM pg_matviews
+WHERE definition ILIKE '%tenant_status%'
+   OR definition ILIKE '%isolation_state%';
+
+SELECT n.nspname, c.relname, t.tgname, pg_get_triggerdef(t.oid)
+FROM pg_trigger t
+JOIN pg_class c ON c.oid=t.tgrelid
+JOIN pg_namespace n ON n.oid=c.relnamespace
+WHERE NOT t.tgisinternal
+  AND pg_get_triggerdef(t.oid) ~* '(tenant_status|isolation_state)';
+
+WITH target AS (
+  SELECT p.oid,p.prosrc,n.nspname,p.proname
+  FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+  WHERE p.proname IN (
+    'isolate_tenant','manage_subscription','detect_threat',
+    'verify_security_token','gateway_audit_entry',
+    'record_van_transaction','check_staff_permission'
+  )
+)
+SELECT t.proname AS target, n.nspname AS caller_schema,
+       p.proname AS caller, p.oid::regprocedure AS caller_signature
+FROM target t
+JOIN pg_proc p ON p.oid<>t.oid
+JOIN pg_namespace n ON n.oid=p.pronamespace
+WHERE p.prosrc ILIKE '%'||t.proname||'%'
+ORDER BY target,caller_schema,caller;
+
+SELECT c.table_schema,c.table_name,c.ordinal_position,c.column_name,
+       c.data_type,c.udt_name,c.is_nullable,c.column_default
+FROM information_schema.columns c
+WHERE (c.table_schema,c.table_name) IN (
+ ('catchmenu_common','offline_queue'),
+ ('catchmenu_common','security_threats'),
+ ('catchmenu_common','security_audit_log'),
+ ('catchmenu_common','idempotency_keys')
+)
+ORDER BY c.table_schema,c.table_name,c.ordinal_position;
+
+SELECT n.nspname,c.relname,k.conname,k.contype,pg_get_constraintdef(k.oid)
+FROM pg_constraint k
+JOIN pg_class c ON c.oid=k.conrelid
+JOIN pg_namespace n ON n.oid=c.relnamespace
+WHERE (n.nspname,c.relname) IN (
+ ('catchmenu_common','offline_queue'),
+ ('catchmenu_common','security_threats'),
+ ('catchmenu_common','security_audit_log'),
+ ('catchmenu_common','idempotency_keys')
+)
+ORDER BY n.nspname,c.relname,k.conname;
+
+SELECT n.nspname,c.relname,c.relrowsecurity,c.relforcerowsecurity,
+       (SELECT count(*) FROM pg_policy p WHERE p.polrelid=c.oid) AS policy_count
+FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+WHERE (n.nspname,c.relname) IN (
+ ('catchmenu_common','offline_queue'),
+ ('catchmenu_common','security_threats'),
+ ('catchmenu_common','security_audit_log'),
+ ('catchmenu_common','idempotency_keys')
+);
+
+SELECT schemaname,tablename,policyname,roles,cmd,qual,with_check
+FROM pg_policies
+WHERE (schemaname,tablename) IN (
+ ('catchmenu_common','offline_queue'),
+ ('catchmenu_common','security_threats'),
+ ('catchmenu_common','security_audit_log'),
+ ('catchmenu_common','idempotency_keys')
+)
+ORDER BY schemaname,tablename,policyname;
+
+SELECT table_schema,table_name,grantee,privilege_type,is_grantable
+FROM information_schema.role_table_grants
+WHERE (table_schema,table_name) IN (
+ ('catchmenu_common','offline_queue'),
+ ('catchmenu_common','security_threats'),
+ ('catchmenu_common','security_audit_log'),
+ ('catchmenu_common','idempotency_keys')
+)
+ORDER BY table_schema,table_name,grantee,privilege_type;
+
+SELECT
+ (SELECT count(*) FROM catchmenu_common.offline_queue) AS offline_queue,
+ (SELECT count(*) FROM catchmenu_common.security_threats) AS security_threats,
+ (SELECT count(*) FROM catchmenu_common.security_audit_log) AS security_audit_log,
+ (SELECT count(*) FROM catchmenu_common.idempotency_keys) AS idempotency_keys;
+
+WITH tabs(t) AS (VALUES
+ ('offline_queue'),('security_threats'),
+ ('security_audit_log'),('idempotency_keys')
+)
+SELECT tabs.t,n.nspname,p.proname,p.oid::regprocedure
+FROM tabs
+JOIN pg_proc p ON p.prosrc ILIKE '%'||tabs.t||'%'
+JOIN pg_namespace n ON n.oid=p.pronamespace
+ORDER BY tabs.t,n.nspname,p.proname;
+```
+
+비문서 앱 코드 호출자 검색:
+
+```text
+rg -n -g '!docs/**' -g '!sql/migrations/**' -g '!tools/**' -g '!*.md' "isolate_tenant|manage_subscription|detect_threat|verify_security_token|gateway_audit_entry|record_van_transaction|check_staff_permission" .
+결과: 0건
+```
+
+## §24 근거 문서 목록 갱신 (`000701` §46)
+
+| 근거 | 사용 |
+|---|---|
+| `601901` §5~§9.3 | A1 8건 원천 정책 기록 |
+| `601901` §10~§15 | A2·A3·A4 및 provenance 기록 |
+| `601802_Register_Stage0_Evidence_Collection.md` | 2026-08-27 old 값 대조 기준; 현재값으로 복사하지 않음 |
+| `601505_ChangeContract_Operational_Authority_Foundation_Ddl.md` §4 | 함수 호출 금지 근거 |
+| `sql/migrations/0170_person_vocabulary_normalization.sql` | DELTA 원인 검색 대상 |
+| `sql/migrations/0171_merchant_account_foundation.sql` | 최신 migration 및 DELTA 원인 검색 대상 |
+| live PostgreSQL catalog·row count | §16~§23 current 실측 |
