@@ -10,8 +10,9 @@ Last Updated: 2026-09-02
 |---|---|
 | 용도 | `000701` §48 증거수집 |
 | baseline commit | `e6573af57432ad7d496ae0a9ad5739047ecf0eec` |
-| Pass | Pass 1 — Source Provenance Evidence |
-| 다음 Pass | Pass 2 — Runtime Remeasurement |
+| Pass 1 | 문서 축 — A1 5건 · A2 · A3 · A4 |
+| Pass 1.5 | A3 중 3건을 A1으로 승격해 조사 |
+| Pass 2 | 실측 축 — 대기 |
 | DB 접속 | 수행하지 않음 |
 | 문서 성격 | 사실 등록부. 판단·설계·Human Rule 생성 없음 |
 | 조사 기준 | baseline commit의 blob과 tree |
@@ -54,6 +55,9 @@ Last Updated: 2026-09-02
 | 3 | `docs/000100_project_foundation/000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | 혼재 | Purpose; 후대 개정 블록; 원 정책 §1~§33 | 원 정책 §3~§8, §12~§17, §20~§27, §31~§33 | L10의 후대 블록 내부 1개 |
 | 4 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | 혼재 | Purpose; 원 정책 §1~§13; 후대 개정 블록; 원 정책 §14~§39 | 원 정책 §3~§16, §25~§33, §39 | L385의 후대 블록 내부 1개 |
 | 5 | `docs/000100_project_foundation/000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md` | ACTIVE | Purpose; 원 정책 §1~§37 | §3~§17, §20~§31, §37 | 없음 |
+| 6 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010630_Policy_Authority_Capability_Gate.md` | ACTIVE | Purpose; §2~§44 | §2~§6, §9, §13, §18, §21~§22, §24, §28~§30, §35, §39, §44 | 없음 |
+| 7 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010650_Policy_Failure_Containment_Circuit_Breaker.md` | ACTIVE | Purpose; §2~§42 | §2~§7, §16~§18, §27, §29~§33, §35~§36, §42 | 없음 |
+| 8 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` | ACTIVE | Purpose; §2~§44 | §2~§16, §29, §31~§33, §36~§38, §44 | 없음 |
 
 ### §3.2 A2 Upstream Human Declaration
 
@@ -67,14 +71,11 @@ Last Updated: 2026-09-02
 
 | # | 정확한 경로 | 현재 지위 | 발견 위치 | authority 처리 |
 |---:|---|---|---|---|
-| 1 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010610_Policy_Cross_Room_Event_Bus_And_Evidence_Packet_Routing.md` | ACTIVE | `010640` §41 references | A1 승격 안 함 |
-| 2 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010620_Policy_Command_Query_Projection_Separation.md` | ACTIVE | `010640` §41 references | A1 승격 안 함 |
-| 3 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010630_Policy_Authority_Capability_Gate.md` | ACTIVE | `010640` §41 follows/references | A1 승격 안 함 |
-| 4 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010650_Policy_Failure_Containment_Circuit_Breaker.md` | ACTIVE | `010640` §41 prepares | A1 승격 안 함 |
-| 5 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` | ACTIVE | `010640` §41 prepares | A1 승격 안 함 |
-| 6 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010670_Policy_Safe_Projection_I18n_Routing.md` | ACTIVE | `010640` §41 prepares | A1 승격 안 함 |
-| 7 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010680_Audit_Correlation_Nightly_Batch.md` | ACTIVE | `010640` §41 prepares | A1 승격 안 함 |
-| 8 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010690_Policy_Cross_Room_Plumbing_Closure.md` | ACTIVE | `010640` §41 prepares | A1 승격 안 함 |
+| 1 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010610_Policy_Cross_Room_Event_Bus_And_Evidence_Packet_Routing.md` | ACTIVE | `010640` §41 references | A3 유지 — 격리 중 event 전달; Integration Isolation 이월 소관 |
+| 2 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010620_Policy_Command_Query_Projection_Separation.md` | ACTIVE | `010640` §41 references | A3 유지 — projection separation; 1단계가 필요하면 본다 |
+| 3 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010670_Policy_Safe_Projection_I18n_Routing.md` | ACTIVE | `010640` §41 prepares | A3 유지 — safe projection·i18n; 1단계가 필요하면 본다 |
+| 4 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010680_Audit_Correlation_Nightly_Batch.md` | ACTIVE | `010640` §41 prepares | A3 유지 — audit correlation; R-6과 인접하며 1단계가 필요하면 본다 |
+| 5 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010690_Policy_Cross_Room_Plumbing_Closure.md` | ACTIVE | `010640` §41 prepares | A3 유지 — closure; 1단계가 필요하면 본다 |
 
 ### §3.4 A4 Suspended Evidence
 
@@ -95,6 +96,9 @@ Last Updated: 2026-09-02
 | Cross-business boundary | `000190` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
 | Upstream Human declarations | `601702` 45건 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
 | Suspended prior evidence | `601500`·`601600`·`601800` 존재 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | authority와 evidence 분리 |
+| Authority capability gate | `010630` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
+| Failure containment circuit breaker | `010650` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
+| Idempotency·retry·replay·reconciliation | `010660` 존재 — A1 승격(2026-09-02) | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | Pass 2 대기 | A만 기록 |
 
 ## §5 A1 상세 — 010004
 
@@ -734,6 +738,926 @@ Federate later by design, not by accident.
 | 애매점 | Suggested conceptual entities와 실제 물리 모델의 대응은 이 Pass에서 측정하지 않음 |
 | 제외 | §24~§36의 상세 reporting/support/entity 후보는 전체 구조에만 기록; tenant isolation axis 직접 원문은 boundary·authority·link·fail-closed 절로 한정 |
 
+## §9.1 A1 상세 — 010630 Authority Capability Gate
+
+### §9.1.1 식별 · 지위 · 전체 절 구조
+
+| 항목 | 기록 |
+|---|---|
+| 정확한 경로 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010630_Policy_Authority_Capability_Gate.md` |
+| 현재 지위 | ACTIVE — A3에서 A1으로 승격(2026-09-02) |
+| 승격 기록 근거 | 격리 발동 권한과 같은 주제를 다룸 |
+| 전체 절 구조 | Purpose; §2 Core Position; §3 Scope; §4 Authority Gate Catalog; §5 Authority Context; §6 Authority Decision States; §7 Identity Gate; §8 Role Gate; §9 Scope Gate; §10 Feature Entitlement Gate; §11 Policy Gate; §12 State Transition Gate; §13 Evidence Gate; §14 Risk Gate; §15 Device Trust Gate; §16 Provider Readiness Gate; §17 Financial Limit Gate; §18 Multi-Party Approval Gate; §19 Privacy Visibility Gate; §20 Safety Gate; §21 Idempotency Gate; §22 Audit Gate; §23 Time Window Gate; §24 Circuit Breaker Gate; §25 Compliance Gate; §26 Human Review Gate; §27 Authority Evaluation Order; §28 Default Denial Rules; §29 Authority Decision Output; §30 Reason Code Policy; §31 Authority Decision Audit; §32 Authority Decision Caching; §33 Policy Version Binding; §34 Authority Invalidation; §35 Break-Glass Access; §36 Service Account Authority; §37 AI Authority Boundary; §38 Device Authority Boundary; §39 Testing Requirements; §40 Observability; §41 Suggested Conceptual Entities; §42 Example Authority Decisions; §43 Mandatory Failure Rules; §44 Final Rule |
+
+### §9.1.2 0-A-2 관련 절 — 원문
+
+```text
+## 2. Core Position
+
+Capability must be separated from authority.
+
+The correct rule is:
+
+Feature available does not mean actor authorized.  
+Role exists does not mean action permitted.  
+Device connected does not mean device trusted.  
+Provider configured does not mean provider verified.  
+AI recommendation does not mean approval.  
+Sensor confidence does not mean execution authority.  
+Projection visibility does not mean mutation authority.  
+Support access does not mean ownership.  
+Admin access does not mean financial authority.  
+Tenant entitlement does not mean compliance readiness.  
+Capability flag does not override policy gate.  
+Authority must be explicit, scoped, evidenced, and auditable.  
+
+The platform must gate every high-impact action through context-aware authority checks.
+
+---
+```
+
+```text
+## 5. Authority Context Boundary
+
+Every command must carry authority context.
+
+Recommended authority context fields:
+
+| Field | Meaning |
+|---|---|
+| `actor_id` | Acting user/system |
+| `actor_type` | Customer, staff, owner, HQ, support, finance, security, system |
+| `role_id` | Role assigned |
+| `role_scope` | Scope of role |
+| `tenant_id` | Tenant context |
+| `store_id` | Store context |
+| `brand_id` | Brand context |
+| `operating_group_id` | Operating group context |
+| `legal_entity_id` | Legal/accounting context |
+| `surface_id` | UI/API/device surface |
+| `device_id` | Device used |
+| `session_id` | Session context |
+| `feature_id` | Feature being invoked |
+| `capability_id` | Capability being used |
+| `policy_version` | Active policy version |
+| `risk_state` | Risk state |
+| `approval_context` | Approval references |
+| `evidence_packet_id` | Supporting evidence |
+| `authority_decision_id` | Gate decision id |
+
+No high-impact command may execute without authority context.
+
+---
+```
+
+```text
+## 6. Authority Decision State Skeleton
+
+Recommended authority decision states:
+
+| State | Meaning |
+|---|---|
+| `AUTHORITY_NOT_EVALUATED` | Gate not evaluated |
+| `AUTHORITY_EVALUATING` | Gate evaluation in progress |
+| `AUTHORITY_ALLOWED` | Allowed |
+| `AUTHORITY_DENIED` | Denied |
+| `AUTHORITY_PARTIAL_ALLOWED` | Allowed only in limited scope |
+| `AUTHORITY_REVIEW_REQUIRED` | Human review required |
+| `AUTHORITY_MULTI_PARTY_REQUIRED` | Multi-party approval required |
+| `AUTHORITY_EVIDENCE_REQUIRED` | Evidence missing |
+| `AUTHORITY_RISK_HOLD` | Held due to risk |
+| `AUTHORITY_POLICY_BLOCKED` | Blocked by policy |
+| `AUTHORITY_SCOPE_MISMATCH` | Tenant/store/legal scope mismatch |
+| `AUTHORITY_DEVICE_UNTRUSTED` | Device trust failed |
+| `AUTHORITY_PROVIDER_UNREADY` | Provider not ready |
+| `AUTHORITY_CIRCUIT_OPEN` | Circuit breaker blocks route |
+| `AUTHORITY_DLQ_REQUIRED` | Gate result must route to DLQ |
+
+Authority denied must be auditable.
+
+---
+```
+
+```text
+## 9. Scope Gate Boundary
+
+Scope gate checks whether the actor may act in the requested context.
+
+Scope dimensions:
+
+- tenant
+- store
+- brand
+- operating group
+- legal entity
+- device
+- provider
+- region
+- franchise HQ
+- customer session
+- financial account
+- supplier
+- policy family
+
+Default rule:
+
+    DENY_UNLESS_SCOPE_MATCHES
+
+If scope cannot be proven, deny or quarantine.
+
+---
+```
+
+```text
+## 18. Multi-Party Approval Gate Boundary
+
+Multi-party approval gate applies to high-risk actions.
+
+Actions may include:
+
+- policy activation
+- payout rule change
+- provider credential change
+- settlement account change
+- large manual adjustment
+- trigger/audit control modification
+- WORM/retention change
+- DR failover promotion
+- split payout configuration
+- fast payout risk model activation
+- high-value refund approval
+- privileged access
+- direct DB maintenance window
+- security containment release
+
+One person must not control critical financial or security changes alone.
+
+---
+```
+
+```text
+## 21. Idempotency Gate Boundary
+
+Idempotency gate checks duplicate-safe execution.
+
+High-risk duplicate cases:
+
+- payment capture
+- refund request
+- auth release
+- payout
+- split payout
+- supplier order
+- KDS ticket
+- IoT command
+- no-show penalty
+- manual adjustment
+- policy activation
+- DR replay
+- export delivery
+
+Duplicate action must return existing result or route to review.
+
+It must not execute twice.
+
+---
+```
+
+```text
+## 22. Audit Gate Boundary
+
+Audit gate checks whether the action can be traced.
+
+If required audit cannot be recorded, high-impact action must be blocked or routed to fallback.
+
+Audit gate applies to:
+
+- financial movement
+- policy change
+- manual adjustment
+- privileged access
+- provider callback acceptance
+- export
+- security containment
+- sensor-derived billing candidate
+- IoT command
+- supplier order
+- no-show penalty
+- fast payout
+
+No audit, no high-impact action.
+
+---
+```
+
+```text
+## 28. Deny-By-Default Rule
+
+Default authority decision is denial.
+
+Recommended default:
+
+    DENY_UNLESS_EXPLICITLY_ALLOWED
+
+For tenant isolation:
+
+    CROSS_TENANT_ACCESS_DENIED
+
+For provider readiness:
+
+    CAPABILITY_PROVIDER_EVIDENCE_REQUIRED
+
+For sensor-derived billing:
+
+    SENSOR_EVENT_REVIEW_REQUIRED
+
+For AI execution:
+
+    AI_AUTHORITY_DENIED
+
+For physical device execution:
+
+    SAFETY_GATE_REQUIRED
+
+For financial finality:
+
+    FINANCIAL_EVIDENCE_REQUIRED
+
+---
+```
+
+```text
+## 35. Authority Gate And Break-Glass Boundary
+
+Break-glass authority is emergency-only.
+
+Break-glass requires:
+
+- emergency reason
+- limited scope
+- limited duration
+- reauthentication
+- multi-party or post-review if policy requires
+- elevated audit
+- notification
+- reconciliation
+- postmortem
+
+Break-glass must not become normal admin workflow.
+
+---
+```
+
+```text
+## 44. Final Rule
+
+Capability is not authority.
+
+A feature may exist, a role may exist, a device may be connected, a provider may be configured, a projection may be visible, an AI may recommend, and a sensor may detect, but none of these alone authorizes action.
+
+Every high-impact action must pass explicit identity, role, scope, entitlement, policy, state, evidence, risk, device, provider, amount, approval, privacy, safety, idempotency, audit, time, circuit breaker, compliance, and human-review gates as applicable.
+
+Default is denial unless explicit authority is proven.
+
+Runtime implementation remains deferred until a separate explicit authorization packet is approved.
+```
+
+### §9.1.3 suspended block · 분리 · 애매점 · 제외
+
+| 항목 | 기록 |
+|---|---|
+| AUTHORITY SUSPENDED 블록 | 없음 |
+| 원 정책과 후대 삽입 | 식별된 AUTHORITY SUSPENDED 후대 삽입 블록 0건; 위 인용은 문서 본문 절에서 옮김 |
+| 문서 내부의 모순 · 애매점 | authority context의 필드가 “should include”로 표현되지만 마지막 문장은 authority context 없는 high-impact command를 금지함; 격리 발동·해제에 적용할 구체 capability_id와 승인 주체는 이 문서에서 열거하지 않음 |
+| 제외한 절과 사유 | §7~§8, §10~§17, §19~§20, §23~§27, §29~§34, §36~§43은 전체 구조에는 기록했으며, 이번 승격 근거인 격리 발동 권한·scope·containment·audit·idempotency와 직접 맞닿은 절의 원문을 위에 옮김 |
+
+## §9.2 A1 상세 — 010650 Failure Containment Circuit Breaker
+
+### §9.2.1 식별 · 지위 · 전체 절 구조
+
+| 항목 | 기록 |
+|---|---|
+| 정확한 경로 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010650_Policy_Failure_Containment_Circuit_Breaker.md` |
+| 현재 지위 | ACTIVE — A3에서 A1으로 승격(2026-09-02) |
+| 승격 기록 근거 | 격리와 containment가 같은 주제를 다룸 |
+| 전체 절 구조 | Purpose; §2 Core Position; §3 Scope; §4 Containment Families; §5 Circuit Breaker States; §6 Circuit Breaker Trigger Classes; §7 Circuit Decision Record; §8 Timeout Containment; §9 Provider Failure Containment; §10 Queue Backpressure; §11 DLQ Containment; §12 Financial Containment; §13 Authorization Unknown Containment; §14 Sensor Event Containment; §15 AI Failure Containment; §16 Security Quarantine; §17 Tenant Noisy Neighbor Containment; §18 Store-Local Containment; §19 Device Failure Containment; §20 IoT Containment; §21 Supplier Failure Containment; §22 Notification Failure Containment; §23 Export Failure Containment; §24 Projection Failure Containment; §25 Search Failure Containment; §26 Local Mode Containment; §27 Disaster Recovery Containment; §28 Containment Escalation; §29 Recovery Requirements; §30 Circuit Reclose Checklist; §31 DLQ Resolution; §32 Containment Evidence Packet; §33 Audit Requirements; §34 Observability; §35 Manual Containment Actions; §36 Containment Scope Rules; §37 Suggested Conceptual Entities; §38 Example Containment Scenarios; §39 Mandatory Failure Rules; §40 Policy Questions; §41 Boundary; §42 Final Rule |
+
+### §9.2.2 0-A-2 관련 절 — 원문
+
+```text
+## 2. Core Position
+
+Failure must be contained at the smallest safe boundary.
+
+The correct rule is:
+
+Failure is not permission to mutate.  
+Timeout is not success.  
+Timeout is not failure finality.  
+Unknown state must be contained.  
+Provider failure must not corrupt internal ledger.  
+Store device failure must not stop tenant financial evidence.  
+Tenant failure must not affect another tenant.  
+Queue overload must not reach the financial core directly.  
+Sensor false positive must not trigger billing.  
+AI failure must not block operational truth.  
+Circuit breaker protects the system, but does not resolve the incident.  
+Containment is not recovery.  
+Fallback is not silent mutation.  
+
+The system must degrade, isolate, quarantine, and reconcile rather than crash, over-retry, or spread uncertainty.
+
+---
+```
+
+```text
+## 4. Failure Containment Catalog
+
+The following containment families are required:
+
+| Containment Family | Purpose |
+|---|---|
+| `ROUTE_CIRCUIT_BREAKER` | Stop unsafe repeated calls to failing route |
+| `PROVIDER_CIRCUIT_BREAKER` | Isolate PG/VAN/bank/supplier/provider failures |
+| `TENANT_CIRCUIT_BREAKER` | Isolate tenant-specific overload or compromise |
+| `STORE_CIRCUIT_BREAKER` | Isolate store-level device/network/runtime failure |
+| `DEVICE_CIRCUIT_BREAKER` | Block untrusted or failing device |
+| `QUEUE_BACKPRESSURE` | Prevent queue overload from reaching core systems |
+| `RATE_LIMIT_CONTAINMENT` | Limit abusive or excessive requests |
+| `DLQ_CONTAINMENT` | Isolate malformed or unsafe messages |
+| `SECURITY_QUARANTINE` | Quarantine suspected attack or compromise |
+| `FINANCIAL_HOLD` | Hold financial finality until verified |
+| `SENSOR_CONFIDENCE_HOLD` | Block high-impact action from uncertain sensor |
+| `AI_ROUTE_DEGRADATION` | Disable AI advisory route without blocking truth |
+| `LOCAL_FALLBACK_CONTAINMENT` | Allow limited store operation under local mode |
+| `DR_FAILOVER_CONTAINMENT` | Prevent split-brain and duplicate processing |
+| `POLICY_FREEZE` | Freeze risky policy mutation during incident |
+
+Containment must be explicit, auditable, and reversible through approved recovery.
+
+---
+```
+
+```text
+## 5. Circuit Breaker State Skeleton
+
+Recommended circuit breaker states:
+
+| State | Meaning |
+|---|---|
+| `CIRCUIT_CLOSED` | Normal operation |
+| `CIRCUIT_WARNING` | Error/latency rising |
+| `CIRCUIT_OPEN` | Route blocked |
+| `CIRCUIT_HALF_OPEN` | Limited probe allowed |
+| `CIRCUIT_RECOVERING` | Recovery validation in progress |
+| `CIRCUIT_FORCED_OPEN` | Manually/security-forced open |
+| `CIRCUIT_PROVIDER_MAINTENANCE` | Provider maintenance |
+| `CIRCUIT_DEGRADED` | Reduced capability mode |
+| `CIRCUIT_UNKNOWN` | Circuit state uncertain |
+| `CIRCUIT_REVIEW_REQUIRED` | Human/security review required |
+| `CIRCUIT_CLOSED_VERIFIED` | Closed after verification |
+
+Circuit close must require verification.
+
+---
+```
+
+```text
+## 16. Security Quarantine Boundary
+
+Security quarantine applies when malicious or suspicious activity is detected.
+
+Quarantine candidates:
+
+- cross-tenant access attempt
+- direct DB mutation attempt
+- privileged action anomaly
+- token replay
+- Host header attack
+- internal RPC exposure
+- provider spoof
+- device compromise
+- queue secret leakage
+- AI prompt injection risk
+- sensor tampering
+- WORM audit failure
+- ledger hash mismatch
+- admin/support abuse
+
+Quarantine may isolate:
+
+- session
+- actor
+- device
+- tenant
+- store
+- route
+- provider adapter
+- queue topic
+- export job
+- policy change
+
+Quarantine release requires authority gate and audit.
+
+---
+```
+
+```text
+## 17. Tenant Noisy Neighbor Containment Boundary
+
+Tenant-specific overload must not harm other tenants.
+
+Noisy neighbor signals:
+
+- excessive API calls
+- queue flooding
+- export abuse
+- analytics-heavy query
+- AI/vector overuse
+- provider retry storm
+- device reconnect storm
+- bulk import abuse
+- malicious scanning
+- abnormal payment attempts
+
+Containment actions:
+
+- tenant rate limit
+- tenant queue isolation
+- tenant circuit breaker
+- downgrade non-critical features
+- require review
+- preserve tenant isolation
+- notify platform operations
+
+Tenant overload must be contained at tenant boundary.
+
+---
+```
+
+```text
+## 18. Store-Level Containment Boundary
+
+Store-specific failure must not affect other stores.
+
+Store-level containment applies to:
+
+- internet outage
+- POS failure
+- KDS failure
+- device infection
+- printer failure
+- staff account abuse
+- local hub compromise
+- store network attack
+- sensor failure
+- local mesh conflict
+
+Containment actions:
+
+- isolate store routes
+- preserve tenant-level functions for other stores
+- block cross-store propagation
+- create store incident
+- use local fallback
+- require store recovery evidence
+
+Store failure must not become tenant-wide failure unless scope demands escalation.
+
+---
+```
+
+```text
+## 29. Recovery Boundary
+
+Recovery starts after containment.
+
+Recovery must include:
+
+- root cause candidate
+- affected scope
+- affected objects
+- evidence packet
+- reconciliation plan
+- rollback/compensation plan
+- authority decision
+- human review if needed
+- audit
+- safe projection update
+- postmortem if high impact
+
+Recovery is not complete until verified.
+
+---
+```
+
+```text
+## 35. Relationship To Authority Gate
+
+Containment actions must pass authority gate when high-impact.
+
+Examples requiring authority:
+
+- manual circuit open/close
+- settlement hold release
+- security quarantine release
+- provider route re-enable
+- policy freeze release
+- DR failover promotion
+- financial hold release
+- tenant throttle override
+- device reprovision
+- fallback finalization
+
+Containment can be automatic under policy.
+
+Release often requires stronger authority.
+
+---
+```
+
+```text
+## 36. Relationship To Tenant Scope Envelope
+
+Containment must be scoped.
+
+Containment may apply to:
+
+- route
+- tenant
+- store
+- device
+- provider
+- actor
+- session
+- surface
+- queue partition
+- shard
+- policy family
+- event family
+
+Containment must not over-block unrelated tenants/stores without reason.
+
+Containment must not under-block affected scope.
+
+---
+```
+
+```text
+## 42. Final Rule
+
+Failure must be contained before it spreads.
+
+A provider outage must not corrupt internal ledger.
+
+A tenant overload must not harm other tenants.
+
+A store device failure must not stop financial evidence capture.
+
+A sensor false positive must not trigger billing.
+
+An AI failure must not block source truth.
+
+A queue spike must not reach financial core uncontrolled.
+
+A timeout must become uncertainty, not silent success or silent failure.
+
+Circuit breaker, DLQ, quarantine, financial hold, degraded mode, fallback, and recovery are separate states.
+
+Containment protects the platform, but recovery requires evidence, reconciliation, authority, audit, and verification.
+
+Runtime implementation remains deferred until a separate explicit authorization packet is approved.
+```
+
+### §9.2.3 suspended block · 분리 · 애매점 · 제외
+
+| 항목 | 기록 |
+|---|---|
+| AUTHORITY SUSPENDED 블록 | 없음 |
+| 원 정책과 후대 삽입 | 식별된 AUTHORITY SUSPENDED 후대 삽입 블록 0건; 위 인용은 문서 본문 절에서 옮김 |
+| 문서 내부의 모순 · 애매점 | §17은 tenant-local overload를 tenant boundary에서 contain하도록 요구하고 §18은 store-local failure를 가능한 한 store-local로 유지하도록 요구함; store에서 tenant로 범위를 넓히는 risk·scope 조건의 구체 판정식은 열거하지 않음 |
+| 제외한 절과 사유 | §6~§15, §19~§28, §30~§34, §37~§41은 전체 구조에는 기록했으며, tenant/store 격리 경계·release authority·recovery와 직접 맞닿은 절의 원문을 위에 옮김 |
+
+## §9.3 A1 상세 — 010660 Idempotency Retry Replay Reconciliation
+
+### §9.3.1 식별 · 지위 · 전체 절 구조
+
+| 항목 | 기록 |
+|---|---|
+| 정확한 경로 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` |
+| 현재 지위 | ACTIVE — A3에서 A1으로 승격(2026-09-02) |
+| 승격 기록 근거 | Stage 6에서 멱등성 키 출처가 미해결로 기록된 주제 |
+| 전체 절 구조 | Purpose; §2 Core Position; §3 Scope; §4 Idempotency Key Inputs; §5 Idempotency Record; §6 Idempotency States; §7 Retry Policy; §8 Retry Classes; §9 Retryable vs Non-Retryable; §10 Timeout and Unknown Outcome; §11 Duplicate Request Handling; §12 Replay Policy; §13 Replay Modes; §14 Reconciliation Policy; §15 Reconciliation Case; §16 Reconciliation States; §17 Payment Idempotency; §18 Refund Idempotency; §19 Authorization Release Idempotency; §20 Payout Idempotency; §21 Order Idempotency; §22 KDS Idempotency; §23 Supplier Idempotency; §24 Notification Idempotency; §25 Webhook Idempotency; §26 Sensor Event Idempotency; §27 IoT Command Idempotency; §28 Export Idempotency; §29 Projection Replay; §30 DR Replay; §31 Manual Replay Authority; §32 Reconciliation Close Checklist; §33 Audit Requirements; §34 Observability; §35 Failure Handling; §36 Idempotency Retention; §37 Scope-Bound Idempotency; §38 Abuse and Collision Protection; §39 Suggested Conceptual Entities; §40 Example Flows; §41 Testing Requirements; §42 Policy Questions; §43 Boundary; §44 Final Rule |
+
+### §9.3.2 0-A-2 관련 절 — 원문
+
+```text
+## 2. Core Position
+
+Idempotency and reconciliation are mandatory for every high-impact flow.
+
+The correct rule is:
+
+Retry is not new intent.  
+Replay is not overwrite.  
+Duplicate event is not duplicate action.  
+Timeout is not success.  
+Timeout is not final failure.  
+Provider delay is not internal truth.  
+Offline sync is not silent merge.  
+Batch rerun is not mutation replay.  
+Reconciliation is not overwrite.  
+Correction is append-only amendment.  
+DLQ is not deletion.  
+Idempotency key protects action, not authority.  
+Idempotency pass does not bypass policy.  
+Reconciled means matched or reviewed, not guessed.  
+
+Every high-impact command must be safe to retry, safe to detect as duplicate, safe to replay for evidence, and safe to reconcile when external truth arrives late.
+
+---
+```
+
+```text
+## 4. Idempotency Key Boundary
+
+Idempotency key must identify one business action.
+
+Recommended key inputs may include:
+
+- tenant id
+- store id
+- actor/customer reference
+- command type
+- target object id
+- payment/order/preorder id
+- provider id
+- amount/currency where applicable
+- business date
+- policy version
+- payload hash
+- request nonce
+- source surface
+- device id
+- time bucket if policy requires
+
+Idempotency key must not be reused across unrelated actions.
+
+Idempotency key must not contain raw secrets.
+
+---
+```
+
+```text
+## 5. Idempotency Record Fields
+
+Recommended idempotency record fields:
+
+| Field | Meaning |
+|---|---|
+| `idempotency_record_id` | Internal record id |
+| `idempotency_key` | Key submitted or derived |
+| `tenant_id` | Tenant scope |
+| `store_id` | Store scope if applicable |
+| `actor_ref` | Actor/customer reference |
+| `command_type` | Command family |
+| `target_object_id` | Target object |
+| `payload_hash` | Payload hash |
+| `request_status` | Processing status |
+| `first_seen_at` | First request time |
+| `last_seen_at` | Last duplicate/retry time |
+| `result_ref` | Result reference |
+| `result_status` | Result status |
+| `attempt_count` | Attempts |
+| `conflict_marker` | Conflict status |
+| `replay_allowed` | Whether replay allowed |
+| `retention_class` | Retention class |
+| `audit_ref` | Audit reference |
+
+Idempotency record is evidence.
+
+It is not authority by itself.
+
+---
+```
+
+```text
+## 6. Idempotency State Skeleton
+
+Recommended states:
+
+| State | Meaning |
+|---|---|
+| `IDEMPOTENCY_NOT_CHECKED` | No check yet |
+| `IDEMPOTENCY_CHECKING` | Checking key |
+| `IDEMPOTENCY_FIRST_SEEN` | First request |
+| `IDEMPOTENCY_IN_PROGRESS` | Processing in progress |
+| `IDEMPOTENCY_COMPLETED` | Completed with result |
+| `IDEMPOTENCY_DUPLICATE_RETURN_RESULT` | Duplicate returns existing result |
+| `IDEMPOTENCY_DUPLICATE_IN_PROGRESS` | Duplicate while still processing |
+| `IDEMPOTENCY_PAYLOAD_CONFLICT` | Same key, different payload |
+| `IDEMPOTENCY_SCOPE_CONFLICT` | Scope mismatch |
+| `IDEMPOTENCY_EXPIRED` | Key expired |
+| `IDEMPOTENCY_REPLAY_REVIEW_REQUIRED` | Replay requires review |
+| `IDEMPOTENCY_DLQ_REQUIRED` | DLQ required |
+
+Same key with different payload must not execute.
+
+---
+```
+
+```text
+## 7. Retry Boundary
+
+Retry repeats an attempted action after temporary failure or uncertainty.
+
+Retry must define:
+
+- retryable error classes
+- non-retryable error classes
+- max retry count
+- backoff policy
+- jitter
+- idempotency key
+- circuit breaker state
+- provider route state
+- timeout state
+- DLQ threshold
+- human review threshold
+- audit trail
+
+Retry must not create a retry storm.
+
+Retry must not duplicate payment, payout, supplier order, KDS ticket, or IoT command.
+
+---
+```
+
+```text
+## 10. Timeout Boundary
+
+Timeout means result is unknown unless verified.
+
+Timeout may occur in:
+
+- payment authorization
+- capture
+- refund
+- auth release
+- provider callback wait
+- POS handoff
+- KDS handoff
+- printer job
+- IoT command
+- supplier order
+- payout
+- split payout
+- export generation
+- queue worker
+- database transaction
+- DR/failover
+- local sync
+- AI/vector job
+
+Timeout must create uncertainty state.
+
+Timeout must not be marked success or final failure without verification.
+
+---
+```
+
+```text
+## 12. Replay Boundary
+
+Replay reprocesses an existing event or command for recovery, audit, projection rebuild, or reconciliation.
+
+Replay must never overwrite original history.
+
+Replay must carry:
+
+- original event id
+- replay id
+- replay reason
+- replay actor/system
+- replay scope
+- replay window
+- expected state
+- current state
+- idempotency result
+- replay result
+- reconciliation effect
+- audit reference
+
+Replay is controlled evidence processing.
+
+Replay is not mutation unless a new command is explicitly produced and authorized.
+
+---
+```
+
+```text
+## 14. Reconciliation Boundary
+
+Reconciliation compares conflicting or incomplete records.
+
+Reconciliation may compare:
+
+- internal ledger
+- provider callback
+- provider settlement file
+- POS/terminal log
+- OS/runtime log
+- device signature log
+- offline event chain
+- KDS/POS state
+- customer app state
+- bank/account verification
+- supplier invoice
+- inventory receipt
+- batch close snapshot
+- WORM/hash chain
+- AI/vector evidence reference
+- sensor evidence
+- support case
+
+Reconciliation does not mutate source truth.
+
+Reconciliation produces decision, amendment candidate, hold release, or review route.
+
+---
+```
+
+```text
+## 32. Reconciliation Closing Boundary
+
+Before closing reconciliation case:
+
+- evidence complete or exception documented
+- state matched or amendment proposed
+- financial hold resolved or maintained
+- DLQ handled
+- reviewer recorded if needed
+- audit recorded
+- projection updated
+- batch/ledger references updated
+- WORM/hash continuity preserved if critical
+
+Closing without evidence is prohibited.
+
+---
+```
+
+```text
+## 37. Idempotency And Tenant Scope Boundary
+
+Idempotency key must be scope-bound.
+
+Same idempotency key in different tenants must not collide.
+
+Same idempotency key across stores must be evaluated by scope.
+
+Cross-tenant idempotency leakage is prohibited.
+
+Idempotency record must carry tenant/store/legal scope.
+
+---
+```
+
+```text
+## 44. Final Rule
+
+Every high-impact action must be idempotent, retry-safe, replay-safe, and reconciliation-ready.
+
+Retry must not create duplicate execution.
+
+Replay must not overwrite history.
+
+Timeout must create uncertainty, not false success or false failure.
+
+Provider delay must be reconciled.
+
+Offline sync must be verified before central acceptance.
+
+Batch replay must not silently change frozen truth.
+
+Correction must be append-only amendment.
+
+DLQ contains unsafe or unprocessable records.
+
+Reconciliation converts uncertainty into evidence-supported resolution.
+
+Runtime implementation remains deferred until a separate explicit authorization packet is approved.
+```
+
+### §9.3.3 suspended block · 분리 · 애매점 · 제외
+
+| 항목 | 기록 |
+|---|---|
+| AUTHORITY SUSPENDED 블록 | 없음 |
+| 원 정책과 후대 삽입 | 식별된 AUTHORITY SUSPENDED 후대 삽입 블록 0건; 위 인용은 문서 본문 절에서 옮김 |
+| 문서 내부의 모순 · 애매점 | §4는 키 설계에 고려할 입력을 열거하지만 키를 누가 생성·제공하는지와 각 command family의 필수 조합은 정하지 않음; §36 retention boundary와 재사용 가능 시점의 구체 기간은 이 문서에서 수치화하지 않음 |
+| 제외한 절과 사유 | §8~§9, §11, §13, §15~§31, §33~§36, §38~§43은 전체 구조에는 기록했으며, 미해결로 기록된 idempotency key 출처·scope·replay/reconciliation authority와 직접 맞닿은 절의 원문을 위에 옮김 |
+
 ## §10 A2 상세 — 601702
 
 ### §10.1 전체 절 구조
@@ -898,14 +1822,14 @@ Tenant 간 데이터 격리
 
 | 문서 | 전체 절 구조 | 0-A-2 관련 지점 | suspended block | 제외 사유 |
 |---|---|---|---|---|
-| `010610` | Purpose; §2~§42 | §6 Mandatory Event Envelope; §15 DLQ; §16 Quarantine; §22 Tenant Scope; §29 Audit; §31 Security | 없음 | `601900` 지정 A1 아님 |
-| `010620` | Purpose; §2~§43 | §4 Command; §5 Fields; §14 Audit; §16 DLQ; §32~§34 gates; §37 Evidence-First | 없음 | `601900` 지정 A1 아님 |
-| `010630` | Purpose; §2~§44 | §5 Authority Context; §6 Decision State; §9 Scope Gate; §13 Evidence; §21 Idempotency; §22 Audit; §24 Circuit Breaker; §28 Deny | 없음 | `601900` 지정 A1 아님 |
-| `010650` | Purpose; §2~§42 | §3 Containment; §5~§7 Circuit Breaker; §16 Security Quarantine; §17 Tenant; §18 Store; §29 Recovery; §30 Reclose; §32 Evidence | 없음 | `601900` 지정 A1 아님 |
-| `010660` | Purpose; §2~§44 | §3~§17 idempotency/retry/replay/reconciliation; §29 Evidence; §36 Storm; §37 Tenant Scope | 없음 | `601900` 지정 A1 아님 |
-| `010670` | Purpose; §2~§46 | §3 Projection; §12 Masking; §16 Franchise HQ; §17 Support; §31 Freshness; §40 Tenant Scope | 없음 | `601900` 지정 A1 아님 |
-| `010680` | Purpose; §2~§45 | §5 Correlation Key; §6 Audit Fields; §17 Security; §27 Gap; §28 Cross-Tenant Audit; §29 Evidence | 없음 | `601900` 지정 A1 아님 |
-| `010690` | Purpose; §2~§28 | §10 Authority Gate; §11 Tenant Scope; §14 Containment; §15 Idempotency; §17 Audit; §18 Gate Order | 없음 | `601900` 지정 A1 아님 |
+| `010610` | Purpose; §2~§42 | §6 Mandatory Event Envelope; §15 DLQ; §16 Quarantine; §22 Tenant Scope; §29 Audit; §31 Security | 없음 | A3 유지 — 격리 중 event 전달; Integration Isolation 이월 소관 |
+| `010620` | Purpose; §2~§43 | §4 Command; §5 Fields; §14 Audit; §16 DLQ; §32~§34 gates; §37 Evidence-First | 없음 | A3 유지 — projection separation; 1단계가 필요하면 본다 |
+| `010630` | Purpose; §2~§44 | §5 Authority Context; §6 Decision State; §9 Scope Gate; §13 Evidence; §21 Idempotency; §22 Audit; §24 Circuit Breaker; §28 Deny | 없음 | **A1 승격 (2026-09-02)** — 격리 발동 권한과 같은 주제 |
+| `010650` | Purpose; §2~§42 | §3 Containment; §5~§7 Circuit Breaker; §16 Security Quarantine; §17 Tenant; §18 Store; §29 Recovery; §30 Reclose; §32 Evidence | 없음 | **A1 승격 (2026-09-02)** — 격리는 containment이며 이 문서가 containment 정책을 기록 |
+| `010660` | Purpose; §2~§44 | §3~§17 idempotency/retry/replay/reconciliation; §29 Evidence; §36 Storm; §37 Tenant Scope | 없음 | **A1 승격 (2026-09-02)** — S6-8 멱등성 키 출처 미해결과 같은 주제 |
+| `010670` | Purpose; §2~§46 | §3 Projection; §12 Masking; §16 Franchise HQ; §17 Support; §31 Freshness; §40 Tenant Scope | 없음 | A3 유지 — safe projection·i18n; 1단계가 필요하면 본다 |
+| `010680` | Purpose; §2~§45 | §5 Correlation Key; §6 Audit Fields; §17 Security; §27 Gap; §28 Cross-Tenant Audit; §29 Evidence | 없음 | A3 유지 — audit correlation; R-6과 인접하며 1단계가 필요하면 본다 |
+| `010690` | Purpose; §2~§28 | §10 Authority Gate; §11 Tenant Scope; §14 Containment; §15 Idempotency; §17 Audit; §18 Gate Order | 없음 | A3 유지 — closure; 1단계가 필요하면 본다 |
 
 ### §11.2 발견 근거 원문 (`010640` §41)
 
@@ -1034,6 +1958,9 @@ It references:
 | Q-P6 | A3 8건 중 `601900` 1단계가 mandatory authority로 채택해야 할 문서가 있는가? | `010640` §41은 관계만 기록하며 승격을 지시하지 않음 |
 | Q-P7 | `601600` 파일 자체 Active 표기와 그 역전파 결과의 suspended wrapper 사이에서 대역 지위를 어떤 단위로 표현해야 하는가? | source에는 파일 지위와 삽입 내용 지위가 함께 존재함 |
 | Q-P8 | `601816` 15 findings 중 Pass 2 재측정 대상으로 선택할 범위는 무엇인가? | 이번 Pass는 finding 존재만 기록하며 설계·검증 범위를 정하지 않음 |
+| Q-P9 | `010630`의 권고 authority state와 실제 격리 발동·해제 authority 사이 canonical 매핑은 어디에서 정하는가? | `010630`은 state skeleton과 gate family를 기록하지만 이 나선의 물리 주체·호출 경로는 기록하지 않음 |
+| Q-P10 | `010650`의 tenant/store/route containment 단위와 기존 isolation state 사이 대응은 어디에서 정하는가? | `010650`은 복수 containment scope와 circuit state를 기록함 |
+| Q-P11 | `010660`의 idempotency key를 제출하는지 파생하는지, 파생한다면 어느 주체가 어떤 입력으로 만드는가? | §4는 recommended inputs, §5는 “submitted or derived”를 기록함 |
 
 ## §15 근거 문서 목록 (`000701` §46)
 
