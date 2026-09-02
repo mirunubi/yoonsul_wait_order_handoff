@@ -1353,6 +1353,33 @@ Containment protects the platform, but recovery requires evidence, reconciliatio
 Runtime implementation remains deferred until a separate explicit authorization packet is approved.
 ```
 
+```text
+## 38. Anti-Patterns
+
+Avoid:
+
+- retry storm after provider timeout
+- treating timeout as success
+- treating timeout as final failure without reconciliation
+- closing circuit without verification
+- fallback silently mutating financial truth
+- local offline data silently merging
+- sensor failure causing customer charge
+- AI failure blocking order/payment truth
+- provider outage affecting all providers
+- tenant overload affecting all tenants
+- store failure affecting all stores
+- DLQ ignored as storage bucket
+- financial hold hidden from owner projection
+- security quarantine released by same actor who triggered it
+- policy mutation during active incident without freeze
+- DR failover creating two active writers
+
+These anti-patterns must be blocked in future runtime design.
+
+---
+```
+
 ### §9.2.3 suspended block · 분리 · 애매점 · 제외
 
 | 항목 | 기록 |
@@ -1986,6 +2013,7 @@ It references:
 | Q-P10 | `010650`의 tenant/store/route containment 단위와 기존 isolation state 사이 대응은 어디에서 정하는가? | `010650`은 복수 containment scope와 circuit state를 기록함 |
 | Q-P11 | `010660`의 idempotency key를 제출하는지 파생하는지, 파생한다면 어느 주체가 어떤 입력으로 만드는가? | §4는 recommended inputs, §5는 “submitted or derived”를 기록함 |
 | Q-P12 | `010630`·`010650`·`010660`을 이 나선의 구속으로 채택할 것인가? | `600021` §2는 5건만 강제했다; 셋은 `010640` §41에서 발견했고 직접 관련이 확인됐다; 채택 여부는 1단계 Human 판정 대상이다 |
+| Q-P13 | `010650` §38 anti-pattern 목록 중 이 나선이 강제할 범위는 어디까지인가? | 2026-09-02 보강 채록. `601902` TI-4가 그중 1건을 인용했다 |
 
 ## §15 근거 문서 목록 (`000701` §46)
 
