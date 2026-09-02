@@ -48,6 +48,8 @@ Last Updated: 2026-09-02
 
 ### §3.1 A1 Mandatory Source Doctrine
 
+`600021` §2가 강제한 5건이다.
+
 | # | 정확한 경로 | 현재 지위 | 전체 절 구조 | 관련 절 | suspended block |
 |---:|---|---|---|---|---|
 | 1 | `docs/010000_runtime_foundation_and_cross_room_architecture/010004_Policy_SaaS_Tenant_Isolation_And_Cross_Tenant_Data_Containment_Beam.md` | 혼재 | Purpose; §2~§29 | §2~§7, §19~§21, §24~§25, §27, §29 | §4.1 내부 1개 |
@@ -55,9 +57,31 @@ Last Updated: 2026-09-02
 | 3 | `docs/000100_project_foundation/000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | 혼재 | Purpose; 후대 개정 블록; 원 정책 §1~§33 | 원 정책 §3~§8, §12~§17, §20~§27, §31~§33 | L10의 후대 블록 내부 1개 |
 | 4 | `docs/000100_project_foundation/000170_Policy_Merchant_Account_Company_And_Store_Context.md` | 혼재 | Purpose; 원 정책 §1~§13; 후대 개정 블록; 원 정책 §14~§39 | 원 정책 §3~§16, §25~§33, §39 | L385의 후대 블록 내부 1개 |
 | 5 | `docs/000100_project_foundation/000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md` | ACTIVE | Purpose; 원 정책 §1~§37 | §3~§17, §20~§31, §37 | 없음 |
-| 6 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010630_Policy_Authority_Capability_Gate.md` | ACTIVE | Purpose; §2~§44 | §2~§6, §9, §13, §18, §21~§22, §24, §28~§30, §35, §39, §44 | 없음 |
-| 7 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010650_Policy_Failure_Containment_Circuit_Breaker.md` | ACTIVE | Purpose; §2~§42 | §2~§7, §16~§18, §27, §29~§33, §35~§36, §42 | 없음 |
-| 8 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` | ACTIVE | Purpose; §2~§44 | §2~§16, §29, §31~§33, §36~§38, §44 | 없음 |
+
+### §3.1' A1' Discovered Direct Source
+
+`010640` §41에서 발견했고 직접 관련이 확인된 3건이다.
+**`Stage 0`이 authority를 부여하지 않는다. Human이 1단계에서 채택 여부를 판정한다.**
+
+| # | 정확한 경로 | 현재 지위 | 전체 절 구조 | 관련 절 | suspended block |
+|---:|---|---|---|---|---|
+| 1 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010630_Policy_Authority_Capability_Gate.md` | ACTIVE | Purpose; §2~§44 | §2~§6, §9, §13, §18, §21~§22, §24, §28~§30, §35, §39, §44 | 없음 |
+| 2 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010650_Policy_Failure_Containment_Circuit_Breaker.md` | ACTIVE | Purpose; §2~§42 | §2~§7, §16~§18, §27, §29~§33, §35~§36, §42 | 없음 |
+| 3 | `docs/010000_runtime_foundation_and_cross_room_architecture/010600_cross_room_plumbing_wiring_insulation/010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` | ACTIVE | Purpose; §2~§44 | §2~§16, §29, §31~§33, §36~§38, §44 | 없음 |
+
+> ⚠️ **`A1` 과 `A1'` 을 구분하는 이유**
+>
+> ```text
+> 600021 §2 가 요구한 것   5건
+> 조사 중 발견한 것         3건
+> ```
+>
+> **「발견했고 직접 관련이 확인됐다」와
+> 「상위 규정이 요구했다」는 다르다.**
+>
+> **`Stage 0` 은 사실 등록부이며 authority 를 만드는 단계가 아니다.**
+> **세 문서의 조사 내용은 유효한 evidence 이나
+> 그것을 이 나선의 구속으로 삼을지는 Human 이 1단계에서 정한다.**
 
 ### §3.2 A2 Upstream Human Declaration
 
@@ -96,9 +120,9 @@ Last Updated: 2026-09-02
 | Cross-business boundary | `000190` 존재 | 이번 6군의 SQL 객체 존재 여부는 §17~§21에 기록 | cross-business 전체 객체 대응은 이번 측정 대상이 아님 | 대상 catalog 조회만 수행 | 비문서 앱 코드의 7함수 literal 호출자 0건 | 부분 실측 — 범위 명시 |
 | Upstream Human declarations | `601702` 45건 존재 | 두 상태축·7함수·4자산의 물리 존재 확인 | Human 선언을 정답으로 사용하지 않고 A1 8건과 실측만 대조 | 호출 금지 7함수는 미검증; catalog 조회만 성공 | 정적 DB 호출 edge 6건; 앱 코드 literal 0건 | B~E 실측 |
 | Suspended prior evidence | `601500`·`601600`·`601800` 존재 | `601802` 대상값을 현재 DB에서 재측정 | §22에 old/new만 병기; suspended 판정은 승계하지 않음 | 과거 값을 실행 증거로 사용하지 않음 | 과거·현재 호출자/ACL 차이는 §22 | REMEASURED 비교 |
-| Authority capability gate | `010630` 존재 — A1 승격(2026-09-02) | 7함수 전부 SECURITY DEFINER; 명시 search_path·ACL 존재 | PUBLIC EXECUTE 5함수, authenticated 6함수, service_role 1함수; 구체 gate 실행은 미검증 | 7함수 전부 미검증 — 호출 금지(`601505` §4) | DB 호출 edge 6건; 비문서 앱 코드 literal 0건 | B~E 실측 |
-| Failure containment circuit breaker | `010650` 존재 — A1 승격(2026-09-02) | `offline_queue`·`security_threats`·`security_audit_log` 존재; tenant/store/device scope 컬럼 존재 | 자산 4건 모두 RLS+FORCE RLS; `security_threats.tenant_id`는 nullable·FK 없음 | catalog·행 수 조회 성공; containment 함수는 호출하지 않음 | policy 각 1건; 참조 함수 목록은 §20 | B~E 실측 |
-| Idempotency·retry·replay·reconciliation | `010660` 존재 — A1 승격(2026-09-02) | `idempotency_keys` 21컬럼·12제약·RLS policy 1건 | tenant_id NOT NULL·FK·UNIQUE `(tenant_id,key_domain,idempotency_key)`; store_id는 nullable FK이고 UNIQUE에는 없음 | catalog·행 수 조회 성공; retry/replay 실행은 하지 않음 | authenticated ALL policy 1건; postgres table grants | B~E 실측 |
+| Authority capability gate | `010630` 존재 — A1' 승격(2026-09-02) | 7함수 전부 SECURITY DEFINER; 명시 search_path·ACL 존재 | PUBLIC EXECUTE 5함수, authenticated 6함수, service_role 1함수; 구체 gate 실행은 미검증 | 7함수 전부 미검증 — 호출 금지(`601505` §4) | DB 호출 edge 6건; 비문서 앱 코드 literal 0건 | B~E 실측 |
+| Failure containment circuit breaker | `010650` 존재 — A1' 승격(2026-09-02) | `offline_queue`·`security_threats`·`security_audit_log` 존재; tenant/store/device scope 컬럼 존재 | 자산 4건 모두 RLS+FORCE RLS; `security_threats.tenant_id`는 nullable·FK 없음 | catalog·행 수 조회 성공; containment 함수는 호출하지 않음 | policy 각 1건; 참조 함수 목록은 §20 | B~E 실측 |
+| Idempotency·retry·replay·reconciliation | `010660` 존재 — A1' 승격(2026-09-02) | `idempotency_keys` 21컬럼·12제약·RLS policy 1건 | tenant_id NOT NULL·FK·UNIQUE `(tenant_id,key_domain,idempotency_key)`; store_id는 nullable FK이고 UNIQUE에는 없음 | catalog·행 수 조회 성공; retry/replay 실행은 하지 않음 | authenticated ALL policy 1건; postgres table grants | B~E 실측 |
 
 ## §5 A1 상세 — 010004
 
@@ -738,7 +762,7 @@ Federate later by design, not by accident.
 | 애매점 | Suggested conceptual entities와 실제 물리 모델의 대응은 이 Pass에서 측정하지 않음 |
 | 제외 | §24~§36의 상세 reporting/support/entity 후보는 전체 구조에만 기록; tenant isolation axis 직접 원문은 boundary·authority·link·fail-closed 절로 한정 |
 
-## §9.1 A1 상세 — 010630 Authority Capability Gate
+## §9.1 A1' 상세 — 010630 Authority Capability Gate
 
 ### §9.1.1 식별 · 지위 · 전체 절 구조
 
@@ -1031,7 +1055,7 @@ Runtime implementation remains deferred until a separate explicit authorization 
 | 문서 내부의 모순 · 애매점 | authority context의 필드가 “should include”로 표현되지만 마지막 문장은 authority context 없는 high-impact command를 금지함; 격리 발동·해제에 적용할 구체 capability_id와 승인 주체는 이 문서에서 열거하지 않음 |
 | 제외한 절과 사유 | §7~§8, §10~§17, §19~§20, §23~§27, §29~§34, §36~§43은 전체 구조에는 기록했으며, 이번 승격 근거인 격리 발동 권한·scope·containment·audit·idempotency와 직접 맞닿은 절의 원문을 위에 옮김 |
 
-## §9.2 A1 상세 — 010650 Failure Containment Circuit Breaker
+## §9.2 A1' 상세 — 010650 Failure Containment Circuit Breaker
 
 ### §9.2.1 식별 · 지위 · 전체 절 구조
 
@@ -1338,7 +1362,7 @@ Runtime implementation remains deferred until a separate explicit authorization 
 | 문서 내부의 모순 · 애매점 | §17은 tenant-local overload를 tenant boundary에서 contain하도록 요구하고 §18은 store-local failure를 가능한 한 store-local로 유지하도록 요구함; store에서 tenant로 범위를 넓히는 risk·scope 조건의 구체 판정식은 열거하지 않음 |
 | 제외한 절과 사유 | §6~§15, §19~§28, §30~§34, §37~§41은 전체 구조에는 기록했으며, tenant/store 격리 경계·release authority·recovery와 직접 맞닿은 절의 원문을 위에 옮김 |
 
-## §9.3 A1 상세 — 010660 Idempotency Retry Replay Reconciliation
+## §9.3 A1' 상세 — 010660 Idempotency Retry Replay Reconciliation
 
 ### §9.3.1 식별 · 지위 · 전체 절 구조
 
@@ -1961,6 +1985,7 @@ It references:
 | Q-P9 | `010630`의 권고 authority state와 실제 격리 발동·해제 authority 사이 canonical 매핑은 어디에서 정하는가? | `010630`은 state skeleton과 gate family를 기록하지만 이 나선의 물리 주체·호출 경로는 기록하지 않음 |
 | Q-P10 | `010650`의 tenant/store/route containment 단위와 기존 isolation state 사이 대응은 어디에서 정하는가? | `010650`은 복수 containment scope와 circuit state를 기록함 |
 | Q-P11 | `010660`의 idempotency key를 제출하는지 파생하는지, 파생한다면 어느 주체가 어떤 입력으로 만드는가? | §4는 recommended inputs, §5는 “submitted or derived”를 기록함 |
+| Q-P12 | `010630`·`010650`·`010660`을 이 나선의 구속으로 채택할 것인가? | `600021` §2는 5건만 강제했다; 셋은 `010640` §41에서 발견했고 직접 관련이 확인됐다; 채택 여부는 1단계 Human 판정 대상이다 |
 
 ## §15 근거 문서 목록 (`000701` §46)
 
