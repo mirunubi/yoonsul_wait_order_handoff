@@ -196,6 +196,7 @@ manage_subscription 상태 전이           Subscription Lifecycle
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 601900 | `601900_Readme_Tenant_Isolation_Axis_V2.md` | Active — 이 문서 |
+| 601901 | `601901_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부. A1 5 · A1' 3 · A3 5 |
 
 ## §10 Non-Implementation Boundary
 
