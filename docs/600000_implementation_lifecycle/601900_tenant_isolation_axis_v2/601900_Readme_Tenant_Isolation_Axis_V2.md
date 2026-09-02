@@ -67,7 +67,9 @@ isolation_state   보안 · 장애 대응을 위한 기술적 격리
 **현재 위치**
 
 ```text
-Stage 0   착수 전
+Stage 0   완료 — 601901
+1단계     완료 — 601902 TI-1 ~ TI-11
+2단계     착수 대기 — Cursor 조사 + Claude Code 작성
 ```
 
 ## §4 `600021` §2 구속
@@ -197,6 +199,7 @@ manage_subscription 상태 전이           Subscription Lifecycle
 |---|---|---|
 | 601900 | `601900_Readme_Tenant_Isolation_Axis_V2.md` | Active — 이 문서 |
 | 601901 | `601901_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부. A1 5 · A1' 3 · A3 5 |
+| 601902 | `601902_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 11건(`TI-1`~`TI-11`) · `HD-0-A-2R-1`~`9` |
 
 ## §10 Non-Implementation Boundary
 

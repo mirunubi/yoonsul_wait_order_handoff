@@ -1775,6 +1775,7 @@ docs/
   |   +--- 601900_tenant_isolation_axis_v2/
   |   |   +--- 601900_Readme_Tenant_Isolation_Axis_V2.md
   |   |   +--- 601901_Register_Stage0_Evidence_Collection.md
+  |   |   +--- 601902_Register_Stage1_Business_Rules.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
