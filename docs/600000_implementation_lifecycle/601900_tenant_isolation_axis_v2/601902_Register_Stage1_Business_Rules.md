@@ -41,6 +41,7 @@ canonical   TI-N
 | 2026-09-02 | `TI-9`~`TI-11` 추가 — 초판이 `010004` 를 어느 규칙의 근거로도 쓰지 않았다. `600021` 이 `601800` 을 권위보류한 사유와 같은 유형이다. `601900` Readme §5 승계 finding `C-1`·`M-9`·`R-6` 을 처분했다. `TI-3` authority state 이름을 canonical 로 정정 |
 | 2026-09-04 | `TI-12` 추가 — 2단계 조사(`601903` §5.3)가 `TI-2` 가 `601702` §1.28 을 인용하지 않았음을 확인했다. 주제가 같으므로 상위 선언을 승계한다. `601800` 에서 같은 지적이 3단계 `C-B4` 로 나왔고 사후에 닫혔다 |
 | 2026-09-04 | `TI-13` 추가 — `601909` `T3-1`. `ISOLATED` 의 효과가 선언되지 않았다. `010004` §7 Deny-By-Default 가 답을 갖고 있어 그것을 승계한다. 기능별 차단 목록을 만들지 않는다 |
+| 2026-09-04 | `TI-14` 추가 — `601909` `T3-2`. `000221` §4.1 Human Gate A. **과금 모델이 없으므로 금액 · 보상정책을 정하지 않고, `isolation_state` 변경이 자동으로 상업적 결과를 발생시키지 않는다는 것만 선언한다.** 격리 사실을 미래 과금 판단의 evidence 로 쓰는 것은 열어둔다 |
 
 ## §1 업무규칙
 
@@ -451,6 +452,70 @@ surface · device context 의 표현 — 별도
 
 **근거** — `601909` `T3-1` · `010004` §7 · `601901` 201행.
 
+### §1.14 TI-14 — 격리와 과금 lifecycle 의 분리
+
+**`601909` `T3-2` 가 확인한 공백을 닫는다.**
+
+```text
+000221 §4.1 선행 게이트 — Human Gate A
+
+  tenant ACTIVE + ISOLATED 동시상태의 과금 · 서비스 정책 미정
+  → 0-A-2 착수 전 Human 결정 필요
+  근거: 600010 §1.1
+```
+
+> ⚠️ **CatchMenu 에는 구독료 · 사용량 과금 · 격리기간 과금 ·
+> 귀책별 환불 · 크레딧 정책이 확정되어 있지 않다.**
+>
+> **`0-A-2` 는 금액 또는 보상정책을 결정하지 않는다.**
+
+**선언 5항**
+
+```text
+TI-14.1  isolation_state 변경은 그 자체로
+         tenant_status 또는 subscription lifecycle 을 변경하지 않는다
+
+TI-14.2  isolation_state 변경은 그 자체로
+         청구 시작 · 중단, 환불, credit,
+         usage charge 확정 등의 상업적 결과를 발생시키지 않는다
+
+TI-14.3  tenant isolation 은 technical · security containment 이며
+         billing lifecycle 과 독립된 상태축으로 유지한다
+
+TI-14.4  격리기간 · 격리원인 · 귀책주체 등의 사실은
+         향후 Billing Review · Subscription Lifecycle 이
+         과금 · 보상 판단의 evidence 로 사용할 수 있다
+
+TI-14.5  아래는 이번 나선에서 결정하지 않는다
+           기본 구독료 지속 · 중단
+           격리 중 사용량 산정
+           SLA credit · 환불 · 감면
+           귀책별 보상 기준
+           격리 시간 임계값
+```
+
+> ⚠️ **`TI-14.2` 와 `TI-14.4` 를 함께 읽는다.**
+>
+> ```text
+> 막는 것    isolation → 자동 과금 상태변경
+> 막지 않는 것  isolation 사실 → 미래 과금 판단의 evidence
+> ```
+>
+> **플랫폼 귀책 장기 격리에 SLA credit 을 주는 정책이
+> 나중에 생길 수 있다. 이 선언은 그것을 배제하지 않는다.**
+
+**서비스 정책은 `TI-13` 이 답했다.**
+
+```text
+ISOLATED 는 containment block 이며
+010004 §7 deny-by-default 에 따라 접근이 거부된다
+```
+
+> ⚠️ **`TI-2` 가 두 축의 책임을 분리했다.**
+> **`TI-14` 는 그 분리를 billing lifecycle 에 적용한 것이며 새 축을 만들지 않는다.**
+
+**근거** — `601909` `T3-2` · `000221` §4.1 · `600010` §1.1 · `TI-2` · `TI-13`.
+
 ## §2 `601816` finding 처분
 
 **`601901` `Q-P8` 이 정했다.**
@@ -593,6 +658,24 @@ is the absence of a containment block. An isolated tenant fails that
 condition, so access is refused and refused closed. No list of blocked
 features is written, because a list leaves whatever is not on it open,
 which inverts the structure the policy chose.
+
+HD-0-A-2R-12 — Isolation And Billing Lifecycle
+
+The plan made this spiral conditional on deciding what happens to billing
+and service when a tenant is under contract and quarantined at once. The
+service half is answered by the deny-by-default rule. The billing half
+cannot be priced, because no subscription pricing, usage accounting or
+refund policy exists in any document yet.
+
+What is decided is narrower and holds regardless of what the pricing
+turns out to be: changing the isolation state does not by itself alter a
+contract, start or stop an invoice, or create a credit. Isolation is
+technical containment and stays an axis apart from billing lifecycle.
+
+What is deliberately left open: the fact that a tenant was isolated, why,
+for how long and at whose fault may later serve as evidence when billing
+review decides on credits or relief. Forbidding that would foreclose a
+service-credit policy this platform will probably want.
 ```
 
 **판정자** — 정영석, 2026-09-02
@@ -603,6 +686,8 @@ which inverts the structure the policy chose.
 
 **HD-0-A-2R-11 판정자** — 정영석, 2026-09-04
 
+**HD-0-A-2R-12 판정자** — 정영석, 2026-09-04
+
 ## §5 이 나선이 정하지 않는 것
 
 ```text
@@ -612,6 +697,10 @@ scoped containment 의 물리 표현
 role ID · approver 수 · EXECUTE ACL
 hash 조합 · policy_version 의 형태
 provider merchant mapping 의 물리 구조
+
+구독료 · 사용량 산정 · 환불 · 크레딧 정책   Subscription Lifecycle
+귀책별 보상 기준 · SLA credit               Billing Review
+격리 시간 임계값                            위 둘이 생긴 뒤
 ```
 
 **Stage 4 · `0-C` 가 정한다.**
