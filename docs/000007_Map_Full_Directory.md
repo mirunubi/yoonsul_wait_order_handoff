@@ -1776,6 +1776,9 @@ docs/
   |   |   +--- 601900_Readme_Tenant_Isolation_Axis_V2.md
   |   |   +--- 601901_Register_Stage0_Evidence_Collection.md
   |   |   +--- 601902_Register_Stage1_Business_Rules.md
+  |   |   +--- 601903_Evidence_Stage2_ERD_Survey_Cursor.md
+  |   |   +--- 601904_Evidence_Stage2_ERD_Survey_Codex.md
+  |   |   +--- 601905_Diagram_Tenant_Isolation_Axis_Model.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
