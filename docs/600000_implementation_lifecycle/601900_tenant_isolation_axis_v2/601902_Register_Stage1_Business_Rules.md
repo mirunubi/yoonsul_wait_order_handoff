@@ -40,6 +40,7 @@ canonical   TI-N
 | 2026-09-02 | 초안 — `TI-1` ~ `TI-8` |
 | 2026-09-02 | `TI-9`~`TI-11` 추가 — 초판이 `010004` 를 어느 규칙의 근거로도 쓰지 않았다. `600021` 이 `601800` 을 권위보류한 사유와 같은 유형이다. `601900` Readme §5 승계 finding `C-1`·`M-9`·`R-6` 을 처분했다. `TI-3` authority state 이름을 canonical 로 정정 |
 | 2026-09-04 | `TI-12` 추가 — 2단계 조사(`601903` §5.3)가 `TI-2` 가 `601702` §1.28 을 인용하지 않았음을 확인했다. 주제가 같으므로 상위 선언을 승계한다. `601800` 에서 같은 지적이 3단계 `C-B4` 로 나왔고 사후에 닫혔다 |
+| 2026-09-04 | `TI-13` 추가 — `601909` `T3-1`. `ISOLATED` 의 효과가 선언되지 않았다. `010004` §7 Deny-By-Default 가 답을 갖고 있어 그것을 승계한다. 기능별 차단 목록을 만들지 않는다 |
 
 ## §1 업무규칙
 
@@ -381,6 +382,75 @@ TrialStatus
 
 **근거** — `601702` §1.27 · §1.28 · `601903` §5.3 · `601905` 검토 의견.
 
+### §1.13 TI-13 — ISOLATED 의 효과
+
+**`601909` `T3-1` 이 확인한 공백을 닫는다.**
+
+```text
+TI-1 ~ TI-12 는 누가 전이시키는가 · 어떤 gate 를 통과하는가 ·
+중복을 어떻게 식별하는가 · 무엇을 audit 에 남기는가를 정했다
+
+ISOLATED 인 tenant 에게 무엇이 금지되는지는 정하지 않았다
+```
+
+**`010004` §7 Deny-By-Default Rule 이 정한다.**
+
+```text
+Every tenant-scoped object must default to
+DENY_UNLESS_CONTEXT_MATCHES
+
+Allowed access requires
+  authenticated actor
+  resolved tenant context
+  resolved store context if applicable
+  valid role
+  valid authority
+  valid surface/device context if applicable
+  policy permission
+  Safe Projection rule
+  audit requirement if sensitive
+  no containment block
+  no suspension block
+
+If context cannot be resolved, access must fail closed
+Fail closed is mandatory
+```
+
+**tenant 가 `ISOLATED` 이면 containment block 이 존재한다.**
+
+**따라서 그 tenant 의 tenant-scoped object 접근은
+허용 조건 중 「no containment block」을 통과하지 못하고 거부된다.**
+
+> ⚠️ **기능별 차단 목록을 열거하지 않는다.**
+>
+> **원천이 deny-by-default 로 정했고
+> 허용 조건에 「no containment block」을 넣었다.**
+> **기능을 열거하면 열거되지 않은 기능이 열린 채로 남는다.**
+> **그것은 원천의 구조를 뒤집는 것이다.**
+
+**`0-A-2` 가 정하는 것**
+
+```text
+ISOLATED 가 containment block 이라는 것
+containment block 이 있으면 접근이 거부된다는 것
+거부는 fail closed 다
+```
+
+**`0-A-2` 가 정하지 않는 것**
+
+```text
+containment block 을 어디서 판정하는가 — 0-C
+Safe Projection rule 의 구체 내용 — 별도
+policy permission 의 모델 — 0-C
+surface · device context 의 표현 — 별도
+```
+
+> ⚠️ **`TI-2` 가 scoped containment 를 별도 책임으로 분리했다.**
+> **`010004` §7 의 「containment block」이 tenant-wide 만 뜻하는지
+> scoped 도 포함하는지는 §6 에 남긴다.**
+
+**근거** — `601909` `T3-1` · `010004` §7 · `601901` 201행.
+
 ## §2 `601816` finding 처분
 
 **`601901` `Q-P8` 이 정했다.**
@@ -513,6 +583,16 @@ preconditions. The stage-two survey found that the rule separating
 containment responsibility had been written without citing the
 declaration that separates the layers, and the omission is closed here
 rather than absorbed quietly into the model.
+
+HD-0-A-2R-11 — Effect Of Isolation
+
+Nothing in the rules said what an isolated tenant is prevented from
+doing. The isolation policy already answers it: every tenant-scoped
+object denies by default, and one of the conditions for allowing access
+is the absence of a containment block. An isolated tenant fails that
+condition, so access is refused and refused closed. No list of blocked
+features is written, because a list leaves whatever is not on it open,
+which inverts the structure the policy chose.
 ```
 
 **판정자** — 정영석, 2026-09-02
@@ -520,6 +600,8 @@ rather than absorbed quietly into the model.
 **HD-0-A-2R-7 ~ HD-0-A-2R-9 판정자** — 정영석, 2026-09-02
 
 **HD-0-A-2R-10 판정자** — 정영석, 2026-09-04
+
+**HD-0-A-2R-11 판정자** — 정영석, 2026-09-04
 
 ## §5 이 나선이 정하지 않는 것
 
@@ -541,6 +623,7 @@ provider merchant mapping 의 물리 구조
 | OQ-1 | `AUTHORITY_PARTIAL_ALLOWED` 가 scoped containment 를 허용하는가 — `TI-3` · `TI-2` |
 | OQ-2 | `010004` §20 의 어느 오염 유형이 tenant-wide 로 escalate 되는가 — `TI-9` · Stage 4 |
 | OQ-3 | `010650` §38 anti-pattern 중 이 나선이 강제할 범위 — `601901` `Q-P13` |
+| OQ-4 | `010004` §7 의 「containment block」이 tenant-wide 만 뜻하는가 scoped containment 도 포함하는가 — `TI-13` · `TI-2` |
 ## §7 근거 문서 목록 (`000701` §46)
 
 | 문서 | 인용 | 지위 |
