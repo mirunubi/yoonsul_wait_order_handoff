@@ -450,6 +450,18 @@ TrialStatus
 
 **근거** — `601702` §1.27 · §1.28 · `601903` §5.3 · `601905` 검토 의견.
 
+> ⚠️ **`601905` 는 이 문서를 선언 출처로 삼는 하위 산출물이다.**
+> **`TI-12` 가 그 검토 의견을 근거로 드는 것은 순환처럼 보인다.**
+>
+> ```text
+> 실제 근거   601702 §1.27 · §1.28
+> 발견 경로   601903 §5.3 이 미인용을 확인
+>            601905 검토 의견이 같은 지점을 지적
+> ```
+>
+> **선언의 근거는 `601702` 이고 `601903` · `601905` 는 발견 경로다.**
+> **`601909` `N-7` 이 이 구분을 요구했다.**
+
 ### §1.13 TI-13 — ISOLATED 의 효과
 
 **`601909` `T3-1` 이 확인한 공백을 닫는다.**
@@ -627,6 +639,7 @@ S6-15   BL-6 계수 오류 — verification bookkeeping
 | Q-P10 | `TI-2` |
 | Q-P11 | `TI-6` |
 | Q-P12 | `TI-1` |
+| Q-P13 | `010650` §38 anti-pattern 중 강제 범위 — §6 `OQ-3` |
 
 **`601900` Readme §5 승계 finding 처분**
 
@@ -786,12 +799,14 @@ provider merchant mapping 의 물리 구조
 |---|---|---|
 | `601901_Register_Stage0_Evidence_Collection.md` | 전문 — 선행 증거 | ACTIVE |
 | `010004` | §19 · §20 · §24 · §26 · §29 | ACTIVE — mandatory |
-| `010640` | §2 · §4 · §5 · §6 · §41 · §42 | ACTIVE — mandatory |
+| `010640` | §2 · §4 · §5 · §6 · §42. §41 은 `601901` `A3` 발견 경로이며 `TI-N` 근거가 아니다 | ACTIVE — mandatory |
 | `000150` · `000170` · `000190` | 조직 · merchant · 경계 | ACTIVE — mandatory |
 | `010630` | authority gate family · SCOPE_GATE · multi-party | ACTIVE — `TI-1` 채택 |
 | `010650` | circuit breaker scope · §35 containment/release 비대칭 · anti-pattern | ACTIVE — `TI-1` 채택 |
 | `010660` | §4 one business action · §5 submitted or derived | ACTIVE — `TI-1` 채택 |
 | `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거. §1.27 · §1.28 은 `TI-12` | ACTIVE |
+| `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | §5.3 — `TI-12` 근거 | ACTIVE |
+| `601905_Diagram_Tenant_Isolation_Axis_Model.md` | 검토 의견 — `TI-12` 근거 | ACTIVE |
 | `600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md` | §1.1 · §2 | ACTIVE |
 | `601816` | finding 15건 — §2 처분 | ⛔ **AUTHORITY SUSPENDED** |
 | `601801` · `601803` · `601809`~`601812` | 승계하지 않는다 | ⛔ **AUTHORITY SUSPENDED** |
