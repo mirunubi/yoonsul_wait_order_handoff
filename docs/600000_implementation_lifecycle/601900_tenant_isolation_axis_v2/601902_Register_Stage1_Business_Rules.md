@@ -42,6 +42,7 @@ canonical   TI-N
 | 2026-09-04 | `TI-12` 추가 — 2단계 조사(`601903` §5.3)가 `TI-2` 가 `601702` §1.28 을 인용하지 않았음을 확인했다. 주제가 같으므로 상위 선언을 승계한다. `601800` 에서 같은 지적이 3단계 `C-B4` 로 나왔고 사후에 닫혔다 |
 | 2026-09-04 | `TI-13` 추가 — `601909` `T3-1`. `ISOLATED` 의 효과가 선언되지 않았다. `010004` §7 Deny-By-Default 가 답을 갖고 있어 그것을 승계한다. 기능별 차단 목록을 만들지 않는다 |
 | 2026-09-04 | `TI-14` 추가 — `601909` `T3-2`. `000221` §4.1 Human Gate A. **과금 모델이 없으므로 금액 · 보상정책을 정하지 않고, `isolation_state` 변경이 자동으로 상업적 결과를 발생시키지 않는다는 것만 선언한다.** 격리 사실을 미래 과금 판단의 evidence 로 쓰는 것은 열어둔다 |
+| 2026-09-04 | `601909` blocking 5건 보강 — `T3-3` `TI-10` 에 `cross-scope attempt` 복원 / `T3-5` `TI-12` 가 소유임을 명시 / `T3-6` `TI-2` 에 `SCOPE_PARTIAL_VALID` 반영 / `T3-7` `TI-3` 본문을 네 상태로 열고 partial 을 `OQ-1` 로 / `T3-8` `TI-6` 에 key 파생 이후를 추가. **신규 선언 없이 기존 `TI-N` 보강만 했다** |
 
 ## §1 업무규칙
 
@@ -97,6 +98,19 @@ ISOLATED
 > **문제는 값의 개수가 아니라 tenant-wide state 하나에
 > 모든 containment scope 를 표현시키려는 책임 혼합이다.**
 
+> ⚠️ **`010640` §6 이 `SCOPE_PARTIAL_VALID` 를 scope 상태로 요구한다.**
+>
+> **부분 containment 는 scope 가 부분적으로만 확정된 상태를 갖는다.**
+> **그 상태를 `tenant.isolation_state` 로 표현하지 않는다.**
+> **scoped containment representation 이 자신의 scope 유효성 상태를 갖는다.**
+>
+> **`600021` §1.1 `C-2` 후단이 이것이다.**
+> **초판이 「처분됨」으로 기록했으나 어느 `TI-N` 도 다루지 않았다** —
+> `601909` `T3-6` · `601907` `F-4` · `601908` `C2-4`.
+>
+> ⚠️ **`SCOPE_PARTIAL_VALID` 의 값 집합과 물리 표현은 Stage 4 가 정한다.**
+> **`010004` §7 의 「containment block」이 그것을 포함하는지는 §6 `OQ-4` 다.**
+
 **scoped containment 의 물리 표현은 Stage 4 가 정한다.**
 
 **근거** — `601901` `Q-P10` · `010650` · `010630` SCOPE_GATE.
@@ -116,16 +130,27 @@ ISOLATED
 
 **일반 tenant user · store staff · support 는 tenant-wide isolation 발동 권한이 없다.**
 
-**모든 경우 authority gate 결과가 `AUTHORITY_ALLOWED` 일 때만 실행한다.**
-**`AUTHORITY_REVIEW_REQUIRED` · `AUTHORITY_MULTI_PARTY_REQUIRED` 상태에서는 실행하지 않는다.**
+**모든 경우 authority gate 결과에 따라 아래와 같이 처리한다.**
+
+```text
+AUTHORITY_ALLOWED                 실행한다
+AUTHORITY_REVIEW_REQUIRED         실행하지 않는다
+AUTHORITY_MULTI_PARTY_REQUIRED    실행하지 않는다
+AUTHORITY_PARTIAL_ALLOWED         이 규칙이 다루지 않는다 — §6 OQ-1
+```
 
 **근거** — `010630` high-impact action gate · `010650` 자동 containment.
 
-> ⚠️ **`AUTHORITY_PARTIAL_ALLOWED` 는 이 규칙이 다루지 않는다.**
-> **`601901` 848행이 「Allowed only in limited scope」로 기록한다.**
+> ⚠️ **`AUTHORITY_PARTIAL_ALLOWED` 는 `601901` 848행이
+> 「Allowed only in limited scope」로 채록한 canonical 상태다.**
+>
+> **초판 본문이 셋만 열거해 닫았고 ⚠️ 는 열린 질문으로 두어 상충했다** —
+> `601909` `T3-7` · `601907` `I-3` · `601908` `C4-6`.
+>
+> **본문을 네 상태로 열고 partial 의 처분을 §6 `OQ-1` 로 명시한다.**
+>
 > **`TI-2` 가 부분 containment 를 별도 책임으로 분리했으므로
-> partial-allowed 가 scoped containment 를 허용하는지는 열린 질문이다.**
-> **§6 에 남긴다.**
+> partial-allowed 가 scoped containment 를 허용하는지가 그 질문이다.**
 
 ### §1.4 TI-4 — 격리 해제 권한
 
@@ -187,6 +212,25 @@ tenant_id
 ```
 
 **caller 가 canonical idempotency key 자체를 자유롭게 결정하지 않는다.**
+
+**파생된 key 로 하는 것**
+
+```text
+같은 key 로 재요청이 오면
+  이미 처리된 요청인지 판정한다
+  처리됐다면 상태를 중복 변경하지 않는다
+  처리됐다면 최초 처리의 결과를 반환한다
+
+처리 이력을 조회 가능하게 보존한다
+```
+
+> ⚠️ **초판이 key 를 파생하고 그 다음을 정하지 않았다** —
+> `601909` `T3-8` · `601908` `C1-5`.
+>
+> **`010660` §4 가 key 는 「one business action」을 식별해야 한다고 요구한다.**
+> **식별만 하고 그 결과로 아무것도 하지 않으면 멱등성이 성립하지 않는다.**
+
+**보존 기간 · 저장 위치 · 반환 형식은 Stage 4 가 정한다.**
 
 > ⚠️ **`tenant_id + operation + payload_hash` 만으로 파생하면
 > 서로 다른 시점의 정상적인 동일 행위가 같은 key 가 된다.**
@@ -296,8 +340,13 @@ tenant-wide isolation 으로 자동 승격되지 않는다.**
 tenant id · store id · actor id · actor role ·
 surface · device · target object id · type · action ·
 previous scope · new scope ·
-authority reference · policy reference · evidence reference
+authority reference · policy reference · evidence reference ·
+cross-scope attempt if any
 ```
+
+> ⚠️ **`601901` 245행이 이 항목을 채록했으나 초판이 옮기지 않았다.**
+> **세 검증자가 독립적으로 지적했다** — `601906` · `601907` `F-1` · `601908` `C2-1`.
+> **`601909` `T3-3` 이 3/3 수렴으로 기록했다.**
 
 **`isolation_state` 변경은 §19 가 말하는
 「new scope if changed」 사건 자체다.**
@@ -380,6 +429,24 @@ TrialStatus
 > ⚠️ **`TI-2` 는 tenant-wide isolation 과 scoped containment 의 책임을 나눴다.**
 > **`TI-12` 는 그 위에 계층 상태 사이의 파생 금지를 더한다.**
 > **둘은 다른 축이며 서로를 대체하지 않는다.**
+
+> ⚠️ **`601905` 가 `tenant_status` 를 「이 나선이 읽기만 한다」로 적었다.**
+> **`TI-12` 는 소유 축으로 선언한다. 소유가 맞다.**
+>
+> ```text
+> 601702 §1.28 이 TenantStatus 를 여섯 축의 하나로 열거했다
+> TI-12 가 그중 tenant_status · isolation_state 둘을 소유로 선언했다
+> ```
+>
+> **소유한다는 것이 이 나선에서 변경한다는 뜻은 아니다.**
+>
+> ```text
+> 소유      이 나선이 그 축의 의미와 경계를 정한다
+> 변경      TI-14.1 이 isolation_state 변경의 자동 파급을 막았다
+>           tenant_status 변경 주체는 Subscription Lifecycle 이다
+> ```
+>
+> **`601905` 의 「읽기만」 표현은 2단계 재동기화에서 정정한다** — `601909` `T3-5`.
 
 **근거** — `601702` §1.27 · §1.28 · `601903` §5.3 · `601905` 검토 의견.
 
