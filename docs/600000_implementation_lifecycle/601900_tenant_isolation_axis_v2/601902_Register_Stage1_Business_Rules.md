@@ -39,6 +39,7 @@ canonical   TI-N
 |---|---|
 | 2026-09-02 | 초안 — `TI-1` ~ `TI-8` |
 | 2026-09-02 | `TI-9`~`TI-11` 추가 — 초판이 `010004` 를 어느 규칙의 근거로도 쓰지 않았다. `600021` 이 `601800` 을 권위보류한 사유와 같은 유형이다. `601900` Readme §5 승계 finding `C-1`·`M-9`·`R-6` 을 처분했다. `TI-3` authority state 이름을 canonical 로 정정 |
+| 2026-09-04 | `TI-12` 추가 — 2단계 조사(`601903` §5.3)가 `TI-2` 가 `601702` §1.28 을 인용하지 않았음을 확인했다. 주제가 같으므로 상위 선언을 승계한다. `601800` 에서 같은 지적이 3단계 `C-B4` 로 나왔고 사후에 닫혔다 |
 
 ## §1 업무규칙
 
@@ -335,6 +336,51 @@ authority reference · policy reference · evidence reference
 **근거** — `600021` §1.1 `C-1` · `010004` §24 · §26 · §29 ·
 `601900` Readme §4.
 
+### §1.12 TI-12 — 계층 상태 분리
+
+**`601702` §1.28 이 상태축 여섯을 열거한다.**
+
+```text
+TenantStatus
+  ≠ MerchantAccountStatus
+  ≠ StoreServiceStatus
+  ≠ StoreOperatingStatus
+  ≠ TrialStatus
+  ≠ IsolationState
+```
+
+**각 계층은 자신의 상태를 갖는다.**
+**상위 상태를 하위 상태의 대체물로 사용하지 않는다.**
+
+**이 나선이 소유하는 축**
+
+```text
+tenant_status
+isolation_state
+```
+
+**나머지 4축**
+
+```text
+MerchantAccountStatus
+StoreServiceStatus
+StoreOperatingStatus
+TrialStatus
+
+이 나선의 직접 변경 대상이 아니다
+두 소유 축에서 자동으로 파생되지 않는다
+접근 판단에서 참조가 필요하면 명시적 precondition 으로만 사용한다
+```
+
+> ⚠️ **`601702` §1.27 이 「한 축의 값으로 다른 축의 상태를 추론하지 않는다」고 정한다.**
+> **`tenant_status` 가 `TRIAL` 이라는 사실로 `TrialStatus` 를 추론하지 않는다.**
+
+> ⚠️ **`TI-2` 는 tenant-wide isolation 과 scoped containment 의 책임을 나눴다.**
+> **`TI-12` 는 그 위에 계층 상태 사이의 파생 금지를 더한다.**
+> **둘은 다른 축이며 서로를 대체하지 않는다.**
+
+**근거** — `601702` §1.27 · §1.28 · `601903` §5.3 · `601905` 검토 의견.
+
 ## §2 `601816` finding 처분
 
 **`601901` `Q-P8` 이 정했다.**
@@ -456,11 +502,24 @@ The isolation policy defers runtime implementation and sets an
 eleven-item declaration as the condition for lifting that deferral. This
 spiral builds the runtime behaviour it defers, so the gate applies. The
 declarations are made before human approval, not here.
+
+HD-0-A-2R-10 — Layer State Separation
+
+The foundation spiral declared six status axes and forbade using one
+layer's state as a substitute for another's. This spiral owns two of
+them. The other four are not derived from the two it owns and are not
+changed here; where access needs them they are read as explicit
+preconditions. The stage-two survey found that the rule separating
+containment responsibility had been written without citing the
+declaration that separates the layers, and the omission is closed here
+rather than absorbed quietly into the model.
 ```
 
 **판정자** — 정영석, 2026-09-02
 
 **HD-0-A-2R-7 ~ HD-0-A-2R-9 판정자** — 정영석, 2026-09-02
+
+**HD-0-A-2R-10 판정자** — 정영석, 2026-09-04
 
 ## §5 이 나선이 정하지 않는 것
 
@@ -493,7 +552,7 @@ provider merchant mapping 의 물리 구조
 | `010630` | authority gate family · SCOPE_GATE · multi-party | ACTIVE — `TI-1` 채택 |
 | `010650` | circuit breaker scope · §35 containment/release 비대칭 · anti-pattern | ACTIVE — `TI-1` 채택 |
 | `010660` | §4 one business action · §5 submitted or derived | ACTIVE — `TI-1` 채택 |
-| `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거 | ACTIVE |
+| `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거. §1.27 · §1.28 은 `TI-12` | ACTIVE |
 | `600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md` | §1.1 · §2 | ACTIVE |
 | `601816` | finding 15건 — §2 처분 | ⛔ **AUTHORITY SUSPENDED** |
 | `601801` · `601803` · `601809`~`601812` | 승계하지 않는다 | ⛔ **AUTHORITY SUSPENDED** |
