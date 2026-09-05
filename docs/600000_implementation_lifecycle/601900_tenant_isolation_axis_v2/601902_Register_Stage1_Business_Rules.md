@@ -46,6 +46,7 @@ canonical   TI-N
 | 2026-09-05 | `TI-15` 추가 — `601909` `T3-4`. `600021` §2 강제 5건 중 `000150` · `000190` 이 어느 규칙의 근거도 아니었다. 두 문서가 cross-business boundary 를 정하며 격리 권한 · 전파 범위 · link data flow 에 직결된다. **강제된 원천 5건이 모두 근거로 쓰였다** |
 | 2026-09-05 | `601913` `R2-1` · `R2-2` · `R2-3` 보강 — `TI-13` 에 격리 전이 예외 추가(예외 없으면 해제 경로가 자기 차단) / `TI-6` 에서 `payload_hash` 를 key 성분에서 제거(`010660` §6 conflict 탐지 불가) / `TI-3` 을 `010630` §28 default 로 닫음(15 상태 중 11개 미처리). **신규 선언 없이 기존 `TI-N` 보강만 했다** |
 | 2026-09-06 | `601913` `R2-5` · `M-1` ~ `M-7` 정합화 — 근거와 발견 경로 분리 / §7 근거 목록 누락 5건 보충 / `TI-14` 근거의 Stage 0 미채록 사유 명시 / `TI-13` 유보 4건을 §5 에 반영 / `OQ-5` · `OQ-6` 신설 |
+| 2026-09-06 | `OQ-5` 해소 — `601702` §1.33 이 `601901` 에 보강 채록돼 `TI-15` 근거로 추가됐다. Stage 0 → 1단계 순서를 지키기 위해 채록 후에 인용했다 |
 
 ## §1 업무규칙
 
@@ -793,18 +794,21 @@ link 상태의 값 집합                      별도
 > **이 나선은 federation 을 설계하지 않는다.**
 
 **근거** — `601909` `T3-4` · `000150` §12 · §22 · §23 ·
-`000190` §3 · §8 · §10 · §17 · §27 · `601901` §7 · §9.
+`000190` §3 · §8 · §10 · §17 · §27 · `601702` §1.33 · `601901` §7 · §9 · §10.2.
 
 > ⚠️ **`601702` §1.33 이 「cross-business link 는 참조이며 권한이 아니다」를
 > 이미 선언했다.**
+>
+> ```text
+> Cross-business link is reference.
+> Cross-business link is not permission.
+> ```
+>
 > **`TI-15.2` 와 같은 취지다.**
 >
-> **`601901` Stage 0 이 그 절을 채록하지 않아 `TI-15` 가 인용하지 못했다** —
+> **초판 작성 시 `601901` 이 그 절을 채록하지 않아 인용하지 못했다** —
 > `601913` `M-3`.
->
-> ⚠️ **`TI-12` 신설 경위와 같은 유형이며
-> `600021` §1 사유 2 가 `601800` 권위보류 사유였다.**
-> **Stage 0 보강이 필요하다 — §6 `OQ-5`.**
+> **2026-09-06 `601901` §10.2 에 보강 채록됐고 근거로 추가했다.**
 
 ## §2 `601816` finding 처분
 
@@ -1036,7 +1040,7 @@ surface · device context 의 표현            별도
 | OQ-2 | `010004` §20 의 어느 오염 유형이 tenant-wide 로 escalate 되는가 — `TI-9` · Stage 4 |
 | OQ-3 | `010650` §38 anti-pattern 중 이 나선이 강제할 범위 — `601901` `Q-P13` |
 | OQ-4 | `010004` §7 의 「containment block」이 tenant-wide 만 뜻하는가 scoped containment 도 포함하는가 — `TI-13` · `TI-2` |
-| OQ-5 | `601702` §1.33 이 `601901` 채록 범위 밖이다 — `TI-15` · `M-3`. Stage 0 보강이 필요한가 |
+| OQ-5 | **해소 (2026-09-06)** — `601702` §1.33 이 `601901` §10.2 에 보강 채록됐고 `TI-15` 근거에 추가됐다. 같은 유형의 미채록이 남아 있는지는 `601901` `Q-P14` 가 이어받는다 |
 | OQ-6 | `010640` §6 16 상태 중 `SCOPE_PARTIAL_VALID` 외 15개의 소관 — `TI-2` · `M-7` |
 ## §7 근거 문서 목록 (`000701` §46)
 
@@ -1051,7 +1055,7 @@ surface · device context 의 표현            별도
 | `010630` | authority gate family · SCOPE_GATE · multi-party | ACTIVE — `TI-1` 채택 |
 | `010650` | circuit breaker scope · §35 containment/release 비대칭 · anti-pattern | ACTIVE — `TI-1` 채택 |
 | `010660` | §4 one business action · §5 submitted or derived | ACTIVE — `TI-1` 채택 |
-| `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거. §1.27 · §1.28 은 `TI-12` | ACTIVE |
+| `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거. §1.27 · §1.28 은 `TI-12` · §1.33 은 `TI-15` | ACTIVE |
 | `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | §5.3 — `TI-12` 발견 경로 | ACTIVE |
 | `601905_Diagram_Tenant_Isolation_Axis_Model.md` | `TI-12` 발견 경로 — 근거는 `601702` §1.27 · §1.28 | ACTIVE |
 | `000221_Guide_Post_0A_Spiral_Sequence.md` | §4.1 Human Gate A — `TI-14` | ACTIVE |
