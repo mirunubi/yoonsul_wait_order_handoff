@@ -43,6 +43,7 @@ canonical   TI-N
 | 2026-09-04 | `TI-13` 추가 — `601909` `T3-1`. `ISOLATED` 의 효과가 선언되지 않았다. `010004` §7 Deny-By-Default 가 답을 갖고 있어 그것을 승계한다. 기능별 차단 목록을 만들지 않는다 |
 | 2026-09-04 | `TI-14` 추가 — `601909` `T3-2`. `000221` §4.1 Human Gate A. **과금 모델이 없으므로 금액 · 보상정책을 정하지 않고, `isolation_state` 변경이 자동으로 상업적 결과를 발생시키지 않는다는 것만 선언한다.** 격리 사실을 미래 과금 판단의 evidence 로 쓰는 것은 열어둔다 |
 | 2026-09-04 | `601909` blocking 5건 보강 — `T3-3` `TI-10` 에 `cross-scope attempt` 복원 / `T3-5` `TI-12` 가 소유임을 명시 / `T3-6` `TI-2` 에 `SCOPE_PARTIAL_VALID` 반영 / `T3-7` `TI-3` 본문을 네 상태로 열고 partial 을 `OQ-1` 로 / `T3-8` `TI-6` 에 key 파생 이후를 추가. **신규 선언 없이 기존 `TI-N` 보강만 했다** |
+| 2026-09-05 | `TI-15` 추가 — `601909` `T3-4`. `600021` §2 강제 5건 중 `000150` · `000190` 이 어느 규칙의 근거도 아니었다. 두 문서가 cross-business boundary 를 정하며 격리 권한 · 전파 범위 · link data flow 에 직결된다. **강제된 원천 5건이 모두 근거로 쓰였다** |
 
 ## §1 업무규칙
 
@@ -595,6 +596,97 @@ ISOLATED 는 containment block 이며
 
 **근거** — `601909` `T3-2` · `000221` §4.1 · `600010` §1.1 · `TI-2` · `TI-13`.
 
+### §1.15 TI-15 — cross-business 경계와 격리
+
+**`601909` `T3-4` 가 확인한 공백을 닫는다.**
+
+```text
+600021 §2 가 000150 · 000190 을 강제했으나
+어느 TI-N 도 근거로 쓰지 않았다
+```
+
+**두 문서가 cross-business boundary 를 정한다.**
+
+```text
+000150 §22   A link is not authority
+             Authority requires role and scope
+
+000150 §23   Franchise OS admin → no CatchMenu admin authority by default
+             CatchMenu admin → no Franchise OS admin authority by default
+             Access must be granted explicitly
+
+000190 §3    Same group does not mean same authority
+             Only explicit role and scope create authority
+
+000190 §10   Cross-business link is reference
+             Cross-business link is not permission
+
+000190 §17   No implicit cross-business authority
+```
+
+**선언 4항**
+
+```text
+TI-15.1  격리 발동 · 해제 권한은 CatchMenu business scope 안에서만 부여된다
+         다른 business 의 admin 이라는 사실만으로
+         CatchMenu tenant 를 격리 · 해제할 권한을 갖지 않는다
+
+TI-15.2  cross-business link 의 존재는 격리 판단의 근거가 아니다
+         link 는 reference 이며 permission 이 아니다
+
+TI-15.3  CatchMenu tenant 격리는
+         다른 business boundary 의 운영을 격리하지 않는다
+         같은 물리 매장이 다른 business context 에서
+         다른 system identity 를 갖기 때문이다
+
+TI-15.4  격리된 tenant 와 연결된 cross-business link 는
+         그 격리 기간 동안 data flow 또는 추론된 관계를
+         계속 부여하지 않는다
+```
+
+> ⚠️ **`TI-15.3` 과 `TI-15.4` 를 함께 읽는다.**
+>
+> ```text
+> 격리하지 않는 것   다른 business 의 자체 운영
+> 차단하는 것        그 link 를 통한 CatchMenu 방향 data flow
+> ```
+>
+> **`000190` §27 이 그것을 요구한다** —
+> `A suspended or invalidated link must not continue to grant
+> data flow or inferred relationship`.
+
+> ⚠️ **`TI-13` 이 `010004` §7 deny-by-default 를 승계했다.**
+> **`TI-15.4` 는 그것이 cross-business link 에도 적용됨을 명시한 것이며
+> 새 차단 규칙을 만드는 것이 아니다.**
+
+**`0-A-2` 가 정하는 것**
+
+```text
+격리 권한이 business scope 를 넘지 않는다는 것
+link 가 권한이 아니라는 것
+격리가 다른 business 운영으로 전파되지 않는다는 것
+격리 기간 동안 link 가 data flow 를 부여하지 않는다는 것
+```
+
+**`0-A-2` 가 정하지 않는 것**
+
+```text
+cross-business link 의 물리 표현        별도
+federation 설계 — 000190 §20 7요건      별도
+business scope 의 role 모델              0-C
+link 상태의 값 집합                      별도
+```
+
+> ⚠️ **`000190` §20 이 federation 에 7요건을 요구한다** —
+> source of truth · data ownership · permission mapping ·
+> audit ownership · support visibility · failure handling · revocation method.
+>
+> **`Federation is designed. Federation is not assumed.`**
+> **이 나선은 federation 을 설계하지 않는다.**
+
+**근거** — `601909` `T3-4` · `000150` §12 · §22 · §23 ·
+`000190` §3 · §8 · §10 · §17 · §27 · `601901` §7 · §9.
+
 ## §2 `601816` finding 처분
 
 **`601901` `Q-P8` 이 정했다.**
@@ -756,6 +848,26 @@ What is deliberately left open: the fact that a tenant was isolated, why,
 for how long and at whose fault may later serve as evidence when billing
 review decides on credits or relief. Forbidding that would foreclose a
 service-credit policy this platform will probably want.
+
+HD-0-A-2R-13 — Cross-Business Boundary Of Isolation
+
+Two of the five mandated source documents were cited in a list and used
+as the basis for nothing. Both define the same boundary: shared ownership
+creates a relationship and not authority, a link is a reference and not a
+permission, and access across business boundaries is denied unless
+granted explicitly.
+
+Applied to isolation, this settles three things. Authority to isolate or
+release lives inside this platform's business scope, so being an
+administrator elsewhere confers none of it. Isolating a tenant here does
+not isolate the same physical store's operation in another business,
+because the same store carries different system identities in different
+contexts. But the link itself stops carrying data while the isolation
+holds - a suspended relationship must not keep granting flow, which is
+the whole point of suspending it.
+
+Federation is explicitly not designed here; the source says federation is
+designed and not assumed, and this spiral assumes nothing about it.
 ```
 
 **판정자** — 정영석, 2026-09-02
@@ -767,6 +879,8 @@ service-credit policy this platform will probably want.
 **HD-0-A-2R-11 판정자** — 정영석, 2026-09-04
 
 **HD-0-A-2R-12 판정자** — 정영석, 2026-09-04
+
+**HD-0-A-2R-13 판정자** — 정영석, 2026-09-05
 
 ## §5 이 나선이 정하지 않는 것
 
@@ -781,6 +895,11 @@ provider merchant mapping 의 물리 구조
 구독료 · 사용량 산정 · 환불 · 크레딧 정책   Subscription Lifecycle
 귀책별 보상 기준 · SLA credit               Billing Review
 격리 시간 임계값                            위 둘이 생긴 뒤
+
+cross-business link 의 물리 표현              별도
+federation 설계 — 000190 §20 7요건            별도
+business scope 의 role 모델                   0-C
+link 상태의 값 집합                           별도
 ```
 
 **Stage 4 · `0-C` 가 정한다.**
@@ -800,7 +919,9 @@ provider merchant mapping 의 물리 구조
 | `601901_Register_Stage0_Evidence_Collection.md` | 전문 — 선행 증거 | ACTIVE |
 | `010004` | §19 · §20 · §24 · §26 · §29 | ACTIVE — mandatory |
 | `010640` | §2 · §4 · §5 · §6 · §42. §41 은 `601901` `A3` 발견 경로이며 `TI-N` 근거가 아니다 | ACTIVE — mandatory |
-| `000150` · `000170` · `000190` | 조직 · merchant · 경계 | ACTIVE — mandatory |
+| `000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | §12 · §22 · §23 — `TI-15` | ACTIVE — mandatory |
+| `000170_Policy_Merchant_Account_Company_And_Store_Context.md` | §3 · §4 — `TI-7` | ACTIVE — mandatory |
+| `000190_Policy_Cross_Business_Franchise_OS_And_CatchMenu_Boundary.md` | §3 · §8 · §10 · §17 · §20 · §27 — `TI-15` | ACTIVE — mandatory |
 | `010630` | authority gate family · SCOPE_GATE · multi-party | ACTIVE — `TI-1` 채택 |
 | `010650` | circuit breaker scope · §35 containment/release 비대칭 · anti-pattern | ACTIVE — `TI-1` 채택 |
 | `010660` | §4 one business action · §5 submitted or derived | ACTIVE — `TI-1` 채택 |
