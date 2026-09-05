@@ -13,6 +13,7 @@ Last Updated: 2026-09-02
 | Pass 1 | 문서 축 — A1 5건 · A2 · A3 · A4 |
 | Pass 1.5 | A3 중 3건을 A1으로 승격해 조사 |
 | Pass 2 | 실측 축 — 완료(2026-09-02); B~E 재측정 |
+| Pass 2 보강 | 2026-09-06   601702 §1.33 보강 채록 — 601913 M-3 |
 | DB 접속 | read-only 접속·catalog/행 수 조회 수행; 금지 함수 호출 0건 |
 | 문서 성격 | 사실 등록부. 판단·설계·Human Rule 생성 없음 |
 | 조사 기준 | baseline commit의 blob과 tree |
@@ -1858,6 +1859,49 @@ Tenant 간 데이터 격리
 **연결은 tenant/store 단위로 귀속된다.**
 ```
 
+### §1.33 cross-business link 는 참조이며 권한이 아니다
+
+`000190` 이 CatchMenu ↔ Franchise OS 경계를 전담하는 문서다.
+§1.10~§1.12는 `000150` §11·§12·§33 을 근거로 선언했으나,
+**`000190` 이 같은 주제를 더 직접적으로 규정한다.**
+
+`000190` §10 Cross-Business Link:
+
+```text
+cross_business_link_id / source_system / source_entity_type / source_entity_id /
+target_system / target_entity_type / target_entity_id /
+relationship_type / status / created_by / created_at / trace_id
+```
+
+예시:
+
+```text
+source: Franchise OS / store / franchise_store_001
+target: CatchMenu / merchant_store / catchmenu_store_001
+relationship_type: YOONSUL_AFFILIATED_STORE
+```
+
+> **Cross-business link is reference. Cross-business link is not permission.**
+
+`000190` §11 Cross-Business User Link:
+
+> **Same human does not mean same authority.**
+>
+> A person may be Franchise OS Store Manager but not CatchMenu HQ Admin
+> unless explicitly assigned.
+
+`000190` §21 Source Of Truth Rule:
+
+```text
+Franchise OS owns  Yoonsul store HR / franchise payroll / internal store SOP
+CatchMenu owns     Entry Media mapping / merchant service status /
+                   request runtime evidence
+```
+
+> **Every shared data element needs a source of truth.**
+
+**§1.10~§1.12의 선언 내용은 `000190` 과 일치한다.** 근거를 보강한 것이며 변경이 아니다.
+
 ### §10.3 내부 모순·애매점·제외
 
 | 항목 | 기록 |
@@ -2014,6 +2058,7 @@ It references:
 | Q-P11 | `010660`의 idempotency key를 제출하는지 파생하는지, 파생한다면 어느 주체가 어떤 입력으로 만드는가? | §4는 recommended inputs, §5는 “submitted or derived”를 기록함 |
 | Q-P12 | `010630`·`010650`·`010660`을 이 나선의 구속으로 채택할 것인가? | `600021` §2는 5건만 강제했다; 셋은 `010640` §41에서 발견했고 직접 관련이 확인됐다; 채택 여부는 1단계 Human 판정 대상이다 |
 | Q-P13 | `010650` §38 anti-pattern 목록 중 이 나선이 강제할 범위는 어디까지인가? | 2026-09-02 보강 채록. `601902` TI-4가 그중 1건을 인용했다 |
+| Q-P14 | `601702` §1.33 이 초판 채록에서 빠졌다. `601913` `M-3` 이 지적해 2026-09-06 보강했다. 같은 유형의 미채록이 §10.2 의 나머지 절에도 있는가 |
 
 ## §15 근거 문서 목록 (`000701` §46)
 
