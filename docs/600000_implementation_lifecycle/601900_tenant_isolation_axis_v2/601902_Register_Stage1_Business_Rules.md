@@ -45,6 +45,7 @@ canonical   TI-N
 | 2026-09-04 | `601909` blocking 5건 보강 — `T3-3` `TI-10` 에 `cross-scope attempt` 복원 / `T3-5` `TI-12` 가 소유임을 명시 / `T3-6` `TI-2` 에 `SCOPE_PARTIAL_VALID` 반영 / `T3-7` `TI-3` 본문을 네 상태로 열고 partial 을 `OQ-1` 로 / `T3-8` `TI-6` 에 key 파생 이후를 추가. **신규 선언 없이 기존 `TI-N` 보강만 했다** |
 | 2026-09-05 | `TI-15` 추가 — `601909` `T3-4`. `600021` §2 강제 5건 중 `000150` · `000190` 이 어느 규칙의 근거도 아니었다. 두 문서가 cross-business boundary 를 정하며 격리 권한 · 전파 범위 · link data flow 에 직결된다. **강제된 원천 5건이 모두 근거로 쓰였다** |
 | 2026-09-05 | `601913` `R2-1` · `R2-2` · `R2-3` 보강 — `TI-13` 에 격리 전이 예외 추가(예외 없으면 해제 경로가 자기 차단) / `TI-6` 에서 `payload_hash` 를 key 성분에서 제거(`010660` §6 conflict 탐지 불가) / `TI-3` 을 `010630` §28 default 로 닫음(15 상태 중 11개 미처리). **신규 선언 없이 기존 `TI-N` 보강만 했다** |
+| 2026-09-06 | `601913` `R2-5` · `M-1` ~ `M-7` 정합화 — 근거와 발견 경로 분리 / §7 근거 목록 누락 5건 보충 / `TI-14` 근거의 Stage 0 미채록 사유 명시 / `TI-13` 유보 4건을 §5 에 반영 / `OQ-5` · `OQ-6` 신설 |
 
 ## §1 업무규칙
 
@@ -112,6 +113,10 @@ ISOLATED
 >
 > ⚠️ **`SCOPE_PARTIAL_VALID` 의 값 집합과 물리 표현은 Stage 4 가 정한다.**
 > **`010004` §7 의 「containment block」이 그것을 포함하는지는 §6 `OQ-4` 다.**
+
+> ⚠️ **`010640` §6 은 16 상태를 정한다.**
+> **이 규칙은 `SCOPE_PARTIAL_VALID` 1건만 사용한다.**
+> **남은 15 상태의 소관은 정해지지 않았다 — §6 `OQ-6`.**
 
 **scoped containment 의 물리 표현은 Stage 4 가 정한다.**
 
@@ -505,7 +510,8 @@ TrialStatus
 >
 > **`601905` 의 「읽기만」 표현은 2단계 재동기화에서 정정한다** — `601909` `T3-5`.
 
-**근거** — `601702` §1.27 · §1.28 · `601903` §5.3 · `601905` 검토 의견.
+**근거** — `601702` §1.27 · §1.28.
+**발견 경로** — `601903` §5.3 · `601905` 검토 의견.
 
 > ⚠️ **`601905` 는 이 문서를 선언 출처로 삼는 하위 산출물이다.**
 > **`TI-12` 가 그 검토 의견을 근거로 드는 것은 순환처럼 보인다.**
@@ -683,6 +689,18 @@ ISOLATED 는 containment block 이며
 
 **근거** — `601909` `T3-2` · `000221` §4.1 · `600010` §1.1 · `TI-2` · `TI-13`.
 
+> ⚠️ **`000221` §4.1 과 `600010` §1.1 은 `601901` 채록 범위 밖이다.**
+>
+> ```text
+> 601901 §0 이 「원천 → DB 증거 → Human Rule」 순서를 선언했다
+> TI-14 만 1단계가 0단계를 앞선다
+> ```
+>
+> **둘은 원천 정책이 아니라 이 나선의 착수 조건을 건 계획 · 트래커 문서다.**
+> **`601901` A1 ~ A4 분류 어디에도 속하지 않는다.**
+>
+> **채록 대상이 아니라는 판단이며 누락이 아니다** — `601913` `M-2`.
+
 ### §1.15 TI-15 — cross-business 경계와 격리
 
 **`601909` `T3-4` 가 확인한 공백을 닫는다.**
@@ -709,6 +727,9 @@ ISOLATED 는 containment block 이며
              Cross-business link is not permission
 
 000190 §17   No implicit cross-business authority
+
+000190 §8    External SaaS merchant is a CatchMenu customer
+             External SaaS merchant is not a Franchise OS store by default
 ```
 
 **선언 4항**
@@ -773,6 +794,17 @@ link 상태의 값 집합                      별도
 
 **근거** — `601909` `T3-4` · `000150` §12 · §22 · §23 ·
 `000190` §3 · §8 · §10 · §17 · §27 · `601901` §7 · §9.
+
+> ⚠️ **`601702` §1.33 이 「cross-business link 는 참조이며 권한이 아니다」를
+> 이미 선언했다.**
+> **`TI-15.2` 와 같은 취지다.**
+>
+> **`601901` Stage 0 이 그 절을 채록하지 않아 `TI-15` 가 인용하지 못했다** —
+> `601913` `M-3`.
+>
+> ⚠️ **`TI-12` 신설 경위와 같은 유형이며
+> `600021` §1 사유 2 가 `601800` 권위보류 사유였다.**
+> **Stage 0 보강이 필요하다 — §6 `OQ-5`.**
 
 ## §2 `601816` finding 처분
 
@@ -987,6 +1019,11 @@ cross-business link 의 물리 표현              별도
 federation 설계 — 000190 §20 7요건            별도
 business scope 의 role 모델                   0-C
 link 상태의 값 집합                           별도
+
+containment block 판정 위치                0-C
+Safe Projection rule 의 구체 내용           별도
+policy permission 의 모델                  0-C
+surface · device context 의 표현            별도
 ```
 
 **Stage 4 · `0-C` 가 정한다.**
@@ -999,12 +1036,14 @@ link 상태의 값 집합                           별도
 | OQ-2 | `010004` §20 의 어느 오염 유형이 tenant-wide 로 escalate 되는가 — `TI-9` · Stage 4 |
 | OQ-3 | `010650` §38 anti-pattern 중 이 나선이 강제할 범위 — `601901` `Q-P13` |
 | OQ-4 | `010004` §7 의 「containment block」이 tenant-wide 만 뜻하는가 scoped containment 도 포함하는가 — `TI-13` · `TI-2` |
+| OQ-5 | `601702` §1.33 이 `601901` 채록 범위 밖이다 — `TI-15` · `M-3`. Stage 0 보강이 필요한가 |
+| OQ-6 | `010640` §6 16 상태 중 `SCOPE_PARTIAL_VALID` 외 15개의 소관 — `TI-2` · `M-7` |
 ## §7 근거 문서 목록 (`000701` §46)
 
 | 문서 | 인용 | 지위 |
 |---|---|---|
 | `601901_Register_Stage0_Evidence_Collection.md` | 전문 — 선행 증거 | ACTIVE |
-| `010004` | §19 · §20 · §24 · §26 · §29 | ACTIVE — mandatory |
+| `010004` | §7 — `TI-13` · §19 · §20 · §24 · §26 · §29 | ACTIVE — mandatory |
 | `010640` | §2 · §4 · §5 · §6 · §42. §41 은 `601901` `A3` 발견 경로이며 `TI-N` 근거가 아니다 | ACTIVE — mandatory |
 | `000150_Policy_CatchMenu_Company_Business_Unit_And_Legal_Entity.md` | §12 · §22 · §23 — `TI-15` | ACTIVE — mandatory |
 | `000170_Policy_Merchant_Account_Company_And_Store_Context.md` | §3 · §4 — `TI-7` | ACTIVE — mandatory |
@@ -1013,8 +1052,12 @@ link 상태의 값 집합                           별도
 | `010650` | circuit breaker scope · §35 containment/release 비대칭 · anti-pattern | ACTIVE — `TI-1` 채택 |
 | `010660` | §4 one business action · §5 submitted or derived | ACTIVE — `TI-1` 채택 |
 | `601702_Register_Stage1_Business_Rules.md` | 선언 45건 — 상위 근거. §1.27 · §1.28 은 `TI-12` | ACTIVE |
-| `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | §5.3 — `TI-12` 근거 | ACTIVE |
-| `601905_Diagram_Tenant_Isolation_Axis_Model.md` | 검토 의견 — `TI-12` 근거 | ACTIVE |
+| `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | §5.3 — `TI-12` 발견 경로 | ACTIVE |
+| `601905_Diagram_Tenant_Isolation_Axis_Model.md` | `TI-12` 발견 경로 — 근거는 `601702` §1.27 · §1.28 | ACTIVE |
+| `000221_Guide_Post_0A_Spiral_Sequence.md` | §4.1 Human Gate A — `TI-14` | ACTIVE |
+| `600010_Tracker_Spiral_Workpacket_Progress.md` | §1.1 — `TI-14` | ACTIVE |
+| `601909_Report_Stage3_Integration.md` | `T3-1` ~ `T3-8` — `TI-13`·`TI-14`·`TI-15` 및 보강 5건의 근거 | ACTIVE |
+| `601913_Report_Stage3_Round2_Integration.md` | `R2-1` ~ `R2-3` — 보강 3건의 근거 | ACTIVE |
 | `600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md` | §1.1 · §2 | ACTIVE |
 | `601816` | finding 15건 — §2 처분 | ⛔ **AUTHORITY SUSPENDED** |
 | `601801` · `601803` · `601809`~`601812` | 승계하지 않는다 | ⛔ **AUTHORITY SUSPENDED** |
