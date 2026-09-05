@@ -44,6 +44,7 @@ canonical   TI-N
 | 2026-09-04 | `TI-14` 추가 — `601909` `T3-2`. `000221` §4.1 Human Gate A. **과금 모델이 없으므로 금액 · 보상정책을 정하지 않고, `isolation_state` 변경이 자동으로 상업적 결과를 발생시키지 않는다는 것만 선언한다.** 격리 사실을 미래 과금 판단의 evidence 로 쓰는 것은 열어둔다 |
 | 2026-09-04 | `601909` blocking 5건 보강 — `T3-3` `TI-10` 에 `cross-scope attempt` 복원 / `T3-5` `TI-12` 가 소유임을 명시 / `T3-6` `TI-2` 에 `SCOPE_PARTIAL_VALID` 반영 / `T3-7` `TI-3` 본문을 네 상태로 열고 partial 을 `OQ-1` 로 / `T3-8` `TI-6` 에 key 파생 이후를 추가. **신규 선언 없이 기존 `TI-N` 보강만 했다** |
 | 2026-09-05 | `TI-15` 추가 — `601909` `T3-4`. `600021` §2 강제 5건 중 `000150` · `000190` 이 어느 규칙의 근거도 아니었다. 두 문서가 cross-business boundary 를 정하며 격리 권한 · 전파 범위 · link data flow 에 직결된다. **강제된 원천 5건이 모두 근거로 쓰였다** |
+| 2026-09-05 | `601913` `R2-1` · `R2-2` · `R2-3` 보강 — `TI-13` 에 격리 전이 예외 추가(예외 없으면 해제 경로가 자기 차단) / `TI-6` 에서 `payload_hash` 를 key 성분에서 제거(`010660` §6 conflict 탐지 불가) / `TI-3` 을 `010630` §28 default 로 닫음(15 상태 중 11개 미처리). **신규 선언 없이 기존 `TI-N` 보강만 했다** |
 
 ## §1 업무규칙
 
@@ -140,7 +141,36 @@ AUTHORITY_MULTI_PARTY_REQUIRED    실행하지 않는다
 AUTHORITY_PARTIAL_ALLOWED         이 규칙이 다루지 않는다 — §6 OQ-1
 ```
 
-**근거** — `010630` high-impact action gate · `010650` 자동 containment.
+**`010630` §6 이 정한 authority state 는 15개다.**
+
+```text
+AUTHORITY_NOT_EVALUATED · EVALUATING · ALLOWED · DENIED ·
+PARTIAL_ALLOWED · REVIEW_REQUIRED · MULTI_PARTY_REQUIRED ·
+EVIDENCE_REQUIRED · RISK_HOLD · POLICY_BLOCKED ·
+SCOPE_MISMATCH · DEVICE_UNTRUSTED · PROVIDER_UNREADY ·
+CIRCUIT_OPEN · DLQ_REQUIRED
+```
+
+**이 규칙은 그중 넷만 명시하고 나머지는 `010630` §28 의 default 를 따른다.**
+
+```text
+010630 §28   DENY_UNLESS_EXPLICITLY_ALLOWED
+```
+
+**따라서 `AUTHORITY_ALLOWED` 가 아닌 모든 상태에서 실행하지 않는다.**
+
+> ⚠️ **초판이 네 상태만 열거하고 「모든 경우」로 닫았다.**
+> **15 상태 중 11개의 처리가 어디에도 없었다** — `601913` `R2-3`.
+>
+> **열거를 늘리는 대신 원천의 default 를 인용해 닫는다.**
+> **`010630` §28 이 이 나선의 구속이다** — `TI-1`.
+
+> ⚠️ **`AUTHORITY_PARTIAL_ALLOWED` 의 처분은 여전히 §6 `OQ-1` 이다.**
+> **default 에 따라 실행하지 않는 것이 현재 상태이며,
+> scoped containment 를 허용할지는 열린 질문이다.**
+
+**근거** — `010630` high-impact action gate · §6 · §28 ·
+`010650` 자동 containment · `601913` `R2-3` · `601901` 844 · 984행.
 
 > ⚠️ **`AUTHORITY_PARTIAL_ALLOWED` 는 `601901` 848행이
 > 「Allowed only in limited scope」로 채록한 canonical 상태다.**
@@ -204,13 +234,36 @@ Human · manual transition   command_request_id 또는 authority_decision_id
 canonical idempotency key 를 파생한다.**
 
 ```text
-tenant_id
-+ operation
-+ target identity
-+ stable action identity
-+ payload_hash
-+ policy_version
+canonical key 파생 입력
+
+  tenant_id
+  operation
+  target identity
+  stable action identity
+  policy_version
 ```
+
+**`payload_hash` 는 key 성분이 아니라 key 에 대응해 보존하는 값이다.**
+
+```text
+같은 key 로 재요청이 오면
+  보존된 payload_hash 와 비교한다
+  같으면      멱등 처리 — TI-6 의 「파생된 key 로 하는 것」
+  다르면      실행하지 않는다
+```
+
+> ⚠️ **`payload_hash` 를 key 성분에 넣으면
+> payload 가 달라진 재요청이 다른 key 가 되어 그대로 실행된다.**
+>
+> ```text
+> 010660 §6   IDEMPOTENCY_PAYLOAD_CONFLICT — Same key, different payload
+>             Same key with different payload must not execute
+> ```
+>
+> **conflict 를 탐지하려면 payload 가 key 성분이 아니어야 한다** —
+> `601913` `R2-2` · `601901` 1509 · 1515행.
+
+**conflict 시의 처분 — 거부 방식 · 응답 · 감사 기록 — 은 Stage 4 가 정한다.**
 
 **caller 가 canonical idempotency key 자체를 자유롭게 결정하지 않는다.**
 
@@ -233,7 +286,7 @@ tenant_id
 
 **보존 기간 · 저장 위치 · 반환 형식은 Stage 4 가 정한다.**
 
-> ⚠️ **`tenant_id + operation + payload_hash` 만으로 파생하면
+> ⚠️ **`tenant_id + operation` 만으로 파생하면
 > 서로 다른 시점의 정상적인 동일 행위가 같은 key 가 된다.**
 >
 > ```text
@@ -242,6 +295,9 @@ tenant_id
 > ```
 >
 > **`010660` §4 가 key 는 「one business action」을 식별해야 한다고 요구한다.**
+>
+> **`payload_hash` 는 `R2-2` 처분으로 key 성분에서 제외됐다.**
+> **이 경고는 `stable action identity` 가 필요한 이유를 말하며 여전히 유효하다.**
 
 > ⚠️ **이 선언은 기존 `isolate_tenant` 시그니처 변경 가능성을 받아들인다.**
 > **시그니처를 보존하려고 업무규칙을 바꾸면
@@ -501,6 +557,37 @@ Fail closed is mandatory
 
 **따라서 그 tenant 의 tenant-scoped object 접근은
 허용 조건 중 「no containment block」을 통과하지 못하고 거부된다.**
+
+**격리 상태 자체를 관리하는 전이는 이 거부의 대상이 아니다.**
+
+```text
+010004 §7 이 정한 것은 tenant-scoped object 접근이다
+
+격리 발동 · 해제는 tenant 의 업무 객체를 다루는 행위가 아니라
+플랫폼이 그 tenant 의 containment 를 관리하는 행위다
+
+TI-3 이 발동 주체를 automated security path 와
+authorized platform-security Human 으로 한정했고
+tenant 사용자 · store staff · support 를 배제했다
+
+그 주체의 행위는 tenant scope 안에서 일어나지 않는다
+```
+
+> ⚠️ **이 예외가 없으면 `ISOLATED` 진입 후 해제 경로가 자기 차단된다.**
+>
+> ```text
+> TI-4 의 해제 전이는 그 tenant 를 대상으로 하는 행위다
+> TI-13 이 예외 없이 거부하면 해제가 실행되지 못한다
+> ```
+>
+> **`601902` §2 가 `S6-3`(안전한 공식 release 경로가 실행 가능해야 한다)을
+> 재적용 10건에 넣었고, 그 재적용이 이 예외를 요구한다** — `601913` `R2-1`.
+
+> ⚠️ **예외의 범위는 격리 상태 전이에 한정된다.**
+> **격리된 tenant 의 다른 업무 객체 접근은 여전히 거부된다.**
+> **전이 자체의 권한 판정은 `TI-3` · `TI-4` 가 정한다.**
+
+**근거** — `601913` `R2-1` · `010004` §7 · `TI-3` · `TI-4` · `601902` §2 `S6-3`.
 
 > ⚠️ **기능별 차단 목록을 열거하지 않는다.**
 >
