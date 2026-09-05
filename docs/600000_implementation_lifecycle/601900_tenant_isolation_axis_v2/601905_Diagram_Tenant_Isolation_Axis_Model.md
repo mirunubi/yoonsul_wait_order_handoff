@@ -2,7 +2,7 @@
 
 Status: Draft
 Lifecycle: Diagram
-Last Updated: 2026-09-04
+Last Updated: 2026-09-05
 
 **개정 이력**
 
@@ -10,12 +10,13 @@ Last Updated: 2026-09-04
 |---|---|
 | 2026-09-04 | 초안 — `601902` `TI-1`~`TI-11` 을 상태 · 책임 모델로 옮겼다 |
 | 2026-09-04 | `TI-12` 반영 — 초판이 `TI-11` 까지만 알고 작성됐다. `601702` §1.28 계층 상태 분리를 §1 에 추가하고 §8 추적표를 12건으로 갱신 |
+| 2026-09-05 | 2단계 재동기화 — `TI-13` · `TI-14` · `TI-15` 를 반영하고 보강 5건(`TI-2` · `TI-3` · `TI-6` · `TI-10` · `TI-12`)을 옮겼다. §8 추적표 15건, §7.4 `OQ-1`~`OQ-4` 신설 |
 
 ## §0 성격과 범위
 
 `000701` §47.1 의 **2단계 ERD 초안** 산출물이다.
 
-**`601902` `TI-1`~`TI-14` 를 모델로 옮긴 것이며 구현 설계가 아니다.**
+**`601902` `TI-1`~`TI-15` 를 모델로 옮긴 것이며 구현 설계가 아니다.**
 
 ```text
 관계 모델이 아니라 상태 · 책임 모델이다
@@ -28,14 +29,10 @@ Last Updated: 2026-09-04
 > ⚠️ **`601803`(옛 ERD)을 열지 않았다.** `600021` 이 `601800` 대역을 권위보류했고
 > `601902` §0 이 그 설계 결론을 승계하지 않는다고 선언했다.
 
-> ⚠️ **`TI-13` · `TI-14` 와 `601909` blocking 보강 5건이
-> 이 모델에 아직 반영되지 않았다.**
-> **2단계 재동기화에서 처리한다** — `601909` §8.
-
 ### §0.1 입력
 
 ```text
-601902   TI-1 ~ TI-14 · HD-0-A-2R-1 ~ 12 · OQ-1 ~ OQ-4
+601902   TI-1 ~ TI-15 · HD-0-A-2R-1 ~ 13 · OQ-1 ~ OQ-4
 601903   Cursor 조사 — 개념 축 · TI-N-x 정보 요소 · P-1 ~ P-13
 601904   Codex 조사 — 실측 축 · C1 강제 가능성 · C5 간극표
 601901   Stage 0 — 원천 8건 · 라이브 실측
@@ -70,11 +67,11 @@ Q-N      개념 수준 정보 요소. 물리 이름이 아니다
 flowchart TB
   subgraph AXIS["tenant 이 가지는 두 축 — 서로 독립"]
     direction LR
-    TS["tenant_status<br/>계약 · 고객 lifecycle<br/>이 나선이 읽기만 한다"]
+    TS["tenant_status<br/>계약 · 고객 lifecycle<br/>이 나선이 소유하는 축 — TI-12"]
     IS["isolation_state<br/>tenant-wide containment<br/>NONE · ISOLATED"]
   end
 
-  SC["scoped containment<br/>store · route · device ·<br/>actor · session · provider<br/>별도 책임 · 물리 형태 미정"]
+  SC["scoped containment<br/>store · route · device ·<br/>actor · session · provider<br/>자신의 scope 유효성 상태를 갖는다<br/>별도 책임 · 물리 형태 미정"]
 
   IS -. "escalation 은 별도 규칙<br/>자동 승격 없음 — TI-2" .- SC
 
@@ -93,6 +90,8 @@ flowchart TB
 | scoped containment 가 별도 representation | `TI-2-c` · `TI-2-d` |
 | 자동 승격 없음 | `TI-2-e` · `HD-0-A-2R-2` |
 | scoped containment 상자가 점선인 이유 | `TI-2-f` — 물리 표현 Stage 4 유보 (`P-4`) |
+| scoped containment 가 자신의 scope 유효성 상태를 가짐 | `TI-2` 보강 · `010640` §6 |
+| `tenant_status` 가 이 나선의 소유 축 | `TI-12` · `601909` `T3-5` |
 
 > ⚠️ **escalate 화살표를 방향선으로 그리지 않았다.**
 > **`TI-2` 가 「부분 containment 가 tenant-wide 로 자동 승격되지 않는다」고 선언했으므로
@@ -100,7 +99,23 @@ flowchart TB
 > **어느 오염 유형이 escalate 되는지는 `OQ-2` · `P-2` 로 열려 있다.**
 
 > ⚠️ **`tenant_status` 값 집합을 그리지 않았다.**
-> **`601902` 가 그 축을 선언하지 않았고 이 나선은 읽기만 한다.**
+> **`601902` 가 그 축의 값 집합을 선언하지 않았기 때문이며
+> 이 나선이 그 축을 소유하지 않아서가 아니다** — `601909` `T3-5`.
+>
+> ```text
+> 소유   이 나선이 그 축의 의미와 경계를 정한다 — TI-12
+> 변경   tenant_status 변경 주체는 Subscription Lifecycle 이다
+>        TI-14.1 이 isolation_state 변경의 자동 파급을 막았다
+> ```
+
+> ⚠️ **`TI-2` 보강 — scoped containment 의 scope 유효성 상태**
+>
+> **`010640` §6 이 `SCOPE_PARTIAL_VALID` 를 scope 상태로 요구한다.**
+> **그 상태를 `isolation_state` 로 표현하지 않는다.**
+> **scoped containment representation 이 자신의 scope 유효성 상태를 갖는다.**
+>
+> **값 집합과 물리 표현은 Stage 4 가 정한다.**
+> **`010004` §7 의 「containment block」이 그것을 포함하는지는 §7 `OQ-4` 다.**
 
 > ⚠️ **`TI-12` — 계층 상태 분리**
 >
@@ -192,22 +207,54 @@ flowchart LR
 
 > ⚠️ **role ID · approver 수를 그리지 않았다.** `TI-4-h` 가 Stage 4 · `0-C` 로 유보했다 (`P-5`).
 
+**`ISOLATED` 의 효과 — `TI-13`**
+
+**전이의 절차가 아니라 전이한 상태가 무엇을 하는가다.**
+
+```mermaid
+flowchart LR
+  REQ2["tenant-scoped object 접근 요청"] --> CHK{"010004 §7<br/>deny-by-default<br/>허용 조건 검사"}
+  CHK -->|"containment block 없음<br/>= isolation_state NONE"| OK["나머지 허용 조건으로 계속"]
+  CHK -->|"containment block 있음<br/>= isolation_state ISOLATED"| NO["거부 — fail closed<br/>TI-13"]
+
+  classDef decided fill:#e8f0fe,stroke:#3367d6,stroke-width:1px
+  class REQ2,CHK,OK,NO decided
+```
+
+**읽는 법**
+
+| 요소 | 출처 |
+|---|---|
+| `ISOLATED` 가 containment block 이라는 것 | `TI-13` |
+| containment block 이 있으면 접근이 거부된다는 것 | `TI-13` · `010004` §7 |
+| 거부가 fail closed 라는 것 | `TI-13` · `010004` §7 |
+
+> ⚠️ **기능별 차단 목록을 그리지 않았다.**
+> **`TI-13` 이 「기능을 열거하면 열거되지 않은 기능이 열린 채로 남는다」고 선언했다.**
+> **원천이 deny-by-default 로 정했고 허용 조건에 「no containment block」을 넣었다.**
+
+> ⚠️ **`OK` 노드 뒤를 그리지 않았다.**
+> **나머지 허용 조건 — role · authority · policy permission · Safe Projection —
+> 의 판정은 `TI-13` 이 `0-C` 와 별도로 넘긴 것이다.**
+
 ## §3 authority gate
 
 **`TI-3` 이 gate 결과에 따른 실행 여부를 정한다.**
 
 ```mermaid
 flowchart TB
+  SCOPE["권한 부여 범위<br/>CatchMenu business scope 안에서만 — TI-15.1"] --> REQ
   REQ["transition 요청<br/>발동 또는 해제"] --> GATE{"authority gate 결과"}
 
   GATE -->|"AUTHORITY_ALLOWED"| RUN["실행한다 — TI-3-d"]
   GATE -->|"AUTHORITY_REVIEW_REQUIRED"| STOP1["실행하지 않는다 — TI-3-e"]
   GATE -->|"AUTHORITY_MULTI_PARTY_REQUIRED"| STOP2["실행하지 않는다 — TI-3-e"]
-  GATE -. "AUTHORITY_PARTIAL_ALLOWED" .-> OPEN["미정 — OQ-1<br/>scoped containment 를 허용하는가"]
+
+  OPEN["AUTHORITY_PARTIAL_ALLOWED<br/>이 나선이 다루지 않는다<br/>미정 — OQ-1"]
 
   classDef decided fill:#e8f0fe,stroke:#3367d6,stroke-width:1px
   classDef undecided fill:#fff4e5,stroke:#b06000,stroke-width:1px,stroke-dasharray:4 3
-  class REQ,GATE,RUN,STOP1,STOP2 decided
+  class SCOPE,REQ,GATE,RUN,STOP1,STOP2 decided
   class OPEN undecided
 ```
 
@@ -218,9 +265,19 @@ flowchart TB
 | `AUTHORITY_ALLOWED` | 실행 | `TI-3-d` |
 | `AUTHORITY_REVIEW_REQUIRED` | 실행하지 않음 | `TI-3-e` |
 | `AUTHORITY_MULTI_PARTY_REQUIRED` | 실행하지 않음 | `TI-3-e` |
-| `AUTHORITY_PARTIAL_ALLOWED` | **미정** | `TI-3-f` · `OQ-1` · `P-1` |
+| `AUTHORITY_PARTIAL_ALLOWED` | **이 나선이 다루지 않음** | `TI-3` 보강 · `OQ-1` · `P-1` |
+| 권한 부여 범위 | CatchMenu business scope 안 | `TI-15.1` |
 
 **네 값은 `601901` 이 채록한 `010630` 의 canonical 상태값이다. 이 문서가 만든 이름이 아니다.**
+
+> ⚠️ **`AUTHORITY_PARTIAL_ALLOWED` 노드에 간선을 그리지 않았다.**
+> **`TI-3` 보강이 본문을 네 상태로 열되 partial 의 처분을 `OQ-1` 로 넘겼다.**
+> **실행/미실행 어느 쪽으로 잇든 `601902` 에 없는 선언이 된다** — `601909` `T3-7`.
+
+> ⚠️ **`TI-15.1` — 다른 business 의 admin 이라는 사실만으로
+> CatchMenu tenant 를 격리 · 해제할 권한을 갖지 않는다.**
+> **`000150` §22 · `000190` §17 — link 는 reference 이며 permission 이 아니다.**
+> **role 모델과 물리 ACL 은 `0-C` 소관이다.**
 
 ## §4 idempotency key 파생
 
@@ -263,6 +320,36 @@ flowchart TB
 > **`TI-6-f` 가 Stage 4 로 유보했다 (`P-6` · `P-13`).**
 > **위 6항은 `TI-6` 이 선언한 파생 입력의 개념 목록이며 컬럼 목록이 아니다.**
 
+**파생 이후 — `TI-6` 보강**
+
+```mermaid
+flowchart TB
+  K2["canonical key"] --> J{"같은 key 로 재요청인가"}
+  J -->|"아니오"| EXEC["처리한다"]
+  J -->|"예"| DUP["이미 처리된 요청<br/>상태를 중복 변경하지 않는다<br/>최초 처리의 결과를 반환한다"]
+  EXEC --> LOG["처리 이력을 조회 가능하게 보존한다"]
+  DUP --> LOG
+
+  classDef decided fill:#e8f0fe,stroke:#3367d6,stroke-width:1px
+  class K2,J,EXEC,DUP,LOG decided
+```
+
+**읽는 법**
+
+| 요소 | 출처 |
+|---|---|
+| 재요청이 이미 처리된 것인지 판정 | `TI-6` 보강 |
+| 처리됐다면 상태 중복 변경 없음 | `TI-6` 보강 |
+| 처리됐다면 최초 처리 결과 반환 | `TI-6` 보강 |
+| 처리 이력 보존 | `TI-6` 보강 |
+
+> ⚠️ **초판이 key 를 파생하고 그 다음을 그리지 않았다** — `601909` `T3-8`.
+> **`010660` §4 가 key 는 「one business action」을 식별해야 한다고 요구한다.**
+> **식별만 하고 그 결과로 아무것도 하지 않으면 멱등성이 성립하지 않는다.**
+
+> ⚠️ **보존 기간 · 저장 위치 · 반환 형식을 그리지 않았다.**
+> **`TI-6` 보강이 Stage 4 로 유보했다.**
+
 ## §5 정보 요소 — 개념 수준
 
 **`Q-N` 은 개념 식별자다. 테이블명 · 컬럼명이 아니다.**
@@ -270,7 +357,7 @@ flowchart TB
 | `Q-N` | 개념 | 담아야 할 것 (개념) | 출처 |
 |---|---|---|---|
 | Q-1 | 격리 사건 | 어느 tenant 가 언제 어느 방향으로 전이했는가 | `TI-4` · `TI-10-b` |
-| Q-2 | audit envelope | tenant · store · actor · actor role · surface · device · target object id · type · action · previous scope · new scope · authority reference · policy reference · evidence reference | `TI-8-f` · `TI-10-a` |
+| Q-2 | audit envelope | tenant · store · actor · actor role · surface · device · target object id · type · action · previous scope · new scope · authority reference · policy reference · evidence reference · cross-scope attempt if any | `TI-8-f` · `TI-10-a` · `TI-10` 보강 |
 | Q-3 | scope envelope | 해당 action 에 필요한 scope dimension 묶음 | `TI-8-a` · `TI-8-b` · `TI-8-f` |
 | Q-4 | authority 판정 | gate 결과와 그 참조 | `TI-3-d` · `TI-3-e` |
 | Q-5 | stable action identity | 요청을 식별하는 안정 값 | `TI-6-a` · `TI-6-b` |
@@ -308,6 +395,24 @@ flowchart LR
 > Stage 4 유보(`TI-2-f` · `P-4`)이고, `Q-10` 은 mapping 물리 구조가
 > Stage 4 유보(`TI-7-e` · `P-7`)다. 다른 요소와의 연결선을 그리지 않았다.
 
+> ⚠️ **`TI-14` 를 정보 요소로 그리지 않았다.**
+>
+> ```text
+> TI-14.1 · TI-14.2   isolation_state 변경은 그 자체로
+>                     상업적 결과를 발생시키지 않는다
+> TI-14.3             billing lifecycle 과 독립된 상태축으로 유지한다
+> ```
+>
+> **과금 요소가 이 모델에 하나도 없다는 것이 `TI-14` 의 표현이다.**
+> **`TI-14.4` 는 격리 사실을 미래 과금 판단의 evidence 로 쓰는 것을 열어두었다.**
+> **그 소비자는 Billing Review · Subscription Lifecycle 이며 이 모델 밖이다.**
+
+> ⚠️ **`TI-15` 도 정보 요소를 새로 만들지 않는다.**
+> **`TI-15.2` 가 「link 는 reference 이며 permission 이 아니다」라고 선언했으므로
+> cross-business link 를 `Q-4`(authority 판정)의 입력으로 그리지 않았다.**
+> **`TI-15.4` 의 link data flow 차단은 `TI-13` 의 deny-by-default 적용이며
+> §2 `ISOLATED` 의 효과가 그것을 담는다.**
+
 ## §6 현재 상태 대 모델
 
 **`601904` §6 C5 실측을 옮긴다. 차이를 기록하되 처분하지 않는다.**
@@ -325,6 +430,10 @@ flowchart LR
 | `TI-9` | contamination 발동 사유와 scope 별 escalation | threat type 값만 존재. threat 와 isolation transition 연결 · escalation 검사 0건 |
 | `TI-10` | 격리 audit context 전건 | 일부 명명 항목과 자유형 JSON. 누락 명명 항목 및 key CHECK 0건 |
 | `TI-11` | Stage 7 전 `010004` §24 11항 선언 | 측정 불가 — 승인 문서 선언은 DB schema 측정 대상이 아니다 |
+| `TI-12` | 계층 상태 분리 — 여섯 축 사이 파생 금지 | 강제되지 않음. 축 사이 파생 금지를 검사하는 객체 0건. `601901` 이 상위 상태를 하위 상태 대신 쓰는 실물 경로를 실측으로 기록했다 |
+| `TI-13` | `ISOLATED` 가 containment block 이며 접근이 fail closed 로 거부됨 | 강제되지 않음. `601901` §17.2 실측 — 격리 상태를 참조하는 함수 · 뷰 · 트리거 · 제약 각 0건. 상태를 읽는 경로가 없다 |
+| `TI-14` | 격리 변경이 상업적 결과를 자동 발생시키지 않음 | 측정 불가 — 과금 · 구독 모델이 문서로 존재하지 않는다. 격리와 과금을 잇는 객체도 0건이므로 현재 위반은 관측되지 않는다 |
+| `TI-15` | 격리 권한이 business scope 를 넘지 않고 link 가 permission 이 아님 | 강제되지 않음. business scope 별 권한 분리를 검사하는 객체 0건. cross-business link 의 격리 연동 객체도 0건 |
 
 **출처** — `601904` §2 C1 · §6 C5. **물리 객체명은 그 문서에 있고 이 표는 옮기지 않는다.**
 
@@ -372,10 +481,19 @@ TI-3 · TI-4 · TI-5 · TI-6
 | D-1 | `TI-1` · `TI-11` 은 모델에 그릴 요소가 없다. 둘 다 `601904` 가 「측정 불가」로 판정한 문서 · 게이트 층위다. 이 둘을 2단계 산출물의 어디에 남길지 정해지지 않았다 | `601904` §2 C1 · §8 추적표 |
 | D-2 | `Q-1`(격리 사건)과 `Q-2`(audit envelope)가 하나의 개념인지 둘인지 `601902` 가 정하지 않았다. `TI-10-e` 가 확장/병행을 Stage 4 로 유보했으므로 이 단계에서도 갈리지 않는다 | `TI-10-b` · `TI-10-e` · `P-9` |
 | D-3 | scoped containment(`Q-9`)가 이 나선의 범위 안인지 밖인지 `601902` 가 명시하지 않았다. `TI-2` 는 「별도 책임」이라고만 했고 그 책임의 소재 나선을 지목하지 않았다 | `TI-2-d` · `TI-2-f` |
-| D-4 | `Q-4`(authority 판정)를 이 나선이 소유하는지, `0-C` 가 소유하고 이 나선은 결과만 소비하는지 정해지지 않았다 → 2026-09-04 `TI-12` 가 부분적으로 답했다. 나머지 4축은 이 나선의 직접 변경 대상이 아니며 명시적 precondition 으로만 참조한다. 「authority 판정을 이 나선이 소유하는가」는 여전히 열려 있다 | `TI-3-d` · `TI-4-h` · `TI-12` |
+| D-4 | `Q-4`(authority 판정)를 이 나선이 소유하는지, `0-C` 가 소유하고 이 나선은 결과만 소비하는지 정해지지 않았다 → 2026-09-04 `TI-12` 가 부분적으로 답했다. 나머지 4축은 이 나선의 직접 변경 대상이 아니며 명시적 precondition 으로만 참조한다. 「authority 판정을 이 나선이 소유하는가」는 여전히 열려 있다 → 2026-09-05 `TI-15.1` 이 권한의 **부여 범위**를 CatchMenu business scope 안으로 좁혔다. 판정의 **소유 주체**는 여전히 열려 있다 | `TI-3-d` · `TI-4-h` · `TI-12` · `TI-15.1` |
 
 > ⚠️ **`D-1` ~ `D-4` 는 관측이며 판정이 아니다.**
 > **`601902` 에 없는 선언을 만들지 않았다.**
+
+### §7.4 `601902` §6 열린 질문 — 모델에서의 처리
+
+| # | 원 질문 | 이 문서에서의 처리 |
+|---|---|---|
+| OQ-1 | `AUTHORITY_PARTIAL_ALLOWED` 가 scoped containment 를 허용하는가 | §3 에서 간선 없는 점선 노드로 두었다. `P-1` 과 같은 질문이다 |
+| OQ-2 | `010004` §20 의 어느 오염 유형이 tenant-wide 로 escalate 되는가 | §1 · §5 에서 escalate 를 방향 화살표로 그리지 않았다. `P-2` 와 같은 질문이다 |
+| OQ-3 | `010650` §38 anti-pattern 중 이 나선이 강제할 범위 | §2 는 자기 단독 해제 금지만 그렸다. `P-3` 과 같은 질문이다 |
+| OQ-4 | `010004` §7 의 「containment block」이 tenant-wide 만 뜻하는가 scoped containment 도 포함하는가 | §2 는 `isolation_state` 만 containment block 으로 그렸다. scoped containment 를 그 조건에 넣지 않았고, 넣지 않는다고 선언하지도 않았다. §1 `TI-2` 보강 ⚠️ 와 짝이다 |
 
 ## §8 `TI-N` 추적표
 
@@ -392,18 +510,30 @@ TI-3 · TI-4 · TI-5 · TI-6
 | `TI-9` | §5 `Q-8` 및 `Q-1` 로의 발동 사유 화살표, `Q-9` 로의 점선 |
 | `TI-10` | §5 `Q-1` · `Q-2` |
 | `TI-11` | **모델에 나타나지 않는다.** §24 11항 선언은 Stage 4 산출물 이후 Stage 7 승인 문서가 기록하는 게이트이며 상태 · 책임 모델의 요소가 아니다. `601904` C1 이 「측정 불가」로 판정했다. §6 표와 §7.2 `P-10` · §7.3 `D-1` 에 기록했다 |
-| `TI-12` | §1 ⚠️ 계층 상태 분리 |
+| `TI-12` | §1 Mermaid `tenant_status` 소유 라벨 · §1 ⚠️ 계층 상태 분리 · §1 ⚠️ 소유/변경 구분 · §6 |
+| `TI-13` | §2 「`ISOLATED` 의 효과」 다이어그램과 읽는 법 · §6 |
+| `TI-14` | **다이어그램 요소로 나타나지 않는다.** 과금 요소가 이 모델에 하나도 없다는 것이 `TI-14` 의 표현이다. §5 ⚠️ 가 그 부재를 명시하고 §6 이 실측을 기록했다 |
+| `TI-15` | §3 `SCOPE` 노드와 ⚠️(`TI-15.1`) · §5 ⚠️(`TI-15.2` · `TI-15.4`) · §6 |
 
-**14건 중 12건 기록 · `TI-13` · `TI-14` 는 재동기화 대기. 미표현 2건(`TI-1` · `TI-11`)은 사유를 적었다.**
+**15건 전건 기록. 미표현 3건(`TI-1` · `TI-11` · `TI-14`)은 사유를 적었다.**
+
+> ⚠️ **`TI-14` 의 미표현은 `TI-1` · `TI-11` 과 성격이 다르다.**
+> **`TI-1` · `TI-11` 은 층위가 달라 그릴 것이 없고,
+> `TI-14` 는 그리지 않는 것 자체가 선언의 이행이다** — 격리와 과금의 분리.
 
 ## §9 근거 문서 목록 (`000701` §46)
 
 | 문서 | 인용 | 지위 |
 |---|---|---|
-| `601902_Register_Stage1_Business_Rules.md` | `TI-1`~`TI-14` · `HD-0-A-2R-1`~`12` · `OQ-1`~`OQ-4` — 모델의 유일한 선언 출처 | ACTIVE |
+| `601902_Register_Stage1_Business_Rules.md` | `TI-1`~`TI-15` · `HD-0-A-2R-1`~`13` · `OQ-1`~`OQ-4` — 모델의 유일한 선언 출처 | ACTIVE |
 | `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | §2 `TI-N-x` 정보 요소 · §6 `P-1`~`P-13` | ACTIVE |
 | `601904_Evidence_Stage2_ERD_Survey_Codex.md` | §2 C1 · §6 C5 — §6 표의 출처 | ACTIVE |
-| `601901_Register_Stage0_Evidence_Collection.md` | `010630` authority 상태값 채록 · Pass 2 실측 | ACTIVE |
+| `601901_Register_Stage0_Evidence_Collection.md` | `010630` authority 상태값 채록 · `010004` §7 채록 · Pass 2 실측 | ACTIVE |
+| `601909_Report_Stage3_Integration.md` | `T3-1`~`T3-8` · `N-1`~`N-7` — 이 재동기화의 근거 | ACTIVE |
+| `010004` | §7 deny-by-default — `TI-13` 원천. §19 — `TI-10` 원천 | ACTIVE — mandatory |
+| `000150` · `000190` | cross-business boundary — `TI-15` 원천 | ACTIVE — mandatory |
+| `010640` | §6 `SCOPE_PARTIAL_VALID` — `TI-2` 보강 원천 | ACTIVE — mandatory |
+| `010660` | §4 one business action — `TI-6` 보강 원천 | ACTIVE — `TI-1` 채택 |
 | `601702_Register_Stage1_Business_Rules.md` | §1.27 · §1.28 — `TI-12` 근거 | ACTIVE |
 | `601900_Readme_Tenant_Isolation_Axis_V2.md` | §3 착수 순서 · §4 구속 | ACTIVE |
 | `600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md` | §2 — `601800` 을 답안지로 쓰지 않는다 | ACTIVE |
