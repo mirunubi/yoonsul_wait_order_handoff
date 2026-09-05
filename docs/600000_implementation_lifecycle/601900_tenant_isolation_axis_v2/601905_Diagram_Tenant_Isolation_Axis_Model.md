@@ -234,8 +234,8 @@ flowchart LR
 ```mermaid
 flowchart LR
   REQ2["tenant-scoped object 접근 요청"] --> CHK{"010004 §7<br/>deny-by-default<br/>허용 조건 검사"}
-  CHK -->|"containment block 없음<br/>= isolation_state NONE"| OK["나머지 허용 조건으로 계속"]
-  CHK -->|"containment block 있음<br/>= isolation_state ISOLATED"| NO["거부 — fail closed<br/>TI-13"]
+  CHK -->|"tenant-wide containment block 없음<br/>isolation_state NONE"| OK["나머지 허용 조건으로 계속<br/>다른 containment block 여부는<br/>이 모델이 판정하지 않는다"]
+  CHK -->|"containment block 존재<br/>isolation_state ISOLATED"| NO["거부 — fail closed<br/>TI-13"]
 
   classDef decided fill:#e8f0fe,stroke:#3367d6,stroke-width:1px
   class REQ2,CHK,OK,NO decided
@@ -248,6 +248,18 @@ flowchart LR
 | `ISOLATED` 가 containment block 이라는 것 | `TI-13` |
 | containment block 이 있으면 접근이 거부된다는 것 | `TI-13` · `010004` §7 |
 | 거부가 fail closed 라는 것 | `TI-13` · `010004` §7 |
+| `NONE` 이 tenant-wide containment block 없음만 뜻한다는 것 | `TI-2` · `OQ-4` |
+
+> ⚠️ **`NONE` 이 「containment block 전부 없음」을 뜻하지 않는다.**
+>
+> ```text
+> TI-2 가 scoped containment 를 별도 책임으로 분리했다
+> OQ-4 가 010004 §7 의 「containment block」이
+> scoped 를 포함하는지를 열어두었다
+> ```
+>
+> **`tenant NONE + scoped block` 조합을 이 모델이 배제하지 않는다.**
+> **초판이 역방향까지 등치해 열린 질문을 확정했다** — `601910` `B-1`.
 
 > ⚠️ **기능별 차단 목록을 그리지 않았다.**
 > **`TI-13` 이 「기능을 열거하면 열거되지 않은 기능이 열린 채로 남는다」고 선언했다.**
@@ -346,12 +358,16 @@ flowchart TB
 flowchart TB
   K2["canonical key"] --> J{"같은 key 로 재요청인가"}
   J -->|"아니오"| EXEC["처리한다"]
-  J -->|"예"| DUP["이미 처리된 요청<br/>상태를 중복 변경하지 않는다<br/>최초 처리의 결과를 반환한다"]
+  J -->|"예"| DONE{"이미 처리 완료됐는가"}
+  DONE -->|"예"| DUP["상태를 중복 변경하지 않는다<br/>최초 처리의 결과를 반환한다"]
+  DONE -->|"아니오"| PEND["처리 중 또는 결과 불명<br/>이 모델이 처분을 정하지 않는다 — Stage 4"]
   EXEC --> LOG["처리 이력을 조회 가능하게 보존한다"]
   DUP --> LOG
 
   classDef decided fill:#e8f0fe,stroke:#3367d6,stroke-width:1px
-  class K2,J,EXEC,DUP,LOG decided
+  classDef undecided fill:#fff4e5,stroke:#b06000,stroke-width:1px,stroke-dasharray:4 3
+  class K2,J,DONE,EXEC,DUP,LOG decided
+  class PEND undecided
 ```
 
 **읽는 법**
@@ -362,6 +378,18 @@ flowchart TB
 | 처리됐다면 상태 중복 변경 없음 | `TI-6` 보강 |
 | 처리됐다면 최초 처리 결과 반환 | `TI-6` 보강 |
 | 처리 이력 보존 | `TI-6` 보강 |
+| 처리 중 · 결과 불명 재요청의 처분 | **미정 — Stage 4** |
+
+> ⚠️ **재요청 여부와 완료 여부는 다르다.**
+>
+> **`TI-6` 이 「이미 처리된 요청인지 판정한다」를 먼저 두고
+> 「처리됐다면」에만 결과 반환을 요구한다.**
+>
+> **첫 요청이 처리 중이거나 transaction 결과가 불명인 재요청에는
+> 반환할 최초 결과가 확정돼 있지 않다** — `601910` `B-2` ·
+> `010660` §6 · §10.
+>
+> **처리 중 재요청의 처분은 Stage 4 가 정한다.**
 
 > ⚠️ **초판이 key 를 파생하고 그 다음을 그리지 않았다** — `601909` `T3-8`.
 > **`010660` §4 가 key 는 「one business action」을 식별해야 한다고 요구한다.**
@@ -451,11 +479,14 @@ flowchart LR
 | `TI-10` | 격리 audit context 전건 | 일부 명명 항목과 자유형 JSON. 누락 명명 항목 및 key CHECK 0건 |
 | `TI-11` | Stage 7 전 `010004` §24 11항 선언 | 측정 불가 — 승인 문서 선언은 DB schema 측정 대상이 아니다 |
 | `TI-12` | 계층 상태 분리 — 여섯 축 사이 파생 금지 | 강제되지 않음. 축 사이 파생 금지를 검사하는 객체 0건. `601901` 이 상위 상태를 하위 상태 대신 쓰는 실물 경로를 실측으로 기록했다 |
-| `TI-13` | `ISOLATED` 가 containment block 이며 접근이 fail closed 로 거부됨 | 강제되지 않음. `601901` §17.2 실측 — 격리 상태를 참조하는 함수 · 뷰 · 트리거 · 제약 각 0건. 상태를 읽는 경로가 없다 |
+| `TI-13` | `ISOLATED` 가 containment block 이며 접근이 fail closed 로 거부됨 | 강제되지 않음. `isolation_state` 를 참조하는 함수 · 뷰 · 트리거 0건. `tenants` 에 `chk_tenants_isolation_state` CHECK 1건 존재 — `601901` §17.1. 다른 테이블의 관련 제약 0건 — `601901` §17.2. 접근 차단을 강제하는 것은 없다 |
 | `TI-14` | 격리 변경이 상업적 결과를 자동 발생시키지 않음 | 측정 불가 — 과금 · 구독 모델이 문서로 존재하지 않는다. 격리와 과금을 잇는 객체도 0건이므로 현재 위반은 관측되지 않는다 |
 | `TI-15` | 격리 권한이 business scope 를 넘지 않고 link 가 permission 이 아님 | 강제되지 않음. business scope 별 권한 분리를 검사하는 객체 0건. cross-business link 의 격리 연동 객체도 0건 |
 
 **출처** — `601904` §2 C1 · §6 C5. **물리 객체명은 그 문서에 있고 이 표는 옮기지 않는다.**
+
+> ⚠️ **CHECK 는 값 집합을 제한하며 접근을 차단하지 않는다.**
+> **초판이 「제약 0건」으로 적어 실측 범위를 바꿨다** — `601910` `B-3`.
 
 > ⚠️ **이 표는 관측이다. 간극을 채우는 방법을 적지 않는다.**
 > **`601904` 도 「간극을 채우는 방법은 기록하지 않았다」고 명시했다.**

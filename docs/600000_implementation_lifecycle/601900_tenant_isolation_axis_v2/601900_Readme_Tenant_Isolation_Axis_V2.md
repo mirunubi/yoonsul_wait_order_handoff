@@ -68,13 +68,13 @@ isolation_state   보안 · 장애 대응을 위한 기술적 격리
 
 ```text
 Stage 0   완료 — 601901
-1단계     완료 — 601902 TI-1 ~ TI-12
+1단계     완료 — 601902 TI-1 ~ TI-15
 TI-12 는 2단계 조사 후 제한 재개방으로 추가 (2026-09-04)
+TI-13 ~ TI-15 는 3단계 Round 1 blocking 처분으로 추가 (2026-09-04 ~ 05)
 2단계     초안 완료 — 601903 · 601904 조사 → 601905 (Draft)
-3단계     완료 — 601906 · 601907 · 601908 · 601909
-blocking 8 / informational 21. Stage 3 = INCOMPLETE
-다음      Human 처분 — T3-1 ~ T3-8 · N-1 ~ N-7
-4단계 착수는 1단계 보강과 2단계 재동기화 이후
+3단계     Round 1 완료 — 601906 ~ 601909. blocking 8 · N 7 처분
+          Round 2 진행 — 601910 Codex. blocking 3
+다음      601905 정정 후 Round 2 나머지 검증자
 ```
 
 ## §4 `600021` §2 구속
@@ -204,7 +204,7 @@ manage_subscription 상태 전이           Subscription Lifecycle
 |---|---|---|
 | 601900 | `601900_Readme_Tenant_Isolation_Axis_V2.md` | Active — 이 문서 |
 | 601901 | `601901_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부. A1 5 · A1' 3 · A3 5 |
-| 601902 | `601902_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 14건(`TI-1`~`TI-14`) · `HD-0-A-2R-1`~`12` |
+| 601902 | `601902_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 15건(`TI-1`~`TI-15`) · `HD-0-A-2R-1`~`13` |
 | 601903 | `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | Active — 2단계 조사. 개념 축 |
 | 601904 | `601904_Evidence_Stage2_ERD_Survey_Codex.md` | Active — 2단계 조사. 실측 축 |
 | 601905 | `601905_Diagram_Tenant_Isolation_Axis_Model.md` | Draft — 2단계 ERD. 상태 · 책임 모델 |
