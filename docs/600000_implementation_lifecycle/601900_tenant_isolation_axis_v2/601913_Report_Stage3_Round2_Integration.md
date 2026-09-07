@@ -43,8 +43,8 @@ Claude  N-7 을 「안 닫힘」으로 판정 — B-C-4
 
 | 주장 | 실측 | 결과 |
 |---|---|---|
-| `010660` §6 이 `Same key with different payload must not execute` 를 규칙으로 둔다 | `601901` 1509 · 1515행 | **성립** |
-| `010630` §6 authority state 가 15개이고 §28 이 `DENY_UNLESS_EXPLICITLY_ALLOWED` 를 default 로 둔다 | `601901` 844 · 984행 | **성립** |
+| `010660` §6 이 `Same key with different payload must not execute` 를 규칙으로 둔다 | `601901` §9.3.2 (`010660` §6) | **성립** |
+| `010630` §6 authority state 가 15개이고 §28 이 `DENY_UNLESS_EXPLICITLY_ALLOWED` 를 default 로 둔다 | `601901` §9.1.2 (`010630` §6 · §28) | **성립** |
 | `601905` §2 가 「gate 결과 `AUTHORITY_ALLOWED` 일 때만 실행」을 유지한다 | `601905` 186행 | **성립** |
 
 ## §1 종합
@@ -199,7 +199,7 @@ R2-5 · M-1 ~ M-4     문서 정합
 | `601910_Audit_Stage3_Round2_Codex.md` | 전문 | ACTIVE |
 | `601911_Audit_Stage3_Round2_Cowork.md` | 전문 | ACTIVE |
 | `601912_Audit_Stage3_Round2_Claude.md` | 전문 | ACTIVE |
-| `601901` | 844 · 984 · 1509 · 1515행 — §0.2 재도출 | ACTIVE |
+| `601901` | §9.1.2 (`010630` §6 · §28) · §9.3.2 (`010660` §6) — §0.2 재도출 | ACTIVE |
 | `601902` · `601905` | 검증 대상 전문 | ACTIVE |
 | `601909` | Round 1 통합 — §0.1 | ACTIVE |
 | `010660` | §6 | ACTIVE |

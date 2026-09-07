@@ -14,6 +14,7 @@ Last Updated: 2026-09-02
 | Pass 1.5 | A3 중 3건을 A1으로 승격해 조사 |
 | Pass 2 | 실측 축 — 완료(2026-09-02); B~E 재측정 |
 | Pass 2 보강 | 2026-09-06   601702 §1.33 보강 채록 — 601913 M-3 |
+| Pass 2 보강 | 2026-09-06   010004 §26 · 010640 §5 · 601702 §1.12 보강 채록 — 601917 전수 대조 결과 |
 | DB 접속 | read-only 접속·catalog/행 수 조회 수행; 금지 함수 호출 0건 |
 | 문서 성격 | 사실 등록부. 판단·설계·Human Rule 생성 없음 |
 | 조사 기준 | baseline commit의 blob과 tree |
@@ -317,6 +318,32 @@ If tenant isolation cannot be proven, the feature is not ready.
 Runtime implementation remains deferred until a separate explicit authorization packet with tenant isolation validation is approved.
 ```
 
+`§26 Runtime Deferral` 원문:
+
+```text
+## 26. Runtime Deferral
+
+This document defines tenant isolation skeleton only.
+
+It does not authorize:
+
+- RLS policy implementation
+- database schema changes
+- API context resolver
+- admin permission engine
+- support masking engine
+- export engine
+- AI context filter
+- pgvector scoped retrieval
+- tenant isolation test suite
+- production deployment
+
+All runtime remains deferred.
+
+---
+
+```
+
 ### §5.3 내부 모순·애매점·제외
 
 | 항목 | 원문상 사실 |
@@ -463,6 +490,44 @@ If scope is missing, mismatched, dropped, unverifiable, or cross-tenant unsafe, 
 Tenant isolation is not optional.
 
 Runtime implementation remains deferred until a separate explicit authorization packet is approved.
+```
+
+`§5 Mandatory Envelope Fields` 원문:
+
+```text
+## 5. Mandatory Envelope Fields
+
+Every scoped object should carry:
+
+| Field | Meaning |
+|---|---|
+| `scope_envelope_id` | Unique envelope id |
+| `scope_version` | Envelope schema version |
+| `tenant_id` | Tenant scope |
+| `store_id` | Store scope if applicable |
+| `brand_id` | Brand scope if applicable |
+| `operating_group_id` | Operating group if applicable |
+| `legal_entity_id` | Legal/accounting scope if applicable |
+| `franchise_group_id` | Franchise group if applicable |
+| `provider_id` | Provider scope if applicable |
+| `device_id` | Device scope if applicable |
+| `actor_id` | Acting identity if applicable |
+| `role_id` | Role context if applicable |
+| `surface_id` | Source surface |
+| `session_id` | Session context |
+| `authority_scope` | Action authority scope |
+| `visibility_scope` | Projection/query visibility |
+| `data_class` | Data classification |
+| `masking_class` | Masking class |
+| `policy_version` | Policy version |
+| `scope_hash` | Hash of scope fields for tamper detection |
+| `scope_validated_at` | Scope validation timestamp |
+| `scope_validation_status` | Validation result |
+
+Envelope must be attached before routing, projection, or mutation.
+
+---
+
 ```
 
 ### §6.3 내부 모순·애매점·제외
@@ -1902,6 +1967,29 @@ CatchMenu owns     Entry Media mapping / merchant service status /
 
 **§1.10~§1.12의 선언 내용은 `000190` 과 일치한다.** 근거를 보강한 것이며 변경이 아니다.
 
+### §1.12 같은 실체가 두 시스템에서 다른 정체성을 가진다
+
+`000150` §12: *Same physical store may have different system identities
+in different business contexts.*
+
+매장뿐 아니라 조직과 사람에도 적용된다.
+
+```text
+윤슬김밥   Group Context   = 그룹이 보유한 프랜차이즈 사업
+           CatchMenu       = 서비스를 이용하는 고객
+
+한 사람    Group           = 그룹 경영자
+           Franchise OS    = Franchise Admin
+           CatchMenu       = Platform Operator 또는 고객측 사용자
+```
+
+**Person은 같아도 Role·Scope·Session은 각 세계에서 별도로 판정한다.**
+로그인 한 번으로 여러 세계의 권한이 자동 합쳐지지 않는다.
+
+연결은 **명시적 링크**(`cross_business_link`)로만 한다.
+`000150` §33: *Allow explicit links. **Deny implicit authority.***
+`020310` §29: *Shared authentication is not shared authorization.*
+
 ### §10.3 내부 모순·애매점·제외
 
 | 항목 | 기록 |
@@ -2059,6 +2147,8 @@ It references:
 | Q-P12 | `010630`·`010650`·`010660`을 이 나선의 구속으로 채택할 것인가? | `600021` §2는 5건만 강제했다; 셋은 `010640` §41에서 발견했고 직접 관련이 확인됐다; 채택 여부는 1단계 Human 판정 대상이다 |
 | Q-P13 | `010650` §38 anti-pattern 목록 중 이 나선이 강제할 범위는 어디까지인가? | 2026-09-02 보강 채록. `601902` TI-4가 그중 1건을 인용했다 |
 | Q-P14 | `601702` §1.33 이 초판 채록에서 빠졌다. `601913` `M-3` 이 지적해 2026-09-06 보강했다. 같은 유형의 미채록이 §10.2 의 나머지 절에도 있는가 |
+| Q-P15 | `601917` 전수 대조로 「목록만」 2건과 절번호 없는 1건을 확인해 2026-09-06 채록했다. 절번호 없이 주제만 인용하는 형태는 대조로 잡히지 않는다. 그 형태의 인용이 더 있는가 |
+| Q-P16 | 채록 보강이 이후 행 번호를 민다. `601902` · `601909` · `601913` 이 「`601901` NNN행」으로 인용한 10건이 깨졌다 — `601915` 요약 보고(§5 Findings 표에 대응 ID 없음). 행 번호 인용을 절 번호로 바꿀 것인가 |
 
 ## §15 근거 문서 목록 (`000701` §46)
 
