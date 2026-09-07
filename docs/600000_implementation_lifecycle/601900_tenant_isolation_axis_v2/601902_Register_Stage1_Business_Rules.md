@@ -49,8 +49,31 @@ canonical   TI-N
 | 2026-09-06 | `OQ-5` 해소 — `601702` §1.33 이 `601901` 에 보강 채록돼 `TI-15` 근거로 추가됐다. Stage 0 → 1단계 순서를 지키기 위해 채록 후에 인용했다 |
 | 2026-09-06 | `601917` 전수 대조로 확인된 미채록 3건이 `601901` 에 보강됐다. `TI-8` · `TI-11` 의 인용이 채록 범위 안이 됐고 `TI-15` 가 `601702` §1.12 를 근거로 추가했다. **인용 33건 중 미채록 0건** |
 | 2026-09-06 | `OQ-7` 해소 — `601901` 행 번호 인용을 절 번호로 교체. `601901` 채록 보강이 행을 밀어 인용이 깨진 것을 구조적으로 막는다 — `601915` 요약 보고(§5 Findings 표에 대응 ID 없음) · `601901` `Q-P16` |
+| 2026-09-08 | `HD-0-A-2R-14` — 범위 축소 · 계약 동결. `601919` 독립 감사가 `C-01`~`C-03` 을 runtime 으로 재현했다. `TI-1`~`TI-15` 를 정책 계약으로 확정하고 enforcement 를 `0-C` 로 이월한다. Round 3 blocking 8건 처분 — Human Close 4 · DEFERRED 4. **Round 4 를 돌리지 않는다** |
 
-## §1 업무규칙
+### §0.3 계약 동결 — 2026-09-08
+
+```text
+상태   SCOPE REDUCED / CONTRACT FROZEN
+       IMPLEMENTATION DEFERRED TO 0-C
+
+TI-1 ~ TI-15 는 정책 계약으로 확정한다
+이 나선은 더 이상 TI-N 을 추가하거나 수정하지 않는다
+```
+
+**이 나선이 하지 않는 것**
+
+```text
+caller identity 해석
+tenant_status · isolation_state 의 업무 RPC gate
+runtime 접근 거부의 구현
+그 어떤 SQL 도 이 나선은 만들지 않는다
+```
+
+> ⚠️ **`601919` 독립 감사가 `C-01` ~ `C-03` 을 runtime 으로 재현했다.**
+> **문서를 더 정밀하게 써도 그것들은 막히지 않는다.**
+
+**근거** — `HD-0-A-2R-14` · `601919` · `601918` §3.## §1 업무규칙
 
 ### §1.1 TI-1 — Source Doctrine 채택
 
@@ -1008,6 +1031,31 @@ the whole point of suspending it.
 
 Federation is explicitly not designed here; the source says federation is
 designed and not assumed, and this spiral assumes nothing about it.
+
+HD-0-A-2R-14 — Scope Reduction And Contract Freeze
+
+An independent audit on 2026-09-08 reproduced, in a running database,
+what four weeks of documents had been describing: one tenant's claims
+operating another tenant's orders and payments, a payment confirmed with
+a fabricated provider key, a kitchen ticket committed with no payment,
+and a tenant both terminated and isolated still accepting orders.
+
+None of those is fixed by writing the rules more precisely. There is no
+common point in this database where a request is asked whose tenant it
+belongs to, and until there is, a rule saying an isolated tenant is
+refused has nothing to refuse it with.
+
+So this spiral's scope is reduced. TI-1 through TI-15 stand as the policy
+contract and are frozen. What this spiral does not do is build the
+enforcement: caller identity resolution, the point where tenant status
+and isolation state gate a business call, and the runtime refusal itself
+all belong to the authorization spiral.
+
+The third stage is not being declared complete. Its remaining findings
+are dispositioned as human decisions or carried to implementation
+evidence, and the document-versus-document verification loop ends here -
+three rounds produced eight, eight and eleven blockers, half of the last
+being incomplete dispositions of the round before it.
 ```
 
 **판정자** — 정영석, 2026-09-02
@@ -1021,6 +1069,8 @@ designed and not assumed, and this spiral assumes nothing about it.
 **HD-0-A-2R-12 판정자** — 정영석, 2026-09-04
 
 **HD-0-A-2R-13 판정자** — 정영석, 2026-09-05
+
+**HD-0-A-2R-14 판정자** — 정영석, 2026-09-08
 
 ## §5 이 나선이 정하지 않는 것
 
@@ -1084,3 +1134,40 @@ surface · device context 의 표현            별도
 | `601816` | finding 15건 — §2 처분 | ⛔ **AUTHORITY SUSPENDED** |
 | `601801` · `601803` · `601809`~`601812` | 승계하지 않는다 | ⛔ **AUTHORITY SUSPENDED** |
 | `000701` | §46 · §47.1 | ACTIVE |
+
+## §8 Stage 3 Round 3 처분 — 2026-09-08
+
+**`601918` blocking 8건 중**
+
+**Human Close — 4건**
+
+| # | 처분 |
+|---|---|
+| R3-1 | `TI-13` 근거 문장이 `010004` §2 · `010650` §36 과 어긋난다. **계약 동결 시점의 알려진 결함으로 기록한다.** 예외 자체는 유효하며 `0-C` 가 그 근거를 재도출한다 |
+| R3-2 | `TI-6` default 봉쇄 부재. `010660` §6 12 상태 중 3건만 다룬다. **`0-C` 가 멱등성 실행 경계를 만들 때 나머지를 처분한다** |
+| R3-3 | `HD-0-A-2R-11` 이 `TI-13` 과 어긋난다. **후행 판정인 `TI-13` 본문이 우선한다.** `HD-11` 을 수정하지 않고 이 절이 그 관계를 정한다 |
+| R3-7 | `SCOPE_PARTIAL_VALID` 가 `TI-2` 에 배정됐고 원천 의미가 전용됐다. **`0-C` 가 scope envelope 를 구현할 때 재배정한다** |
+
+**DEFERRED TO IMPLEMENTATION EVIDENCE — 4건**
+
+```text
+R3-4   601905 §6 이 601904 에 없는 실측을 적었다
+R3-5   601905 §2 「읽는 법」 표
+R3-6   OQ-6 이 601905 §7.4 에 없다
+R3-8   M-4 provenance 부분 처분
+
+→ 601905 는 동결된 계약의 그림이며 구현 입력이 아니다
+   0-C runtime evidence 가 이들을 대체한다
+```
+
+> ⚠️ **Round 4 를 돌리지 않는다.**
+>
+> ```text
+> Round 1   blocking 8
+> Round 2   blocking 8
+> Round 3   blocking 11 — 절반이 앞 라운드 처분의 불완전
+> ```
+>
+> **문서 대 문서 검증은 반증 조건이 없어 수렴하지 않는다.**
+
+**열린 질문 `OQ-1` ~ `OQ-7` 은 `0-C` 가 이어받는다.**
