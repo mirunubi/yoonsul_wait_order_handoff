@@ -68,14 +68,49 @@ isolation_state   보안 · 장애 대응을 위한 기술적 격리
 
 ```text
 Stage 0   완료 — 601901
-1단계     완료 — 601902 TI-1 ~ TI-15
-TI-12 는 2단계 조사 후 제한 재개방으로 추가 (2026-09-04)
-TI-13 ~ TI-15 는 3단계 Round 1 blocking 처분으로 추가 (2026-09-04 ~ 05)
-2단계     초안 완료 — 601903 · 601904 조사 → 601905 (Draft)
-3단계     Round 1 완료 — 601906 ~ 601909. blocking 8 · N 7 처분
-          Round 2 진행 — 601910 Codex. blocking 3
-다음      601905 정정 후 Round 2 나머지 검증자
+1단계     완료 — 601902 TI-1 ~ TI-15 · HD-0-A-2R-1 ~ 14
+2단계     완료 — 601903 · 601904 조사 → 601905
+3단계     Round 1   601906 ~ 601909   blocking 8 · 전건 처분
+          Round 2   601910 ~ 601913   blocking 8 · 전건 처분
+          Round 3   601914 ~ 601918   blocking 10 · Human 처분
+
+독립 감사  601919 (2026-09-08) — CRITICAL 3 · HIGH 3 runtime 재현
+          601920 · 601921 부속 증거
+
+종료      CONTRACT FROZEN (2026-09-08) — HD-0-A-2R-14
 ```
+
+> ⛔ **`SCOPE REDUCED / CONTRACT FROZEN / IMPLEMENTATION DEFERRED TO 0-C`**
+>
+> **이 나선은 정책 계약 확정까지만 담당한다.**
+>
+> ```text
+> 확정한 것   TI-1 ~ TI-15 · HD-0-A-2R-1 ~ 14
+>            601902 가 그 계약이다
+>
+> 하지 않는 것  caller identity 해석
+>              tenant_status · isolation_state 의 업무 RPC gate
+>              runtime 접근 거부의 구현
+>              그 어떤 SQL 도 이 나선은 만들지 않았다
+> ```
+>
+> **4단계 이후를 수행하지 않는다.**
+> **Round 4 를 돌리지 않는다.**
+>
+> **근거** — `601902` §0.3 · §4 `HD-0-A-2R-14` · §8.
+
+> ⚠️ **`601905` 는 동결된 계약의 그림이며 구현 입력이 아니다.**
+> **`601918` `R3-4` · `R3-5` · `R3-6` · `R3-8` 이 미해소로 남아 있고
+> `0-C` runtime evidence 가 그것을 대체한다.**
+
+> ⚠️ **후속**
+>
+> ```text
+> 600023   Runtime Gate Spiral — 2026-09-08 채택
+> 602010   RG-01 Caller Tenant Scope
+> 0-C      caller authorization · access enforcement
+>          601200 · 601211 · 601212 가 선행 파일럿이다
+> ```
 
 ## §4 `600021` §2 구속
 
@@ -204,7 +239,7 @@ manage_subscription 상태 전이           Subscription Lifecycle
 |---|---|---|
 | 601900 | `601900_Readme_Tenant_Isolation_Axis_V2.md` | Active — 이 문서 |
 | 601901 | `601901_Register_Stage0_Evidence_Collection.md` | Active — §48 증거수집. 사실 등록부. A1 5 · A1' 3 · A3 5 |
-| 601902 | `601902_Register_Stage1_Business_Rules.md` | Active — 1단계 선언 15건(`TI-1`~`TI-15`) · `HD-0-A-2R-1`~`13` |
+| 601902 | `601902_Register_Stage1_Business_Rules.md` | Active — **동결된 정책 계약.** 선언 15건(`TI-1`~`TI-15`) · `HD-0-A-2R-1`~`14` |
 | 601903 | `601903_Evidence_Stage2_ERD_Survey_Cursor.md` | Active — 2단계 조사. 개념 축 |
 | 601904 | `601904_Evidence_Stage2_ERD_Survey_Codex.md` | Active — 2단계 조사. 실측 축 |
 | 601905 | `601905_Diagram_Tenant_Isolation_Axis_Model.md` | Draft — 2단계 ERD. 상태 · 책임 모델 |
@@ -212,6 +247,18 @@ manage_subscription 상태 전이           Subscription Lifecycle
 | 601907 | `601907_Audit_Stage3_Adjacent_Domain_Cowork.md` | Active — 3단계 문서 축. blocking 4 |
 | 601908 | `601908_Audit_Stage3_Adjacent_Domain_Claude.md` | Active — 3단계 외부 타당성. **§47.1 지정 actor.** finding 25 |
 | 601909 | `601909_Report_Stage3_Integration.md` | Active — 3단계 통합. blocking 8 / informational 21 |
+| 601910 | `601910_Audit_Stage3_Round2_Codex.md` | Active — 3단계 Round 2 실측 축. blocking 3 |
+| 601911 | `601911_Audit_Stage3_Round2_Cowork.md` | Active — 3단계 Round 2 문서 축. blocking 1 |
+| 601912 | `601912_Audit_Stage3_Round2_Claude.md` | Active — 3단계 Round 2 외부 타당성. **§47.1 지정 actor.** blocking 4 |
+| 601913 | `601913_Report_Stage3_Round2_Integration.md` | Active — Round 2 통합. blocking 8 |
+| 601914 | `601914_Audit_Stage3_Round3_Codex.md` | Active — 3단계 Round 3 실측 축. blocking 2 |
+| 601915 | `601915_Audit_Stage3_Round3_Cowork.md` | Active — 3단계 Round 3 문서 축. blocking 1 |
+| 601916 | `601916_Audit_Stage3_Round3_Claude.md` | Active — 3단계 Round 3 외부 타당성. **§47.1 지정 actor.** blocking 7 |
+| 601917 | `601917_Evidence_Citation_Sweep.md` | Active — 인용 33건 대 채록 전수 대조. 미채록 2건 확정 |
+| 601918 | `601918_Report_Stage3_Round3_Integration.md` | Active — Round 3 통합. blocking 10 |
+| 601919 | `601919_Audit_Independent_Foundation_Audit.md` | Active — **독립 감사. CRITICAL 3 · HIGH 3 runtime 재현** |
+| 601920 | `601920_Evidence_Security_Definer_Inventory.md` | Active — 감사 부속 증거. `SECURITY DEFINER` 465개 인벤토리 |
+| 601921 | `601921_Evidence_Table_Isolation_Inventory.md` | Active — 감사 부속 증거. 테이블 192개 RLS 실측 |
 
 ## §10 Non-Implementation Boundary
 
