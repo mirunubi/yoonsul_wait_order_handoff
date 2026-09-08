@@ -1159,3 +1159,42 @@ G15 CONTRACT_NOT_FOUND       2
 ```
 
 기존 `0172` G15 1건에 `0173` G15 1건이 추가됐다. `0173`의 G15는 예상 finding이며 그 밖의 신규 finding은 없다. G11은 Markdown registry 검사이므로 SQL migration인 `0173`은 대상이 아니고, `602010`은 실행 시점에 `000005`와 `000007`에 이미 등재되어 예상 목록의 G11은 발생하지 않았다.
+
+## §11 잔존 관측 — 2026-09-08
+
+**`RG-F4`** — `is_service_role()` 을 조건으로 쓰는 RLS policy 3건
+
+```text
+catchmenu_gateway.provider_raw_events   provider_raw_events_service_only  ALL
+catchmenu_gateway.gateway_sessions      gateway_sessions_service_only     ALL
+catchmenu_integrations.toss_webhooks    toss_webhooks_service_only        ALL
+
+qual   catchmenu_common.is_service_role()
+```
+
+**`0173` 이 helper 에서 제거한 것과 같은 claim 기반 판정이다.**
+
+**도달 가능성 실측**
+
+| 대상 | schema USAGE | SELECT | INSERT |
+|---|---|---|---|
+| `catchmenu_gateway.provider_raw_events` | `f` | `f` | `f` |
+| `catchmenu_gateway.gateway_sessions` | `f` | `f` | `f` |
+| `catchmenu_integrations.toss_webhooks` | `t` | `f` | `f` |
+
+**`authenticated` 에 테이블 GRANT 가 없어 policy 에 도달하지 못한다.**
+
+> ⚠️ **즉시 위험은 아니나 조건부다.**
+> **누군가 `SELECT` · `INSERT` 를 GRANT 하면 그 순간 `RG-F3` 과 같은 우회가 열린다.**
+
+> ⚠️ **`RG-F1` 과 같은 형태다.**
+>
+> ```text
+> RG-F1   EXECUTE 있음 · schema USAGE 없음   → 도달 불가
+> RG-F4   policy 있음 · 테이블 GRANT 없음     → 도달 불가
+> ```
+>
+> **권한이 여러 층이고 각 층이 서로를 모른다.**
+> **한 층만 보면 판단이 틀린다.**
+
+**`provider_raw_events` 는 `601919` `C-02` 경로와 겹친다** — `RG-02` 가 함께 본다.

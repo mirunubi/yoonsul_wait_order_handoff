@@ -35,25 +35,34 @@ RG-N 은 602010 부터 10단위
 
 ```text
 RG-01   Caller Tenant Scope
-        migration   0172_caller_tenant_scope_gate.sql
-                    2026-09-07 23:13 적용 · success
+        migration   0172  2026-09-07 23:13 적용
+                    0173  2026-09-08 16:38 적용
         evidence    602010
-        판정        CONDITIONAL PASS (2026-09-08 재판정)
+        판정        PASS (2026-09-08 재실행)
 
-        T1 · T2 · T3   PASS
-        T4             UNVERIFIABLE — RG-F1
-        catalog delta  PASS
-        governance     G11 · G12 예상 · G15 별건 — RG-F2
+        T1 · T2 · T3 · T5 · T5b   전건 PASS
+        T5 가 primary exploit closure — claim 조작 우회 차단
+        catalog delta 6항 전건 예상 일치
+        governance   G15 만 — RG-F2
 ```
 
-> ⚠️ **`0172` 가 evidence 작성 전에 적용됐다.**
-> **`602010` §2 는 사후 재현이며 `601919` `T01` 이 1차 증거다.**
-
+> ⚠️ **`RG-01` 은 두 번 돌았다.**
+>
+> ```text
+> 1차   0172 — gate 를 만들었다
+>       그 gate 의 service_role 면제가 claim 기반이었다
+>       CONDITIONAL PASS 로 판정했다가 FAIL 로 재판정
+>
+> 2차   0173 — 면제를 제거했다
+>       T5 가 그 우회를 재현하고 차단을 증명했다
+> ```
+>
+> **재현으로 잡혔고 재현으로 닫혔다.**
 ## §4 착수 순서 — `600023` §5
 
 | # | 대상 | 근거 | 상태 |
 |---|---|---|---|
-| `RG-01` | Caller Tenant Scope | `C-01` | **CONDITIONAL PASS** |
+| `RG-01` | Caller Tenant Scope | `C-01` | **PASS** |
 | `RG-02` | Payment 승인 재호출 중복 원장 | `C-02` | 미착수 |
 | `RG-03` | 무결제 KDS `COMMITTED` | `C-03` | 미착수 |
 | `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | 미착수 |
@@ -65,7 +74,9 @@ RG-01   Caller Tenant Scope
 | # | 내용 | 출처 | 처분 |
 |---|---|---|---|
 | `RG-F1` | `service_role` 이 13 / 15 스키마에 `USAGE` 가 없다. `manage_subscription` · `onboard_tenant` 의 `service_role` EXECUTE GRANT 가 도달 불가이며 `is_service_role()` 면제 분기가 죽은 코드다 | `602010` §9 | 미정 |
-| `RG-F2` | 체커 `G15` 가 migration 마다 ChangeContract 를 요구하나 Runtime Gate 는 만들지 않는다 | `602010` §9 | `600023` §4 에 기록 · 처분 미정 |
+| `RG-F2` | 체커 `G15` 가 migration 마다 ChangeContract 를 요구하나 Runtime Gate 는 만들지 않는다 | `602010` §9 | `600023` §4 기록 · 처분 미정 |
+| `RG-F3` | `is_service_role()` 이 caller 조작 가능한 claim 만 검사해 gate 를 우회했다. `authenticated` 가 `claims.role='service_role'` 을 세팅하면 tenant 대조를 면제받았다 | `602010` §10.1 | **해소 — `0173`** |
+| `RG-F4` | 같은 claim 기반 판정을 쓰는 RLS policy 3건. 현재 테이블 GRANT 가 없어 도달 불가 | `602010` §11 | 조건부 · 감시 |
 
 > ⚠️ **`RG-F1` 은 `601919` 독립 감사가 기록하지 않았다.**
 > **함수별 EXECUTE ACL 만 보고 schema `USAGE` 를 보지 않으면
@@ -104,7 +115,8 @@ migration 이 적용됐다             — 0172
 **migration**
 
 ```text
-0172_caller_tenant_scope_gate.sql   RG-01
+0172_caller_tenant_scope_gate.sql                        RG-01 1차
+0173_caller_tenant_scope_remove_claim_exemption.sql      RG-01 2차
 ```
 
 ## §8 근거 문서 목록 (`000701` §46)
