@@ -169,6 +169,34 @@ Human 이 invariant 를 정한다  유지
 
 **`601505` §4 호출 금지 조항은 계속 유효하다.**
 
+> ⚠️ **체커 규칙과의 충돌 1건 — `602010` `RG-F2`**
+>
+> ```text
+> 체커 G15       migration 마다 ChangeContract 문서를 요구한다
+> Runtime Gate   ChangeContract 를 만들지 않는다
+>                RG 문서 1개가 그 역할을 겸한다
+> ```
+>
+> **`600023` 채택 시 이 충돌을 확인하지 않았다.**
+> **`RG-01` 이 실행되면서 드러났다.**
+>
+> **처분 — 미정**
+>
+> ```text
+> A  체커 G15 에 Runtime Gate 예외를 넣는다
+>    tools/ 수정. 별건 워크패킷
+>
+> B  RG 문서를 ChangeContract 로도 인정하게 한다
+>    DocumentType 을 ChangeContract 로 바꾸거나
+>    체커가 RG 문서를 찾도록 한다
+>
+> C  Runtime Gate 가 ChangeContract 를 함께 만든다
+>    600023 §3 형식이 바뀐다
+> ```
+>
+> **그때까지 `RG` migration 은 `G15` WARN 을 낸다.**
+> **그 WARN 은 예상 finding 이며 gate FAIL 사유가 아니다.**
+
 ## §5 착수 순서
 
 **`601919` 감사가 정한 Top 5 blocker 를 따른다.**
