@@ -751,3 +751,411 @@ authenticated USAGE 있음  11 / 15
 > ⚠️ **`TI-3` 이 발동 주체로 상정한 automated security path 와
 > `TI-14` 가 전제한 service_role 경로가 물리적으로 막혀 있다.**
 > **`0-B` · `0-C` 가 그것을 열지 여부는 미정이다.**
+
+## §10 재실행 — 2026-09-08
+
+### §10.1 FAIL 사유
+
+`RG-F3` — `catchmenu_common.is_service_role()`은 caller가 설정할 수 있는 `request.jwt.claims.role` 문자열만 검사한다. 초판 §6.4 진단 실행은 `authenticated` 역할이 `claims.role='service_role'`을 설정하면 tenant 대조가 면제되는 것을 이미 재현했으나 우회로 판정하지 않았다.
+
+`0173` 적용 전 T5 재현 스크립트와 출력:
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"service_role","app_metadata":{"tenant_id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"}}';
+SELECT catchmenu_common.is_service_role() AS is_service_role;
+SELECT catchmenu_common.get_tenant_health('eeeeeeee-0000-4000-8000-000000000001','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ is_service_role
+-----------------
+ t
+(1 row)
+
+ success
+---------
+ true
+(1 row)
+
+ROLLBACK
+```
+
+`0173` 적용 전 T5b 재현 스크립트와 출력:
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"service_role","app_metadata":{}}';
+SELECT catchmenu_common.is_service_role() AS is_service_role;
+SELECT catchmenu_common.current_tenant_id() IS NULL AS tenant_claim_absent;
+SELECT catchmenu_common.get_tenant_health('eeeeeeee-0000-4000-8000-000000000001','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ is_service_role
+-----------------
+ t
+(1 row)
+
+ tenant_claim_absent
+---------------------
+ t
+(1 row)
+
+ success
+---------
+ true
+(1 row)
+
+ROLLBACK
+```
+
+두 실행 모두 `is_service_role=true`이고 target B 조회가 `success=true`였다.
+
+`is_service_role()` 사용 객체 전수 실측:
+
+| 객체 종류 | 적용 전 | 적용 후 |
+|---|---|---|
+| 함수 | `catchmenu_common.assert_caller_tenant_scope(uuid)` 1개 | 0개 |
+| RLS policy | `catchmenu_gateway.provider_raw_events.provider_raw_events_service_only` · `catchmenu_gateway.gateway_sessions.gateway_sessions_service_only` · `catchmenu_integrations.toss_webhooks.toss_webhooks_service_only` | 동일 3개 |
+| view | 0개 | 0개 |
+| materialized view | 0개 | 0개 |
+
+`is_service_role()` 함수 자체는 삭제하지 않았다. 적용 후에도 존재하며 위 RLS policy 3개가 사용한다.
+
+### §10.2 invariant 수정
+
+아래 invariant는 Human이 확정했다.
+
+```text
+업무 RPC 는 caller 의 tenant 를 세션 claim 에서 도출한다
+파라미터 tenant 는 처리 대상이지 권한의 근거가 아니다
+둘이 다르면 거부한다
+claims 가 없거나 tenant claim 이 없으면 거부한다 — fail closed
+```
+
+> ⚠️ **caller 가 조작 가능한 claim 값만으로 이 대조를 면제받는 경로를 두지 않는다.**
+
+초판 §3의 「service_role 은 이 대조를 면제받는다」를 철회한다.
+
+### §10.3 migration
+
+파일: `sql/migrations/0173_caller_tenant_scope_remove_claim_exemption.sql`
+
+```sql
+-- Workpacket: 602010
+-- Runtime Gate RG-01 rerun; remove claim-based service_role exemption.
+-- Scope: catchmenu_common.assert_caller_tenant_scope(uuid) only.
+
+BEGIN;
+
+CREATE OR REPLACE FUNCTION catchmenu_common.assert_caller_tenant_scope(p_tenant_id uuid)
+RETURNS void
+LANGUAGE plpgsql
+SECURITY INVOKER
+SET search_path TO pg_catalog
+AS $gate$
+DECLARE
+  v_caller_tenant_id uuid;
+BEGIN
+  v_caller_tenant_id := catchmenu_common.current_tenant_id();
+  IF v_caller_tenant_id IS NULL
+     OR v_caller_tenant_id IS DISTINCT FROM p_tenant_id THEN
+    RAISE EXCEPTION USING
+      ERRCODE = '42501',
+      MESSAGE = 'caller tenant scope denied';
+  END IF;
+END;
+$gate$;
+
+REVOKE ALL ON FUNCTION catchmenu_common.assert_caller_tenant_scope(uuid) FROM PUBLIC;
+
+COMMIT;
+```
+
+```text
+applied_at  2026-09-08 07:38:05.234819+00
+             2026-09-08 16:38:05.234819+09
+checksum    47dcd5c034f191098faea178693cf94a39a5a2fa6fd23bcb9eb759a5cbec97f0
+success     true
+applied_by  postgres
+```
+
+적용 로그:
+
+```text
+APPLY 0173_caller_tenant_scope_remove_claim_exemption.sql ...
+OK    0173_caller_tenant_scope_remove_claim_exemption.sql  (applied)
+All sequence-numbered migrations applied or already up to date.
+```
+
+### §10.4 검증 T1 · T2 · T3 · T5 · T5b
+
+#### T1 — authenticated + tenant A claim → target B
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"authenticated","app_metadata":{"tenant_id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"}}';
+\set ON_ERROR_STOP off
+\set VERBOSITY verbose
+SELECT catchmenu_common.get_tenant_health('eeeeeeee-0000-4000-8000-000000000001','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ERROR:  42501: caller tenant scope denied
+CONTEXT:  PL/pgSQL function catchmenu_common.assert_caller_tenant_scope(uuid) line 8 at RAISE
+SQL statement "SELECT catchmenu_common.assert_caller_tenant_scope(p_tenant_id)"
+PL/pgSQL function get_tenant_health(uuid,text) line 11 at PERFORM
+LOCATION:  exec_stmt_raise, pl_exec.c:3911
+ROLLBACK
+```
+
+판정: DENY — SQLSTATE `42501`.
+
+#### T2 — authenticated + tenant A claim → target A
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"authenticated","app_metadata":{"tenant_id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"}}';
+\set ON_ERROR_STOP off
+\set VERBOSITY verbose
+SELECT catchmenu_common.get_tenant_health('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ success
+---------
+ true
+(1 row)
+
+ROLLBACK
+```
+
+판정: SUCCESS.
+
+#### T3 — authenticated + claims 없음 → target A
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SELECT current_setting('request.jwt.claims',true) IS NULL AS claims_absent;
+\set ON_ERROR_STOP off
+\set VERBOSITY verbose
+SELECT catchmenu_common.get_tenant_health('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+ claims_absent
+---------------
+ t
+(1 row)
+
+ERROR:  42501: caller tenant scope denied
+CONTEXT:  PL/pgSQL function catchmenu_common.assert_caller_tenant_scope(uuid) line 8 at RAISE
+SQL statement "SELECT catchmenu_common.assert_caller_tenant_scope(p_tenant_id)"
+PL/pgSQL function get_tenant_health(uuid,text) line 11 at PERFORM
+LOCATION:  exec_stmt_raise, pl_exec.c:3911
+ROLLBACK
+```
+
+판정: DENY — `claims_absent=t`, SQLSTATE `42501`.
+
+#### T5 — authenticated + claims.role='service_role' + tenant A claim → target B
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"service_role","app_metadata":{"tenant_id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"}}';
+SELECT catchmenu_common.is_service_role() AS is_service_role;
+\set ON_ERROR_STOP off
+\set VERBOSITY verbose
+SELECT catchmenu_common.get_tenant_health('eeeeeeee-0000-4000-8000-000000000001','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ is_service_role
+-----------------
+ t
+(1 row)
+
+ERROR:  42501: caller tenant scope denied
+CONTEXT:  PL/pgSQL function catchmenu_common.assert_caller_tenant_scope(uuid) line 8 at RAISE
+SQL statement "SELECT catchmenu_common.assert_caller_tenant_scope(p_tenant_id)"
+PL/pgSQL function get_tenant_health(uuid,text) line 11 at PERFORM
+LOCATION:  exec_stmt_raise, pl_exec.c:3911
+ROLLBACK
+```
+
+판정: DENY — `is_service_role=t`, SQLSTATE `42501`.
+
+#### T5b — authenticated + claims.role='service_role' + tenant claim 없음 → target B
+
+```sql
+\set ON_ERROR_STOP on
+BEGIN;
+INSERT INTO catchmenu_hq.tenants (id, tenant_code, tenant_name, tenant_type)
+VALUES
+  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', 'RG01_A', 'RG01 synthetic A', 'TEST'),
+  ('eeeeeeee-0000-4000-8000-000000000001', 'RG01_B', 'RG01 synthetic B', 'TEST');
+SET LOCAL ROLE authenticated;
+SET LOCAL request.jwt.claims = '{"role":"service_role","app_metadata":{}}';
+SELECT catchmenu_common.is_service_role() AS is_service_role;
+SELECT catchmenu_common.current_tenant_id() IS NULL AS tenant_claim_absent;
+\set ON_ERROR_STOP off
+\set VERBOSITY verbose
+SELECT catchmenu_common.get_tenant_health('eeeeeeee-0000-4000-8000-000000000001','ko')->>'success' AS success;
+ROLLBACK;
+```
+
+```text
+BEGIN
+INSERT 0 2
+SET
+SET
+ is_service_role
+-----------------
+ t
+(1 row)
+
+ tenant_claim_absent
+---------------------
+ t
+(1 row)
+
+ERROR:  42501: caller tenant scope denied
+CONTEXT:  PL/pgSQL function catchmenu_common.assert_caller_tenant_scope(uuid) line 8 at RAISE
+SQL statement "SELECT catchmenu_common.assert_caller_tenant_scope(p_tenant_id)"
+PL/pgSQL function get_tenant_health(uuid,text) line 11 at PERFORM
+LOCATION:  exec_stmt_raise, pl_exec.c:3911
+ROLLBACK
+```
+
+판정: DENY — `is_service_role=t`, `tenant_claim_absent=t`, SQLSTATE `42501`.
+
+T4는 수행하지 않았다. T5가 이번 재실행의 primary exploit closure다.
+
+### §10.5 회귀
+
+| 지표 | 예상 delta | 적용 전 | 적용 후 | 실측 delta | 일치 |
+|---|---:|---:|---:|---:|---|
+| migration_history success | +1 | 171 | 172 | +1 | 예 |
+| 총 함수 수 | 0 | 4041 | 4041 | 0 | 예 |
+| SECURITY DEFINER 총수 | 0 | 471 | 471 | 0 | 예 |
+| policy 수 | 0 | 183 | 183 | 0 | 예 |
+| RLS enabled 수 | 0 | 202 | 202 | 0 | 예 |
+| FORCE RLS 수 | 0 | 173 | 173 | 0 | 예 |
+
+helper 전후 실측:
+
+| 항목 | 적용 전 | 적용 후 | 변화 |
+|---|---|---|---|
+| owner | `postgres` | `postgres` | 0 |
+| `prosecdef` | `false` | `false` | 0 |
+| security | `SECURITY INVOKER` | `SECURITY INVOKER` | 0 |
+| `search_path` | `pg_catalog` | `pg_catalog` | 0 |
+| `proacl` | `{postgres=X/postgres}` | `{postgres=X/postgres}` | 0 |
+| PUBLIC EXECUTE | `false` | `false` | 0 |
+| authenticated EXECUTE | `false` | `false` | 0 |
+| `is_service_role()` 호출 | 있음 | 없음 | 면제 분기 제거 |
+
+`get_tenant_health(uuid,text)`의 OID와 `pg_get_functiondef`은 적용 전후 exact match다. 기존 helper 호출 1행을 포함한 본문을 다시 바꾸지 않았다. 합성 tenant 잔여 행은 0건이다.
+
+### §10.6 판정
+
+```text
+T1    DENY      PASS
+T2    SUCCESS   PASS
+T3    DENY      PASS
+T5    DENY      PASS
+T5b   DENY      PASS
+
+primary exploit closure   PASS
+catalog delta             PASS
+helper contract           PASS
+get_tenant_health         0 change
+
+governance                PASS — 예상 G15 1건만 신규 발생
+
+FINAL                     PASS
+```
+
+`0173`은 claim 기반 service-role 면제 분기를 제거했다. T5와 T5b가 모두 거부되고 T2가 성공하므로 Runtime Gate의 실행 조건은 통과했다.
+
+`tools/Check-Governance.ps1 -Top 0` 실행 결과:
+
+```text
+ERROR 322 · WARN 28 · REVIEW 153 · TOTAL 503
+
+[WARN] G15
+sql/migrations/0173_caller_tenant_scope_remove_claim_exemption.sql
+workpacket 602010 -> no ChangeContract document found
+CONTRACT_NOT_FOUND
+
+G15 migrations checked       6
+G15 CONTRACT_NOT_FOUND       2
+```
+
+기존 `0172` G15 1건에 `0173` G15 1건이 추가됐다. `0173`의 G15는 예상 finding이며 그 밖의 신규 finding은 없다. G11은 Markdown registry 검사이므로 SQL migration인 `0173`은 대상이 아니고, `602010`은 실행 시점에 `000005`와 `000007`에 이미 등재되어 예상 목록의 G11은 발생하지 않았다.
