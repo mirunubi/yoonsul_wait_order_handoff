@@ -543,6 +543,22 @@ ROLLBACK
 
 Primary exploit closure: T1에서 §2와 동일한 공격이 실패했다. T4가 실패했으므로 §6 전건 PASS 조건은 충족되지 않았다.
 
+> ⚠️ **재판정 (2026-09-08) — `UNVERIFIABLE`**
+>
+> **`service_role` 이 `catchmenu_common` 을 포함한 13개 스키마에 `USAGE` 가 없다.**
+>
+> ```text
+> service_role USAGE 있음   catchmenu_ai · catchmenu_dev   2 / 15
+> authenticated USAGE 있음  11 / 15
+> ```
+>
+> **`T4` 는 gate 가 만든 실패가 아니다.**
+> **`0172` 이전부터 `service_role` 은 어떤 catchmenu 함수도 호출할 수 없었다.**
+>
+> **helper 의 면제 분기 자체는 작동한다** — §6.4 진단 실행이 그것을 증명했다.
+>
+> **`T4` 를 `UNVERIFIABLE` 로 판정하고 도달 불가는 `RG-F1` 로 분리한다.**
+
 ## §7 회귀 — 예상 delta 대조
 
 ### §7.1 catalog delta
@@ -647,6 +663,50 @@ FINAL                 FAIL
 
 요구된 §6 T4 성공 조건과 `600023` §3.1의 §7 PASS 조건이 모두 충족되지 않았다. 진행 중 Git HEAD 외부 변경도 실측됐다. 추가 migration 생성, 범위 확대, 다른 함수 수정, ad-hoc DB patch는 수행하지 않았다.
 
+> ⚠️ **재판정 (2026-09-08) — `CONDITIONAL PASS`**
+>
+> ```text
+> §6 T1   PASS   타 tenant 접근이 42501 로 거부됐다
+> §6 T2   PASS   동일 tenant 는 성공한다
+> §6 T3   PASS   claims 없으면 42501 — fail closed
+> §6 T4   UNVERIFIABLE   service_role 도달 불가 — RG-F1
+>
+> §7 catalog delta   PASS   예상과 실측이 전부 일치
+> §7 governance      G11 · G12 예상 · G15 별건 — RG-F2
+> ```
+>
+> **`600023` §3.1 의 두 PASS 조건**
+>
+> ```text
+> 1  §2 의 공격이 §6 에서 실패한다        충족 — T1
+> 2  §7 회귀 검증이 통과한다              catalog delta 충족
+>                                        governance 는 별건 분리 후 충족
+> ```
+>
+> **Primary exploit closure 가 성립한다.**
+>
+> ⚠️ **초판 `FAIL` 판정은 지시서 문면대로 정확했다.**
+> **지시서가 예상 목록을 좁게 잡았고 `T4` 의 전제를 확인하지 않았다.**
+> **판정을 뒤집는 것이 아니라 지시서 오류를 정정한 뒤 다시 판정한 것이다.**
+
+### §7.7 governance finding 재판정 — 2026-09-08
+
+| # | 초판 | 재판정 | 사유 |
+|---|---|---|---|
+| G11 | 예상 | 예상 | `602010` 미색인 |
+| G12 | **예상 밖 → FAIL** | **예상** | `G11` 의 폴더판이며 지시서 예상 목록이 누락했다 |
+| G15 | **예상 밖 → FAIL** | **별건** | 체커가 migration 마다 ChangeContract 를 요구한다. Runtime Gate 는 ChangeContract 를 만들지 않는다 |
+
+> ⚠️ **`G15` 는 `600023` 이 만든 규칙 충돌이다.**
+>
+> ```text
+> 600023 §3 이 정한 산출물   RG 문서 1 + migration
+> 체커 G15 가 요구하는 것    migration 마다 ChangeContract
+> ```
+>
+> **`600023` 채택 시 그 충돌을 확인하지 않았다.**
+> **별건으로 처분한다** — `RG-F2`.
+
 ## §8 근거 문서 목록 (000701 §46)
 
 | 문서 | 인용 |
@@ -660,3 +720,34 @@ FINAL                 FAIL
 | `0090_create_multitenant_isolation_rpc.sql` | 기존 `get_tenant_health` |
 | `0143_add_no_payment_kds_release_policy.sql` | implementation precedent only |
 | `0172_caller_tenant_scope_gate.sql` | 적용 migration |
+
+## §9 이 gate 가 발견한 것
+
+| # | 내용 | 상태 |
+|---|---|---|
+| **RG-F1** | **`service_role` 이 13 / 15 스키마에 `USAGE` 가 없다.** `manage_subscription` · `onboard_tenant` 의 `service_role` EXECUTE GRANT 가 도달 불가다. `is_service_role()` 면제 분기가 죽은 코드다. `0143` 의 3단계 패턴에도 `service_role` 경로가 없다 | 신규 |
+| **RG-F2** | 체커 `G15` 가 migration 마다 ChangeContract 를 요구한다. `600023` Runtime Gate 는 ChangeContract 를 만들지 않는다 | 신규 |
+
+> ⚠️ **`RG-F1` 은 `601919` · `601920` 이 기록하지 않았다.**
+>
+> ```text
+> 601920   함수별 EXECUTE ACL 만 인벤토리했다
+> 601919   service_role 언급 0건
+> ```
+>
+> **「EXECUTE 를 줬다」와 「호출 가능하다」가 다르다.**
+> **schema `USAGE` 를 보지 않으면 GRANT 가 도달 불가인 것이 안 보인다.**
+
+**실측**
+
+```text
+service_role USAGE 있음   catchmenu_ai · catchmenu_dev
+service_role USAGE 없음   agent · audit · common · gateway · hq ·
+                          integrations · kds · knowledge · ledger ·
+                          meta · payment · pos · store
+authenticated USAGE 있음  11 / 15
+```
+
+> ⚠️ **`TI-3` 이 발동 주체로 상정한 automated security path 와
+> `TI-14` 가 전제한 service_role 경로가 물리적으로 막혀 있다.**
+> **`0-B` · `0-C` 가 그것을 열지 여부는 미정이다.**
