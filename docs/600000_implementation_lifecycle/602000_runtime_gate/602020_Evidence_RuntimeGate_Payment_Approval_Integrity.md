@@ -832,3 +832,287 @@ true
 함수 주석이 말하는 app-layer 실제 HMAC 검증 계층은 이 저장소에서 확인되지 않았다. raw-event 테이블 직접 권한은 `postgres`에만 있으나, authenticated가 `SECURITY DEFINER` writer와 verifier를 실행할 수 있다. 따라서 `signature_verified` 플래그 자체가 신뢰 가능한 provider-origin 증거가 아니다.
 
 `RG-02`가 강제한 구조적 binding은 이 경로를 막지 않는다. `601919` C-02의 가짜 provider key와 같은 외부 승인 신뢰 경계 문제이며 **후속 Runtime Gate 대상**이다.
+
+## §12 재개방 — 2026-09-08
+
+### §12.1 실측 — 6항
+
+#### §12.1.0 PRE-FLIGHT
+
+```text
+측정일       2026-09-08
+Git HEAD     2e7bb3c65207da3415508a687b28a1eb888a29f2
+working tree clean
+
+DB           postgres
+PostgreSQL   17.6
+container    supabase_db_yoonsul_wait_order_handoff
+container ID b67400e8c73e4ec7b9a25b172d71af347dd22d5e269d49859629fc3d8bd935ec
+image        public.ecr.aws/supabase/postgres:17.6.1.156
+Compose      yoonsul_wait_order_handoff
+Supabase CLI yoonsul_wait_order_handoff
+environment  local/dev
+
+latest successful migration
+0175_kds_payment_precondition.sql
+f1fbae219d4b35ba7b058636802cf9643b8e3177f873ff6caba0c8746f4af974
+2026-09-08 10:15:14.656249+00
+
+0176 history rows 0
+0176 file         없음
+```
+
+실행 명령:
+
+```powershell
+git rev-parse HEAD
+git status --short --untracked-files=all
+docker inspect supabase_db_yoonsul_wait_order_handoff
+docker exec -e PGOPTIONS="-c default_transaction_read_only=on" -i supabase_db_yoonsul_wait_order_handoff psql -X -v ON_ERROR_STOP=1 -U postgres -d postgres
+docker exec -i supabase_db_yoonsul_wait_order_handoff psql -X -v ON_ERROR_STOP=1 -U postgres -d postgres
+```
+
+#### §12.1.1 여섯 함수 전수
+
+라이브 `pg_proc.prosrc`에서 실제 `payment_ledger` INSERT와 삽입되는 `ledger_entry_type`을 대조했다. 현재 APPROVAL INSERT를 가진 함수는 지시서의 6개가 아니라 4개다.
+
+```text
+catchmenu_common.flush_offline_queue
+catchmenu_payment.confirm_payment
+catchmenu_payment.confirm_payment_from_provider
+catchmenu_payment.record_van_transaction
+```
+
+`accept_delivery_order`는 0175 적용으로 APPROVAL producer가 아니며 기존 승인 원장을 소비한다. `request_refund`의 INSERT는 APPROVAL이 아니라 refund 원장용 구식 문장이다.
+
+| 함수 | 현재 APPROVAL INSERT | 경로 도달 | provider key 출처 | raw event binding | tenant helper |
+|---|---:|---|---|---|---:|
+| `flush_offline_queue` | 예 | authenticated 실호출 성공 | `'MANUAL-' || queue_item.id` | 큐 payload로 raw event를 같은 함수가 생성, 검증 없음 | 없음 |
+| `accept_delivery_order` | 아니오 | 승인 원장 소비 경로 | 해당 없음 | raw event를 읽지 않음 | 있음, 첫 tenant read 전 |
+| `confirm_payment` | 예, 2개 분기 | authenticated 실호출 성공 | caller의 `p_provider_tx_id` | caller payload로 raw event를 같은 함수가 생성, 검증 없음 | 없음 |
+| `confirm_payment_from_provider` | 예 | §6 정상 승인 성공·가짜 event 거부 | caller의 `p_provider_payment_key`, raw event와 대조 | §4.2 공통 조건과 TOSS 조건 전건 | 있음, 첫 tenant read 전 |
+| `record_van_transaction` | 예 | **미검증 — 호출 금지(`601505` §4)** | `coalesce(p_approval_number, v_tx_id::text)` | caller VAN payload로 raw event를 같은 함수가 생성, 검증 없음 | 없음 |
+| `request_refund` | 아니오 | authenticated 호출은 42703 | 해당 없음 | raw event를 읽지 않음 | 없음 |
+
+여섯 함수는 모두 `SECURITY DEFINER`다. authenticated는 여섯 schema에 USAGE가 있고 여섯 함수 모두에 EXECUTE가 있다. `record_van_transaction`의 raw ACL에는 PUBLIC EXECUTE도 있으나 anon과 service_role은 `catchmenu_payment` schema USAGE가 없어 현재 직접 도달하지 못한다.
+
+```text
+function                         authenticated schema/EXECUTE
+flush_offline_queue              true / true
+accept_delivery_order            true / true
+confirm_payment                  true / true
+confirm_payment_from_provider    true / true
+record_van_transaction           true / true
+request_refund                   true / true
+```
+
+APPROVAL writer 추출 쿼리:
+
+```sql
+select n.nspname, p.proname, p.oid::regprocedure
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+where p.prosrc ~* 'insert[[:space:]]+into[[:space:]]+(catchmenu_payment[.])?payment_ledger[[:space:]]*\('
+  and p.prosrc ~ '''APPROVAL'''
+order by 1, 2;
+```
+
+#### §12.1.2 `flush_offline_queue`
+
+`RECORD_MANUAL_PAYMENT` 분기는 queue payload에서 `order_id`, `amount`, `payment_method`, `paid_at`, `business_day`, `note`를 읽는다. provider key는 caller 문자열이 아니라 `MANUAL-<queue_item.id>`로 만든다. 이어서 다음 순서로 기록한다.
+
+```text
+provider_raw_events
+  provider_type       OTHER
+  provider_code       MANUAL
+  provider_event_id   MANUAL-<queue_item.id>
+  raw_payload         offline/manual/queue_item_id/note
+  signature_verified  NULL
+  processing_status   RECEIVED
+
+payment_intents
+  intent_origin       MANUAL_ENTRY
+  provider_type       resolve 함수에서 INTERNAL로 정규화
+
+payment_ledger
+  ledger_entry_type   APPROVAL
+  ledger_status       APPROVED
+  provider_type       MANUAL
+  provider_payment_key MANUAL-<queue_item.id>
+  provider_response_id 방금 만든 raw event
+```
+
+큐 삽입 함수 `enqueue_offline_action`도 authenticated EXECUTE가 있고 tenant helper가 없다. `p_action_type`과 `p_action_payload`를 그대로 INSERT한다. DB CHECK는 `RECORD_MANUAL_PAYMENT`라는 action type을 허용하며 payload 내용·provider 증거를 검증하지 않는다.
+
+authenticated 실호출 출력:
+
+```text
+=== flush_offline_queue fake manual approval reachability ===
+{"data": {"total": 1, "failed": 0, "results": [{"result": {"success": true, "ledger_id": "1c0e2e9e-9480-40ca-9f70-aa8b6956a273"}, "status": "COMPLETED", "queue_id": "eeeeeeee-3800-4000-8000-000000000018", "action_type": "RECORD_MANUAL_PAYMENT"}], "skipped": 0, "processed": 1}, "message": "오프라인 중 1건이 동기화되었습니다", "success": true, "message_key": "offline_queue_flushed"}
+
+ledger_entry_type     APPROVAL
+ledger_status         APPROVED
+provider_type         MANUAL
+provider_payment_key  MANUAL-eeeeeeee-3800-4000-8000-000000000018
+signature_verified    NULL
+signature_verified_at NULL
+processing_status     RECEIVED
+raw_payload           {"note":"caller supplied","manual":true,"offline":true,"queue_item_id":"eeeeeeee-3800-4000-8000-000000000018"}
+```
+
+fixture는 rollback했고 tenant·ledger·raw event·queue 잔존 행은 모두 0이다.
+
+#### §12.1.3 `accept_delivery_order`
+
+0175 이후 함수에는 `payment_ledger` INSERT가 없다. 다음 조건으로 이미 존재하는 승인 원장을 조회하고 KDS ticket의 `payment_ledger_id`에 기록한다.
+
+```sql
+where pl.tenant_id = p_tenant_id
+  and pl.store_id = p_store_id
+  and pl.order_id = v_intake.order_id
+  and pl.ledger_entry_type = 'APPROVAL'
+  and pl.ledger_status = 'APPROVED'
+```
+
+`assert_caller_tenant_scope`는 store·intake·ledger read 전에 실행된다. 이 함수 자체는 raw event를 읽거나 승인 원장을 생성하지 않는다.
+
+#### §12.1.4 `confirm_payment`
+
+caller가 `p_provider_type`, `p_provider_approval_number`, `p_provider_tx_id`, `p_approved_amount`, `p_provider_response`를 준다. 함수는 `p_provider_tx_id`를 provider key로 사용한다. CANCELLED/REFUNDED/PARTIAL_REFUNDED 분기와 일반 분기 모두 APPROVAL·APPROVED 원장을 INSERT한다.
+
+그 직전에 `provider_raw_events`를 다음 caller 값으로 직접 생성한다.
+
+```text
+provider_event_id   p_provider_tx_id
+raw_payload         p_provider_response 또는 caller 인자로 조립한 JSON
+processing_status   RECEIVED
+signature_verified  NULL
+schema_validated    NULL
+```
+
+기존 raw event를 받거나 signature·schema·payload binding을 확인하지 않는다. tenant helper도 없다.
+
+authenticated 실호출 출력:
+
+```text
+=== confirm_payment fake-key reachability ===
+success             true
+ledger_id           c9629ac0-eb77-460d-9f7e-4b26e408e9c5
+provider_tx_id      RG02-FAKE-KEY
+approval_number     RG02-FAKE-APPROVAL
+
+ledger_entry_type     APPROVAL
+ledger_status         APPROVED
+provider_payment_key  RG02-FAKE-KEY
+provider_response_id  d8f20984-d1a9-4951-971a-8d84029d6729
+signature_verified    NULL
+signature_verified_at NULL
+processing_status     RECEIVED
+raw_payload           {"caller":"fabricated"}
+```
+
+fixture는 rollback했고 잔존 행은 0이다.
+
+#### §12.1.5 `confirm_payment_from_provider`
+
+0174가 수정한 경로다. tenant helper가 첫 intent read보다 먼저 실행된다. APPROVAL INSERT 전에 다음을 확인한다.
+
+```text
+p_provider_raw_event_id                  non-NULL
+raw event tenant/store/provider          처리 intent와 일치
+provider_event_id                        provider payment key와 일치
+signature_verified                       true
+signature_verified_at                    non-NULL
+schema_validated                         true
+schema_validation_errors                 NULL
+provider_code                            TOSS
+processing_status                        VALIDATING 또는 ACCEPTED
+raw payload paymentKey/orderId/status    intent·key·DONE와 일치
+raw payload totalAmount/approveNo         승인 인자와 일치
+payload_hash                             raw_payload 재계산값과 일치
+provider                                 TOSS_PAYMENTS만 허용
+```
+
+§6의 T1은 가짜 key·NULL raw event를 거부했고 T4는 정상 raw event 승인에 성공했으며 T6은 타 tenant claim을 42501로 거부했다.
+
+#### §12.1.6 `record_van_transaction` — 본문 열람만
+
+**미검증 — 호출 금지(`601505` §4).** 함수는 호출하지 않았다.
+
+catalog 본문은 `p_transaction_type='APPROVAL'`, `p_transaction_status='APPROVED'`, `p_order_id IS NOT NULL`이면 다음 순서로 실행한다고 적는다.
+
+```text
+van_transactions INSERT
+provider key = coalesce(p_approval_number, v_tx_id::text)
+provider_raw_events INSERT
+resolve_or_create_payment_intent
+payment_ledger APPROVAL/APPROVED INSERT
+van_transactions.payment_ledger_id UPDATE
+```
+
+raw event의 `raw_payload`는 caller의 `p_van_response_raw` 또는 caller 인자에서 조립한다. signature·schema·processing status를 검증하지 않는다. tenant helper도 없다. `provider_response_id`는 같은 함수가 방금 만든 raw event를 가리킨다.
+
+provider 이름도 동일하게 유지되지 않는다. raw event는 `NICE`·`NICE_VAN`을 `VAN_NICE`로 정규화하지만 ledger는 `p_van_provider || '_VAN'`을 기록한다. 예를 들어 caller가 `NICE`를 주면 raw event provider는 `VAN_NICE`, ledger provider는 `NICE_VAN`이다.
+
+함수 속성:
+
+```text
+SECURITY DEFINER true
+authenticated schema USAGE true
+authenticated EXECUTE true
+raw ACL {=X/postgres,postgres=X/postgres,authenticated=X/postgres}
+assert_caller_tenant_scope 없음
+```
+
+#### §12.1.7 `request_refund`
+
+이 함수는 APPROVAL을 INSERT하지 않는다. 원결제 조회에서 `ledger_status='APPROVED'`를 사용하고, 이어지는 INSERT는 주석과 반환값상 `REFUND_PENDING` 원장을 만들려는 경로다.
+
+현재 본문은 `ledger_entry_type`을 넣지 않고 현행 `payment_ledger`에 없는 `provider_tx_id`, `payment_method`, `fee_amount`, `refund_reason`, `is_partial_refund`, `original_ledger_id` 컬럼을 사용한다. 원결제 fixture를 둔 authenticated 실호출은 INSERT 전 원결제 SELECT에서 멈췄다.
+
+```text
+request_refund sqlstate=42703
+message=column "provider_tx_id" does not exist
+ROLLBACK
+residual 0
+```
+
+따라서 현재 스키마에서 refund INSERT는 도달하지 못하며 APPROVAL 생성 경로도 아니다. tenant helper는 없다.
+
+#### §12.1.8 0174 UNIQUE·CHECK의 적용 범위
+
+두 객체는 함수가 아니라 `catchmenu_payment.payment_ledger` 테이블에 직접 걸려 있다.
+
+```text
+chk_payment_ledger_approval_provider_key_not_null
+  convalidated true
+  CHECK (ledger_entry_type <> 'APPROVAL' OR provider_payment_key IS NOT NULL)
+
+uq_payment_ledger_provider_approval_identity
+  indisvalid true
+  indisready true
+  UNIQUE (tenant_id, provider_type, provider_payment_key)
+  WHERE ledger_entry_type='APPROVAL'
+```
+
+따라서 현재 네 APPROVAL writer의 INSERT는 모두 같은 CHECK와 partial UNIQUE를 통과해야 한다. live approval 행은 0건이고 NULL-key 위반도 0건이다. 두 제약은 NULL key와 동일 identity 재삽입을 막지만 서로 다른 단일 key의 raw-event binding 여부는 검사하지 않는다.
+
+실측 기준 현재 상태:
+
+```text
+APPROVAL writer                  4
+0174 binding 적용 writer         1  confirm_payment_from_provider
+binding 없는 실호출 성공 writer  2  flush_offline_queue, confirm_payment
+호출 금지로 미검증 writer         1  record_van_transaction
+지시 목록 중 비-writer            2  accept_delivery_order, request_refund
+```
+
+⚠️ §12.3 migration은 착수하지 않았다. Human 확인을 기다린다.
+
+### §12.2 재개방 사유
+
+`600023` §3.5는 “X는 Y 없이 도달하지 않는다”와 같은 결과 invariant가 경로 무관 진술이므로 그 결과를 기록·변경하는 객체를 catalog에서 전수 대조하도록 규정한다.
+
+`602020` §3 ①은 승인 원장이 검증된 provider 승인 이벤트 없이 생성되지 않는다고 선언한다. 0174는 `confirm_payment_from_provider` 한 경로에 구조적 binding을 넣었다. 현재 catalog에는 APPROVAL writer가 네 개 있고, 나머지 세 writer에는 같은 binding이 없다. 그중 두 경로는 검증되지 않은 raw event와 단일 가짜 key로 APPROVAL을 실제 생성했으며 한 경로는 호출 금지 때문에 본문만 측정했다.
+
+`accept_delivery_order`와 `request_refund`는 현재 APPROVAL writer가 아니라는 사실도 함께 기록한다.
