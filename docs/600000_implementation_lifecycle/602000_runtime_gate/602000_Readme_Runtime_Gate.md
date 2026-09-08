@@ -46,6 +46,19 @@ RG-01   Caller Tenant Scope
         governance   G15 만 — RG-F2
 ```
 
+```text
+RG-02   Payment Approval Integrity
+        migration   0174  2026-09-08 적용
+        evidence    602020
+        판정        PASS
+
+        T1 ~ T8   전건 PASS
+        T1 · T5 가 primary exploit closure
+        동시 호출에서도 ledger 1건 · 양쪽이 같은 결과를 받는다
+        catalog delta   unique index +1 · CHECK +1 · 나머지 0
+        governance      G11 · G15 만
+```
+
 > ⚠️ **`RG-01` 은 두 번 돌았다.**
 >
 > ```text
@@ -63,7 +76,7 @@ RG-01   Caller Tenant Scope
 | # | 대상 | 근거 | 상태 |
 |---|---|---|---|
 | `RG-01` | Caller Tenant Scope | `C-01` | **PASS** |
-| `RG-02` | Payment 승인 재호출 중복 원장 | `C-02` | 미착수 |
+| `RG-02` | Payment 승인 재호출 중복 원장 | `C-02` | **PASS** |
 | `RG-03` | 무결제 KDS `COMMITTED` | `C-03` | 미착수 |
 | `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | 미착수 |
 | `RG-05` | Order retry 중복 · 번호 범위 | `H-02` | 미착수 |
@@ -77,6 +90,7 @@ RG-01   Caller Tenant Scope
 | `RG-F2` | 체커 `G15` 가 migration 마다 ChangeContract 를 요구하나 Runtime Gate 는 만들지 않는다 | `602010` §9 | `600023` §4 기록 · 처분 미정 |
 | `RG-F3` | `is_service_role()` 이 caller 조작 가능한 claim 만 검사해 gate 를 우회했다. `authenticated` 가 `claims.role='service_role'` 을 세팅하면 tenant 대조를 면제받았다 | `602010` §10.1 | **해소 — `0173`** |
 | `RG-F4` | 같은 claim 기반 판정을 쓰는 RLS policy 3건. 현재 테이블 GRANT 가 없어 도달 불가 | `602010` §11 | 조건부 · 감시 |
+| `RG-F5` | `verify_toss_signature` 가 HMAC 을 계산하지 않고 header 형식만 검사한다. `t=1,v1=` + 임의 32자로 통과한다. 함수 주석이 스스로 「actual HMAC in app layer」라 적으나 그 계층의 존재가 확인되지 않았다. `RG-02` 의 구조적 binding 이 이것을 막지 못한다 | `602020` §11 | 후속 `RG` |
 
 > ⚠️ **`RG-F1` 은 `601919` 독립 감사가 기록하지 않았다.**
 > **함수별 EXECUTE ACL 만 보고 schema `USAGE` 를 보지 않으면
@@ -110,13 +124,15 @@ migration 이 적용됐다             — 0172
 | 번호 | 파일 | 상태 |
 |---|---|---|
 | 602000 | `602000_Readme_Runtime_Gate.md` | Active — 이 문서 |
-| 602010 | `602010_Evidence_RuntimeGate_Caller_Tenant_Scope.md` | Active — `RG-01`. CONDITIONAL PASS |
+| 602010 | `602010_Evidence_RuntimeGate_Caller_Tenant_Scope.md` | Active — `RG-01`. PASS (2026-09-08 재실행) |
+| 602020 | `602020_Evidence_RuntimeGate_Payment_Approval_Integrity.md` | Active — `RG-02`. PASS |
 
 **migration**
 
 ```text
 0172_caller_tenant_scope_gate.sql                        RG-01 1차
 0173_caller_tenant_scope_remove_claim_exemption.sql      RG-01 2차
+0174_payment_approval_integrity.sql                      RG-02
 ```
 
 ## §8 근거 문서 목록 (`000701` §46)
