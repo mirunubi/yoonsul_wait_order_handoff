@@ -1783,6 +1783,15 @@ docs/
   |   |   +--- 601907_Audit_Stage3_Adjacent_Domain_Cowork.md
   |   |   +--- 601908_Audit_Stage3_Adjacent_Domain_Claude.md
   |   |   +--- 601909_Report_Stage3_Integration.md
+  |   |   +--- 601916_Audit_Stage3_Round3_Claude.md
+  |   |   +--- 601917_Evidence_Citation_Sweep.md
+  |   |   +--- 601918_Report_Stage3_Round3_Integration.md
+  |   |   +--- 601919_Audit_Independent_Foundation_Audit.md
+  |   |   +--- 601920_Evidence_Security_Definer_Inventory.md
+  |   |   \--- 601921_Evidence_Table_Isolation_Inventory.md
+  |   +--- 602000_runtime_gate/
+  |   |   +--- 602000_Readme_Runtime_Gate.md
+  |   |   \--- 602010_Evidence_RuntimeGate_Caller_Tenant_Scope.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
@@ -1791,6 +1800,7 @@ docs/
   |   +--- 600010_Tracker_Spiral_Workpacket_Progress.md
   |   +--- 600020_Governance_Implementation_Lifecycle_Authority_Reset.md
   |   +--- 600021_Governance_Tenant_Isolation_Axis_Authority_Reset.md
+  |   +--- 600023_Governance_Runtime_Gate_Spiral.md
   +--- 700000_runtime_flow_bundle/
   |   +--- 700000_Readme_Runtime_Flow_Bundle.md
   |   \--- 700179_Governance_Runtime_Flow_Bundle_External_Integration_Evidence_Expansion_Wave_1.md
