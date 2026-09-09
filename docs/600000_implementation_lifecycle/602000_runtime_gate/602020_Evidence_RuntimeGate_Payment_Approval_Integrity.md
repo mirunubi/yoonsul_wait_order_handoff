@@ -1116,3 +1116,271 @@ binding 없는 실호출 성공 writer  2  flush_offline_queue, confirm_payment
 `602020` §3 ①은 승인 원장이 검증된 provider 승인 이벤트 없이 생성되지 않는다고 선언한다. 0174는 `confirm_payment_from_provider` 한 경로에 구조적 binding을 넣었다. 현재 catalog에는 APPROVAL writer가 네 개 있고, 나머지 세 writer에는 같은 binding이 없다. 그중 두 경로는 검증되지 않은 raw event와 단일 가짜 key로 APPROVAL을 실제 생성했으며 한 경로는 호출 금지 때문에 본문만 측정했다.
 
 `accept_delivery_order`와 `request_refund`는 현재 APPROVAL writer가 아니라는 사실도 함께 기록한다.
+
+### §12.3 migration
+
+Human 처분:
+
+```text
+confirm_payment          0176에서 수정
+flush_offline_queue      RG-02 범위 밖 — RG-F7
+record_van_transaction   UNVERIFIABLE — RG-F8
+```
+
+대상 파일:
+
+```text
+sql/migrations/0176_payment_approval_binding_all_paths.sql
+SHA-256     fc766450f2fdb273d0df97a5e91b389236ee753f4673d644062f8208607ffd80
+applied_at  2026-09-08 11:11:58.707146+00
+applied_by  postgres
+success     true
+```
+
+대상 함수는 `catchmenu_payment.confirm_payment` 1개다. 적용 내용:
+
+1. `assert_caller_tenant_scope(p_tenant_id)`를 첫 tenant-scoped read보다 먼저 호출한다.
+2. 기존 signature 안의 `p_intent_id`로 intent의 tenant·store·order·provider·요청 금액·provider order ID를 고정한다.
+3. `p_provider_tx_id`와 같은 `provider_event_id`를 가진 raw event를 tenant·store·`TOSS_PAYMENTS` 범위에서 조회한다. 0건은 `provider_raw_event_scope_mismatch`, 복수 행은 `provider_raw_event_ambiguous`로 거부한다.
+4. 선택한 raw event를 `FOR SHARE`로 잠그고 §4.2와 동일한 signature·schema·processing status·payload·hash binding을 검사한다.
+5. caller의 `p_provider_response`로 raw event를 생성하던 INSERT를 제거한다. 검증한 기존 raw event의 ID만 `provider_response_id`에 기록한다.
+6. provider는 §3.1 Human 확정대로 `TOSS_PAYMENTS`만 허용하며 다른 provider는 `provider_binding_unsupported`로 fail closed한다.
+7. 정상 APPROVAL 분기와 CANCELLED·REFUNDED·PARTIAL_REFUNDED의 manual-review APPROVAL 분기보다 앞에서 동일 gate를 실행한다. 두 INSERT 모두 검증한 `v_provider_response_id`를 사용한다.
+8. signature·defaults·반환형·언어·volatility·SECURITY DEFINER·owner·search_path·ACL은 유지한다.
+
+적용 전 parse 검증은 다음 결과로 rollback했다.
+
+```text
+BEGIN
+CREATE FUNCTION
+ROLLBACK
+```
+
+migration과 history는 한 transaction으로 적용했다.
+
+```text
+BEGIN
+CREATE FUNCTION
+INSERT 0 1
+COMMIT
+```
+
+### §12.4 검증
+
+T1~T6은 합성 fixture를 한 transaction 안에서 만들고 마지막에 rollback했다. T7은 호출 금지를 유지했다.
+
+#### §12.4.1 T1 — 가짜 key
+
+tenant·store·intent에는 맞지만 `signature_verified=false`인 raw event를 두고 caller가 그 event key와 caller JSON을 전달했다.
+
+```text
+=== T1 fake key with unverified raw event ===
+confirm_payment
+{"success": false, "error_key": "provider_raw_event_verification_failed"}
+(1 row)
+```
+
+APPROVAL 원장 생성 0건. T1 PASS — DENY.
+
+#### §12.4.2 T2 — raw event 미실재
+
+```text
+=== T2 nonexistent raw event ===
+confirm_payment
+{"success": false, "error_key": "provider_raw_event_scope_mismatch"}
+(1 row)
+```
+
+T2 PASS — DENY.
+
+#### §12.4.3 T3 — 다른 tenant raw event
+
+같은 provider key의 검증 형식 raw event를 tenant B에 두고 tenant A의 order·intent로 호출했다.
+
+```text
+=== T3 other tenant raw event ===
+confirm_payment
+{"success": false, "error_key": "provider_raw_event_scope_mismatch"}
+(1 row)
+
+=== ledger count after T1-T3 ===
+0
+(1 row)
+```
+
+T3 PASS — DENY.
+
+#### §12.4.4 T4 — 정상 승인
+
+정상 fixture는 tenant·store·provider key·intent provider order ID·status `DONE`·amount·approval number가 일치하고 signature·schema가 true, processing status가 `VALIDATING`, payload hash가 재계산값과 일치한다.
+
+```text
+=== T4 valid approval ===
+confirm_payment
+{"data": {"kds": {"order_id": "eeeeeeee-4000-4000-8000-000000000003", "kds_status": "COMMITTED", "ticket_ids": [], "capacity_after": {"zones": [], "is_overloaded": false}, "released_count": 0, "late_binding_principle": "HOLD -> COMMITTED after payment only"}, "audit_id": "53fe1984-44bf-43bc-ad9b-b0a3b3357dda", "order_id": "eeeeeeee-4000-4000-8000-000000000003", "ledger_id": "0b0cc9e6-8159-479a-b276-0e8e0ff7f7df", "fee_amount": 15, "net_amount": 1000, "order_number": "RG02-0176-1", "provider_type": "TOSS_PAYMENTS", "provider_tx_id": "RG02-T4-VALID", "approval_number": "RG02-A4", "approved_amount": 1000, "late_binding_note": "결제 확인 후 주방 조리가 시작됩니다"}, "meta": {"locale": "ko", "occurred_at": "2026-09-08T11:16:54.808471+00:00", "correlation_id": "RG02-T4"}, "message": "결제가 완료되었습니다", "success": true, "message_key": "payment_confirmed"}
+(1 row)
+
+ledger_entry_type     APPROVAL
+ledger_status         APPROVED
+provider_payment_key  RG02-T4-VALID
+provider_response_id  eeeeeeee-4000-4000-8000-000000000104
+provider_event_id     RG02-T4-VALID
+signature_verified    true
+schema_validated      true
+processing_status     VALIDATING
+```
+
+T4 PASS — SUCCESS. 원장의 `provider_response_id`는 caller가 만든 새 행이 아니라 검증 fixture의 기존 raw event ID다.
+
+#### §12.4.5 T5 — 타 tenant claim
+
+```text
+=== T5 cross tenant claim ===
+NOTICE: T5 sqlstate=42501 message=caller tenant scope denied
+```
+
+T5 PASS — 42501.
+
+#### §12.4.6 T6 — `flush_offline_queue` 회귀
+
+Human이 RG-02 범위 밖으로 확정한 `RECORD_MANUAL_PAYMENT`를 같은 방식으로 실행했다.
+
+```text
+=== T6 flush offline manual payment regression ===
+flush_offline_queue
+{"data": {"total": 1, "failed": 0, "results": [{"result": {"success": true, "ledger_id": "34b7a293-ba25-4c2a-9aa6-be288cdab2cf"}, "status": "COMPLETED", "queue_id": "eeeeeeee-4000-4000-8000-000000000018", "action_type": "RECORD_MANUAL_PAYMENT"}], "skipped": 0, "processed": 1}, "meta": {"locale": "ko", "occurred_at": "2026-09-08T11:16:54.808471+00:00", "correlation_id": null}, "message": "오프라인 중 1건이 동기화되었습니다", "success": true, "message_key": "offline_queue_flushed"}
+(1 row)
+
+ledger_entry_type     APPROVAL
+ledger_status         APPROVED
+provider_type         MANUAL
+provider_payment_key  MANUAL-eeeeeeee-4000-4000-8000-000000000018
+```
+
+T6 PASS — SUCCESS.
+
+#### §12.4.7 T7 — `record_van_transaction`
+
+```text
+미검증 — 호출 금지 (`601505` §4)
+```
+
+함수는 호출하지 않았다. T7 UNVERIFIABLE.
+
+#### §12.4.8 rollback
+
+```text
+ROLLBACK
+tenant residual     0
+payment ledger      0
+provider raw event  0
+offline queue       0
+```
+
+Primary exploit closure T1은 DENY이고 정상 provider 승인 T4와 범위 밖 수기 결제 T6은 SUCCESS다.
+
+### §12.5 회귀
+
+#### §12.5.1 예상 delta
+
+| 항목 | before | after | delta | 예상 | 판정 |
+|---|---:|---:|---:|---:|---|
+| migration success | latest `0175` | latest `0176` | +1 | +1 | 일치 |
+| 함수 수 | 475 | 475 | 0 | 0 | 일치 |
+| SECURITY DEFINER | 465 | 465 | 0 | 0 | 일치 |
+| policy | 183 | 183 | 0 | 0 | 일치 |
+| RLS table | 173 | 173 | 0 | 0 | 일치 |
+| unique index | 319 | 319 | 0 | 0 | 일치 |
+| CHECK 제약 | 453 | 453 | 0 | 0 | 일치 |
+
+#### §12.5.2 함수 전후 속성
+
+| 속성 | before | after | 변화 |
+|---|---|---|---|
+| signature | 14인자 기존 identity | 동일 | 0 |
+| defaults | 마지막 6인자 기존 default | 동일 | 0 |
+| return type | `jsonb` | `jsonb` | 0 |
+| language | `plpgsql` | `plpgsql` | 0 |
+| volatility | `VOLATILE` | `VOLATILE` | 0 |
+| SECURITY DEFINER | true | true | 0 |
+| owner | `postgres` | `postgres` | 0 |
+| search_path | `catchmenu_payment, catchmenu_pos, catchmenu_kds, catchmenu_ledger, catchmenu_audit, catchmenu_common, catchmenu_hq` | 동일 | 0 |
+| ACL | `postgres=X/postgres, authenticated=X/postgres` | 동일 | 0 |
+| body MD5 | `b86b5ae0890a9ca43119a6a8fbe5a61c` | `ac868cc99180a82510924a7c2491e35f` | 본문만 변경 |
+
+helper의 본문 문자 위치는 471, 첫 `payment_intents` tenant read는 1302다. `confirm_payment`의 `provider_raw_events` INSERT는 0건이다. 두 APPROVAL INSERT는 공통 binding gate보다 뒤에 있고 모두 검증된 `v_provider_response_id`를 기록한다.
+
+#### §12.5.3 APPROVAL writer 전수 재확인
+
+```text
+APPROVAL writer 4
+  binding 적용 2
+    confirm_payment
+    confirm_payment_from_provider
+
+  범위 밖 1
+    flush_offline_queue
+
+  미검증 1
+    record_van_transaction
+```
+
+`accept_delivery_order`와 `request_refund`는 §12.1에서 확인한 대로 APPROVAL writer가 아니다. 이 분류 외 미확인 APPROVAL writer는 0건이다.
+
+#### §12.5.4 Governance
+
+```text
+> tools/Check-Governance.ps1 -Top 0
+PS_EXIT=0
+전체 finding 507
+```
+
+이번 migration에 새로 연결된 finding은 예상한 G15 한 건이다.
+
+```text
+G15  0176 CONTRACT_NOT_FOUND
+```
+
+`602020`의 DocumentType·H1·UTF-8/BOM/LF 관련 신규 finding은 없다. 그 밖의 신규 finding은 관측되지 않았다.
+
+#### §12.5.5 RG-F7 — 수기 결제 승인의 근거가 정의되지 않았다
+
+`flush_offline_queue`가 `RECORD_MANUAL_PAYMENT` action으로 APPROVAL 원장을 만든다. 이 경로는 provider 승인이 아니라 수기 결제이며 provider key도 `MANUAL-<queue item id>`다. 현금 결제에는 provider event가 없으므로 0174의 TOSS binding을 그대로 적용하면 정상 경로가 막힌다.
+
+현재 함수와 queue writer는 staff 신원, store의 수기 결제 허용 정책, 금액 한도를 승인 근거로 검사하지 않는다. `0143`의 staff·claim·store 정책 3단계 패턴이 참고 대상이다. **별도 Runtime Gate 대상**으로 분리한다.
+
+#### §12.5.6 RG-F8 — `record_van_transaction` APPROVAL writer를 검증할 수 없다
+
+`record_van_transaction`은 APPROVAL writer이며 raw ACL에 PUBLIC EXECUTE가 있다. authenticated는 schema USAGE와 EXECUTE를 모두 가진다. 함수는 caller VAN payload로 raw event를 직접 생성하며 signature·schema·processing status를 검증하지 않는다.
+
+그러나 `601505` §4 호출 금지 때문에 공격 재현과 수정 후 차단을 실행할 수 없다. `600023` §3.1 조건 1을 증명할 수 없으므로 **UNVERIFIABLE**로 분리한다. 호출 금지 해제가 선행돼야 별도 gate를 실행할 수 있다.
+
+### §12.6 판정
+
+```text
+Primary exploit closure
+  T1  PASS — confirm_payment 가짜 key DENY
+
+구조적 binding
+  T2  PASS — raw event 미실재 DENY
+  T3  PASS — 다른 tenant raw event DENY
+  T4  PASS — 정상 검증 event 승인 SUCCESS
+  T5  PASS — 타 tenant claim 42501
+
+범위 밖 회귀
+  T6  PASS — RECORD_MANUAL_PAYMENT SUCCESS
+
+호출 금지
+  T7  UNVERIFIABLE — record_van_transaction 호출하지 않음
+
+APPROVAL writer
+  binding 적용  2
+  범위 밖       1
+  미검증        1
+  미확인        0
+
+catalog delta  전건 일치
+RG-F7          별도 gate
+RG-F8          UNVERIFIABLE
+결론           RG-02 재개방 범위 PASS
+```
