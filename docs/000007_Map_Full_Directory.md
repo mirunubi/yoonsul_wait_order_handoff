@@ -1792,7 +1792,8 @@ docs/
   |   +--- 602000_runtime_gate/
   |   |   +--- 602000_Readme_Runtime_Gate.md
   |   |   +--- 602010_Evidence_RuntimeGate_Caller_Tenant_Scope.md
-  |   |   \--- 602020_Evidence_RuntimeGate_Payment_Approval_Integrity.md
+  |   |   +--- 602020_Evidence_RuntimeGate_Payment_Approval_Integrity.md
+  |   |   \--- 602030_Evidence_RuntimeGate_KDS_Payment_Precondition.md
   |   +--- 604000_workpackets/
   |   |   +--- 604500_order_sessions_customer_id_fk_and_guest_promotion/
   |   |   |   +--- 604500_Readme_Order_Sessions_Customer_Id_Fk_And_Guest_Promotion.md
