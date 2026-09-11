@@ -78,6 +78,44 @@ RG-03   KDS Payment Precondition
         회귀에서 미검증 COMMITTED 경로 0건 확인
 ```
 
+```text
+RG-04   Tenant Lifecycle Order Gate
+        migration   0177  2026-09-09 적용
+        evidence    602040
+        판정        PASS
+
+        orders writer 8개 전부가 lifecycle 두 축을 읽지 않았다
+          tenant_status read 0 / 8
+          isolation_state read 0 / 8
+          assert_caller_tenant_scope 0 / 8
+
+        서버가 두 축을 직접 조회해 판정한다
+        ACTIVE · TRIAL 만 허용하고 나머지는 거부한다
+        ISOLATED 는 tenant_status 와 무관하게 거부한다
+
+        T1 ~ T9 전건 PASS
+        T1 · T2 가 primary exploit closure
+        회귀에서 미검증 orders 경로 0건 확인
+```
+
+> ⚠️ **`601902` 가 `CONTRACT FROZEN` 으로 enforcement 를 `0-C` 로 이월했다.**
+> **`RG-04` 가 그 이월분의 일부를 처음 강제한다.**
+>
+> ```text
+> TI-13   ISOLATED 이면 containment block · 접근 거부
+> TI-2 · TI-12   두 축은 독립이며 각각 거부 사유가 된다
+> ```
+>
+> **`600023` §3.4 가 기존 선언 인용을 허용한 첫 사례다.**
+
+> ⚠️ **허용을 열거하고 나머지를 거부했다.**
+> **거부를 열거하면 CHECK 에 새 값이 생길 때 열린 채로 남는다.**
+> **`010004` §7 deny-by-default 와 같은 구조다.**
+
+> ⚠️ **`CANCELLED` 거부는 유예 기간 모델이 없기 때문이다.**
+> **`601902` `TI-14` 가 과금 모델 부재를 선언했다.**
+> **유예 기간이 정의되면 이 gate 를 재개방한다.**
+
 > ⚠️ **`RG-01` 은 두 번 돌았다.**
 >
 > ```text
@@ -97,7 +135,7 @@ RG-03   KDS Payment Precondition
 | `RG-01` | Caller Tenant Scope | `C-01` | **PASS** |
 | `RG-02` | Payment 승인 재호출 중복 원장 | `C-02` | **PASS** |
 | `RG-03` | 무결제 KDS `COMMITTED` | `C-03` | **PASS** |
-| `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | 미착수 |
+| `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | **PASS** |
 | `RG-05` | Order retry 중복 · 번호 범위 | `H-02` | 미착수 |
 | `RG-06` | Ownership chain tenant 일치 | `H-03` | 미착수 |
 
@@ -181,6 +219,7 @@ Cowork   대기
 | 602010 | `602010_Evidence_RuntimeGate_Caller_Tenant_Scope.md` | Active — `RG-01`. PASS (2026-09-08 재실행) |
 | 602020 | `602020_Evidence_RuntimeGate_Payment_Approval_Integrity.md` | Active — `RG-02`. PASS |
 | 602030 | `602030_Evidence_RuntimeGate_KDS_Payment_Precondition.md` | Active — `RG-03`. PASS |
+| 602040 | `602040_Evidence_RuntimeGate_Tenant_Lifecycle_Order_Gate.md` | Active — `RG-04`. PASS |
 
 **migration**
 
@@ -190,6 +229,7 @@ Cowork   대기
 0174_payment_approval_integrity.sql                      RG-02 1차
 0175_kds_payment_precondition.sql                        RG-03
 0176_payment_approval_binding_all_paths.sql              RG-02 재개방
+0177_tenant_lifecycle_order_gate.sql                     RG-04
 ```
 
 ## §8 근거 문서 목록 (`000701` §46)
