@@ -116,6 +116,40 @@ RG-04   Tenant Lifecycle Order Gate
 > **`601902` `TI-14` 가 과금 모델 부재를 선언했다.**
 > **유예 기간이 정의되면 이 gate 를 재개방한다.**
 
+```text
+RG-05   Order Request Identity
+        migration   0178  2026-09-11 적용
+        evidence    602050
+        판정        PASS
+
+        retry 와 추가 주문을 구분하는 request identity 가 없었다
+        번호는 COUNT(*)+1 이었고 UNIQUE 에 날짜가 없었다
+
+        caller 가 stable request_id 를 넘기고 서버가 canonical key 를 파생한다
+        payload_hash 는 key 성분이 아니라 대응 보존값이다
+        allocator 가 store × business_day 로 번호를 배정한다
+
+        T1 ~ T10 명시 조건 전건 PASS
+        T4 · T5 가 primary exploit closure
+          동시 동일 request → 주문 1건 · 양쪽 같은 결과
+          동시 다른 request → 0002 · 0003 · 충돌 없음
+
+        signature 변경 13 — writer 7 · wrapper 6
+        내부 갱신 1 — run_integration_test
+        migration 본문 ↔ live prosrc 14/14 exact match
+```
+
+> ⚠️ **`601919` 가 미실행한 동시 두 연결을 이 gate 가 재현하고 닫았다.**
+
+> ⚠️ **`T8` 1/7 · `T9` 0/6 만 runtime 완결됐다.**
+> **기존 live schema drift 때문이며 `RG-F12` ~ `RG-F14` 로 기록했다.**
+> **명시된 FAIL 조건에는 해당하지 않으나
+> 「전 경로 runtime 검증 완결」로 표현하지 않는다.**
+
+> ⚠️ **`601902` `TI-6` 을 주문에 적용한 것이다** — `600023` §3.4.
+> **`payload_hash` 를 key 에 넣으면 retry 중 items 가 바뀔 때
+> 새 주문이 되어 `010660` §6 이 막으려는 사건이 통과한다.**
+
 > ⚠️ **`RG-01` 은 두 번 돌았다.**
 >
 > ```text
@@ -136,7 +170,7 @@ RG-04   Tenant Lifecycle Order Gate
 | `RG-02` | Payment 승인 재호출 중복 원장 | `C-02` | **PASS** |
 | `RG-03` | 무결제 KDS `COMMITTED` | `C-03` | **PASS** |
 | `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | **PASS** |
-| `RG-05` | Order retry 중복 · 번호 범위 | `H-02` | 미착수 |
+| `RG-05` | Order retry 중복 · 번호 범위 | `H-02` | **PASS** |
 | `RG-06` | Ownership chain tenant 일치 | `H-03` | 미착수 |
 
 ## §5 이 대역이 발견한 것
@@ -151,6 +185,12 @@ RG-04   Tenant Lifecycle Order Gate
 | `RG-F6` | `SECURITY DEFINER` 105개가 `PUBLIC EXECUTE` 다. `601503` §9 가 「0건이어야 함」으로 게이트를 걸었고 `601505` §4 호출 금지 7함수 중 6개가 포함된다. 현재 `anon` 에 schema `USAGE` 가 없어 실질 증가는 없다 | 실측 2026-09-08 | 조건부 · 감시 |
 | `RG-F7` | 수기 결제 승인의 근거가 정의되지 않았다. `flush_offline_queue` 가 `RECORD_MANUAL_PAYMENT` 로 `APPROVAL` 을 만들며 provider 검증이 없고 있을 수도 없다. staff 신원 · store 정책 · 금액 한도가 미정이다 | `602020` §12.5 | 별도 gate |
 | `RG-F8` | `record_van_transaction` 이 `APPROVAL` writer 인데 `601505` §4 호출 금지라 검증할 수 없다. `PUBLIC EXECUTE` 이며 caller VAN payload 로 raw event 를 직접 생성한다 | `602020` §12.5 | 호출 금지 해제 선행 |
+| `RG-F9` | `flush_offline_queue` 가 `business_day` 를 caller payload 에서 받는다. caller 가 주문 번호 범위를 고를 수 있다 | `602050` §11 | 별도 gate |
+| `RG-F10` | 4 writer 가 live `orders` 에 없는 `order_source` · `local_temp_id` 를 참조한다 | `602050` §11 | 별도 확인 |
+| `RG-F11` | `run_integration_test` 가 기존 non-writer overload 와 signature 가 겹쳐 `0178` public signature 변경에서 제외됐다. 내부 호출은 contract 를 준수하나 `idempotency_keys` 를 쓰지 않아 retry 중복 방지가 없다. `PUBLIC EXECUTE` 이며 실제 `orders` INSERT 를 한다 | `602050` §11 | `RG-F6` 와 함께 처분 |
+| `RG-F12` | 추가 live schema drift — `T8` 1/7 만 runtime 완결된 원인 | `602050` §11 | 별도 확인 |
+| `RG-F13` | provider intake digest resolution — `T9` 0/6 원인의 일부 | `602050` §11 | 별도 확인 |
+| `RG-F14` | kiosk wrapper actor · check mismatch | `602050` §11 | 별도 확인 |
 
 > ⚠️ **`RG-F1` 은 `601919` 독립 감사가 기록하지 않았다.**
 > **함수별 EXECUTE ACL 만 보고 schema `USAGE` 를 보지 않으면
@@ -220,6 +260,7 @@ Cowork   대기
 | 602020 | `602020_Evidence_RuntimeGate_Payment_Approval_Integrity.md` | Active — `RG-02`. PASS |
 | 602030 | `602030_Evidence_RuntimeGate_KDS_Payment_Precondition.md` | Active — `RG-03`. PASS |
 | 602040 | `602040_Evidence_RuntimeGate_Tenant_Lifecycle_Order_Gate.md` | Active — `RG-04`. PASS |
+| 602050 | `602050_Evidence_RuntimeGate_Order_Request_Identity.md` | Active — `RG-05`. PASS |
 
 **migration**
 
@@ -230,6 +271,7 @@ Cowork   대기
 0175_kds_payment_precondition.sql                        RG-03
 0176_payment_approval_binding_all_paths.sql              RG-02 재개방
 0177_tenant_lifecycle_order_gate.sql                     RG-04
+0178_order_request_identity_and_numbering.sql            RG-05
 ```
 
 ## §8 근거 문서 목록 (`000701` §46)
