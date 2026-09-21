@@ -32,6 +32,7 @@ Defines cross-room event plumbing, authority gates, tenant scope, idempotency, r
 | `010643_Policy_Zero_Trust_M2M_Queue_Database_DevSecOps_And_Security_Checklist_Completion.md` | Policy for Zero Trust M2M Queue Database DevSecOps And Security Checklist Completion. |
 | `010650_Policy_Failure_Containment_Circuit_Breaker.md` | Policy for Failure Containment Circuit Breaker. |
 | `010660_Policy_Idempotency_Retry_Replay_Reconciliation.md` | Policy for Idempotency Retry Replay Reconciliation. |
+| `010661_Policy_Business_Day_Authority.md` | Policy for Business Day Authority. |
 | `010670_Policy_Safe_Projection_I18n_Routing.md` | Policy for Safe Projection I18n Routing. |
 | `010680_Audit_Correlation_Nightly_Batch.md` | Audit for Correlation Nightly Batch. |
 | `010690_Policy_Cross_Room_Plumbing_Closure.md` | Policy for Cross Room Plumbing Closure. |

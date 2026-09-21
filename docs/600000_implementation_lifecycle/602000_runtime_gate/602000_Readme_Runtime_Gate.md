@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Readme
-Last Updated: 2026-09-08
+Last Updated: 2026-09-21
 
 ## §1 목적
 
@@ -191,6 +191,7 @@ RG-05   Order Request Identity
 | `RG-F12` | 추가 live schema drift — `T8` 1/7 만 runtime 완결된 원인 | `602050` §11 | 별도 확인 |
 | `RG-F13` | provider intake digest resolution — `T9` 0/6 원인의 일부 | `602050` §11 | 별도 확인 |
 | `RG-F14` | kiosk wrapper actor · check mismatch | `602050` §11 | 별도 확인 |
+| `RG-F15` | **W5 · W6 orders writer lacks explicit tenant/store ownership gate; current commit is blocked only by downstream NOT NULL.** 대상 — `catchmenu_store.place_takeout_order` · `catchmenu_integrations.intake_delivery_order`. **관측** — `select timezone ... where id = p_store_id and tenant_id = p_tenant_id` 가 0행이면 `coalesce(v_timezone,'Asia/Seoul')` 로 흡수되어 allocator upsert 까지 진행한다. `order_sessions` INSERT 에서 `business_timezone = v_timezone`(NULL) 이 `NOT NULL` 에 걸려서만 실패한다. 현재 커밋되는 행은 0. **판정** — CURRENT EXPLOIT `CLOSED` · DESIGN INVARIANT `NOT ENFORCED` · STATUS `LATENT`. **근거** — live `prosrc` 정적 분석 + catalog constraint evidence, runtime exploit execution not performed. W5 `378`·`401`·`414` / W6 `214`·`229`·`239` (live `prosrc` 줄번호) · `order_sessions`·`orders` 의 `business_timezone attnotnull = t` · W5·W6 `exception` 키워드 0회. **활성 조건** — A `business_timezone` 에 NULL 이 아닌 fallback 값이 들어가는 변경(`010661` BDA resolver 도입 · W6 은 `RG-F13` search_path 수정과 결합 시) · B `EXCEPTION` 핸들러가 `p_store_id` 를 담은 행을 별도로 쓰는 변경. **태그** — tenant/store ownership(`H-03`) · business_day(`010661` BDA). **연결** — `010661` BDA resolver 구현의 mandatory precondition · `RG-F13` · `602060` `HD-3` | 실측 2026-09-21 | **LATENT** — resolver 는 tenant/store 조회 0행이면 raise 한다 · W5 · W6 는 allocator upsert 이전에 명시적 tenant/store 소속 게이트를 둔다 |
 
 > ⚠️ **`RG-F1` 은 `601919` 독립 감사가 기록하지 않았다.**
 > **함수별 EXECUTE ACL 만 보고 schema `USAGE` 를 보지 않으면
