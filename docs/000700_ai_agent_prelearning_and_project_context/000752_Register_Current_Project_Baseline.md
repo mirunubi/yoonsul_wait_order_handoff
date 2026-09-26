@@ -15,8 +15,15 @@ AI 세션(Claude Chat · Claude Code · Codex · Cursor)이 시작할 때 가장
 
 ```text
 SESSION START
-  1. git rev-parse HEAD 를 실행해 실제 HEAD 와 이 문서의 HEAD 를 비교한다
-  2. 다르면 이 문서를 신뢰하지 않는다. 개발을 시작하기 전에 먼저 재동기화한다
+  1. git rev-parse HEAD 를 실행해
+     실제 HEAD 와 §2 의 "마지막 작업 커밋" 을 비교한다
+  2. 아래 둘 중 하나면 정상으로 판정한다
+       - 실제 HEAD 가 §2 기록값과 같다
+       - 실제 HEAD 가 §2 기록값의 직계 자식이다
+         (이 문서의 SESSION END 갱신 커밋)
+     둘 다 아니면 이 문서를 신뢰하지 않는다.
+     개발을 시작하기 전에 먼저 재동기화한다.
+     판정 근거는 §2 의 off-by-one 주석이다
   3. git status --short --branch · ahead/behind · 열린 Human Decision 을
      저장소 증거로 다시 확인한다
 
@@ -37,38 +44,40 @@ AI 의 기억이나 이전 대화로 이 값을 채우지 않는다
 
 ## §2 현재 기준선
 
-**측정 시각** — 2026-09-25 22:37 KST (이 문서 신설 직전, 같은 세션의 명령 결과)
+**측정 시각** — 2026-09-26 22:51 KST (SESSION END 갱신 직전, 같은 세션의 명령 결과)
 
 | 항목 | 값 | 명령 |
 |---|---|---|
-| HEAD | `78f16c5134d1c0dfabb51216311072dacd43db68` | `git rev-parse HEAD` |
-| 브랜치 | `main` (추적 `origin/main`) | `git status --short --branch` |
-| ahead / behind | ahead 3 · behind 0 — **로컬 추적 ref 기준**, `git fetch` 하지 않음 | `git rev-list --left-right --count origin/main...HEAD` → `0	3` |
-
-**미커밋 목록** — `git status --short --branch` 원출력
+| 마지막 작업 커밋 | `9252491f75f1b30105a072a4fdcbe7c85032f64c` (`9252491`) | `git rev-parse HEAD` |
+| 브랜치 | `main` (추적 `origin/main`) | `git branch --show-current` |
+| ahead / behind | ahead 7 · behind 0 — **OBSERVED_PRE_SESSION_END_COMMIT** · 로컬 추적 ref 기준, `git fetch` 하지 않음 | `git rev-list --left-right --count origin/main...HEAD` → `0	7` |
 
 ```text
-## main...origin/main [ahead 3]
- M docs/000005_Index_Document_Number.md
- M docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601500_Readme_Operational_Authority_Foundation.md
-?? business_day_probe_out.txt
-?? docs/600000_implementation_lifecycle/601500_operational_authority_foundation/601513_Evidence_Containment_Isolate_Tenant_Execute_Revocation.md
-?? docs/600000_implementation_lifecycle/602000_runtime_gate/602060_Evidence_RuntimeGate_Ownership_Chain_Tenant_Consistency.md
-?? docs/implementation_evidence/ctn1a_isolate_tenant_execute_containment/
-?? sql/migrations/0179_ctn1a_revoke_isolate_tenant_execute.sql
+주 — HEAD 대조 시 off-by-one 처리:
+이 문서의 SESSION END 갱신 커밋은
+위에 적힌 마지막 작업 커밋의 다음 커밋이다.
+따라서 다음 세션 시작 시 실제 HEAD 는
+기록값 자신이거나 그 직계 자식(SESSION END 커밋)이다.
+둘 중 하나면 정상으로 판정한다.
+그 밖이면 재동기화한다.
+
+주 — ahead / behind 의 성격:
+ahead / behind 는 세션 종료 커밋 및 push 로 즉시 변하는
+관측값이며 다음 세션의 equality gate 로 사용하지 않는다.
+다음 세션 시작 시 actual 값을 새로 측정한다.
+불일치만으로 baseline drift 로 판정하지 않는다.
 ```
 
-> ⚠️ **위 목록은 이 문서 신설 직전의 상태다.**
-> **이 문서의 신설과 색인 3곳 등록(`000005` · `000007` · `000700` Readme)이 그 뒤에 working tree 변경으로 추가된다.**
+**미커밋 목록** — `git status --short` 원출력: 없음 (staged 0 · modified 0 · untracked 0)
 
 **Check-Governance 합계** — `tools\Check-Governance.ps1 -Top 0`
 
 ```text
-ERROR    324
-WARN      34
+ERROR    323
+WARN      33
 REVIEW   153
-TOTAL    511
-scanned  1700 markdown files · excluded 736
+TOTAL    509
+scanned  1701 markdown files · excluded 736
 ```
 
 ## §3 Human Decision 현황 — 증거가 있는 것만 APPROVED
@@ -89,6 +98,7 @@ scanned  1700 markdown files · excluded 736
 | `HD-METHOD-02` | 2026-09-26 07:26 KST | 사용자 문장 "일단 설계문서는 냅두고 기초공사부터 다시 시작하죠." (provenance: Claude Chat conversation record) | 기존 설계문서와 검증된 domain 지식은 보존한다 · Legacy migration chain 의 추가 patch 는 HOLD 한다 · 새 canonical migration chain 을 빈 DB 에서 다시 구성하는 B2 방향을 채택한다 — 범위 구분: B2 방향 결정 = 승인 완료 · B2 implementation rollout = Rebuild Feasibility Spike PASS 후 · Spike 의 성격 = 방향 재투표가 아니라 foundation viability 검증 |
 | `HD-AMB-01` | 2026-09-26 KST | provenance: Human approval in ChatGPT conversation, 2026-09-26 KST · 확인: Claude Chat conversation record, 2026-09-26 08:49 KST · 사용자 문장 "제가 확인하고 승인했습니다" | 0-A authority 판정 범위 — 전문은 아래 `HD-AMB-01` 블록 |
 | `HD-AMB-02` | 2026-09-26 KST | provenance: Human approval in ChatGPT conversation, 2026-09-26 KST · 확인: Claude Chat conversation record, 2026-09-26 08:49 KST · 사용자 문장 "제가 확인하고 승인했습니다" | POLICY_INCLUDED_BY_REFERENCE 지위 신설 — 전문은 아래 `HD-AMB-02` 블록 |
+| `HD-0179-01` | 2026-09-26 KST | provenance: Human approval in ChatGPT conversation, 2026-09-26 KST · exact quote / exact time: UNVERIFIED_BY_REPOSITORY | 0179 처분 D-2 (archive) — 전문은 아래 `HD-0179-01` 블록 |
 
 **`HD-AMB-01` 전문**
 
@@ -192,6 +202,36 @@ provenance: Human approval in ChatGPT conversation, 2026-09-26 KST
   문서 전체 승격을 금지한다.
 ```
 
+**`HD-0179-01` 전문**
+
+```text
+HD-0179-01 · 2026-09-26 KST · APPROVED
+provenance:
+  Human approval in ChatGPT conversation, 2026-09-26 KST
+  exact quote / exact time: UNVERIFIED_BY_REPOSITORY
+
+결정 내용:
+  0179 처분은 D-2 로 한다.
+  sql/migrations/ 에서 제거하고
+  docs/implementation_evidence/ctn1a_isolate_tenant_execute_containment/
+  아래로 basename · 번호 · 확장자를 그대로 유지해 이동한다.
+
+  삭제하지 않는다. 파일명을 바꾸지 않는다.
+  archival renaming 이 아니다 (000701 §15.1).
+
+실행 검증 (repository 증거):
+  000701 §14.5 불변 경계 4조건 측정 결과
+    C1 Stage 12                 NO
+    C2 보호 브랜치              NO
+    C3 공유환경 적용            NO
+    C4 후속 승인 워크패킷 의존  NO
+  → Draft 상태이며 이동 가능 (600020 §1.5)
+
+  커밋 9252491 로 disposition 실행 완료
+  SHA-256 이동 전후 동일:
+    73c2e6b1ea5a2bfaa79b5a6929bff3ae345706c2a579b076102edee44a99a39c
+```
+
 **UNVERIFIED / PENDING CONFIRMATION**
 
 | HD | 내용 | 상태 |
@@ -205,7 +245,7 @@ provenance: Human approval in ChatGPT conversation, 2026-09-26 KST
 | 방법론 전환 승인됨 (`HD-METHOD-01` · 2026-09-26) | Tenant Authority Foundation Rebuild | `HD-METHOD-02` 에 따라 기존 implementation path 는 deferred. Authority foundation 요구사항과 검증 결과는 Canonical Migration B2 설계 입력으로 유지한다. Canonical Function Inventory 는 Spike 이후 수행한다. 주의: Spike 종료 후 기존 TAF 프로그램을 그대로 재개하는 것이 아니다. TAF 에서 얻은 authority 요구사항을 새 canonical foundation 에 흡수하는 방식이다. |
 | SUSPENDED | CTN-1a | Legacy Migration Line HOLD 에 종속 (`HD-METHOD-02`) · Stage 1~6 산출물 보존 · Stage 7 진행하지 않음 |
 | 범위 축소 | RG-06 | H03-F2 만 (`HD-CTN-04`) |
-| 권위 보류 | 0-A | `600020` |
+| 권위 보류 | 0-A 1차 (`601500`) | `600020` §1.1 직접 suspension · §1.2 파생 HOLD 는 당시 기존 0-A-2 / 0-A-3 / 0-B 에 적용 · `601700` / `601702` 는 §2 의 새 0-A authority path 이며 위 suspension / 파생 HOLD 에 자동 포함되지 않음 — `HD-AMB-01` |
 | 유효한 금지 | `601505` §4 `isolate_tenant` 등 호출 금지 | `600020` L98 |
 
 ```text
@@ -215,12 +255,20 @@ Legacy Committed Migration Line 0000~0178
   pending Rebuild Feasibility Spike
   파일 삭제 금지. 실행 이력·포렌식 증거로 보존한다.
   emergency 판단은 Human Decision 으로만 한다.
+  2026-09-26 기준 sql/migrations/ 의 번호형 migration line 은
+  Legacy committed migration line 0000~0178 과 정렬되었다
+  (커밋 9252491).
 
 0179 CTN-1a Prototype
   STATUS: SUSPENDED / PROTOTYPE
   canonical migration line 에 포함하지 않는다
-  정식 migration history 로 취급하지 않는다
-  삭제·이동·커밋 여부는 별도 Human Decision 으로 정한다
+  처분은 `HD-0179-01` 로 결정되었다 (D-2 · archive) · 삭제하지 않는다
+  DISPOSITION: ARCHIVED (HD-0179-01 · 커밋 9252491)
+  현재 위치:
+    docs/implementation_evidence/ctn1a_isolate_tenant_execute_containment/
+    0179_ctn1a_revoke_isolate_tenant_execute.sql
+  sql/migrations/ 에는 더 이상 존재하지 않는다.
+  local DB 적용 이력은 사실로 보존한다 (601513).
 
 CTN-1a 억제 프로그램
   STATUS: SUSPENDED
@@ -351,6 +399,47 @@ Canonical Design Invariant 발췌 — 판정 규칙 수정 (2026-09-26)
   provisional 표기를 해제한다.
 ```
 
+### Backlog
+
+이번에 고치지 않는다. 기록만 한다.
+
+```text
+BL-1  602061 이 000005 · 000007 에 미등재
+      (커밋된 상태의 drift)
+
+BL-2  010661 이 000007 에 미등재
+      (커밋된 상태의 drift)
+
+BL-3  000005 의 status 컬럼이 authority 근거로 신뢰 불가
+      601800 은 본문이 Status: Suspended 인데
+      카탈로그는 active 로 표기
+
+BL-4  카탈로그 ↔ 실제 파일 drift
+
+      이전 측정 스냅샷:
+        CATALOG_ONLY 9
+        FILE_ONLY 154
+        docs 실제 .md 2437
+
+      측정 기준:
+        HEAD 78f16c5 + 당시 working tree
+        2026-09-26
+        이후 602060 등재가 완료되었으므로
+        현재 수치가 아니다.
+
+      현재 정확한 수치는 차후 hygiene 작업에서 재측정한다.
+      이 숫자를 현재값으로 인용하지 않는다.
+
+HD-BASE-01 확인 필요:
+  000005 의 000752 등재 행이 HD-BASE-01 을 인용한다.
+  이 Human Decision 이 §3 에 실재하는지 확인되지 않았다.
+  확인 후 실재하지 않으면 등재 문안을 정정한다.
+  확인 결과 (2026-09-26 SESSION END):
+    §3 APPROVED 표에 HD-BASE-01 행이 실재한다
+    (2026-09-25 22:35 KST · 이 문서 신설 지시).
+    등재 문안 정정은 필요하지 않다.
+```
+
 ## §5 3-AI 아키텍처 감사 (2026-09-25) — 원자료 그대로
 
 ```text
@@ -397,25 +486,34 @@ Stale               13
 ## §7 다음 ONE action
 
 ```text
-Minimal Canonical Target Specification 추출
+Canonical Design Invariant 원문 발췌 재개
 
-범위: Tenant / Store / Actor-Membership /
-      Authority Kernel / register_waiting 5개로 한정
-입력: 현재 유효한 canonical 설계문서의 invariant 만
-금지: 새 철학 문서 작성, 범위 확대
+  1. Tenant delta 정합화
+     - HD-AMB-01 · HD-AMB-02 반영
+     - 601702 의 Tenant 관련 선언은 1차 발췌에서
+       아직 발췌되지 않았다. 이를 보충한다
+     - POLICY_INCLUDED_BY_REFERENCE 채택 범위 중
+       Tenant 관련 미반영 evidence 만 보충한다
+     - 기존 T-1 ~ T-14 를 처음부터 다시 스캔하지 않는다
 
-판정 기준:
-"설계문서를 얼마나 많이 반영했는가" 가 아니라
-"새 migration 하나를 만들기에 invariant 가 충분히 명확한가"
+  2. 완료 즉시 STEP 3 Store 로 진행
 
-작성 체인:
-  Claude Chat  초안 추출
-  ChatGPT      Critical Lane second-anchor review
-  사용자       Human approval
-  Codex        승인된 Specification 만 구현
+  이후 순서:
+    Store → Actor / Access Membership
+    → Authority Kernel → register_waiting
 
-구현자가 자기 구현 계약을 작성하지 않는다
-(000701 §37 author-exclusion)
+완료된 것:
+  Tenant 1차 발췌 T-1 ~ T-14 완료
+  (HD-AMB-01 / HD-AMB-02 반영 delta 정합화만 남음)
+  판정 규칙 ①②③ 확정
+  HD-AMB-01 · HD-AMB-02 확정
+
+발췌 완료 후:
+  Claude Chat 이 invariant 압축 초안 작성
+  → ChatGPT Critical Lane 검토
+  → Human 승인
+  → Codex 가 승인된 Target Specification 만 구현
+  → Rebuild Feasibility Spike (Test 0 + 5)
 ```
 
 ## §9 운영 체제
@@ -551,12 +649,42 @@ Golden Path   대기 [ ] 좌석 [ ] 주문 [ ] 결제 [ ] KDS [ ] DID [ ]
 CTN-1a 한 건의 검증 라운드 4회
 ```
 
+## 세션 갱신 이력
+
+```text
+2026-09-26 세션
+
+  커밋 4건
+    8e45bf2  000752 Baseline 등재 (B2 handoff anchor)
+    4ec423c  CTN-1a Stage 1~6 evidence 보존 (SUSPENDED)
+    f7cc5f3  RG-06 미완성 판본 evidence 등재
+    9252491  0179 prototype archive (migration line 밖으로)
+
+  Human Decision 4건 확정
+    HD-METHOD-02 · HD-AMB-01 · HD-AMB-02 · HD-0179-01
+
+  Check-Governance TOTAL
+    511 → 509
+    G11 등재 누락 1건 해소 (602060)
+    G15 Stage 7 gate WARN 1건 해소 (0179 이동)
+
+  주요 정정
+    602060 은 RG-F15 evidence 가 아니라
+    RG-06 (H-03) gate 문서의 미완성 판본이다.
+    PASS 근거로 인용하지 않는다.
+    RG-F15 가 602060 의 HD-3 을 인용하는 방향이다.
+
+  push 상태
+    이 갱신 커밋까지 포함해 push 예정.
+    push 완료 여부는 다음 세션이 실측으로 확인한다.
+```
+
 ## §8 Last Updated
 
 | 항목 | 값 |
 |---|---|
 | 일자 | 2026-09-26 KST |
 | 갱신자 | Claude Code |
-| 갱신 시점의 HEAD | `78f16c5134d1c0dfabb51216311072dacd43db68` |
+| 갱신 시점의 HEAD | §2 현재 baseline 의 "마지막 작업 커밋" 참조 — §8 은 별도 HEAD 값을 보유하지 않음 |
 
 세션 종료 시 갱신 (SESSION END)
