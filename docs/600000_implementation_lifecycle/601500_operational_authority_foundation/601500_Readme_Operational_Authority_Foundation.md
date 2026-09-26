@@ -101,6 +101,7 @@ Last Updated: 2026-08-11
 | 601510 | `AuditReview_Stage11B_Blind_Audit` | **Stage 11B 블라인드 감사 — BLOCK 판정** |
 | 601511 | `AuditReview_Stage11A_Final` | Stage 11A 재감사 — Stage 11 종결 |
 | 601512 | `Baseline_Summary` | **진행 상태 1페이지 요약 — 공백 후 복구용 진입점** |
+| 601513 | `Evidence_Containment_Isolate_Tenant_Execute_Revocation` | CTN-1a — `isolate_tenant` · `detect_threat` EXECUTE 회수(`0179`, local) 증거. CTN-1a 는 현재 SUSPENDED(`000752` §4) — 보존 evidence · `0179` 는 local 적용 이력이 있는 PROTOTYPE · canonical migration line 미포함 |
 
 > **어디부터 읽어야 하나**: 처음이면 본 Readme → `601512`(현재 상태) → `601501`(설계).
 > 구현을 이어받는다면 `601505`(계약)와 `601503` §9(보안규칙)를 반드시 함께 읽을 것.
