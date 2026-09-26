@@ -45,6 +45,7 @@ It provides project-wide context slicing, phase-by-phase project understanding, 
 | `000712_Guide_Phase_7_Franchise_OS_SaaS_And_Phase_1_SaaS_Enhancement_Prelearning_Context.md` | Defines Phase 7 Franchise_OS SaaS conversion and Phase 1 SaaS enhancement prelearning context. |
 | `000713_Guide_Phase_8_AI_Readiness_And_Physical_AI_Gateway_Prelearning_Context.md` | Defines Phase 8 AI readiness and physical AI gateway prelearning context. |
 | `000718_Governance_Execution_Layer_Externalization_Roadmap_Revision.md` | Records the execution-layer externalization decision, retained Core authority, affected documentation bands, and deferred physical implementation boundary. |
+| `000752_Register_Current_Project_Baseline.md` | Records the current repository baseline (HEAD, working tree, open Human Decisions, active and frozen programs, next ONE action) and the Session Baseline Rule that every AI session reads first. |
 
 ## Final Rule
 
