@@ -44,13 +44,13 @@ AI 의 기억이나 이전 대화로 이 값을 채우지 않는다
 
 ## §2 현재 기준선
 
-**측정 시각** — 2026-09-26 22:51 KST (SESSION END 갱신 직전, 같은 세션의 명령 결과)
+**측정 시각** — 2026-09-27 06:48 KST (evidence commit 직전, 같은 세션의 명령 결과)
 
 | 항목 | 값 | 명령 |
 |---|---|---|
-| 마지막 작업 커밋 | `9252491f75f1b30105a072a4fdcbe7c85032f64c` (`9252491`) | `git rev-parse HEAD` |
+| 마지막 작업 커밋 | `65bf9362fb1853a1c58ee5437f618746376b11e1` (`65bf936`) | `git rev-parse HEAD` |
 | 브랜치 | `main` (추적 `origin/main`) | `git branch --show-current` |
-| ahead / behind | ahead 7 · behind 0 — **OBSERVED_PRE_SESSION_END_COMMIT** · 로컬 추적 ref 기준, `git fetch` 하지 않음 | `git rev-list --left-right --count origin/main...HEAD` → `0	7` |
+| ahead / behind | ahead 0 · behind 0 — **OBSERVED_PRE_SESSION_END_COMMIT** · 로컬 추적 ref 기준, `git fetch` 하지 않음 | `git rev-list --left-right --count origin/main...HEAD` → `0	0` |
 
 ```text
 주 — HEAD 대조 시 off-by-one 처리:
@@ -68,7 +68,18 @@ ahead / behind 는 세션 종료 커밋 및 push 로 즉시 변하는
 불일치만으로 baseline drift 로 판정하지 않는다.
 ```
 
-**미커밋 목록** — `git status --short` 원출력: 없음 (staged 0 · modified 0 · untracked 0)
+**미커밋 목록** — `git status --short` 원출력 · **OBSERVED_PRE_SESSION_END_COMMIT**
+
+```text
+?? docs/implementation_evidence/b2_canonical_design_invariant_extraction/
+```
+
+```text
+주:
+  위 값은 이번 evidence commit 직전 관측값이다.
+  commit 후 working tree 상태는
+  최종 보고에서 다시 실측한다.
+```
 
 **Check-Governance 합계** — `tools\Check-Governance.ps1 -Top 0`
 
@@ -77,7 +88,7 @@ ERROR    323
 WARN      33
 REVIEW   153
 TOTAL    509
-scanned  1701 markdown files · excluded 736
+scanned  1701 markdown files · excluded 737
 ```
 
 ## §3 Human Decision 현황 — 증거가 있는 것만 APPROVED
@@ -429,6 +440,26 @@ BL-4  카탈로그 ↔ 실제 파일 drift
 
       현재 정확한 수치는 차후 hygiene 작업에서 재측정한다.
       이 숫자를 현재값으로 인용하지 않는다.
+
+BL-5  implementation_evidence/ 의 정의와 실제 용도 불일치
+
+      implementation_evidence/ 는
+      tools/GovernanceExclusions.ps1 L22
+      '^implementation_evidence(/|$)' 로 검사 제외되며
+      000001 §5.4.2 는 이를
+      "temporary per-change workspace" 로 정의한다.
+
+      그런데 현재 repository 는 CTN-1a evidence 와
+      B2 Canonical Design Invariant evidence 처럼
+      durable evidence 도 이 경로에 보관한다.
+
+      실제 용도와 exclusion rule 설명이 불일치한다.
+
+      B2 진행 중에는 현 구조를 유지한다.
+      경로 · 명칭 · 검사 정책 정비는
+      별도 hygiene 작업에서 수행한다.
+
+      B2 blocker 가 아니다.
 
 HD-BASE-01 확인 필요:
   000005 의 000752 등재 행이 HD-BASE-01 을 인용한다.
