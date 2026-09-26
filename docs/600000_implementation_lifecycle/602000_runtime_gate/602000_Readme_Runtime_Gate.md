@@ -171,7 +171,7 @@ RG-05   Order Request Identity
 | `RG-03` | 무결제 KDS `COMMITTED` | `C-03` | **PASS** |
 | `RG-04` | Lifecycle gate — `TERMINATED + ISOLATED` | `H-01` | **PASS** |
 | `RG-05` | Order retry 중복 · 번호 범위 | `H-02` | **PASS** |
-| `RG-06` | Ownership chain tenant 일치 | `H-03` | 미착수 |
+| `RG-06` | Ownership chain tenant 일치 | `H-03` | 미완성 — `602060` 판본 존재 · §5~§7 미착수 · PASS 미평가 · 후속 현재 범위는 `HD-CTN-04` 로 `H03-F2` 만 |
 
 ## §5 이 대역이 발견한 것
 
@@ -262,6 +262,7 @@ Cowork   대기
 | 602030 | `602030_Evidence_RuntimeGate_KDS_Payment_Precondition.md` | Active — `RG-03`. PASS |
 | 602040 | `602040_Evidence_RuntimeGate_Tenant_Lifecycle_Order_Gate.md` | Active — `RG-04`. PASS |
 | 602050 | `602050_Evidence_RuntimeGate_Order_Request_Identity.md` | Active — `RG-05`. PASS |
+| 602060 | `602060_Evidence_RuntimeGate_Ownership_Chain_Tenant_Consistency.md` | Active — `RG-06`. 미완성 — §5 · §6 · §7 미착수 · PASS 미평가 |
 
 **migration**
 
