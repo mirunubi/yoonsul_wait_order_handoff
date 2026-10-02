@@ -292,13 +292,13 @@ provenance: Human approval declared in Claude Chat
      TestPlan.md · ChangeContract.md 없음
      Human Boundary Approval 섹션 없음
      NavigationMap 항목 없음
-     Tenant · Store evidence 커밋도 §3 단계를 거치지 않았다
+     Tenant · Store evidence 커밋도 000701 §3 단계를 거치지 않았다
 
    tier 규정과의 관계 (원문 확인)
      §31 L2856-L2868 이 정하는 tier 는
        Lightweight / Medium / Full (산출물 tier) 이다.
      Normal / Critical (검증자 구성 tier) 은
-       §3 [3] 및 000701 L1170 의
+       000701 §3 [3] 및 000701 L1170 의
        Per §39 ... Normal tier ... 규정에서 확인된다.
 
      어느 tier 도 Stage 11 을 면제하지 않는다.
@@ -320,7 +320,7 @@ provenance: Human approval declared in Claude Chat
    적용되는 규칙으로 인식하고 그대로 유지한다.
    이번 작업에서는 Stage 11 자체를 호출하지 않는다.
 
-   §3 이 문서 거버넌스 작업에 원래 적용되는지 여부는
+   000701 §3 이 문서 거버넌스 작업에 원래 적용되는지 여부는
    여전히 UNDETERMINED 로 남긴다.
    이 결정이 그것을 확정하지 않는다.
 
@@ -347,13 +347,13 @@ provenance: Human approval declared in Claude Chat
      (b) 기존 governance 기본값과의 관계
 
          §3.1 L208 의 Antigravity 병행 규정은
-         §3 pipeline 내부의 지정 stage 에 관한 규칙이다.
+         000701 §3 pipeline 내부의 지정 stage 에 관한 규칙이다.
 
          §40.1 의 Antigravity observer 병행 규정은
          해당 관찰기간과 적용 tier 에 관한 규칙이다.
 
          이번 B2 문서 거버넌스 작업은
-         위 1 에 따라 §3 workpacket pipeline 실행으로
+         위 1 에 따라 000701 §3 workpacket pipeline 실행으로
          분류하지 않으며,
          §31 의 Lightweight / Medium / Full tier 를
          이 B2 전용 gate 의 근거로 선택하지 않는다.
@@ -393,7 +393,7 @@ provenance: Human approval declared in Claude Chat
      Claude Chat 을 해당 구현 산출물의 author 로 취급하거나
      검증 또는 감사 역할에서 제외할 근거는 없다.
 
-   §37 은 §3 [6] 과 [9] 에 적용되며
+   §37 은 000701 §3 [6] 과 [9] 에 적용되며
    [11] 은 §37 을 참조하지 않는다.
 
    §37.1 L2988 은 검증자 선정에서
@@ -532,7 +532,7 @@ provenance: Human approval declared in Claude Chat
      따라서 이 gate set 은 §39 의 면제를 구하지 않는다.
      §39 를 충족한다.
 
-   verifier 확정 절차 (§3 과 동일 원칙)
+   verifier 확정 절차 (HD-ACTOR-01 항목 3 의 verifier 확정 절차와 동일 원칙)
 
      이번 batch 의 planned repository write actor 는
      Claude Code 이다.
@@ -579,7 +579,7 @@ provenance: Human approval declared in Claude Chat
    두 검증자의 판정이 갈리면 해소하지 않고
    양쪽 원문을 그대로 Human 또는 Claude Chat 에 올린다.
 
-   §3 와 §13 Stage 11 과 판정 의미를 구분한다.
+   000701 §3 와 §13 Stage 11 과 판정 의미를 구분한다.
 
      Codex 와 Cursor   PASS / FAIL
      Claude Chat       AUDIT_CLEAR / BLOCK
@@ -604,7 +604,7 @@ provenance: Human approval declared in Claude Chat
 
    이 override 는 오직 actor assignment 에 한정한다.
 
-   §3 의 stage structure ·
+   000701 §3 의 stage structure ·
    author-exclusion (§37) ·
    §39 이중 검증 인원 규정 ·
    verification discipline ·
@@ -616,13 +616,13 @@ provenance: Human approval declared in Claude Chat
    Antigravity 제외는 §40 기본값의 supersede 가 아니다
    (위 2 참조).
 
-   §3 이 B2 작업에 원래 적용되는지 여부는
+   000701 §3 이 B2 작업에 원래 적용되는지 여부는
    여전히 UNDETERMINED 로 남긴다.
 
 8. 향후 적용 예고
    B2 가 실제 canonical migration chain 구현(sql/)으로
    넘어가는 시점부터는
-   §3 workpacket pipeline 과
+   000701 §3 workpacket pipeline 과
    §13.6 · §13.7 · §13.8 (11A / 11B / 11C) 이
    전면 적용된다.
 
@@ -796,8 +796,8 @@ provenance: Human approval declared in Claude Chat
          docs/implementation_evidence/
            b2_canonical_design_invariant_extraction/<원래 파일명>
 
-     H1 은 각 파일명과 동일하게 맞춘다
-     (000002 §6 L419-L421 · Check-Governance G09 (000001 §2 / 000002 §6)).
+     H1 은 각 파일명의 의미와 일치시킨다
+     (000002 §6 L419-L421 · Check-Governance G09 (000001 §2 "Heading Rule" / 000002 §6)).
 
      Readme 와 Evidence 는 000002 §1.2 의
      승인 DocumentType 이다.
@@ -877,7 +877,7 @@ provenance: Human approval declared in Claude Chat
      따라서 HD-STRUCT-01 은 어느 trigger 도 이전의 근거로
      사용하지 않는다.
      이번 structural migration 의 근거는
-     §1 의 governed document 선언과 그에 따르는
+     HD-STRUCT-01 항목 1 의 governed document 선언과 그에 따르는
      six-digit naming 및 location 의무이다.
 
      Stage 7 과 Stage 12 불일치 자체는 BL-6 으로 분리한다.
