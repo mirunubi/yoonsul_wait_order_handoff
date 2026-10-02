@@ -339,12 +339,21 @@ RISK-TIER-01 이 줄이려는 의식을 다시 늘린다.
 
 **근거**
 
-2026-10-02 Batch 1 Correction 1 재검증에서 Codex 가 네 회차 연속
-기준원 식별 단계에서 STOP 했다. 원인은 저장소 결함이 아니라
-Batch 1 지시어가 채팅 턴으로만 전달되어 대조할 바이트가
-확보되지 않은 것이었다. 로컬 4,934 파일을 탐색했으나 해당 바이트는
-복구되지 않았고 V1 은 UNVERIFIABLE 로 닫혔다
-(cause SOURCE_ORIGINAL_NOT_RECOVERED).
+2026-10-02 Batch 1 Correction 1 재검증 과정에서
+Codex 는 기준원 문제로 세 회차에서 검증을 완결하지 못했다.
+
+최초 Batch 1 검증에서는 V1 이
+SOURCE_BYTE_ACCESS_UNAVAILABLE 로 UNVERIFIABLE 이었고,
+이후 두 차례의 재검증에서는 기준원 식별 단계에서 STOP 했다.
+
+저장소 결함은 확인되지 않았고,
+검증자가 Batch 1 원본 지시어의 source bytes 를
+복구하지 못해 byte-exact payload 대조를 수행할 수 없었다.
+
+이름 기반 후보 231건과 시각 기반 후보 4,703건을 검사했으나
+해당 source bytes 는 복구되지 않았고,
+최종적으로 V1 은
+SOURCE_ORIGINAL_NOT_RECOVERED 로 UNVERIFIABLE 상태를 유지했다.
 
 같은 날 이 규칙을 전 단계에 일괄 적용했다가 commit 단계까지
 파일을 요구하게 되어 적용 범위 조항을 덧붙였다.
