@@ -303,3 +303,139 @@ runtime 재현 가능한 결함은 Runtime Gate 로 닫는다
 ```
 
 **판정자** — 정영석, 2026-09-08
+
+## §10 SOURCE-MAT-01  검증 기준원의 사전 materialize
+
+**규칙**
+
+향후 독립 검증의 기준원이 되는 instruction · approval payload ·
+change contract 는 실행 전에 다음을 완료해야 한다.
+
+```text
+  canonical file 생성
+  raw SHA-256 기록
+  provenance 기록
+```
+
+chat-only instruction 은 execution authority 로 사용할 수 있으나
+byte-exact verification source 로 간주하지 않는다.
+
+**적용 범위 — RISK-TIER-01 을 따른다**
+
+```text
+  파일 + SHA 필수
+    approval payload · change contract
+    독립 검증의 비교 기준원
+    나중에 원문 대조가 필요한 긴 실행 지시어
+
+  파일 불요
+    commit · push · 짧은 상태 확인
+    결과가 Git 자체로 증명되는 operational step
+```
+
+증거 원문이 필요한 입력만 materialize 한다.
+이 조항이 없으면 SOURCE-MAT-01 자체가
+RISK-TIER-01 이 줄이려는 의식을 다시 늘린다.
+
+**근거**
+
+2026-10-02 Batch 1 Correction 1 재검증에서 Codex 가 네 회차 연속
+기준원 식별 단계에서 STOP 했다. 원인은 저장소 결함이 아니라
+Batch 1 지시어가 채팅 턴으로만 전달되어 대조할 바이트가
+확보되지 않은 것이었다. 로컬 4,934 파일을 탐색했으나 해당 바이트는
+복구되지 않았고 V1 은 UNVERIFIABLE 로 닫혔다
+(cause SOURCE_ORIGINAL_NOT_RECOVERED).
+
+같은 날 이 규칙을 전 단계에 일괄 적용했다가 commit 단계까지
+파일을 요구하게 되어 적용 범위 조항을 덧붙였다.
+
+
+## §11 RISK-TIER-01  실패 비용에 따른 검증 강도 차등
+
+**규칙**
+
+변경의 실패 비용에 따라 검증 강도를 나눈다.
+
+```text
+  Critical
+    결제 · 정산 · tenant isolation · 인증 · 권한 ·
+    financial ledger · 되돌릴 수 없는 migration
+    → 구현자 + 2중 독립검증 + Human closure
+
+  High
+    주문 상태전이 · KDS release · 재고 정합성 · POS 연동 write
+    → 구현자 + 독립검증 + 회귀
+
+  Medium
+    일반 RPC · 내부 workflow · UI→API 계약
+    → 구현자 + 1 검증자
+
+  Low
+    문서 · index · locator · 설명문 · navigation
+    → self-check + 단일검증 또는 표본검증
+```
+
+두 검증자를 쓸 때도 같은 체크리스트를 반복시키지 않는다.
+두 번째 검증자는 첫 번째가 남긴 위험만 닫는다.
+
+**근거**
+
+2026-10-02 000752 문서 작업에 runtime gate 와 같은 강도를 적용해
+다섯 시간을 썼다. 막는 실패의 크기는 전혀 다르다.
+
+```text
+  틀린 인용 · stale locator      수정 가능
+  tenant bypass                 데이터 경계 붕괴
+  payment ledger 오기록 · 중복결제  금전 정합성 붕괴 · 실제 손실
+```
+
+같은 검증 비용으로 다루면 개발 속도만 잃는다.
+Batch 1 최종 검증에서 이 규칙을 적용해 Codex 범위를
+V0 · V4 · V5 · V6 으로 축소했고, 그 결과 다섯 시간 막혀 있던
+기준원 의존이 사라졌다.
+
+
+## §12 FREEZE-01  닫힌 invariant 의 재개방 금지
+
+**규칙**
+
+PASS 로 닫힌 invariant 는 새 증거 없이 다시 열지 않는다.
+
+```text
+  invariant 확인 → PASS → FREEZE → 다음 기능
+```
+
+재개방은 다음 중 하나가 있을 때만 한다.
+
+```text
+  새 실측 증거
+  실제 실패 사례
+  Human 의 명시적 재개방 결정
+```
+
+**근거**
+
+2026-10-02 "맴돈다" 는 감각의 원인이 설계 오류가 아니라
+검증 단계가 종료 조건 없이 확장된 것이었다.
+설계를 더 완벽하게 만들기 위해 개발하는 단계에서,
+개발하면서 설계의 틀린 부분만 고치는 단계로 넘어가기 위해
+종료 조건을 명시한다.
+
+
+## §13 세 규칙의 관계
+
+```text
+  SOURCE-MAT-01   검증 가능한 입력을 만든다
+        ↓
+  RISK-TIER-01    필요한 만큼만 검증한다
+        ↓
+  FREEZE-01       끝난 검증을 다시 시작하지 않는다
+```
+
+**provenance**
+
+```text
+  Human 방향 승인 declared in Claude Chat conversation, 2026-10-02 KST
+  초안 출처 Claude Chat · ChatGPT conversation, 2026-10-02 KST
+  계기 Batch 1 Correction 1 (commit b392b10 · 38acc3e)
+```
