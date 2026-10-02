@@ -2,7 +2,7 @@
 
 Status: Active
 Lifecycle: Governance
-Last Updated: 2026-09-08
+Last Updated: 2026-10-02
 
 ## §0 목적
 
